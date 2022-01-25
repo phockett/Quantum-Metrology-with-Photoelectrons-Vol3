@@ -142,6 +142,7 @@ TODO:
 - More testing for writing & formats.
 - Modify project setup...
 - Travis (or other?) for testing and CI.
+- Consolidate readmes - currently duplicated then forked repo README.md and doc-source/intro.md. Should automate/fix, or keep different?
 
 ```{code-cell} ipython3
 

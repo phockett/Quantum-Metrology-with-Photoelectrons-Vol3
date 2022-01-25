@@ -3,12 +3,14 @@
 Quantum metrology with photoelectrons volume 3, open source executable book. This repository contains the source documents (mainly Jupyter Notebooks in Python) and notes for the book, as of Jan 2022 writing is in progress, and the [current HTML build can be found online](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/). The book is due to be finished in 2024, and will be published by IOP Press - see below for more details.
 
 
-## Abstract
+## Series abstract
 
 Photoionization is an interferometric process, in which multiple paths can contribute to the final continuum photoelectron wavefunction. At the simplest level, interferences between different final angular momentum states are manifest in the energy and angle resolved photoelectron spectra: metrology schemes making use of these interferograms are thus phase-sensitive, and provide a powerful route to detailed understanding of photoionization. In these cases, the continuum wavefunction (and underlying scattering dynamics) can be characterised. At a more complex level, such measurements can also provide a powerful probe for other processes of interest, leading to a more general class of quantum metrology built on phase-sensitive photoelectron imaging.  Since the turn of the century, the increasing availability of photoelectron imaging experiments, along with the increasing sophistication of experimental techniques, and the availability of computational resources for analysis and numerics, has allowed for significant developments in such photoelectron metrology.
 
 
 ## About the books
+
+![QMbooks](http://femtolab.ca/wordpress/wp-content/uploads/2017/08/mock_covers_2vol_020318.png)
 
 - Volume I covers the core physics of photoionization, including a range of computational examples. The material is presented as both reference and tutorial, and should appeal to readers of all levels. ISBN 978-1-6817-4684-5, http://iopscience.iop.org/book/978-1-6817-4684-5 (IOP Press, 2018)
 
@@ -16,18 +18,20 @@ Photoionization is an interferometric process, in which multiple paths can contr
 
 Additional online resources for Vols. I & II can be found on [OSF](https://osf.io/q2v3g/wiki/home/) and [Github](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons).
 
-- Volume III in the series will continue this exploration, with a focus on numerical analysis techniques, forging a closer link between experimental and theoretical results, and making the methodologies discussed directly accessible via new software. The book is due for publication by IOP due in 2023; this volume is also open-source, with a live HTML version at https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/ and source available at https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3.
+- Volume III in the series will continue this exploration, with a focus on numerical analysis techniques, forging a closer link between experimental and theoretical results, and making the methodologies discussed directly accessible via new software. The book is due for publication by IOP due in 2023; this volume is also open-source, with a live HTML version at https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/ and source available at https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3. 
 
-![QMbooks](http://femtolab.ca/wordpress/wp-content/uploads/2017/08/mock_covers_2vol_020318.png)
+For some additional details and motivations (including topical video), see [the ePSdata project](https://phockett.github.io/ePSdata/about.html#Motivation).
+
+
 
 
 ## Technical details
 
 This repository contains:
 
-- `doc-source` the source documents (mainly Jupyter Notebooks in Python)
-- `notes` additional notes for the book, 
-- gh-pages branch contains the current HTML build, available at https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/
+- `doc-source`: the source documents (mainly Jupyter Notebooks in Python)
+- `notes`: additional notes for the book, 
+- the `gh-pages` branch contains the current HTML build, also available at https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/
 
 The project has been setup to use the [Jupyter Book](https://jupyterbook.org/) build-chain (which uses Sphinx on the back-end) to generate HTML and Latex outputs for publication from source Jupyter notebooks & markdown files. 
 
@@ -49,9 +53,14 @@ The full book can also be built from source:
 2. Run `pip install -r requirements.txt` (it is recommended you do this within a virtual environment)
 3. (Optional) Edit the books source files located in the `doc-source/` directory
 4. Run `jupyter-book clean doc-source/` to remove any existing builds
-5. Run `jupyter-book build doc-source/`
+5. For an HTML build:
+    - Run `jupyter-book build doc-source/` 
+    - A fully-rendered HTML version of the book will be built in `doc-source/_build/html/`.
+6. For a LaTex & PDF build:
+    - Run `jupyter-book build doc-source/ --builder pdflatex` 
+    - A fully-rendered HTML version of the book will be built in `doc-source/_build/latex/`.
 
-A fully-rendered HTML version of the book will be built in `doc-source/_build/html/`.
+See https://jupyterbook.org/basics/building/index.html for more information.
 
 
 ## Credits
@@ -59,3 +68,5 @@ A fully-rendered HTML version of the book will be built in `doc-source/_build/ht
 This project is created using the open source [Jupyter Book project](https://jupyterbook.org/) and the [executablebooks/cookiecutter-jupyter-book template](https://github.com/executablebooks/cookiecutter-jupyter-book).
 
 To add: build env & main software packages (see automation for this...)
+
+![Jupyter book logo](logo.png)

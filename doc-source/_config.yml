@@ -8,7 +8,7 @@
 title                       : Quantum Metrology with Photoelectrons Vol. 3  # The title of the book. Will be placed in the left navbar.
 author                      : Paul Hockett  # The author of the book
 copyright                   : "2022"  # Copyright year to be placed in the footer
-logo                        : logo.png  # A path to the book logo
+logo                        : ePSproc_logo.png  # A path to the book logo
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
