@@ -115,9 +115,19 @@ bookRoot = '~/github/Quantum-Metrology-with-Photoelectrons-Vol3/doc-source'
 # !conda run -n {condaEnv} jupyter-book build ./mynewbook --builder pdflatex
 ```
 
+### Web push with Github pages
+
+- Setup GH pages: https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/settings/pages
+- Use `gh-pages` branch for scripting (see https://jupyterbook.org/start/publish.html#publish-your-book-online-with-github-pages)
+- Publishes to https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/
+- Run ghp-import as below to automate (also via GH actions).
+- Note main branch `doc-source/_build` is currently in `.gitignore`, so for local & scratch use only.
+
+25/01/22: GH actions version now working (adapted from CookieCutter template), but not sure if build will become too heavy later, and may want to use local builds (and/or TRAVIS?) instead.
+
 ```{code-cell} ipython3
-# Test gh-pages branch push...
-ghp-import -n -p -f _build/html
+# Test gh-pages branch push... (may need `pip install ghp-import` first)
+!conda run -n {condaEnv} ghp-import -n -p -f {bookRoot}/_build/html
 ```
 
 ## TODO
