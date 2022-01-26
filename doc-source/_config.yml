@@ -12,8 +12,9 @@ logo                        : ePSproc_logo.png  # A path to the book logo
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
+# 26/01/22: quick test with 'auto' setting seemed to run notebooks even when already executed - leave 'off' for now...
 execute:
-  execute_notebooks: auto
+  execute_notebooks: off
 
 # Define the name of the latex output file for PDF builds
 latex:
