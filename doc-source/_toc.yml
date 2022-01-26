@@ -3,6 +3,19 @@
 
 format: jb-book
 root: intro
-# chapters:
-# - file: markdown
-# - file: notebooks
+parts:
+  - caption: Frontmatter
+    chapters:
+    - file: intro
+
+  - caption: Introdution to the tools
+    chapters:
+#     - file: path/to/part2/chapter1
+#     - file: path/to/part2/chapter2
+      sections:
+      - file: testChpt/ePSproc_class_demo_161020
+      - file: testChpt/ePSproc_Matlab_demo_notebook_090821
+      
+
+      
+  - caption: Case studies
