@@ -1,0 +1,781 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ePSproc Matlab demo &#8212; Quantum Metrology with Photoelectrons Vol. 3</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="ePSproc base and multijob class intro" href="ePSproc_class_demo_161020.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ePSproc_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Quantum Metrology with Photoelectrons Vol. 3</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introdution to the tools
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="ePSproc_class_demo_161020.html">
+   ePSproc base and multijob class intro
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     ePSproc Matlab demo
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/testChpt/ePSproc_Matlab_demo_notebook_090821.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/new?title=Issue%20on%20page%20%2FtestChpt/ePSproc_Matlab_demo_notebook_090821.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/main?urlpath=tree/doc-source/testChpt/ePSproc_Matlab_demo_notebook_090821.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot-cross-sections-and-betas">
+   Plot cross-sections and betas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mfpads">
+   MFPADs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mf-beta-lm">
+   MF
+   <span class="math notranslate nohighlight">
+    \(\beta_{LM}\)
+   </span>
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>ePSproc Matlab demo</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot-cross-sections-and-betas">
+   Plot cross-sections and betas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mfpads">
+   MFPADs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mf-beta-lm">
+   MF
+   <span class="math notranslate nohighlight">
+    \(\beta_{LM}\)
+   </span>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="epsproc-matlab-demo">
+<h1>ePSproc Matlab demo<a class="headerlink" href="#epsproc-matlab-demo" title="Permalink to this headline">¶</a></h1>
+<p>As noted in the <span class="xref myst">main readme/intro doc</span>, ePSproc originally started as a set of Matlab routines, before migration to Python in 2019. Although no longer maintained/updated since ~2018, the Matlab routines are still available as part of the ePSproc distribution. This notebook demos the routines, following the demo script <code class="docutils literal notranslate"><span class="pre">ePSproc_NO2_MFPADs_demo.m</span></code> (to run this code in a Jupyter environment, a Matlab kernel is required, e.g. <a class="reference external" href="https://github.com/Calysto/matlab_kernel">Calysto’s Matlab kernel</a>).</p>
+<p>Functionality:</p>
+<ul class="simple">
+<li><p>Read raw photoionization matrix elements from ePS output files with “dumpIdy” segments</p></li>
+<li><p>Calculate MF-PADs from the matrix elements (ePSproc_MFPAD.m, see also ePSproc_NO2_MFPADs_demo.m)</p></li>
+<li><p>Plot MF-PADs</p></li>
+<li><p>Plot X-sects</p></li>
+<li><p>(Beta testing): Calculate MF-BLMs from matrix elements, see ePSproc_MFBLM.m</p></li>
+<li><p>(Under development): Calculate AF-BLMs from matrix elements.</p></li>
+</ul>
+<p>Source:</p>
+<ul class="simple">
+<li><p>/matlab: stable matlab code (as per <code class="docutils literal notranslate"><span class="pre">release</span> <span class="pre">v1.0.1</span> <span class="pre">&lt;https://github.com/phockett/ePSproc/releases&gt;</span></code>__).</p>
+<ul>
+<li><p>a set of functions for processing (ePSproc*.m files)</p></li>
+<li><p>a script showing demo calculations, <code class="docutils literal notranslate"><span class="pre">ePSproc_NO2_MFPADs_demo.m</span></code></p></li>
+</ul>
+</li>
+<li><p>/docs/additional contains:</p>
+<ul>
+<li><p>the benchmark results from these calculations, <code class="docutils literal notranslate"><span class="pre">ePSproc_NO2_testing_summary_250915.pdf</span></code></p></li>
+<li><p>additional notes on ePS photoionization matrix elements, <code class="docutils literal notranslate"><span class="pre">ePSproc_scattering_theory_ePS_notes_011015.pdf</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p>See <code class="docutils literal notranslate"><span class="pre">ePSproc:</span> <span class="pre">Post-processing</span> <span class="pre">suite</span> <span class="pre">for</span> <span class="pre">ePolyScat</span> <span class="pre">electron-molecule</span> <span class="pre">scattering</span> <span class="pre">calculations</span> <span class="pre">&lt;https://www.authorea.com/users/71114/articles/122402/_show_article&gt;</span></code>_ for more details.</p>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="p">(</span><span class="s">&#39;~/github/ePSproc&#39;</span><span class="p">)</span><span class="w">  </span><span class="c">% Change to ePSproc root dir.</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =
+
+    &#39;9.4.0.813654 (R2018a)&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% *** SETTINGS</span><span class="w"></span>
+<span class="c">%  Set up basic environment</span><span class="w"></span>
+
+<span class="c">% Name &amp; path to ePS output file. In this version set full file name here, and working directory below.</span><span class="w"></span>
+<span class="c">% fileName=&#39;no2_demo_ePS.out&#39;  % OK for MFPAD testing, but only single E point</span><span class="w"></span>
+<span class="nb">fileName</span><span class="p">=</span><span class="s">&#39;n2_3sg_0.1-50.1eV_A2.inp.out&#39;</span><span class="w"></span>
+
+<span class="c">% Set paths for Linux or Win boxes (optional!)</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="nb">isunix</span><span class="w"></span>
+<span class="w">    </span><span class="n">dirSlash</span><span class="p">=</span><span class="s">&#39;/&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="n">dirSlash</span><span class="p">=</span><span class="s">&#39;\&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+
+<span class="n">filePath</span><span class="p">=[</span><span class="nb">pwd</span><span class="w"> </span><span class="n">dirSlash</span><span class="w"> </span><span class="s">&#39;data&#39;</span><span class="w"> </span><span class="n">dirSlash</span><span class="w"> </span><span class="s">&#39;photoionization&#39;</span><span class="p">];</span><span class="w">                       </span><span class="c">% Root to working directory, here set as current dir/data/photoionization</span><span class="w"></span>
+<span class="n">fileBase</span><span class="p">=[</span><span class="n">filePath</span><span class="w"> </span><span class="n">dirSlash</span><span class="w"> </span><span class="nb">fileName</span><span class="p">];</span><span class="w">   </span><span class="c">% Full path to ePS results file, here set as current working direcory</span><span class="w"></span>
+
+<span class="n">scriptPath</span><span class="p">=[</span><span class="nb">pwd</span><span class="w"> </span><span class="n">dirSlash</span><span class="w"> </span><span class="s">&#39;matlab&#39;</span><span class="w"> </span><span class="n">dirSlash</span><span class="p">];</span><span class="w">  </span><span class="c">% Add path to ePSproc scrips to Matlab path list, here set as current dir/matlab</span><span class="w"></span>
+<span class="nb">path</span><span class="p">(</span><span class="nb">path</span><span class="p">,[</span><span class="n">scriptPath</span><span class="p">]);</span><span class="w">   </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fileName =
+
+    &#39;n2_3sg_0.1-50.1eV_A2.inp.out&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% *** Read data</span><span class="w"></span>
+<span class="c">%  Variables:</span><span class="w"></span>
+<span class="c">%       rlAll contains matrix elements (from DumpIdy segments)</span><span class="w"></span>
+<span class="c">%       params contains various calculation parameters</span><span class="w"></span>
+<span class="c">%       getCro contains cross-section (from GetCro segments), if present</span><span class="w"></span>
+
+<span class="p">[</span><span class="n">rlAll</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">getCro</span><span class="p">]=</span><span class="n">ePSproc_read</span><span class="p">(</span><span class="n">fileBase</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">params</span><span class="p">.</span><span class="n">fileBase</span><span class="p">=</span><span class="n">fileBase</span><span class="p">;</span><span class="w"></span>
+<span class="n">params</span><span class="p">.</span><span class="n">fileName</span><span class="p">=</span><span class="nb">fileName</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*** Reading ePS output file
+/home/paul/github/ePSproc/data/photoionization/n2_3sg_0.1-50.1eV_A2.inp.out
+Found 102 sets of matrix elements
+Read 102 sets of matrix elements (0 blank records)
+Found 2 symmetries
+    &#39;SU&#39;    &#39;PU&#39;
+
+Found 51 energies
+Found 2 atoms
+Found 18 data records
+Found 3 sets of cross sections
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Matrix elements are stored in a structure</span><span class="w"></span>
+<span class="n">rlAll</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rlAll = 
+
+  2x51 struct array with fields:
+
+    eKE
+    PE
+    symm
+    symmSet
+    MbNorm
+    rawIdyHead
+    rawIdy1
+    rlnlHead
+    rlnl1
+    rawIdy2
+    rlnl2
+    pWaveAll
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% GetCro outputs (total cross-secions, LF betas)</span><span class="w"></span>
+<span class="n">getCro</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>getCro = 
+
+  1x3 struct array with fields:
+
+    GetCro
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% General calculation params</span><span class="w"></span>
+<span class="n">params</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>params = 
+
+  struct with fields:
+
+        symmList: {&#39;SU&#39;  &#39;PU&#39;  &#39;All&#39;}
+             eKE: [1x51 double]
+         symmAll: {1x102 cell}
+            eAll: [1x102 double]
+        nRecords: 102
+       nEnergies: 51
+          nSymms: 2
+           gLmax: 11
+        blankRec: 0
+        missingE: [1x0 double]
+        pWaveAll: [144x51x3 double]
+      pWaveAllMb: [144x51x3 double]
+        LMallInd: [144x2 double]
+          coords: {1x5 cell}
+     dataRecords: {18x2 cell}
+              IP: 15.5800
+    GetCroHeader: {{1x1 cell}}
+        fileBase: &#39;/home/paul/github/ePSproc/data/photoionization/n2_3sg_0.1-50.1eV_A2.inp.out&#39;
+        fileName: &#39;n2_3sg_0.1-50.1eV_A2.inp.out&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-cross-sections-and-betas">
+<h2>Plot cross-sections and betas<a class="headerlink" href="#plot-cross-sections-and-betas" title="Permalink to this headline">¶</a></h2>
+<p>These are taken from the <code class="docutils literal notranslate"><span class="pre">GetCro</span></code> segments in the ePS output files, and correspond to results for an isotropic ensemble of molecules, i.e. observables in the lab frame (LF) for 1-photon ionization (see <a class="reference external" href="https://epsproc.readthedocs.io/en/latest/ePS_ePSproc_tutorial/ePS_tutorial_080520.html#Theoretical-background">the ePS tutorial for more details</a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% Plot GetCro results for each symm &amp; total</span><span class="w"></span>
+
+<span class="n">col</span><span class="p">=</span><span class="mi">2</span><span class="p">;</span><span class="w">  </span><span class="c">% Select column from getCro output (see params.GetCroHeader)</span><span class="w"></span>
+
+<span class="nb">figure</span><span class="p">(</span><span class="s">&#39;color&#39;</span><span class="p">,[</span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&#39;GetCro outputs&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">for</span><span class="w"> </span><span class="n">n</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">getCro</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nb">plot</span><span class="p">(</span><span class="n">getCro</span><span class="p">(</span><span class="n">n</span><span class="p">).</span><span class="n">GetCro</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">params</span><span class="p">.</span><span class="n">IP</span><span class="p">,</span><span class="n">getCro</span><span class="p">(</span><span class="n">n</span><span class="p">).</span><span class="n">GetCro</span><span class="p">(:,</span><span class="n">col</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+
+<span class="nb">title</span><span class="p">({[</span><span class="s">&#39;NO_2 ePS resutls, files &#39;</span><span class="w"> </span><span class="nb">strrep</span><span class="p">(</span><span class="nb">fileName</span><span class="p">,</span><span class="s">&#39;_&#39;</span><span class="p">,</span><span class="s">&#39;\_&#39;</span><span class="p">)];</span><span class="w"> </span><span class="s">&#39;X-sects from ePS(GetCro) results&#39;</span><span class="p">});</span><span class="w"></span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;eKE/eV&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;X-sect/Mb&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="nb">legend</span><span class="p">([</span><span class="n">params</span><span class="p">.</span><span class="n">symmList</span><span class="w"> </span><span class="s">&#39;Sum&#39;</span><span class="p">]);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning: MATLAB has disabled some advanced graphics rendering features by switching to software OpenGL. For more information, click &lt;a href=&quot;matlab:opengl(&#39;problems&#39;)&quot;&gt;here&lt;/a&gt;.
+Warning: Ignoring extra legend entries.
+&gt; In legend&gt;set_children_and_strings (line 646)
+  In legend&gt;make_legend (line 316)
+  In legend (line 259)
+</pre></div>
+</div>
+<img alt="../_images/ePSproc_Matlab_demo_notebook_090821_10_1.png" src="../_images/ePSproc_Matlab_demo_notebook_090821_10_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="mfpads">
+<h2>MFPADs<a class="headerlink" href="#mfpads" title="Permalink to this headline">¶</a></h2>
+<p>These are calculated numerically from the matrix elements, for a given polarization geometry and symmetry (the <a class="reference external" href="https://epsproc.readthedocs.io/en/dev/demos/ePSproc_demo_Aug2019.html#Calculate-MFPADs">method is the same as the python version of the routine</a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% *** Calculate MFPADs - single polarization geometry, all energies and symmetries</span><span class="w"></span>
+<span class="c">%  Calculate for specified Euler angles (polarization geometry) &amp; energies</span><span class="w"></span>
+
+<span class="c">% Set resolution for calculated I(theta,phi) surfaces</span><span class="w"></span>
+<span class="n">res</span><span class="p">=</span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
+
+<span class="c">% ip components to use from ePS output (1=length gauge, 2=velocity gauge)</span><span class="w"></span>
+<span class="n">ipComponents</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+
+<span class="c">% it components to use from ePS output (for degenerate cases), set an array here for as many components as required, e.g. it=1, it=[1 2] etc.</span><span class="w"></span>
+<span class="n">it</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+
+<span class="c">% Set light polarization and axis rotations LF -&gt; MF</span><span class="w"></span>
+<span class="n">p</span><span class="p">=</span><span class="mi">0</span><span class="p">;</span><span class="w">                </span><span class="c">% p=0 for linearly pol. light, +/-1 for L/R circ. pol.</span><span class="w"></span>
+<span class="n">eAngs</span><span class="p">=[</span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w">      </span><span class="c">% Eugler angles for rotation of LF-&gt;MF, set as [0 0 0] for z-pol, [0 pi/2 0] for x-pol, [pi/2 pi/2 0] for y-pol</span><span class="w"></span>
+<span class="n">polLabel</span><span class="p">=</span><span class="s">&#39;z&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c">% Run calculation - outputs are D, full set of MFPADs (summed over symmetries); Xsect, calculated X-sects; calcsAll, structure with results for all symmetries.</span><span class="w"></span>
+<span class="p">[</span><span class="n">Xsect</span><span class="p">,</span><span class="w"> </span><span class="n">calcsAll</span><span class="p">,</span><span class="w"> </span><span class="n">pWaves</span><span class="p">]=</span><span class="n">ePSproc_MFPAD</span><span class="p">(</span><span class="n">rlAll</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">eAngs</span><span class="p">,</span><span class="n">it</span><span class="p">,</span><span class="n">ipComponents</span><span class="p">,</span><span class="n">res</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Add pol labels - currently expected in plotting routine, but not set in MFPAD routine</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="n">n</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">calcsAll</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">symmIn</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">calcsAll</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">calcsAll</span><span class="p">(</span><span class="n">symmInd</span><span class="p">,</span><span class="n">n</span><span class="p">).</span><span class="n">polLabel</span><span class="p">=</span><span class="n">polLabel</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+<span class="w">        </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Results are output as a structure, dims (symmetries, energies).</span><span class="w"></span>
+<span class="n">calcsAll</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calcsAll = 
+
+  3x51 struct array with fields:
+
+    D
+    C
+    Cthres
+    eKE
+    symm
+    euler
+    Xsect
+    XsectD
+    Rlf
+    p
+    Cind
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%plot -s 800,400</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(Above is a line-magic for setting displayed plot size with the Calysto kernel - see <a class="reference external" href="https://nbviewer.jupyter.org/github/Calysto/matlab_kernel/blob/master/matlab_kernel.ipynb">the demo notebook</a> for more.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% Plotting - MFPAD panel plots</span><span class="w"></span>
+
+<span class="c">% Set plot ranges</span><span class="w"></span>
+<span class="n">symmInd</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span><span class="w">     </span><span class="c">% Select symmetry (by index into calcsAll rows). Final symmetry state is set as sum over all symmetries</span><span class="w"></span>
+<span class="c">% eRange=1;      % Select energies (by index into calcsAll cols)</span><span class="w"></span>
+<span class="n">eRange</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">20</span><span class="p">;</span><span class="w"></span>
+
+<span class="c">% Additional options (optional)</span><span class="w"></span>
+<span class="n">sPlotSet</span><span class="p">=[</span><span class="mi">2</span><span class="w"> </span><span class="mi">4</span><span class="p">];</span><span class="w">             </span><span class="c">% Set [rows cols] for subplot panels. The final panel will be replaced with a diagram of the geometry</span><span class="w"></span>
+<span class="c">% titlePrefix=&#39;NO2 testing&#39;;  % Set a title prefix for the figure</span><span class="w"></span>
+<span class="n">titlePrefix</span><span class="p">=</span><span class="s">&#39;&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">ePSproc_MFPAD_plot</span><span class="p">(</span><span class="n">calcsAll</span><span class="p">,</span><span class="n">eRange</span><span class="p">,</span><span class="n">symmInd</span><span class="p">,</span><span class="n">params</span><span class="p">,</span><span class="n">sPlotSet</span><span class="p">,</span><span class="n">titlePrefix</span><span class="p">);</span><span class="w"></span>
+<span class="c">% ePSproc_MFPAD_plot(calcsAll,eRange,symmInd,params,sPlotSet,&#39;&#39;,&#39;n&#39;,&#39;off&#39;);</span><span class="w"></span>
+<span class="c">% ePSproc_MFPAD_plot(calcsAll,eRange,symmInd,params,[2 4],&#39;&#39;,&#39;n&#39;,&#39;off&#39;);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ePSproc_Matlab_demo_notebook_090821_16_0.png" src="../_images/ePSproc_Matlab_demo_notebook_090821_16_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Calculate &amp; plot for a different polarization state</span><span class="w"></span>
+<span class="n">eAngs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w">  </span><span class="c">% x-pol case</span><span class="w"></span>
+<span class="n">polLabel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;x&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="p">[</span><span class="n">Xsect</span><span class="p">,</span><span class="w"> </span><span class="n">calcsAll</span><span class="p">,</span><span class="w"> </span><span class="n">pWaves</span><span class="p">]=</span><span class="n">ePSproc_MFPAD</span><span class="p">(</span><span class="n">rlAll</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">eAngs</span><span class="p">,</span><span class="n">it</span><span class="p">,</span><span class="n">ipComponents</span><span class="p">,</span><span class="n">res</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Add pol labels - currently expected in plotting routine, but not set in MFPAD routine</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="n">n</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">calcsAll</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">symmIn</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">calcsAll</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">calcsAll</span><span class="p">(</span><span class="n">symmInd</span><span class="p">,</span><span class="n">n</span><span class="p">).</span><span class="n">polLabel</span><span class="p">=</span><span class="n">polLabel</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+
+<span class="n">symmInd</span><span class="p">=</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="n">ePSproc_MFPAD_plot</span><span class="p">(</span><span class="n">calcsAll</span><span class="p">,</span><span class="n">eRange</span><span class="p">,</span><span class="n">symmInd</span><span class="p">,</span><span class="n">params</span><span class="p">,</span><span class="n">sPlotSet</span><span class="p">,</span><span class="n">titlePrefix</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>symmInd =
+
+     3
+</pre></div>
+</div>
+<img alt="../_images/ePSproc_Matlab_demo_notebook_090821_17_1.png" src="../_images/ePSproc_Matlab_demo_notebook_090821_17_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Calculate &amp; plot for a different polarization state</span><span class="w"></span>
+<span class="n">eAngs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="nb">pi</span><span class="o">/</span><span class="mi">4</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w">  </span><span class="c">% Diagonal pol case</span><span class="w"></span>
+<span class="n">polLabel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;x&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="p">[</span><span class="n">Xsect</span><span class="p">,</span><span class="w"> </span><span class="n">calcsAll</span><span class="p">,</span><span class="w"> </span><span class="n">pWaves</span><span class="p">]=</span><span class="n">ePSproc_MFPAD</span><span class="p">(</span><span class="n">rlAll</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">eAngs</span><span class="p">,</span><span class="n">it</span><span class="p">,</span><span class="n">ipComponents</span><span class="p">,</span><span class="n">res</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Add pol labels - currently expected in plotting routine, but not set in MFPAD routine</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="n">n</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">calcsAll</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">symmIn</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">calcsAll</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">calcsAll</span><span class="p">(</span><span class="n">symmInd</span><span class="p">,</span><span class="n">n</span><span class="p">).</span><span class="n">polLabel</span><span class="p">=</span><span class="n">polLabel</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+
+<span class="c">% Plot all symmetries</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="n">symmInd</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="w"></span>
+<span class="w">    </span><span class="n">ePSproc_MFPAD_plot</span><span class="p">(</span><span class="n">calcsAll</span><span class="p">,</span><span class="n">eRange</span><span class="p">,</span><span class="n">symmInd</span><span class="p">,</span><span class="n">params</span><span class="p">,</span><span class="n">sPlotSet</span><span class="p">,</span><span class="n">titlePrefix</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ePSproc_Matlab_demo_notebook_090821_18_0.png" src="../_images/ePSproc_Matlab_demo_notebook_090821_18_0.png" />
+<img alt="../_images/ePSproc_Matlab_demo_notebook_090821_18_1.png" src="../_images/ePSproc_Matlab_demo_notebook_090821_18_1.png" />
+<img alt="../_images/ePSproc_Matlab_demo_notebook_090821_18_2.png" src="../_images/ePSproc_Matlab_demo_notebook_090821_18_2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="mf-beta-lm">
+<h2>MF <span class="math notranslate nohighlight">\(\beta_{LM}\)</span><a class="headerlink" href="#mf-beta-lm" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%% *** Calculate MFPADs - single polarization geometry, all energies and symmetries</span><span class="w"></span>
+<span class="c">%  Calculate for specified Euler angles (polarization geometry) &amp; energies</span><span class="w"></span>
+
+<span class="c">% Set resolution for calculated I(theta,phi) surfaces</span><span class="w"></span>
+<span class="n">res</span><span class="p">=</span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
+
+<span class="c">% ip components to use from ePS output (1=length gauge, 2=velocity gauge)</span><span class="w"></span>
+<span class="n">ipComponents</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+
+<span class="c">% it components to use from ePS output (for degenerate cases), set an array here for as many components as required, e.g. it=1, it=[1 2] etc.</span><span class="w"></span>
+<span class="n">it</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+
+<span class="c">% Set light polarization and axis rotations LF -&gt; MF</span><span class="w"></span>
+<span class="n">p</span><span class="p">=</span><span class="mi">0</span><span class="p">;</span><span class="w">                </span><span class="c">% p=0 for linearly pol. light, +/-1 for L/R circ. pol.</span><span class="w"></span>
+<span class="n">eAngs</span><span class="p">=[</span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w">      </span><span class="c">% Eugler angles for rotation of LF-&gt;MF, set as [0 0 0] for z-pol, [0 pi/2 0] for x-pol, [pi/2 pi/2 0] for y-pol</span><span class="w"></span>
+<span class="n">polLabel</span><span class="p">=</span><span class="s">&#39;z&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c">% Run calculation - outputs are D, full set of MFPADs (summed over symmetries); Xsect, calculated X-sects; calcsAll, structure with results for all symmetries.</span><span class="w"></span>
+<span class="n">calcsAll</span><span class="p">=</span><span class="n">ePSproc_MFPAD</span><span class="p">(</span><span class="n">rlAll</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">eAngs</span><span class="p">,</span><span class="n">it</span><span class="p">,</span><span class="n">ipComponents</span><span class="p">,</span><span class="n">res</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Add pol labels - currently expected in plotting routine, but not set in MFPAD routine</span><span class="w"></span>
+<span class="c">% for n=1:size(calcsAll,2)</span><span class="w"></span>
+<span class="c">%     for symmIn=1:size(calcsAll,1)</span><span class="w"></span>
+<span class="c">%         calcsAll(symmInd,n).polLabel=polLabel;</span><span class="w"></span>
+<span class="c">%     end</span><span class="w"></span>
+<span class="c">% end</span><span class="w"></span>
+<span class="w">        </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">plot</span><span class="p">(</span><span class="n">calcsAll</span><span class="p">.</span><span class="o">&#39;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ePSproc_Matlab_demo_notebook_090821_21_0.png" src="../_images/ePSproc_Matlab_demo_notebook_090821_21_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-matlab-matlab"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-matlab-matlab",
+            path: "./testChpt"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-matlab-matlab'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="ePSproc_class_demo_161020.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">ePSproc base and multijob class intro</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Paul Hockett<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

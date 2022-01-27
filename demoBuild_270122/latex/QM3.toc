@@ -1,0 +1,20 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}ePSproc base and multijob class intro}{5}{chapter.1}
+\contentsline {section}{\numberline {1.1}Setup}{5}{section.1.1}
+\contentsline {section}{\numberline {1.2}ePSbase class}{6}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Load data}{6}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Basic info \& plots}{7}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Plot cross\sphinxhyphen {}sections and betas}{8}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}Compute MFPADs}{9}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.5}Compute \(\mitbeta _{LM}\) parameters}{18}{subsection.1.2.5}
+\contentsline {subsubsection}{Compute MF \(\mitbeta _{LM}\) and PADs}{18}{subsubsection*.3}
+\contentsline {subsubsection}{Compute LF/AF \(\mitbeta _{LM}\) and PADs}{27}{subsubsection*.4}
+\contentsline {section}{\numberline {1.3}Additions}{36}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Plot styles for line\sphinxhyphen {}plots}{36}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Matrix element plotting}{37}{subsection.1.3.2}
+\contentsline {section}{\numberline {1.4}Versions}{41}{section.1.4}
+\contentsline {section}{\numberline {1.5}ePSproc Matlab demo}{42}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Setup}{43}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}Plot cross\sphinxhyphen {}sections and betas}{45}{subsection.1.5.2}
+\contentsline {subsection}{\numberline {1.5.3}MFPADs}{46}{subsection.1.5.3}
+\contentsline {subsection}{\numberline {1.5.4}MF \(\mitbeta _{LM}\)}{51}{subsection.1.5.4}

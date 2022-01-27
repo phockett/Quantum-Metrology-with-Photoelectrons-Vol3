@@ -1,0 +1,19 @@
+\BOOKMARK [0][-]{chapter.1}{ePSproc\040base\040and\040multijob\040class\040intro}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Setup}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{ePSbase\040class}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{Load\040data}{section.1.2}% 4
+\BOOKMARK [2][-]{subsection.1.2.2}{Basic\040info\040&\040plots}{section.1.2}% 5
+\BOOKMARK [2][-]{subsection.1.2.3}{Plot\040cross-sections\040and\040betas}{section.1.2}% 6
+\BOOKMARK [2][-]{subsection.1.2.4}{Compute\040MFPADs}{section.1.2}% 7
+\BOOKMARK [2][-]{subsection.1.2.5}{Compute βLM parameters}{section.1.2}% 8
+\BOOKMARK [3][-]{subsubsection*.3}{Compute MF βLM and PADs}{subsection.1.2.5}% 9
+\BOOKMARK [3][-]{subsubsection*.4}{Compute LF/AF βLM and PADs}{subsection.1.2.5}% 10
+\BOOKMARK [1][-]{section.1.3}{Additions}{chapter.1}% 11
+\BOOKMARK [2][-]{subsection.1.3.1}{Plot\040styles\040for\040line-plots}{section.1.3}% 12
+\BOOKMARK [2][-]{subsection.1.3.2}{Matrix\040element\040plotting}{section.1.3}% 13
+\BOOKMARK [1][-]{section.1.4}{Versions}{chapter.1}% 14
+\BOOKMARK [1][-]{section.1.5}{ePSproc\040Matlab\040demo}{chapter.1}% 15
+\BOOKMARK [2][-]{subsection.1.5.1}{Setup}{section.1.5}% 16
+\BOOKMARK [2][-]{subsection.1.5.2}{Plot\040cross-sections\040and\040betas}{section.1.5}% 17
+\BOOKMARK [2][-]{subsection.1.5.3}{MFPADs}{section.1.5}% 18
+\BOOKMARK [2][-]{subsection.1.5.4}{MF βLM}{section.1.5}% 19
