@@ -1,11 +1,11 @@
 #######################################################################################
 # A default configuration that will be loaded for all jupyter books
-# See the documentation for help and more options: 
+# See the documentation for help and more options:
 # https://jupyterbook.org/customize/config.html
 
 #######################################################################################
 # Book settings
-title                       : Quantum Metrology with Photoelectrons Vol. 3  # The title of the book. Will be placed in the left navbar.
+title                       : Quantum Metrology with Photoelectrons Vol. 3: *Analysis methodologies*  # The title of the book. Will be placed in the left navbar.
 author                      : Paul Hockett  # The author of the book
 copyright                   : "2022"  # Copyright year to be placed in the footer
 logo                        : ePSproc_logo.png  # A path to the book logo
@@ -36,7 +36,7 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
-  
+
 # Additional Sphinx customisation for Latex output
 # See https://jupyterbook.org/advanced/pdf.html#customize-latex-via-sphinx
 sphinx:
