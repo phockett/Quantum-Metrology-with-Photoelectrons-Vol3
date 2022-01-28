@@ -33,20 +33,20 @@ General review & update of the topic, including recent theory developments.
 
     c.  ePSproc package for theory & simulation. (See [*epsproc.readthedocs.io*](https://epsproc.readthedocs.io).)
 
-    d.  ePSdata platform for data/results library ([*https://phockett.github.io/ePSdata about.html\#Motivation*](https://phockett.github.io/ePSdata/about.html#Motivation)).
+    d.  ePSdata platform for data/results library (see [*ePSdata motivations*](https://phockett.github.io/ePSdata/about.html#Motivation)).
 
 3.  General method development: geometric tensor treatment of
     photoionization, fitting & matrix-inversion techniques
 
     a.  Theory development overview - tensor methods (e.g. [*ePSproc tensor methods*](https:/epsproc.readthedocs.io/en/latest/methodsgeometric_method_dev_pt3_AFBLM_090620_010920_dev_bk100920.html))
 
-    b.  Direct molecular frame reconstruction via matrix-inversion methods (see Gregory, Margaret, Paul Hockett, Albert Stolow, and Varun Makhija. “Towards Molecular Frame Photoelectron Angular Distributions in Polyatomic Molecules from Lab Frame Coherent Rotational Wavepacket Evolution.” *Journal of Physics B: Atomic, Molecular and Optical Physics* 54, no. 14 (July 2021): 145601.[*DOI: 10.1088/1361-6455/ac135f*](https: doi.org/10.1088/1361-6455/ac135f).)
+    b.  Direct molecular frame reconstruction via matrix-inversion methods (see Gregory, Margaret, Paul Hockett, Albert Stolow, and Varun Makhija. “Towards Molecular Frame Photoelectron Angular Distributions in Polyatomic Molecules from Lab Frame Coherent Rotational Wavepacket Evolution.” *Journal of Physics B: Atomic, Molecular and Optical Physics* 54, no. 14 (July 2021): 145601.[*DOI: 10.1088/1361-6455/ac135f*](https://doi.org/10.1088/1361-6455/ac135f).)
 
 4.  Numerical implementation & analysis platform tools
 
     a.  Tensor methods implementation in ePSproc/PEMtk.
 
-    b.  Information content analysis (inc. basis-set exploration, e.g. [*PEMtk fitting demo*](https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basis-set_demo_050621 full.html)), see also vol. 2, sect. 12.1.
+    b.  Information content analysis (inc. basis-set exploration, e.g. [*PEMtk fitting demo*](https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basis-set_demo_050621_full.html)), see also vol. 2, sect. 12.1.
 
     c.  Density matrix analysis. (e.g. [*ePSproc density matrix method dev notes*](https://epsproc.readthedocs.io/en/dev/methods/density_mat_notes_demo_300821.html))
 
