@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; Quantum Metrology with Photoelectrons Vol. 3</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ePSproc_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Quantum Metrology with Photoelectrons Vol. 3</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to the tools
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../testChpt/ePSproc_class_demo_161020.html">
+   ePSproc base and multijob class intro
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../testChpt/ePSproc_Matlab_demo_notebook_090821.html">
+     ePSproc Matlab demo
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/frontmatter/provisional_contents_020921.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/new?title=Issue%20on%20page%20%2Ffrontmatter/provisional_contents_020921.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><no title></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p>[]{#anchor}Quantum Metrology with Photoelectrons Vol. 3: <em>Analysis
+methodologies</em></p>
+<p>Notes for proposal (following outline doc “IOP ebook proposal form
+v010920.docx”)</p>
+<p>02/09/21, v1</p>
+<p>General overview:<br />
+Vol. 3. will focus on analysis techniques for quantum metrology with
+photoelectrons, including:</p>
+<ul class="simple">
+<li><p>Interpreting experimental data.</p></li>
+<li><p>Extraction/reconstruction/determination of quantum mechanical
+properties (matrix elements, wavefunctions, density matrices) from
+experimental data.</p></li>
+<li><p>Comparison of experimental and theoretical data.</p></li>
+<li><p>New analysis methodologies &amp; techniques.</p></li>
+<li><p>Introduction to newly-developed software platform (see below).</p></li>
+</ul>
+<p>Provisional contents:</p>
+<p><strong>Part 1: theory &amp; software</strong> (general review &amp; update of the topic,
+including recent theory developments)</p>
+<ol>
+<li><p>Introduction</p>
+<p>a.  Topic overview.</p>
+<p>b.  Context of vol. 3 (following vols. 1 &amp; 2).</p>
+<p>c.  Aims: Vol. 3 in the series will continue the exploration of
+&gt; quantum metrology with photoelectrons, with a focus on
+&gt; numerical analysis techniques, forging a closer link between
+&gt; experimental and theoretical results, and making the
+&gt; methodologies discussed directly accessible via a new software
+&gt; platform/ecosystem.</p>
+</li>
+<li><p>Quantum metrology software platform/ecosystem overview</p>
+<p>a.  Introduction to python packages for simulation, data analysis,
+&gt; and open-data.</p>
+<p>b.  Photoelectron metrology toolkit (PEMtk) package/platform for
+&gt; experimental data processing &amp; analysis. (See
+&gt; <a class="reference external" href="https://pemtk.readthedocs.io"><em>pemtk.readthedocs.io</em></a>.)</p>
+<p>c.  ePSproc package for theory &amp; simulation. (See
+&gt; <a class="reference external" href="https://epsproc.readthedocs.io"><em>epsproc.readthedocs.io</em></a>.)</p>
+<p>d.  ePSdata platform for data/results library
+&gt; (<a class="reference external" href="https://phockett.github.io/ePSdata/about.html#Motivation"><em>https://phockett.github.io/ePSdata/about.html#Motivation</em></a>).</p>
+</li>
+<li><p>General method development: geometric tensor treatment of
+photoionization, fitting &amp; matrix-inversion techniques</p>
+<p>a.  Theory development overview - tensor methods (e.g.
+&gt; <a class="reference external" href="https://epsproc.readthedocs.io/en/latest/methods/geometric_method_dev_pt3_AFBLM_090620_010920_dev_bk100920.html"><em>https://epsproc.readthedocs.io/en/latest/methods/geometric_method_dev_pt3_AFBLM_090620_010920_dev_bk100920.html</em></a>)</p>
+<p>b.  Direct molecular frame reconstruction via matrix-inversion
+&gt; methods (see Gregory, Margaret, Paul Hockett, Albert Stolow,
+&gt; and Varun Makhija. “Towards Molecular Frame Photoelectron
+&gt; Angular Distributions in Polyatomic Molecules from Lab Frame
+&gt; Coherent Rotational Wavepacket Evolution.” <em>Journal of Physics
+&gt; B: Atomic, Molecular and Optical Physics</em> 54, no. 14 (July
+&gt; 2021): 145601.<a class="reference external" href="https://doi.org/10.1088/1361-6455/ac135f">
+&gt; </a><a class="reference external" href="https://doi.org/10.1088/1361-6455/ac135f"><em>https://doi.org/10.1088/1361-6455/ac135f</em></a>.)</p>
+</li>
+<li><p>Numerical implementation &amp; analysis platform tools</p>
+<p>a.  Tensor methods implementation in ePSproc/PEMtk.</p>
+<p>b.  Information content analysis (inc. basis-set exploration, e.g.
+&gt; <a class="reference external" href="https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basis-set_demo_050621-full.html"><em>https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basis-set_demo_050621-full.html</em></a>
+&gt; ), see also vol. 2, sect. 12.1.</p>
+<p>c.  Density matrix analysis. (e.g.
+&gt; <a class="reference external" href="https://epsproc.readthedocs.io/en/dev/methods/density_mat_notes_demo_300821.html"><em>https://epsproc.readthedocs.io/en/dev/methods/density_mat_notes_demo_300821.html</em></a>)</p>
+<p>d.  Generalised bootstrapping implementation in PEMtk (see vol. 2,
+&gt; sects. 11.3 &amp; 12.3)</p>
+</li>
+</ol>
+<p><strong>Part 2: numerical examples</strong> (open-source worked examples using the
+new software platform)</p>
+<ol>
+<li><p>Quantum metrology example: generalised bootstrapping for a
+homonuclear diatomic scattering system (N2)*</p>
+<p>a.  Experimental data overview &amp; simulation.</p>
+<p>b.  Matrix element extraction (bootstrap protocol, see vol. 2,
+&gt; sects. 11.3 &amp; 12.3) &amp; statistical analysis.</p>
+<p>c.  Direct molecular frame reconstruction via matrix-inversion
+&gt; methods.</p>
+<p>d.  Comparison of methods.</p>
+<p>e.  Information content/quantum information analysis. (See vol. 2,
+&gt; sect. 12.1.)</p>
+</li>
+<li><p>Quantum metrology example: generalised bootstrapping for a
+heteronuclear scattering system (CO)*</p>
+<p>a.  Experimental data overview &amp; simulation.</p>
+<p>b.  Matrix element extraction (bootstrap protocol, see vol. 2,
+&gt; sects. 11.3 &amp; 12.3) &amp; statistical analysis.</p>
+<p>c.  Direct molecular frame reconstruction via matrix-inversion
+&gt; methods.</p>
+<p>d.  Comparison of methods.</p>
+<p>e.  Information content/quantum information analysis. (See vol. 2,
+&gt; sect. 12.1.)</p>
+</li>
+<li><p>Quantum metrology example: generalised bootstrapping and
+matrix-inversion methods for a complex/general asymmetric top
+scattering system (C2H4 (ethylene))*</p>
+<p>a.  Experimental data overview &amp; simulation.</p>
+<p>b.  Matrix element extraction (bootstrap protocol, see vol. 2,
+&gt; sects. 11.3 &amp; 12.3) &amp; statistical analysis.</p>
+<p>c.  Direct molecular frame reconstruction via matrix-inversion
+&gt; methods.</p>
+<p>d.  Comparison of methods.</p>
+<p>e.  Information content/quantum information analysis.</p>
+</li>
+<li><p>Future directions &amp; outlook</p></li>
+<li><p>Summary &amp; conclusions</p></li>
+</ol>
+<p>* Exact choice of “simple” and “complex” systems may change, but should
+include a homonuclear diatomic and/or heteronuclear diatomic, and
+symmetric and asymmetric top polyatomic systems. May also include an
+atomic example.</p>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./frontmatter"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Paul Hockett<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
