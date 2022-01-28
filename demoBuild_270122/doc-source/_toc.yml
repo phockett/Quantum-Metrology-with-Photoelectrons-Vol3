@@ -1,0 +1,26 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+# 26/01/22, PH: quick tests with structure. Seems that (a) no repeated files allowed here; (b) all levels need a file, e.g. skipping a chapters file (but including sections) throws build errors.
+# Otherwise HTML builds OK, PDF build seems to be missing part headers? (And intro header.) Might be formatting issue? Also has A LOT of custom Sphinx markup.
+# TODO: check previous volumes for latex, and test with custom part pages.
+#       test Latex content.
+
+format: jb-book
+root: intro
+parts:
+#   - caption: Frontmatter
+#     chapters:
+#     - file: intro
+
+  - caption: Introduction to the tools
+    chapters:
+    - file: testChpt/ePSproc_class_demo_161020
+
+      sections:
+#       - file: testChpt/ePSproc_class_demo_161020
+      - file: testChpt/ePSproc_Matlab_demo_notebook_090821
+      
+
+      
+#   - caption: Case studies
