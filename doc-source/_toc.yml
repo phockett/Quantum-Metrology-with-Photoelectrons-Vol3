@@ -4,7 +4,7 @@
 # 26/01/22, PH: quick tests with structure. Seems that (a) no repeated files allowed here; (b) all levels need a file, e.g. skipping a chapters file (but including sections) throws build errors.
 # Otherwise HTML builds OK, PDF build seems to be missing part headers? (And intro header.) Might be formatting issue? Also has A LOT of custom Sphinx markup.
 # TODO: check previous volumes for latex, and test with custom part pages.
-#       test Latex content.
+#       test Latex content. Ah, try See https://jupyterbook.org/advanced/pdf.html#customize-latex-via-sphinx
 
 format: jb-book
 root: intro
@@ -12,7 +12,7 @@ parts:
   - caption: Frontmatter
     chapters:
     # Need to include header page to force parts into latex?
-    - file: frontmatter/frontmatter_part_page
+#     - file: frontmatter/frontmatter_part_page
     - file: frontmatter/provisional_contents_020921
 
   - caption: Theory & software

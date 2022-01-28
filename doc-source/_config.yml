@@ -36,3 +36,9 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  
+# Additional Sphinx customisation for Latex output
+# See https://jupyterbook.org/advanced/pdf.html#customize-latex-via-sphinx
+sphinx:
+  config:
+    latex_toplevel_sectioning: 'part'
