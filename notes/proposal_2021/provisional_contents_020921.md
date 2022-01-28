@@ -1,3 +1,5 @@
+(Via `pandoc Quantum\ Metrology\ with\ Photoelectrons\ Vol\ 3\ contents\ notes\ 020921\ v1b.odt -w markdown -o provisional_contents.md`)
+
 []{#anchor}Quantum Metrology with Photoelectrons Vol. 3: *Analysis
 methodologies*
 

@@ -9,11 +9,13 @@
 format: jb-book
 root: intro
 parts:
-#   - caption: Frontmatter
-#     chapters:
-#     - file: intro
+  - caption: Frontmatter
+    chapters:
+    # Need to include header page to force parts into latex?
+    - file: frontmatter/frontmatter_part_page
+    - file: frontmatter/provisional_contents_020921
 
-  - caption: Introduction to the tools
+  - caption: Theory & software
     chapters:
     - file: testChpt/ePSproc_class_demo_161020
 
