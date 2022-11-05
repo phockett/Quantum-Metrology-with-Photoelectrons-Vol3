@@ -18,7 +18,7 @@ parts:
 
   - caption: Theory & software
     chapters:
-    - file: part1/main_intro
+    - file: part1/main_intro_051122
     - file: testChpt/ePSproc_class_demo_161020
 
       sections:
