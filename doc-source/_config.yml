@@ -23,7 +23,9 @@ latex:
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
-  - references.bib
+  - bibs/book_IOP_quant_met_bbt_biblatex_051122.bib
+  - bibs/MF_recon_manuscript_June2020_bbt_biblatex_051122.bib
+#  - references.bib
 
 # Information about where the book exists on the web
 repository:
