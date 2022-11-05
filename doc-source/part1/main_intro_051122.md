@@ -20,6 +20,11 @@ A brief introduction to the core physics is presented herein, although the unfam
 
 
 
++++
+
+```{bibliography}
+```
+
 ```{code-cell} ipython3
 
 ```
