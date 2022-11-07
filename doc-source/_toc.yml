@@ -17,7 +17,7 @@ parts:
     - file: frontmatter/overview_270122
 
   - caption: Theory & software
-      chapters:
+    chapters:
     - file: part1/main_intro_051122
 #       sections:
 # #       - file: testChpt/ePSproc_class_demo_161020
