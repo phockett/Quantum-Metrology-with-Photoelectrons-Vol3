@@ -2,7 +2,7 @@
 # Source: https://jupyterbook.org/en/stable/publish/gh-pages.html#automatically-host-your-book-with-github-actions
 # THIS VERSION FOR TESTING PDF BUILD ONLY!
 
-name: deploy
+name: buildPDF
 
 on:
   # Trigger the workflow on push to main branch
