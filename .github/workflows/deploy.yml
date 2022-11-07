@@ -40,3 +40,30 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: doc-source/_build/html
+
+
+    # Additional steps for PDF build, as per https://github.com/executablebooks/meta/discussions/124
+    # Thanks to @ratnanil
+    # Install the latex things to create the pdf
+    - name: install latex dependencies
+      run: |
+        sudo apt-get install texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra latexmk
+
+    # Create the pdf version of the book
+    - name: Build the pdf book
+      run: |
+        jupyter-book build doc-source --builder pdflatex
+
+    # This next step moves, renames and commits the created pdf
+    - name: Commit and rename pdf
+      run: |
+        mkdir -p ${{ github.workspace }}/latestBuild
+        mv doc-source/_build/latex/QM3.pdf ${{ github.workspace }}/latestBuild
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add codingingis.pdf
+        git commit -m "Updated PDF version of the book"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
