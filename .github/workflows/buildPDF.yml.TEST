@@ -2,6 +2,7 @@
 # Source: https://jupyterbook.org/en/stable/publish/gh-pages.html#automatically-host-your-book-with-github-actions
 # THIS VERSION FOR TESTING PDF BUILD ONLY!
 # 07/11/22 - currently failing at tex build, not sure why.
+# UPDATE: just use main Jupyter-book action instead, as per https://github.com/executablebooks/meta/discussions/124
 
 name: buildPDF
 
