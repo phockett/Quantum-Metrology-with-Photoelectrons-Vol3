@@ -30,17 +30,22 @@ jobs:
       run: |
         pip install -r requirements.txt
 
-    # Build the book
+    # Build the book with Jupyter-book - fails with dependencies
+    # - name: Build the book
+    #   run: |
+    #     jupyter-book build doc-source --builder pdflatex
+
+    # Generate latex source only, then build below.
     - name: Build the book
       run: |
-        jupyter-book build doc-source --builder pdflatex
+        jupyter-book build doc-source --builder latex
 
     # May need to compile separately?
     # See https://github.com/marketplace/actions/github-action-for-latex
-    # - name: Compile LaTeX document
-    #   uses: xu-cheng/latex-action@v2
-    #   with:
-    #     root_file: main.tex
+    - name: Compile LaTeX document
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: QM3.tex
 
     - name: Upload PDF file
       uses: actions/upload-artifact@v3
