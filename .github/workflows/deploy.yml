@@ -1,3 +1,6 @@
+# GH action to build Jupyter Book HTML and deploy
+# Source: https://jupyterbook.org/en/stable/publish/gh-pages.html#automatically-host-your-book-with-github-actions
+
 name: deploy
 
 on:
