@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Plotly surface render test" href="../tests/plotly_surface_render_test.html" />
+    <link rel="next" title="Quantum metrology software platform/ecosystem overview" href="platform_intro_071122.html" />
     <link rel="prev" title="Overview" href="../frontmatter/overview_270122.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -110,7 +110,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Introduction
+                    About the book
                 </a>
             </li>
         </ul>
@@ -135,6 +135,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="platform_intro_071122.html">
+   Quantum metrology software platform/ecosystem overview
   </a>
  </li>
 </ul>
@@ -360,12 +365,41 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topical-introduction">
+   Topical introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#context-aims-for-vol-3">
+   Context &amp; aims for Vol. 3
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -377,6 +411,24 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topical-introduction">
+   Topical introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#context-aims-for-vol-3">
+   Context &amp; aims for Vol. 3
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -386,15 +438,27 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
-<p>The overall aim of Vol. 3 is to expand, explore, and illustrate, quantum metrology with photoelectrons: specifically, the application of new python-based tools to tackle problems in matrix element retrieval. All the material is available as Jupyter Notebooks, which can be run locally to further explore the topic, or adapt the methodology to new problems</p>
-<p>A brief introduction to the core physics is presented herein, although the unfamiliar reader is referred to Volume 1 of the series for a more detailed presentation, and gateway to the literature <span id="id1">[<a class="reference internal" href="#id145" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5, doi:10.1088/978-1-6817-4684-5.">Hoc18</a>]</span>.</p>
-<div class="docutils container" id="id2">
+<p>The overall aim of Vol. 3 is to expand, explore, and illustrate, quantum metrology with photoelectrons: specifically, the application of new python-based tools to tackle problems in matrix element retrieval. The book itself is written as a set of Jupyter Notebooks, hence all the material herein is available directly to readers, and can be run locally to further explore the topic, or adapt the methodology to new problems</p>
+<p>Whilst this volume aims to provide a self-contained text, and computational examples which may be used without extensive background knowledge, a brief introduction to the core physics and some recent extensions is presented herein. The unfamiliar reader is referred to Volume 1 of the series for a more detailed presentation, and gateway to the literature <span id="id1">[<a class="reference internal" href="#id146" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5, doi:10.1088/978-1-6817-4684-5.">Hoc18a</a>]</span>. Following the topical introduction, the remainder of Part I introduces the main computational and software tools, recent theory developments, and concludes with a general overview for approaching matrix element retrieval numerically.</p>
+<p>Part II details the application of these tools to a few specific cases, starting with a (relatively) simple homonuclear diatomic example, then escalating to a polyatomic asymetric top case.</p>
+<section id="topical-introduction">
+<h2>Topical introduction<a class="headerlink" href="#topical-introduction" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="context-aims-for-vol-3">
+<h2>Context &amp; aims for Vol. 3<a class="headerlink" href="#context-aims-for-vol-3" title="Permalink to this headline">#</a></h2>
+<p>As noted previously, Vol. 3 is somewhat distinct from the previous volumes in the series; although involving computational elements, Vols. 1 &amp; 2 <span id="id2">[<a class="reference internal" href="#id146" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5, doi:10.1088/978-1-6817-4684-5.">Hoc18a</a>, <a class="reference internal" href="#id147" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3, doi:10.1088/978-1-6817-4688-3.">Hoc18b</a>]</span> are more traditional publications. The material presented in this volume aims to continue the exploration of quantum metrology with photoelectrons, with a focus on numerical analysis techniques, forging a closer link between experimental and theoretical results, and making the methodologies discussed directly accessible via a new software platform/ecosystem. In order to fulfil this aim, Vol. 3 is a computational/computable document, with code directly available to readers. Each chapter or section is composed of a Jupyter Notebook (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>), each of which can be modified and used independently.</p>
+<p>To facilitate code transparency and reuse, the book is available via a Github repository, <code class="docutils literal notranslate"><span class="pre">REF</span></code>. An HTML version is also available, which includes interactive figures. A full introduction to the relevant tool-chain, including installation instructions, can be found in <a class="reference internal" href="platform_intro_071122.html#chpt-platformintro"><span class="std std-ref">Quantum metrology software platform/ecosystem overview</span></a>.</p>
+<div class="docutils container" id="id3">
 <dl class="citation">
-<dt class="label" id="id145"><span class="brackets"><a class="fn-backref" href="#id1">Hoc18</a></span></dt>
+<dt class="label" id="id146"><span class="brackets">Hoc18a</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
 <dd><p>Paul Hockett. <em>Quantum Metrology with Photoelectrons, Volume 1: Foundations</em>. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: <a class="reference external" href="http://iopscience.iop.org/book/978-1-6817-4684-5">http://iopscience.iop.org/book/978-1-6817-4684-5</a>, <a class="reference external" href="https://doi.org/10.1088/978-1-6817-4684-5">doi:10.1088/978-1-6817-4684-5</a>.</p>
+</dd>
+<dt class="label" id="id147"><span class="brackets"><a class="fn-backref" href="#id2">Hoc18b</a></span></dt>
+<dd><p>Paul Hockett. <em>Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances</em>. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: <a class="reference external" href="http://iopscience.iop.org/book/978-1-6817-4688-3">http://iopscience.iop.org/book/978-1-6817-4688-3</a>, <a class="reference external" href="https://doi.org/10.1088/978-1-6817-4688-3">doi:10.1088/978-1-6817-4688-3</a>.</p>
 </dd>
 </dl>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -431,10 +495,10 @@ title="Print to PDF"
             <p class="prev-next-title">Overview</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../tests/plotly_surface_render_test.html" title="next page">
+    <a class='right-next' id="next-link" href="platform_intro_071122.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Plotly surface render test</p>
+        <p class="prev-next-title">Quantum metrology software platform/ecosystem overview</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
