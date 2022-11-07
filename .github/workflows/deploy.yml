@@ -44,6 +44,7 @@ jobs:
 
     # Additional steps for PDF build, as per https://github.com/executablebooks/meta/discussions/124
     # Thanks to @ratnanil
+    # 07/11/22 - added additional tex tools as per https://jupyterbook.org/en/stable/advanced/pdf.html#pdf-latex
     # Install the latex things to create the pdf
     - name: install latex dependencies
       run: |
@@ -62,7 +63,7 @@ jobs:
         mv doc-source/_build/latex/QM3.pdf ${{ github.workspace }}/latestBuild
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add codingingis.pdf
+        git add ${{ github.workspace }}/latestBuild
         git commit -m "Updated PDF version of the book"
     - name: Push changes
       uses: ad-m/github-push-action@master
