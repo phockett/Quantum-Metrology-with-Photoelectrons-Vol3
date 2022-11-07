@@ -42,10 +42,13 @@ jobs:
 
     # May need to compile separately?
     # See https://github.com/marketplace/actions/github-action-for-latex
+    # Need to add full path for custom styles, see https://github.com/marketplace/actions/github-action-for-latex#how-to-add-additional-paths-to-the-latex-input-search-path
     - name: Compile LaTeX document
       uses: xu-cheng/latex-action@v2
       with:
         root_file: doc-source/_build/latex/QM3.tex
+      env:
+        TEXINPUTS: ".:./doc-source/_build/latex//:"
 
     - name: Move doc
       run: |
