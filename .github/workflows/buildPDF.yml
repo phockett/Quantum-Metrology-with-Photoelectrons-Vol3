@@ -12,7 +12,7 @@ on:
 
 # This job installs dependencies, build the book, and pushes it to `gh-pages`
 jobs:
-  build-and-deploy-book:
+  build-pdf-book:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -50,16 +50,35 @@ jobs:
       env:
         TEXINPUTS: ".:./doc-source/_build/latex//:"
 
-    - name: Move doc
+    # - name: Move doc
+    #   run: |
+    #     mkdir -p ${{ github.workspace }}/latestBuild
+    #     mv doc-source/_build/latex/QM3.pdf ${{ github.workspace }}/latestBuild
+    #
+    # - name: Upload PDF file
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: PDF
+    #     path: ${{ github.workspace }}/latestBuild/QM3.pdf
+
+    # - name: Move latex
+    #   run: |
+    #     mkdir -p ${{ github.workspace }}/latestBuild
+    #     mv doc-source/_build/latex/ ${{ github.workspace }}/latestBuild
+
+    - name: Move latex
       run: |
-        mkdir -p ${{ github.workspace }}/latestBuild
-        mv doc-source/_build/latex/QM3.pdf ${{ github.workspace }}/latestBuild
+        mkdir -p latestBuild
+        cp -R doc-source/_build/latex/* latestBuild
+
 
     - name: Upload PDF file
       uses: actions/upload-artifact@v3
       with:
-        name: PDF
-        path: ${{ github.workspace }}/latestBuild/QM3.pdf
+        name: latex-build
+        path: latestBuild/
+
+
 
     # # Deploy the book's HTML to gh-pages branch
     # - name: GitHub Pages action
