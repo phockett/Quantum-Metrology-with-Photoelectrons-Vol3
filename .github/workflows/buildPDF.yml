@@ -45,13 +45,18 @@ jobs:
     - name: Compile LaTeX document
       uses: xu-cheng/latex-action@v2
       with:
-        root_file: QM3.tex
+        root_file: doc-source/_build/latex/QM3.tex
+
+    - name: Move doc
+      run: |
+        mkdir -p ${{ github.workspace }}/latestBuild
+        mv doc-source/_build/latex/QM3.pdf ${{ github.workspace }}/latestBuild
 
     - name: Upload PDF file
       uses: actions/upload-artifact@v3
       with:
         name: PDF
-        path: QM3.pdf
+        path: ${{ github.workspace }}/latestBuild/QM3.pdf
 
     # # Deploy the book's HTML to gh-pages branch
     # - name: GitHub Pages action
