@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Plotly surface render test" href="plotly_surface_render_test.html" />
@@ -445,12 +447,14 @@ title="Print to PDF"
 <h1>Formatting tests<a class="headerlink" href="#formatting-tests" title="Permalink to this headline">#</a></h1>
 <p>For directives and how-tos see:</p>
 <ul class="simple">
+<li><p>General Jupyter Book intro: https://jupyterbook.org/en/stable/content/myst.html</p></li>
 <li><p>https://jupyterbook.org/en/stable/content/index.html</p></li>
 <li><p>https://myst-parser.readthedocs.io/en/latest/faq/index.html (includes direct rst directive for native rst/Sphinx blocks).</p></li>
 </ul>
 <p>Only outstanding point is use of raw latex? Is this possible…?</p>
 <section id="testing-raw-latex">
 <h2>Testing raw latex…<a class="headerlink" href="#testing-raw-latex" title="Permalink to this headline">#</a></h2>
+<p>Both options fail in PDF and HTML export tests.</p>
 <p>Code cell with <code class="docutils literal notranslate"><span class="pre">%%latex</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -469,9 +473,16 @@ It allows latex $\alpha=\beta$ and test:
 </div>
 <p>Cell below marked as raw &gt; latex in metadata.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">{latex}</span></code> directive</p>
+<p>With MyST-rst wrapper</p>
+<p>Testing maths only</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ba6a7f03-3e1d-4ca1-a17c-f49d5df6027a">
+<span class="eqno">(1)<a class="headerlink" href="#equation-ba6a7f03-3e1d-4ca1-a17c-f49d5df6027a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\alpha = \beta
+\end{equation}\]</div>
 </section>
 <section id="include">
 <h2>Include<a class="headerlink" href="#include" title="Permalink to this headline">#</a></h2>
+<p>Working.</p>
 <p>Include with <code class="docutils literal notranslate"><span class="pre">{include}</span></code> directive:</p>
 <p>Some text to be included from another file.</p>
 </section>

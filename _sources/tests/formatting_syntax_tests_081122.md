@@ -16,6 +16,7 @@ kernelspec:
 
 For directives and how-tos see:
 
+- General Jupyter Book intro: https://jupyterbook.org/en/stable/content/myst.html
 - https://jupyterbook.org/en/stable/content/index.html
 - https://myst-parser.readthedocs.io/en/latest/faq/index.html (includes direct rst directive for native rst/Sphinx blocks).
 
@@ -24,6 +25,8 @@ Only outstanding point is use of raw latex? Is this possible...?
 +++
 
 ## Testing raw latex...
+
+Both options fail in PDF and HTML export tests.
 
 +++
 
@@ -64,7 +67,34 @@ With `{latex}` directive
 
 +++
 
+With MyST-rst wrapper
+
+```{eval-rst}
+.. raw:: latex
+
+    \bf{This is a test} \\
+    It allows latex $\alpha=\beta$ and test:
+
+    \begin{equation}
+    \alpha = \beta
+    \end{equation}
+    % this is a latex comment
+
+```
+
++++
+
+Testing maths only
+
+\begin{equation}
+\alpha = \beta
+\end{equation}
+
++++
+
 ## Include
+
+Working.
 
 +++
 
