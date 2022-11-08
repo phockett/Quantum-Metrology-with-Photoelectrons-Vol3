@@ -469,20 +469,20 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="plotly-surface-render-test">
 <h1>Plotly surface render test<a class="headerlink" href="#plotly-surface-render-test" title="Permalink to this headline">#</a></h1>
 <p>Quick tests for plotly compatibility.</p>
-<p>For JupyterLab, need additional extensions - see <a class="reference external" href="https://plotly.com/python/getting-started/#jupyterlab-support:">https://plotly.com/python/getting-started/#jupyterlab-support:</a></p>
+<p>For JupyterLab, need additional extensions - see https://plotly.com/python/getting-started/#jupyterlab-support:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">-c</span> <span class="pre">plotly</span> <span class="pre">jupyter-dash</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">labextension</span> <span class="pre">install</span> <span class="pre">jupyterlab-plotly</span></code></p></li>
 </ul>
 <p>In some cases may get partially working installation with, e.g., blank surface plots, or plots via HV only. This usually means JupyterLab needs a restart (and maybe a rebuild).
-For more see <a class="reference external" href="https://plotly.com/python/troubleshooting/">https://plotly.com/python/troubleshooting/</a></p>
+For more see https://plotly.com/python/troubleshooting/</p>
 <p>Exports to HTML:</p>
 <ul class="simple">
 <li><p>Manual from JupyterLab OK.</p></li>
 </ul>
 <section id="plotly-example">
 <h2>Plotly example<a class="headerlink" href="#plotly-example" title="Permalink to this headline">#</a></h2>
-<p>From <a class="reference external" href="https://plotly.com/python/3d-surface-plots/#passing-x-and-y-data-to-3d-surface-plot">https://plotly.com/python/3d-surface-plots/#passing-x-and-y-data-to-3d-surface-plot</a></p>
+<p>From https://plotly.com/python/3d-surface-plots/#passing-x-and-y-data-to-3d-surface-plot</p>
 <p>On blank plots or <code class="docutils literal notranslate"><span class="pre">Javascript</span> <span class="pre">error</span> <span class="pre">&quot;t</span> <span class="pre">is</span> <span class="pre">null&quot;.</span></code> try a browser refresh and/or Jupyterlab restart. Seeing this frequently in testing March 2022, Firefox 98.0.2, JupyterLab 3.3.2, see end of page for other versions - running via Holoviews wrapper seems to be more robust here?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -524,11 +524,11 @@ For more see <a class="reference external" href="https://plotly.com/python/troub
 </section>
 <section id="holoviews-3d-surface-test">
 <h2>Holoviews 3D surface test<a class="headerlink" href="#holoviews-3d-surface-test" title="Permalink to this headline">#</a></h2>
-<p>From: <a class="reference external" href="https://holoviews.org/gallery/demos/plotly/surface_3d.html">https://holoviews.org/gallery/demos/plotly/surface_3d.html</a></p>
+<p>From: https://holoviews.org/gallery/demos/plotly/surface_3d.html</p>
 <p>See also</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://holoviews.org/reference/elements/matplotlib/Surface.html">http://holoviews.org/reference/elements/matplotlib/Surface.html</a></p></li>
-<li><p><a class="reference external" href="http://holoviews.org/reference/elements/plotly/Surface.html">http://holoviews.org/reference/elements/plotly/Surface.html</a></p></li>
+<li><p>http://holoviews.org/reference/elements/matplotlib/Surface.html</p></li>
+<li><p>http://holoviews.org/reference/elements/plotly/Surface.html</p></li>
 </ul>
 <p>This wrapper seems robust, and works even when Plotly native rendering is giving issues?</p>
 <div class="cell docutils container">

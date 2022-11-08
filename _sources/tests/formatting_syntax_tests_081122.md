@@ -14,6 +14,13 @@ kernelspec:
 
 # Formatting tests
 
+For directives and how-tos see:
+
+- https://jupyterbook.org/en/stable/content/index.html
+- https://myst-parser.readthedocs.io/en/latest/faq/index.html (includes direct rst directive for native rst/Sphinx blocks).
+
+Only outstanding point is use of raw latex? Is this possible...?
+
 +++
 
 ## Testing raw latex...
@@ -48,6 +55,14 @@ It allows latex $\alpha=\beta$ and test:
 \end{equation}
 % this is a latex comment
 ```
+
+With `{latex}` directive
+
+```{latex} 
+\bf{This is a test}
+```
+
++++
 
 ## Include
 
