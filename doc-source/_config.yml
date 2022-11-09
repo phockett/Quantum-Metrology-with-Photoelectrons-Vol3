@@ -28,11 +28,14 @@ bibtex_bibfiles:
 #  - bibs/book_IOP_quant_met_bbt_biblatex_051122.bib
 #  - bibs/MF_recon_manuscript_June2020_bbt_biblatex_051122.bib
 # Test/initial files
-  - bibs/MF_recon_manuscript_June2020_bbt_bibtex_071122.bib
-  - bibs/hockett_pubs_bbt_bibtex_091122.bib
+  # - bibs/MF_recon_manuscript_June2020_bbt_bibtex_071122.bib
+  # - bibs/hockett_pubs_bbt_bibtex_091122.bib
 # Ongoing bib
   - bibs/QM3_ongoing.bib
 #  - references.bib  # Sample file
+
+# bibtex_reference_style: unsrt
+# bibtex_reference_style: author_year   # Default case
 
 # Information about where the book exists on the web
 repository:
@@ -56,18 +59,38 @@ sphinx:
     - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     # Use MathJax v3, see https://jupyterbook.org/en/stable/content/math.html#math-and-equations
     # mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    # bibtex_reference_style: unsrt   # This fails at build, "failed: plugin sphinxcontrib.bibtex.style.referencing.unsrt not found"? Works OK in single docs?
+                                      # Issue is that it's not a valid sphinxcontrib-bibtex style? https://sphinxcontrib-bibtex.readthedocs.io/en/latest/usage.html#referencing-style
+                                      # But IS ok in local bib, https://sphinxcontrib-bibtex.readthedocs.io/en/latest/usage.html#directive-option-bibliography-style
 
 # For latex maths, per https://jupyterbook.org/en/stable/content/math.html#latex-style-math
 parse:
   myst_enable_extensions:
     # don't forget to list any other extensions you want enabled,
     # including those that are enabled by default!
+    # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
     - amsmath
+    - colon_fence
+    # - deflist
+    - dollarmath
+    # - html_admonition
+    # - html_image
+    - linkify
+    # - replacements
+    # - smartquotes
+    - substitution
+    - tasklist
     
   # Global substitutions, see https://jupyterbook.org/en/stable/content/content-blocks.html?highlight=substitutions#define-substitutions-for-your-whole-book
   # Not currently working? URLs break build, and basic not working either?
+  # UPDATE: fixed by (a) adding substitution to list above (seems to OVERWRITE defaults) and (b) "" for links/active text (otherwise get build syntax errors), seems to render OK.
   myst_substitutions:
     test_sub: "Something"
+    PEMtk_repo: "[Photoelectron Metrology Toolkit](https://github.com/phockett/PEMtk) {cite}`hockett2021PEMtkGithub`"
+    
+  # substitutions:
+  #   book_repo: [Quantum Metrology Vol. 3](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3)
+  #   PEMtk_repo: [Photoelectron Metrology Toolkit](https://github.com/phockett/PEMtk){cite}`hockett2021PEMtkGithub`
     
     
 # Global substitutions, see https://jupyterbook.org/en/stable/content/content-blocks.html?highlight=substitutions#define-substitutions-for-your-whole-book
@@ -86,6 +109,6 @@ parse:
     # book_repo: [Quantum Metrology Vol](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3)
     
   # For URLs
-  # substitutions:
-  #   book_repo: [Quantum Metrology Vol](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3)
+# substitutions:
+#   book_repo: [Quantum Metrology Vol](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3)
 #   PEMtk_repo: [Photoelectron Metrology Toolkit](https://github.com/phockett/PEMtk){cite}`hockett2021PEMtkGithub`

@@ -25,12 +25,11 @@ In recent years, a unified Python codebase/ecosystem/platform has been in develo
 
 The two main components of the platform for analysis tasks, as used herein, are:
 
--   The Photoelectron Metrology Toolkit (PEMtk) codebase {cite}`hockett2021PEMtkDocs,hockett2021PEMtkGithub` aims to provide various general data handling routines for photoionization problems. At the time of writing, simulation of observables and fitting routines are implemented, along with some basic utility functions.
-    Much of this is detailed herein, and more technical details and ongoing documentation case be found in the [PEMtk
-    documentation](https://pemtk.readthedocs.io) {cite}`hockett2021PEMtkDocs`.
+-   The {{ PEMtk_repo }} (PEMtk) codebase aims to provide various general data handling routines for photoionization problems. At the time of writing, simulation of observables and fitting routines are implemented, along with some basic utility functions.
+    Much of this is detailed herein, and more technical details and ongoing documentation case be found in the {{ PEMtk_docs }}.
 
--   The ePSproc codebase {cite}`ePSprocAuthorea,ePSprocGithub,ePSprocDocs` aims to provide methods for post-processing with *ab initio* radial dipole matrix
-    elements from ePolyScat {cite}`Lucchese1986,Gianturco1994,Natalense1999,luccheseEPolyScatUserManual`, or equivalent matrix elements from other sources (dedicated support for R-matrix results from [the RMT suite](https://gitlab.com/Uk-amor/RMT/rmt) {cite}`brown2020RMTRmatrixTimedependence,RmatrixRepo` is in development). 
+-   The ePSproc codebase {cite}`hockett2016EPSprocAuthorea,ePSprocGithub,ePSprocDocs` aims to provide methods for post-processing with *ab initio* radial dipole matrix
+    elements from ePolyScat {cite}`Lucchese1986,Gianturco1994,Natalense1999,luccheseEPolyScatUserManual`, or equivalent matrix elements from other sources (dedicated support for R-matrix results from [the RMT suite](https://gitlab.com/Uk-amor/RMT/rmt) {cite}`brown2020RMTRmatrixTimedependence,RmatrixRepo` is in development). {cite}`brown2020RMTRmatrixTimedependence`. 
     The core functionality include computation of AF and MF observables. Manual computation without known matrix elements is also possible, e.g. for investigating
     limiting cases, or data analysis and fitting - hence these routines also provide the backend functionality for PEMtk fitting routines. Again more technical details can be found in [the package documentation](https://epsproc.readthedocs.io) {cite}`ePSprocDocs`.
 
@@ -63,16 +62,23 @@ Other tools listed in {numref}`qm-platform-diag` include:
 
 
 A Docker-based distribution of various codes for tackling
-photoionization problems is also available from the [Open
-Photoionization Docker
-Stacks](https://github.com/phockett/open-photoionization-docker-stacks)
+photoionization problems is also available from the {{ open_photo_stacks_repo }}
 project, which aims to make a range of these tools more accessible to
-interested researchers {cite}`hockettOpenPhotoionizationDocker`, and currently includes Docker builds for `ePS`, `ePSproc` and `PEMtk`.
+interested researchers, and currently includes Docker builds for `ePS`, `ePSproc` and `PEMtk`.
 
 Note that, at the time of writing, rotational wavepacket simulation is
 not yet implemented in the PEMtk suite, and these must be obtained via
-other codes. An intial build of the `limapack` suite for rotational wavepacket simulations is currently part of the [Open Photoionization Docker Stacks repo](https://github.com/phockett/open-photoionization-docker-stacks), but has yet to be tested.
+other codes. An intial build of the `limapack` suite for rotational wavepacket simulations is currently part of the {{ open_photo_stacks_repo }}, but has yet to be tested.
 
 ```{code-cell} ipython3
 For related tools and more Docker builds, see also the [Open Photoionization Docker Stacks repo](https://github.com/phockett/open-photoionization-docker-stacks)
+```
+
+```{bibliography}
+:filter: docname in docnames
+:style: unsrt
+```
+
+```{code-cell} ipython3
+
 ```
