@@ -27,8 +27,11 @@ latex:
 bibtex_bibfiles:
 #  - bibs/book_IOP_quant_met_bbt_biblatex_051122.bib
 #  - bibs/MF_recon_manuscript_June2020_bbt_biblatex_051122.bib
+# Test/initial files
   - bibs/MF_recon_manuscript_June2020_bbt_bibtex_071122.bib
   - bibs/hockett_pubs_bbt_bibtex_091122.bib
+# Ongoing bib
+  - bibs/QM3_ongoing.bib
 #  - references.bib  # Sample file
 
 # Information about where the book exists on the web
