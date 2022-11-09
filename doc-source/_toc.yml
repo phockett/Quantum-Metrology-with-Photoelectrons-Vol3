@@ -10,6 +10,7 @@ format: jb-book
 root: intro
 parts:
   - caption: Frontmatter
+    numbered: false
     chapters:
     # Need to include header page to force parts into latex?
 #     - file: frontmatter/frontmatter_part_page
@@ -17,6 +18,8 @@ parts:
     - file: frontmatter/overview_270122
 
   - caption: Theory & software
+    numbered: true   # Add numbering for refs, see https://jupyterbook.org/en/stable/structure/configure.html#toc-numbering and https://jupyterbook.org/en/stable/content/references.html#reference-numbered-sections
+                    # For default case this is true in PDF, but not HTML output.
     chapters:
     - file: part1/main_intro_051122
     - file: part1/platform_intro_071122
