@@ -17,6 +17,62 @@ kernelspec:
 
 STUB
 
-```{code-cell} ipython3
++++
 
+% Adapted from MFrecon article, Numerical implementation sect.
+
+In recent years, a unified Python codebase/ecosystem/platform has been in development to tackle various aspects of photoionization problems, including *ab initio* computations and experimental data handling (and aims to provide a bridge between them), and (generalised) matrix element retrieval methods. The eponymous _Quantum Metrology with Photoelectrons_ platform is introduced here, and is used for the analysis herein. {numref}`qm-platform-diag` provides a general overview of some of the main tools and tasks/layers.
+
+The two main components of the platform for analysis tasks, as used herein, are:
+
+-   The Photoelectron Metrology Toolkit (PEMtk) codebase {cite}`hockett2021PEMtkDocs,hockett2021PEMtkGithub` aims to provide various general data handling routines for photoionization problems. At the time of writing, simulation of observables and fitting routines are implemented, along with some basic utility functions.
+    Much of this is detailed herein, and more technical details and ongoing documentation case be found in the [PEMtk
+    documentation](https://pemtk.readthedocs.io) {cite}`hockett2021PEMtkDocs`.
+
+-   The ePSproc codebase {cite}`ePSprocAuthorea,ePSprocGithub,ePSprocDocs` aims to provide methods for post-processing with *ab initio* radial dipole matrix
+    elements from ePolyScat {cite}`Lucchese1986,Gianturco1994,Natalense1999,luccheseEPolyScatUserManual`, or equivalent matrix elements from other sources (dedicated support for R-matrix results from [the RMT suite](https://gitlab.com/Uk-amor/RMT/rmt) {cite}`brown2020RMTRmatrixTimedependence,RmatrixRepo` is in development). 
+    The core functionality include computation of AF and MF observables. Manual computation without known matrix elements is also possible, e.g. for investigating
+    limiting cases, or data analysis and fitting - hence these routines also provide the backend functionality for PEMtk fitting routines. Again more technical details can be found in [the package documentation](https://epsproc.readthedocs.io) {cite}`ePSprocDocs`.
+
++++
+
+```{figure} ../images/QM_unified_schema_wrapped_280820_gv.png
+---
+name: qm-platform-diag
+---
+Quantum metrology with photoelectrons ecosystem overview.
+```
+
++++
+
+Other tools listed in {numref}`qm-platform-diag` include:
+
+* Quantum chemistry layer. The starting point for *ab initio* computations. For the examples herein, all computations made use of [Gamess ("The General Atomic and Molecular Electronic Structure System")](http://www.msg.ameslab.gov/gamess/) {cite}`gamess, Gordon` for electronic structure computations, and inputs to ePolyScat.
+* [ePolyScat](https://epolyscat.droppages.com/) (ePS) is an open-source tool for numerical computation of electron-molecule scattering & photoionization by Lucchese & coworkers. All matrix elements used herein were obtained via ePS calculations. For more details:
+    * The [ePolyScat website and manual](https://epolyscat.droppages.com/) {cite}`luccheseEPolyScatUserManual`.
+    * *Calculation of low-energy elastic cross sections for electron-CF4 scattering*, F. A. Gianturco, R. R. Lucchese, and N. Sanna, J. Chem. Phys. 100, 6464 (1994), http://dx.doi.org/10.1063/1.467237 {cite}`Gianturco1994`
+    * *Cross section and asymmetry parameter calculation for sulfur 1s photoionization of SF6*, A. P. P. Natalense and R. R. Lucchese, J. Chem. Phys. 111, 5344 (1999), http://dx.doi.org/10.1063/1.479794 {cite}`Natalense1999`
+    
+* [ePSdata](https://phockett.github.io/ePSdata/about.html) is an open-data/open-science collection of ePS + ePSproc results {cite}`hockett2019EPSDataPhotoionization`.
+    * ePSdata collects ePS datasets, post-processed via ePSproc (Python) in [Jupyter notebooks](https://jupyter.org), for a full open-data/open-science transparent pipeline.
+    % * ePSdata is currently (Jan 2020) collecting existing calculations from 2010 - 2019, from the [femtolabs at NRC](http://femtolab.ca), with one notebook per ePS job.
+    % * In future, ePSdata pages will be automatically generated from ePS jobs (via the ePSman toolset, currently in development), for immediate dissemination to the research community.
+    * Source notebooks are available on the [Github project pages](https://github.com/phockett/ePSdata/), and notebooks + datasets via [Zenodo repositories](https://about.zenodo.org) (one per dataset). Each notebook + dataset is given a Zenodo DOI for full traceability, and notebooks are versioned on Github.
+    * Note: ePSdata may also be linked or mirrored on the existing [ePolyScat Collected Results OSF project](https://osf.io/psjxt/), but will effectively supercede those pages.
+    * All results are released under <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0)</a> license, and are part of our ongoing [Open Science initiative](http://femtolab.ca/?p=877).
+
+
+A Docker-based distribution of various codes for tackling
+photoionization problems is also available from the [Open
+Photoionization Docker
+Stacks](https://github.com/phockett/open-photoionization-docker-stacks)
+project, which aims to make a range of these tools more accessible to
+interested researchers {cite}`hockettOpenPhotoionizationDocker`, and currently includes Docker builds for `ePS`, `ePSproc` and `PEMtk`.
+
+Note that, at the time of writing, rotational wavepacket simulation is
+not yet implemented in the PEMtk suite, and these must be obtained via
+other codes. An intial build of the `limapack` suite for rotational wavepacket simulations is currently part of the [Open Photoionization Docker Stacks repo](https://github.com/phockett/open-photoionization-docker-stacks), but has yet to be tested.
+
+```{code-cell} ipython3
+For related tools and more Docker builds, see also the [Open Photoionization Docker Stacks repo](https://github.com/phockett/open-photoionization-docker-stacks)
 ```

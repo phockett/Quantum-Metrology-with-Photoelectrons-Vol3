@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduction &#8212; Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</title>
+    <title>1. Introduction &#8212; Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Quantum metrology software platform/ecosystem overview" href="platform_intro_071122.html" />
+    <link rel="next" title="2. Quantum metrology software platform/ecosystem overview" href="platform_intro_071122.html" />
     <link rel="prev" title="Overview" href="../frontmatter/overview_270122.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -134,12 +134,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Introduction
+   1. Introduction
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="platform_intro_071122.html">
-   Quantum metrology software platform/ecosystem overview
+   2. Quantum metrology software platform/ecosystem overview
   </a>
  </li>
 </ul>
@@ -394,12 +394,12 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#topical-introduction">
-   Topical introduction
+   1.1. Topical introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#context-aims-for-vol-3">
-   Context &amp; aims for Vol. 3
+   1.2. Context &amp; aims for Vol. 3
   </a>
  </li>
 </ul>
@@ -423,12 +423,12 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#topical-introduction">
-   Topical introduction
+   1.1. Topical introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#context-aims-for-vol-3">
-   Context &amp; aims for Vol. 3
+   1.2. Context &amp; aims for Vol. 3
   </a>
  </li>
 </ul>
@@ -442,24 +442,64 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
 <p>The overall aim of Vol. 3 is to expand, explore, and illustrate, quantum metrology with photoelectrons: specifically, the application of new python-based tools to tackle problems in matrix element retrieval. The book itself is written as a set of Jupyter Notebooks, hence all the material herein is available directly to readers, and can be run locally to further explore the topic, or adapt the methodology to new problems</p>
 <p>Whilst this volume aims to provide a self-contained text, and computational examples which may be used without extensive background knowledge, a brief introduction to the core physics and some recent extensions is presented herein. The unfamiliar reader is referred to Volume 1 of the series for a more detailed presentation, and gateway to the literature <span id="id1">[<a class="reference internal" href="#id146" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5, doi:10.1088/978-1-6817-4684-5.">Hoc18a</a>]</span>. Following the topical introduction, the remainder of Part I introduces the main computational and software tools, recent theory developments, and concludes with a general overview for approaching matrix element retrieval numerically.</p>
 <p>Part II details the application of these tools to a few specific cases, starting with a (relatively) simple homonuclear diatomic example, then escalating to a polyatomic asymetric top case.</p>
 <section id="topical-introduction">
-<h2>Topical introduction<a class="headerlink" href="#topical-introduction" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">1.1. </span>Topical introduction<a class="headerlink" href="#topical-introduction" title="Permalink to this headline">#</a></h2>
 </section>
 <section id="context-aims-for-vol-3">
-<h2>Context &amp; aims for Vol. 3<a class="headerlink" href="#context-aims-for-vol-3" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">1.2. </span>Context &amp; aims for Vol. 3<a class="headerlink" href="#context-aims-for-vol-3" title="Permalink to this headline">#</a></h2>
 <p>As noted previously, Vol. 3 is somewhat distinct from the previous volumes in the series; although involving computational elements, Vols. 1 &amp; 2 <span id="id2">[<a class="reference internal" href="#id146" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5, doi:10.1088/978-1-6817-4684-5.">Hoc18a</a>, <a class="reference internal" href="#id147" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3, doi:10.1088/978-1-6817-4688-3.">Hoc18b</a>]</span> are more traditional publications. The material presented in this volume aims to continue the exploration of quantum metrology with photoelectrons, with a focus on numerical analysis techniques, forging a closer link between experimental and theoretical results, and making the methodologies discussed directly accessible via a new software platform/ecosystem. In order to fulfil this aim, Vol. 3 is a computational/computable document, with code directly available to readers. Each chapter or section is composed of a Jupyter Notebook (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>), each of which can be modified and used independently.</p>
 <p>To facilitate code transparency and reuse, the book is available via a Github repository, <code class="docutils literal notranslate"><span class="pre">REF</span></code>. An HTML version is also available, which includes interactive figures. A full introduction to the relevant tool-chain, including installation instructions, can be found in <a class="reference internal" href="platform_intro_071122.html#chpt-platformintro"><span class="std std-ref">Quantum metrology software platform/ecosystem overview</span></a>.</p>
+<p><a class="reference internal" href="platform_intro_071122.html#chpt-platformintro"><span class="std std-numref">Chapter 2:</span></a> <a class="reference internal" href="platform_intro_071122.html#chpt-platformintro"><span class="std std-ref">Quantum metrology software platform/ecosystem overview</span></a></p>
 <div class="docutils container" id="id3">
 <dl class="citation">
+<dt class="label" id="id112"><span class="brackets">GLS94</span></dt>
+<dd><p>F. A. Gianturco, R. R. Lucchese, and N. Sanna. Calculation of low-energy elastic cross sections for electron-CF4 scattering. <em>The Journal of Chemical Physics</em>, 100(9):6464, May 1994. URL: <a class="reference external" href="http://scitation.aip.org/content/aip/journal/jcp/100/9/10.1063/1.467237">http://scitation.aip.org/content/aip/journal/jcp/100/9/10.1063/1.467237</a> (visited on 2015-08-13), <a class="reference external" href="https://doi.org/10.1063/1.467237">doi:10.1063/1.467237</a>.</p>
+</dd>
+<dt class="label" id="id117"><span class="brackets">Gor</span></dt>
+<dd><p>Mark S. Gordon. Gamess website. URL: <a class="reference external" href="http://www.msg.ameslab.gov/gamess/">http://www.msg.ameslab.gov/gamess/</a>.</p>
+</dd>
+<dt class="label" id="id152"><span class="brackets">Hoc</span></dt>
+<dd><p>Paul Hockett. Open Photoionization Docker Stacks. URL: <a class="reference external" href="https://github.com/phockett/open-photoionization-docker-stacks">https://github.com/phockett/open-photoionization-docker-stacks</a> (visited on 2022-08-04).</p>
+</dd>
+<dt class="label" id="id91"><span class="brackets">Hoc16a</span></dt>
+<dd><p>Paul Hockett. ePSproc: Post-processing suite for ePolyScat electron-molecule scattering calculations. <em>Authorea</em>, 2016. URL: <a class="reference external" href="https://www.authorea.com/users/71114/articles/122402/{_}show{_}article">https://www.authorea.com/users/71114/articles/122402/{_}show{_}article</a>, <a class="reference external" href="https://arxiv.org/abs/1611.04043">arXiv:1611.04043</a>, <a class="reference external" href="https://doi.org/10.6084/m9.figshare.3545639">doi:10.6084/m9.figshare.3545639</a>.</p>
+</dd>
+<dt class="label" id="id94"><span class="brackets">Hoc16b</span></dt>
+<dd><p>Paul Hockett. ePSproc: Post-processing for ePolyScat (Github repository). Github, 2016. URL: <a class="reference external" href="https://github.com/phockett/ePSproc">https://github.com/phockett/ePSproc</a>, <a class="reference external" href="https://doi.org/10.6084/m9.figshare.3545639">doi:10.6084/m9.figshare.3545639</a>.</p>
+</dd>
 <dt class="label" id="id146"><span class="brackets">Hoc18a</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
 <dd><p>Paul Hockett. <em>Quantum Metrology with Photoelectrons, Volume 1: Foundations</em>. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: <a class="reference external" href="http://iopscience.iop.org/book/978-1-6817-4684-5">http://iopscience.iop.org/book/978-1-6817-4684-5</a>, <a class="reference external" href="https://doi.org/10.1088/978-1-6817-4684-5">doi:10.1088/978-1-6817-4684-5</a>.</p>
 </dd>
 <dt class="label" id="id147"><span class="brackets"><a class="fn-backref" href="#id2">Hoc18b</a></span></dt>
 <dd><p>Paul Hockett. <em>Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances</em>. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: <a class="reference external" href="http://iopscience.iop.org/book/978-1-6817-4688-3">http://iopscience.iop.org/book/978-1-6817-4688-3</a>, <a class="reference external" href="https://doi.org/10.1088/978-1-6817-4688-3">doi:10.1088/978-1-6817-4688-3</a>.</p>
+</dd>
+<dt class="label" id="id148"><span class="brackets">Hoc19</span></dt>
+<dd><p>Paul Hockett. ePS data: Photoionization calculations archive. 2019. URL: <a class="reference external" href="https://phockett.github.io/ePSdata/">https://phockett.github.io/ePSdata/</a> (visited on 2022-02-16).</p>
+</dd>
+<dt class="label" id="id92"><span class="brackets">Hoc20</span></dt>
+<dd><p>Paul Hockett. ePSproc: Post-processing for ePolyScat documentation. 2020. URL: <a class="reference external" href="https://epsproc.readthedocs.io">https://epsproc.readthedocs.io</a> (visited on 2022-02-18).</p>
+</dd>
+<dt class="label" id="id150"><span class="brackets">Hoc21a</span></dt>
+<dd><p>Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: <a class="reference external" href="https://github.com/phockett/PEMtk">https://github.com/phockett/PEMtk</a> (visited on 2022-02-18).</p>
+</dd>
+<dt class="label" id="id149"><span class="brackets">Hoc21b</span></dt>
+<dd><p>Paul Hockett. PEMtk - the Photoelectron Metrology Toolkit - documentation. 2021. URL: <a class="reference external" href="https://pemtk.readthedocs.io">https://pemtk.readthedocs.io</a> (visited on 2022-02-18).</p>
+</dd>
+<dt class="label" id="id215"><span class="brackets">Luc</span></dt>
+<dd><p>R R Lucchese. ePolyScat User's Manual. URL: <a class="reference external" href="https://epolyscat.droppages.com/">https://epolyscat.droppages.com/</a> (visited on 2022-04-26).</p>
+</dd>
+<dt class="label" id="id212"><span class="brackets">LTM86</span></dt>
+<dd><p>Robert R. Lucchese, Kazuo Takatsuka, and Vincent McKoy. Applications of the Schwinger variational principle to electron-molecule collisions and molecular photoionization. <em>Physics Reports</em>, 131(3):147–221, January 1986. URL: <a class="reference external" href="http://www.sciencedirect.com/science/article/pii/037015738690147X">http://www.sciencedirect.com/science/article/pii/037015738690147X</a> (visited on 2012-07-18), <a class="reference external" href="https://doi.org/10.1016/0370-1573(86)90147-X">doi:10.1016/0370-1573(86)90147-X</a>.</p>
+</dd>
+<dt class="label" id="id242"><span class="brackets">NL99</span></dt>
+<dd><p>Alexandra P P Natalense and Robert R Lucchese. Cross section and asymmetry parameter calculation for sulfur 1s photoionization of SF[sub 6]. <em>The Journal of Chemical Physics</em>, 111(12):5344, 1999. URL: <a class="reference external" href="http://link.aip.org/link/JCPSA6/v111/i12/p5344/s1&amp;Agg=doi">http://link.aip.org/link/JCPSA6/v111/i12/p5344/s1&amp;Agg=doi</a> (visited on 2012-07-18), <a class="reference external" href="https://doi.org/10.1063/1.479794">doi:10.1063/1.479794</a>.</p>
+</dd>
+<dt class="label" id="id107"><span class="brackets">SBB+93</span></dt>
+<dd><p>Michael W Schmidt, Kim K Baldridge, Jerry A Boatz, Steven T Elbert, Mark S Gordon, Jan H Jensen, Shiro Koseki, Nikita Matsunaga, Kiet A Nguyen, Shujun Su, Theresa L Windus, Michel Dupuis, and John A Montgomery. General atomic and molecular electronic structure system. <em>Journal of Computational Chemistry</em>, 14(11):1347–1363, 1993. URL: <a class="reference external" href="http://dx.doi.org/10.1002/jcc.540141112">http://dx.doi.org/10.1002/jcc.540141112</a>, <a class="reference external" href="https://doi.org/10.1002/jcc.540141112">doi:10.1002/jcc.540141112</a>.</p>
 </dd>
 </dl>
 </div>
@@ -503,7 +543,7 @@ title="Print to PDF"
     <a class='right-next' id="next-link" href="platform_intro_071122.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Quantum metrology software platform/ecosystem overview</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Quantum metrology software platform/ecosystem overview</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
