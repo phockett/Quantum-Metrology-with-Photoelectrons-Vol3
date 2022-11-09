@@ -47,8 +47,6 @@ Basic: {{ test_sub }}
 
 Sub test with URL: {{ PEMtk_repo }}
 
-sdada
-
 +++
 
 ## Fig testing (from file)
