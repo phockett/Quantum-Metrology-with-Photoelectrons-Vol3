@@ -59,3 +59,29 @@ parse:
     # don't forget to list any other extensions you want enabled,
     # including those that are enabled by default!
     - amsmath
+    
+  # Global substitutions, see https://jupyterbook.org/en/stable/content/content-blocks.html?highlight=substitutions#define-substitutions-for-your-whole-book
+  # Not currently working? URLs break build, and basic not working either?
+  myst_substitutions:
+    test_sub: "Something"
+    
+    
+# Global substitutions, see https://jupyterbook.org/en/stable/content/content-blocks.html?highlight=substitutions#define-substitutions-for-your-whole-book
+# parse:
+#   myst_substitutions:
+#     # key: value
+#     book_repo: [Quantum Metrology Vol. 3](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3)
+#     PEMtk_repo: [Photoelectron Metrology Toolkit](https://github.com/phockett/PEMtk){cite}`hockett2021PEMtkGithub`
+
+# Global substitutions, see https://jupyterbook.org/en/stable/content/content-blocks.html?highlight=substitutions#define-substitutions-for-your-whole-book
+# Not currently working? URLs break build, and basic not working either?
+# parse:
+#   # key: value
+#   myst_substitutions:
+#     test_sub: Something
+    # book_repo: [Quantum Metrology Vol](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3)
+    
+  # For URLs
+  # substitutions:
+  #   book_repo: [Quantum Metrology Vol](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3)
+#   PEMtk_repo: [Photoelectron Metrology Toolkit](https://github.com/phockett/PEMtk){cite}`hockett2021PEMtkGithub`
