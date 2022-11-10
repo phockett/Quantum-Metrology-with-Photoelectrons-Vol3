@@ -56,16 +56,28 @@ jobs:
       run: |
         jupyter-book build doc-source --builder pdflatex
 
-    # This next step moves, renames and commits the created pdf
-    - name: Commit and rename pdf
-      run: |
-        mkdir -p ${{ github.workspace }}/latestBuild
-        mv doc-source/_build/latex/QM3.pdf ${{ github.workspace }}/latestBuild
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add ${{ github.workspace }}/latestBuild
-        git commit -m "Updated PDF version of the book"
-    - name: Push changes
-      uses: ad-m/github-push-action@master
+    # Add PDF to main branch
+    # # This next step moves, renames and commits the created pdf
+    # - name: Commit and rename pdf
+    #   run: |
+    #     mkdir -p ${{ github.workspace }}/latestBuild
+    #     mv doc-source/_build/latex/QM3.pdf ${{ github.workspace }}/latestBuild
+    #     git config --local user.email "action@github.com"
+    #     git config --local user.name "GitHub Action"
+    #     git add ${{ github.workspace }}/latestBuild
+    #     git commit -m "Updated PDF version of the book"
+    # - name: Push changes
+    #   uses: ad-m/github-push-action@master
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+
+
+    # Push PDF to gh-pages publish branch
+    # Deploy the book's HTML to gh-pages branch
+    - name: GitHub Pages add PDF
+      uses: peaceiris/actions-gh-pages@v3.6.1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: doc-source/_build/latex/QM3.pdf
+        destination_dir: pdf
+        keep_files: true
