@@ -1,0 +1,552 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Bibliography &#8212; Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Formatting tests" href="../tests/formatting_syntax_tests_081122.html" />
+    <link rel="prev" title="3. Theory" href="../part1/theory_101122.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ePSproc_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    About the book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Frontmatter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../frontmatter/overview_270122.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Theory &amp; software
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part1/main_intro_051122.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part1/platform_intro_071122.html">
+   2. Quantum metrology software platform/ecosystem overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part1/theory_101122.html">
+   3. Theory
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Backmatter
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Bibliography
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Test pages
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tests/formatting_syntax_tests_081122.html">
+   Formatting tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tests/plotly_surface_render_test.html">
+   Plotly surface render test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tests/pad_plot_tests_101122.html">
+   PAD plotting tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tests/pad_plot_tests_101122-plusMDversion.html">
+   PAD plotting tests from MD
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testChpt/ePSproc_class_demo_161020.html">
+   ePSproc base and multijob class intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testChpt/ePSproc_Matlab_demo_notebook_090821.html">
+   ePSproc Matlab demo
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/main?urlpath=tree/doc-source/backmatter/bibliography.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/new?title=Issue%20on%20page%20%2Fbackmatter/bibliography.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/backmatter/bibliography.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/backmatter/bibliography.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Bibliography</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="bibliography">
+<h1>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">#</a></h1>
+<span class="target" id="id1"></span><div class="docutils container" id="id37">
+<dl class="citation">
+<dt class="label" id="id52"><span class="brackets">1</span></dt>
+<dd><p>Paul Hockett. <em>Quantum Metrology with Photoelectrons, Volume 1: Foundations</em>. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: <a class="reference external" href="http://iopscience.iop.org/book/978-1-6817-4684-5">http://iopscience.iop.org/book/978-1-6817-4684-5</a>, <a class="reference external" href="https://doi.org/10.1088/978-1-6817-4684-5">doi:10.1088/978-1-6817-4684-5</a>.</p>
+</dd>
+<dt class="label" id="id53"><span class="brackets">2</span></dt>
+<dd><p>Paul Hockett. <em>Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances</em>. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: <a class="reference external" href="http://iopscience.iop.org/book/978-1-6817-4688-3">http://iopscience.iop.org/book/978-1-6817-4688-3</a>, <a class="reference external" href="https://doi.org/10.1088/978-1-6817-4688-3">doi:10.1088/978-1-6817-4688-3</a>.</p>
+</dd>
+<dt class="label" id="id57"><span class="brackets">3</span></dt>
+<dd><p>Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: <a class="reference external" href="https://github.com/phockett/PEMtk">https://github.com/phockett/PEMtk</a> (visited on 2022-02-18).</p>
+</dd>
+<dt class="label" id="id56"><span class="brackets">4</span></dt>
+<dd><p>Paul Hockett. PEMtk - the Photoelectron Metrology Toolkit - documentation. 2021. URL: <a class="reference external" href="https://pemtk.readthedocs.io">https://pemtk.readthedocs.io</a> (visited on 2022-02-18).</p>
+</dd>
+<dt class="label" id="id45"><span class="brackets">5</span></dt>
+<dd><p>Paul Hockett. ePSproc: Post-processing suite for ePolyScat electron-molecule scattering calculations. <em>Authorea</em>, 2016. URL: <a class="reference external" href="https://www.authorea.com/users/71114/articles/122402/_show_article">https://www.authorea.com/users/71114/articles/122402/_show_article</a>, <a class="reference external" href="https://doi.org/10.6084/m9.figshare.3545639">doi:10.6084/m9.figshare.3545639</a>.</p>
+</dd>
+<dt class="label" id="id41"><span class="brackets">6</span></dt>
+<dd><p>Paul Hockett. ePSproc: Post-processing for ePolyScat (Github repository). Github, 2016. URL: <a class="reference external" href="https://github.com/phockett/ePSproc">https://github.com/phockett/ePSproc</a>, <a class="reference external" href="https://doi.org/10.6084/m9.figshare.3545639">doi:10.6084/m9.figshare.3545639</a>.</p>
+</dd>
+<dt class="label" id="id40"><span class="brackets">7</span></dt>
+<dd><p>Paul Hockett. ePSproc: Post-processing for ePolyScat documentation. 2020. URL: <a class="reference external" href="https://epsproc.readthedocs.io">https://epsproc.readthedocs.io</a> (visited on 2022-02-18).</p>
+</dd>
+<dt class="label" id="id63"><span class="brackets">8</span></dt>
+<dd><p>Robert R. Lucchese, Kazuo Takatsuka, and Vincent McKoy. Applications of the Schwinger variational principle to electron-molecule collisions and molecular photoionization. <em>Physics Reports</em>, 131(3):147–221, January 1986. URL: <a class="reference external" href="http://www.sciencedirect.com/science/article/pii/037015738690147X">http://www.sciencedirect.com/science/article/pii/037015738690147X</a> (visited on 2012-07-18), <a class="reference external" href="https://doi.org/10.1016/0370-1573(86)90147-X">doi:10.1016/0370-1573(86)90147-X</a>.</p>
+</dd>
+<dt class="label" id="id43"><span class="brackets">9</span></dt>
+<dd><p>F. A. Gianturco, R. R. Lucchese, and N. Sanna. Calculation of low-energy elastic cross sections for electron-CF4 scattering. <em>The Journal of Chemical Physics</em>, 100(9):6464, May 1994. URL: <a class="reference external" href="http://scitation.aip.org/content/aip/journal/jcp/100/9/10.1063/1.467237">http://scitation.aip.org/content/aip/journal/jcp/100/9/10.1063/1.467237</a> (visited on 2015-08-13), <a class="reference external" href="https://doi.org/10.1063/1.467237">doi:10.1063/1.467237</a>.</p>
+</dd>
+<dt class="label" id="id66"><span class="brackets">10</span></dt>
+<dd><p>Alexandra P P Natalense and Robert R Lucchese. Cross section and asymmetry parameter calculation for sulfur 1s photoionization of SF[sub 6]. <em>The Journal of Chemical Physics</em>, 111(12):5344, 1999. URL: <a class="reference external" href="http://link.aip.org/link/JCPSA6/v111/i12/p5344/s1&amp;Agg=doi">http://link.aip.org/link/JCPSA6/v111/i12/p5344/s1&amp;Agg=doi</a> (visited on 2012-07-18), <a class="reference external" href="https://doi.org/10.1063/1.479794">doi:10.1063/1.479794</a>.</p>
+</dd>
+<dt class="label" id="id64"><span class="brackets">11</span></dt>
+<dd><p>R R Lucchese. ePolyScat User's Manual. URL: <a class="reference external" href="https://epolyscat.droppages.com/">https://epolyscat.droppages.com/</a> (visited on 2022-04-26).</p>
+</dd>
+<dt class="label" id="id39"><span class="brackets">12</span></dt>
+<dd><p>Andrew C. Brown, Gregory S. J. Armstrong, Jakub Benda, Daniel D. A. Clarke, Jack Wragg, Kathryn R. Hamilton, Zdeněk Mašín, Jimena D. Gorfinkiel, and Hugo W. van der Hart. RMT: R-matrix with time-dependence. Solving the semi-relativistic, time-dependent Schrödinger equation for general, multielectron atoms and molecules in intense, ultrashort, arbitrarily polarized laser pulses. <em>Computer Physics Communications</em>, 250:107062, May 2020. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0010465519303856">https://www.sciencedirect.com/science/article/pii/S0010465519303856</a> (visited on 2022-11-09), <a class="reference external" href="https://arxiv.org/abs/1905.06156">arXiv:1905.06156</a>, <a class="reference external" href="https://doi.org/10.1016/j.cpc.2019.107062">doi:10.1016/j.cpc.2019.107062</a>.</p>
+</dd>
+<dt class="label" id="id68"><span class="brackets">13</span></dt>
+<dd><p>Andrew C. Brown, Gregory S. J. Armstrong, Jakub Benda, Daniel D. A. Clarke, Jack Wragg, Kathryn R. Hamilton, Zdeněk Mašín, Jimena D. Gorfinkiel, and Hugo W. van der Hart. RMT: R-matrix with time-dependence (repository). May 2020. URL: <a class="reference external" href="https://gitlab.com/Uk-amor/RMT/rmt">https://gitlab.com/Uk-amor/RMT/rmt</a> (visited on 2022-11-09), <a class="reference external" href="https://arxiv.org/abs/1905.06156">arXiv:1905.06156</a>.</p>
+</dd>
+<dt class="label" id="id42"><span class="brackets">14</span></dt>
+<dd><p>Michael W Schmidt, Kim K Baldridge, Jerry A Boatz, Steven T Elbert, Mark S Gordon, Jan H Jensen, Shiro Koseki, Nikita Matsunaga, Kiet A Nguyen, Shujun Su, Theresa L Windus, Michel Dupuis, and John A Montgomery. General atomic and molecular electronic structure system. <em>Journal of Computational Chemistry</em>, 14(11):1347–1363, 1993. URL: <a class="reference external" href="http://dx.doi.org/10.1002/jcc.540141112">http://dx.doi.org/10.1002/jcc.540141112</a>, <a class="reference external" href="https://doi.org/10.1002/jcc.540141112">doi:10.1002/jcc.540141112</a>.</p>
+</dd>
+<dt class="label" id="id44"><span class="brackets">15</span></dt>
+<dd><p>Mark S. Gordon. Gamess website. URL: <a class="reference external" href="http://www.msg.ameslab.gov/gamess/">http://www.msg.ameslab.gov/gamess/</a>.</p>
+</dd>
+<dt class="label" id="id54"><span class="brackets">16</span></dt>
+<dd><p>Paul Hockett. ePS data: Photoionization calculations archive. 2019. URL: <a class="reference external" href="https://phockett.github.io/ePSdata/">https://phockett.github.io/ePSdata/</a> (visited on 2022-02-16).</p>
+</dd>
+<dt class="label" id="id55"><span class="brackets">17</span></dt>
+<dd><p>Paul Hockett. ePSdata repositories on Zenodo. 2019. URL: <a class="reference external" href="https://zenodo.org/search?page=1&amp;size=20&amp;q=hockett&amp;keywords=Data">https://zenodo.org/search?page=1&amp;size=20&amp;q=hockett&amp;keywords=Data</a>.</p>
+</dd>
+<dt class="label" id="id59"><span class="brackets">18</span></dt>
+<dd><p>Paul Hockett. Open Photoionization Docker Stacks. URL: <a class="reference external" href="https://github.com/phockett/open-photoionization-docker-stacks">https://github.com/phockett/open-photoionization-docker-stacks</a> (visited on 2022-08-04).</p>
+</dd>
+</dl>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./backmatter"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../part1/theory_101122.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>Theory</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../tests/formatting_syntax_tests_081122.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Formatting tests</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Paul Hockett<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
