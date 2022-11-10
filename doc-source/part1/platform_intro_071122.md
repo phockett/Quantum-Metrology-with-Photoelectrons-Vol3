@@ -50,32 +50,38 @@ Quantum metrology with photoelectrons ecosystem overview.
 
 +++
 
+(sect:platform:otherTools)=
+## Additional tools
+
 Other tools listed in {numref}`qm-platform-diag` include:
 
 * Quantum chemistry layer. The starting point for *ab initio* computations. For the examples herein, all computations made use of [Gamess ("The General Atomic and Molecular Electronic Structure System")](http://www.msg.ameslab.gov/gamess/) {cite}`gamess, Gordon` for electronic structure computations, and inputs to ePolyScat.
-* {{ ePS_full }} is an open-source tool for numerical computation of electron-molecule scattering & photoionization by Lucchese & coworkers. All matrix elements used herein were obtained via ePS calculations. For more details see {{ ePS_manual }} and Refs. {cite}`Lucchese1986,Gianturco1994,Natalense1999,luccheseEPolyScatUserManual`.
+* {{ ePS_full }} is an open-source tool for numerical computation of electron-molecule scattering & photoionization by Lucchese & coworkers. All matrix elements used herein were obtained via ePS calculations. For more details see {{ ePS_manual }} and Refs. {cite}`Lucchese1986,Gianturco1994,Natalense1999`.
     
-* [ePSdata](https://phockett.github.io/ePSdata/about.html) is an open-data/open-science collection of ePS + ePSproc results {cite}`hockett2019EPSDataPhotoionization`.
+* {{ ePSdata_docs }} is an open-data/open-science collection of ePS + ePSproc results.
     * ePSdata collects ePS datasets, post-processed via ePSproc (Python) in [Jupyter notebooks](https://jupyter.org), for a full open-data/open-science transparent pipeline.
     % * ePSdata is currently (Jan 2020) collecting existing calculations from 2010 - 2019, from the [femtolabs at NRC](http://femtolab.ca), with one notebook per ePS job.
     % * In future, ePSdata pages will be automatically generated from ePS jobs (via the ePSman toolset, currently in development), for immediate dissemination to the research community.
-    * Source notebooks are available on the [Github project pages](https://github.com/phockett/ePSdata/), and notebooks + datasets via [Zenodo repositories](https://about.zenodo.org) (one per dataset). Each notebook + dataset is given a Zenodo DOI for full traceability, and notebooks are versioned on Github.
+    * Source notebooks are available on the {{ ePSdata_repo }} [Github project repository](https://github.com/phockett/ePSdata/), and notebooks + datasets via {{ ePSdata_zenodo }}. Each notebook + dataset is given a Zenodo DOI for full traceability, and notebooks are versioned on Github.
     * Note: ePSdata may also be linked or mirrored on the existing [ePolyScat Collected Results OSF project](https://osf.io/psjxt/), but will effectively supercede those pages.
-    * All results are released under <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0)</a> license, and are part of our ongoing [Open Science initiative](http://femtolab.ca/?p=877).
+    * All results are released under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0) license](https://creativecommons.org/licenses/by-nc-sa/4.0/), and are part of an ongoing [Open Science initiative](http://femtolab.ca/?p=877).
 
+
+(sect:platform:docker)=
+## Docker deployments
 
 A Docker-based distribution of various codes for tackling
 photoionization problems is also available from the {{ open_photo_stacks_repo }}
 project, which aims to make a range of these tools more accessible to
-interested researchers, and currently includes Docker builds for `ePS`, `ePSproc` and `PEMtk`.
+interested researchers, and fully cross-platform/portable. The project currently includes Docker builds for `ePS`, `ePSproc` and `PEMtk`.
+
+
+(sect:platform:general)=
+## General discussion
 
 Note that, at the time of writing, rotational wavepacket simulation is
 not yet implemented in the PEMtk suite, and these must be obtained via
 other codes. An intial build of the `limapack` suite for rotational wavepacket simulations is currently part of the {{ open_photo_stacks_repo }}, but has yet to be tested.
-
-```{code-cell} ipython3
-For related tools and more Docker builds, see also the [Open Photoionization Docker Stacks repo](https://github.com/phockett/open-photoionization-docker-stacks)
-```
 
 ```{code-cell} ipython3
 
