@@ -76,7 +76,7 @@ jobs:
     # For options: https://github.com/peaceiris/actions-gh-pages
     # Deploy the book's HTML to gh-pages branch
     - name: GitHub Pages add PDF
-      uses: peaceiris/actions-gh-pages
+      uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: doc-source/_build/latex/QM3.pdf
