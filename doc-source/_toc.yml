@@ -23,6 +23,7 @@ parts:
     chapters:
     - file: part1/main_intro_051122
     - file: part1/platform_intro_071122
+    - file: part1/theory_101122
 #       sections:
 # #       - file: testChpt/ePSproc_class_demo_161020
 #       - file: testChpt/ePSproc_Matlab_demo_notebook_090821
