@@ -23,18 +23,25 @@ parts:
     chapters:
     - file: part1/main_intro_051122
     - file: part1/platform_intro_071122
-    - file: part1/theory_101122
+    - file: part1/theory_101122.ipynb
 #       sections:
 # #       - file: testChpt/ePSproc_class_demo_161020
 #       - file: testChpt/ePSproc_Matlab_demo_notebook_090821
-      
+  
+
+  - caption: Backmatter
+    chapters:
+    - file: backmatter/bibliography   # Include this for full book bib
+  
   - caption: Test pages      
     chapters:
     - file: tests/formatting_syntax_tests_081122
     - file: tests/plotly_surface_render_test
+    - file: tests/pad_plot_tests_101122
+    - file: tests/pad_plot_tests_101122-plusMDversion.ipynb
     - file: testChpt/ePSproc_class_demo_161020
     - file: testChpt/ePSproc_Matlab_demo_notebook_090821
-    - file: tests/bibliography
+    # - file: tests/bibliography
 
 
 

@@ -14,8 +14,12 @@ only_build_toc_files        : true  # Skip processing all other files, e.g. back
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 # 26/01/22: quick test with 'auto' setting seemed to run notebooks even when already executed - leave 'off' for now...
+# For builds with old test docs also need to leave off, otherwise likely get build errors!
+# 10/11/22: NOTE for docs with .md and .ipynb versions, only former seems to be used UNLESS execute is on (even if file ending included in ToC) - seems odd?
 execute:
   execute_notebooks: off
+  
+# exclude_patterns: [part1/*.md]   # This also doesn't work for skipping .md versions.
 
 # Define the name of the latex output file for PDF builds
 latex:
