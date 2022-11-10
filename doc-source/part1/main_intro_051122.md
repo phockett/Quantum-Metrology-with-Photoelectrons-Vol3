@@ -34,13 +34,6 @@ To facilitate code transparency and reuse, the book is available via a Github re
 
 
 
-+++
-
-```{bibliography}
-:filter: docname in docnames
-:style: unsrt
-```
-
 ```{code-cell} ipython3
 
 ```

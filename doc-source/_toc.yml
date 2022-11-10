@@ -33,6 +33,7 @@ parts:
     - file: tests/plotly_surface_render_test
     - file: testChpt/ePSproc_class_demo_161020
     - file: testChpt/ePSproc_Matlab_demo_notebook_090821
+    - file: tests/bibliography
 
 
 
