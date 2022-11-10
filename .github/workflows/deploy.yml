@@ -56,16 +56,39 @@ jobs:
       run: |
         jupyter-book build doc-source --builder pdflatex
 
-    # This next step moves, renames and commits the created pdf
+    #*** Add PDF to main branch and commit
+    # # This next step moves, renames and commits the created pdf
+    # - name: Commit and rename pdf
+    #   run: |
+    #     mkdir -p ${{ github.workspace }}/latestBuild
+    #     mv doc-source/_build/latex/QM3.pdf ${{ github.workspace }}/latestBuild
+    #     git config --local user.email "action@github.com"
+    #     git config --local user.name "GitHub Action"
+    #     git add ${{ github.workspace }}/latestBuild
+    #     git commit -m "Updated PDF version of the book"
+    # - name: Push changes
+    #   uses: ad-m/github-push-action@master
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+
+
+    #*** Push PDF to gh-pages publish branch
+    # Move and rename - can't specify single file to gh-pages action below
+    # mv doc-source/_build/latex/QM3.tex ${{ github.workspace }}/latestBuild
+    # mv doc-source/_build/latex/QM3.pdf ${{ github.workspace }}/latestBuild
+    # NOW set for full tex output (but not build files)
     - name: Commit and rename pdf
       run: |
         mkdir -p ${{ github.workspace }}/latestBuild
-        mv doc-source/_build/latex/QM3.pdf ${{ github.workspace }}/latestBuild
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add ${{ github.workspace }}/latestBuild
-        git commit -m "Updated PDF version of the book"
-    - name: Push changes
-      uses: ad-m/github-push-action@master
+        mv doc-source/_build/latex/QM3.* ${{ github.workspace }}/latestBuild
+
+    # gh-pages deploy
+    # For options: https://github.com/peaceiris/actions-gh-pages
+    # Deploy the book's HTML to gh-pages branch
+    - name: GitHub Pages add PDF
+      uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: latestBuild
+        destination_dir: latestBuild
+        keep_files: true
