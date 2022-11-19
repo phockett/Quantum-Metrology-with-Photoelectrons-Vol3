@@ -13,11 +13,11 @@ only_build_toc_files        : true  # Skip processing all other files, e.g. back
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
-# 26/01/22: quick test with 'auto' setting seemed to run notebooks even when already executed - leave 'off' for now...
+# 26/01/22: quick test with 'auto' setting seemed to run notebooks even when already executed - leave 'off' for now... can also set to 'force'
 # For builds with old test docs also need to leave off, otherwise likely get build errors!
 # 10/11/22: NOTE for docs with .md and .ipynb versions, only former seems to be used UNLESS execute is on (even if file ending included in ToC) - seems odd?
 execute:
-  execute_notebooks: off
+  execute_notebooks: auto
   
 # exclude_patterns: [part1/*.md]   # This also doesn't work for skipping .md versions.
 
@@ -62,7 +62,7 @@ sphinx:
     # For plotly, see https://jupyterbook.org/en/stable/interactive/interactive.html#plotly
     html_js_files:
     - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
-    # Use MathJax v3, see https://jupyterbook.org/en/stable/content/math.html#math-and-equations
+    # Use MathJax v3, see https://jupyterbook.org/en/stable/content/math.html#math-and-equations - NOT REQUIRED IN SPHINX >4, see https://www.sphinx-doc.org/en/master/usage/extensions/math.html#module-sphinx.ext.mathjaxS
     # mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     # bibtex_reference_style: unsrt   # This fails at build, "failed: plugin sphinxcontrib.bibtex.style.referencing.unsrt not found"? Works OK in single docs?
                                       # Issue is that it's not a valid sphinxcontrib-bibtex style? https://sphinxcontrib-bibtex.readthedocs.io/en/latest/usage.html#referencing-style
@@ -71,6 +71,10 @@ sphinx:
     # Sphinx Latex customisation, see https://www.sphinx-doc.org/en/master/latex.html
     # latex_elements:
     #   preamble: '\usepackage{pxfonts}'
+    
+    #*** MyST-NB settings
+    # Merge stdout streams, https://myst-nb.readthedocs.io/en/latest/render/format_code_cells.html#group-into-single-streams
+    nb_merge_streams: True
 
 # For latex maths, per https://jupyterbook.org/en/stable/content/math.html#latex-style-math
 parse:
@@ -95,6 +99,9 @@ parse:
   # UPDATE: fixed by (a) adding substitution to list above (seems to OVERWRITE defaults) and (b) "" for links/active text (otherwise get build syntax errors), seems to render OK.
   myst_substitutions:
     test_sub: "Something"
+    QM1: "_Quantum Metrology_ Vol. 1 {cite}`hockett2018QMP1`"
+    QM2: "_Quantum Metrology_ Vol. 2 {cite}`hockett2018QMP2`"
+    QM12: "_Quantum Metrology_ Vols. 1 & 2 {cite}`hockett2018QMP1, hockett2018QMP2`"
     PEMtk_repo: "[Photoelectron Metrology Toolkit](https://github.com/phockett/PEMtk) {cite}`hockett2021PEMtkGithub`"
     PEMtk_docs: "[PEMtk documentation](https://pemtk.readthedocs.io) {cite}`hockett2021PEMtkDocs`"
     ePSproc_full: "[ePSproc codebase](https://epsproc.readthedocs.io) {cite}`hockett2016EPSprocAuthorea,ePSprocGithub,ePSprocDocs`"
@@ -107,6 +114,8 @@ parse:
     open_photo_stacks_repo: "[Open Photoionization Docker Stacks](https://github.com/phockett/open-photoionization-docker-stacks) {cite}`hockettOpenPhotoionizationDocker`"
     ePS_manual: "[ePolyScat website and manual](https://epolyscat.droppages.com/) {cite}`luccheseEPolyScatUserManual`"
     ePS_full: "[ePolyScat (ePS)](https://epolyscat.droppages.com/) {cite}`Lucchese1986,Gianturco1994,Natalense1999,luccheseEPolyScatUserManual`"
+    libmsym: "[libmsym](https://github.com/mcodev31/libmsym) {cite}`Johansson2017,johansson2022LibmsymGithub`"
+    shtools: "[pySHtools](https://shtools.oca.eu) {cite}`SHtoolsGithub, wieczorek2018SHToolsToolsWorking`"
     
   # substitutions:
   #   book_repo: [Quantum Metrology Vol. 3](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3)

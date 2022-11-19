@@ -8,6 +8,10 @@
 print('*** Setting up notebook with standard Quantum Metrology Vol. 3 imports...')
 print('For more details see https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basic_demo_030621-full.html')
 print('To use local source code, pass the parent path to this script at run time, e.g. "setup_fit_demo ~/github"')
+
+from datetime import datetime as dt
+timeString = dt.now()
+print(f"Running: {timeString.strftime('%Y-%m-%d %H:%M:%S')}")
 print('\n\n* Loading packages...')
 
 # Some definitions for local use
@@ -33,9 +37,6 @@ from pathlib import Path
 # import numpy as np
 # import epsproc as ep
 # import xarray as xr
-
-from datetime import datetime as dt
-timeString = dt.now()
 
 import numpy as np
 import xarray as xr
@@ -116,3 +117,22 @@ scooby.Report(additional=['xarray','plotly','holoviews','pandas','epsproc','pemt
 os.system("jupyter-book --version")
 
 # TODO: add GH version info
+
+# TODO: Plotting and backend defaults
+plotBackend = 'pl'
+
+# ENV SETTINGS FOR PLOTLY RENDER CONTROL?
+# NOTE - currently not working with JupyterBook running from shell script, need to check env var passing to build chain.
+buildEnv = os.getenv('BUILDENV') # None
+
+print(f'\n*** BUILDENV: {buildEnv}')
+if buildEnv is not None:
+    if buildEnv == 'pdf':
+        import plotly.io as pio
+        pio.renderers.default = "png"  # This works for PDF export in notebook, but also forces png in HTML case.
+                                       # NOT working in testing, need to set glue() options instead?
+
+
+# PD render settings, see https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.set_option.html
+# max_rows - currently not working in notebooks for class df output? Issue with multindexes?
+pd.set_option('display.max_rows', 20)

@@ -27,14 +27,14 @@ rm $BUILDSOURCE/doc-source/**/*.md
 # Clean - should set as option
 # jupyter-book clean doc-source/
 
-# Build HTML
+# *** Build HTML
 jupyter-book build $BUILDSOURCE/doc-source/
 
-# Build PDF
+# *** Build PDF
 # jupyter-book build doc-source/ --builder pdflatex
 
 # As above, but skip errors
-# jupyter-book build --keep-going doc-source/ --builder pdflatex
+# jupyter-book build --keep-going $BUILDSOURCE/doc-source/ --builder pdflatex
 
 # Debug for missing refs. as Warnings - note this should also keep going, but doesn't and may get no PDF
 # See https://jupyterbook.org/en/stable/basics/build.html#debug-your-books-build-process

@@ -23,7 +23,10 @@ parts:
     chapters:
     - file: part1/main_intro_051122
     - file: part1/platform_intro_071122
-    - file: part1/theory_101122.ipynb
+    - file: part1/theory_101122
+    # - file: part1/theory_101122-Render-debug
+    # - file: part1/theory_101122-RenderTests-glue2_171122
+    # - file: part1/theory-RenderTest-clean_171122
 #       sections:
 # #       - file: testChpt/ePSproc_class_demo_161020
 #       - file: testChpt/ePSproc_Matlab_demo_notebook_090821
@@ -35,12 +38,14 @@ parts:
   
   - caption: Test pages      
     chapters:
-    - file: tests/formatting_syntax_tests_081122
-    - file: tests/plotly_surface_render_test
-    - file: tests/pad_plot_tests_101122
-    - file: tests/pad_plot_tests_101122-plusMDversion.ipynb
-    - file: testChpt/ePSproc_class_demo_161020
-    - file: testChpt/ePSproc_Matlab_demo_notebook_090821
+  #   - file: tests/formatting_syntax_tests_081122
+  #   - file: tests/plotly_surface_render_test
+    - file: tests/plotly_pdf_export_test_181122.ipynb
+  #   - file: tests/pad_plot_tests_101122
+  #   - file: tests/pad_plot_tests_101122-plusMDversion.ipynb
+    # - file: frontmatter/demo_notebook_270122
+    # - file: testChpt/ePSproc_class_demo_161020   # NOTE THIS IS OLD FOR PLOT TESTING, won't execute
+  #   - file: testChpt/ePSproc_Matlab_demo_notebook_090821
     # - file: tests/bibliography
 
 
