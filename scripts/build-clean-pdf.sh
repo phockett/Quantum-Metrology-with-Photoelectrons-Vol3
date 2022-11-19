@@ -11,21 +11,25 @@ BASEPATH="${1:-/home/jovyan/QM3}"
 
 cd $BASEPATH
 
-echo Running Jupyter book builds from $BASEPATH, HTML only.
+echo Running **CLEAN** Jupyter book PDF only build from $BASEPATH
 
 # Clean - should set as option
-# jupyter-book clean doc-source/
+jupyter-book clean doc-source/
 
 # Build HTML
-export BUILDENV=html
-echo $BUILDENV
-jupyter-book build doc-source/
+# jupyter-book build doc-source/
 
 # Build PDF
 # jupyter-book build doc-source/ --builder pdflatex
 
 # As above, but skip errors
 # jupyter-book build --keep-going doc-source/ --builder pdflatex
+
+# BUILDENV=pdf  # Not working, see  https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/1
+cp doc-source/scripts/setup_notebook_pdf.py doc-source/scripts/setup_notebook.py 
+jupyter-book build --keep-going doc-source/ --builder pdflatex
+# unset BUILDENV
+cp doc-source/scripts/setup_notebook_main.py doc-source/scripts/setup_notebook.py 
 
 # Debug for missing refs. as Warnings - note this should also keep going, but doesn't and may get no PDF
 # See https://jupyterbook.org/en/stable/basics/build.html#debug-your-books-build-process

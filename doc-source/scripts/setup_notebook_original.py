@@ -12,8 +12,6 @@ print('To use local source code, pass the parent path to this script at run time
 from datetime import datetime as dt
 timeString = dt.now()
 print(f"Running: {timeString.strftime('%Y-%m-%d %H:%M:%S')}")
-import os
-print(os. getcwd())
 print('\n\n* Loading packages...')
 
 # Some definitions for local use
@@ -125,16 +123,13 @@ plotBackend = 'pl'
 
 # ENV SETTINGS FOR PLOTLY RENDER CONTROL?
 # NOTE - currently not working with JupyterBook running from shell script, need to check env var passing to build chain.
-# UPDATES - see https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/1
-# QUICK FIX: add extension script and rename as part of build chain.
+buildEnv = os.getenv('BUILDENV') # None
 
-# buildEnv = os.getenv('BUILDENV') # None
-
-# print(f'\n*** BUILDENV: {buildEnv}')
-# if buildEnv is not None:
-#     if buildEnv == 'pdf':
-#         import plotly.io as pio
-#         pio.renderers.default = "png"  # This works for PDF export in notebook, but also forces png in HTML case.
+print(f'\n*** BUILDENV: {buildEnv}')
+if buildEnv is not None:
+    if buildEnv == 'pdf':
+        import plotly.io as pio
+        pio.renderers.default = "png"  # This works for PDF export in notebook, but also forces png in HTML case.
                                        # NOT working in testing, need to set glue() options instead?
 
 
