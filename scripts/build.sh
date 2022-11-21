@@ -24,7 +24,7 @@ unset BUILDENV
 # Build PDF
 # jupyter-book build doc-source/ --builder pdflatex
 
-# As above, but skip errors
+# As above, but skip errors - NOTE THIS MAY NOT rerun notebooks?
 export BUILDENV=pdf  # Not working, see  https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/1
 # cp doc-source/scripts/setup_notebook_pdf.py doc-source/scripts/setup_notebook.py 
 jupyter-book build --keep-going doc-source/ --builder pdflatex

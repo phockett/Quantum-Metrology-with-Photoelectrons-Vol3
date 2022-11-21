@@ -18,8 +18,8 @@ echo Running Jupyter book builds from $BASEPATH, HTML only.
 
 # Build HTML
 export BUILDENV=html
-echo $BUILDENV
 jupyter-book build doc-source/
+unset BUILDENV
 
 # Build PDF
 # jupyter-book build doc-source/ --builder pdflatex

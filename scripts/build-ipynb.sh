@@ -28,7 +28,9 @@ rm $BUILDSOURCE/doc-source/**/*.md
 # jupyter-book clean doc-source/
 
 # *** Build HTML
-jupyter-book build $BUILDSOURCE/doc-source/
+export BUILDENV=html
+jupyter-book build doc-source/
+unset BUILDENV
 
 # *** Build PDF
 # jupyter-book build doc-source/ --builder pdflatex

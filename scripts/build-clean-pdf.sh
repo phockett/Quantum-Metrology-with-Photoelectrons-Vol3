@@ -25,7 +25,7 @@ jupyter-book clean doc-source/
 # As above, but skip errors
 # jupyter-book build --keep-going doc-source/ --builder pdflatex
 
-export BUILDENV=pdf  # Not working, see  https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/1
+export BUILDENV=pdf
 # cp doc-source/scripts/setup_notebook_pdf.py doc-source/scripts/setup_notebook.py 
 jupyter-book build --keep-going doc-source/ --builder pdflatex
 unset BUILDENV
