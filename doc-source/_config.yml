@@ -17,7 +17,7 @@ only_build_toc_files        : true  # Skip processing all other files, e.g. back
 # For builds with old test docs also need to leave off, otherwise likely get build errors!
 # 10/11/22: NOTE for docs with .md and .ipynb versions, only former seems to be used UNLESS execute is on (even if file ending included in ToC) - seems odd?
 execute:
-  execute_notebooks: auto
+  execute_notebooks: force
   
 # exclude_patterns: [part1/*.md]   # This also doesn't work for skipping .md versions.
 
@@ -75,6 +75,13 @@ sphinx:
     #*** MyST-NB settings
     # Merge stdout streams, https://myst-nb.readthedocs.io/en/latest/render/format_code_cells.html#group-into-single-streams
     nb_merge_streams: True
+    
+    #*** Mathjax config, see https://jupyterbook.org/en/stable/advanced/sphinx.html#defining-tex-macros
+    mathjax_config:
+      tex:
+        macros:
+            # Fix for \bm, see https://github.com/mathjax/MathJax/issues/1219#issuecomment-341059843
+            "bm": ["\\boldsymbol{#1}",1]
 
 # For latex maths, per https://jupyterbook.org/en/stable/content/math.html#latex-style-math
 parse:
