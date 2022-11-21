@@ -13,7 +13,7 @@ from datetime import datetime as dt
 timeString = dt.now()
 print(f"Running: {timeString.strftime('%Y-%m-%d %H:%M:%S')}")
 import os
-print(f'Working dir: os. getcwd()')
+print(f'Working dir: {os.getcwd()}')
 
 buildEnv = os.getenv('BUILDENV')
 print(f'Build env: {buildEnv}')
@@ -22,6 +22,14 @@ print(f'Build env: {buildEnv}')
 imgFormat=os.getenv('IMGFORMAT')
 if imgFormat is None:
     imgFormat = 'png'
+
+# imgPath (currently set for subdir of working notebook dir only)
+imgPath=os.getenv('IMGPATH')
+if imgPath is None:
+    imgPath = "images"
+    
+if not os.path.exists(imgPath):
+    os.mkdir(imgPath)
 
 print('\n* Loading packages...')
 
@@ -56,6 +64,7 @@ def gluePlotly(name,fig,**kwargs):
         # Force render and glue
         # Could also just force image render code here?
         imgFile = f'{name}.{imgFormat}'
+        imgFile = os.path.join(imgPath,imgFile)
         fig.write_image(imgFile,format=imgFormat)
         
         # return glue(name, display(f'{name}.png'))   # Only returns None?
