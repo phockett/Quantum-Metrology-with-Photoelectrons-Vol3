@@ -6,6 +6,12 @@
 
 # exec("../scripts/setup_notebook_main.py")
 
+print("\n*** Running PDF setup defaults")
+# Set Plotly render
+import plotly.io as pio
+pio.renderers.default = "png" 
+
+
 from pathlib import Path 
 script_dir=Path(__file__).parent 
 main_script_path=(script_dir / 'setup_notebook_main.py').resolve()
@@ -23,7 +29,7 @@ with open(main_script_path, "rb") as infile:
     exec(infile.read())
 
     
-print("\n*** Running PDF setup defaults")
-# Set Plotly render
-import plotly.io as pio
-pio.renderers.default = "png" 
+# print("\n*** Running PDF setup defaults")
+# # Set Plotly render
+# import plotly.io as pio
+# pio.renderers.default = "png" 

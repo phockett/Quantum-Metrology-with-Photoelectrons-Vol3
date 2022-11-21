@@ -13,8 +13,17 @@ from datetime import datetime as dt
 timeString = dt.now()
 print(f"Running: {timeString.strftime('%Y-%m-%d %H:%M:%S')}")
 import os
-print(os. getcwd())
-print('\n\n* Loading packages...')
+print(f'Working dir: os. getcwd()')
+
+buildEnv = os.getenv('BUILDENV')
+print(f'Build env: {buildEnv}')
+
+# Set image export format for use with gluePlotly ONLY
+imgFormat=os.getenv('IMGFORMAT')
+if imgFormat is None:
+    imgFormat = 'png'
+
+print('\n* Loading packages...')
 
 # Some definitions for local use
 
@@ -25,9 +34,42 @@ from myst_nb import glue
 import panel as pn
 pn.extension('plotly')
 
-def gluePlotly(name,fig, **kwargs):
-    """Wrap Plotly object with Panel and glue()"""
-    return glue(name, pn.pane.Plotly(fig, **kwargs), display=False)
+# def gluePlotly(name,fig, **kwargs):
+#     """Wrap Plotly object with Panel and glue()"""
+#     return glue(name, pn.pane.Plotly(fig, **kwargs), display=False)
+
+# Updated version including static fig export for PDF builds
+from IPython.display import Image
+
+def gluePlotly(name,fig,**kwargs):
+    """
+    Wrap Plotly object with Panel and glue().
+    
+    For PDF builds, force Plotly fig to save to imgFormat and render from file.
+    
+    """
+    
+    if buildEnv != 'pdf':
+        return glue(name, pn.pane.Plotly(fig, **kwargs), display=False)
+    
+    else:
+        # Force render and glue
+        # Could also just force image render code here?
+        imgFile = f'{name}.{imgFormat}'
+        fig.write_image(imgFile,format=imgFormat)
+        
+        # return glue(name, display(f'{name}.png'))   # Only returns None?
+        # return glue(name, f'{name}.png')   # Returns filename
+        # return glue(name, pn.pane.PNG(f'{name}.png'))   # Returns image OK
+        
+        # Multiple image types - works for HTML, but doesn't render in PDF
+        # if hasattr(pn.pane,imgFormat.upper()):
+        #     func = getattr(pn.pane,imgFormat.upper())
+        #     return glue(name, func(imgFile))
+        
+        # Use basic display instead?
+
+        return glue(name, Image(imgFile), display=False)
 
 
 # A few standard imports...
