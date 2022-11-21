@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3.2. Photoionization dynamics &#8212; Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bibliography" href="../backmatter/bibliography.html" />
+    <link rel="prev" title="3.1. Observables: photoelectron flux in the LF and MF" href="theory_observables_intro_211122.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ePSproc_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    About the book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Frontmatter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../frontmatter/overview_270122.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Theory &amp; software
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="main_intro_051122.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="platform_intro_071122.html">
+   2. Quantum metrology software platform/ecosystem overview
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="theory_101122.html">
+   3. Theory
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="theory_observables_intro_211122.html">
+     3.1. Observables: photoelectron flux in the LF and MF
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3.2. Photoionization dynamics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Backmatter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../backmatter/bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/main?urlpath=tree/doc-source/part1/theory_photoionization_dynamics_191122.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/new?title=Issue%20on%20page%20%2Fpart1/theory_photoionization_dynamics_191122.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/part1/theory_photoionization_dynamics_191122.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/part1/theory_photoionization_dynamics_191122.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Photoionization dynamics</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="photoionization-dynamics">
+<h1><span class="section-number">3.2. </span>Photoionization dynamics<a class="headerlink" href="#photoionization-dynamics" title="Permalink to this headline">#</a></h1>
+<p>The core physics of photoionization has been covered extensively in the literature, and only a very brief overview is provided here with sufficient detail to introduce the metrology/reconstruction/retrieval problem; the reader is referred to Vol. 1 <span id="id1">[<a class="reference internal" href="../backmatter/bibliography.html#id52" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5, doi:10.1088/978-1-6817-4684-5.">1</a>]</span> (and refs. therein) for further details and general discussion.</p>
+<p>Photoionization can be described by the coupling of an initial state of the system to a particular final state (photoion(s) plus free photoelectron(s)), coupled by an electric field/photon. Very generically, this can be written as a matrix element <span class="math notranslate nohighlight">\(\langle\Psi_i|\hat{\Gamma}(\boldsymbol{\mathbf{E}})|\Psi_f\rangle\)</span>, where <span class="math notranslate nohighlight">\(\hat{\Gamma}(\boldsymbol{\mathbf{E}})\)</span> defines the light-matter coupling operator (depending on the electric field <span class="math notranslate nohighlight">\(\boldsymbol{\mathbf{E}}\)</span>), and <span class="math notranslate nohighlight">\(\Psi_i\)</span>, <span class="math notranslate nohighlight">\(\Psi_f\)</span> the total wavefunctions of the initial and final states respectively.</p>
+<p>There are many flavours of this fundamental light-matter interaction, depending on system and coupling. For metrology, the focus is currently on the simplest case of single-photon absorption, in the weak field (or purturbative), dipolar regime, resulting in a single photoelectron. (For
+more discussion of various approximations in photoionzation, see Refs. <span id="id2">[]</span>.) In this case the core physics is well defined, and tractable (albeit non-trivial), via the separation of matrix elements into radial (energy) and angular-momentum (geometric) terms pertaining to couplings between various elements of the problem; the retrieval of such matrix elements is a well-defined problem, making use of analytic terms in combination with fitting methodologies as explored herein. Again, more extensive background and discussion can be found in <em>Quantum Metrology</em> Vol. 1 <span id="id3">[<a class="reference internal" href="../backmatter/bibliography.html#id52" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5, doi:10.1088/978-1-6817-4684-5.">1</a>]</span>, and references therein. [Add some more refs here?]</p>
+<p>The basic case also provides a strong foundation for extension into more complex light-matter interactions, in particular cases with shaped laser-fields (i.e. a time-dependent coupling <span class="math notranslate nohighlight">\(\hat{\Gamma}(\boldsymbol{\mathbf{E,t}})\)</span>) and multi-photon processes (which require multiple matrix elements). Note, however, that non-perturbative (strong field) light-matter interactions are, typically, not amenable to description in a separable picture in this manner. In such cases the laser field, molecular and continuum properties are strongly coupled, and are typically treated numerically in a fully time-dependent manner (although some separation of terms may work in some cases).</p>
+<p>Underlying the photoelecton observables is the photoelectron continuum state <span class="math notranslate nohighlight">\(\left|\mathbf{k}\right&gt;\)</span>, prepared via photoionization. The photoelectron momentum vector is denoted generally by
+<span class="math notranslate nohighlight">\(\boldsymbol{\mathbf{k}}=k\mathbf{\hat{k}}\)</span>, in the MF. The ionization matrix elements associated with this transition provide the set of quantum amplitudes completely defining the final continuum scattering state,</p>
+<div class="math notranslate nohighlight" id="equation-eq-continuum-state-vec">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-eq-continuum-state-vec" title="Permalink to this equation">#</a></span>\[\left|\Psi_f\right&gt; = \sum{\int{\left|\Psi_{+};\bf{k}\right&gt;\left&lt;\Psi_{+};\mathbf{k}|\Psi_f\right&gt; d\bf{k}}},
+\]</div>
+<p>where the sum is over states of the molecular ion <span class="math notranslate nohighlight">\(\left|\Psi_{+}\right&gt;\)</span>. The number of ionic states accessed depends on the nature of the ionizing pulse and interaction. For the dipolar case,</p>
+<div class="math notranslate nohighlight">
+\[\hat{\Gamma}(\boldsymbol{\mathbf{E}}) = \hat{\mathbf{\mu}}.\boldsymbol{\mathbf{E}}\]</div>
+<p>Hence,</p>
+<div class="math notranslate nohighlight" id="equation-eq-mate-dipole">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-eq-mate-dipole" title="Permalink to this equation">#</a></span>\[\left&lt;\Psi_{+};\mathbf{k}|\Psi_f\right&gt; =\langle\Psi_{+};\,\mathbf{k}|\hat{\mathbf{\mu}}.\boldsymbol{\mathbf{E}}|\Psi_{i}\rangle
+\]</div>
+<p>Where the notation implies a perturbative photoionization event from an initial state <span class="math notranslate nohighlight">\(i\)</span> to a particular ion plus electron state following absorption of a photon <span class="math notranslate nohighlight">\(h\nu\)</span>, <span class="math notranslate nohighlight">\(|\Psi_{i}\rangle+h\nu{\rightarrow}|\Psi_{+};\boldsymbol{\mathbf{k}}\rangle\)</span>, and <span class="math notranslate nohighlight">\(\hat{\mu}.\boldsymbol{\mathbf{E}}\)</span> is the usual dipole interaction term <span id="id4">[]</span>, which includes a sum over all electrons <span class="math notranslate nohighlight">\(s\)</span> defined in position space as <span class="math notranslate nohighlight">\(\mathbf{r_{s}}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-dipole-operator">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-eq-dipole-operator" title="Permalink to this equation">#</a></span>\[\hat{\mu}=-e\sum_{s}\mathbf{r_{s}}
+\]</div>
+<p>The position space photoelectron wavefunction is typically expressed in
+the “partial wave” basis, expanded as (asymptotic) continuum
+eignstates of orbital angular momentum, with angular momentum components
+<span class="math notranslate nohighlight">\((l,m)\)</span> (note lower case notation for the partial wave components, distinct from upper-case for the similar terms <span class="math notranslate nohighlight">\((L,M)\)</span> in the observables),</p>
+<div class="math notranslate nohighlight" id="equation-eq-elwf">
+<span class="eqno">(3.6)<a class="headerlink" href="#equation-eq-elwf" title="Permalink to this equation">#</a></span>\[\Psi_\mathbf{k}(\bm{r})\equiv\left&lt;\bm{r}|\mathbf{k}\right&gt; = \sum_{lm}Y_{lm}(\mathbf{\hat{k}})\psi_{lm}(\bm{r},k)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\bm{r}\)</span> are MF electronic coordinates and
+<span class="math notranslate nohighlight">\(Y_{lm}(\mathbf{\hat{k}})\)</span> are the spherical harmonics.</p>
+<p>Similarly, the ionization dipole matrix elements can be separated
+generally into radial (energy-dependent or ‘dynamical’ terms) and
+geometric (angular momentum) parts (this separation is essentially the
+Wigner-Eckart Theorem, see Ref. <span id="id5">[]</span> for general discussion),
+and written generally as (using notation similar to <span id="id6">[]</span>):</p>
+<div class="math notranslate nohighlight" id="equation-eq-r-kllam">
+<span class="eqno">(3.7)<a class="headerlink" href="#equation-eq-r-kllam" title="Permalink to this equation">#</a></span>\[\langle\Psi_{+};\,\mathbf{k}|\hat{\mathbf{\mu}}.\boldsymbol{\mathbf{E}}|\Psi_{i}\rangle = \sum_{lm}\gamma_{l,m}\mathbf{r}_{k,l,m}
+\]</div>
+<p>Provided that the geometric part of the matrix elements <span class="math notranslate nohighlight">\(\gamma_{l,m}\)</span> -
+which includes the geometric rotations into the LF arising from the dot
+product in Eq. <a class="reference external" href="#eq:r-kllam">[eq:r-kllam]</a>{reference-type=”ref”
+reference=”eq:r-kllam”} and other angular-momentum coupling terms - are
+know, knowledge of the so-called radial (or reduced) dipole matrix
+elements, at a given <span class="math notranslate nohighlight">\(k\)</span> thus equates to a full description of the
+system dynamics (and, hence, the observables).</p>
+<p>For the simplest treatment, the radial matrix element can be
+approximated as a 1-electron integral involving the initial electronic
+state (orbital), and final continuum photoelectron wavefunction:</p>
+<div class="math notranslate nohighlight" id="equation-eq-r-kllam-integral">
+<span class="eqno">(3.8)<a class="headerlink" href="#equation-eq-r-kllam-integral" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{k,l,m}=\int\psi_{lm}(\bm{r},k)\bm{r}\Psi_{i}(\bm{r})d\bm{r}
+\]</div>
+<p>As noted above, the geometric terms <span class="math notranslate nohighlight">\(\gamma_{l,m}\)</span> are analytical
+functions which can be computed for a given case - minimally requiring
+knowledge of the molecular symmetry and polarization geometry, although
+other factors may also play a role (see Sect.
+<a class="reference external" href="#sec:full-tensor-expansion">[sec:full-tensor-expansion]</a>{reference-type=”ref”
+reference=”sec:full-tensor-expansion”} for details).</p>
+<p>The photoelectron angular distribution (PAD) at a given <span class="math notranslate nohighlight">\((\epsilon,t)\)</span>
+can then be determined by the squared projection of
+<span class="math notranslate nohighlight">\(\left|\Psi_f\right&gt;\)</span> onto a specific state
+<span class="math notranslate nohighlight">\(\left|\Psi_{+};\bf{k}\right&gt;\)</span> (see Sect.
+<a class="reference external" href="#sec:theoretical-techniques">[sec:theoretical-techniques]</a>{reference-type=”ref”
+reference=”sec:theoretical-techniques”}), and therefore the amplitudes
+in Eq. <a class="reference external" href="#eq:r-kllam">[eq:r-kllam]</a>{reference-type=”ref”
+reference=”eq:r-kllam”} also determine the observable anisotropy
+parameters <span class="math notranslate nohighlight">\(\beta_{L,M}(\epsilon,t)\)</span> (Eqn.
+<a class="reference external" href="#eq:AF-PAD-general">[eq:AF-PAD-general]</a>{reference-type=”ref”
+reference=”eq:AF-PAD-general”}). (Note that the photoelectron energy
+<span class="math notranslate nohighlight">\(\epsilon\)</span> and momentum <span class="math notranslate nohighlight">\(k\)</span> are used somewhat interchangeably herein,
+with the former usually preferred in reference to observables.) Note,
+also, that in the treatment above there is no time-dependence
+incorporated in the notation; however, a time-dependent treatment
+readily follows, and may be incorporated either as explicit
+time-dependent modulations in the expansion of the wavefunctions for a
+given case, or implicitly in the radial matrix elements. Examples of the
+former include, e.g. a rotational or vibrational wavepacket, or a
+time-dependent laser field. The rotational wavepacket case is discussed
+herein (see Sect.
+<a class="reference external" href="#sec:full-tensor-expansion">[sec:full-tensor-expansion]</a>{reference-type=”ref”
+reference=”sec:full-tensor-expansion”}). The radial matrix elements are
+a sensitive function of molecular geometry and electronic configuration
+in general, hence may be considered to be responsive to molecular
+dynamics, although they are formally time-independent in a
+Born-Oppenheimer basis - for further general discussion and examples see
+Ref. [&#64;wu2011TimeresolvedPhotoelectronSpectroscopy]; discussions of more
+complex cases with electronic and nuclear dynamics can be found in Refs.
+[&#64;arasaki2000ProbingWavepacketDynamics; &#64;Seideman2001; &#64;Suzuki2001; &#64;Stolow2008].</p>
+<p>Typically, for reconstruction experiments, a given measurement will be
+selected to simplify this as much as possible by, e.g., populating only
+a single ionic state (or states for which the corresponding observables
+are experimentally energetically-resolvable), and with a bandwidth
+<span class="math notranslate nohighlight">\(d\bf{k}\)</span> which is small enough such that the matrix elements can be
+assumed constant. Importantly, the angle-resolved observables are
+sensitive to the magnitudes and (relative) phases of these matrix
+elements, and can be considered as angular interferograms (Fig.
+<a class="reference external" href="#781808">1</a>{reference-type=”ref” reference=”781808”} top right).</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./part1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="theory_observables_intro_211122.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">3.1. </span>Observables: photoelectron flux in the LF and MF</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../backmatter/bibliography.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bibliography</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Paul Hockett<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
