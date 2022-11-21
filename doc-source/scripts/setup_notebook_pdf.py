@@ -1,3 +1,5 @@
+DON'T USE - now fixed by env var passing in setup_notebook_main.py
+
 # Pull main script, will usually be run on notebook path
 # TODO: fix paths!
 #       Quick fix with Path below, from https://stackoverflow.com/a/51149057

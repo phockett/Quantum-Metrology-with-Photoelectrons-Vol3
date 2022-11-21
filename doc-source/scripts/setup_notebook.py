@@ -65,7 +65,7 @@ def gluePlotly(name,fig,**kwargs):
         # Could also just force image render code here?
         imgFile = f'{name}.{imgFormat}'
         imgFile = os.path.join(imgPath,imgFile)
-        fig.write_image(imgFile,format=imgFormat)
+        fig.write_image(imgFile,format=imgFormat)  # See https://plotly.com/python/static-image-export/
         
         # return glue(name, display(f'{name}.png'))   # Only returns None?
         # return glue(name, f'{name}.png')   # Returns filename
