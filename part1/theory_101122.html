@@ -479,25 +479,29 @@ an experimentally-defined axis in the LF/AF case (usually defined by the laser p
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*** Setting up notebook with standard Quantum Metrology Vol. 3 imports...
 For more details see https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basic_demo_030621-full.html
 To use local source code, pass the parent path to this script at run time, e.g. &quot;setup_fit_demo ~/github&quot;
-Running: 2022-11-19 21:23:07
-/home/runner/work/Quantum-Metrology-with-Photoelectrons-Vol3/Quantum-Metrology-with-Photoelectrons-Vol3/doc-source/part1
-
+Running: 2022-11-21 17:53:41
+Working dir: /home/runner/work/Quantum-Metrology-with-Photoelectrons-Vol3/Quantum-Metrology-with-Photoelectrons-Vol3/doc-source/part1
+Build env: None
 
 * Loading packages...
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">File</span> <span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">Quantum</span><span class="o">-</span><span class="n">Metrology</span><span class="o">-</span><span class="k">with</span><span class="o">-</span><span class="n">Photoelectrons</span><span class="o">-</span><span class="n">Vol3</span><span class="o">/</span><span class="n">Quantum</span><span class="o">-</span><span class="n">Metrology</span><span class="o">-</span><span class="k">with</span><span class="o">-</span><span class="n">Photoelectrons</span><span class="o">-</span><span class="n">Vol3</span><span class="o">/</span><span class="n">doc</span><span class="o">-</span><span class="n">source</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">setup_notebook</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">25</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="c1"># Some definitions for local use</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> 
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="c1">#*** Plotly glue wrapper - NOTE THIS FAILS IF RUN LATER IN IMPORT CHAIN, likely to do with Panel config?</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="c1"># See https://github.com/executablebooks/jupyter-book/issues/1815</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="c1"># From https://github.com/holoviz/panel/blob/master/panel/pane/plotly.py</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
-<span class="ne">---&gt; </span><span class="mi">25</span> <span class="kn">import</span> <span class="nn">panel</span> <span class="k">as</span> <span class="nn">pn</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">pn</span><span class="o">.</span><span class="n">extension</span><span class="p">(</span><span class="s1">&#39;plotly&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="k">def</span> <span class="nf">gluePlotly</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">fig</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="n">File</span> <span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">Quantum</span><span class="o">-</span><span class="n">Metrology</span><span class="o">-</span><span class="k">with</span><span class="o">-</span><span class="n">Photoelectrons</span><span class="o">-</span><span class="n">Vol3</span><span class="o">/</span><span class="n">Quantum</span><span class="o">-</span><span class="n">Metrology</span><span class="o">-</span><span class="k">with</span><span class="o">-</span><span class="n">Photoelectrons</span><span class="o">-</span><span class="n">Vol3</span><span class="o">/</span><span class="n">doc</span><span class="o">-</span><span class="n">source</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">setup_notebook</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">42</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="c1"># Some definitions for local use</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> 
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="c1">#*** Plotly glue wrapper - NOTE THIS FAILS IF RUN LATER IN IMPORT CHAIN, likely to do with Panel config?</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="c1"># See https://github.com/executablebooks/jupyter-book/issues/1815</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="c1"># From https://github.com/holoviz/panel/blob/master/panel/pane/plotly.py</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+<span class="ne">---&gt; </span><span class="mi">42</span> <span class="kn">import</span> <span class="nn">panel</span> <span class="k">as</span> <span class="nn">pn</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="n">pn</span><span class="o">.</span><span class="n">extension</span><span class="p">(</span><span class="s1">&#39;plotly&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="c1"># def gluePlotly(name,fig, **kwargs):</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="c1">#     &quot;&quot;&quot;Wrap Plotly object with Panel and glue()&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="c1">#     return glue(name, pn.pane.Plotly(fig, **kwargs), display=False)</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> 
+<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="c1"># Updated version including static fig export for PDF builds</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;panel&#39;
 </pre></div>
@@ -603,8 +607,8 @@ Running: 2022-11-19 21:23:07
 <section id="symmetrized-harmonics">
 <span id="sec-theory-sym-harm-into"></span><h3><span class="section-number">3.1.1. </span>Symmetrized harmonics<a class="headerlink" href="#symmetrized-harmonics" title="Permalink to this headline">#</a></h3>
 <p>Symmetrized (or generalised) harmonics, which essentially provide correctly symmetrized expansions of spherical harmonics (<span class="math notranslate nohighlight">\(Y_{lm}\)</span>) functions for a given irreducible representation, <span class="math notranslate nohighlight">\(\Gamma\)</span>, can be defined by linear combinations of spherical harmonics (Refs. <span id="id4">[]</span> as below):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7a5514df-b0cf-4f94-a065-96e73a866519">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-7a5514df-b0cf-4f94-a065-96e73a866519" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0c4f30fd-5788-462f-969f-2965228e2865">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-0c4f30fd-5788-462f-969f-2965228e2865" title="Permalink to this equation">#</a></span>\[\begin{equation}
 X_{hl}^{\Gamma\mu*}(\theta,\phi)=\sum_{\lambda}b_{hl\lambda}^{\Gamma\mu}Y_{l,\lambda}(\theta,\phi)\label{eq:symm-harmonics}
 \end{equation}\]</div>
 <p>where:</p>
