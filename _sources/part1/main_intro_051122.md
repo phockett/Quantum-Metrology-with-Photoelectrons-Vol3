@@ -26,13 +26,12 @@ Part II details the application of these tools to a few specific cases, starting
 
 +++
 
+(sec:intro-context)= 
 ## Context & aims for Vol. 3
 
 As noted previously, Vol. 3 is somewhat distinct from the previous volumes in the series; although involving computational elements, Vols. 1 & 2 {cite}`hockett2018QMP1,hockett2018QMP2` are more traditional publications. The material presented in this volume aims to continue the exploration of quantum metrology with photoelectrons, with a focus on numerical analysis techniques, forging a closer link between experimental and theoretical results, and making the methodologies discussed directly accessible via a new software platform/ecosystem. In order to fulfil this aim, Vol. 3 is a computational/computable document, with code directly available to readers. Each chapter or section is composed of a Jupyter Notebook (`.ipynb`), each of which can be modified and used independently.
 
 To facilitate code transparency and reuse, the book is available via a Github repository, {{ book_repo }}. An HTML version is also available, which includes interactive figures. A full introduction to the relevant tool-chain, including installation instructions, can be found in {numref}`Chapter %s: <chpt:platformIntro>` {ref}`chpt:platformIntro`.
-
-
 
 ```{code-cell} ipython3
 
