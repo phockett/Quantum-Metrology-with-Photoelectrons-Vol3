@@ -159,10 +159,18 @@ The exact form of these coefficients will depend on the point-group of the syste
 from pemtk.sym.symHarm import symHarm
 
 # Compute hamronics for Td, lmax=4
-symObj = symHarm('Td',4)
+sym = 'Td'
+lmax=4
+
+symObj = symHarm(sym,lmax)
 
 # Character tables can be displayed
 symObj.printCharacterTable()
+
+# Glue items for later
+glue("symHarmPG2", f"${sym}$", display=False)
+glue("symHarmPG", sym, display=False)
+glue("symHarmLmax", lmax, display=False)
 ```
 
 ```{code-cell} ipython3
@@ -175,6 +183,8 @@ symObj.displayXlm()  # Display values (note this defaults to REAL harmonics)
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 # To plot using ePSproc/PEMtk class, these values can be converted to ePSproc BLM data type...
 
 # Run conversion - the default is to set the coeffs to the 'BLM' data type
@@ -204,7 +214,9 @@ gluePlotly("symHarmPADs", figObj)
 ---
 name: "fig-symHarmPADs-example"
 ---
-Examples of angular distributions from expansions in symmetrized harmonics $X_{hl}^{\Gamma\mu*}(\theta,\phi)$, for all representations in $Td$ symmetry.
+Examples of angular distributions from expansions in symmetrized harmonics $X_{hl}^{\Gamma\mu*}(\theta,\phi)$, for all irreducible representations in {glue:text}`symHarmPG` symmetry ($l_{max}=${glue:text}`symHarmLmax`) 
+% {glue:math}`symHarmPG` or type 2 {glue:math}`symHarmPG2`. TODO: work out how to set maths glue.
+% {glue:text}`symHarmPG` symmetry ($l_{max}={glue:}`symHarmLmax`$).
 ```
 
 +++ {"tags": ["remove-cell"]}
@@ -221,15 +233,3 @@ $$\hat{\Gamma}(\boldsymbol{\mathbf{E}}) = \hat{\mathbf{\mu}}.\boldsymbol{\mathbf
 
 $$\Psi_\mathbf{k}(\bm{r})\equiv\left<\bm{r}|\mathbf{k}\right> = \sum_{lm}Y_{lm}(\mathbf{\hat{k}})\psi_{lm}(\bm{r},k)
 \label{eq:elwf}$$
-
-```{code-cell} ipython3
-
-```
-
-```{code-cell} ipython3
-# Test ointput
-```
-
-```{code-cell} ipython3
-
-```

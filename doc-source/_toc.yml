@@ -27,6 +27,7 @@ parts:
       sections:
       - file: part1/theory_observables_intro_211122
       - file: part1/theory_photoionization_dynamics_191122
+      - file: part1/theory_tensor_formalism_201122
       
     # - file: part1/theory_101122-Render-debug
     # - file: part1/theory_101122-RenderTests-glue2_171122

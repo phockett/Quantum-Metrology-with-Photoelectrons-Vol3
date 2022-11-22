@@ -22,6 +22,10 @@ For directives and how-tos see:
 
 Only outstanding point is use of raw latex? Is this possible...?
 
+```{code-cell} ipython3
+!date
+```
+
 +++ {"tags": []}
 
 ## Links and refs
@@ -30,13 +34,22 @@ See https://jupyterbook.org/en/stable/content/references.html
 
 +++
 
+
+- Label sections with `(some-label)=`, no spaces!
 - `{numref}` for numbered ref with custom text: {numref}`Chapter %s <chpt:platformIntro>` (always works in PDF, need to [set numbered sections for HTML](https://jupyterbook.org/en/stable/content/references.html#reference-numbered-sections))
 - `{ref}` for named ref: {ref}`chpt:platformIntro`
 - Combined for full number and name: {numref}`Chapter %s: <chpt:platformIntro>` {ref}`chpt:platformIntro`
 - Nested as a link? {numref}`Chapter %s: [](chpt:platformIntro)<chpt:platformIntro>`
 - Section number: {numref}`Sect. %s <sec:dynamics-intro>`
+   - This is failing...?  Test {ref}`sect:theory:observables` and {numref}`Sect. %s <sect:theory:observables>`
+   - Issue with nested docs, or just numbering? 
+   - Unnested case test: {ref}`sec:intro-context` and {numref}`Sect. %s <sec:intro-context>`
+   - Ah, OK - fails if nesting skips levels (although HTML render is OK). See https://jupyterbook.org/en/stable/structure/sections-headers.html#how-headers-and-sections-map-onto-to-book-structure
 
 Note style guide uses `:` separators, these are changed to `-` in HTML output links. Shouldn't generally be a problem?
+
+Note: sometimes cross-refs fail, usually seem OK after a clean build. Might be bug with nested file case?
+Note PDF: may also need to run **multiple** times (as per usual) to fix missing cross-refs.
 
 +++
 
@@ -140,6 +153,60 @@ $$\hat{\Gamma}(\boldsymbol{\mathbf{E}}) = \hat{\mathbf{\mu}}.\boldsymbol{\mathbf
 
 $$\Psi_\mathbf{k}(\bm{r})\equiv\left<\bm{r}|\mathbf{k}\right> = \sum_{lm}Y_{lm}(\mathbf{\hat{k}})\psi_{lm}(\bm{r},k)
 \label{eq:elwf}$$
+
++++
+
+**Issues with mathbf and hats (PDF output only)**
+
+$$1: \hat{\Gamma}(\boldsymbol{\mathbf{E}}) = \hat{\mathbf{\mu}}.\boldsymbol{\mathbf{E}}$$
+
+$$2: \hat{\Gamma}(\boldsymbol{\mathbf{E}}) = \mathbf{\mu}.\boldsymbol{\mathbf{E}}$$
+
+$$3: \hat{\Gamma}(\boldsymbol{\mathbf{E}}) = \mu.\boldsymbol{\mathbf{E}}$$
+
+$$4: \hat{\Gamma}(\boldsymbol{\mathbf{E}}) = \bm{\mu}.\boldsymbol{\mathbf{E}}$$
+
+$$5: \hat{\Gamma}(\boldsymbol{\mathbf{E}}) = \boldsymbol{\mu}.\boldsymbol{\mathbf{E}}$$
+
+$$6: \hat{\Gamma}(\boldsymbol{\mathbf{E}}) = \hat{\boldsymbol{\mu}}.\boldsymbol{\mathbf{E}}$$
+
+Without bm package, 3 - 6 are all OK. 'mathbf' seems to be an issue? Missing fonts - renders as a '?' in a square and gives error like `! Extended mathchar used as mathchar (14799967).`?
+
+With bm package, only 3 works (and 4 renders as $\mu0$)
+
+LOOKS LIKE using \boldsymbol and avoiding \mathbf and \bm seems best? Can't see any other obviously missing pkgs in latex build (cf. MF recon .tex), although clearly this is not usually a problem.
+
+See https://tex.stackexchange.com/questions/381604/bold-math-with-hat and https://tex.stackexchange.com/questions/3238/bm-package-versus-boldsymbol
+
+Probably just reformat in this case? Some of this might be Lyx, or other original source formatting? (Or VM?)
+
+Note unicode-math (per solution https://tex.stackexchange.com/questions/431013/error-extended-mathchar-used-as-mathchar-when-using-bm) is set by Jupyter book already.
+
+
+In HTML build, with macro fix for bm in `_config.py`, all work fine.
+
+```
+mathjax_config:
+      tex:
+        macros:
+            # Fix for \bm, see https://github.com/mathjax/MathJax/issues/1219#issuecomment-341059843
+            "bm": ["\\boldsymbol{#1}",1]
+            
+```
+
+PDF build (22/11/22) fixed for photoionization theory sect. with:
+
+No `\bm` case (i.e. not set in `_config.py` for latex preamble), subs as:
+
+- \hat{\mathbf{\mu}} >> \hat{\boldsymbol{\mu}}
+
+- \boldsymbol{\mathbf{E}} >> \boldsymbol{\mathrm{E}}. May only be an issue if bm loaded? Ah, yes - this is OK without bm, but get errors at `\bm` of course.
+
+- \bm >> \boldsymbol, have this only for \bm{r} it seems, may want \mathrm here too? NEED TO LOOK CAREFULLY - can use former in general (scalar) case (or just plain r), latter in vector case.
+
++++
+
+$$\mathbf{\hat{\mu}}$$
 
 +++
 

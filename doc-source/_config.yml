@@ -28,6 +28,7 @@ latex:
 
 # Add a bibtex file so that we can create citations
 # NOTE - biblatex doesn't work!
+# NOTE - for multiple .bib files, they will NOT BE PARSED if duplicate entries are found. Might be a fix for this...?
 # Backend is handled by Sphinxcontrib-bibtex, https://sphinxcontrib-bibtex.readthedocs.io/en/latest/quickstart.html
 bibtex_bibfiles:
 #  - bibs/book_IOP_quant_met_bbt_biblatex_051122.bib
@@ -35,8 +36,9 @@ bibtex_bibfiles:
 # Test/initial files
   # - bibs/MF_recon_manuscript_June2020_bbt_bibtex_071122.bib
   # - bibs/hockett_pubs_bbt_bibtex_091122.bib
+  - bibs/MF_recon_manuscript_June2020_bbt_biblatex_211122.bib
 # Ongoing bib
-  - bibs/QM3_ongoing.bib
+  # - bibs/QM3_ongoing.bib
 #  - references.bib  # Sample file
 
 # bibtex_reference_style: unsrt   # This fails? Needs to be nested somewhere? OK per-doc.
@@ -70,8 +72,16 @@ sphinx:
 
     # Sphinx Latex customisation, see https://www.sphinx-doc.org/en/master/latex.html
     # latex_elements:
-    #   preamble: '\usepackage{pxfonts}'
-    
+      # preamble: '\usepackage{bm}'
+      # - '\usepackage{bm}'
+      # - '\usepackage{pxfonts}'
+      # preamble: r'''\usepackage{bm}\usepackage{pxfonts}'''   # Not sure how to add multiple things here? '-' or list style not working?
+      # preamble: '\usepackage{bm}'   # For \bm, but causes other issues? Seems to break e.g. \hat{\mathbf{\mu}}?
+    #  preamble: '\setmathfont{STIX Two Math}'  # Testing per bold with hat, https://tex.stackexchange.com/questions/381604/bold-math-with-hat FAILS
+    # preamble: '\usepackage{unicode-math}'   # Already set by JupyterBook - not sure if this is causing issues...
+    # preamble: '\usepackage{pxfonts}'
+      # preamble: '\usepackage{amsfonts}'
+
     #*** MyST-NB settings
     # Merge stdout streams, https://myst-nb.readthedocs.io/en/latest/render/format_code_cells.html#group-into-single-streams
     nb_merge_streams: True
