@@ -1,0 +1,94 @@
+# GH action to build Jupyter Book HTML and deploy
+# Source: https://jupyterbook.org/en/stable/publish/gh-pages.html#automatically-host-your-book-with-github-actions
+
+name: deploy
+
+on:
+  # Trigger the workflow on push to main branch
+  push:
+    branches:
+      - main
+
+# This job installs dependencies, build the book, and pushes it to `gh-pages`
+jobs:
+  build-and-deploy-book:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python-version: [3.8]
+    steps:
+    - uses: actions/checkout@v2
+
+    # Install dependencies
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    # Build the book
+    - name: Build the book
+      run: |
+        jupyter-book build doc-source
+
+    # Deploy the book's HTML to gh-pages branch
+    - name: GitHub Pages action
+      uses: peaceiris/actions-gh-pages@v3.6.1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: doc-source/_build/html
+
+    # 22/11/22 removed PDF build for now, requires full NB rerun.
+    # # Additional steps for PDF build, as per https://github.com/executablebooks/meta/discussions/124
+    # # Thanks to @ratnanil
+    # # 07/11/22 - added additional tex tools as per https://jupyterbook.org/en/stable/advanced/pdf.html#pdf-latex
+    # # Install the latex things to create the pdf
+    # - name: install latex dependencies
+    #   run: |
+    #     sudo apt-get install texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra latexmk
+    #     sudo apt-get install texlive-fonts-extra texlive-xetex
+    #
+    # # Create the pdf version of the book
+    # - name: Build the pdf book
+    #   run: |
+    #     jupyter-book build doc-source --builder pdflatex
+    #
+    # #*** Add PDF to main branch and commit
+    # # # This next step moves, renames and commits the created pdf
+    # # - name: Commit and rename pdf
+    # #   run: |
+    # #     mkdir -p ${{ github.workspace }}/latestBuild
+    # #     mv doc-source/_build/latex/QM3.pdf ${{ github.workspace }}/latestBuild
+    # #     git config --local user.email "action@github.com"
+    # #     git config --local user.name "GitHub Action"
+    # #     git add ${{ github.workspace }}/latestBuild
+    # #     git commit -m "Updated PDF version of the book"
+    # # - name: Push changes
+    # #   uses: ad-m/github-push-action@master
+    # #   with:
+    # #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #
+    #
+    # #*** Push PDF to gh-pages publish branch
+    # # Move and rename - can't specify single file to gh-pages action below
+    # # mv doc-source/_build/latex/QM3.tex ${{ github.workspace }}/latestBuild
+    # # mv doc-source/_build/latex/QM3.pdf ${{ github.workspace }}/latestBuild
+    # # NOW set for full tex output (but not build files)
+    # - name: Commit and rename pdf
+    #   run: |
+    #     mkdir -p ${{ github.workspace }}/latestBuild
+    #     mv doc-source/_build/latex/QM3.* ${{ github.workspace }}/latestBuild
+    #
+    # # gh-pages deploy
+    # # For options: https://github.com/peaceiris/actions-gh-pages
+    # # Deploy the book's HTML to gh-pages branch
+    # - name: GitHub Pages add PDF
+    #   uses: peaceiris/actions-gh-pages@v3
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     publish_dir: latestBuild
+    #     destination_dir: latestBuild
+    #     keep_files: true
