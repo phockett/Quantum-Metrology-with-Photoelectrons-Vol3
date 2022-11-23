@@ -11,5 +11,5 @@ BASEPATH="${1:-/home/jovyan/QM3}"
 
 cd $BASEPATH
 
-echo Deploying to GH pages from $BASEPATH/doc-source/_build/html
-ghp-import -n -p -f doc-source/_build/html
+echo Deploying to GH pages from $BASEPATH/_latest_build/html
+ghp-import -n -p -f _latest_build/html

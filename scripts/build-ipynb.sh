@@ -29,7 +29,7 @@ rm $BUILDSOURCE/doc-source/**/*.md
 
 # *** Build HTML
 export BUILDENV=html
-jupyter-book build doc-source/
+jupyter-book build $BUILDSOURCE/doc-source/
 unset BUILDENV
 
 # *** Build PDF
