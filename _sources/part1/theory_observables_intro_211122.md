@@ -12,6 +12,20 @@ kernelspec:
   name: python3
 ---
 
++++ {"tags": ["remove-cell"]}
+
+Theory section on observables
+
+- 22/11/22 Basics in place, including numerical examples for Ylm and Xlm cases. gluePlotly() now in place for HTML or PDF builds (although latter may need forced reexecution). May still need some work in general. 
+
+TODO
+
+- Add note on real harmonics? May be useful for later.
+- Code cell tidy-up.
+- Plotly or Panel rendering options? Currently a bit squished in HTML output (borders/subplot layout issue?).
+
++++
+
 (sect:theory:observables)=
 # Observables: photoelectron flux in the LF and MF
 
@@ -135,7 +149,7 @@ In general, these observables may also be dependent on various other parameters;
 (sec:theory:sym-harm-into)=
 ## Symmetrized harmonics
 
-Symmetrized (or generalised) harmonics, which essentially provide correctly symmetrized expansions of spherical harmonics ($Y_{lm}$) functions for a given irreducible representation, $\Gamma$, can be defined by linear combinations of spherical harmonics (Refs. {cite}`Altmann1963,Altmann1965,Chandra1987` as below):
+Symmetrized (or generalised) harmonics, which essentially provide correctly symmetrized expansions of spherical harmonics ($Y_{lm}$) functions for a given irreducible representation, $\Gamma$, can be defined by linear combinations of spherical harmonics (Refs. {cite}`Altmann1963a,Altmann1965,Chandra1987` as below):
 
 \begin{equation}
 X_{hl}^{\Gamma\mu*}(\theta,\phi)=\sum_{\lambda}b_{hl\lambda}^{\Gamma\mu}Y_{l,\lambda}(\theta,\phi)\label{eq:symm-harmonics}
@@ -233,3 +247,7 @@ $$\hat{\Gamma}(\boldsymbol{\mathbf{E}}) = \hat{\mathbf{\mu}}.\boldsymbol{\mathbf
 
 $$\Psi_\mathbf{k}(\bm{r})\equiv\left<\bm{r}|\mathbf{k}\right> = \sum_{lm}Y_{lm}(\mathbf{\hat{k}})\psi_{lm}(\bm{r},k)
 \label{eq:elwf}$$
+
+```{code-cell} ipython3
+
+```

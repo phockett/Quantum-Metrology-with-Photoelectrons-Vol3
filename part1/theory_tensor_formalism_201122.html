@@ -51,9 +51,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bibliography" href="../backmatter/bibliography.html" />
+    <link rel="next" title="3.4. Information content" href="theory_info_content_221122.html" />
     <link rel="prev" title="3.2. Photoionization dynamics" href="theory_photoionization_dynamics_191122.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -167,6 +169,11 @@ const thebe_selector_output = ".output, .cell_output"
      3.3. Tensor formulation of photoionization
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="theory_info_content_221122.html">
+     3.4. Information content
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -179,6 +186,18 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../backmatter/bibliography.html">
    Bibliography
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Test pages
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tests/build_versions_checks.html">
+   Build versions and config tests
   </a>
  </li>
 </ul>
@@ -404,29 +423,19 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   3.3. Tensor formulation of photoionization
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#channel-functions">
-   3.4. Channel functions
+   3.3.1. Channel functions
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#density-matrix-representation">
-   3.5. Density matrix representation
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#full-tensor-expansion">
-   3.6. Full tensor expansion
+   3.3.2. Full tensor expansion
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#information-content">
-   3.7. Information content
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#density-matrix-representation">
+   3.3.3. Density matrix representation
   </a>
  </li>
 </ul>
@@ -448,29 +457,19 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   3.3. Tensor formulation of photoionization
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#channel-functions">
-   3.4. Channel functions
+   3.3.1. Channel functions
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#density-matrix-representation">
-   3.5. Density matrix representation
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#full-tensor-expansion">
-   3.6. Full tensor expansion
+   3.3.2. Full tensor expansion
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#information-content">
-   3.7. Information content
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#density-matrix-representation">
+   3.3.3. Density matrix representation
   </a>
  </li>
 </ul>
@@ -485,18 +484,95 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="tensor-formulation-of-photoionization">
 <span id="sec-tensor-formulation"></span><h1><span class="section-number">3.3. </span>Tensor formulation of photoionization<a class="headerlink" href="#tensor-formulation-of-photoionization" title="Permalink to this headline">#</a></h1>
+<p>A number of authors have treated MFPADs and related problems [REFS];</p>
+<p>herein, a geometric tensor based formalism is developed, which is close in spirit to the
+treatments given by Underwood and co-workers <span id="id1">[<a class="reference internal" href="../backmatter/bibliography.html#id742" title="Albert Stolow and Jonathan G. Underwood. Time-Resolved Photoelectron Spectroscopy of Non-Adiabatic Dynamics in Polyatomic Molecules. In Stuart A. Rice, editor, Advances in Chemical Physics, volume 139, pages 497–584. John Wiley &amp; Sons, Inc., Hoboken, NJ, USA, March 2008. doi:10.1002/9780470259498.ch6.">37</a>, <a class="reference internal" href="../backmatter/bibliography.html#id684" title="Katharine L. Reid and Jonathan G. Underwood. Extracting molecular axis alignment from photoelectron angular distributions. The Journal of Chemical Physics, 112(8):3643, 2000. doi:10.1063/1.480517.">38</a>, <a class="reference internal" href="../backmatter/bibliography.html#id771" title="Jonathan G. Underwood and Katharine L. Reid. Time-resolved photoelectron angular distributions as a probe of intramolecular dynamics: Connecting the molecular frame and the laboratory frame. The Journal of Chemical Physics, 113(3):1067, 2000. doi:10.1063/1.481918.">39</a>]</span>, but further separates various sets of physical parameters into dedicated tensors; this allows for a unified theoretical and numerical treatment, where the latter computes properties as tensor variables which can be further manipulated and investigated. Furthermore, the tensors can readily be converted to a density matrix representation <span id="id2">[<a class="reference internal" href="../backmatter/bibliography.html#id810" title="Richard N Zare. Angular Momentum: Understanding Spatial Aspects in Chemistry and Physics. John Wiley &amp; Sons, 1988.">32</a>, <a class="reference internal" href="../backmatter/bibliography.html#id437" title="Karl Blum. Density Matrix Theory and Applications. Volume 64. Springer Berlin Heidelberg, Berlin, Heidelberg, 3rd editio edition, 2012. ISBN 978-3-642-20560-6. doi:10.1007/978-3-642-20561-3.">40</a>]</span>, which is more natural for some quantities, and also emphasizes the link to quantum state tomography and other quantum information techniques. Much of the theoretical background, as well as application to aspects of the current problem, can be found in the textbooks of Blum <span id="id3">[<a class="reference internal" href="../backmatter/bibliography.html#id437" title="Karl Blum. Density Matrix Theory and Applications. Volume 64. Springer Berlin Heidelberg, Berlin, Heidelberg, 3rd editio edition, 2012. ISBN 978-3-642-20560-6. doi:10.1007/978-3-642-20561-3.">40</a>]</span>
+and Zare <span id="id4">[<a class="reference internal" href="../backmatter/bibliography.html#id810" title="Richard N Zare. Angular Momentum: Understanding Spatial Aspects in Chemistry and Physics. John Wiley &amp; Sons, 1988.">32</a>]</span>.</p>
+<p>Within this treatment, the observables can be defined in a series of simplified forms, emphasizing the quantities of interest for a given problem. Some details are defined in the following subsections,</p>
+<section id="channel-functions">
+<span id="sec-channel-funcs"></span><h2><span class="section-number">3.3.1. </span>Channel functions<a class="headerlink" href="#channel-functions" title="Permalink to this headline">#</a></h2>
+<p>A simple form of the equations, amenable to fitting, is to write the observables in terms of “channel functions”, which define the ionization continuum for a given case and set of parameters <span class="math notranslate nohighlight">\(u\)</span> (e.g. defined for the MF, or defined for a specific experimental configuration),</p>
+<div class="math notranslate nohighlight" id="equation-eqn-channel-fns">
+<span class="eqno">(3.10)<a class="headerlink" href="#equation-eqn-channel-fns" title="Permalink to this equation">#</a></span>\[\beta_{L,M}^{u}=\sum_{\zeta,\zeta'}\varUpsilon_{L,M}^{u,\zeta\zeta'}\mathbb{I}^{\zeta\zeta'}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\zeta,\zeta'\)</span> collect all the required quantum numbers, and
+define all (coherent) pairs of components. The term
+<span class="math notranslate nohighlight">\(\mathbb{I}^{\zeta\zeta'}\)</span> denotes the coherent square of the ionization
+matrix elements:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-i-zeta">
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-eqn-i-zeta" title="Permalink to this equation">#</a></span>\[\mathbb{I}^{\zeta,\zeta}=I^{\zeta}(\epsilon)I^{\zeta'*}(\epsilon)
+\]</div>
+<p>This is effectively a convolution equation (cf. refs. <span id="id5">[<a class="reference internal" href="../backmatter/bibliography.html#id684" title="Katharine L. Reid and Jonathan G. Underwood. Extracting molecular axis alignment from photoelectron angular distributions. The Journal of Chemical Physics, 112(8):3643, 2000. doi:10.1063/1.480517.">38</a>, <a class="reference internal" href="../backmatter/bibliography.html#id525" title="Margaret Gregory, Paul Hockett, Albert Stolow, and Varun Makhija. Towards molecular frame photoelectron angular distributions in polyatomic molecules from lab frame coherent rotational wavepacket evolution. Journal of Physics B: Atomic, Molecular and Optical Physics, 54(14):145601, July 2021. arXiv:2012.04561, doi:10.1088/1361-6455/ac135f.">41</a>]</span>) with channel functions, for a given “experiment” <span class="math notranslate nohighlight">\(u\)</span>, summed over all terms <span class="math notranslate nohighlight">\(\zeta,\zeta'\)</span>. Aside from the change in notation (which is here chosen to match the formalism of Refs. <span id="id6">[<a class="reference internal" href="../backmatter/bibliography.html#id627" title="Robert R. Lucchese, Kazuo Takatsuka, and Vincent McKoy. Applications of the Schwinger variational principle to electron-molecule collisions and molecular photoionization. Physics Reports, 131(3):147–221, January 1986. doi:10.1016/0370-1573(86)90147-X.">8</a>, <a class="reference internal" href="../backmatter/bibliography.html#id518" title="F. A. Gianturco, R. R. Lucchese, and N. Sanna. Calculation of low-energy elastic cross sections for electron-CF4 scattering. The Journal of Chemical Physics, 100(9):6464, May 1994. doi:10.1063/1.467237.">9</a>, <a class="reference internal" href="../backmatter/bibliography.html#id658" title="Alexandra P P Natalense and Robert R Lucchese. Cross section and asymmetry parameter calculation for sulfur 1s photoionization of SF[sub 6]. The Journal of Chemical Physics, 111(12):5344, 1999. doi:10.1063/1.479794.">10</a>]</span>),</p>
+<p>these matrix elements are essentially identical to the simplified (radial) forms
+<span class="math notranslate nohighlight">\(\mathbf{r}_{k,l,m}\)</span> defined in Eqn. <a class="reference internal" href="theory_photoionization_dynamics_191122.html#equation-eq-r-kllam">(3.8)</a>, in the case where <span class="math notranslate nohighlight">\(\zeta=k,l,m\)</span>. These complex matrix elements can also be equivalently defined in a magnitude, phase
+form:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-i-zeta-mag-phase">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-eqn-i-zeta-mag-phase" title="Permalink to this equation">#</a></span>\[I^{\zeta}(\epsilon)\equiv\mathbf{r}_{\zeta}\equiv r_{\zeta}e^{i\phi_{\zeta}}\]</div>
+<p>This tensorial form is numerically implemented in the <a class="reference external" href="https://github.com/phockett/ePSproc">ePSproc</a> <span id="id7">[<a class="reference internal" href="../backmatter/bibliography.html#id500" title="Paul Hockett. ePSproc: Post-processing for ePolyScat (Github repository). Github, 2016. doi:10.6084/m9.figshare.3545639.">6</a>]</span> codebase, and is in contradistinction to standard numerical routines in which the requisite terms are usually computed from vectorial and/or nested summations, which can be somewhat opaque to
+detailed interpretation, and typically implement the full computation of the observables in one monolithic computational routine. The <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id8">[<a class="reference internal" href="../backmatter/bibliography.html#id564" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">3</a>]</span> codebase implements matrix element retrieval based on the tensor formalism, with pre-computation of all the geometric tensor components (channel functions) prior to a fitting protocol for matrix element analysis, essentially a fit to Eqn. <a class="reference internal" href="#equation-eqn-channel-fns">(3.10)</a>, with terms <span class="math notranslate nohighlight">\(I^{\zeta}(\epsilon)\)</span> as the unknowns (in magnitude, phase form per <a class="reference internal" href="#equation-eqn-i-zeta-mag-phase">(3.12)</a>). The main computational cost of a tensor-based approach is that more RAM is required to store the full set of tensor variables; however, the method is computationally efficient since it is inherently parallel (as compared to a traditional, serial loop-based solution), hence may lead to significantly faster evaluation of observables. Furthermore, the method allows for the computational routines to match the formalism quite closely, and investigation of the properties of the channel functions for a given problem in general terms, as well as for specific experimental cases.</p>
+<p>TODO: numerical examples here or below.
+TODO: benchmarks, or link to them (see test fitting notebooks…?).</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="channel-functions">
-<span id="sec-channel-funcs"></span><h1><span class="section-number">3.4. </span>Channel functions<a class="headerlink" href="#channel-functions" title="Permalink to this headline">#</a></h1>
+<section id="full-tensor-expansion">
+<span id="sec-full-tensor-expansion"></span><h2><span class="section-number">3.3.2. </span>Full tensor expansion<a class="headerlink" href="#full-tensor-expansion" title="Permalink to this headline">#</a></h2>
+<p>In more detail, the channel functions can be given as a set of tensors, defining each aspect of the problem.</p>
+<p>For the MF:</p>
+<div class="math notranslate nohighlight" id="equation-eq-blm-tensor-mf">
+<span class="eqno">(3.13)<a class="headerlink" href="#equation-eq-blm-tensor-mf" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+\beta_{L,-M}^{\mu_{i},\mu_{f}}(\epsilon) &amp; = &amp; (-1)^{M}\sum_{P,R',R}(2P+1)^{\frac{1}{2}}{E_{P-R}(\hat{e};\mu_{0})}\\
+ &amp; \times &amp;\sum_{l,m,\mu}\sum_{l',m',\mu'}(-1)^{(\mu'-\mu_{0})}{\Lambda_{R',R}(R_{\hat{n}};\mu,P,R,R')B_{L,-M}(l,l',m,m')}\\
+ &amp; \times &amp; I_{l,m,\mu}^{p_{i}\mu_{i},p_{f}\mu_{f}}(\epsilon)I_{l',m',\mu'}^{p_{i}\mu_{i},p_{f}\mu_{f}*}(\epsilon)\end{aligned}\end{split}\]</div>
+<p>And the LF/AF as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-blm-tensor-af">
+<span class="eqno">(3.14)<a class="headerlink" href="#equation-eq-blm-tensor-af" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+\bar{\beta}_{L,-M}^{\mu_{i},\mu_{f}}(E,t) &amp; = &amp; (-1)^{M}\sum_{P,R',R}{[P]^{\frac{1}{2}}}{E_{P-R}(\hat{e};\mu_{0})}\\
+ &amp; \times &amp;\sum_{l,m,\mu}\sum_{l',m',\mu'}(-1)^{(\mu'-\mu_{0})}{\Lambda_{R'}(\mu,P,R')B_{L,S-R'}(l,l',m,m')}\\
+ &amp; \times &amp;I_{l,m,\mu}^{p_{i}\mu_{i},p_{f}\mu_{f}}(\epsilon)I_{l',m',\mu'}^{p_{i}\mu_{i},p_{f}\mu_{f}*}(\epsilon)\sum_{K,Q,S}\Delta_{L,M}(K,Q,S)A_{Q,S}^{K}(t)\end{aligned}\end{split}\]</div>
+<p>In both cases a set of geometric tensor terms are required,</p>
+<p>these terms provide details of:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\({E_{P-R}(\hat{e};\mu_{0})}\)</span>: polarization geometry &amp; coupling with
+the electric field.</p></li>
+<li><p><span class="math notranslate nohighlight">\(B_{L,S-R'}(l,l',m,m')\)</span>: geometric coupling of the partial waves
+into the <span class="math notranslate nohighlight">\(\beta_{L,M}\)</span> terms (spherical tensors).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Lambda_{R'}(\mu,P,R')\)</span>: frame couplings and rotations.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta_{L,M}(K,Q,S)\)</span>: alignment frame coupling.</p></li>
+<li><p><span class="math notranslate nohighlight">\(A_{Q,S}^{K}(t)\)</span>: ensemble alignment described as a set of axis
+distribution moments (ADMs).</p></li>
+</ul>
+<p>And <span class="math notranslate nohighlight">\(I_{l,m,\mu}^{p_{i}\mu_{i},p_{f}\mu_{f}}(\epsilon)\)</span> are the (radial)
+dipole ionization matrix elements, as a function of energy <span class="math notranslate nohighlight">\(\epsilon\)</span>.
+These matrix elements are essentially identical to the simplified forms
+<span class="math notranslate nohighlight">\(r_{k,l,m}\)</span> defined in Eqn. <a class="reference internal" href="theory_photoionization_dynamics_191122.html#equation-eq-r-kllam">(3.8)</a>, except with additional indices to label
+symmetry and polarization components defined by a set of partial-waves
+<span class="math notranslate nohighlight">\(\{l,m\}\)</span>, for polarization component <span class="math notranslate nohighlight">\(\mu\)</span> (denoting the photon angular
+momentum components) and channels (symmetries) labelled by initial and
+final state indexes <span class="math notranslate nohighlight">\({p_{i}\mu_{i},p_{f}\mu_{f}}\)</span>. The notation here
+follows that used by <a class="reference external" href="https://epolyscat.droppages.com/">ePolyScat (ePS)</a> <span id="id9">[<a class="reference internal" href="../backmatter/bibliography.html#id627" title="Robert R. Lucchese, Kazuo Takatsuka, and Vincent McKoy. Applications of the Schwinger variational principle to electron-molecule collisions and molecular photoionization. Physics Reports, 131(3):147–221, January 1986. doi:10.1016/0370-1573(86)90147-X.">8</a>, <a class="reference internal" href="../backmatter/bibliography.html#id518" title="F. A. Gianturco, R. R. Lucchese, and N. Sanna. Calculation of low-energy elastic cross sections for electron-CF4 scattering. The Journal of Chemical Physics, 100(9):6464, May 1994. doi:10.1063/1.467237.">9</a>, <a class="reference internal" href="../backmatter/bibliography.html#id658" title="Alexandra P P Natalense and Robert R Lucchese. Cross section and asymmetry parameter calculation for sulfur 1s photoionization of SF[sub 6]. The Journal of Chemical Physics, 111(12):5344, 1999. doi:10.1063/1.479794.">10</a>, <a class="reference internal" href="../backmatter/bibliography.html#id630" title="R R Lucchese. ePolyScat User's Manual. URL: https://epolyscat.droppages.com/ (visited on 2022-04-26).">11</a>]</span>, and these matrix elements again represent the quantities to be obtained numerically from data analysis, or from an <a class="reference external" href="https://epsproc.readthedocs.io/en/latest/ePS_ePSproc_tutorial/ePS_tutorial_080520.html#Theoretical-background">ePolyScat (or similar) calculation</a>.</p>
+<p>[Numerical example here, or already included above somewhere]</p>
+<p>Note that, in this case as given, time-dependence arises purely from the
+<span class="math notranslate nohighlight">\(A_{Q,S}^{K}(t)\)</span> terms in the AF case, and the electric field term
+currently describes only the photon angular momentum coupling, although
+can in principle also describe time-dependent/shaped fields. Similarly,
+a time-dependent initial state (e.g. a vibrational wavepacket) could
+also describe a time-dependent MF case.</p>
+<p>It should be emphasized, however, that the underlying physical
+quantities are essentially identical in all the theoretical approaches,
+with a set of coupled angular-momenta defining the geometrical part of
+the photoionization problem, despite these differences in the details of
+the theory and notation.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="density-matrix-representation">
-<span id="sec-density-mat-basic"></span><h1><span class="section-number">3.5. </span>Density matrix representation<a class="headerlink" href="#density-matrix-representation" title="Permalink to this headline">#</a></h1>
+<section id="density-matrix-representation">
+<span id="sec-density-mat-basic"></span><h2><span class="section-number">3.3.3. </span>Density matrix representation<a class="headerlink" href="#density-matrix-representation" title="Permalink to this headline">#</a></h2>
+<p>The density operator associated with the continuum state in
+Eq. <a class="reference internal" href="theory_photoionization_dynamics_191122.html#equation-eq-continuum-state-vec">(3.3)</a> is easily written as <span class="math notranslate nohighlight">\(\hat{\rho}=|\Psi_c\rangle\langle\Psi_c|\)</span>. In the channel function basis, this leads to a density matrix given by the radial matrix
+elements:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-radial-density-mat">
+<span class="eqno">(3.15)<a class="headerlink" href="#equation-eqn-radial-density-mat" title="Permalink to this equation">#</a></span>\[\boldsymbol{\rho}^{\zeta\zeta'} = \mathbb{I}^{\zeta,\zeta'}
+\]</div>
+<p>Since the matrix elements characterise the scattering event, the density matrix provides an equivalent characterisation of the scattering event.</p>
+<p>Further discussion can also be found in the literature, see, e.g., Ref. <span id="id10">[<a class="reference internal" href="../backmatter/bibliography.html#id437" title="Karl Blum. Density Matrix Theory and Applications. Volume 64. Springer Berlin Heidelberg, Berlin, Heidelberg, 3rd editio edition, 2012. ISBN 978-3-642-20560-6. doi:10.1007/978-3-642-20561-3.">40</a>]</span> for general discussion, Ref. <span id="id11">[<a class="reference internal" href="../backmatter/bibliography.html#id680" title="Katharine L. Reid, David J. Leahy, and Richard N. Zare. Effect of breaking cylindrical symmetry on photoelectron angular distributions resulting from resonance-enhanced two-photon ionization. The Journal of Chemical Physics, 95(3):1746, 1991. doi:10.1063/1.461023.">33</a>]</span> for application in pump-probe schemes.</p>
+<p>TODO: numerical examples here</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="full-tensor-expansion">
-<span id="sec-full-tensor-expansion"></span><h1><span class="section-number">3.6. </span>Full tensor expansion<a class="headerlink" href="#full-tensor-expansion" title="Permalink to this headline">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="information-content">
-<span id="sec-info-content"></span><h1><span class="section-number">3.7. </span>Information content<a class="headerlink" href="#information-content" title="Permalink to this headline">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -533,10 +609,10 @@ title="Print to PDF"
             <p class="prev-next-title"><span class="section-number">3.2. </span>Photoionization dynamics</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../backmatter/bibliography.html" title="next page">
+    <a class='right-next' id="next-link" href="theory_info_content_221122.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bibliography</p>
+        <p class="prev-next-title"><span class="section-number">3.4. </span>Information content</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

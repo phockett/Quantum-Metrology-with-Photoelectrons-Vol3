@@ -14,6 +14,12 @@ kernelspec:
 
 +++ {"tags": ["remove-cell"]}
 
+Subsections for photoionization theory
+
+- 22/11/22 Basics in place, needs some work and numerical examples to add.
+
+---
+
 % TODO: render tests. This is working in JupyterLab on Bemo (inc. \boldsymbol). NOW fixed as per below, issues with PDF builds too.
 
 % TODO: decide on notation, and make a comment on it vs. Vol 1.
@@ -34,6 +40,7 @@ Build fixed for no `\bm` case, subs as:
 
 - \bm >> \boldsymbol, have this only for \bm{r} it seems, may want \mathrm here too? NEED TO LOOK CAREFULLY - can use former in general (scalar) case (or just plain r), latter in vector case.
 
+- \mathbf{\rho} >>> \boldsymbol{\rho} (OK in HTML, not in PDF)
 
 $$1: \hat{\Gamma}(\boldsymbol{\mathbf{E}}) = \hat{\mathbf{\mu}}.\boldsymbol{\mathbf{E}}$$
 
@@ -84,7 +91,7 @@ $$ (eq:continuum-state-vec)
 
 where the sum is over states of the molecular ion $\left|\Psi_{+}\right>$. The number of ionic states accessed depends on the nature of the ionizing pulse and interaction. For the dipolar case,
 
-$$\hat{\Gamma}(\boldsymbol{\mathbf{E}}) = \hat{\boldsymbol{\mu}}.\boldsymbol{\mathbf{E}}$$
+$$\hat{\Gamma}(\boldsymbol{\mathbf{E}}) = \hat{\boldsymbol{\mu}}.\boldsymbol{\mathbf{E}}$$ (eq:def-dipole-operator)
 
 +++
 
