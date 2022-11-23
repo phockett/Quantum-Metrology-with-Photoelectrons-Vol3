@@ -45,6 +45,7 @@ See https://jupyterbook.org/en/stable/content/references.html
    - Issue with nested docs, or just numbering? 
    - Unnested case test: {ref}`sec:intro-context` and {numref}`Sect. %s <sec:intro-context>`
    - Ah, OK - fails if nesting skips levels (although HTML render is OK). See https://jupyterbook.org/en/stable/structure/sections-headers.html#how-headers-and-sections-map-onto-to-book-structure
+- Figs, only need numref for Fig. XX style, e.g. {numref}`fig-pads-example`
 
 Note style guide uses `:` separators, these are changed to `-` in HTML output links. Shouldn't generally be a problem?
 
@@ -62,6 +63,8 @@ For global subs define in `_config.yml`. Uses Jinja on backend.
 Basic: {{ test_sub }}
 
 Sub test with URL: {{ PEMtk_repo }}
+
+Sub test with maths: {{ BLM }} (working if esc \ in maths defn).
 
 +++ {"tags": []}
 
@@ -97,6 +100,8 @@ w_{t+1} = (1 + r_{t+1}) s(w_t) + y_{t+1}
 Test blocks - here all render OK in HTML output, but link defined in latex only fails (but OK in PDF?).
 
 NOTE: **defining both latex and md label seems OK in HTML output, but fails in PDF builds - JUST USE MD STYLE**
+
+NOTE: ACCIDENTALLY defining nested maths, e.g. `$$\begin{equation}...` is OK in notebook, but produces lots of build errors, look out for  `! You can't use `\eqno' in math mode.` SHOULD ADD pre-commit Latex checks?
 
 \begin{align}
 \bar{I}(\epsilon,t,\theta,\phi)=\sum_{L=0}^{2n}\sum_{M=-L}^{L}\bar{\beta}_{L,M}(\epsilon,t)Y_{L,M}(\theta,\phi)
@@ -207,6 +212,23 @@ No `\bm` case (i.e. not set in `_config.py` for latex preamble), subs as:
 +++
 
 $$\mathbf{\hat{\mu}}$$
+
++++
+
+## Quotes
+
+In quick tests just noticed that "" seems to work fine in both HTML and Latex output - not sure why for the latter. Might be UTF8 smart-quotes in Latex? Not sure if this is good, see https://tex.stackexchange.com/questions/52351/quote-marks-are-backwards-using-texmaker-pdflatex
+
++++
+
+Tests:
+
+- "Normal quotes"
+- ``Latex style''
+- "with escape\"
+- ``Alt latex style"
+
+Looks like only normal quotes are consistent over build types. Should check in Sphinx docs?
 
 +++
 

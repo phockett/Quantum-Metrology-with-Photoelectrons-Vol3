@@ -29,6 +29,7 @@ parts:
       - file: part1/theory_photoionization_dynamics_191122
       - file: part1/theory_tensor_formalism_201122
       - file: part1/theory_info_content_221122
+    - file: part1/numerics_231122
       
     # - file: part1/theory_101122-Render-debug
     # - file: part1/theory_101122-RenderTests-glue2_171122
@@ -41,10 +42,11 @@ parts:
   - caption: Backmatter
     chapters:
     - file: backmatter/bibliography   # Include this for full book bib
+    - file: backmatter/glossary   # Include this for full book bib
   
   - caption: Test pages      
     chapters:
-  #   - file: tests/formatting_syntax_tests_081122
+    # - file: tests/formatting_syntax_tests_081122
   #   - file: tests/plotly_surface_render_test
     # - file: tests/plotly_pdf_export_test_181122
   #   - file: tests/pad_plot_tests_101122

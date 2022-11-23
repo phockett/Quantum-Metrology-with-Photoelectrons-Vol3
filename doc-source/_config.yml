@@ -17,7 +17,7 @@ only_build_toc_files        : true  # Skip processing all other files, e.g. back
 # For builds with old test docs also need to leave off, otherwise likely get build errors!
 # 10/11/22: NOTE for docs with .md and .ipynb versions, only former seems to be used UNLESS execute is on (even if file ending included in ToC) - seems odd?
 execute:
-  execute_notebooks: auto
+  execute_notebooks: force
   
 # exclude_patterns: [part1/*.md]   # This also doesn't work for skipping .md versions.
 
@@ -75,12 +75,18 @@ sphinx:
       # preamble: '\usepackage{bm}'
       # - '\usepackage{bm}'
       # - '\usepackage{pxfonts}'
-      # preamble: r'''\usepackage{bm}\usepackage{pxfonts}'''   # Not sure how to add multiple things here? '-' or list style not working?
+      # preamble: r'''\usepackage{bm}\usepackage{pxfonts}'''   # Not sure how to add multiple things here? '-' or list style not working? SEE https://github.com/executablebooks/jupyter-book/issues/1553#issuecomment-998822118
       # preamble: '\usepackage{bm}'   # For \bm, but causes other issues? Seems to break e.g. \hat{\mathbf{\mu}}?
     #  preamble: '\setmathfont{STIX Two Math}'  # Testing per bold with hat, https://tex.stackexchange.com/questions/381604/bold-math-with-hat FAILS
     # preamble: '\usepackage{unicode-math}'   # Already set by JupyterBook - not sure if this is causing issues...
     # preamble: '\usepackage{pxfonts}'
       # preamble: '\usepackage{amsfonts}'
+      
+    # For PD fixes, see https://github.com/executablebooks/jupyter-book/issues/1553#issuecomment-998822118
+      # preamble: |+
+      #   \usepackage{xcolor}
+      #   \usepackage{booktabs}
+      #   \usepackage{multirow}
 
     #*** MyST-NB settings
     # Merge stdout streams, https://myst-nb.readthedocs.io/en/latest/render/format_code_cells.html#group-into-single-streams
@@ -115,7 +121,7 @@ parse:
   # Not currently working? URLs break build, and basic not working either?
   # UPDATE: fixed by (a) adding substitution to list above (seems to OVERWRITE defaults) and (b) "" for links/active text (otherwise get build syntax errors), seems to render OK.
   myst_substitutions:
-    test_sub: "Something"
+    # Ref sets
     QM1: "_Quantum Metrology_ Vol. 1 {cite}`hockett2018QMP1`"
     QM2: "_Quantum Metrology_ Vol. 2 {cite}`hockett2018QMP2`"
     QM12: "_Quantum Metrology_ Vols. 1 & 2 {cite}`hockett2018QMP1, hockett2018QMP2`"
@@ -132,11 +138,18 @@ parse:
     ePS_manual: "[ePolyScat website and manual](https://epolyscat.droppages.com/) {cite}`luccheseEPolyScatUserManual`"
     ePS_full: "[ePolyScat (ePS)](https://epolyscat.droppages.com/) {cite}`Lucchese1986,Gianturco1994,Natalense1999,luccheseEPolyScatUserManual`"
     libmsym: "[libmsym](https://github.com/mcodev31/libmsym) {cite}`johansson2017AutomaticProcedureGeneratinga,johansson2022LibmsymGithub`"
-    shtools: "[pySHtools](https://shtools.oca.eu) {cite}`SHtoolsGithub, wieczorek2018SHToolsToolsWorking`"
+    shtools: "[pySHtools](https://shtools.oca.eu) {cite}`SHtoolsGithub, wieczorek2018SHToolsToolsWorking`"   
     
-  # substitutions:
-  #   book_repo: [Quantum Metrology Vol. 3](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3)
-  #   PEMtk_repo: [Photoelectron Metrology Toolkit](https://github.com/phockett/PEMtk){cite}`hockett2021PEMtkGithub`
+    # Glossary terms
+    MF: "{term}`MF`"
+    LF: "{term}`LF`"
+    AF: "{term}`AF`"
+    PADs: "{term}`PADs`"
+    betas: "{term}`anisotropy paramters`"
+    
+    # Maths shorthand
+    # BLM: "$\beta_{L,M}$"  # This fails, seems to cut eqn, maybe drops first $?
+    BLM: "$\\beta_{L,M}$"   # This works, note esc for \ IN MATHS seems required.
     
     
 # Global substitutions, see https://jupyterbook.org/en/stable/content/content-blocks.html?highlight=substitutions#define-substitutions-for-your-whole-book
