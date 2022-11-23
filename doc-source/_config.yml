@@ -17,7 +17,7 @@ only_build_toc_files        : true  # Skip processing all other files, e.g. back
 # For builds with old test docs also need to leave off, otherwise likely get build errors!
 # 10/11/22: NOTE for docs with .md and .ipynb versions, only former seems to be used UNLESS execute is on (even if file ending included in ToC) - seems odd?
 execute:
-  execute_notebooks: force
+  execute_notebooks: auto
   
 # exclude_patterns: [part1/*.md]   # This also doesn't work for skipping .md versions.
 
@@ -131,7 +131,7 @@ parse:
     open_photo_stacks_repo: "[Open Photoionization Docker Stacks](https://github.com/phockett/open-photoionization-docker-stacks) {cite}`hockettOpenPhotoionizationDocker`"
     ePS_manual: "[ePolyScat website and manual](https://epolyscat.droppages.com/) {cite}`luccheseEPolyScatUserManual`"
     ePS_full: "[ePolyScat (ePS)](https://epolyscat.droppages.com/) {cite}`Lucchese1986,Gianturco1994,Natalense1999,luccheseEPolyScatUserManual`"
-    libmsym: "[libmsym](https://github.com/mcodev31/libmsym) {cite}`Johansson2017,johansson2022LibmsymGithub`"
+    libmsym: "[libmsym](https://github.com/mcodev31/libmsym) {cite}`johansson2017AutomaticProcedureGeneratinga,johansson2022LibmsymGithub`"
     shtools: "[pySHtools](https://shtools.oca.eu) {cite}`SHtoolsGithub, wieczorek2018SHToolsToolsWorking`"
     
   # substitutions:
