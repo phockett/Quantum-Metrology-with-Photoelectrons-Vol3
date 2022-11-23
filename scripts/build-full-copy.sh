@@ -83,5 +83,6 @@ cp $BUILDDIR/$SOURCE/_build/latex/QM3.pdf $REFDIRHTML/pdf
 
 unset BUILDENV
 
-echo "TODO: config GH actions for deploy from this dir."
-echo "   To deploy manually, run './scripts/deploy_ghpages-latest.sh .'"
+echo "TODO: tidy up and config GH actions for deploy from this dir."
+echo "TODO: Output logs to file."
+echo "***   To deploy manually, run './scripts/deploy_ghpages-latest.sh .'"
