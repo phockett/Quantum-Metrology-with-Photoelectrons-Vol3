@@ -176,6 +176,11 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numerics_231122.html">
+   4. Numerical implementation
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -186,6 +191,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../backmatter/bibliography.html">
    Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../backmatter/glossary.html">
+   Glossary
   </a>
  </li>
 </ul>
@@ -429,31 +439,30 @@ title="Print to PDF"
 <span id="sec-dynamics-intro"></span><h1><span class="section-number">3.2. </span>Photoionization dynamics<a class="headerlink" href="#photoionization-dynamics" title="Permalink to this headline">#</a></h1>
 <p>The core physics of photoionization has been covered extensively in the literature, and only a very brief overview is provided here with sufficient detail to introduce the metrology/reconstruction/retrieval problem; the reader is referred to Vol. 1 <span id="id1">[<a class="reference internal" href="../backmatter/bibliography.html#id559" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. doi:10.1088/978-1-6817-4684-5.">1</a>]</span> (and refs. therein) for further details and general discussion.</p>
 <p>Photoionization can be described by the coupling of an initial state of the system to a particular final state (photoion(s) plus free photoelectron(s)), coupled by an electric field/photon. Very generically, this can be written as a matrix element <span class="math notranslate nohighlight">\(\langle\Psi_i|\hat{\Gamma}(\boldsymbol{\mathbf{E}})|\Psi_f\rangle\)</span>, where <span class="math notranslate nohighlight">\(\hat{\Gamma}(\boldsymbol{\mathbf{E}})\)</span> defines the light-matter coupling operator (depending on the electric field <span class="math notranslate nohighlight">\(\boldsymbol{\mathbf{E}}\)</span>), and <span class="math notranslate nohighlight">\(\Psi_i\)</span>, <span class="math notranslate nohighlight">\(\Psi_f\)</span> the total wavefunctions of the initial and final states respectively.</p>
-<p>There are many flavours of this fundamental light-matter interaction, depending on system and coupling. For metrology, the focus is currently on the simplest case of single-photon absorption, in the weak field (or purturbative), dipolar regime, resulting in a single photoelectron. (For
-more discussion of various approximations in photoionzation, see Refs. <span id="id2">[<a class="reference internal" href="../backmatter/bibliography.html#id722" title="Tamar Seideman. Time-resolved photoelectron angular distributions: concepts, applications, and directions. Annual review of physical chemistry, 53:41–65, January 2002. doi:10.1146/annurev.physchem.53.082101.130051.">29</a>, <a class="reference internal" href="../backmatter/bibliography.html#id721" title="Tamar Seideman. Time-resolved photoelectron angular distributions as a probe of coupled polyatomic dynamics. Physical Review A, 64(4):042504, September 2001. doi:10.1103/PhysRevA.64.042504.">30</a>]</span>.) In this case the core physics is well defined, and tractable (albeit non-trivial), via the separation of matrix elements into radial (energy) and angular-momentum (geometric) terms pertaining to couplings between various elements of the problem; the retrieval of such matrix elements is a well-defined problem, making use of analytic terms in combination with fitting methodologies as explored herein. Again, more extensive background and discussion can be found in <em>Quantum Metrology</em> Vol. 1 <span id="id3">[<a class="reference internal" href="../backmatter/bibliography.html#id559" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. doi:10.1088/978-1-6817-4684-5.">1</a>]</span>, and references therein. [Add some more refs here?]</p>
-<p>The basic case also provides a strong foundation for extension into more complex light-matter interactions, in particular cases with shaped laser-fields (i.e. a time-dependent coupling <span class="math notranslate nohighlight">\(\hat{\Gamma}(\boldsymbol{\mathbf{E,t}})\)</span>) and multi-photon processes (which require multiple matrix elements). Note, however, that non-perturbative (strong field) light-matter interactions are, typically, not amenable to description in a separable picture in this manner. In such cases the laser field, molecular and continuum properties are strongly coupled, and are typically treated numerically in a fully time-dependent manner (although some separation of terms may work in some cases).</p>
+<p>There are many flavours of this fundamental light-matter interaction, depending on system and coupling. For metrology, the focus is currently on the simplest case of single-photon absorption, in the weak field (or purturbative), dipolar regime, resulting in a single photoelectron. (For more discussion of various approximations in photoionzation, see Refs. <span id="id2">[<a class="reference internal" href="../backmatter/bibliography.html#id722" title="Tamar Seideman. Time-resolved photoelectron angular distributions: concepts, applications, and directions. Annual review of physical chemistry, 53:41–65, January 2002. doi:10.1146/annurev.physchem.53.082101.130051.">29</a>, <a class="reference internal" href="../backmatter/bibliography.html#id721" title="Tamar Seideman. Time-resolved photoelectron angular distributions as a probe of coupled polyatomic dynamics. Physical Review A, 64(4):042504, September 2001. doi:10.1103/PhysRevA.64.042504.">30</a>]</span>.) In this case the core physics is well defined, and tractable (albeit non-trivial), via the separation of matrix elements into radial (energy) and angular-momentum (geometric) terms pertaining to couplings between various elements of the problem; the retrieval of such matrix elements is a well-defined problem, making use of analytic terms in combination with fitting methodologies as explored herein. Again, more extensive background and discussion can be found in <em>Quantum Metrology</em> Vol. 1 <span id="id3">[<a class="reference internal" href="../backmatter/bibliography.html#id559" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. doi:10.1088/978-1-6817-4684-5.">1</a>]</span>, and references therein. % [TODO: Add some more refs here?]</p>
+<p>The basic case also provides a strong foundation for extension into more complex light-matter interactions, in particular cases with shaped laser-fields (i.e. a time-dependent coupling <span class="math notranslate nohighlight">\(\hat{\Gamma}(\boldsymbol{\mathbf{E,t}})\)</span>) and multi-photon processes (which require multiple matrix elements, and/or different approximations). Note, however, that non-perturbative (strong field) light-matter interactions are, typically, not amenable to description in a separable picture in this manner. In such cases the laser field, molecular and continuum properties are strongly coupled, and are typically treated numerically in a fully time-dependent manner (although some separation of terms may work in some cases, depending on the system and interaction(s) at hand).</p>
 <p>Underlying the photoelecton observables is the photoelectron continuum state <span class="math notranslate nohighlight">\(\left|\mathbf{k}\right&gt;\)</span>, prepared via photoionization. The photoelectron momentum vector is denoted generally by
-<span class="math notranslate nohighlight">\(\boldsymbol{\mathbf{k}}=k\mathbf{\hat{k}}\)</span>, in the MF. The ionization matrix elements associated with this transition provide the set of quantum amplitudes completely defining the final continuum scattering state,</p>
+<span class="math notranslate nohighlight">\(\boldsymbol{\mathbf{k}}=k\mathbf{\hat{k}}\)</span>, in the molecular frame (<a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a>). The ionization matrix elements associated with this transition provide the set of quantum amplitudes completely defining the final continuum scattering state,</p>
 <div class="math notranslate nohighlight" id="equation-eq-continuum-state-vec">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-eq-continuum-state-vec" title="Permalink to this equation">#</a></span>\[\left|\Psi_f\right&gt; = \sum{\int{\left|\Psi_{+};\bf{k}\right&gt;\left&lt;\Psi_{+};\mathbf{k}|\Psi_f\right&gt; d\bf{k}}},
+<span class="eqno">(3.6)<a class="headerlink" href="#equation-eq-continuum-state-vec" title="Permalink to this equation">#</a></span>\[\left|\Psi_f\right&gt; = \sum{\int{\left|\Psi_{+};\bf{k}\right&gt;\left&lt;\Psi_{+};\mathbf{k}|\Psi_f\right&gt; d\bf{k}}},
 \]</div>
 <p>where the sum is over states of the molecular ion <span class="math notranslate nohighlight">\(\left|\Psi_{+}\right&gt;\)</span>. The number of ionic states accessed depends on the nature of the ionizing pulse and interaction. For the dipolar case,</p>
 <div class="math notranslate nohighlight" id="equation-eq-def-dipole-operator">
-<span class="eqno">(3.4)<a class="headerlink" href="#equation-eq-def-dipole-operator" title="Permalink to this equation">#</a></span>\[\hat{\Gamma}(\boldsymbol{\mathbf{E}}) = \hat{\boldsymbol{\mu}}.\boldsymbol{\mathbf{E}}\]</div>
+<span class="eqno">(3.7)<a class="headerlink" href="#equation-eq-def-dipole-operator" title="Permalink to this equation">#</a></span>\[\hat{\Gamma}(\boldsymbol{\mathbf{E}}) = \hat{\boldsymbol{\mu}}.\boldsymbol{\mathbf{E}}\]</div>
 <p>Hence,</p>
 <div class="math notranslate nohighlight" id="equation-eq-mate-dipole">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-eq-mate-dipole" title="Permalink to this equation">#</a></span>\[\left&lt;\Psi_{+};\mathbf{k}|\Psi_f\right&gt; =\langle\Psi_{+};\,\mathbf{k}|\hat{\boldsymbol{\mu}}.\boldsymbol{\mathbf{E}}|\Psi_{i}\rangle
+<span class="eqno">(3.8)<a class="headerlink" href="#equation-eq-mate-dipole" title="Permalink to this equation">#</a></span>\[\left&lt;\Psi_{+};\mathbf{k}|\Psi_f\right&gt; =\langle\Psi_{+};\,\mathbf{k}|\hat{\boldsymbol{\mu}}.\boldsymbol{\mathbf{E}}|\Psi_{i}\rangle
 \]</div>
 <p>Where the notation implies a perturbative photoionization event from an initial state <span class="math notranslate nohighlight">\(i\)</span> to a particular ion plus electron state following absorption of a photon <span class="math notranslate nohighlight">\(h\nu\)</span>, <span class="math notranslate nohighlight">\(|\Psi_{i}\rangle+h\nu{\rightarrow}|\Psi_{+};\boldsymbol{\mathbf{k}}\rangle\)</span>, and <span class="math notranslate nohighlight">\(\hat{\mu}.\boldsymbol{\mathbf{E}}\)</span> is the usual dipole interaction term <span id="id4">[<a class="reference internal" href="../backmatter/bibliography.html#id676" title="Christopher Gerry and Peter Knight. Introductory Quantum Optics. Cambridge University Press, 2005.">31</a>]</span>, which includes a sum over all electrons <span class="math notranslate nohighlight">\(s\)</span> defined in position space as <span class="math notranslate nohighlight">\(\mathbf{r_{s}}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-dipole-operator">
-<span class="eqno">(3.6)<a class="headerlink" href="#equation-eq-dipole-operator" title="Permalink to this equation">#</a></span>\[\hat{\mu}=-e\sum_{s}\mathbf{r_{s}}
+<span class="eqno">(3.9)<a class="headerlink" href="#equation-eq-dipole-operator" title="Permalink to this equation">#</a></span>\[\hat{\mu}=-e\sum_{s}\mathbf{r_{s}}
 \]</div>
 <p>The position space photoelectron wavefunction is typically expressed in
 the “partial wave” basis, expanded as (asymptotic) continuum
 eignstates of orbital angular momentum, with angular momentum components
 <span class="math notranslate nohighlight">\((l,m)\)</span> (note lower case notation for the partial wave components, distinct from upper-case for the similar terms <span class="math notranslate nohighlight">\((L,M)\)</span> in the observables),</p>
 <div class="math notranslate nohighlight" id="equation-eq-elwf">
-<span class="eqno">(3.7)<a class="headerlink" href="#equation-eq-elwf" title="Permalink to this equation">#</a></span>\[\Psi_\mathbf{k}(\boldsymbol{r})\equiv\left&lt;\boldsymbol{r}|\mathbf{k}\right&gt; = \sum_{lm}Y_{lm}(\mathbf{\hat{k}})\psi_{lm}(\boldsymbol{r},k)
+<span class="eqno">(3.10)<a class="headerlink" href="#equation-eq-elwf" title="Permalink to this equation">#</a></span>\[\Psi_\mathbf{k}(\boldsymbol{r})\equiv\left&lt;\boldsymbol{r}|\mathbf{k}\right&gt; = \sum_{lm}Y_{lm}(\mathbf{\hat{k}})\psi_{lm}(\boldsymbol{r},k)
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\boldsymbol{r}\)</span> are MF electronic coordinates and
 <span class="math notranslate nohighlight">\(Y_{lm}(\mathbf{\hat{k}})\)</span> are the spherical harmonics.</p>
@@ -463,11 +472,11 @@ geometric (angular momentum) parts (this separation is essentially the
 Wigner-Eckart Theorem, see Ref. <span id="id5">[<a class="reference internal" href="../backmatter/bibliography.html#id810" title="Richard N Zare. Angular Momentum: Understanding Spatial Aspects in Chemistry and Physics. John Wiley &amp; Sons, 1988.">32</a>]</span> for general discussion),
 and written generally as (using notation similar to <span id="id6">[<a class="reference internal" href="../backmatter/bibliography.html#id680" title="Katharine L. Reid, David J. Leahy, and Richard N. Zare. Effect of breaking cylindrical symmetry on photoelectron angular distributions resulting from resonance-enhanced two-photon ionization. The Journal of Chemical Physics, 95(3):1746, 1991. doi:10.1063/1.461023.">33</a>]</span>):</p>
 <div class="math notranslate nohighlight" id="equation-eq-r-kllam">
-<span class="eqno">(3.8)<a class="headerlink" href="#equation-eq-r-kllam" title="Permalink to this equation">#</a></span>\[\langle\Psi_{+};\,\mathbf{k}|\hat{\boldsymbol{\mu}}.\boldsymbol{\mathbf{E}}|\Psi_{i}\rangle = \sum_{lm}\gamma_{l,m}\mathbf{r}_{k,l,m}
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-eq-r-kllam" title="Permalink to this equation">#</a></span>\[\langle\Psi_{+};\,\mathbf{k}|\hat{\boldsymbol{\mu}}.\boldsymbol{\mathbf{E}}|\Psi_{i}\rangle = \sum_{lm}\gamma_{l,m}\mathbf{r}_{k,l,m}
 \]</div>
 <p>Provided that the geometric part of the matrix elements <span class="math notranslate nohighlight">\(\gamma_{l,m}\)</span> -
 which includes the geometric rotations into the LF arising from the dot
-product in Eq. <a class="reference internal" href="#equation-eq-r-kllam">(3.8)</a> and other angular-momentum coupling terms - are
+product in Eq. <a class="reference internal" href="#equation-eq-r-kllam">(3.11)</a> and other angular-momentum coupling terms - are
 know, knowledge of the so-called radial (or reduced) dipole matrix
 elements, at a given <span class="math notranslate nohighlight">\(k\)</span> thus equates to a full description of the
 system dynamics (and, hence, the observables).</p>
@@ -475,7 +484,7 @@ system dynamics (and, hence, the observables).</p>
 approximated as a 1-electron integral involving the initial electronic
 state (orbital), and final continuum photoelectron wavefunction:</p>
 <div class="math notranslate nohighlight" id="equation-eq-r-kllam-integral">
-<span class="eqno">(3.9)<a class="headerlink" href="#equation-eq-r-kllam-integral" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{k,l,m}=\int\psi_{lm}(\boldsymbol{r},k)\boldsymbol{r}\Psi_{i}(\boldsymbol{r})d\boldsymbol{r}
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-eq-r-kllam-integral" title="Permalink to this equation">#</a></span>\[\mathbf{r}_{k,l,m}=\int\psi_{lm}(\boldsymbol{r},k)\boldsymbol{r}\Psi_{i}(\boldsymbol{r})d\boldsymbol{r}
 \]</div>
 <p>As noted above, the geometric terms <span class="math notranslate nohighlight">\(\gamma_{l,m}\)</span> are analytical
 functions which can be computed for a given case - minimally requiring
@@ -486,7 +495,7 @@ can then be determined by the squared projection of
 <span class="math notranslate nohighlight">\(\left|\Psi_f\right&gt;\)</span> onto a specific state
 <span class="math notranslate nohighlight">\(\left|\Psi_{+};\bf{k}\right&gt;\)</span>,</p>
 <p>and therefore the amplitudes
-in Eq. <a class="reference internal" href="#equation-eq-r-kllam">(3.8)</a> also determine the observable anisotropy
+in Eq. <a class="reference internal" href="#equation-eq-r-kllam">(3.11)</a> also determine the observable anisotropy
 parameters <span class="math notranslate nohighlight">\(\beta_{L,M}(\epsilon,t)\)</span> (Eqn.
 <a class="reference internal" href="theory_observables_intro_211122.html#equation-eq-af-pad-general">(3.1)</a>). (Note that the photoelectron energy
 <span class="math notranslate nohighlight">\(\epsilon\)</span> and momentum <span class="math notranslate nohighlight">\(k\)</span> are used somewhat interchangeably herein,

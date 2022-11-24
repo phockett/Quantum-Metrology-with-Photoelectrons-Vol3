@@ -29,7 +29,11 @@ TODO
 (sect:theory:observables)=
 # Observables: photoelectron flux in the LF and MF
 
-The observables of interest - the photoelectron flux as a function of energy, ejection angle, and time - can be written quite generally as an expansion in spherical harmonics:
+The observables of interest - the photoelectron flux as a function of energy, ejection angle, and time - can be written quite generally as expansions in radial and angular basis functions. Various types and definitions are given in this section, including worked numerical examples.
+
+## Spherical harmonics
+
+The photoelectron flux as a function of energy, ejection angle, and time, can be written generally as an expansion in spherical harmonics:
 
 $$
 \begin{align}
@@ -37,8 +41,8 @@ $$
 \end{align}
 $$ (eq:AF-PAD-general)
 
-Here the flux in the laboratory frame (LF) or aligned frame (AF) is denoted $\bar{I}(\epsilon,t,\theta,\phi)$, with the bar signifying ensemble averaging, and the molecular frame flux by $I(\epsilon,t,\theta,\phi)$. Similarly, the expansion parameters $\bar{\beta}_{L,M}(\epsilon,t)$ include a bar for the LF/AF case. These observables are generally termed photoelectron angular distributions (PADs), often with a prefix denoting the reference frame, e.g. LFPADs, MFPADs, and the associated expansion parameters $\bar{\beta}_{L,M}(\epsilon,t)$ are generically termed "anisotropy\" parameters. The polar coordinate system $(\theta,\phi)$ is referenced to
-an experimentally-defined axis in the LF/AF case (usually defined by the laser polarization), and the molecular symmetry axis in the MF. Some arbitrary examples are given in {numref}`fig-pads-example`, which illustrates both a range of distributions of increasing complexity, and some basic code to set $\beta_{L,M}$ parameters and visualise them; the values used as tabulated in  {numref}`blm-tab`.
+Here the flux in the laboratory frame ({{ LF }}) or aligned frame ({{ AF }}) is denoted $\bar{I}(\epsilon,t,\theta,\phi)$, with the bar signifying ensemble averaging, and the molecular frame flux by $I(\epsilon,t,\theta,\phi)$. Similarly, the expansion parameters $\bar{\beta}_{L,M}(\epsilon,t)$ include a bar for the LF/AF case. These observables are generally termed photoelectron angular distributions ({{ PADs }}), often with a prefix denoting the reference frame, e.g. LFPADs, MFPADs, and the associated expansion parameters $\bar{\beta}_{L,M}(\epsilon,t)$ are generically termed {{ betas }}. The polar coordinate system $(\theta,\phi)$ is referenced to
+an experimentally-defined axis in the {{ LF }}/{{ AF }} case (usually defined by the laser polarization), and the molecular symmetry axis in the {{ MF }}. Some arbitrary examples are given in {numref}`fig-pads-example`, which illustrates both a range of distributions of increasing complexity, and some basic code to set $\beta_{L,M}$ parameters and visualise them; the values used as tabulated in  {numref}`blm-tab`.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -138,33 +142,67 @@ Values used for the plots in {numref}`fig-pads-example`
 
 +++
 
-In general, the spherical harmonic rank and order $(L,M)$ of Eq. {eq}`eq:AF-PAD-general` are constrained by experimental factors in the LF/AF, and $n$ is effectively limited by the molecular alignment (which is correlated with the photon-order for gas phase experiments, or conservation of angular momentum in the LF more generally {cite}`Yang1948`), but in the MF is defined by the maximum continuum angular momentum $n=l_{max}$ imparted by the scattering event {cite}`Dill1976`.
+In general, the spherical harmonic rank and order $(L,M)$ of Eq. {eq}`eq:AF-PAD-general` are constrained by experimental factors in the {{ LF }} or {{ AF }}, and $n$ is effectively limited by the molecular alignment (which is correlated with the photon-order for gas phase experiments, or conservation of angular momentum in the {{ LF }} more generally {cite}`Yang1948`), but in the {{ MF }} is defined by the maximum continuum angular momentum $n=l_{max}$ imparted by the scattering event {cite}`Dill1976` (note lower-case $l$ here refers specifically to the continuum photoelectron wavefunction, see Eq. {eq}`eq:elwf`).
 
-For basic cases these limits may be low: for instance, a simple 1-photon photoionization event ($n=1$) from an isotropic ensemble (zero net ensemble angular momentum) defines $L_{max}=2$; for cylindrically symmetric cases (i.e. $D_{\infty h}$ symmetry) $M=0$ only. For MF cases, $l_{max}=4$ is often given as a reasonable rule-of-thumb for the continuum - hence $L_{max}=8$ - although in practice higher-$l$ may be populated. Some realistic example cases are discussed later (**PART II**), see also ref. {cite}`hockett2018QMP1` for more discussion and complex examples.
+For basic cases these limits may be low: for instance, a simple 1-photon photoionization event ($n=1$) from an isotropic ensemble (zero net ensemble angular momentum) defines $L_{max}=2$; for cylindrically symmetric cases (i.e. $D_{\infty h}$ symmetry) $M=0$ only. For {{ MF }} cases, $l_{max}=4$ is often given as a reasonable rule-of-thumb for the continuum - hence $L_{max}=8$ - although in practice higher-$l$ may be populated. Some realistic example cases are discussed later (**PART II**), see also ref. {cite}`hockett2018QMP1` for more discussion and complex examples.
 
 In general, these observables may also be dependent on various other parameters; in Eq. {eq}`eq:AF-PAD-general` two such parameters, $(\epsilon,t)$, are included, as the usual variables of interest. Usually $\epsilon$ denotes the photoelectron energy, and $t$ is used in the case of time-dependent (usually pump-probe) measurements. As discussed below ({numref}`Sect. %s <sec:dynamics-intro>`), the origin of such dependencies may be complicated but, in general, the associated photoionization matrix elements are energy-dependent, and time-dependence may also appear for a number of intrinsic or extrinsic (experimental) reasons, e.g. electronic or nuclear dynamics, rotational (alignment) dynamics, electric field dynamics etc. In many cases only one particular aspect may be of interest, so $t$ can be used as a generic label to index changes as per {numref}`fig-pads-example`.
 
-+++
++++ {"tags": []}
 
 (sec:theory:sym-harm-into)=
 ## Symmetrized harmonics
 
-Symmetrized (or generalised) harmonics, which essentially provide correctly symmetrized expansions of spherical harmonics ($Y_{lm}$) functions for a given irreducible representation, $\Gamma$, can be defined by linear combinations of spherical harmonics (Refs. {cite}`Altmann1963a,Altmann1965,Chandra1987` as below):
+Symmetrized (or generalised) harmonics, which essentially provide correctly symmetrized expansions of spherical harmonics ($Y_{LM}$) functions for a given irreducible representation, $\Gamma$, of the molecular point-group can be defined by linear combinations of spherical harmonics (Refs. {cite}`Altmann1963a,Altmann1965,Chandra1987` as below):
 
-\begin{equation}
-X_{hl}^{\Gamma\mu*}(\theta,\phi)=\sum_{\lambda}b_{hl\lambda}^{\Gamma\mu}Y_{l,\lambda}(\theta,\phi)\label{eq:symm-harmonics}
-\end{equation}
+$$
+X_{hl}^{\Gamma\mu*}(\theta,\phi)=\sum_{\lambda}b_{hl\lambda}^{\Gamma\mu}Y_{l,\lambda}(\theta,\phi)
+$$ (eq:symHarm-defn)
 
+% \label{eq:symm-harmonics}
 
 where: 
     
-- $\Gamma$ is an irreducible representation, 
-- ($l$, $\lambda$) define the usual spherical harmonic indicies (rank, order)
-- $b_{hl\lambda}^{\Gamma\mu}$ are symmetrization coefficients, 
-- index $\mu$ allows for indexing of degenerate components,
-- $h$ indexs cases where multiple components are required with all other quantum numbers identical. 
-    
-The exact form of these coefficients will depend on the point-group of the system, see, e.g. Refs. {cite}`Chandra1987,Reid1994`. Numerical routines for the generation of symmetrized harmonics are implemented in PEMtk: point-groups, character table generation and symmetrization (computing $b_{hl\lambda}^{\Gamma\mu}$ parameters) is handled by {{ libmsym }}; additional handling also makes use of {{ shtools }}. A brief example is given below, see the {{ PEMtk_docs }} for more details.
+- $\Gamma$ is an irreducible representation;
+- $(l, \lambda)$ define the usual spherical harmonic indices (rank, order), but note the use of $(l, \lambda)$ by convention, since these harmonics are usually referenced to the {{ MF }};
+- $b_{hl\lambda}^{\Gamma\mu}$ are symmetrization coefficients;
+- index $\mu$ allows for indexing of degenerate components;
+- $h$ indexes cases where multiple components are required with all other quantum numbers identical. 
+
+
+Analogously to Eq. {eq}`eq:AF-PAD-general`, a general expansion of an observable in the symmetrized harmonic basis set can then be defined as:
+
+$$
+\bar{I}^{\Gamma}(\epsilon,t,\theta,\phi) = \sum_{\Gamma\mu hl}\bar{\beta}_{hl}^{\Gamma\mu}(\epsilon,t)X_{hl}^{\Gamma\mu*}(\theta,\phi)
+$$ (eq:AF-PAD-general-symHarm)
+
+Alternatively, by substitution into Eq. {eq}`eq:AF-PAD-general`, and assigning $l=L$ and $\lambda=M$, a general symmetrized expansion may also be defined as:
+
+$$
+\begin{align}
+\bar{I}(\epsilon,t,\theta,\phi)=\sum_{\Gamma\mu h}\sum_{L=0}^{2n}\sum_{M=-L}^{L}b_{hLM}^{\Gamma\mu}\bar{\beta}_{L,M}(\epsilon,t)Y_{L,M}(\theta,\phi)
+\end{align}
+$$ (eq:AF-PAD-general-symHarm-subs)
+
+However, in many cases the symmetrization coefficients are subsumed into the {{ BLM }} terms (or underlying matrix elements); in this case a simplified symmetrized expansion can be defined as:
+
+$$
+\begin{align}
+\bar{I}^{\Gamma}(\epsilon,t,\theta,\phi)=\sum_{L=0}^{2n}\sum_{M=-L}^{L}\bar{\beta}^{\Gamma}_{L,M}(\epsilon,t)Y_{L,M}(\theta,\phi)
+\end{align}
+$$ (eq:AF-PAD-general-sym-betas)
+
+Where the expansion is defined for a given symmetry and irreducible representation with the shorthand $\Gamma$; in many systems a single label may be sufficient here, since allowed $(L,M)$ terms will be defined uniquely by irreducible representation, although multiple quantum numbers may be required for unique definition in the most general cases as per Eq. {eq}`eq:symHarm-defn` (e.g. for cases with degenerate components). Further details and usage in relation to channel functions are also discussed in {numref}`Sect. %s <sec:tensor-formulation>` (see, in particular, Eq. {eq}`eqn:channel-fns` for a similar general case), and in relation to fitting for specific cases in **PART II**.
+
+The exact form of these coefficients will depend on the point-group of the system, see, e.g. Refs. {cite}`Chandra1987,Reid1994`. Numerical routines for the generation of symmetrized harmonics are implemented in {{ PEMtk_repo }}: point-groups, character table generation and symmetrization (computing $b_{hl\lambda}^{\Gamma\mu}$ parameters) is handled by {{ libmsym }}; additional handling also makes use of {{ shtools }}. 
+
+A brief numerical example is given below, for {glue:text}`symHarmPG` symmetry ($l_{max}=${glue:text}`symHarmLmax`), and more details can be found in the {{ PEMtk_docs }}. In this case, full tabulations of the parameters lists all $b_{hLM}^{\Gamma\mu}$ for each irreducible representation, and the corresponding PADs are illustrated in {numref}`fig-symHarmPADs-example`.
+
+````{margin}
+```{note}
+Full tabulations of the parameters available in HTML or notebook formats only.
+```
+````
 
 ```{code-cell} ipython3
 :tags: [hide-output]
@@ -232,6 +270,12 @@ Examples of angular distributions from expansions in symmetrized harmonics $X_{h
 % {glue:math}`symHarmPG` or type 2 {glue:math}`symHarmPG2`. TODO: work out how to set maths glue.
 % {glue:text}`symHarmPG` symmetry ($l_{max}={glue:}`symHarmLmax`$).
 ```
+
++++
+
+## Real harmonics
+
+## Legendre polynomials
 
 +++ {"tags": ["remove-cell"]}
 

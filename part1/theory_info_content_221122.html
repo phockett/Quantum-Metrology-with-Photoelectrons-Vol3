@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bibliography" href="../backmatter/bibliography.html" />
+    <link rel="next" title="4. Numerical implementation" href="numerics_231122.html" />
     <link rel="prev" title="3.3. Tensor formulation of photoionization" href="theory_tensor_formalism_201122.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -176,6 +176,11 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numerics_231122.html">
+   4. Numerical implementation
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -186,6 +191,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../backmatter/bibliography.html">
    Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../backmatter/glossary.html">
+   Glossary
   </a>
  </li>
 </ul>
@@ -412,7 +422,7 @@ title="Print to PDF"
 <span id="sec-info-content"></span><h1><span class="section-number">3.4. </span>Information content<a class="headerlink" href="#information-content" title="Permalink to this headline">#</a></h1>
 <p>As discussed in <em>Quantum Metrology</em> Vol. 2 <span id="id1">[<a class="reference internal" href="../backmatter/bibliography.html#id560" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. doi:10.1088/978-1-6817-4688-3.">2</a>]</span>, the information content of a single observable might be regarded as simply the number of contributing <span class="math notranslate nohighlight">\(\beta_{L,M}\)</span> parameters. In set notation:</p>
 <div class="math notranslate nohighlight" id="equation-eq-blm-set">
-<span class="eqno">(3.16)<a class="headerlink" href="#equation-eq-blm-set" title="Permalink to this equation">#</a></span>\[M=\mathrm{n}\{\beta_{L,M}\}\]</div>
+<span class="eqno">(3.19)<a class="headerlink" href="#equation-eq-blm-set" title="Permalink to this equation">#</a></span>\[M=\mathrm{n}\{\beta_{L,M}\}\]</div>
 <p>where <span class="math notranslate nohighlight">\(M\)</span> is the information content of the measurement, defined as
 <span class="math notranslate nohighlight">\(\mathrm{n}\{...\}\)</span> the cardinality (number of elements) of the set of
 contributing parameters. A set of measurements, made for some
@@ -436,7 +446,7 @@ total measurement space spanned by the full set of
 <span class="math notranslate nohighlight">\(\{\beta_{L,M}^{u}(k,t)\}\)</span>. However, in this basic definition a larger
 <span class="math notranslate nohighlight">\(M_{u}\)</span> does not necessarily indicate a higher information content for
 quantum retrieval applications. The reason for this is simply down to
-the complexity of the problem (cf. Eq. <a class="reference internal" href="theory_tensor_formalism_201122.html#equation-eqn-channel-fns">(3.10)</a>), in which many couplings define the sensitivity of the observable to the underlying system properties of
+the complexity of the problem (cf. Eq. <a class="reference internal" href="theory_tensor_formalism_201122.html#equation-eqn-channel-fns">(3.13)</a>), in which many couplings define the sensitivity of the observable to the underlying system properties of
 interest. In this sense, more measurements, and larger <span class="math notranslate nohighlight">\(M\)</span>, may only add
 redundancy, rather than new information.</p>
 <p>A more complete accounting of information content would, therefore, also
@@ -491,10 +501,10 @@ measurements, which provided a coherently-multiplexed case, see refs.
             <p class="prev-next-title"><span class="section-number">3.3. </span>Tensor formulation of photoionization</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../backmatter/bibliography.html" title="next page">
+    <a class='right-next' id="next-link" href="numerics_231122.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bibliography</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Numerical implementation</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
