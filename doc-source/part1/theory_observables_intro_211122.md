@@ -226,7 +226,7 @@ glue("symHarmLmax", lmax, display=False)
 ```
 
 ```{code-cell} ipython3
-:tags: [hide-output]
+:tags: []
 
 # The full set of expansion parameters can be tabulated
 # pd.set_option('display.max_rows', 1)

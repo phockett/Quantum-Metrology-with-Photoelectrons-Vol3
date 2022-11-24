@@ -80,6 +80,11 @@ def gluePlotly(name,fig,**kwargs):
 
         return glue(name, Image(imgFile), display=False)
 
+# *** Force PD latex repr
+if buildEnv == 'pdf':
+    import pandas as pd
+
+    pd.set_option("display.latex.repr", True)
 
 # A few standard imports...
 

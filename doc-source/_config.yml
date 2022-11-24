@@ -72,6 +72,17 @@ sphinx:
                                       # But IS ok in local bib, https://sphinxcontrib-bibtex.readthedocs.io/en/latest/usage.html#directive-option-bibliography-style
 
     # Sphinx Latex customisation, see https://www.sphinx-doc.org/en/master/latex.html
+    
+    # Fixes for Pandas tabular outputs, see https://github.com/executablebooks/jupyter-book/issues/1553#issuecomment-998822118
+    latex_elements:
+      # Note this line cheats the table parameter into the documentclass[] parameter
+      papersize: letterpaper,table
+      # These lines add the desired packages to the latex build
+      preamble: |+
+        \usepackage{xcolor}
+        \usepackage{booktabs}
+        \usepackage{multirow}
+        
     # latex_elements:
       # preamble: '\usepackage{bm}'
       # - '\usepackage{bm}'
