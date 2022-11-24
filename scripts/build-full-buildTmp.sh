@@ -106,7 +106,7 @@ unset BUILDENV
 # Copy to datestamp tmp dir, from https://stackoverflow.com/questions/33996226/copy-and-create-a-directory-with-date-timestamp-where-it-does-not-exist
 # mkdir -p "$TMPDIR/$(date +%Y-%m-%d-%H:%M:%S)" && cp -a "$TMPDIR/_latest_build" "$_"   # Should work directly...?
 
-DATEDIR=$TMPDIR/$(date +%Y-%m-%d-%H:%M:%S)
+DATEDIR=$TMPDIR/$(date +%Y-%m-%d_%H-%M-%S)
 echo "*** Build dir copy to $DATEDIR"
 mkdir -p "$DATEDIR"
 cp -a $TMPDIR/_latest_build/* $DATEDIR
