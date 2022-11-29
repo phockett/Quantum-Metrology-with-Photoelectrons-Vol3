@@ -99,6 +99,7 @@ echo "*** Copying $BUILDDIR/$SOURCE/_build/latex/*.pdf to $REFDIRHTML/pdf"
 mkdir -p $REFDIRHTML/pdf
 cp $BUILDDIR/$SOURCE/_build/latex/QM3.pdf $REFDIRHTML/pdf
 
+
 unset BUILDENV
 
 # *** Backup build
@@ -113,8 +114,14 @@ cp -a $TMPDIR/_latest_build/* $DATEDIR
 
 
 # Copy also to main _latest_build dir...?
-echo "*** HTML buile dir copy to $BASEPATH/_latest_build"
+echo "*** HTML build dir copy to $BASEPATH/_latest_build"
 cp -a $TMPDIR/_latest_build/html-build $BASEPATH/_latest_build
+
+# Copy source too - use this dir for full GH pages deploy
+echo "*** Latex build dir to $BASEPATH/_latest_build/latex"
+# cp -a $BUILDDIR/$SOURCE/_build/latex $REFDIRHTML
+cp -a $TMPDIR/_latest_build/pdf-build $BASEPATH/_latest_build/html-build
+
 
 echo "TODO: tidy up and config GH actions for deploy from this dir."
 echo "TODO: Output logs to file."

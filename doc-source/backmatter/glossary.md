@@ -38,4 +38,11 @@ PADs
 anisotropy paramters
   Expansion parameters {{ BLM }} for an expansion in spherical harmonics (or similar basis sets of angular momentum functions in polar coordinates), e.g. Eq. {eq}`eq:AF-PAD-general`. Often referred to simply as "beta parameters", and may be dependent on various properties, e.g. $\beta_{L,M}(\epsilon,t...)$. Herein upper-case $L,M$ usually refer to observables or the general case, whilst lower-case $(l,m)$ usually refer specifically to the photoelectron wavefunction partial waves, and $(l,\lambda)$ usually denote these terms referenced specifically to the molecular frame.
 
+ADMs
+  Expansion parameters {{ ADMsymbol }} for describing a molecular ensemble alignment described as a set of axis distribution moments, usually expanded as Wigner rotation matrix element, spherical harmonics or Legendre polynomial functions.
+
+Axis distribution moments
+  See {{ ADMs }}.
+  
+
 ```

@@ -191,6 +191,10 @@ sensitive to the magnitudes and (relative) phases of these matrix
 elements, and can be considered as angular interferograms 
 %(Fig.[1](#781808){reference-type="ref" reference="781808"} top right).
 
++++
+
+% TODO: explicitly write out general form and discuss a bit further, inc. link to observables and tensor form later.
+
 ```{code-cell} ipython3
 
 ```

@@ -80,11 +80,6 @@ def gluePlotly(name,fig,**kwargs):
 
         return glue(name, Image(imgFile), display=False)
 
-# *** Force PD latex repr
-if buildEnv == 'pdf':
-    import pandas as pd
-
-    pd.set_option("display.latex.repr", True)
 
 # A few standard imports...
 
@@ -99,6 +94,26 @@ from pathlib import Path
 import numpy as np
 import xarray as xr
 import pandas as pd
+
+#*** Pandas display options
+pd.set_option("display.precision", 3)
+
+# *** Force PD latex repr
+if buildEnv == 'pdf':
+
+    pd.set_option("display.latex.repr", True)
+    
+    # May also need...
+    # pd.set_option("display.latex.longtable", True)
+    # pd.set_option("display.latex.escape", False)  # Test maths rendering - not working in PDF in default case.
+    
+    # PD render settings, see https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.set_option.html
+    # max_rows - currently not working in notebooks for class df output? Issue with multindexes?
+    pd.set_option('display.max_rows', 20)
+
+else:
+    # All rows for notebooks
+    pd.set_option('display.max_rows', 200)
 
 # -
 
@@ -194,6 +209,5 @@ plotBackend = 'pl'
                                        # NOT working in testing, need to set glue() options instead?
 
 
-# PD render settings, see https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.set_option.html
-# max_rows - currently not working in notebooks for class df output? Issue with multindexes?
-pd.set_option('display.max_rows', 20)
+
+
