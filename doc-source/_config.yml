@@ -82,6 +82,10 @@ sphinx:
         \usepackage{xcolor}
         \usepackage{booktabs}
         \usepackage{multirow}
+        % make phantomsection empty inside figures, see https://sphinxcontrib-bibtex.readthedocs.io/en/latest/usage.html#latex-backend-fails-with-citations-in-figure-captions
+        \usepackage{etoolbox}
+        % \AtBeginEnvironment{figure}{\renewcommand{\phantomsection}{}}  % Doesn't fix - old version?
+        \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}}  % WORKING From https://github.com/mcmtroffaes/sphinxcontrib-bibtex/issues/276#issuecomment-1102154800
         
     # latex_elements:
       # preamble: '\usepackage{bm}'
@@ -158,10 +162,12 @@ parse:
     AF: "{term}`AF`"
     PADs: "{term}`PADs`"
     betas: "{term}`anisotropy paramters`"
+    ADMs: "{term}`ADMs`"
     
     # Maths shorthand
     # BLM: "$\beta_{L,M}$"  # This fails, seems to cut eqn, maybe drops first $?
     BLM: "$\\beta_{L,M}$"   # This works, note esc for \ IN MATHS seems required.
+    ADMsymbol: "$A_{Q,S}^{K}(t)$"
     
     
 # Global substitutions, see https://jupyterbook.org/en/stable/content/content-blocks.html?highlight=substitutions#define-substitutions-for-your-whole-book
