@@ -27,6 +27,7 @@ TODO
 - Add note on real harmonics? May be useful for later.
 - Code cell tidy-up.
 - Plotly or Panel rendering options? Currently a bit squished in HTML output (borders/subplot layout issue?).
+- implement genLM() or similar functions for setup below?
 
 +++
 
@@ -214,6 +215,10 @@ The exact form of these coefficients will depend on the point-group of the syste
 
 A brief numerical example is given below, for {glue:text}`symHarmPG` symmetry ($l_{max}=${glue:text}`symHarmLmax`), and more details can be found in the {{ PEMtk_docs }}. In this case, full tabulations of the parameters lists all $b_{hLM}^{\Gamma\mu}$ for each irreducible representation, and the corresponding PADs are illustrated in {numref}`fig-symHarmPADs-example`.
 
+% TODO: link to symmetrized matrix elements given later?
+
++++ {"tags": []}
+
 ````{margin}
 ```{note}
 Full tabulations of the parameters available in HTML or notebook formats only.
@@ -247,6 +252,7 @@ glue("charTab",symObj.printCharacterTable(returnPD=True), display=False)  # As a
 % TODO: test in-line style too, might be better?
 % NOTE 28/11/22: this is currently throwing compilation errors, "! Paragraph ended before \Hy@tempa was complete." Not sure why, something in parsing order or substitution? Renders OK in output.
 % OK without subs (or links?).
+% NOW FIXED - latex preamble hack in _config.yml
 
 ```{glue:figure} charTab
 ---
@@ -263,7 +269,7 @@ Example character table for {glue:text}`symHarmPG` symmetry generated with the {
 name: tab-charTable-example
 align: center
 ---
-Example character table for {glue:text}`symHarmPG` symmetry generated with the .
+Example character table for {glue:text}`symHarmPG` symmetry generated with the {{ PEMtk_repo }} wrapper for {{ libmsym }}.
 ```
 
 ```{code-cell} ipython3

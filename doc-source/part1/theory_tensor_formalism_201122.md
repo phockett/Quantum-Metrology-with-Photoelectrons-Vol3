@@ -43,7 +43,7 @@ Within this treatment, the observables can be defined in a series of simplified 
 (sec:channel-funcs)=
 ## Channel functions
 
-A simple form of the equations [todo: add general form elsewhere?], amenable to fitting, is to write the observables in terms of "channel functions\", which define the ionization continuum for a given case and set of parameters $u$ (e.g. defined for the MF, or defined for a specific experimental configuration),
+A simple form of the equations (cf. the general form of Eq. {eq}`eq:I-reduced-LF-2_45-vol1`, see also {{ QM2 }} Chpt. 12), amenable to fitting and numerical implementation, is to write the observables in terms of "channel functions\", which define the ionization continuum for a given case and set of parameters $u$ (e.g. defined for the MF, or defined for a specific experimental configuration),
 
 $$\beta_{L,M}^{u}=\sum_{\zeta,\zeta'}\varUpsilon_{L,M}^{u,\zeta\zeta'}\mathbb{I}^{\zeta\zeta'}$$ (eqn:channel-fns)
 
@@ -58,7 +58,10 @@ $$ (eqn:I-zeta)
 This is effectively a convolution equation (cf. refs. {cite}`Reid2000,gregory2021MolecularFramePhotoelectron`) with channel functions $\varUpsilon_{L,M}^{u,\zeta\zeta'}$, for a given "experiment" $u$, summed over all terms $\zeta,\zeta'$. Aside from the change in notation (which is here chosen to match the formalism of Refs. {cite}`Gianturco1994, Lucchese1986,Natalense1999`), 
 % see also Sect.[\[sec:mat-ele-conventions\]](#sec:mat-ele-conventions){reference-type="ref" reference="sec:mat-ele-conventions"}), 
 these matrix elements are essentially identical to the simplified (radial) forms
-$\mathbf{r}_{k,l,m}$ defined in Eqn. {eq}`eq:r-kllam`, in the case where $\zeta=k,l,m$. These complex matrix elements can also be equivalently defined in a magnitude, phase
+$\mathbf{r}_{k,l,m}$ defined in Eqn. {eq}`eq:r-kllam`, in the case where $\zeta=k,l,m$. Note, also, that the matrix elements used herein are usually assumed to be symmetrized (unless explicitly stated), i.e. expanded in spherical harmonics per Eq. {eq}`eq:symHarm-defn` with any additional terms $b_{hl\lambda}^{\Gamma\mu}$ incorporated into the value of the matrix elements.
+% , similar to the form of Eq. {eq}`eq:AF-PAD-general-sym-betas`.
+
+These complex matrix elements can also be equivalently defined in a magnitude, phase
 form:
 
 $$I^{\zeta}(\epsilon)\equiv\mathbf{r}_{\zeta}\equiv r_{\zeta}e^{i\phi_{\zeta}}$$(eqn:I-zeta-mag-phase)
@@ -87,7 +90,7 @@ And the LF/AF as:
 
 $$\begin{aligned}
 \bar{\beta}_{L,-M}^{\mu_{i},\mu_{f}}(E,t) & = & (-1)^{M}\sum_{P,R',R}{[P]^{\frac{1}{2}}}{E_{P-R}(\hat{e};\mu_{0})}\\
- & \times &\sum_{l,m,\mu}\sum_{l',m',\mu'}(-1)^{(\mu'-\mu_{0})}{\Lambda_{R'}(\mu,P,R')B_{L,S-R'}(l,l',m,m')}\\
+ & \times &\sum_{l,m,\mu}\sum_{l',m',\mu'}(-1)^{(\mu'-\mu_{0})}{\bar{\Lambda}_{R'}(\mu,P,R')B_{L,S-R'}(l,l',m,m')}\\
  & \times &I_{l,m,\mu}^{p_{i}\mu_{i},p_{f}\mu_{f}}(\epsilon)I_{l',m',\mu'}^{p_{i}\mu_{i},p_{f}\mu_{f}*}(\epsilon)\sum_{K,Q,S}\Delta_{L,M}(K,Q,S)A_{Q,S}^{K}(t)\end{aligned}$$ (eq:BLM-tensor-AF)
 
 In both cases a set of geometric tensor terms are required, 
@@ -99,11 +102,11 @@ these terms provide details of:
 
 -   $B_{L,M}(l,l',m,m')$: geometric coupling of the partial waves into the $\beta_{L,M}$ terms (spherical tensors). Note for the {{ AF }} case the terms may be reindexed by $M=S-R'$, which allows for the projection dependence on the {{ ADMs }} (see below).
 
--   $\Lambda_{R'}(\mu,P,R')$: frame couplings and rotations.
+-   $\Lambda_{R',R}(R_{\hat{n}};\mu,P,R,R')$, $\bar{\Lambda}_{R'}(\mu,P,R')$: frame couplings and rotations (note slightly different terms for {{ MF }} and {{ AF }}).
 
--   $\Delta_{L,M}(K,Q,S)$: alignment frame coupling.
+-   $\Delta_{L,M}(K,Q,S)$: alignment frame coupling ({{ AF }} only).
 
--   $A_{Q,S}^{K}(t)$: ensemble alignment described as a set of {term}`axis distribution moments` ({{ ADMs }}).
+-   $A_{Q,S}^{K}(t)$: ensemble alignment described as a set of {term}`axis distribution moments` ({{ ADMs }}, {{ AF }} only).
 
 And $I_{l,m,\mu}^{p_{i}\mu_{i},p_{f}\mu_{f}}(\epsilon)$ are the (radial)
 dipole ionization matrix elements, as a function of energy $\epsilon$.
@@ -116,6 +119,19 @@ final state indexes $(p_{i}\mu_{i},p_{f}\mu_{f})$. The notation here
 follows that used by {{ ePS_full }}, and these matrix elements again represent the quantities to be obtained numerically from data analysis, or from an [ePolyScat (or similar) calculation](https://epsproc.readthedocs.io/en/latest/ePS_ePSproc_tutorial/ePS_tutorial_080520.html#Theoretical-background).
 
 % [Numerical example here, or already included above somewhere]
+
+
+Following the tensor components detailed above, the full form of the channel functions of Eq. {eq}`eqn:channel-fns` for the {{ AF }} and {{ MF }} can be written as:
+
+$$
+\varUpsilon_{L,M}^{u,\zeta\zeta'}=(-1)^{M}(2P+1)^{\frac{1}{2}}E_{P-R}(\hat{e};\mu_{0})(-1)^{(\mu'-\mu_{0})}\Lambda_{R',R}(R_{\hat{n}};\mu,P,R,R')B_{L,-M}(l,l',m,m')
+$$ (eq:channelFunc-MF-defn)
+
+$$
+\bar{\varUpsilon_{}}_{L,M}^{u,\zeta\zeta'}=(-1)^{M}[P]^{\frac{1}{2}}E_{P-R}(\hat{e};\mu_{0})(-1)^{(\mu'-\mu_{0})}\bar{\Lambda}_{R'}(\mu,P,R')B_{L,S-R'}(l,l',m,m')\Delta_{L,M}(K,Q,S)A_{Q,S}^{K}(t)
+$$ (eq:channelFunc-AF-defn)
+
+% NOTE `\bar{\varUpsilon_{}}` instead of `\bar{\varUpsilon}` to avoid XeLatex rendering bug.
 
 Note that, in this case as given, time-dependence arises purely from the
 $A_{Q,S}^{K}(t)$ terms in the AF case, and the electric field term
@@ -130,6 +146,8 @@ with a set of coupled angular-momenta defining the geometrical part of
 the photoionization problem, despite these differences in the details of
 the theory and notation.
 
+The various tensors defined above are implemented as functions in the {{ ePSproc_full }}, and further wrapped for fitting cases in the {{ PEMtk_repo }}. In the remainder of this section, numerical examples using these codes are illustrated and explored. Full computational details can be found in the {{ ePSproc_docs }}, including [extended discussion of each tensor](https://epsproc.readthedocs.io/en/latest/methods/geometric_method_dev_260220_090420_tidy.html) and complete function references in the [geomCalc submodule documentation](https://epsproc.readthedocs.io/en/latest/modules/epsproc.geomFunc.geomCalc.html).
+
 +++
 
 ## Numerical aside: symmetry-defined channel functions
@@ -139,6 +157,8 @@ the theory and notation.
 In the following sub-sections, each component is defined in detail, including numerical examples. For illustration purposes, the numerical example uses a minimal set of assumptions, and is defined initially purely by symmetry, although further terms may be required for some of the geometric terms and are discussed where required.
 
 For this example, the $D_{2h}$ point group is used, representing a fairly general case of a planar asymmetric top system, e.g. ethylene ($C_2H_4$). Note that, in this case, the symmetrization coefficients ($b_{hl\lambda}^{\Gamma\mu}$, see {eq}`eq:symHarm-defn`) have the property that $\mu=0$ only, and the $h$ index is redundant, since it maps uniquely to $l$ - see {numref}`tab-D2hXlm` - so these indexes can be dropped. Note, also, the unfortunate convention that the label $\mu$ is used for multiple indexes; to avoid ambiguity this term is remapped to $\mu_X$ in the numerics below. However, in this case, since $\mu$ can be dropped from the symmetrization coefficients, there is actually no ambiguity in later usage.
+
+
 
 % TODO: consider different labelling here, can set at symHarm init, dims = ['C', 'h', 'mu', 'l', 'm']
 
@@ -284,6 +304,21 @@ BetaNormX, basis = data.afblmMatEfit(selDims={}, sqThres=False)   # Currently fa
 ```
 
 ```{code-cell} ipython3
+# Test full basis return - need base func for this
+
+BetaNormX2, basisFull = ep.geomFunc.afblmXprod(data.data[data.subKey]['matE'], basisReturn = 'Full', selDims={}, sqThres=False)  #, BLMRenorm = BLMRenorm, **kwargs)
+                           
+                           #AKQS=ADM,   # FOR AF ONLY
+                            #   RX=pol,  # FOR MF ONLY - RX removed in ePSproc v1.3.0 for AF - not required/valid for AF calcs.
+                             #  thres = thres, selDims = selDims, thresDims=thresDims,
+                              # basisReturn = 'ProductBasis', BLMRenorm = BLMRenorm, **kwargs)
+```
+
+```{code-cell} ipython3
+basisFull.keys()
+```
+
+```{code-cell} ipython3
 # The basis dictionary contains various numerical parameters, these are investigated below.
 # See also the ePSproc docs at https://epsproc.readthedocs.io/en/latest/methods/geometric_method_dev_260220_090420_tidy.html
 basis.keys()
@@ -310,6 +345,7 @@ Sources:
 
 +++
 
+(sec:theory:BLM-term)=
 ## Matrix element geometric coupling term $B_{L,M}$
 
 The coupling of the partial wave pairs, $|l,m\rangle$ and $|l',m'\rangle$, into the observable set of $\{L,M\}$ is defined by a tensor contraction with two 3j terms.
@@ -328,16 +364,6 @@ $$ (eq:basis-BLM-defn)
 
 Note that this term is equivalent, effectively, to a triple integral over spherical harmonics (e.g. Eq. 3.119 in Zare {cite}`zareAngMom`):
 
-\begin{equation}
-\intop_{0}^{2\pi}\intop_{0}^{\pi}Y_{J_{3}M_{3}}(\theta,\phi)Y_{J_{2}M_{2}}(\theta,\phi)Y_{J_{1}M_{1}}(\theta,\phi)\sin\theta d\theta d\phi=\left(\frac{(2J_{1}+1)(2J_{2}+1)(2J_{3}+1)}{4\pi}\right)^{1/2}\left(\begin{array}{ccc}
-J_{1} & J_{2} & J_{3}\\
-0 & 0 & 0
-\end{array}\right)\left(\begin{array}{ccc}
-J_{1} & J_{2} & J_{3}\\
-M_{1} & M_{2} & M_{3}
-\end{array}\right)
-\end{equation}
-
 $$
 \begin{aligned}
 \intop_{0}^{2\pi}\intop_{0}^{\pi}Y_{J_{3}M_{3}}(\theta,\phi)Y_{J_{2}M_{2}}(\theta,\phi)Y_{J_{1}M_{1}}(\theta,\phi)\sin\theta d\theta d\phi & = & \left(\frac{(2J_{1}+1)(2J_{2}+1)(2J_{3}+1)}{4\pi}\right)^{1/2}\\
@@ -354,15 +380,6 @@ $$
 
 And a similar term appears in the contraction over a pair of harmonics into a resultant harmonic (e.g. Eqs. C.21, C.22 in Blum {cite}`BlumDensityMat`) - this is how the term arises in the derivation of the observables.
 
-\begin{equation}
-Y_{J_{1}M_{1}}(\theta,\phi)Y_{J_{2}M_{2}}(\theta,\phi)=\sum_{J_{3}M_{3}}\left(\frac{(2J_{1}+1)(2J_{2}+1)(2J_{3}+1)}{4\pi}\right)^{1/2}\left(\begin{array}{ccc}
-J_{1} & J_{2} & J_{3}\\
-0 & 0 & 0
-\end{array}\right)\left(\begin{array}{ccc}
-J_{1} & J_{2} & J_{3}\\
-M_{1} & M_{2} & M_{3}
-\end{array}\right)Y^*_{J_{3}M_{3}}(\theta,\phi)
-\end{equation}
 
 $$
 \begin{aligned}
@@ -385,11 +402,11 @@ Note also some definitions use conjugate spherical harmonics, which can be conve
 
 % TODO: note on numerical implementation for conjugates here?
 
-In the current {{ PEMtk_repo }} codebase, the relevant basis item can be inspected as below, in order to illustrate the sensitivity of different (L,M) terms to the matrix element products. Note for the {{ AF }} case the terms may be reindexed by $M=S-R'$ - this allows for all {{ MF }} projections to contribute, rather than just a single specified polarization geometry. However, in many typical cases, this term is nonetheless restricted to only $M=0$ components overall by other geometric factors (see below). 
+In the current {{ PEMtk_repo }} codebase, the relevant basis item can be inspected as below, in order to illustrate the sensitivity of different $(L,M)$ terms to the matrix element products. Note for the {{ AF }} case the terms may be reindexed by $M=S-R'$ - this allows for all {{ MF }} projections to contribute, rather than just a single specified polarization geometry. However, in many typical cases, this term is nonetheless restricted to only $M=0$ components overall by other geometric factors (see below). 
 
-The code cells below illustrate this for the current example case, and {numref}`fig-BLM-basis-D2h` offers a general summary. What do we learn here...?  In general, this is a nice way to visualize the selection rules into the observable: for instance, only terms $l=l'$ and $m=-m'$ contribute to the overall photoionization cross-section term ($L=0, M=0$), and the maximum observable $L_{max}=2l_{max}$. However, since these terms are fairly simply followed algebraically in this case, via the rules inherent in the $3j$ product, this is not particularly insightful (although useful pedagogically). These visualizations will become more useful when dealing with real sets of matrix elements, and specific polarization geometries, which will further modulate the $B_{L,M}$ terms. 
+The code cells below illustrate this for the current example case, and {numref}`fig-BLM-basis-D2h` offers a general summary. In general, this is a convenient way to visualize the selection rules into the observable: for instance, only terms $l=l'$ and $m=-m'$ contribute to the overall photoionization cross-section term ($L=0, M=0$), and the maximum observable $L_{max}=2l_{max}$. However, since these terms are fairly simply followed algebraically in this case, via the rules inherent in the $3j$ product (Eq. {eq}`eq:basis-BLM-defn`), this is not particularly insightful (although useful pedagogically). These visualizations will become more useful when dealing with real sets of matrix elements, and specific polarization geometries, which will further modulate or restrict the $B_{L,M}$ terms. 
 
-Numerically, various standard functions (Xarray or Pandas) may be used to quickly gain deeper insight, for example min/max, averages etc. Such considerations may provide a quick sanity-check for a given case, and may prove useful when planning experiments to investigate particular channels of a given system. Other properties of the basis functions may also be interrogated numerically; for instance, correlation maps provide an alternative way to check which terms are strongly correlated or coupled, or will dominate a given aspect of the observable.
+Numerically, various standard functions may be used to quickly gain deeper insight, for example min/max, averages etc. Such considerations may provide a quick sanity-check for a given case, and may prove useful when planning experiments to investigate particular aspects or channels of a given system. Other properties of the basis functions may also be interrogated numerically; for instance, correlation maps provide an alternative way to check which terms are strongly correlated or coupled, or will dominate a given aspect of the observable.
 
 
 % Might want {glue:text}`symHarmPGmatE` - but need to fix maths usage here first!
@@ -405,10 +422,15 @@ Numerically, various standard functions (Xarray or Pandas) may be used to quickl
 
 basisKey = 'BLMtableResort'  # Key for BLM basis set
 
-pd, _ = ep.multiDimXrToPD(basis[basisKey].rename({'S-Rp':'M'}).stack({'LM':['L','M']}).dropna('LM', how='all'), colDims={'LM':['L','M']})
+# Reformat basis for display (optional)
+stackDims = {'LM':['L','M']}
+basisPlot = basis[basisKey].rename({'S-Rp':'M'}).stack(stackDims)
+
+# Convert to Pandas
+pd, _ = ep.multiDimXrToPD(basisPlot, colDims=stackDims)
 
 # Summarise properties and tabulate via Pandas Describe
-pd.describe().T  # Tabulate summary info only.
+pd.describe().T
 ```
 
 +++ {"tags": ["remove-cell"]}
@@ -434,13 +456,17 @@ TODO: more tests with lmPlot. Currently get plot rendered twice, but could just 
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-#*** BLM terms for basis set
+#*** Plot BLM terms for basis set - basic
 basisKey = 'BLMtableResort'
 
 # Basic plot
-# ep.lmPlot(basis['BLMtableResort'], xDim='L');  # Native version
+ep.lmPlot(basisPlot, xDim=stackDims);  # Basic plot with all terms
+```
 
-# Plot with some additional figure formatting options
+```{code-cell} ipython3
+:tags: [hide-output]
+
+#*** Plot BLM terms for basis set - Plot with some additional figure formatting options
 
 cmap=None   # cmap = None for default. 'vlag' good?
 # cmap = 'vlag'
@@ -457,8 +483,14 @@ labelCols = [1,1]
 
 # With fig return - NEEDS WORK, displays but doesn't return fig object?
 # UPDATE 28/11/22: still displays, but now have glue() working correctly.
-daPlot, daPlotpd, legendList, gFig = ep.lmPlot(basis[basisKey].where((basis[basisKey].l<=lmaxPlot) & (basis[basisKey].lp<=lmaxPlot)).rename({'S-Rp':'M'}).stack({'LM':['L','M']}), xDim={'LM':['L','M']},
-          pType = 'r', cmap=cmap, labelRound = labelRound, catLegend=catLegend, titleString=titleString, titleDetails=titleDetails, labelCols = labelCols);
+# daPlot, daPlotpd, legendList, gFig = ep.lmPlot(basis[basisKey].where((basis[basisKey].l<=lmaxPlot) & (basis[basisKey].lp<=lmaxPlot)).rename({'S-Rp':'M'}).stack({'LM':['L','M']}), xDim={'LM':['L','M']},
+#           pType = 'r', cmap=cmap, labelRound = labelRound, catLegend=catLegend, titleString=titleString, titleDetails=titleDetails, labelCols = labelCols);
+
+# 30/11/22 simplified version
+daPlot, daPlotpd, legendList, gFig = ep.lmPlot(basisPlot.where((basisPlot.l<=lmaxPlot) & (basisPlot.lp<=lmaxPlot)), 
+                                               xDim=stackDims, pType = 'r', cmap=cmap, labelRound = labelRound, 
+                                               catLegend=catLegend, titleString=titleString, titleDetails=titleDetails, 
+                                               labelCols = labelCols);
 
 # For glue
 glue("lmPlot_BLM_basis_D2h", gFig.fig, display=False)
@@ -470,6 +502,10 @@ name: "fig-BLM-basis-D2h"
 ---
 Example $B_{L,M}$ basis functions for {glue:text}`symHarmPGmatE` symmetry. Note figure is truncated to $l_{max}=l'_{max}=${glue:text}`symHarmBasislmaxPlot` for clarity.
 ```
+
++++ {"tags": ["remove-cell"]}
+
+**BLM param SCRATCH/extensions below** 
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -528,6 +564,57 @@ tags: [remove-cell]
 daPlotpd  #.dropna(axis=0,how='all')
 ```
 
+(sec:theory:EPR-term)=
+## Electric field geometric coupling term ${E_{P-R}(\hat{e};\mu_{0})}$
+
+The coupling of two 1-photon terms (which arise in the square of the ionization matrix element) can be written as a tensor contraction:
+
+\begin{equation}
+E_{PR}(\hat{e})=[e\otimes e^{*}]_{R}^{P}=[P]^{\frac{1}{2}}\sum_{p}(-1)^{R}\left(\begin{array}{ccc}
+1 & 1 & P\\
+p & R-p & -R
+\end{array}\right)e_{p}e_{R-p}^{*}\label{eq:EPR-defn-1}
+\end{equation}
+
+Where $e_{p}$ and $e_{R-p}$ define the field strengths for the polarizations $p$ and $R-p$, which are coupled into the spherical tensor $E_{PR}$.
+
+(To derive this result, one can start from, e.g., Eq. 5.40 in Zare
+
+\begin{equation}
+[A^{(1)}\otimes B^{(1)}]_{q}^{k}=\sum_{m}\langle1m,1q-m|kq\rangle A(1,m)B(1,q-m)
+\end{equation}
+
+Convert to $3j$ form:
+
+\begin{equation}
+[A^{(1)}\otimes B^{(1)}]_{q}^{k}=\sum_{m}(-1)^{q}[k]^{1/2}\left(\begin{array}{ccc}
+1 & 1 & k\\
+m & q-m & -q
+\end{array}\right)A(1,m)B(1,q-m)
+\end{equation}
+
+And substitute in appropriate terms.)
+
+As before, we can visualise these values...
+
+```{code-cell} ipython3
+# For illustration, recompute EPR term for default case.
+EPRX = ep.geomCalc.EPR(form = 'xarray')
+
+# Set parameters to restack the Xarray into (L,M) pairs
+# plotDimsRed = ['l', 'p', 'lp', 'R-p']
+plotDimsRed = ['p', 'R-p']
+xDim = {'PR':['P','R']}
+
+# Plot with ep.lmPlot(), real values
+daPlot, daPlotpd, legendList, gFig = ep.lmPlot(EPRX, plotDims=plotDimsRed, xDim=xDim, pType = 'r')
+daPlot, daPlotpd, legendList, gFig = ep.lmPlot(EPRX.unstack().sum(['l','lp','R-p']), xDim=xDim, pType = 'r')
+
+# Seem to have some all-NaN cols persisting here, not sure why...
+```
+
+
+
 +++ {"tags": []}
 
 (sec:density-mat-basic)=
@@ -549,3 +636,7 @@ Since the matrix elements characterise the scattering event, the density matrix 
 Further discussion can also be found in the literature, see, e.g., Ref. {cite}`BlumDensityMat` for general discussion, Ref. {cite}`Reid1991` for application in pump-probe schemes.
 
 TODO: numerical examples here
+
+```{code-cell} ipython3
+
+```

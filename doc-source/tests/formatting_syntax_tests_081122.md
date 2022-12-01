@@ -34,7 +34,6 @@ See https://jupyterbook.org/en/stable/content/references.html
 
 +++
 
-
 - Label sections with `(some-label)=`, no spaces!
 - `{numref}` for numbered ref with custom text: {numref}`Chapter %s <chpt:platformIntro>` (always works in PDF, need to [set numbered sections for HTML](https://jupyterbook.org/en/stable/content/references.html#reference-numbered-sections))
 - `{ref}` for named ref: {ref}`chpt:platformIntro`
@@ -212,6 +211,47 @@ No `\bm` case (i.e. not set in `_config.py` for latex preamble), subs as:
 +++
 
 $$\mathbf{\hat{\mu}}$$
+
++++
+
+**More possible issues with hats and fonts**
+
+Getting broken PDF builds with error ```! Internal error: bad native font flag in `map_char_to_glyph'```
+
+Seems to be triggered by AF channel func eqn (although find in Jupyter and HTML):
+
+$$
+\bar{\varUpsilon}_{L,M}^{u,\zeta\zeta'}=(-1)^{M}[P]^{\frac{1}{2}}E_{P-R}(\hat{e};\mu_{0})(-1)^{(\mu'-\mu_{0})}\bar{\Lambda}_{R'}(\mu,P,R')B_{L,S-R'}(l,l',m,m')\Delta_{L,M}(K,Q,S)A_{Q,S}^{K}(t)
+$$ (eq:channelFunc-AF-defn)
+
+Bar or hat?  See https://tex.stackexchange.com/questions/63244/internal-error-bad-native-font-flag-xelatex-fontspec-newtxmath-libertine
+
+YES - bar, $\bar{\varUpsilon}$ fails, but $\varUpsilon$ is OK.
+
+Adding to preamble as suggested FAILS (also tried some other fixes!)
+
+```
+        % ** Testing more maths stuff, from https://tex.stackexchange.com/questions/578375/mathcal-incompatible-with-unicode-math
+        % \usepackage{unicode-math}
+        % \setmathfont{XITS Math}[Scale = MatchUppercase ]
+        % \setmathfont{Latin Modern Math}[range = {cal,bfcal},Scale = MatchUppercase ]
+        % ** Similar from https://tex.stackexchange.com/questions/227033/why-cant-i-use-my-font-with-unicode-math
+        % \usepackage{unicode-math}
+        % \setmathfont{Latin Modern Math}
+        % \usepackage{mathspec}
+        % \setmathfont(Latin,Digits,Greek){Latin Modern Sans}
+        % \setmathrm{Latin Modern Sans}
+        % ** Per https://github.com/wspr/unicode-math/issues/400 
+        % \usepackage[mathbf=sym]{unicode-math}
+```        
+
+Changing Latex builder in `_config.yml` also not helping (or not working - might need clean build?).
+
+See also https://tex.stackexchange.com/questions/159785/caveats-of-newtxmath-and-fontspec-together, suggests   \usepackage[no-math]{fontspec}
+
+MAY NEED TO CHANGE SPHINX PART OF PREAMBLE FOR THIS? This already loads some extensions - specifically fontspec - before user-specced stuff, so get latex package options clash errors.
+
+WORK AROUND - $\bar{\varUpsilon_{L,M}}$ is OK, AS IS $\bar{\varUpsilon_{}}$ **USE THIS VERSION**
 
 +++
 

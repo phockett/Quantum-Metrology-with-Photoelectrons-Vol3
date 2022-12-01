@@ -85,7 +85,29 @@ sphinx:
         % make phantomsection empty inside figures, see https://sphinxcontrib-bibtex.readthedocs.io/en/latest/usage.html#latex-backend-fails-with-citations-in-figure-captions
         \usepackage{etoolbox}
         % \AtBeginEnvironment{figure}{\renewcommand{\phantomsection}{}}  % Doesn't fix - old version?
-        \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}}  % WORKING From https://github.com/mcmtroffaes/sphinxcontrib-bibtex/issues/276#issuecomment-1102154800
+        \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}}  % WORKING From https://github.com/mcmtroffaes/sphinxcontrib-bibtex/issues/276#issuecomment-1102154800, see also https://github.com/executablebooks/jupyter-book/issues/1710#issuecomment-1331323071
+        %
+        % ****** MORE MATHS RENDER TESTS, all failing.
+        % Trying to fix `\bar{\varUpsilon}` gives `! Internal error: bad native font flag in `map_char_to_glyph'`
+        % WORK AROUND, use \bar{\varUpsilon_{}} instead.
+        % ** Fix hat issues, from https://tex.stackexchange.com/a/70498 - FAILS
+        % \def\acc@hat{\mbox{\raisebox{-1.27ex}[0ex][0ex]{\^{}}}}
+        % \renewcommand*\hat[1]{\placeaccent{\acc@hat}{#1}}
+        % ** Testing more maths stuff, from https://tex.stackexchange.com/questions/578375/mathcal-incompatible-with-unicode-math
+        % \usepackage{unicode-math}
+        % \setmathfont{XITS Math}[Scale = MatchUppercase ]
+        % \setmathfont{Latin Modern Math}[range = {cal,bfcal},Scale = MatchUppercase ]
+        % ** Similar from https://tex.stackexchange.com/questions/227033/why-cant-i-use-my-font-with-unicode-math
+        % \usepackage{unicode-math}
+        % \setmathfont{Latin Modern Math}
+        % \usepackage{mathspec}
+        % \setmathfont(Latin,Digits,Greek){Latin Modern Sans}
+        % \setmathrm{Latin Modern Sans}
+        % ** Per https://github.com/wspr/unicode-math/issues/400 
+        % \usepackage[mathbf=sym]{unicode-math}
+        % ** Per https://tex.stackexchange.com/questions/159785/caveats-of-newtxmath-and-fontspec-together
+        % \usepackage[no-math]{fontspec}
+        % \usepackage[libertine]{newtxmath}
         
     # latex_elements:
       # preamble: '\usepackage{bm}'
