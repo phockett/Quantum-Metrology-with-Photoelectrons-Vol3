@@ -173,10 +173,10 @@ $$ (eq:I-reduced-LF-2_45-vol1)
 
 % TODO: fix/generalise this, also update notation for LF vs. MF case above, or discuss. May be better to remove some of this and just refer to Vol. 1?
 
-In this form $\alpha$ denotes all other quantum numbers required to define the initial state, and $\alpha_{+}$ the final state of the molecular ion. The radial matrix elements $\boldsymbol{r}_{kl\lambda}$, denote an integral over the radial part of the wavefunctions, in this case labelled by the {{ MF }} quantum numbers, and the associated scattering phase is given by $\eta_{l\lambda}(k)$ (i.e. the matrix elements are written in magnitude-phase form, rather than complex form).The $\gamma$ terms denotes a general set of geometric paramters arising from the coherent square.  A tensor form is also given herein, see {numref}`Sect. %s <sec:full-tensor-expansion>`). Comparison with Eq. {eq}`eq:AF-PAD-general` then indicates that the amplitudes
+In this form $\alpha$ denotes all other quantum numbers required to define the initial state, and $\alpha_{+}$ the final state of the molecular ion. The radial matrix elements $\boldsymbol{r}_{kl\lambda}$, denote an integral over the radial part of the wavefunctions, in this case labelled by the {{ MF }} quantum numbers, and the associated scattering phase is given by $\eta_{l\lambda}(k)$ (i.e. the matrix elements are written in magnitude-phase form, rather than complex form).The $\gamma$ terms denotes a general set of geometric paramters arising from the coherent square.  A tensor form is also given herein, see {numref}`Sect. %s <sec:full-tensor-expansion>`, including a full breakdown of these terms and numerical implementation. Comparison with Eq. {eq}`eq:AF-PAD-general` then indicates that the amplitudes
 in Eq. {eq}`eq:r-kllam` also determine the observable anisotropy
 parameters $\beta_{L,M}(\epsilon,t)$ (Eqn.
-{eq}`eq:AF-PAD-general`). (Note that the photoelectron energy
+{eq}`eq:AF-PAD-general`), which basically collect all the terms in Eq. {eq}`eq:I-reduced-LF-2_45-vol1` and the product over spherical harmonics, into a result set of $(L,M)$. (Note that the photoelectron energy
 $\epsilon$ and momentum $k$ are used somewhat interchangeably herein,
 with the former usually preferred in reference to observables.) 
 

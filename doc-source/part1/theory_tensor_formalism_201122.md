@@ -72,7 +72,7 @@ detailed interpretation, and typically implement the full computation of the obs
 TODO: numerical examples here or below.
 TODO: benchmarks, or link to them (see test fitting notebooks...?).
 
-+++
++++ {"jp-MarkdownHeadingCollapsed": true, "tags": []}
 
 (sec:full-tensor-expansion)= 
 ## Full tensor expansion
@@ -82,7 +82,7 @@ In more detail, the channel functions $\varUpsilon_{L,M}^{u,\zeta\zeta'}$ can be
 For the MF:
 
 $$\begin{aligned}
-\beta_{L,-M}^{\mu_{i},\mu_{f}}(\epsilon) & = & (-1)^{M}\sum_{P,R',R}(2P+1)^{\frac{1}{2}}{E_{P-R}(\hat{e};\mu_{0})}\\
+\beta_{L,-M}^{\mu_{i},\mu_{f}}(\epsilon) & = & (-1)^{M}\sum_{P,R',R}{[P]^{\frac{1}{2}}}{E_{P-R}(\hat{e};\mu_{0})}\\
  & \times &\sum_{l,m,\mu}\sum_{l',m',\mu'}(-1)^{(\mu'-\mu_{0})}{\Lambda_{R',R}(R_{\hat{n}};\mu,P,R,R')B_{L,-M}(l,l',m,m')}\\
  & \times & I_{l,m,\mu}^{p_{i}\mu_{i},p_{f}\mu_{f}}(\epsilon)I_{l',m',\mu'}^{p_{i}\mu_{i},p_{f}\mu_{f}*}(\epsilon)\end{aligned}$$ (eq:BLM-tensor-MF)
 
@@ -108,6 +108,8 @@ these terms provide details of:
 
 -   $A_{Q,S}^{K}(t)$: ensemble alignment described as a set of {term}`axis distribution moments` ({{ ADMs }}, {{ AF }} only).
 
+- Square-brackets indicate degeneracy terms, e.g. $[P]^{\frac{1}{2}} = (2P+1)^{\frac{1}{2}}$.
+
 And $I_{l,m,\mu}^{p_{i}\mu_{i},p_{f}\mu_{f}}(\epsilon)$ are the (radial)
 dipole ionization matrix elements, as a function of energy $\epsilon$.
 These matrix elements are essentially identical to the simplified forms
@@ -124,11 +126,16 @@ follows that used by {{ ePS_full }}, and these matrix elements again represent t
 Following the tensor components detailed above, the full form of the channel functions of Eq. {eq}`eqn:channel-fns` for the {{ AF }} and {{ MF }} can be written as:
 
 $$
-\varUpsilon_{L,M}^{u,\zeta\zeta'}=(-1)^{M}(2P+1)^{\frac{1}{2}}E_{P-R}(\hat{e};\mu_{0})(-1)^{(\mu'-\mu_{0})}\Lambda_{R',R}(R_{\hat{n}};\mu,P,R,R')B_{L,-M}(l,l',m,m')
+\begin{aligned}
+\varUpsilon_{L,M}^{u,\zeta\zeta'} & = & (-1)^{M}{[P]^{\frac{1}{2}}}E_{P-R}(\hat{e};\mu_{0})(-1)^{(\mu'-\mu_{0})}\Lambda_{R',R}(R_{\hat{n}};\mu,P,R,R')\\
+ & \times & B_{L,-M}(l,l',m,m')\end{aligned}
 $$ (eq:channelFunc-MF-defn)
 
+
 $$
-\bar{\varUpsilon_{}}_{L,M}^{u,\zeta\zeta'}=(-1)^{M}[P]^{\frac{1}{2}}E_{P-R}(\hat{e};\mu_{0})(-1)^{(\mu'-\mu_{0})}\bar{\Lambda}_{R'}(\mu,P,R')B_{L,S-R'}(l,l',m,m')\Delta_{L,M}(K,Q,S)A_{Q,S}^{K}(t)
+\begin{aligned}
+\bar{\varUpsilon_{}}_{L,M}^{u,\zeta\zeta'} & = & (-1)^{M}[P]^{\frac{1}{2}}E_{P-R}(\hat{e};\mu_{0})(-1)^{(\mu'-\mu_{0})}\bar{\Lambda}_{R'}(\mu,P,R')\\
+ & \times & B_{L,S-R'}(l,l',m,m')\Delta_{L,M}(K,Q,S)A_{Q,S}^{K}(t)\end{aligned}
 $$ (eq:channelFunc-AF-defn)
 
 % NOTE `\bar{\varUpsilon_{}}` instead of `\bar{\varUpsilon}` to avoid XeLatex rendering bug.
@@ -297,36 +304,23 @@ Symmetrized harmonics coefficients ($b_{hl\lambda}^{\Gamma\mu}$, see {eq}`eq:sym
 
 ```{code-cell} ipython3
 # Compute basis functions for given matrix elements
+
+# Set data
 data.subKey = dataKey
-BetaNormX, basis = data.afblmMatEfit(selDims={}, sqThres=False)   # Currently failing at  matEconj = matEconj.unstack('LM').rename({'l':'lp','m':'mp','mu':'mup'})
-                                                                 # Issue with dims/unstack?
-                                                                # UPDATE: now fixed in epsproc.geomFunc.afblmXprod, see 00ffea494d3c7290b8be8dda9979b176627f3e81
-```
 
-```{code-cell} ipython3
-# Test full basis return - need base func for this
+# Using PEMtk - this only returns the product basis set as used for fitting
+BetaNormX, basisProduct = data.afblmMatEfit(selDims={}, sqThres=False)
 
+# Using ePSproc directly - this includes full basis return if specified
 BetaNormX2, basisFull = ep.geomFunc.afblmXprod(data.data[data.subKey]['matE'], basisReturn = 'Full', selDims={}, sqThres=False)  #, BLMRenorm = BLMRenorm, **kwargs)
-                           
-                           #AKQS=ADM,   # FOR AF ONLY
-                            #   RX=pol,  # FOR MF ONLY - RX removed in ePSproc v1.3.0 for AF - not required/valid for AF calcs.
-                             #  thres = thres, selDims = selDims, thresDims=thresDims,
-                              # basisReturn = 'ProductBasis', BLMRenorm = BLMRenorm, **kwargs)
-```
 
-```{code-cell} ipython3
-basisFull.keys()
-```
-
-```{code-cell} ipython3
 # The basis dictionary contains various numerical parameters, these are investigated below.
 # See also the ePSproc docs at https://epsproc.readthedocs.io/en/latest/methods/geometric_method_dev_260220_090420_tidy.html
-basis.keys()
-```
+print(f"Product basis elements: {basisProduct.keys()}")
+print(f"Full basis elements: {basisFull.keys()}")
 
-```{code-cell} ipython3
-# %matplotlib inline
-# ep.lmPlot(basis['BLMtableResort'], xDim='L');  # Native version
+# Use full basis for following sections
+basis = basisFull
 ```
 
 +++ {"tags": ["remove-cell"]}
@@ -565,9 +559,9 @@ daPlotpd  #.dropna(axis=0,how='all')
 ```
 
 (sec:theory:EPR-term)=
-## Electric field geometric coupling term ${E_{P-R}(\hat{e};\mu_{0})}$
+## Electric field geometric coupling term ${E_{P,R}(\hat{e};\mu_{0})}$
 
-The coupling of two 1-photon terms (which arise in the square of the ionization matrix element) can be written as a tensor contraction:
+The coupling of two 1-photon terms (which arises in the square of the ionization matrix element as per Eq. {eq}`eq:I-reduced-LF-2_45-vol1`) can be written as a tensor contraction:
 
 \begin{equation}
 E_{PR}(\hat{e})=[e\otimes e^{*}]_{R}^{P}=[P]^{\frac{1}{2}}\sum_{p}(-1)^{R}\left(\begin{array}{ccc}
@@ -576,7 +570,11 @@ p & R-p & -R
 \end{array}\right)e_{p}e_{R-p}^{*}\label{eq:EPR-defn-1}
 \end{equation}
 
-Where $e_{p}$ and $e_{R-p}$ define the field strengths for the polarizations $p$ and $R-p$, which are coupled into the spherical tensor $E_{PR}$.
+Where: 
+
+- $e_{p}$ and $e_{R-p}$ define the field strengths for the polarizations $p$ and $R-p$, which are coupled into the spherical tensor $E_{PR}$; 
+- square-brackets indicate degeneracy terms, e.g. $[P]^{\frac{1}{2}} = (2P+1)^{\frac{1}{2}}$;
+- the symbol $\mu_{0}$ is conventionally used to denote the {{ LF }} field projection definition, given in full as $(1,\mu_0)$ for the 1-photon case, **in general for the LF/AF case $\mu_0=p$, while for the MF case all projection terms are allowed, and are usually labelled by $\mu$ or $q$.** TO FIX
 
 (To derive this result, one can start from, e.g., Eq. 5.40 in Zare
 
