@@ -1,0 +1,53 @@
+\selectlanguage *{english}
+\contentsline {part}{I\hspace {1em}Frontmatter}{5}{part.1}%
+\contentsline {chapter}{\numberline {1}Overview}{7}{chapter.1}%
+\contentsline {section}{\numberline {1.1}General overview}{7}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Provisional contents}{7}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Part 1: theory \& software}{7}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Part 2: numerical examples}{8}{subsection.1.2.2}%
+\contentsline {part}{II\hspace {1em}Theory \& software}{9}{part.2}%
+\contentsline {chapter}{\numberline {2}Introduction}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Topical introduction: from quantum metrology to a generalised bootstrapping protocol}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Context \& aims for Vol. 3}{13}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Scientific aims}{13}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Technical context and notes}{14}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Open science, open source software and reproducibility}{15}{subsection.2.2.3}%
+\contentsline {chapter}{\numberline {3}Quantum metrology software platform/ecosystem overview}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Analysis components}{17}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Additional tools}{19}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Python ecosystem (backends, libraries and packages)}{19}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Docker deployments}{20}{section.3.4}%
+\contentsline {section}{\numberline {3.5}General discussion}{20}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Theory}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Observables: photoelectron flux in the LF and MF}{21}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Spherical harmonics}{21}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Symmetrized harmonics}{23}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Real harmonics}{27}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Legendre polynomials}{27}{subsection.4.1.4}%
+\contentsline {section}{\numberline {4.2}Photoionization dynamics}{27}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Tensor formulation of photoionization}{29}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Channel functions}{29}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Full tensor expansion}{30}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Numerical aside: symmetry\sphinxhyphen {}defined channel functions}{31}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Matrix element geometric coupling term \(B_{L,M}\)}{34}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Electric field geometric coupling term \({E_{P,R}(\hat {e};\mitmu _{0})}\)}{36}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}Molecular frame projection term \(\mitLambda \)}{39}{subsection.4.3.6}%
+\contentsline {subsection}{\numberline {4.3.7}Alignment tensor \(\mitDelta _{L,M}(K,Q,S)\)}{39}{subsection.4.3.7}%
+\contentsline {subsubsection}{Basic cases}{39}{subsubsection*.3}%
+\contentsline {subsubsection}{3D alignments and symmetry breaking}{46}{subsubsection*.4}%
+\contentsline {subsection}{\numberline {4.3.8}Tensor product terms}{48}{subsection.4.3.8}%
+\contentsline {subsection}{\numberline {4.3.9}Density matrix representation}{51}{subsection.4.3.9}%
+\contentsline {section}{\numberline {4.4}Information content}{51}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Numerical implementation}{53}{chapter.5}%
+\contentsline {part}{III\hspace {1em}Backmatter}{55}{part.3}%
+\contentsline {chapter}{\numberline {6}Bibliography}{57}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Glossary}{59}{chapter.7}%
+\contentsline {part}{IV\hspace {1em}Test pages}{61}{part.4}%
+\contentsline {chapter}{\numberline {8}Build versions and config tests}{63}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Versions}{63}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Docker build env}{64}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Book versions}{64}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Github pkg versions}{64}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Full conda env}{65}{section.8.5}%
+\contentsline {chapter}{Bibliography}{75}{chapter*.13}%
+\contentsline {chapter}{Index}{79}{section*.14}%

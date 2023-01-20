@@ -65,7 +65,28 @@ Other tools listed in {numref}`qm-platform-diag` include:
     * Source notebooks are available on the {{ ePSdata_repo }} [Github project repository](https://github.com/phockett/ePSdata/), and notebooks + datasets via {{ ePSdata_zenodo }}. Each notebook + dataset is given a Zenodo DOI for full traceability, and notebooks are versioned on Github.
     * Note: ePSdata may also be linked or mirrored on the existing [ePolyScat Collected Results OSF project](https://osf.io/psjxt/), but will effectively supercede those pages.
     * All results are released under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0) license](https://creativecommons.org/licenses/by-nc-sa/4.0/), and are part of an ongoing [Open Science initiative](http://femtolab.ca/?p=877).
+    
+(sect:platform:pythonEcosystem)=
+## Python ecosystem (backends, libraries and packages)
 
+The core analysis tools, which constitute the {{ PEMtk_repo }} platform, are themselves built with the aid of a range of open-source python packages/libraries which handle various backend functionality. Notably, they make use of the following key packages:
+
+* General functionality makes use of the usual `Scientific Python` stack, in particular `Numpy` for general numerical methods and data types.
+* General tensor handling and manipulation makes use of the Xarray library {cite}`hoyer2017XarrayNDLabeled,XarrayDocumentation`.
+* Angular momentum functions (Wigner D and 3js) are currently implemented directly, or via the Spherical Functions library {cite}`boyle2022SphericalFunctions`, and have been tested for consistency with the definitions in Zare (for details see [the ePSproc docs](https://epsproc.readthedocs.io/en/latest/tests/Spherical_function_testing_Aug_2019.html) {cite}`ePSprocDocs`).
+* Spherical harmonics are defined with the usual physics conventions: orthonormalised, and including the Condon-Shortley phase. Numerically they are implemented directly or via SciPy's `sph_harm` function (see [the SciPy docs for details](https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.sph_harm.html) {cite}`SciPyDocumentation`. Further manipulation and conversion between different normalisations can be readily implemented with the SHtools library {cite}`wieczorek2018SHToolsToolsWorking,SHtoolsGithub`.
+* Non-linear optimization (fitting) is handled via the [lmfit library](https://lmfit.github.io/lmfit-py/index.html), which implements and/or wraps a range of non-linear fitting routines in Python {cite}`LMFITDocumentation, newville2014LMFITNonLinearLeastSquare`; for the Levenberg-Marquardt least-squares minimization method used herein this wraps 
+[Scipy's `least\_squares` functionality](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html), which therefore constituted the core minimization routine {cite}`SciPyDocumentation` for the demonstration case.
+* Symmetry functionality, specifically computing $X_{hl}^{\Gamma\mu*}(\theta,\phi)$, makes use of `libmsym` {cite}`johansson2017AutomaticProcedureGeneratinga, johansson2022LibmsymGithub` (symmetry coefficients) and `SHtools` {cite}`wieczorek2018SHToolsToolsWorking,SHtoolsGithub` (general spherical harmonic handling and conversion). 
+% For worked examples, see \href{https://pemtk.readthedocs.io/en/latest/sym/pemtk_symHarm_demo_160322_tidy.html}{the PEMtk docs} \cite{hockett2021PEMtkDocs}. It is hoped that this will be a useful tool for tackling photoionization problems more generally, without \textit{a priori} knowledge of the matrix elements for a given system.
+
+
+
+% See MFrecon Sect. 9.5. Some of this may also go in Chpt. 4, but more likely computational examples in there?
+
+Further comments, including conventions and numerical examples, can be found in Chpt. XX.
+
++++
 
 (sect:platform:docker)=
 ## Docker deployments

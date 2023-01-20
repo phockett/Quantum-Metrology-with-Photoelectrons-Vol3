@@ -17,12 +17,17 @@ kernelspec:
 Theory section on observables
 
 - 22/11/22 Basics in place, including numerical examples for Ylm and Xlm cases. gluePlotly() now in place for HTML or PDF builds (although latter may need forced reexecution). May still need some work in general. 
+- 24/11/22 Fixed Pandas Latex/PDF render, see https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/6
+  Note not working for displayed sym harm tables from symObj.displayXlm(), although are OK in HTML - likely issue with lack of return object in this case. May not want to include these in any case, but adding return obj option to PEMtk code probably best bet to fix, see phockett/PEMtk@bb51d8b/pemtk/sym/symHarm.py#L577.
+
+
 
 TODO
 
 - Add note on real harmonics? May be useful for later.
 - Code cell tidy-up.
 - Plotly or Panel rendering options? Currently a bit squished in HTML output (borders/subplot layout issue?).
+- implement genLM() or similar functions for setup below?
 
 +++
 
@@ -133,11 +138,23 @@ dataPD, _ = multiDimXrToPD(BLM, colDims='t')
 glue("blm-tab", dataPD, display=False);
 ```
 
++++ {"tags": ["remove-cell"]}
+
+% Testing cell
+
 ```{glue:figure} blm-tab
 :figwidth: 300px
 :name: "blm-tab"
 
-Values used for the plots in {numref}`fig-pads-example`
+Values used for the plots in {numref}`fig-pads-example`.
+```
+
++++
+
+```{glue:figure} blm-tab
+:name: "blm-tab"
+
+Values used for the plots in {numref}`fig-pads-example`.
 ```
 
 +++
@@ -166,7 +183,7 @@ where:
 - $\Gamma$ is an irreducible representation;
 - $(l, \lambda)$ define the usual spherical harmonic indices (rank, order), but note the use of $(l, \lambda)$ by convention, since these harmonics are usually referenced to the {{ MF }};
 - $b_{hl\lambda}^{\Gamma\mu}$ are symmetrization coefficients;
-- index $\mu$ allows for indexing of degenerate components;
+- index $\mu$ allows for indexing of degenerate components (note here the unfortunate convention that the label $\mu$ is also used for photon projection terms in general, as per {numref}`Sect. %s <sec:full-tensor-expansion>` - in ambiguous cases the symmetrization term will instead be labelled as $\mu_X$, although in many cases may actually be redundant and safely dropped from the symmetrization coefficients);
 - $h$ indexes cases where multiple components are required with all other quantum numbers identical. 
 
 
@@ -198,6 +215,10 @@ The exact form of these coefficients will depend on the point-group of the syste
 
 A brief numerical example is given below, for {glue:text}`symHarmPG` symmetry ($l_{max}=${glue:text}`symHarmLmax`), and more details can be found in the {{ PEMtk_docs }}. In this case, full tabulations of the parameters lists all $b_{hLM}^{\Gamma\mu}$ for each irreducible representation, and the corresponding PADs are illustrated in {numref}`fig-symHarmPADs-example`.
 
+% TODO: link to symmetrized matrix elements given later?
+
++++ {"tags": []}
+
 ````{margin}
 ```{note}
 Full tabulations of the parameters available in HTML or notebook formats only.
@@ -212,24 +233,52 @@ from pemtk.sym.symHarm import symHarm
 
 # Compute hamronics for Td, lmax=4
 sym = 'Td'
-lmax=4
+lmax=6
 
 symObj = symHarm(sym,lmax)
 
-# Character tables can be displayed
+# Character tables can be displayed - this will render directly in a notebook.
 symObj.printCharacterTable()
 
 # Glue items for later
-glue("symHarmPG2", f"${sym}$", display=False)
 glue("symHarmPG", sym, display=False)
 glue("symHarmLmax", lmax, display=False)
+glue("charTab",symObj.printCharacterTable(returnPD=True), display=False)  # As above, but with PD object return and glue.
+```
+
++++ {"tags": ["remove-cell"]}
+
+% Test version - not centred, also issues with subs parsing?
+% TODO: test in-line style too, might be better?
+% NOTE 28/11/22: this is currently throwing compilation errors, "! Paragraph ended before \Hy@tempa was complete." Not sure why, something in parsing order or substitution? Renders OK in output.
+% OK without subs (or links?).
+% NOW FIXED - latex preamble hack in _config.yml
+
+```{glue:figure} charTab
+---
+name: "tab-charTable-example"
+align: center
+---
+Example character table for {glue:text}`symHarmPG` symmetry generated with the {{ PEMtk_repo }} wrapper for {{ libmsym }}.
+```
+
++++
+
+```{glue:figure} charTab
+---
+name: tab-charTable-example
+align: center
+---
+Example character table for {glue:text}`symHarmPG` symmetry generated with the {{ PEMtk_repo }} wrapper for {{ libmsym }}.
 ```
 
 ```{code-cell} ipython3
 :tags: [hide-output]
 
 # The full set of expansion parameters can be tabulated
-# pd.set_option('display.max_rows', 1)
+
+# pd.set_option('display.max_rows', 100)
+
 symObj.displayXlm()  # Display values (note this defaults to REAL harmonics)
 # symObj.displayXlm(YlmType='comp')   # Display values for COMPLEX harmonic expansion.
 ```
@@ -266,7 +315,7 @@ gluePlotly("symHarmPADs", figObj)
 ---
 name: "fig-symHarmPADs-example"
 ---
-Examples of angular distributions from expansions in symmetrized harmonics $X_{hl}^{\Gamma\mu*}(\theta,\phi)$, for all irreducible representations in {glue:text}`symHarmPG` symmetry ($l_{max}=${glue:text}`symHarmLmax`) 
+Examples of angular distributions from expansions in symmetrized harmonics $X_{hl}^{\Gamma\mu*}(\theta,\phi)$, for all irreducible representations in {glue:text}`symHarmPG` symmetry ($l_{max}=${glue:text}`symHarmLmax`). (Note $A_2$ only has components for $l\geq 6$.)
 % {glue:math}`symHarmPG` or type 2 {glue:math}`symHarmPG2`. TODO: work out how to set maths glue.
 % {glue:text}`symHarmPG` symmetry ($l_{max}={glue:}`symHarmLmax`$).
 ```
@@ -293,5 +342,9 @@ $$\Psi_\mathbf{k}(\bm{r})\equiv\left<\bm{r}|\mathbf{k}\right> = \sum_{lm}Y_{lm}(
 \label{eq:elwf}$$
 
 ```{code-cell} ipython3
+:tags: [remove-cell]
 
+# Quick PD table render test
+setCols = 'l'
+inputData = symObj.coeffs['DF']['real'].copy().unstack(level=setCols).fillna('')
 ```
