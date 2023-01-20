@@ -289,7 +289,6 @@ Symmetrized harmonics coefficients ($b_{hl\lambda}^{\Gamma\mu}$, see {eq}`eq:sym
 
 +++
 
-
 ```{glue:figure} D2hXlm
 ---
 name: "tab-D2hXlm"
@@ -335,6 +334,7 @@ Sources:
 
 - **From http://jake:9966/lab/tree/code-share/github-share/ePSproc/notebooks/methodDev/geometric_method_dev_260220_090420_tidy.ipynb**
 - **From http://jake:9966/lab/tree/code-share/jupyter-shared/PEMtk_dev_2022/basisSets/PEMtk_fitting_basis-set_demo_050621-full-revisit-Jake_040822-dev-HVplot-env_tests.ipynb**
+- Dec 2022 local stuff whilst travelling: http://jake:9966/lab/tree/QM3/doc-source/part1/theory_tensor_bemo-scratch_091222.ipynb
 - **From MF RECON manuscript**
 
 +++
@@ -445,7 +445,6 @@ GLUING FROM SNS OBJECT OK WITH:
 glue("lmPlot_BLM_basis_D2h", gFig.fig, display=False)
 
 TODO: more tests with lmPlot. Currently get plot rendered twice, but could just hide cell output as a quick-fix?
- 
 
 ```{code-cell} ipython3
 :tags: [hide-output]
@@ -499,7 +498,7 @@ Example $B_{L,M}$ basis functions for {glue:text}`symHarmPGmatE` symmetry. Note 
 
 +++ {"tags": ["remove-cell"]}
 
-**BLM param SCRATCH/extensions below** 
+**BLM param SCRATCH/extensions below**
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -550,11 +549,8 @@ BLMdeltas
 ```
 
 ```{code-cell} ipython3
----
-jupyter:
-  outputs_hidden: true
-tags: [remove-cell]
----
+:tags: [remove-cell]
+
 daPlotpd  #.dropna(axis=0,how='all')
 ```
 
@@ -596,6 +592,8 @@ And substitute in appropriate terms.)
 As before, we can visualise these values...
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 # For illustration, recompute EPR term for default case.
 EPRX = ep.geomCalc.EPR(form = 'xarray')
 
@@ -606,12 +604,354 @@ xDim = {'PR':['P','R']}
 
 # Plot with ep.lmPlot(), real values
 daPlot, daPlotpd, legendList, gFig = ep.lmPlot(EPRX, plotDims=plotDimsRed, xDim=xDim, pType = 'r')
-daPlot, daPlotpd, legendList, gFig = ep.lmPlot(EPRX.unstack().sum(['l','lp','R-p']), xDim=xDim, pType = 'r')
+# Version summed over l,m
+# daPlot, daPlotpd, legendList, gFig = ep.lmPlot(EPRX.unstack().sum(['l','lp','R-p']), xDim=xDim, pType = 'r')
 
-# Seem to have some all-NaN cols persisting here, not sure why...
+# For glue
+glue("lmPlot_EPR_basis", gFig.fig, display=False)
 ```
 
+```{glue:figure} lmPlot_EPR_basis
+---
+name: "fig-EPR-basis"
+---
+Example $E_{P,R}$ basis functions. Note that for linearly polarised light $p=R-p=0$ only, hence only the terms $E_{0,0}$ and $E_{2,0}$ are non-zero in this case. For non-linearly polarised cases many other terms are allowed.
+```
 
++++
+
+(sec:theory:lambda-term)=
+## Molecular frame projection term $\Lambda$
+
+For the molecular frame case, the coupling between the {{ LF }} and {{ MF }} can be defined by a projection term, $\Lambda_{R',R}(R_{\hat{n}})$:
+
+$$
+\Lambda_{R',R}(R_{\hat{n}})=(-1)^{(R')}\left(\begin{array}{ccc}
+1 & 1 & P\\
+\mu & -\mu' & R'
+\end{array}\right)D_{-R',-R}^{P}(R_{\hat{n}})
+$$ (eq:basis-lambda-MF-defn)
+
+This is similar to the $E_{PR}$ term, and essentially rotates it into the {{ MF }}, defining the projections of the polarization vector (photon angular momentum) $\mu$ into the {{ MF }} for a given molecular orientation (frame rotation) defined by $R_{\hat{n}}$. 
+
+% And the the $\Lambda_{R',R}$ term is a simplified form of the previously derived MF term:
+
+For the {{ LF }}/{{ AF }} case, the same term appears but in a simplified form:
+
+$$
+\bar{\Lambda}_{R'}=(-1)^{(R')}\left(\begin{array}{ccc}
+1 & 1 & P\\
+\mu & -\mu' & R'
+\end{array}\right)\equiv\Lambda_{R',R'}(R_{\hat{n}}=0)
+$$ (eq:basis-lambda-LF-defn)
+
+This form pertains since - in the {{ LF }}/{{ AF }} case - there is no specific frame transformation defined (i.e. there is no single molecular orientation defined in relation to the light polarization, rather a distribution as defined by the {{ ADMs }}), but the total angular momentum coupling of the photon terms is still required in the equations.
+
+Numerically, the function is calculated for a specified set of orientations, which default to the standard set of $(x,y,z)$ MF polarization cases. For the LF/AF case, this term is still used, but restricted to $R_{\hat{n}} = (0,0,0) = z$, i.e. no frame rotation relative to the {{ LF }} $E_{PR}$ definition.
+
+TODO: frame rotation illustration as well as term plots? Cf. QM1?
+
++++
+
+(sec:theory:AF-alignment-term)=
+## Alignment tensor $\Delta_{L,M}(K,Q,S)$
+
+Finally, for the {{ LF }}/{{ AF }} case, the alignment tensor couples the molecular axis ensemble (defined as a set of {{ ADMs }}) and the photoionization multipole terms into the final observable. 
+
+$$
+\Delta_{L,M}(K,Q,S)=(2K+1)^{1/2}(-1)^{K+Q}\left(\begin{array}{ccc}
+P & K & L\\
+R & -Q & -M
+\end{array}\right)\left(\begin{array}{ccc}
+P & K & L\\
+R' & -S & S-R'
+\end{array}\right)
+$$ (eq:basis-alignmentTensor-defn)
+
+In the full equations for the observable, this term appears in a summation with the {{ ADMs }}, as:
+
+$$
+\tilde{\Delta}_{L,M}(t) = \sum_{K,Q,S}\Delta_{L,M}(K,Q,S)A_{Q,S}^{K}(t)
+$$ (eq:basis-aligmentTerm-defn)
+
+% TODO: decide on notation here, may have decided on this previously? (But not in MF recon paper or QM2). Standard symbol for averaged property? Don't want to use bar to avoid LF/MF confusion? Or could...?
+% \overbar, \ddot ?
+
+This summed alignment term can be considered, essentially, as a (coherent) geometric averaging of the {{ MF }} observable weighted by the axis distribution in the {{ AF }} (for more on the axis averaging as a convolution, see Refs. {cite}`Underwood2000,hockett2018QMP1`); equivalently, the averaging can be considered as a purely angular-momentum coupling effect, which accounts for all contributing moments of the various aspects of the system, and defines the allowed projections onto the final observables in the {{ LF }}. 
+
+Mappings of these terms are investigated numerically below, for some examplar cases.
+
++++
+
+(sec:theory:AF-alignment-term-basic)=
+### Basic cases
+
+{numref}`fig-deltaTerm000` illustrates the alignment tensor $\Delta_{L,M}(K,Q,S)$ for some basic cases, and values are also tabulated in {numref}`tab-deltaTerm000`. Note that for illustration purposes the term is subselected with $K=0$, $Q=0$, $S=0$ and $R'=0$; $R\neq0$ terms are included to illustrate the elliptically-polarized case, which can give rise to non-zero $M$ terms.
+
+For the simplest case of an unaligned ensemble, this term is restricted to $K=Q=S=0$, i.e. $\Delta_{L,M}(0,0,0)$; for single-photon ionization with linearly-polarized light ($p=0$, hence $P=0,2$ and $R=R'=0$), this has non-zero values for $L=0,2$ and $M=0$ only. Typically, this simplest case is synonymous with standard {{ LF }} results, and maintains cylindrical and up-down symmetry in the observable.
+
+For circularly polarized light ($p=\pm1$, hence $P=0,1,2$ and $R=R'=0$), odd-$L$ is allowed, signifying up/down symmetry breaking in the observable (where up/down pertains to the propagation direction of the light, conventionally the $z$-axis). For elliptically polarized light, mixing of terms with different $p$ allows for non-zero $R$ terms, hence non-zero $M$ is allowed, signifying breaking of cylindrical symmetry in the observable.
+
+```{code-cell} ipython3
+#*** Set range of ADMs for test as time-dependent values - single call
+# AKQS = ep.setADMs(ADMs = [[0,0,0,1,1,1,1],
+#                           [2,0,0,0,0.5,1,1],
+#                           [4,0,0,0,0,0,0.3]])  #, t=[0,1,2])    # Nested list or np.array OK.
+# AKQS = ep.setADMs(ADMs = np.array([[0,0,0,1,1],[2,0,0,0,0.5]]), t=[0,1])
+
+#*** Alternative form with ADM inds separate
+# ADMinds = np.array([[0,0,0],[2,0,0],[4,0,0]])
+# AKQS = ep.setADMs(ADMs = np.stack((np.ones(4),np.linspace(0,1,4),np.linspace(0,0.2,4))),
+#                   KQSLabels=ADMinds)
+
+
+# For computation set ADMs and EPR term first.
+# Note that delta term is independent of the absolute values of the ADMs(t), but does use this term to define limits on some quantum numbers.
+
+#*** Neater version
+# Set ADMs for increasing alignment...
+tPoints = 10
+inputADMs = [[0,0,0, *np.ones(tPoints)],     # * np.sqrt(4*np.pi)],  # Optional multiplier for normalisation
+             [2,0,0, *np.linspace(0,1,tPoints)], 
+             [4,0,0, *np.linspace(0,0.5,tPoints)],
+             [6,0,0, *np.linspace(0,0.3,tPoints)],
+             [8,0,0, *np.linspace(0,0.2,tPoints)]]
+
+AKQS = ep.setADMs(ADMs = inputADMs)  # TODO WRAP TO CLASS (IF NOT ALREADY!)
+
+
+#*** Plot ADMs
+# daPlot, daPlotpd, legendList, gFig = ep.lmPlot(AKQS, xDim = 't', pType = 'r', squeeze = False, thres=None, cmap='vlag')  # Note squeeze = False required for 1D case (should add this to code!)
+# daPlotpd
+
+# Example alignment term, assuming all other terms allow/unity valued.
+
+# Use default EPR term - note this computes for all pol states, p=[-1,0,1]
+EPR = ep.geomCalc.EPR(form='xarray')
+
+# Compute alignment terms
+AFterm, DeltaTerm = ep.geomCalc.deltaLMKQS(EPR, AKQS)
+
+#*** Plot Delta term with subselections
+# xDim = {'KQ':['K','Q']}
+xDim = {'LM':['L','M']}
+daPlot, daPlotpd, legendList, gFig = ep.lmPlot(DeltaTerm.sel(K=0,Q=0,S=0,Rp=0).sel({'S-Rp':0}), xDim = xDim, pType = 'r', squeeze = False, thres=None) #, cmap='vlag') # , fillna=True)  # Note squeeze = False required for 1D case (should add this to code!)
+# daPlotpd.fillna('')
+
+# Glue versions for JupyterBook output
+glue("deltaTerm000-lmPlot", gFig.fig, display=False)
+glue("deltaTerm000-tab",daPlotpd.fillna(''), display=False)  # As above, but with PD object return and glue.
+```
+
+```{glue:figure} deltaTerm000-lmPlot
+---
+name: "fig-deltaTerm000"
+---
+Example $\Delta_{L,M}(0,0,0)$ basis functions (see also {numref}`tab-deltaTerm000`). For illustration purposes, the plot only shows terms for $R'=0$. See main text for discussion.
+```
+
++++
+
+```{glue:figure} deltaTerm000-tab
+---
+name: "tab-deltaTerm000"
+---
+Example $\Delta_{L,M}(0,0,0)$ basis functions (see also {numref}`fig-deltaTerm000`). For illustration purposes, the table only shows terms for $R'=0$. See main text for discussion.
+```
+
+```{code-cell} ipython3
+:tags: [hide-output]
+
+#*** Plot ADMs
+daPlot, daPlotpd, legendList, ADMFig = ep.lmPlot(AKQS, xDim = 't', pType = 'r', squeeze = False, cmap='vlag')  # Note squeeze = False required for 1D case (should add this to code!)
+# daPlotpd
+
+#*** Plot subsection
+daPlot, daPlotpd, legendList, AFFig = ep.lmPlot(AFterm.sel(R=0).sel(Rp=0).sel({'S-Rp':0}), 
+                                               xDim = 't', pType = 'r', squeeze = False, cmap='vlag')  # Note squeeze = False required for 1D case (should add this to code!)
+
+# Glue versions for JupyterBook output
+glue("ADMs-linearRamp-lmPlot", ADMFig.fig, display=False)
+glue("AFterm-linearRamp-lmPlot", AFFig.fig, display=False)
+```
+
+```{glue:figure} ADMs-linearRamp-lmPlot
+---
+name: "fig-ADMs-linearRamp"
+---
+Example ADMs used for {{ AF }} basis function example (see {numref}`fig-AFterm-linearRamp`). These ADMs essentially show an increasing degree of alignment with the $t$ parameter, with high-order terms increasing at later $t$.
+```
+
++++
+
+```{glue:figure} AFterm-linearRamp-lmPlot
+---
+name: "fig-AFterm-linearRamp"
+---
+Example of $\tilde{\Delta}_{L,M}(t)$ basis values for various choices of alignment (as per {numref}`fig-ADMs-linearRamp`). The ADMs essentially show an increasing degree of alignment with the $t$ parameter, with high-order terms increasing at later $t$, and this is reflected in the $\tilde{\Delta}_{L,M}(t)$ terms with higher-order $L$ appearing at later $t$.
+```
+
++++
+
+% and Figs. XX and XX show $\tilde{\Delta}_{L,M}(t)$ for various choices of alignment.
+
+For cases with aligned molecular ensembles, additional terms can similarly appear depending on the alignment as well as the properties of the ionizing radiation. Again, the types of terms follow some typical patterns dependent on the symmetry of the ensemble, as well as the order of the terms allowed. For instance, $L_{max}=P_{max}+K_{max}=2+K_{max}$, and $K_{max}$ represents the overall degree of alignment of the ensemble; hence an aligned ensemble may be signified by higher-order terms in the observable (if allowed by other terms in the overall expansion) or, equivalently, aligning an ensemble prior to ionization can be used as a way to control which terms contribute to the alignment tensor.
+
+Since this is a coherent averaging, additional interferences can also appear in the {{ AF }} - or be restricted in the {{ AF }} - depending on these geometric parameters and the contributing matrix elements. Additionally, any effects modulating these terms, for instance a time-dependent alignment (rotational wavepacket), vibronic dynamics (vibrational and/or electronic wavepacket), time-dependent laser field (control field) may be anticipted to lead to both changes in these terms and, potentially, interesting effects in the observable. Such effects have been discussed in more detail in {{ QM2 }}, and in the current case the focus is purely on rotational wavepackets.
+
+{numref}`fig-AFterm-linearRamp` shows $\tilde{\Delta}_{L,M}(t)$ for various choices of alignment (as per the {{ ADMs }} shown in {numref}`fig-ADMs-linearRamp`), and illustrates some of the general features discussed. Note, for example:
+
+- $L_{max}$ varies with alignment; in the demonstration case $K_{max}=8$ at later times, resulting in $L_{max}=10$, whilst at $t=0$ $K_{max}=0$, thus restricting terms to $L_{max}=2$.
+- Odd-$L$ values are correlated with $P=1$ terms.
+- Only $M=0$ terms are allowed in this case ($Q=S=0$).
+
++++
+
+(sec:theory:AF-alignment-term-3D)=
+### 3D alignments and symmetry breaking
+
+As discussed above, for the case where $Q\neq0$ and/or $S\neq0$ additional symmetry breaking can occur. It is simple to examine these effects numerically via changing the trial {{ ADMs }} used to determine $\tilde{\Delta}_{L,M}(t)$ (Eq. {eq}`eq:basis-aligmentTerm-defn`).
+
+% TODO: is calculation below correct...? Have M!=0 terms OK, not sure otherwise!
+% TODO: revise calcs, should R' be treated directly/propagated elsewhere, or will be set manually?
+% TODO: more representative alignment terms?
+
+```{code-cell} ipython3
+:tags: [hide-output]
+
+#*** Neater version
+# Set ADMs for increasing alignment...
+tPoints = 10
+inputADMs3D = [[0,0,0, *np.ones(tPoints)],     # * np.sqrt(4*np.pi)],  # Optional multiplier for normalisation
+             [2,0,0, *np.linspace(0,1,tPoints)], 
+             [2,0,2, *np.linspace(0,0.5,tPoints)],
+             [2,2,0, *np.linspace(0,0.5,tPoints)],
+             [2,2,2, *np.linspace(0,0.8,tPoints)]]
+
+AKQS = ep.setADMs(ADMs = inputADMs3D)  # TODO WRAP TO CLASS (IF NOT ALREADY!)
+
+# Compute alignment terms
+AFterm, DeltaTerm = ep.geomCalc.deltaLMKQS(EPR, AKQS)
+
+#*** Plot all
+# daPlot, daPlotpd, legendList, gFig = ep.lmPlot(AFterm,    #.sel(R=0).sel(Rp=0), 
+#                                                xDim = 't', pType = 'r', squeeze = False, cmap='vlag')  # Note squeeze = False required for 1D case (should add this to code!)
+
+
+#*** Plot subsection, L<=2
+# .sel(R=0).sel(Rp=0) gives M=0 terms only for R=Rp=0
+# .sel(R=0) gives M=0 terms only
+# .sel(Rp=0) gives M!=0 terms, S-Rp=0 terms only
+
+daPlot, daPlotpd, legendList, gFig = ep.lmPlot(AFterm.where(AFterm.L<=2).sel(Rp=0),    # .sel(R=0).sel(Rp=0), #M=0 for R=Rp=0
+                                               xDim = 't', pType = 'r', squeeze = False, cmap='vlag')  # Note squeeze = False required for 1D case (should add this to code!)
+
+# Glue versions for JupyterBook output
+glue("ADMs-3DlinearRamp-lmPlot", ADMFig.fig, display=False)
+```
+
+```{glue:figure} ADMs-3DlinearRamp-lmPlot
+---
+name: "fig-ADMs-3DlinearRamp"
+---
+Example $\tilde{\Delta}_{L,M}(t)$ basis values for various choices of "3D" alignment, i.e. including some $K\neq0$ and $S\neq0$ terms. Note, in particular, the presence of $M\neq0$ terms in general, and a complicated dependence of the allowed terms on the alignment ({{ ADMs }}), which may increase, decrease, or even change sign for a given $L,M$.
+```
+
+```{code-cell} ipython3
+:tags: [hide-cell]
+
+daPlot, daPlotpd, legendList, gFig = ep.lmPlot(AFterm.where(AFterm.L<=2).sel(M=1),    # .sel(R=0).sel(Rp=0), #M=0 for R=Rp=0
+                                               xDim = 't', pType = 'r', squeeze = False, cmap='vlag')  # Note squeeze = False required for 1D case (should add this to code!)
+```
+
+```{code-cell} ipython3
+:tags: [hide-cell]
+
+daPlot, daPlotpd, legendList, gFig = ep.lmPlot(AFterm.where(AFterm.L<=2).sel(M=2),    # .sel(R=0).sel(Rp=0), #M=0 for R=Rp=0
+                                               xDim = 't', pType = 'r', squeeze = False, cmap='vlag')  # Note squeeze = False required for 1D case (should add this to code!)
+```
+
+For illustration purposes, {numref}`fig-ADMs-3DlinearRamp` shows a subselection of the $\tilde{\Delta}_{L,M}(t)$ basis values, indicating some of the key features in the full 3D case, subselected for $L\leq2$ and $R'=0$ terms only. %; Fig. XX shows the subset with $L\leq2$ and $M=1$; Fig. XX shows the subset with $L\leq2$ and $M=2$. 
+
+Note, in particular, the presence of $M\neq0$ terms in general, and a complicated dependence of the allowed terms on the alignment, which may increase, decrease, or even change sign. % TODO: give more explict examples here, may want to also reduce and consolidate illustrations further?
+As previously, these behaviours are generally useful for understanding specific cases or planning experiments for specific systems; this is explored further in Part II which focuses on the results for particular molecules (hence symmetries and sets of matrix elements).
+
++++
+
+(sec:theory:tensor-products)=
+## Tensor product terms
+
+% TODO: manual composition of tensor product terms OR recalc from full basis as per above with alignment terms.
+% See main afblmGeom routine for details.
+
+Following the above, further resultant terms can also be examined, up to and including the full channel functions $\varUpsilon_{L,M}^{u,\zeta\zeta'}$ (see {eq}`eqn:channel-fns`) for a given case. Numerically these are all implemented in the main {{ ePSproc_full }}, and can be returned by these functions for inspection - the full basis set already defined includes some of these product. Custom tensor product terms are also readily computed with the codebase, with tensor multiplications handled natively by the Xarray data objects.
+
+% These terms are defined as follows:
+
+% TODO: formal definitions to match code (already done somewhere...?) PolProd etc.
+% SEE MF RECON MANUSCRIPT NOTEBOOKS for this, and Sect 4.1.7 therein (Figs 14 & 15). Don't recall where source code is off-hand... TRY TRELLO, also D:\temp\docker_stimpy_builds\notebooks\pemtk_fitting_runs_April2022\analysis_dev probably (`stimpy-docker-local` in shared dirs).  AH: http://jake/jupyter/user/paul/lab/workspaces/MFreconBasisSets AND https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basis-set_demo_050621-full.html
+
+Polarisation & ADM product term: the main product basis returned, `polProd`, contains the tensor product $\Lambda_{R}\otimes E_{PR}(\hat{e})\otimes \Delta_{L,M}(K,Q,S)\otimes A^{K}_{Q,S}(t)$, expanded over all quantum numbers (see [full definition here](https://epsproc.readthedocs.io/en/dev/methods/geometric_method_dev_pt3_AFBLM_090620_010920_dev_bk100920.html#\beta_{L,M}^{AF}-rewrite)). This term, therefore, incorporates all of the dependence (or response) of the AF-$\beta_{LM}$s on the polarisation state, and the axis distribution. Example results, making use of the linear-ramp {{ ADMs }} of {numref}`Sect. %s <sec:theory:AF-alignment-term-basic>` are illustrated in {numref}`fig-polProd-linearRamp`.
+
+The full channel (response) functions $\varUpsilon_{L,M}^{u,\zeta\zeta'}$ as defined in {eq}`eq:channelFunc-MF-defn` and {eq}`eq:channelFunc-AF-defn` can be determined by the product of this term with the $B_{L,M}$ tensor. This is essentially the complete geometric basis set, % ([give or take a phase term or two](https://epsproc.readthedocs.io/en/dev/methods/geometric_method_dev_pt3_AFBLM_090620_010920_dev_bk100920.html#\beta_{L,M}^{AF}-rewrite)), 
+hence equivalent to the AF-$\beta_{LM}$ if the ionization matrix elements were set to unity. This illustrates not only the coupling of the geometric terms into the observable $L,M$, but also how the partial wave $|l,m\rangle$ terms map to the observables. Example results, making use of the linear-ramp {{ ADMs }} of {numref}`Sect. %s <sec:theory:AF-alignment-term-basic>` are illustrated in {numref}`fig-channelFunc-linearRamp`.
+
+```{code-cell} ipython3
+# Set data - set example ADMs to data structure & subset for calculation
+data.setADMs(ADMs = inputADMs)
+data.setSubset(dataKey = 'ADM', dataType = 'ADM')
+
+# Using PEMtk - this only returns the product basis set as used for fitting
+BetaNormX, basisProduct = data.afblmMatEfit(selDims={}, sqThres=False)
+```
+
+```{code-cell} ipython3
+:tags: [hide-output]
+
+basisKey = 'polProd'  # Key for BLM basis set
+
+# Reformat basis for display (optional)
+# stackDims = {'LM':['L','M']}
+# basisPlot = basis[basisKey].rename({'S-Rp':'M'}).stack(stackDims)
+
+# Convert to Pandas
+# pd, _ = ep.multiDimXrToPD(basisPlot, colDims=stackDims)
+
+# Subselect on pol state
+daPlot, daPlotpd, legendList, gFig = ep.lmPlot(basisProduct[basisKey].sel(Labels='A'), xDim='t', cmap = cmap, mDimLabel='mu'); # , cmap='vlag');  # Subselect on pol state
+# ep.lmPlot(basisProduct[basisKey], xDim='t', cmap = cmap); # , cmap='vlag');  # Subselect on pol state
+
+# Glue versions for JupyterBook output
+glue("polProd-linearRamp-lmPlot", gFig.fig, display=False)
+```
+
+```{code-cell} ipython3
+:tags: [hide-output]
+
+# Channel functions
+daPlot, daPlotpd, legendList, gFig =  ep.lmPlot((basisProduct['BLMtableResort'] * basisProduct['polProd']).sel(Labels='A').sel({'S-Rp':0}).sel(L=2), xDim='t', cmap=cmap, mDimLabel='m');  # Basic case
+# ep.lmPlot((basis['BLMtableResort'] * basis['polProd']), xDim='t', cmap='vlag');
+
+# Glue versions for JupyterBook output
+glue("channelFunc-linearRamp-lmPlot", gFig.fig, display=False)
+```
+
+```{glue:figure} polProd-linearRamp-lmPlot
+---
+name: "fig-polProd-linearRamp"
+---
+Example product basis function for the polarisation and ADM terms.
+```
+
++++
+
+```{glue:figure} channelFunc-linearRamp-lmPlot
+---
+name: "fig-channelFunc-linearRamp"
+---
+Example of $\bar{\varUpsilon_{}}_{L,M}^{u,\zeta\zeta'}$ basis values for various choices of alignment (as per {numref}`fig-ADMs-linearRamp`), shown for $L=2$ only. The basis essentially shows the obsevable terms if the ionization matrix elements are neglected, hence the sensitivity of the configuration to each pair of partial wave terms. Note, in general, that the sensitivity to any given pair $$\langle l',m'|l,m\rangle$, increases with alignment (hence with $t$ in this example) for the linear polarisation case ($\mu=\mu'=0$), but typically decreases with alignment for cross-polarised terms. 
+
+```
 
 +++ {"tags": []}
 

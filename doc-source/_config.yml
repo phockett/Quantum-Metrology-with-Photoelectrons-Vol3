@@ -37,7 +37,8 @@ bibtex_bibfiles:
 # Test/initial files
   # - bibs/MF_recon_manuscript_June2020_bbt_bibtex_071122.bib
   # - bibs/hockett_pubs_bbt_bibtex_091122.bib
-  - bibs/MF_recon_manuscript_June2020_bbt_biblatex_211122.bib
+  # - bibs/MF_recon_manuscript_June2020_bbt_biblatex_211122.bib
+  - bibs/MF_recon_manuscript_June2020_bbt_bibtex_200123.bib
 # Ongoing bib
   # - bibs/QM3_ongoing.bib
 #  - references.bib  # Sample file
@@ -163,6 +164,8 @@ parse:
     QM1: "_Quantum Metrology_ Vol. 1 {cite}`hockett2018QMP1`"
     QM2: "_Quantum Metrology_ Vol. 2 {cite}`hockett2018QMP2`"
     QM12: "_Quantum Metrology_ Vols. 1 & 2 {cite}`hockett2018QMP1, hockett2018QMP2`"
+    book_HTML: "[_Quantum Metrology_ Vol. 3 (HTML version)](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/part1/main_intro_051122.html)"
+    book_repo: "[_Quantum Metrology_ Vol. 3 (Github repo)](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3)"
     PEMtk_repo: "[Photoelectron Metrology Toolkit](https://github.com/phockett/PEMtk) {cite}`hockett2021PEMtkGithub`"
     PEMtk_docs: "[PEMtk documentation](https://pemtk.readthedocs.io) {cite}`hockett2021PEMtkDocs`"
     ePSproc_full: "[ePSproc codebase](https://epsproc.readthedocs.io) {cite}`hockett2016EPSprocAuthorea,ePSprocGithub,ePSprocDocs`"
@@ -171,7 +174,6 @@ parse:
     ePSdata_docs: "[ePSdata](https://phockett.github.io/ePSdata/about.html) {cite}`hockett2019EPSDataPhotoionization`"
     ePSdata_repo: "[ePSdata](https://github.com/phockett/ePSdata/) {cite}`hockett2019EPSDataPhotoionization`"
     ePSdata_zenodo: "[ePSdata Zenodo](https://zenodo.org/search?page=1&size=20&q=hockett&keywords=Data) {cite}`hockett2019EPSdataRepositoriesZenodo`"
-    book_repo: "[Quantum Metrology Vol. 3](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3)"
     open_photo_stacks_repo: "[Open Photoionization Docker Stacks](https://github.com/phockett/open-photoionization-docker-stacks) {cite}`hockettOpenPhotoionizationDocker`"
     ePS_manual: "[ePolyScat website and manual](https://epolyscat.droppages.com/) {cite}`luccheseEPolyScatUserManual`"
     ePS_full: "[ePolyScat (ePS)](https://epolyscat.droppages.com/) {cite}`Lucchese1986,Gianturco1994,Natalense1999,luccheseEPolyScatUserManual`"

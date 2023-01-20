@@ -12,4 +12,4 @@ BASEPATH="${1:-/home/jovyan/QM3}"
 cd $BASEPATH
 
 echo Deploying to GH pages from $BASEPATH/_latest_build/html-build
-ghp-import -n -p -f _latest_build/html
+ghp-import -n -p -f _latest_build/html-build
