@@ -138,6 +138,7 @@ Seem to be getting inconsistent behaviour in HTML outputs, see https://github.co
 - `\boldsymbol` generally not working in HTML (but OK in JupyterLab).
 - `\bm` generally not working anywhere.
 - Both seem OK in PDF outputs.
+- UPDATE Dec 2022: also added macro to `mathjax_config` (in `_config.py` for book) as per https://github.com/mathjax/MathJax/issues/1219#issuecomment-341059843 - this fixes `\bm` for HTML case by replacing with `\boldsymbol`.
 
 With single `$`
 
@@ -208,6 +209,8 @@ No `\bm` case (i.e. not set in `_config.py` for latex preamble), subs as:
 
 - \bm >> \boldsymbol, have this only for \bm{r} it seems, may want \mathrm here too? NEED TO LOOK CAREFULLY - can use former in general (scalar) case (or just plain r), latter in vector case.
 
+UPDATE Dec 2022: also added macro to `mathjax_config` (in `_config.py` for book) as per https://github.com/mathjax/MathJax/issues/1219#issuecomment-341059843 - this fixes `\bm` for HTML case by replacing with `\boldsymbol`.
+
 +++
 
 $$\mathbf{\hat{\mu}}$$
@@ -252,6 +255,19 @@ See also https://tex.stackexchange.com/questions/159785/caveats-of-newtxmath-and
 MAY NEED TO CHANGE SPHINX PART OF PREAMBLE FOR THIS? This already loads some extensions - specifically fontspec - before user-specced stuff, so get latex package options clash errors.
 
 WORK AROUND - $\bar{\varUpsilon_{L,M}}$ is OK, AS IS $\bar{\varUpsilon_{}}$ **USE THIS VERSION**
+
+---
+
+ISSUES with $\rho$
+
+Boldsymbol version OK in Jupyter and PDF, but not in HTML builds, $\boldsymbol{\rho}^{\zeta\zeta'}$, 
+
+- try $\boldsymbol{{\rho}}^{\zeta\zeta'}$ and $\bm{\rho}^{\zeta\zeta'}$ - Nope, both same (and also latter fails in PDF builds without `'\usepackage{bm}'`).
+- try $\mathbf{\rho}^{\zeta\zeta'}$, OK in Jupyter and HTML, but not in PDF.
+- FOR NOW JUST USE NON-BOLD VERSION! (Can't find specific fix online for this case.)
+- Optional: could also switch on build-type?
+
+---
 
 +++
 

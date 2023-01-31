@@ -24,6 +24,7 @@ TODO
 - Tidy up notation in some places.
 - Full extended tensor formulation as per Appendix in MF recon paper? Probably should add in here.
    - Best working notes? Try https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basis-set_demo_050621-full.html, also try updates for MF recon manuscript in http://jake:9966/lab/tree/code-share/jupyter-shared/PEMtk_dev_2022/basisSets/PEMtk_fitting_basis-set_demo_050621-full-revisit-Jake_040822.ipynb. Q: did this make it to Figshare repo? Looks like missing? See also Trello notes...
+   - AH, original workspace for MF recon case: http://jake/jupyter/user/paul/lab/workspaces/MFreconBasisSets, and main notebook (may not be final version?) http://jake/jupyter/user/paul/doc/tree/code-share/stimpy-docker-local/MFPADs_recon_manuscript_dev_April_2022/MFrecon_manuscript_fig_generation_170422-Stimpy_MAIN-oldPkgs.ipynb
 
 +++ {"tags": []}
 
@@ -693,6 +694,8 @@ For the simplest case of an unaligned ensemble, this term is restricted to $K=Q=
 For circularly polarized light ($p=\pm1$, hence $P=0,1,2$ and $R=R'=0$), odd-$L$ is allowed, signifying up/down symmetry breaking in the observable (where up/down pertains to the propagation direction of the light, conventionally the $z$-axis). For elliptically polarized light, mixing of terms with different $p$ allows for non-zero $R$ terms, hence non-zero $M$ is allowed, signifying breaking of cylindrical symmetry in the observable.
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 #*** Set range of ADMs for test as time-dependent values - single call
 # AKQS = ep.setADMs(ADMs = [[0,0,0,1,1,1,1],
 #                           [2,0,0,0,0.5,1,1],
@@ -871,7 +874,8 @@ daPlot, daPlotpd, legendList, gFig = ep.lmPlot(AFterm.where(AFterm.L<=2).sel(M=2
                                                xDim = 't', pType = 'r', squeeze = False, cmap='vlag')  # Note squeeze = False required for 1D case (should add this to code!)
 ```
 
-For illustration purposes, {numref}`fig-ADMs-3DlinearRamp` shows a subselection of the $\tilde{\Delta}_{L,M}(t)$ basis values, indicating some of the key features in the full 3D case, subselected for $L\leq2$ and $R'=0$ terms only. %; Fig. XX shows the subset with $L\leq2$ and $M=1$; Fig. XX shows the subset with $L\leq2$ and $M=2$. 
+For illustration purposes, {numref}`fig-ADMs-3DlinearRamp` shows a subselection of the $\tilde{\Delta}_{L,M}(t)$ basis values, indicating some of the key features in the full 3D case, subselected for $L\leq2$ and $R'=0$ terms only. 
+%; Fig. XX shows the subset with $L\leq2$ and $M=1$; Fig. XX shows the subset with $L\leq2$ and $M=2$. 
 
 Note, in particular, the presence of $M\neq0$ terms in general, and a complicated dependence of the allowed terms on the alignment, which may increase, decrease, or even change sign. % TODO: give more explict examples here, may want to also reduce and consolidate illustrations further?
 As previously, these behaviours are generally useful for understanding specific cases or planning experiments for specific systems; this is explored further in Part II which focuses on the results for particular molecules (hence symmetries and sets of matrix elements).
@@ -958,22 +962,256 @@ Example of $\bar{\varUpsilon_{}}_{L,M}^{u,\zeta\zeta'}$ basis values for various
 (sec:density-mat-basic)=
 ## Density matrix representation
 
-The density operator associated with the continuum state in
-Eq. {eq}`eq:continuum-state-vec` is easily written as $\hat{\rho}=|\Psi_c\rangle\langle\Psi_c|$. In the channel function basis, this leads to a density matrix given by the radial matrix
-elements:
+% TODO: numerical examples here
+% TODO: decide on notation, \Psi_c == \mathbf{k}?
+% 30/01/23 extended with notes from MF recon article.
 
+The density operator associated with the continuum state in Eq. {eq}`eq:continuum-state-vec` is easily written as $\hat{\rho}=|\Psi_c\rangle\langle\Psi_c|\equiv|\mathbf{k}\rangle\langle\mathbf{k}|$. [^blumFootnote] The full final continuum state as a density matrix in the $\zeta\zeta'$ representation (with the observable dimensions $L,M$ explicitly included in the density matrix), which will also be dependent on the choice of channel functions ($u$), can then be given as
+
+[^blumFootnote]: For general discussion of density matrix techniques and applications in AMO physics, see Blum's textbook `Density Matrix Theory and Applications` {cite}`BlumDensityMat`, which is referred to extensively herein.
+
+$$
+{\rho}_{L,M}^{u,\zeta\zeta'}=\varUpsilon_{L,M}^{u,\zeta\zeta'}\mathbb{I}^{\zeta,\zeta'}
+$$ (eqn:full-density-mat)
+
+Here the density matrix can be interpreted as the final, LF/AF or MF density matrix (depending on the channel functions used), incorporating both the intrinsic and extrinsic effects (i.e. all channel couplings and radial matrix elements for the given measurement), with dimensions dependent on the unique sets of quantum numbers required - in the simplest case, this will just be a set of partial waves $\zeta = (l,m)$. 
+
+In the channel function basis, this leads to a (radial or reduced) density matrix given by the radial matrix elements:
+
+% Safe version - no bold
+$$
+\rho^{\zeta\zeta'} = \mathbb{I}^{\zeta,\zeta'}
+$$ (eqn:radial-density-mat)
+
+This form encodes purely intrinsic (molecular scattering) photoionization dynamics (thus characterises the scattering event), whilst the full form ${\rho}_{L,M}^{u,\zeta\zeta'}$ of Eq. {eq}`eqn:full-density-mat` includes any additional effects incorporated via the channel functions. For reconstruction problems, it is usually the reduced form of Eq. {eq}`eqn:radial-density-mat` that is of interest, since the remainder of the problem is already described analytically by the channel functions $\varUpsilon_{L,M}^{u,\zeta\zeta'}$. In other words, the retrieval of the radial matrix elements $\mathbb{I}^{\zeta,\zeta'}$ and the radial density matrix $\rho^{\zeta\zeta'}$ are equivalent, and both can be viewed as completely describing the photoionization dynamics.
+
+The $L,M$ notation for the full density matrix ${\rho}_{L,M}^{u,\zeta\zeta'}$ (Eq. {eq}`eqn:full-density-mat`) indicates here that these dimensions should not be summed over, hence the tensor coupling into the $\beta_{L,M}^{u}$ parameters can also be written directly in terms of the density matrix:
+
+$$
+\beta_{L,M}^{u}=\sum_{\zeta,\zeta'}{\rho}_{L,M}^{u,\zeta\zeta'}
+$$ (eqn:beta-density-mat)
+
+In fact, this form arises naturally since the $\beta_{L,M}^{u}$ terms are the state multipoles (geometric tensors) defining the system, which can be thought of as a coupled basis equivalent of the density matrix representations (see, e.g., Ref. {cite}`BlumDensityMat`, Chpt. 4.).
+
+In a more traditional notation (following Eq. {eq}`eq:continuum-state-vec`, see also Ref. {cite}`gregory2022LaboratoryFrameDensitya`), the density operator can be expressed as:
+
+$$
+\rho(t) =\sum_{LM}\sum_{KQS}A^{K}_{QS}(t)\sum_{\zeta\zeta^{\prime}}\varUpsilon_{L,M}^{u,\zeta\zeta'}|\zeta,\Psi_+\rangle\langle\zeta,\Psi_+|\mu_q\rho_i\mu_{q\prime}^{*}|\zeta^{\prime},\Psi_+\rangle\langle\zeta^{\prime},\Psi_+|
+$$ (eqn:full-density-mat-traditional)
+
+with $\rho_i = |\Psi_i\rangle\langle\Psi_i|$. This is, effectively, equivalent to an expansion in the various tensor operators defined above, in a standard state-vector notation.
+
+The main benefit of a density matrix representation in the current work is as a rapid way to visualize the phase relations between the photoionization matrix elements (the off-diagonal density matrix elements), and the ability to quickly check the overall pattern of the elements, hence confirm that no phase-relations are missing and orthogonality relations are fulfilled - some examples are given below. Since the method for computing the density matrices is also numerically equivalent to a tensor outer-product, density matrices and visualizations can also be rapidly composed for other properties of interest, e.g. the various channel functions defined herein, providing another complementary methodology and tool for investigation. (Further examples can be found in the {{ ePSproc_docs }}, as well as in the literature, see, e.g., Ref. {cite}`BlumDensityMat` for general discussion, Ref. {cite}`Reid1991` for application in pump-probe schemes.) 
+
+Furthermore, as noted above, the density matrix elements provide a complete description of the photoionization event, and hence make clear the equivalence of the ``complete" photoionization experiments (and associated continuum reconstruction methods) discussed herein, with general quantum tomography schemes {cite}`MauroDAriano2003`. The density matrix can also be used as the starting point for further analysis based on standard density matrix techniques - this is discussed, for instance, in Ref. {cite}`BlumDensityMat`, and can also be viewed as a bridge between traditional methods in spectroscopy and AMO physics, and more recent concepts in the quantum information sciences (see, e.g., Refs. {cite}`Tichy2011a,Yuen-Zhou2014` for recent discussions in this context).
+
+
++++ {"tags": ["remove-cell"]}
+
+% Additional notes for density matrices
+
+% Safe version - no bold
+$$\rho^{\zeta\zeta'} = \mathbb{I}^{\zeta,\zeta'}
+$$ (eqn:radial-density-mat)
+
+% This form is OK in HTML output, but fails in PDF
 % $$\mathbf{\rho}^{\zeta\zeta'} = \mathbb{I}^{\zeta,\zeta'}
 % $$ (eqn:radial-density-mat)
 
-$$\boldsymbol{\rho}^{\zeta\zeta'} = \mathbb{I}^{\zeta,\zeta'}
-$$ (eqn:radial-density-mat)
+% This form is OK in PDF output, but fails in HTML
+% $$\boldsymbol{\rho}^{\zeta\zeta'} = \mathbb{I}^{\zeta,\zeta'}
+% $$ (eqn:radial-density-mat)
 
-Since the matrix elements characterise the scattering event, the density matrix provides an equivalent characterisation of the scattering event. 
+% See QM3/doc-source/tests/formatting_syntax_tests_081122.ipynb for more render tests
+
+% Since the matrix elements characterise the scattering event, the density matrix provides an equivalent characterisation of the scattering event. 
 % An example case is discussed in Sect. [\[sec:den-mat-N2\]](#sec:den-mat-N2){reference-type="ref" reference="sec:den-mat-N2"} (see Fig. [11](#998904){reference-type="ref" reference="998904"}); for more details, and further discussion, see Sect. [\[sec:density-mat-full\]](#sec:density-mat-full){reference-type="ref" reference="sec:density-mat-full"}.
 
 Further discussion can also be found in the literature, see, e.g., Ref. {cite}`BlumDensityMat` for general discussion, Ref. {cite}`Reid1991` for application in pump-probe schemes.
 
-TODO: numerical examples here
+```{code-cell} ipython3
+# DEMO CODE FROM http://jake/jupyter/user/paul/doc/tree/code-share/stimpy-docker-local/MFPADs_recon_manuscript_dev_April_2022/MFrecon_manuscript_fig_generation_170422-Stimpy_MAIN-oldPkgs.ipynb
+# SEE ALSO DOCS, https://epsproc.readthedocs.io/en/dev/methods/density_mat_notes_demo_300821.html#Density-Matrices
+
+# Import routines
+from epsproc.calc import density
+
+# Compose density matrix
+
+# Set dimensions/state vector/representation
+# These must be in original data, but will be restacked as necessary to define the effective basis space.
+denDims = 'LM'  #, 'mu']
+selDims = None  #{'Type':'L'}
+pTypes=['r','i']
+thres = 1e-4    # 0.2 # Threshold out l>3 terms if using full 'orb5' set.
+normME = False
+normDen = 'max'
+
+# Calculate - Ref case
+# matE = data.data['subset']['matE']
+# Set data from master class
+# k = 'orb5'  # N2 orb5 (SG) dataset
+# k = 'subset'
+k = sym
+matE = data.data[k]['matE']
+if normME:
+    matE = matE/matE.max()
+
+daOut, *_ = density.densityCalc(matE, denDims = denDims, selDims = selDims, thres = thres)  # OK
+
+if normDen=='max':
+    daOut = daOut/daOut.max()
+elif normDen=='trace':
+    daOut = daOut/(daOut.sum('Sym').pipe(np.trace)**2)  # Need sym sum here to get 2D trace
+    
+# daPlot = density.matPlot(daOut.sum('Sym'))
+daPlot = density.matPlot(daOut.sum('Sym'), pTypes=pTypes)
+
+# # Retrieved
+# matE = data.data['agg']['matE']['compC']
+# if normME:
+#     matE = matE/matE.max()
+
+# daOut2, *_ = density.densityCalc(matE, denDims = denDims, selDims = selDims, thres = thres)  # OK
+
+# if normDen=='max':
+#     daOut2 = daOut2/daOut2.max()
+# elif normDen=='trace':
+#     daOut2 = daOut2/(daOut2.sum('Sym').pipe(np.trace)**2)
+    
+# daPlot2 = density.matPlot(daOut2.sum('Sym'), pTypes=pTypes)   #.sel(Eke=slice(0.5,1.5,1)))
+
+
+# # Compute difference
+# daDiff = daOut.sum('Sym') - daOut2.sum('Sym')
+# daDiff.name = 'Difference'
+# daPlotDiff = density.matPlot(daDiff, pTypes=pTypes)
+
+# #******** Plot
+# daLayout = (daPlot.layout('pType') + daPlot2.opts(show_title=False).layout('pType').opts(show_title=False) + daPlotDiff.opts(show_title=False).layout('pType')).cols(1)  # No cols? AH - set to 1 works.
+# # daLayout.opts(width=300, height=300)  # Doesn't work?
+# daLayout.opts(hvPlotters.opts.HeatMap(width=300, frame_width=300, aspect='square', tools=['hover'], colorbar=True, cmap='coolwarm'))  # .opts(show_title=False)  # .opts(title="Custom Title")  #OK
+```
+
+```{code-cell} ipython3
+daPlot
+```
+
++++ {"tags": ["remove-cell"]}
+
+## SCRATCH
+
+30/01/23 testing further density mat stuff.
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+# As above, but for a time-dependent case...
+# SHOULD BE per http://jake/jupyter/user/paul/doc/tree/code-share/jupyter-shared/PEMtk_dev_2022/basisSets/PEMtk_fitting_basis-set_demo_050621-full-revisit-Jake_040822.ipynb
+# BUT CURRENTLY not working - issue with dims and/or recent code changes?
+
+# Import routines
+from epsproc.calc import density
+
+# Set some test data - here include time-dependence
+testBasis = (basis['BLMtableResort'] * basis['polProd']).sel({'Labels':'A', 'S-Rp':0})
+
+# Compose density matrix
+# Set dimensions/state vector/representation
+# These must be in original data, but will be restacked as necessary to define the effective basis space.
+# denDims = 'LM'  #, 'mu']
+
+# denDims = list(set(testBasis.dims) - set('t')) # FAILS on restack, not sure why.
+# above gives: ['L', 'mp', 'M', 'l', 'lp', 'mup', 'm', 'mu']
+denDims = ['mp','l', 'lp', 'm']
+
+selDims = None  #{'Type':'L'}
+pTypes=['r','i']
+thres = 1e-4    # 0.2 # Threshold out l>3 terms if using full 'orb5' set.
+normME = False
+normDen = 'max'
+
+# Calculate - Ref case
+# matE = data.data['subset']['matE']
+# Set data from master class
+# k = 'orb5'  # N2 orb5 (SG) dataset
+# k = 'subset'
+k = sym
+# matE = data.data[k]['matE']
+matE = testBasis
+
+if normME:
+    matE = matE/matE.max()
+
+daOut, *_ = density.densityCalc(matE, denDims = denDims, selDims = selDims, thres = thres, sumDims=False)   #, compute=False)
+
+if normDen=='max':
+    daOut = daOut/daOut.max()
+elif normDen=='trace':
+    daOut = daOut/(daOut.sum('Sym').pipe(np.trace)**2)  # Need sym sum here to get 2D trace
+    
+# daPlot = density.matPlot(daOut.sum('Sym'))
+daPlot = density.matPlot(daOut.sum('Sym'), pTypes=pTypes)
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+type(denDims)
+denDims
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+ep.util.misc.checkDims(matE, refDims = stackDims, forceStacked = True)
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+ep.lmPlot((basisProduct['BLMtableResort'] * basisProduct['polProd']).sel(Labels='A').sel({'S-Rp':0}).sel(L=2), xDim='t', cmap=cmap, mDimLabel='m')
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+basisProduct.keys()
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+basisFull.keys()
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+(basisProduct['BLMtableResort'] * basisProduct['polProd']).sel(Labels='A').sel({'S-Rp':0}) # * basisProduct['BLMRenorm']
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+data.data.keys()
+```
+
+```{code-cell} ipython3
+
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+data.data['subset'].keys()
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+data.data[sym]['matE']
+```
 
 ```{code-cell} ipython3
 
