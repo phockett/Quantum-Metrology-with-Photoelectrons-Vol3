@@ -38,7 +38,7 @@ print('\n* Loading packages...')
 #*** Plotly glue wrapper - NOTE THIS FAILS IF RUN LATER IN IMPORT CHAIN, likely to do with Panel config?
 # See https://github.com/executablebooks/jupyter-book/issues/1815
 # From https://github.com/holoviz/panel/blob/master/panel/pane/plotly.py
-from myst_nb import glue
+from myst_nb import glue as glueOriginal
 import panel as pn
 pn.extension('plotly')
 
@@ -49,6 +49,21 @@ pn.extension('plotly')
 # Updated version including static fig export for PDF builds
 from IPython.display import Image
 
+
+# UPDATE 09/02/23 - NOW USE NEW WRAPPER AT END OF SCRIPT.
+#                   NOTE PANEL() wrapper for Plotly no longer seems necessary?
+#                   Jupyter-book and Myst-NB versions unchanged, so maybe Sphinx build chain thing?
+# (base) jovyan@867070a263a2:~/jake-home/buildTmp/scripts$ jupyter-book --version
+# Jupyter Book      : 0.13.2
+# External ToC      : 0.3.1
+# MyST-Parser       : 0.15.2
+# MyST-NB           : 0.13.2
+# Sphinx Book Theme : 0.3.3
+# Jupyter-Cache     : 0.4.3
+# NbClient          : 0.5.4
+
+# Sphinx at 4.5.0
+
 def gluePlotly(name,fig,**kwargs):
     """
     Wrap Plotly object with Panel and glue().
@@ -58,7 +73,7 @@ def gluePlotly(name,fig,**kwargs):
     """
     
     if buildEnv != 'pdf':
-        return glue(name, pn.pane.Plotly(fig, **kwargs), display=False)
+        return glueOriginal(name, pn.pane.Plotly(fig, **kwargs), display=False)
     
     else:
         # Force render and glue
@@ -78,7 +93,80 @@ def gluePlotly(name,fig,**kwargs):
         
         # Use basic display instead?
 
-        return glue(name, Image(imgFile), display=False)
+        return glueOriginal(name, Image(imgFile), display=False)
+
+# #*** Plotly glue wrapper - NOTE THIS FAILS IF RUN LATER IN IMPORT CHAIN, likely to do with Panel config?
+# # See https://github.com/executablebooks/jupyter-book/issues/1815
+# # From https://github.com/holoviz/panel/blob/master/panel/pane/plotly.py
+# from myst_nb import glue
+# import panel as pn
+# pn.extension('plotly')
+
+# # def gluePlotly(name,fig, **kwargs):
+# #     """Wrap Plotly object with Panel and glue()"""
+# #     return glue(name, pn.pane.Plotly(fig, **kwargs), display=False)
+
+# # Updated version including static fig export for PDF builds
+# from IPython.display import Image
+
+# 09/02/23 - Now use general glue() wrapper for Plotly and Holoviews.
+#            Note Panel wrapper no longer required, suspect build-chain cache issues there?
+
+# def superglue(func):
+def glueDecorator(func):
+    '''Decorator for glue() with interactive plot types forced to static for PDF builds.'''
+    
+    def glueWrapper(name,fig,**kwargs):
+        print("USING GLUE WRAPPER")
+        
+        # Set glue() output according to fig type and build env.
+        # Note buildEnv should be set globally, or passed as a kwarg.
+        if buildEnv != 'pdf':
+            
+            if 'plotly' in str(type(fig)):
+                # For Plotly may need Panel wrapper for HTML render in some cases...?
+                # Without Panel some basic plot types work, but not surface plots - may also be browser-dependent?
+                # Or due to maths bug, per https://jupyterbook.org/en/stable/interactive/interactive.html#plotly
+                return glue(name, pn.pane.Plotly(fig, **kwargs), display=False)
+            
+            else:
+                return func(name, fig, display=False)  # For non-PDF builds, use regular glue()
+        
+        else:
+            # Set names for file out
+            # Note imgFormat and imgPath should be set globally, or passed as kwargs.
+            imgFile = f'{name}.{imgFormat}'
+            imgFile = os.path.join(imgPath,imgFile)
+
+            # Holoviews object
+            # NOTE this may give unexpected results in some cases for Holomaps - may want to force flatten?
+            # Note for Bokeh backend may need additional pkgs, selenium, firefox and geckodriver
+            # See https://holoviews.org/user_guide/Plots_and_Renderers.html#saving-and-rendering
+            if 'holoviews' in str(type(fig)):
+                # Force render and glue
+                hv.save(fig, imgFile, fmt=imgFormat)
+                
+                # Glue static render
+                return func(name, Image(imgFile), display=False)
+                
+            elif 'plotly' in str(type(fig)):
+                fig.write_image(imgFile,format=imgFormat)  # See https://plotly.com/python/static-image-export/
+                # Glue static render
+                return func(name, Image(imgFile), display=False)
+
+            else:
+                # For all other objects return regular glue()
+                return func(name, fig, display=False)  
+            
+        
+    return glueWrapper
+
+# Wrap standard glue
+glue = glueDecorator(glueOriginal)
+
+# Also use as gluePlotly() & glueHV names for back compatibility
+# gluePlotly = glue
+glueHV = glue
 
 
 # A few standard imports...
@@ -214,34 +302,107 @@ plotBackend = 'pl'
 # 07/02/23 - adding glueHV()
 # Similar to gluePlotly() above, see also PEMtk.fit._plotters.hvSave() for basics
 
-def glueHV(name,fig,**kwargs):
-    """
-    Wrap HV fig object with glue().
+# def glueHV(name,fig,**kwargs):
+#     """
+#     Wrap HV fig object with glue().
     
-    For PDF builds, force HV fig to save to imgFormat and render from file.
+#     For PDF builds, force HV fig to save to imgFormat and render from file.
     
-    """
+#     """
     
-    if buildEnv != 'pdf':
-        return glue(name, fig, display=False)
+#     if buildEnv != 'pdf':
+#         return glue(name, fig, display=False)
     
-    else:
-        # Force render and glue
-        # Could also just force image render code here?
-        imgFile = f'{name}.{imgFormat}'
-        imgFile = os.path.join(imgPath,imgFile)
-        hv.save(fig, imgFile, fmt=imgFormat)
-        # fig.write_image(imgFile,format=imgFormat)  # See https://plotly.com/python/static-image-export/
+#     else:
+#         # Force render and glue
+#         # Could also just force image render code here?
+#         imgFile = f'{name}.{imgFormat}'
+#         imgFile = os.path.join(imgPath,imgFile)
+#         hv.save(fig, imgFile, fmt=imgFormat)
+#         # fig.write_image(imgFile,format=imgFormat)  # See https://plotly.com/python/static-image-export/
         
-        # return glue(name, display(f'{name}.png'))   # Only returns None?
-        # return glue(name, f'{name}.png')   # Returns filename
-        # return glue(name, pn.pane.PNG(f'{name}.png'))   # Returns image OK
+#         # return glue(name, display(f'{name}.png'))   # Only returns None?
+#         # return glue(name, f'{name}.png')   # Returns filename
+#         # return glue(name, pn.pane.PNG(f'{name}.png'))   # Returns image OK
         
-        # Multiple image types - works for HTML, but doesn't render in PDF
-        # if hasattr(pn.pane,imgFormat.upper()):
-        #     func = getattr(pn.pane,imgFormat.upper())
-        #     return glue(name, func(imgFile))
+#         # Multiple image types - works for HTML, but doesn't render in PDF
+#         # if hasattr(pn.pane,imgFormat.upper()):
+#         #     func = getattr(pn.pane,imgFormat.upper())
+#         #     return glue(name, func(imgFile))
         
-        # Use basic display instead?
+#         # Use basic display instead?
 
-        return glue(name, Image(imgFile), display=False)
+#         return glue(name, Image(imgFile), display=False)
+
+
+# #*** Plotly glue wrapper - NOTE THIS FAILS IF RUN LATER IN IMPORT CHAIN, likely to do with Panel config?
+# # See https://github.com/executablebooks/jupyter-book/issues/1815
+# # From https://github.com/holoviz/panel/blob/master/panel/pane/plotly.py
+# from myst_nb import glue
+# import panel as pn
+# pn.extension('plotly')
+
+# # def gluePlotly(name,fig, **kwargs):
+# #     """Wrap Plotly object with Panel and glue()"""
+# #     return glue(name, pn.pane.Plotly(fig, **kwargs), display=False)
+
+# # Updated version including static fig export for PDF builds
+# from IPython.display import Image
+
+# # 09/02/23 - Now use general glue() wrapper for Plotly and Holoviews.
+# #            Note Panel wrapper no longer required, suspect build-chain cache issues there?
+
+# # def superglue(func):
+# def glueDecorator(func):
+#     '''Decorator for glue() with interactive plot types forced to static for PDF builds.'''
+    
+#     def glueWrapper(name,fig,**kwargs):
+        
+#         # Set glue() output according to fig type and build env.
+#         # Note buildEnv should be set globally, or passed as a kwarg.
+#         if buildEnv != 'pdf':
+            
+#             if 'plotly' in str(type(fig)):
+#                 # For Plotly may need Panel wrapper for HTML render in some cases...?
+#                 # Without Panel some basic plot types work, but not surface plots - may also be browser-dependent?
+#                 # Or due to maths bug, per https://jupyterbook.org/en/stable/interactive/interactive.html#plotly
+#                 return glue(name, pn.pane.Plotly(fig, **kwargs), display=False)
+            
+#             else:
+#                 return func(name, fig, display=False)  # For non-PDF builds, use regular glue()
+        
+#         else:
+#             # Set names for file out
+#             # Note imgFormat and imgPath should be set globally, or passed as kwargs.
+#             imgFile = f'{name}.{imgFormat}'
+#             imgFile = os.path.join(imgPath,imgFile)
+
+#             # Holoviews object
+#             # NOTE this may give unexpected results in some cases for Holomaps - may want to force flatten?
+#             # Note for Bokeh backend may need additional pkgs, selenium, firefox and geckodriver
+#             # See https://holoviews.org/user_guide/Plots_and_Renderers.html#saving-and-rendering
+#             if 'holoviews' in str(type(fig)):
+#                 # Force render and glue
+#                 hv.save(fig, imgFile, fmt=imgFormat)
+                
+#                 # Glue static render
+#                 return func(name, Image(imgFile), display=False)
+                
+#             elif 'plotly' in str(type(fig)):
+#                 fig.write_image(imgFile,format=imgFormat)  # See https://plotly.com/python/static-image-export/
+#                 # Glue static render
+#                 return func(name, Image(imgFile), display=False)
+
+#             else:
+#                 # For all other objects return regular glue()
+#                 return func(name, fig, display=False)  
+            
+        
+#     return glueWrapper
+
+# # Wrap standard glue
+# glue = glueDecorator(glue)
+
+# # Also use as gluePlotly() & glueHV names for back compatibility
+# gluePlotly = glue
+# glueHV = glue
