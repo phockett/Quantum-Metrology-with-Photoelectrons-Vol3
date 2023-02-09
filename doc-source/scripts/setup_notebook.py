@@ -64,36 +64,36 @@ from IPython.display import Image
 
 # Sphinx at 4.5.0
 
-def gluePlotly(name,fig,**kwargs):
-    """
-    Wrap Plotly object with Panel and glue().
+# def gluePlotly(name,fig,**kwargs):
+#     """
+#     Wrap Plotly object with Panel and glue().
     
-    For PDF builds, force Plotly fig to save to imgFormat and render from file.
+#     For PDF builds, force Plotly fig to save to imgFormat and render from file.
     
-    """
+#     """
     
-    if buildEnv != 'pdf':
-        return glueOriginal(name, pn.pane.Plotly(fig, **kwargs), display=False)
+#     if buildEnv != 'pdf':
+#         return glueOriginal(name, pn.pane.Plotly(fig, **kwargs), display=False)
     
-    else:
-        # Force render and glue
-        # Could also just force image render code here?
-        imgFile = f'{name}.{imgFormat}'
-        imgFile = os.path.join(imgPath,imgFile)
-        fig.write_image(imgFile,format=imgFormat)  # See https://plotly.com/python/static-image-export/
+#     else:
+#         # Force render and glue
+#         # Could also just force image render code here?
+#         imgFile = f'{name}.{imgFormat}'
+#         imgFile = os.path.join(imgPath,imgFile)
+#         fig.write_image(imgFile,format=imgFormat)  # See https://plotly.com/python/static-image-export/
         
-        # return glue(name, display(f'{name}.png'))   # Only returns None?
-        # return glue(name, f'{name}.png')   # Returns filename
-        # return glue(name, pn.pane.PNG(f'{name}.png'))   # Returns image OK
+#         # return glue(name, display(f'{name}.png'))   # Only returns None?
+#         # return glue(name, f'{name}.png')   # Returns filename
+#         # return glue(name, pn.pane.PNG(f'{name}.png'))   # Returns image OK
         
-        # Multiple image types - works for HTML, but doesn't render in PDF
-        # if hasattr(pn.pane,imgFormat.upper()):
-        #     func = getattr(pn.pane,imgFormat.upper())
-        #     return glue(name, func(imgFile))
+#         # Multiple image types - works for HTML, but doesn't render in PDF
+#         # if hasattr(pn.pane,imgFormat.upper()):
+#         #     func = getattr(pn.pane,imgFormat.upper())
+#         #     return glue(name, func(imgFile))
         
-        # Use basic display instead?
+#         # Use basic display instead?
 
-        return glueOriginal(name, Image(imgFile), display=False)
+#         return glueOriginal(name, Image(imgFile), display=False)
 
 # #*** Plotly glue wrapper - NOTE THIS FAILS IF RUN LATER IN IMPORT CHAIN, likely to do with Panel config?
 # # See https://github.com/executablebooks/jupyter-book/issues/1815
@@ -127,7 +127,7 @@ def glueDecorator(func):
                 # For Plotly may need Panel wrapper for HTML render in some cases...?
                 # Without Panel some basic plot types work, but not surface plots - may also be browser-dependent?
                 # Or due to maths bug, per https://jupyterbook.org/en/stable/interactive/interactive.html#plotly
-                return glue(name, pn.pane.Plotly(fig, **kwargs), display=False)
+                return func(name, pn.pane.Plotly(fig, **kwargs), display=False)
             
             else:
                 return func(name, fig, display=False)  # For non-PDF builds, use regular glue()
@@ -165,7 +165,7 @@ def glueDecorator(func):
 glue = glueDecorator(glueOriginal)
 
 # Also use as gluePlotly() & glueHV names for back compatibility
-# gluePlotly = glue
+gluePlotly = glue
 glueHV = glue
 
 
