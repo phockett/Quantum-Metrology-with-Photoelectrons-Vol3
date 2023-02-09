@@ -171,6 +171,7 @@ except ImportError as e:
 ep.plot.hvPlotters.setPlotters()
 
 # # Some definitions for local use
+hv = ep.plot.hvPlotters.hv
 
 # #*** Plotly glue wrapper
 # # See https://github.com/executablebooks/jupyter-book/issues/1815
@@ -210,4 +211,37 @@ plotBackend = 'pl'
 
 
 
+# 07/02/23 - adding glueHV()
+# Similar to gluePlotly() above, see also PEMtk.fit._plotters.hvSave() for basics
 
+def glueHV(name,fig,**kwargs):
+    """
+    Wrap HV fig object with glue().
+    
+    For PDF builds, force HV fig to save to imgFormat and render from file.
+    
+    """
+    
+    if buildEnv != 'pdf':
+        return glue(name, fig, display=False)
+    
+    else:
+        # Force render and glue
+        # Could also just force image render code here?
+        imgFile = f'{name}.{imgFormat}'
+        imgFile = os.path.join(imgPath,imgFile)
+        hv.save(fig, imgFile, fmt=imgFormat)
+        # fig.write_image(imgFile,format=imgFormat)  # See https://plotly.com/python/static-image-export/
+        
+        # return glue(name, display(f'{name}.png'))   # Only returns None?
+        # return glue(name, f'{name}.png')   # Returns filename
+        # return glue(name, pn.pane.PNG(f'{name}.png'))   # Returns image OK
+        
+        # Multiple image types - works for HTML, but doesn't render in PDF
+        # if hasattr(pn.pane,imgFormat.upper()):
+        #     func = getattr(pn.pane,imgFormat.upper())
+        #     return glue(name, func(imgFile))
+        
+        # Use basic display instead?
+
+        return glue(name, Image(imgFile), display=False)
