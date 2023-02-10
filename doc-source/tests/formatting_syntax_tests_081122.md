@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.0
+    jupytext_version: 1.14.4
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -294,11 +294,23 @@ Looks like only normal quotes are consistent over build types. Should check in S
 
 ### Fig testing (from code output)
 
+STATUS: for consistency use glue() or new wrappers for Plotly and Holoviews.
+
 See https://jupyterbook.org/en/stable/content/code-outputs.html#images and  https://myst-nb.readthedocs.io/en/latest/render/format_code_cells.html#images-and-figures
 
 Easiest to add to cell metadata (?), or via in-line style in MD version.
 
 UPDATE: for Plotly use wrapper with glue, see https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/2. In `setup_notebook.py`, then use `gluePlotly(name,figObj)` in code to set.
+
+UPDATE 09/02/23: for HV/Bokeh a similar wrapper solution works, currently testing and should implement a better version (inc. type testing). Note for Bokeh may need additional pkgs, `conda install --quiet --yes selenium` and `conda install --quiet --yes -c conda-forge firefox geckodriver`.
+
+Additional discussions online:
+
+- Allow interactive visualizations to be "figures" (and referencable) https://github.com/executablebooks/jupyter-book/issues/1191 
+- Automatic figure captioning for both static and interactive plots https://github.com/executablebooks/jupyter-book/issues/1401
+- Glue does not work with rich output such as plots from Plotly https://github.com/executablebooks/jupyter-book/issues/1815#issuecomment-1322435036 (includes my notes).
+
++++
 
 E.g. in MD version
 

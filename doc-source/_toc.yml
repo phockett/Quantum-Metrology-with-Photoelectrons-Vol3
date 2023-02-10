@@ -28,6 +28,7 @@ parts:
       - file: part1/theory_observables_intro_211122
       - file: part1/theory_photoionization_dynamics_191122
       - file: part1/theory_tensor_formalism_201122
+      - file: part1/theory_density_matrices_310123
       - file: part1/theory_info_content_221122
     - file: part1/numerics_231122
       
@@ -51,6 +52,7 @@ parts:
     # - file: tests/plotly_pdf_export_test_181122
   #   - file: tests/pad_plot_tests_101122
   #   - file: tests/pad_plot_tests_101122-plusMDversion.ipynb
+  #  - file: tests/holoviews_render_tests_310123   # SEEMS TO BE WORKING, but may kill plot rendering in other pages?!?!?!?
     # - file: frontmatter/demo_notebook_270122
     # - file: testChpt/ePSproc_class_demo_161020   # NOTE THIS IS OLD FOR PLOT TESTING, won't execute
   #   - file: testChpt/ePSproc_Matlab_demo_notebook_090821

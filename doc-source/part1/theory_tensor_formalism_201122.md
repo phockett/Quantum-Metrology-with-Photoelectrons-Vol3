@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.0
+    jupytext_version: 1.14.4
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -957,7 +957,9 @@ Example of $\bar{\varUpsilon_{}}_{L,M}^{u,\zeta\zeta'}$ basis values for various
 
 ```
 
-+++ {"tags": []}
++++ {"tags": ["remove-cell"]}
+
+% NOW MOVED TO SEPARATE NOTEBOOK TO TRY AND FIX FIG RENDERING ISSUES
 
 (sec:density-mat-basic)=
 ## Density matrix representation
@@ -1030,6 +1032,8 @@ $$ (eqn:radial-density-mat)
 Further discussion can also be found in the literature, see, e.g., Ref. {cite}`BlumDensityMat` for general discussion, Ref. {cite}`Reid1991` for application in pump-probe schemes.
 
 ```{code-cell} ipython3
+:tags: [remove-cell]
+
 # DEMO CODE FROM http://jake/jupyter/user/paul/doc/tree/code-share/stimpy-docker-local/MFPADs_recon_manuscript_dev_April_2022/MFrecon_manuscript_fig_generation_170422-Stimpy_MAIN-oldPkgs.ipynb
 # SEE ALSO DOCS, https://epsproc.readthedocs.io/en/dev/methods/density_mat_notes_demo_300821.html#Density-Matrices
 
@@ -1094,7 +1098,13 @@ daPlot = density.matPlot(daOut.sum('Sym'), pTypes=pTypes)
 ```
 
 ```{code-cell} ipython3
+:tags: [remove-cell]
+
 daPlot
+```
+
+```{code-cell} ipython3
+!date
 ```
 
 +++ {"tags": ["remove-cell"]}
