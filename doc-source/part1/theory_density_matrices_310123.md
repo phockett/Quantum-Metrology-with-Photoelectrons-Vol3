@@ -23,6 +23,9 @@ Subsection for density matrix stuff
 
 - For additional rendering tests, see http://jake:9966/lab/tree/QM3/doc-source/tests/holoviews_render_tests_310123.ipynb
 
+% 30/01/23 extended with notes from MF recon article.
+% 10/02/23 added general intro & tidying up
+
 +++ {"tags": []}
 
 (sec:density-mat-basic)=
@@ -30,7 +33,10 @@ Subsection for density matrix stuff
 
 +++
 
-The general density operator, for a mixture of indepent states $|\psi_{n} \rangle$, can be defined as (Eqn. 2.8 in Blum, Ref. {cite}`BlumDensityMat` [^blumFootnote]):
+(sec:density-mat-intro)=
+## General introduction
+
+The general density operator, for a mixture of independent states $|\psi_{n} \rangle$, can be defined as (Eqn. 2.8 in Blum, Ref. {cite}`BlumDensityMat` [^blumFootnote]):
 
 $$
 \hat{\rho}=\sum_{n}W_{n}|\psi_{n}\rangle\langle\psi_{n}|
@@ -38,7 +44,9 @@ $$
 
 Where $W_{n}$ defines the (statistical) weighting of each state $\psi_{n}$ in the mixture.
 
-For a given basis set, $|\phi_{m}\rangle$, the states can be expanded and the matrix elements of $\boldsymbol{\rho}$ defined (Eqns. 2.9 - 2.11 in Blum, Ref. {cite}`BlumDensityMat` [^blumFootnote]):
+% Removed \boldsymbol{\rho} due to HTML rendering issues.
+
+For a given basis set, $|\phi_{m}\rangle$, the states can be expanded and the matrix elements of $\rho$ defined (Eqns. 2.9 - 2.11 in Blum, Ref. {cite}`BlumDensityMat` [^blumFootnote]):
 
 $$
 | \psi_{n} \rangle = \sum_{m'} a_{m'}^{(n)}| \phi_{m'}\rangle
@@ -51,28 +59,34 @@ $$  (eqn:density-mat-outer-prod)
 And the matrix elements - _the density matrix_ - given explicitly as:
 
 $$
-\boldsymbol{\rho}_{i,j}=\langle\phi_{i}|\hat{\rho}|\phi_{j}\rangle=\sum_{n}W_{n}a_{i}^{(n)}a_{j}^{(n)*}
+\rho_{i,j}=\langle\phi_{i}|\hat{\rho}|\phi_{j}\rangle=\sum_{n}W_{n}a_{i}^{(n)}a_{j}^{(n)*}
 $$ (eqn:density-mat-generic)
 
-For all pairs of basis states $(i,j)$. This defines the density matrix in the $\{|\phi_n\rangle\}$ _representation_ (basis space).
+For all pairs of basis states $(i,j)$. This defines the density matrix in the $\{|\phi_n\rangle\}$ _representation_ (basis space). Of particular note here is that the mixed states are assumed to be incoherent (independent), whilst the basis expansion is coherent. 
+
+
+[^blumFootnote]: For general discussion of density matrix techniques and applications in AMO physics, see Blum's textbook `Density Matrix Theory and Applications` {cite}`BlumDensityMat`, which is referred to extensively herein.
 
 +++ {"tags": []}
 
 % TODO: numerical examples here
 % TODO: decide on notation, \Psi_c == \mathbf{k}?
 % 30/01/23 extended with notes from MF recon article.
+% 10/02/23 added general intro & tidying up
 
-The density operator associated with the continuum state in Eq. {eq}`eq:continuum-state-vec` can thus be written as $\hat{\rho}=|\Psi_c\rangle\langle\Psi_c|\equiv|\mathbf{k}\rangle\langle\mathbf{k}|$. [^blumFootnote] The full final continuum state as a density matrix in the $\zeta\zeta'$ representation (with the observable dimensions $L,M$ explicitly included in the density matrix), which will also be dependent on the choice of channel functions ($u$), can then be given as
+(sec:density-mat-intro)=
+## Continuum density matrices
 
-[^blumFootnote]: For general discussion of density matrix techniques and applications in AMO physics, see Blum's textbook `Density Matrix Theory and Applications` {cite}`BlumDensityMat`, which is referred to extensively herein.
+% May want to move to Sect. 3.2 and add some more details?
+In general, the discussion herein will focus on the photoelectron properties and generally assume a single final ion, and associated free-electron state of interest, hence the final state (Eq. {eq}`eq:continuum-state-vec`) can be simplified to $|\Psi_f\rangle\equiv|\mathbf{k}\rangle$. This is equivalent to a "pure state" in density matrix terminology, which can then expanded (coherently) in an appropriate representation (basis). Following this, the density operator associated with the continuum state can be written as $\hat{\rho}=|\Psi_f\rangle\langle\Psi_f|\equiv|\mathbf{k}\rangle\langle\mathbf{k}|$. Making use of the tensor notation introduced in {numref}`Sect. %s <sec:tensor-formulation>`, the final continuum state can then be expanded as a density matrix in the $\zeta\zeta'$ representation (with the observable dimensions $\{L,M\}$ explicitly included in the density matrix), which will also be dependent on the choice of channel functions ($u$), can then be given as:
 
 $$
 {\rho}_{L,M}^{u,\zeta\zeta'}=\varUpsilon_{L,M}^{u,\zeta\zeta'}\mathbb{I}^{\zeta,\zeta'}
 $$ (eqn:full-density-mat)
 
-Here the density matrix can be interpreted as the final, LF/AF or MF density matrix (depending on the channel functions used), incorporating both the intrinsic and extrinsic effects (i.e. all channel couplings and radial matrix elements for the given measurement), with dimensions dependent on the unique sets of quantum numbers required - in the simplest case, this will just be a set of partial waves $\zeta = (l,m)$. 
+Here the density matrix can be interpreted as the final, LF/AF or MF density matrix (depending on the channel functions used), incorporating both the intrinsic and extrinsic effects (i.e. all channel couplings and radial matrix elements for the given measurement), with dimensions dependent on the unique sets of quantum numbers required - in the simplest case, this will just be a set of partial waves $\zeta = \{l,m\}$. 
 
-In the channel function basis, this leads to a (radial or reduced) density matrix given by the radial matrix elements:
+In the channel function basis, a radial, or reduced, form of the density matrix can also be constructed, and is given by the coherent product of the radial matrix elements (as defined in Eq. {eq}`eqn:I-zeta`):
 
 % Safe version - no bold
 $$
@@ -81,7 +95,7 @@ $$ (eqn:radial-density-mat)
 
 This form encodes purely intrinsic (molecular scattering) photoionization dynamics (thus characterises the scattering event), whilst the full form ${\rho}_{L,M}^{u,\zeta\zeta'}$ of Eq. {eq}`eqn:full-density-mat` includes any additional effects incorporated via the channel functions. For reconstruction problems, it is usually the reduced form of Eq. {eq}`eqn:radial-density-mat` that is of interest, since the remainder of the problem is already described analytically by the channel functions $\varUpsilon_{L,M}^{u,\zeta\zeta'}$. In other words, the retrieval of the radial matrix elements $\mathbb{I}^{\zeta,\zeta'}$ and the radial density matrix $\rho^{\zeta\zeta'}$ are equivalent, and both can be viewed as completely describing the photoionization dynamics.
 
-The $L,M$ notation for the full density matrix ${\rho}_{L,M}^{u,\zeta\zeta'}$ (Eq. {eq}`eqn:full-density-mat`) indicates here that these dimensions should not be summed over, hence the tensor coupling into the $\beta_{L,M}^{u}$ parameters can also be written directly in terms of the density matrix:
+The $L,M$ notation for the full density matrix ${\rho}_{L,M}^{u,\zeta\zeta'}$ (Eq. {eq}`eqn:full-density-mat`) indicates here that these dimensions should not be summed over, hence the tensor coupling into the $\beta_{L,M}^{u}$ parameters can also be written directly in terms of the density matrix (cf. Eq. {eq}`eqn:channel-fns`):
 
 $$
 \beta_{L,M}^{u}=\sum_{\zeta,\zeta'}{\rho}_{L,M}^{u,\zeta\zeta'}
@@ -95,17 +109,17 @@ $$
 \rho(t) =\sum_{LM}\sum_{KQS}A^{K}_{QS}(t)\sum_{\zeta\zeta^{\prime}}\varUpsilon_{L,M}^{u,\zeta\zeta'}|\zeta,\Psi_+\rangle\langle\zeta,\Psi_+|\mu_q\rho_i\mu_{q\prime}^{*}|\zeta^{\prime},\Psi_+\rangle\langle\zeta^{\prime},\Psi_+|
 $$ (eqn:full-density-mat-traditional)
 
-with $\rho_i = |\Psi_i\rangle\langle\Psi_i|$. This is, effectively, equivalent to an expansion in the various tensor operators defined above, in a standard state-vector notation.
+with $\rho_i = |\Psi_i\rangle\langle\Psi_i|$. This is, effectively, equivalent to an expansion in the various tensor operators defined in the channel function notation above (Eq. {eq}`eqn:full-density-mat`), but in a standard state-vector notation. Note, also, that this form explicitly defines the initial state of the system as a density matrix $\rho_i$, and explicitly allows for time-dependence via the {{ ADMsymbol }} term. (For further discussion of the use of density matrices in other specific cases, see {{ QM1 }}, particularly Chpts. 2 & 3, and refs. therein.)
 
-The main benefit of a density matrix representation in the current work is as a rapid way to visualize the phase relations between the photoionization matrix elements (the off-diagonal density matrix elements), and the ability to quickly check the overall pattern of the elements, hence confirm that no phase-relations are missing and orthogonality relations are fulfilled - some examples are given below. Since the method for computing the density matrices is also numerically equivalent to a tensor outer-product, density matrices and visualizations can also be rapidly composed for other properties of interest, e.g. the various channel functions defined herein, providing another complementary methodology and tool for investigation. (Further examples can be found in the {{ ePSproc_docs }}, as well as in the literature, see, e.g., Ref. {cite}`BlumDensityMat` for general discussion, Ref. {cite}`Reid1991` for application in pump-probe schemes.) 
+The main benefit of a (continuum) density matrix representation in the current work is as a rapid way to visualize the phase relations between the photoionization matrix elements (the off-diagonal density matrix elements), and the ability to quickly check the overall pattern of the elements, hence confirm that no phase-relations are missing and orthogonality relations are fulfilled - some numerical examples are given below. Since the method for computing the density matrices is also numerically equivalent to a tensor outer-product, density matrices and visualizations can also be rapidly composed for other properties of interest, e.g. the various channel functions defined herein, providing another complementary methodology and tool for investigation. (Further examples can be found in the {{ ePSproc_docs }}, as well as in the literature, see, e.g., Ref. {cite}`BlumDensityMat` for general discussion, Ref. {cite}`Reid1991` for application in pump-probe schemes.) 
 
-Furthermore, as noted above, the density matrix elements provide a complete description of the photoionization event, and hence make clear the equivalence of the ``complete" photoionization experiments (and associated continuum reconstruction methods) discussed herein, with general quantum tomography schemes {cite}`MauroDAriano2003`. The density matrix can also be used as the starting point for further analysis based on standard density matrix techniques - this is discussed, for instance, in Ref. {cite}`BlumDensityMat`, and can also be viewed as a bridge between traditional methods in spectroscopy and AMO physics, and more recent concepts in the quantum information sciences (see, e.g., Refs. {cite}`Tichy2011a,Yuen-Zhou2014` for recent discussions in this context).
+Furthermore, as noted above, the density matrix elements provide a complete description of the photoionization event, and hence make clear the equivalence of the "complete" photoionization experiments (and associated continuum reconstruction methods) discussed herein, with general quantum tomography schemes {cite}`MauroDAriano2003`. The density matrix can also be used as the starting point for further analysis based on standard density matrix techniques - this is discussed, for instance, in Ref. {cite}`BlumDensityMat`, and can also be viewed as a bridge between traditional methods in spectroscopy and AMO physics, and more recent concepts in the quantum information sciences (see, e.g., Refs. {cite}`Tichy2011a,Yuen-Zhou2014` for recent discussions in this context).
 
 +++ {"tags": []}
 
-## Setup
+## Numerical setup
 
-This follows the setup in {numref}`Sect. %s <sec:tensor-formulation>` {ref}`sec:tensor-formulation`, using a symmetry-based set of basis functions for demonstration purposes. (Repeatd code is hidden in PDF version.)
+This follows the setup in {numref}`Sect. %s <sec:tensor-formulation>` {ref}`sec:tensor-formulation`, using a symmetry-based set of basis functions for demonstration purposes. (Repeated code is hidden in PDF version.)
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -183,19 +197,15 @@ for dataType in ['matE','BLM']:
 # basis = basisFull
 ```
 
-## Compute density matrix
+## Compute a density matrix
 
-A basic density matrix computation routine is implemented in the {{ ePSproc_full }}. This makes use of input tensor arrays, and computes the density matrix as an outer-product of the defined dimension(s). The numerics essentially compute the outer product from the specified dimensions, which can be written generally as per Eqns. {eq}`eqn:density-mat-outer-prod`, {eq}`eqn:density-mat-generic`:
+A basic density matrix computation routine is implemented in the {{ ePSproc_full }}. This makes use of input tensor arrays, and computes the density matrix as an outer-product of the defined dimension(s). The numerics essentially compute the outer product from the specified dimensions, which can be written generally as per Eqns. {eq}`eqn:density-mat-outer-prod`, {eq}`eqn:density-mat-generic`, where $a_{i}^{(n)}a_{j}^{(n)*}$ are the values along the specified dimensions/state vector/representation. These dimensions must be in input arrays, but will be restacked as necessary to define the effective basis space. For instance, from the ionization matrix element demonstrated herein, setting `[l,m]` would select the $|\zeta\rangle = |l,m\rangle$ basis (equivalently `LM`, since the dimensions are already stacked in the ionization matrix elements). Setting `['LM','mu']` would set the $|\zeta\rangle = |l,m,\mu\rangle$ as the basis vector and so forth, where $|\zeta\rangle$ is used as a generic state vector denoting all required quantum numbers.
 
-$$
-\boldsymbol{\rho}_{i,j}=\langle\phi_{i}|\hat{\rho}|\phi_{j}\rangle=\sum_{n}W_{n}a_{i}^{(n)}a_{j}^{(n)*}
-$$
-
-where $a_{i}^{(n)}a_{j}^{(n)*}$ are the values along the specified dimensions/state vector/representation. These dimensions must be in data, but will be restacked as necessary to define the effective basis space. For instance, from the ionization matrix element data shown above, setting `[l,m]` would select the $|\alpha\rangle = |l,m\rangle$ basis (equivalently `LM`, since the dimensions are already stacked in the ionization matrix elements). Setting `['LM','mu']` would set the $|\alpha\rangle = |l,m,\mu\rangle$ as the basis vector and so forth, where $|\alpha\rangle$ is used as a generic state vector denoting all required quantum numbers.
-
-Note, however, that this selection is purely based on the numerics, which computes the outer product $|\alpha\rangle\langle\alpha'|$ to form the density matrix, hence does not guarantee a well-formed density matrix in the strictest sense (depending on the basis set), although will always present a basis state correlation matrix of sorts. A brief example, for the {glue:text}`symHarmPGmatE` defined matrix element is given below; for more examples see the {{ ePSproc_docs }}.
+Note, however, that this selection is purely based on the numerics, which compute the outer product $|\zeta\rangle\langle\zeta'|$ to form the density matrix, hence does not guarantee a well-formed density matrix in the strictest sense (depending on the basis set), although will always present a basis state correlation matrix of sorts. A brief example, for the {glue:text}`symHarmPGmatE` defined matrix element is given below; for more examples see the {{ ePSproc_docs }}.
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 # DEMO CODE FROM http://jake/jupyter/user/paul/doc/tree/code-share/stimpy-docker-local/MFPADs_recon_manuscript_dev_April_2022/MFrecon_manuscript_fig_generation_170422-Stimpy_MAIN-oldPkgs.ipynb
 # SEE ALSO DOCS, https://epsproc.readthedocs.io/en/dev/methods/density_mat_notes_demo_300821.html#Density-Matrices
 
@@ -246,7 +256,11 @@ Example density matrix, computed from matrix elements defined purely by {glue:te
 
 +++
 
-To demonstrate the use of the density matrix representation as a means to test similarity or fidelity between two sets of matrix elements, a trial set of matrix elements can be derived from the originals plus random noise, and the differences in the density matrices directly computed.
+## Visualising matrix element reconstruction fidelity with density matrices
+
+To demonstrate the use of the density matrix representation as a means to test similarity or fidelity between two sets of matrix elements, a trial set of matrix elements can be derived from the original set used above, plus random noise, and the differences in the density matrices directly computed. An example is shown in {numref}`fig-denMatD2hCompExample`; in this example 10\% noise has been added to the original (input) matrix elements, and the resultant density matrix computed. The difference matrix ({numref}`fig-denMatD2hCompExample`(c)) then provides the fidelity between the original and noisy case. In testing reconstructions, this type of analysis thus provides a quick means to test reconstruction results vs. known inputs. Although this case is only illustrated for real density matrices, a similar analysis can be used for the imaginary (or phase) components, thus coherences can also be quickly visualised in this manner.
+
+% TODO: ref later sections here, and/or MF recon manuscript, Sect 4.1.5 & Fig 11.
 
 ```{code-cell} ipython3
 :tags: [hide-output]
@@ -277,19 +291,38 @@ daPlotDiff = density.matPlot(daDiff, pTypes=pTypes)
 
 # #******** Plot
 # daLayout = (daPlot.layout('pType') + daPlot2.opts(show_title=False).layout('pType').opts(show_title=False) + daPlotDiff.opts(show_title=False).layout('pType')).cols(1)  # No cols? AH - set to 1 works.
-daLayout = (daPlot.select(pType='Real') + daPlot2.opts(show_title=False).select(pType='Real').opts(show_title=False) + daPlotDiff.opts(show_title=False).select(pType='Real')).cols(1)  # No cols? AH - set to 1 works.
+# daLayout = (daPlot.select(pType='Real') + daPlot2.opts(show_title=False).select(pType='Real').opts(show_title=False) + daPlotDiff.opts(show_title=False).select(pType='Real')).cols(1)  # No cols? AH - set to 1 works.
 # daLayout.opts(width=300, height=300)  # Doesn't work?
 # daLayout.opts(hv.opts.HeatMap(width=300, frame_width=300, aspect='square', tools=['hover'], colorbar=True, cmap='coolwarm'))  # .opts(show_title=False)  # .opts(title="Custom Title")  #OK
 
+# Additional formatting options for PDF vs. HTML outputs.
+# TODO: improve/set global options + label figures.
+nCols = 1
+try:
+    if buildEnv == 'pdf':
+        nCols = 2
+except:
+    pass
+
+# Layout for real parts, with custom titles.
+daLayout = (daPlot.select(pType='Real').opts(title="(a) Original") + daPlot2.select(pType='Real').opts(title="(b) With noise") 
+            + daPlotDiff.select(pType='Real').opts(title="(c) Difference (fidelity)")).cols(nCols)  # No cols? AH - set to 1 works.
+
 # Glue layout
 glue("denMatD2hCompExample",daLayout.opts(hv.opts.HeatMap(aspect='square', tools=['hover'], colorbar=True, cmap='coolwarm')))
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+daLayout
 ```
 
 ```{glue:figure} denMatD2hCompExample
 ---
 name: "fig-denMatD2hCompExample"
 ---
-Example density matrices, computed from matrix elements defined purely by {glue:text}`symHarmPGmatE` symmetry. Here the panels show (top) the original density matrix, (middle) values with +/- 10% random noise, (bottom) the difference matrix.
+Example density matrices, computed from matrix elements defined purely by {glue:text}`symHarmPGmatE` symmetry. Here the panels show (a) the original density matrix, (b) values with +/- 10% random noise, (c) the difference matrix, which indicates the fidelity of the noisy state relative to the original matrix elements.
 ```
 
 ```{code-cell} ipython3
