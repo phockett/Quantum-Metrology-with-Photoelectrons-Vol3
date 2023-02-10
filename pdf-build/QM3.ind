@@ -1,0 +1,30 @@
+\begin{sphinxtheindex}
+\let\lettergroup\sphinxstyleindexlettergroup
+\let\lettergroupDefault\sphinxstyleindexlettergroupDefault
+\let\spxpagem\sphinxstyleindexpagemain
+\let\spxentry\sphinxstyleindexentry
+\let\spxextra\sphinxstyleindexextra
+
+
+  \lettergroup{A}
+  \item \spxentry{ADMs}, \spxpagem{\hyperpage{63}}
+  \item \spxentry{AF}, \spxpagem{\hyperpage{63}}
+  \item \spxentry{anisotropy paramters}, \spxpagem{\hyperpage{63}}
+  \item \spxentry{Axis distribution moments}, \spxpagem{\hyperpage{63}}
+
+  \indexspace
+
+  \lettergroup{L}
+  \item \spxentry{LF}, \spxpagem{\hyperpage{63}}
+
+  \indexspace
+
+  \lettergroup{M}
+  \item \spxentry{MF}, \spxpagem{\hyperpage{63}}
+
+  \indexspace
+
+  \lettergroup{P}
+  \item \spxentry{PADs}, \spxpagem{\hyperpage{63}}
+
+\end{sphinxtheindex}

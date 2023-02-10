@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>3.4. Information content &#8212; Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</title>
+    <title>3.5. Information content &#8212; Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. Numerical implementation" href="numerics_231122.html" />
-    <link rel="prev" title="3.3. Tensor formulation of photoionization" href="theory_tensor_formalism_201122.html" />
+    <link rel="prev" title="3.4. Density matrix representation" href="theory_density_matrices_310123.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -169,9 +169,14 @@ const thebe_selector_output = ".output, .cell_output"
      3.3. Tensor formulation of photoionization
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="theory_density_matrices_310123.html">
+     3.4. Density matrix representation
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.4. Information content
+     3.5. Information content
     </a>
    </li>
   </ul>
@@ -361,6 +366,23 @@ title="Open an issue"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/part1/theory_info_content_221122.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
 title="Download source file"
 >
   
@@ -368,7 +390,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="headerbtn__text-container">.md</span>
 </a>
 
       </li>
@@ -419,10 +441,10 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="information-content">
-<span id="sec-info-content"></span><h1><span class="section-number">3.4. </span>Information content<a class="headerlink" href="#information-content" title="Permalink to this headline">#</a></h1>
-<p>As discussed in <em>Quantum Metrology</em> Vol. 2 <span id="id1">[<a class="reference internal" href="../backmatter/bibliography.html#id560" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. doi:10.1088/978-1-6817-4688-3.">2</a>]</span>, the information content of a single observable might be regarded as simply the number of contributing <span class="math notranslate nohighlight">\(\beta_{L,M}\)</span> parameters. In set notation:</p>
+<span id="sec-info-content"></span><h1><span class="section-number">3.5. </span>Information content<a class="headerlink" href="#information-content" title="Permalink to this headline">#</a></h1>
+<p>As discussed in <em>Quantum Metrology</em> Vol. 2 <span id="id1">[<a class="reference internal" href="../backmatter/bibliography.html#id570" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. doi:10.1088/978-1-6817-4688-3.">2</a>]</span>, the information content of a single observable might be regarded as simply the number of contributing <span class="math notranslate nohighlight">\(\beta_{L,M}\)</span> parameters. In set notation:</p>
 <div class="math notranslate nohighlight" id="equation-eq-blm-set">
-<span class="eqno">(3.19)<a class="headerlink" href="#equation-eq-blm-set" title="Permalink to this equation">#</a></span>\[M=\mathrm{n}\{\beta_{L,M}\}\]</div>
+<span class="eqno">(3.37)<a class="headerlink" href="#equation-eq-blm-set" title="Permalink to this equation">#</a></span>\[M=\mathrm{n}\{\beta_{L,M}\}\]</div>
 <p>where <span class="math notranslate nohighlight">\(M\)</span> is the information content of the measurement, defined as
 <span class="math notranslate nohighlight">\(\mathrm{n}\{...\}\)</span> the cardinality (number of elements) of the set of
 contributing parameters. A set of measurements, made for some
@@ -446,7 +468,7 @@ total measurement space spanned by the full set of
 <span class="math notranslate nohighlight">\(\{\beta_{L,M}^{u}(k,t)\}\)</span>. However, in this basic definition a larger
 <span class="math notranslate nohighlight">\(M_{u}\)</span> does not necessarily indicate a higher information content for
 quantum retrieval applications. The reason for this is simply down to
-the complexity of the problem (cf. Eq. <a class="reference internal" href="theory_tensor_formalism_201122.html#equation-eqn-channel-fns">(3.13)</a>), in which many couplings define the sensitivity of the observable to the underlying system properties of
+the complexity of the problem (cf. Eq. <a class="reference internal" href="theory_tensor_formalism_201122.html#equation-eqn-channel-fns">(3.15)</a>), in which many couplings define the sensitivity of the observable to the underlying system properties of
 interest. In this sense, more measurements, and larger <span class="math notranslate nohighlight">\(M\)</span>, may only add
 redundancy, rather than new information.</p>
 <p>A more complete accounting of information content would, therefore, also
@@ -464,7 +486,7 @@ rotational wavepacket and channel functions.</p>
 distinction to previously demonstrated cases where the time-dependence
 was created from a shaped laser-field, and was integrated over in the
 measurements, which provided a coherently-multiplexed case, see refs.
-<span id="id2">[<a class="reference internal" href="../backmatter/bibliography.html#id546" title="P. Hockett, M. Wollenhaupt, C. Lux, and T. Baumert. Complete Photoionization Experiments via Ultrafast Coherent Control with Polarization Multiplexing. Physical Review Letters, 112(22):223001, June 2014. doi:10.1103/PhysRevLett.112.223001.">42</a>, <a class="reference internal" href="../backmatter/bibliography.html#id548" title="Paul Hockett, Matthias Wollenhaupt, Christian Lux, and Thomas Baumert. Complete photoionization experiments via ultrafast coherent control with polarization multiplexing. II. Numerics and analysis methodologies. Physical Review A, 92(1):013411, July 2015. doi:10.1103/PhysRevA.92.013411.">43</a>, <a class="reference internal" href="../backmatter/bibliography.html#id547" title="P Hockett, M Wollenhaupt, and T Baumert. Coherent control of photoelectron wavepacket angular interferograms. Journal of Physics B: Atomic, Molecular and Optical Physics, 48(21):214004, November 2015. doi:10.1088/0953-4075/48/21/214004.">44</a>]</span> for details.)</p>
+<span id="id2">[<a class="reference internal" href="../backmatter/bibliography.html#id556" title="P. Hockett, M. Wollenhaupt, C. Lux, and T. Baumert. Complete Photoionization Experiments via Ultrafast Coherent Control with Polarization Multiplexing. Physical Review Letters, 112(22):223001, June 2014. doi:10.1103/PhysRevLett.112.223001.">58</a>, <a class="reference internal" href="../backmatter/bibliography.html#id558" title="Paul Hockett, Matthias Wollenhaupt, Christian Lux, and Thomas Baumert. Complete photoionization experiments via ultrafast coherent control with polarization multiplexing. II. Numerics and analysis methodologies. Physical Review A, 92(1):013411, July 2015. doi:10.1103/PhysRevA.92.013411.">59</a>, <a class="reference internal" href="../backmatter/bibliography.html#id557" title="P Hockett, M Wollenhaupt, and T Baumert. Coherent control of photoelectron wavepacket angular interferograms. Journal of Physics B: Atomic, Molecular and Optical Physics, 48(21):214004, November 2015. doi:10.1088/0953-4075/48/21/214004.">60</a>]</span> for details.)</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -479,7 +501,7 @@ measurements, which provided a coherently-multiplexed case, see refs.
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./part1"
         },
         predefinedOutput: true
@@ -494,11 +516,11 @@ measurements, which provided a coherently-multiplexed case, see refs.
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="theory_tensor_formalism_201122.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="theory_density_matrices_310123.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">3.3. </span>Tensor formulation of photoionization</p>
+            <p class="prev-next-title"><span class="section-number">3.4. </span>Density matrix representation</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="numerics_231122.html" title="next page">
