@@ -20,7 +20,7 @@ kernelspec:
 
 ```{code-cell} ipython3
 import scooby
-scooby.Report(additional=['pemtk','epsproc','xarray', 'pandas', 'scipy', 'matplotlib','jupyterlab','plotly','holoviews'])
+scooby.Report(additional=['pemtk','epsproc','xarray', 'jupyterlab','plotly','holoviews'])
 ```
 
 ```{code-cell} ipython3

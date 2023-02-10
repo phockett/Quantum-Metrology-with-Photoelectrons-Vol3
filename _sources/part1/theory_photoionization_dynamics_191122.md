@@ -26,8 +26,6 @@ Subsections for photoionization theory
 
 % TODO: revise text. Mostly from MF recon with some mods. May want to add some numerical examples directly here?
 
-TODO: fix/generalise intro theory and also update notation for LF vs. MF case above, or discuss. May be better to remove some of this and just refer to Vol. 1?
-
 +++ {"tags": ["remove-cell"]}
 
 ---
@@ -154,63 +152,44 @@ knowledge of the molecular symmetry and polarization geometry, although
 other factors may also play a role (see {numref}`Sect. %s <sec:full-tensor-expansion>` for details).
 
 % TODO: add some numerical examples here?
-% TODO: general form to link to BLM expansion.
 
 The photoelectron angular distribution (PAD) at a given $(\epsilon,t)$
 can then be determined by the squared projection of
 $\left|\Psi_f\right>$ onto a specific state
-$\left|\Psi_{+};\bf{k}\right>$; very generally this can be written in terms of the energy and angle-resolved observable, which arises as the coherent square:
-
-$$
-I(\epsilon,\theta,\phi)=\langle\Psi_{f}|\Psi_{f}\rangle
-$$ (eq:matE-sq-general)
-
-Expansion in terms of the components of the matrix elements as detailed above then yields a separation into radial and angular components (see {{ QM1 }}, Sect. 2.1 for a full derivation), which can be written (at a single energy) as (following Eq. 2.45 of {{ QM1 }}):
-
-$$
-I(\theta,\phi;\,k)=\sum_{ll'}\sum_{\lambda\lambda'}\sum_{mm'}\gamma_{\alpha\alpha_{+}l\lambda ml'\lambda'm'}\boldsymbol{r}_{kl\lambda}\boldsymbol{r}_{kl'\lambda'}e^{i(\eta_{l\lambda}(k)-\eta_{l'\lambda'}(k))}Y_{lm}(\hat{k})Y_{l'm'}^{*}(\hat{k})
-$$ (eq:I-reduced-LF-2_45-vol1)
-
-% TODO: fix/generalise this, also update notation for LF vs. MF case above, or discuss. May be better to remove some of this and just refer to Vol. 1?
-
-In this form $\alpha$ denotes all other quantum numbers required to define the initial state, and $\alpha_{+}$ the final state of the molecular ion. The radial matrix elements $\boldsymbol{r}_{kl\lambda}$, denote an integral over the radial part of the wavefunctions, in this case labelled by the {{ MF }} quantum numbers, and the associated scattering phase is given by $\eta_{l\lambda}(k)$ (i.e. the matrix elements are written in magnitude-phase form, rather than complex form).The $\gamma$ terms denotes a general set of geometric paramters arising from the coherent square.  A tensor form is also given herein, see {numref}`Sect. %s <sec:full-tensor-expansion>`, including a full breakdown of these terms and numerical implementation. Comparison with Eq. {eq}`eq:AF-PAD-general` then indicates that the amplitudes
+$\left|\Psi_{+};\bf{k}\right>$,
+% (see {numref}`Sect. %s <sec:theoretical-techniques>`), 
+and therefore the amplitudes
 in Eq. {eq}`eq:r-kllam` also determine the observable anisotropy
 parameters $\beta_{L,M}(\epsilon,t)$ (Eqn.
-{eq}`eq:AF-PAD-general`), which basically collect all the terms in Eq. {eq}`eq:I-reduced-LF-2_45-vol1` and the product over spherical harmonics, into a result set of $(L,M)$. (Note that the photoelectron energy
+{eq}`eq:AF-PAD-general`). (Note that the photoelectron energy
 $\epsilon$ and momentum $k$ are used somewhat interchangeably herein,
-with the former usually preferred in reference to observables.) 
-
-Note, also, that in the treatment above there is no time-dependence
+with the former usually preferred in reference to observables.) Note,
+also, that in the treatment above there is no time-dependence
 incorporated in the notation; however, a time-dependent treatment
 readily follows, and may be incorporated either as explicit
 time-dependent modulations in the expansion of the wavefunctions for a
 given case, or implicitly in the radial matrix elements. Examples of the
 former include, e.g. a rotational or vibrational wavepacket, or a
 time-dependent laser field. The rotational wavepacket case is discussed
-herein (see {numref}`Sect. %s <sec:full-tensor-expansion>`). The radial matrix elements are
+herein (see
+{numref}`Sect. %s <sec:full-tensor-expansion>`). The radial matrix elements are
 a sensitive function of molecular geometry and electronic configuration
 in general, hence may be considered to be responsive to molecular
 dynamics, although they are formally time-independent in a
 Born-Oppenheimer basis - for further general discussion and examples see
-Ref. {cite}`wu2011TimeresolvedPhotoelectronSpectroscopy` and {{ QM1 }}; discussions of more
+Ref. {cite}`wu2011TimeresolvedPhotoelectronSpectroscopy`; discussions of more
 complex cases with electronic and nuclear dynamics can be found in Refs.
 {cite}`arasaki2000ProbingWavepacketDynamics,Seideman2001,Suzuki2001,Stolow2008`.
-
-
 
 Typically, for reconstruction experiments, a given measurement will be
 selected to simplify this as much as possible by, e.g., populating only
 a single ionic state (or states for which the corresponding observables
 are experimentally energetically-resolvable), and with a bandwidth
 $d\bf{k}$ which is small enough such that the matrix elements can be
-assumed constant over the observation window. Importantly, the angle-resolved observables are
+assumed constant. Importantly, the angle-resolved observables are
 sensitive to the magnitudes and (relative) phases of these matrix
-elements - as emphasised in the magnitude-phase form of Eq. {eq}`eq:I-reduced-LF-2_45-vol1` - and can be considered as angular interferograms.
-
-+++
-
-% TODO: explicitly write out general form and discuss a bit further, inc. link to observables and tensor form later.
-% 30/11/22 Added general form as per eq. 2.45 in QM1, but may want to modify a bit, esp. LF vs. AF notation to match channel funcs later.
+elements, and can be considered as angular interferograms 
+%(Fig.[1](#781808){reference-type="ref" reference="781808"} top right).
 
 ```{code-cell} ipython3
 
