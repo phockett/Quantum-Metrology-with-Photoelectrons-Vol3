@@ -16,6 +16,11 @@ import os
 print(f'Working dir: {os.getcwd()}')
 
 buildEnv = os.getenv('BUILDENV')
+
+# 13/02/23 - added default case, set as 'notebook', and use this to set fig display on in stand-alone notebook case.
+if buildEnv is None:
+    buildEnv = 'notebook'
+    
 print(f'Build env: {buildEnv}')
 
 # Set image export format for use with gluePlotly ONLY
@@ -117,7 +122,13 @@ def glueDecorator(func):
     '''Decorator for glue() with interactive plot types forced to static for PDF builds.'''
     
     def glueWrapper(name,fig,**kwargs):
-        print("USING GLUE WRAPPER")
+        # print("USING GLUE WRAPPER")
+        
+        # Set display option to True for stand-alone notebook case.
+        if buildEnv == 'notebook':
+            displayFig = True
+        else:
+            displayFig = False
         
         # Set glue() output according to fig type and build env.
         # Note buildEnv should be set globally, or passed as a kwarg.
@@ -127,10 +138,10 @@ def glueDecorator(func):
                 # For Plotly may need Panel wrapper for HTML render in some cases...?
                 # Without Panel some basic plot types work, but not surface plots - may also be browser-dependent?
                 # Or due to maths bug, per https://jupyterbook.org/en/stable/interactive/interactive.html#plotly
-                return func(name, pn.pane.Plotly(fig, **kwargs), display=False)
+                return func(name, pn.pane.Plotly(fig, **kwargs), display=displayFig)
             
             else:
-                return func(name, fig, display=False)  # For non-PDF builds, use regular glue()
+                return func(name, fig, display=displayFig)  # For non-PDF builds, use regular glue()
         
         else:
             # Set names for file out
@@ -147,16 +158,16 @@ def glueDecorator(func):
                 hv.save(fig, imgFile, fmt=imgFormat)
                 
                 # Glue static render
-                return func(name, Image(imgFile), display=False)
+                return func(name, Image(imgFile), display=displayFig)
                 
             elif 'plotly' in str(type(fig)):
                 fig.write_image(imgFile,format=imgFormat)  # See https://plotly.com/python/static-image-export/
                 # Glue static render
-                return func(name, Image(imgFile), display=False)
+                return func(name, Image(imgFile), display=displayFig)
 
             else:
                 # For all other objects return regular glue()
-                return func(name, fig, display=False)  
+                return func(name, fig, display=displayFig)  
             
         
     return glueWrapper
