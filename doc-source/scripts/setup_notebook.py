@@ -11,7 +11,7 @@ print('To use local source code, pass the parent path to this script at run time
 
 from datetime import datetime as dt
 timeString = dt.now()
-print(f"Running: {timeString.strftime('%Y-%m-%d %H:%M:%S')}")
+print(f"\n*** Running: {timeString.strftime('%Y-%m-%d %H:%M:%S')}")
 import os
 print(f'Working dir: {os.getcwd()}')
 

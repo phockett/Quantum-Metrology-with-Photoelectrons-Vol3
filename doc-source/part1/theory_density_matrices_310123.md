@@ -24,7 +24,7 @@ Subsection for density matrix stuff
 - For additional rendering tests, see http://jake:9966/lab/tree/QM3/doc-source/tests/holoviews_render_tests_310123.ipynb
 
 % 30/01/23 extended with notes from MF recon article.
-% 10/02/23 added general intro & tidying up
+% 10/02/23 added general intro & tidying up. Fixed some notation (may still need some work, and/or adding to photoionization intro part), and fidelity part. TODO: check numerics with noise make sense there.
 
 +++ {"tags": []}
 
@@ -36,7 +36,7 @@ Subsection for density matrix stuff
 (sec:density-mat-intro)=
 ## General introduction
 
-The general density operator, for a mixture of independent states $|\psi_{n} \rangle$, can be defined as (Eqn. 2.8 in Blum, Ref. {cite}`BlumDensityMat` [^blumFootnote]):
+For a general introduction, and discussion of density matrix techniques and applications in AMO physics, see Blum's textbook _Density Matrix Theory and Applications_ {cite}`BlumDensityMat`, which is referred to extensively herein. The general density operator, for a mixture of independent states $|\psi_{n}\rangle$, can be defined as per Eqn. 2.8 in Blum {cite}`BlumDensityMat`:
 
 $$
 \hat{\rho}=\sum_{n}W_{n}|\psi_{n}\rangle\langle\psi_{n}|
@@ -46,7 +46,7 @@ Where $W_{n}$ defines the (statistical) weighting of each state $\psi_{n}$ in th
 
 % Removed \boldsymbol{\rho} due to HTML rendering issues.
 
-For a given basis set, $|\phi_{m}\rangle$, the states can be expanded and the matrix elements of $\rho$ defined (Eqns. 2.9 - 2.11 in Blum, Ref. {cite}`BlumDensityMat` [^blumFootnote]):
+For a given basis set, $|\phi_{m}\rangle$, the states can be expanded and the matrix elements of $\rho$ defined as per Eqns. 2.9 - 2.11 in Blum {cite}`BlumDensityMat`:
 
 $$
 | \psi_{n} \rangle = \sum_{m'} a_{m'}^{(n)}| \phi_{m'}\rangle
@@ -65,7 +65,7 @@ $$ (eqn:density-mat-generic)
 For all pairs of basis states $(i,j)$. This defines the density matrix in the $\{|\phi_n\rangle\}$ _representation_ (basis space). Of particular note here is that the mixed states are assumed to be incoherent (independent), whilst the basis expansion is coherent. 
 
 
-[^blumFootnote]: For general discussion of density matrix techniques and applications in AMO physics, see Blum's textbook `Density Matrix Theory and Applications` {cite}`BlumDensityMat`, which is referred to extensively herein.
+% [^blumFootnote]: For general discussion of density matrix techniques and applications in AMO physics, see Blum's textbook _Density Matrix Theory and Applications_ {cite}`BlumDensityMat`, which is referred to extensively herein.
 
 +++ {"tags": []}
 
@@ -78,7 +78,7 @@ For all pairs of basis states $(i,j)$. This defines the density matrix in the $\
 ## Continuum density matrices
 
 % May want to move to Sect. 3.2 and add some more details?
-In general, the discussion herein will focus on the photoelectron properties and generally assume a single final ion, and associated free-electron state of interest, hence the final state (Eq. {eq}`eq:continuum-state-vec`) can be simplified to $|\Psi_f\rangle\equiv|\mathbf{k}\rangle$. This is equivalent to a "pure state" in density matrix terminology, which can then expanded (coherently) in an appropriate representation (basis). Following this, the density operator associated with the continuum state can be written as $\hat{\rho}=|\Psi_f\rangle\langle\Psi_f|\equiv|\mathbf{k}\rangle\langle\mathbf{k}|$. Making use of the tensor notation introduced in {numref}`Sect. %s <sec:tensor-formulation>`, the final continuum state can then be expanded as a density matrix in the $\zeta\zeta'$ representation (with the observable dimensions $\{L,M\}$ explicitly included in the density matrix), which will also be dependent on the choice of channel functions ($u$), can then be given as:
+In general, the discussion herein will focus on the photoelectron properties and generally assume a single final ion, and associated free-electron state of interest, hence the final state (Eq. {eq}`eq:continuum-state-vec`) can be simplified to $|\Psi_f\rangle\equiv|\mathbf{k}\rangle$. This is equivalent to a "pure state" in density matrix terminology, which can then expanded (coherently) in an appropriate representation (basis). Following this, the density operator associated with the continuum state can be written as $\hat{\rho}=|\Psi_f\rangle\langle\Psi_f|\equiv|\mathbf{k}\rangle\langle\mathbf{k}|$. Making use of the tensor notation introduced in {numref}`Sect. %s <sec:tensor-formulation>`, the final continuum state can then be expanded as a density matrix in the $\zeta\zeta'$ representation (with the observable dimensions $\{L,M\}$ explicitly included in the density matrix), which will also be dependent on the choice of channel functions ($u$); the density matrix can then be given as:
 
 $$
 {\rho}_{L,M}^{u,\zeta\zeta'}=\varUpsilon_{L,M}^{u,\zeta\zeta'}\mathbb{I}^{\zeta,\zeta'}
@@ -109,7 +109,7 @@ $$
 \rho(t) =\sum_{LM}\sum_{KQS}A^{K}_{QS}(t)\sum_{\zeta\zeta^{\prime}}\varUpsilon_{L,M}^{u,\zeta\zeta'}|\zeta,\Psi_+\rangle\langle\zeta,\Psi_+|\mu_q\rho_i\mu_{q\prime}^{*}|\zeta^{\prime},\Psi_+\rangle\langle\zeta^{\prime},\Psi_+|
 $$ (eqn:full-density-mat-traditional)
 
-with $\rho_i = |\Psi_i\rangle\langle\Psi_i|$. This is, effectively, equivalent to an expansion in the various tensor operators defined in the channel function notation above (Eq. {eq}`eqn:full-density-mat`), but in a standard state-vector notation. Note, also, that this form explicitly defines the initial state of the system as a density matrix $\rho_i$, and explicitly allows for time-dependence via the {{ ADMsymbol }} term. (For further discussion of the use of density matrices in other specific cases, see {{ QM1 }}, particularly Chpts. 2 & 3, and refs. therein.)
+This is, effectively, equivalent to an expansion in the various tensor operators defined in the channel function notation above (Eq. {eq}`eqn:full-density-mat`), but in a standard state-vector notation. Note, also, that this form explicitly defines the initial state of the system as a density matrix $\rho_i = |\Psi_i\rangle\langle\Psi_i|$, and explicitly allows for time-dependence via the {{ ADMsymbol }} term. (For further discussion of the use of density matrices in other specific cases, see {{ QM1 }}, particularly Chpts. 2 & 3, and refs. therein.)
 
 The main benefit of a (continuum) density matrix representation in the current work is as a rapid way to visualize the phase relations between the photoionization matrix elements (the off-diagonal density matrix elements), and the ability to quickly check the overall pattern of the elements, hence confirm that no phase-relations are missing and orthogonality relations are fulfilled - some numerical examples are given below. Since the method for computing the density matrices is also numerically equivalent to a tensor outer-product, density matrices and visualizations can also be rapidly composed for other properties of interest, e.g. the various channel functions defined herein, providing another complementary methodology and tool for investigation. (Further examples can be found in the {{ ePSproc_docs }}, as well as in the literature, see, e.g., Ref. {cite}`BlumDensityMat` for general discussion, Ref. {cite}`Reid1991` for application in pump-probe schemes.) 
 
@@ -199,9 +199,13 @@ for dataType in ['matE','BLM']:
 
 ## Compute a density matrix
 
-A basic density matrix computation routine is implemented in the {{ ePSproc_full }}. This makes use of input tensor arrays, and computes the density matrix as an outer-product of the defined dimension(s). The numerics essentially compute the outer product from the specified dimensions, which can be written generally as per Eqns. {eq}`eqn:density-mat-outer-prod`, {eq}`eqn:density-mat-generic`, where $a_{i}^{(n)}a_{j}^{(n)*}$ are the values along the specified dimensions/state vector/representation. These dimensions must be in input arrays, but will be restacked as necessary to define the effective basis space. For instance, from the ionization matrix element demonstrated herein, setting `[l,m]` would select the $|\zeta\rangle = |l,m\rangle$ basis (equivalently `LM`, since the dimensions are already stacked in the ionization matrix elements). Setting `['LM','mu']` would set the $|\zeta\rangle = |l,m,\mu\rangle$ as the basis vector and so forth, where $|\zeta\rangle$ is used as a generic state vector denoting all required quantum numbers.
+A basic density matrix computation routine is implemented in the {{ ePSproc_full }}. This makes use of input tensor arrays, and computes the density matrix as an outer-product of the defined dimension(s). The numerics essentially compute the outer product from the specified dimensions, which can be written generally as per Eqns. {eq}`eqn:density-mat-outer-prod`, {eq}`eqn:density-mat-generic`, where $a_{i}^{(n)}a_{j}^{(n)*}$ are the values along the specified dimensions/state vector/representation. These dimensions must be in input arrays, but will be restacked as necessary to define the effective basis space, and all coherent pairs will be computed. 
 
-Note, however, that this selection is purely based on the numerics, which compute the outer product $|\zeta\rangle\langle\zeta'|$ to form the density matrix, hence does not guarantee a well-formed density matrix in the strictest sense (depending on the basis set), although will always present a basis state correlation matrix of sorts. A brief example, for the {glue:text}`symHarmPGmatE` defined matrix element is given below; for more examples see the {{ ePSproc_docs }}.
+For instance, considering the ionization matrix elements demonstrated herein, setting indexes (quantum numbers) as `[l,m]` will select the $|\zeta\rangle = |l,m\rangle$ basis, 
+% (equivalently `LM`, since the dimensions are already stacked in the ionization matrix elements), 
+hence define the density operator as $\hat{\rho} = |\zeta\rangle \langle\zeta'| = |l,m\rangle\langle l',m'|$ and the corresponding density matrix elements $\rho^{\zeta,\zeta'}=\langle\zeta|\hat{\rho}|\zeta'\rangle=a_{l,m}a_{l',m'}^{*}$. Similarly, setting `['l','m','mu']` will set the $|\zeta\rangle = |l,m,\mu\rangle$ as the basis vector and so forth, where $|\zeta\rangle$ is used as a generic state vector denoting all required quantum numbers. Additionally, other quantum numbers/dimensions can be kept, summed or selected from the input tensors prior to computation, thus density matrices can be readily computed as a function of other parameters, or averaged, according to the properties of interest, experimental parameters and observables.
+
+Note, however, that this selection is purely based on the numerics, which compute the outer product along the defined dimensions $|\zeta\rangle\langle\zeta'|$ to form the density matrix, hence does not guarantee a well-formed density matrix in the strictest sense (depending on the basis set), although will always present a basis state correlation matrix of sorts. A brief example, for the {glue:text}`symHarmPGmatE` defined matrix element is given below; for more examples see the {{ ePSproc_docs }}.
 
 ```{code-cell} ipython3
 :tags: [hide-output]
@@ -209,124 +213,134 @@ Note, however, that this selection is purely based on the numerics, which comput
 # DEMO CODE FROM http://jake/jupyter/user/paul/doc/tree/code-share/stimpy-docker-local/MFPADs_recon_manuscript_dev_April_2022/MFrecon_manuscript_fig_generation_170422-Stimpy_MAIN-oldPkgs.ipynb
 # SEE ALSO DOCS, https://epsproc.readthedocs.io/en/dev/methods/density_mat_notes_demo_300821.html#Density-Matrices
 
-# Import routines
+# Import routines for density calculation and plotting
 from epsproc.calc import density
 
-# Compose density matrix
+#*** Compose density matrix
 
 # Set dimensions/state vector/representation
 # These must be in original data, but will be restacked as necessary to define the effective basis space.
-denDims = 'LM'  #, 'mu']
-selDims = None  #{'Type':'L'}
-pTypes=['r','i']
-thres = 1e-4    # 0.2 # Threshold out l>3 terms if using full 'orb5' set.
-normME = False
-normDen = 'max'
+denDims = 'LM'  # Set dimensions for density matrix. Note stacked dims are OK, in this case LM = {l,m}
+selDims = None  # Select on any other dimensions?
+sumDims = None  # Sum over any other dimensions? (Set sumDims=True to sum over all dims except denDims.)
+pTypes=['r','i'] # Plotting types 'r'=real, 'i'=imaginary
+thres = 1e-4    # Threshold for outputs (otherwise set to zero and/or dropped from result)
+normME = False  # Normalise matrix elements before computing?
+normDen = 'max' # Method to normalise density matrix
 
 # Calculate - Ref case
-# matE = data.data['subset']['matE']
-# Set data from master class
-# k = 'orb5'  # N2 orb5 (SG) dataset
-# k = 'subset'
 k = sym
-matE = data.data[k]['matE'].copy()
+matE = data.data[k]['matE'].copy()  # Set data from main class instance by key
+
+# Normalise input matrix elements?
 if normME:
     matE = matE/matE.max()
 
-daOut, *_ = density.densityCalc(matE, denDims = denDims, selDims = selDims, thres = thres)  # OK
+#*** Compute density matrix for given parameters
+# See demo at https://epsproc.readthedocs.io/en/latest/methods/density_mat_notes_demo_300821.html
+# API docs https://epsproc.readthedocs.io/en/latest/modules/epsproc.calc.density.html#epsproc.calc.density.densityCalc
+daOut, *_ = density.densityCalc(matE, denDims = denDims, selDims = selDims, thres = thres)
 
+# Renormlise output?
 if normDen=='max':
     daOut = daOut/daOut.max()
 elif normDen=='trace':
     daOut = daOut/(daOut.sum('Sym').pipe(np.trace)**2)  # Need sym sum here to get 2D trace
-    
-# daPlot = density.matPlot(daOut.sum('Sym'))
+
+# Plot density matrix with Holoviews
+# Note sum over 'Sym' dimension to flatten plot to (l,m) dims only.
 daPlot = density.matPlot(daOut.sum('Sym'), pTypes=pTypes)
+```
+
+```{code-cell} ipython3
+:tags: [hide-output, hide-cell]
 
 # Glue figure for later - real part only in this case
-glue("denMatD2hRealOnly", daPlot.select(pType='Real'))
+# Also clean up axis labels from default state labels ('LM' and 'LM_p' in this case).
+glue("denMatD2hRealOnly", daPlot.select(pType='Real').opts(xlabel='L,M', ylabel="L',M'"))
 ```
 
 ```{glue:figure} denMatD2hRealOnly
 ---
 name: "fig-denMatD2hRealOnly"
 ---
-Example density matrix, computed from matrix elements defined purely by {glue:text}`symHarmPGmatE` symmetry. Note in this case only the real part is non-zero.
+Example density matrix, computed from matrix elements defined purely by {glue:text}`symHarmPGmatE` symmetry. Note in this case only the real part is non-zero. Axes labels give terms $\{L,M\}$ and $\{L',M'\}$.
 ```
 
 +++
 
 ## Visualising matrix element reconstruction fidelity with density matrices
 
-To demonstrate the use of the density matrix representation as a means to test similarity or fidelity between two sets of matrix elements, a trial set of matrix elements can be derived from the original set used above, plus random noise, and the differences in the density matrices directly computed. An example is shown in {numref}`fig-denMatD2hCompExample`; in this example 10\% noise has been added to the original (input) matrix elements, and the resultant density matrix computed. The difference matrix ({numref}`fig-denMatD2hCompExample`(c)) then provides the fidelity between the original and noisy case. In testing reconstructions, this type of analysis thus provides a quick means to test reconstruction results vs. known inputs. Although this case is only illustrated for real density matrices, a similar analysis can be used for the imaginary (or phase) components, thus coherences can also be quickly visualised in this manner.
+To demonstrate the use of the density matrix representation as a means to test similarity or fidelity between two sets of matrix elements, a trial set of matrix elements can be derived from the original set used above, plus random noise, and the differences in the density matrices directly computed. An example is shown in {numref}`fig-denMatD2hCompExample`; in this example up to 10\% random noise has been added to the original (input) matrix elements, and the resultant density matrix computed. The difference matrix ({numref}`fig-denMatD2hCompExample`(c)) then provides the fidelity between the original and noisy case. In testing retrieval methodologies, this type of analysis thus provides a quick means to test reconstruction results vs. known inputs. Although this case is only illustrated for real density matrices, a similar analysis can be used for the imaginary (or phase) components, thus coherences can also be quickly visualised in this manner.
 
 % TODO: ref later sections here, and/or MF recon manuscript, Sect 4.1.5 & Fig 11.
 
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-# Trial matrix element for comparison
+#*** Set trial matrix element for comparison with the original case computed above
 matE = data.data[k]['matE'].copy()
-
-# Add random noise, +/- 5%
-matE = matE + matE*(np.random.rand(*list(matE.shape)) - 0.5) * 0.2
 
 if normME:
     matE = matE/matE.max()
-
-daOut2, *_ = density.densityCalc(matE, denDims = denDims, selDims = selDims, thres = thres)  # OK
-
-if normDen=='max':
-    daOut2 = daOut2/daOut2.max()
-elif normDen=='trace':
-    daOut2 = daOut2/(daOut2.sum('Sym').pipe(np.trace)**2)
     
-daPlot2 = density.matPlot(daOut2.sum('Sym'), pTypes=pTypes)   #.sel(Eke=slice(0.5,1.5,1)))
+# Add random noise, +/- 10%
+# Note this is applied to normalised matE
+# For the normalised case this results in a standard deviation in the difference density matrix elements of ~sqrt(2*(0.1^2) + 2*0.1) = 0.2
+# (Derived from basic error propagation, ignoring the actual values - see https://en.wikipedia.org/wiki/Propagation_of_uncertainty#Example_formulae.)
+noise = 0.1
+SD = np.sqrt(4*(noise**2))
+matE_noise = matE + matE*((np.random.rand(*list(matE.shape)) - 0.5) * 2*noise)  # Set range to random values +/-1 * noise
 
+# Compute density matrix
+daOut_noise, *_ = density.densityCalc(matE_noise, denDims = denDims, selDims = selDims, thres = thres)
 
-# Compute difference
-daDiff = daOut.sum('Sym') - daOut2.sum('Sym')
+# Renormlise output?
+if normDen=='max':
+    daOut_noise = daOut_noise/daOut_noise.max()
+elif normDen=='trace':
+    daOut_noise = daOut_noise/(daOut_noise.sum('Sym').pipe(np.trace)**2)
+    
+daPlot_noise = density.matPlot(daOut_noise.sum('Sym'), pTypes=pTypes)
+
+# Compute differences
+daDiff = daOut.sum('Sym') - daOut_noise.sum('Sym')
 daDiff.name = 'Difference'
 daPlotDiff = density.matPlot(daDiff, pTypes=pTypes)
 
-# #******** Plot
-# daLayout = (daPlot.layout('pType') + daPlot2.opts(show_title=False).layout('pType').opts(show_title=False) + daPlotDiff.opts(show_title=False).layout('pType')).cols(1)  # No cols? AH - set to 1 works.
-# daLayout = (daPlot.select(pType='Real') + daPlot2.opts(show_title=False).select(pType='Real').opts(show_title=False) + daPlotDiff.opts(show_title=False).select(pType='Real')).cols(1)  # No cols? AH - set to 1 works.
-# daLayout.opts(width=300, height=300)  # Doesn't work?
-# daLayout.opts(hv.opts.HeatMap(width=300, frame_width=300, aspect='square', tools=['hover'], colorbar=True, cmap='coolwarm'))  # .opts(show_title=False)  # .opts(title="Custom Title")  #OK
+print(f'Noise = {noise}, SD (approx) = {SD}')
+maxDiff = daDiff.max().values
+print(f'Max difference = {maxDiff}')
 
-# Additional formatting options for PDF vs. HTML outputs.
-# TODO: improve/set global options + label figures.
-nCols = 1
-try:
-    if buildEnv == 'pdf':
-        nCols = 2
-except:
-    pass
-
-# Layout for real parts, with custom titles.
-daLayout = (daPlot.select(pType='Real').opts(title="(a) Original") + daPlot2.select(pType='Real').opts(title="(b) With noise") 
-            + daPlotDiff.select(pType='Real').opts(title="(c) Difference (fidelity)")).cols(nCols)  # No cols? AH - set to 1 works.
-
-# Glue layout
-glue("denMatD2hCompExample",daLayout.opts(hv.opts.HeatMap(aspect='square', tools=['hover'], colorbar=True, cmap='coolwarm')))
+#*** Layout plot from Holoviews objects for real parts, with custom titles.
+daLayout = (daPlot.select(pType='Real').opts(title="(a) Original", xlabel='L,M', ylabel="L',M'") 
+            + daPlot_noise.select(pType='Real').opts(title="(b) With noise", xlabel='L,M', ylabel="L',M'") 
+            + daPlotDiff.select(pType='Real').opts(title="(c) Difference (fidelity)", xlabel='L,M', ylabel="L',M'"))
 ```
 
 ```{code-cell} ipython3
-:tags: [remove-cell]
+:tags: [hide-output, hide-cell]
 
-daLayout
+# Glue plot
+
+# Additional formatting options for PDF vs. HTML outputs.
+nCols = 1
+if buildEnv == 'pdf':
+    nCols = 2
+
+# Glue layout
+glue("denMatD2hCompExample",daLayout.cols(nCols).opts(hv.opts.HeatMap(cmap='coolwarm')))
+
+# Glue values
+glue("denDiffMax",round(float(maxDiff.real),3))
+glue("denSD",SD)
 ```
 
 ```{glue:figure} denMatD2hCompExample
 ---
 name: "fig-denMatD2hCompExample"
 ---
-Example density matrices, computed from matrix elements defined purely by {glue:text}`symHarmPGmatE` symmetry. Here the panels show (a) the original density matrix, (b) values with +/- 10% random noise, (c) the difference matrix, which indicates the fidelity of the noisy state relative to the original matrix elements.
-```
-
-```{code-cell} ipython3
-!date
+Example density matrices, computed from matrix elements defined purely by {glue:text}`symHarmPGmatE` symmetry. Here the panels show (a) the original density matrix, (b) density matrix computed with +/- 10% random noise added to the original matrix elements, (c) the difference matrix, which indicates the fidelity of the noisy case relative to the original case. For normalised density matrices the 10% noise case translates to a standard deviation $\sigma\approx${glue:text}`denSD` on the differences; the maximum error in the test case as illustrated ={glue:text}`denDiffMax`.
 ```
 
 +++ {"tags": ["remove-cell"]}
