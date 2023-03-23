@@ -59,9 +59,11 @@ data.subKey = dataKey
 
 # Using PEMtk - this only returns the product basis set as used for fitting
 BetaNormX, basisProduct = data.afblmMatEfit(selDims={}, sqThres=False)
+BetaNorm = BetaNormX  # Set alias
 
 # Using ePSproc directly - this includes full basis return if specified
 BetaNormX2, basisFull = ep.geomFunc.afblmXprod(data.data[data.subKey]['matE'], basisReturn = 'Full', selDims={}, sqThres=False)  #, BLMRenorm = BLMRenorm, **kwargs)
+BetaNorm2 = BetaNormX2  # Set alias
 
 # The basis dictionary contains various numerical parameters, these are investigated below.
 # See also the ePSproc docs at https://epsproc.readthedocs.io/en/latest/methods/geometric_method_dev_260220_090420_tidy.html

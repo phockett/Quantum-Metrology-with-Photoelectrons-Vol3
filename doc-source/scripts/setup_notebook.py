@@ -28,7 +28,8 @@ imgFormat=os.getenv('IMGFORMAT')
 if imgFormat is None:
     imgFormat = 'png'
 
-# Ugly - set default static render size (passed to modified Glue and setPlotters()
+# 23/03/23: Ugly - set default static render size (passed to modified Glue and setPlotters())
+# May want to add override options for this later.
 imgWidth=os.getenv('IMGWIDTH')
 if imgWidth is None:
     imgWidth = 1200

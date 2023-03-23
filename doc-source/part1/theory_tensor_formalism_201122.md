@@ -21,6 +21,7 @@ Subsections for tensor formulation.
 TODO
 
 - Numerical examples, see https://epsproc.readthedocs.io/en/dev/methods/geometric_method_dev_260220_090420_tidy.html#E_{P,R}-tensor (and MF recon manuscript working notes?). Should be able to redo for general case working from symHarms as matrix elements (i.e. no external codes needed).
+   - benchmarks, or link to them (see test fitting notebooks...?).
 - Tidy up notation in some places.
 - Full extended tensor formulation as per Appendix in MF recon paper? Probably should add in here.
    - Best working notes? Try https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basis-set_demo_050621-full.html, also try updates for MF recon manuscript in http://jake:9966/lab/tree/code-share/jupyter-shared/PEMtk_dev_2022/basisSets/PEMtk_fitting_basis-set_demo_050621-full-revisit-Jake_040822.ipynb. Q: did this make it to Figshare repo? Looks like missing? See also Trello notes...
@@ -70,8 +71,8 @@ $$I^{\zeta}(\epsilon)\equiv\mathbf{r}_{\zeta}\equiv r_{\zeta}e^{i\phi_{\zeta}}$$
 This tensorial form is numerically implemented in the {{ ePSproc_repo }} codebase, and is in contradistinction to standard numerical routines in which the requisite terms are usually computed from vectorial and/or nested summations, which can be somewhat opaque to
 detailed interpretation, and typically implement the full computation of the observables in one monolithic computational routine. The {{ PEMtk_repo }} codebase implements matrix element retrieval based on the tensor formalism, with pre-computation of all the geometric tensor components (channel functions) prior to a fitting protocol for matrix element analysis, essentially a fit to Eqn. {eq}`eqn:channel-fns`, with terms $I^{\zeta}(\epsilon)$ as the unknowns (in magnitude, phase form per {eq}`eqn:I-zeta-mag-phase`). The main computational cost of a tensor-based approach is that more RAM is required to store the full set of tensor variables; however, the method is computationally efficient since it is inherently parallel (as compared to a traditional, serial loop-based solution), hence may lead to significantly faster evaluation of observables. Furthermore, the method allows for the computational routines to match the formalism quite closely, and investigation of the properties of the channel functions for a given problem in general terms, as well as for specific experimental cases.
 
-TODO: numerical examples here or below.
-TODO: benchmarks, or link to them (see test fitting notebooks...?).
+% TODO: numerical examples here or below.
+% TODO: benchmarks, or link to them (see test fitting notebooks...?).
 
 +++ {"jp-MarkdownHeadingCollapsed": true, "tags": []}
 
@@ -898,7 +899,7 @@ Following the above, further resultant terms can also be examined, up to and inc
 Polarisation & ADM product term: the main product basis returned, `polProd`, contains the tensor product $\Lambda_{R}\otimes E_{PR}(\hat{e})\otimes \Delta_{L,M}(K,Q,S)\otimes A^{K}_{Q,S}(t)$, expanded over all quantum numbers (see [full definition here](https://epsproc.readthedocs.io/en/dev/methods/geometric_method_dev_pt3_AFBLM_090620_010920_dev_bk100920.html#\beta_{L,M}^{AF}-rewrite)). This term, therefore, incorporates all of the dependence (or response) of the AF-$\beta_{LM}$s on the polarisation state, and the axis distribution. Example results, making use of the linear-ramp {{ ADMs }} of {numref}`Sect. %s <sec:theory:AF-alignment-term-basic>` are illustrated in {numref}`fig-polProd-linearRamp`.
 
 The full channel (response) functions $\varUpsilon_{L,M}^{u,\zeta\zeta'}$ as defined in {eq}`eq:channelFunc-MF-defn` and {eq}`eq:channelFunc-AF-defn` can be determined by the product of this term with the $B_{L,M}$ tensor. This is essentially the complete geometric basis set, % ([give or take a phase term or two](https://epsproc.readthedocs.io/en/dev/methods/geometric_method_dev_pt3_AFBLM_090620_010920_dev_bk100920.html#\beta_{L,M}^{AF}-rewrite)), 
-hence equivalent to the AF-$\beta_{LM}$ if the ionization matrix elements were set to unity. This illustrates not only the coupling of the geometric terms into the observable $L,M$, but also how the partial wave $|l,m\rangle$ terms map to the observables. Example results, making use of the linear-ramp {{ ADMs }} of {numref}`Sect. %s <sec:theory:AF-alignment-term-basic>` are illustrated in {numref}`fig-channelFunc-linearRamp`.
+hence equivalent to the AF-$\beta_{LM}$ if the ionization matrix elements were set to unity. This illustrates not only the coupling of the geometric terms into the observable $L,M$, but also how the partial wave $|l,m\rangle$ terms map to the observables, and hence the sensitivity of the observables to given partial wave properties. Example results, making use of the linear-ramp {{ ADMs }} of {numref}`Sect. %s <sec:theory:AF-alignment-term-basic>` are illustrated in {numref}`fig-channelFunc-linearRamp`.
 
 ```{code-cell} ipython3
 # Set data - set example ADMs to data structure & subset for calculation
@@ -1006,7 +1007,6 @@ with $\rho_i = |\Psi_i\rangle\langle\Psi_i|$. This is, effectively, equivalent t
 The main benefit of a density matrix representation in the current work is as a rapid way to visualize the phase relations between the photoionization matrix elements (the off-diagonal density matrix elements), and the ability to quickly check the overall pattern of the elements, hence confirm that no phase-relations are missing and orthogonality relations are fulfilled - some examples are given below. Since the method for computing the density matrices is also numerically equivalent to a tensor outer-product, density matrices and visualizations can also be rapidly composed for other properties of interest, e.g. the various channel functions defined herein, providing another complementary methodology and tool for investigation. (Further examples can be found in the {{ ePSproc_docs }}, as well as in the literature, see, e.g., Ref. {cite}`BlumDensityMat` for general discussion, Ref. {cite}`Reid1991` for application in pump-probe schemes.) 
 
 Furthermore, as noted above, the density matrix elements provide a complete description of the photoionization event, and hence make clear the equivalence of the ``complete" photoionization experiments (and associated continuum reconstruction methods) discussed herein, with general quantum tomography schemes {cite}`MauroDAriano2003`. The density matrix can also be used as the starting point for further analysis based on standard density matrix techniques - this is discussed, for instance, in Ref. {cite}`BlumDensityMat`, and can also be viewed as a bridge between traditional methods in spectroscopy and AMO physics, and more recent concepts in the quantum information sciences (see, e.g., Refs. {cite}`Tichy2011a,Yuen-Zhou2014` for recent discussions in this context).
-
 
 +++ {"tags": ["remove-cell"]}
 

@@ -23,8 +23,22 @@ Subsection for density matrix stuff
 
 - For additional rendering tests, see http://jake:9966/lab/tree/QM3/doc-source/tests/holoviews_render_tests_310123.ipynb
 
-% 30/01/23 extended with notes from MF recon article.
-% 10/02/23 added general intro & tidying up. Fixed some notation (may still need some work, and/or adding to photoionization intro part), and fidelity part. TODO: check numerics with noise make sense there.
+- Working from Density matrix ePSproc notes, http://jake:9966/lab/tree/code-share/github-share/ePSproc/docs/doc-source/methods/density_mat_notes_demo_300821.ipynb and MF recon article notes (Tex, and http://jake/jupyter/user/paul/doc/tree/code-share/stimpy-docker-local/MFPADs_recon_manuscript_dev_April_2022/MFrecon_manuscript_fig_generation_170422-Stimpy_MAIN-oldPkgs.ipynb, basis of demo code herein)
+
+30/01/23 extended with notes from MF recon article.
+
+10/02/23 added general intro & tidying up. Fixed some notation (may still need some work, and/or adding to photoionization intro part), and fidelity part. TODO: check numerics with noise make sense there.
+
+TODO:
+
+- More on irreducible tensors vs. density mat? See Blum Chpt. 4 and Zare, also previous notes. SHould be able to add some theory and numerics here, maybe a subsection for this? Feels like there might be some interesting relations here...
+   - L,M representation and diagonality? See p135 - although maybe obvious?
+   - Rotation properties and complete basis, symmetries.
+   - Sect 4.6.5 for spatial properties
+   - Sect 4.8 for notation and conventions
+   - Subspace projections as summations, reduced density matrices, p64
+- Floor noise example to zero? Should be more physical than having -ve values allowed?
+- See QuTip for more stuff, e.g. entropy and distance metrics, https://qutip.org/docs/latest/apidoc/functions.html#module-qutip.metrics. Should be able to use directly on numerical matrices?
 
 +++ {"tags": []}
 
@@ -136,42 +150,52 @@ This follows the setup in {numref}`Sect. %s <sec:tensor-formulation>` {ref}`sec:
 
 # Setup symmetry-defined matrix elements using PEMtk
 
-# Import class
-from pemtk.sym.symHarm import symHarm
+%run '../scripts/setup_symmetry_basis_tensors.py'
+```
 
-# Compute hamronics for Td, lmax=4
-sym = 'D2h'
-lmax=4
+```{code-cell} ipython3
+:tags: [remove-cell]
 
-lmaxPlot = 2  # Set lmaxPlot for subselection on plots later.
+# Now run in script above
 
-# TODO: consider different labelling here, can set at init e.g. dims = ['C', 'h', 'muX', 'l', 'm'] - 25/11/22 code currently fails for mu mapping, remap below instead
-symObj = symHarm(sym,lmax)
-# symObj = symHarm(sym,lmax,dims = ['Cont', 'h', 'muX', 'l', 'm'])
+# # Setup symmetry-defined matrix elements using PEMtk
 
-# To plot using ePSproc/PEMtk class, these values can be converted to ePSproc BLM data type...
+# # Import class
+# from pemtk.sym.symHarm import symHarm
 
-# Run conversion - the default is to set the coeffs to the 'BLM' data type
-dimMap = {'C':'Cont','mu':'muX'}
-symObj.toePSproc(dimMap=dimMap)
+# # Compute hamronics for Td, lmax=4
+# sym = 'D2h'
+# lmax=4
 
-# Run conversion with a different dimMap & dataType
-dataType = 'matE'
-# symObj.toePSproc(dimMap = {'C':'Cont','h':'it', 'mu':'muX'}, dataType=dataType)
-symObj.toePSproc(dimMap = dimMap, dataType=dataType)
-# symObj.toePSproc(dimMap = {'C':'Cont','h':'it'}, dataType=dataType)   # Drop mu > muX mapping for now
-# symObj.coeffs[dataType]
+# lmaxPlot = 2  # Set lmaxPlot for subselection on plots later.
 
-# Example using data class (setup in init script)
-data = pemtkFit()
+# # TODO: consider different labelling here, can set at init e.g. dims = ['C', 'h', 'muX', 'l', 'm'] - 25/11/22 code currently fails for mu mapping, remap below instead
+# symObj = symHarm(sym,lmax)
+# # symObj = symHarm(sym,lmax,dims = ['Cont', 'h', 'muX', 'l', 'm'])
 
-# Set to new key in data class
-dataKey = sym
-data.data[dataKey] = {}
+# # To plot using ePSproc/PEMtk class, these values can be converted to ePSproc BLM data type...
 
-for dataType in ['matE','BLM']:
-    data.data[dataKey][dataType] = symObj.coeffs[dataType]['b (comp)'].sum(['h','muX'])  # Select expansion in complex harmonics, and sum redundant dims
-    data.data[dataKey][dataType].attrs = symObj.coeffs[dataType].attrs
+# # Run conversion - the default is to set the coeffs to the 'BLM' data type
+# dimMap = {'C':'Cont','mu':'muX'}
+# symObj.toePSproc(dimMap=dimMap)
+
+# # Run conversion with a different dimMap & dataType
+# dataType = 'matE'
+# # symObj.toePSproc(dimMap = {'C':'Cont','h':'it', 'mu':'muX'}, dataType=dataType)
+# symObj.toePSproc(dimMap = dimMap, dataType=dataType)
+# # symObj.toePSproc(dimMap = {'C':'Cont','h':'it'}, dataType=dataType)   # Drop mu > muX mapping for now
+# # symObj.coeffs[dataType]
+
+# # Example using data class (setup in init script)
+# data = pemtkFit()
+
+# # Set to new key in data class
+# dataKey = sym
+# data.data[dataKey] = {}
+
+# for dataType in ['matE','BLM']:
+#     data.data[dataKey][dataType] = symObj.coeffs[dataType]['b (comp)'].sum(['h','muX'])  # Select expansion in complex harmonics, and sum redundant dims
+#     data.data[dataKey][dataType].attrs = symObj.coeffs[dataType].attrs
 ```
 
 ```{code-cell} ipython3
@@ -210,8 +234,7 @@ Note, however, that this selection is purely based on the numerics, which comput
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-# DEMO CODE FROM http://jake/jupyter/user/paul/doc/tree/code-share/stimpy-docker-local/MFPADs_recon_manuscript_dev_April_2022/MFrecon_manuscript_fig_generation_170422-Stimpy_MAIN-oldPkgs.ipynb
-# SEE ALSO DOCS, https://epsproc.readthedocs.io/en/dev/methods/density_mat_notes_demo_300821.html#Density-Matrices
+# See the docs for more, https://epsproc.readthedocs.io/en/dev/methods/density_mat_notes_demo_300821.html
 
 # Import routines for density calculation and plotting
 from epsproc.calc import density
@@ -343,9 +366,117 @@ name: "fig-denMatD2hCompExample"
 Example density matrices, computed from matrix elements defined purely by {glue:text}`symHarmPGmatE` symmetry. Here the panels show (a) the original density matrix, (b) density matrix computed with +/- 10% random noise added to the original matrix elements, (c) the difference matrix, which indicates the fidelity of the noisy case relative to the original case. For normalised density matrices the 10% noise case translates to a standard deviation $\sigma\approx${glue:text}`denSD` on the differences; the maximum error in the test case as illustrated ={glue:text}`denDiffMax`.
 ```
 
++++
+
+## Working with density matrices with QuTiP library functions
+
+From the numerical density matrix, a range of other standard properties can be computed; of particular interest are likely to be various standard quantities such as the trace, Von Neuman entropy and so forth. Naturally these can be computed numerically directly from the relevant formal definitions; however many of the fundamentals are already implemented in other libraries, and numerical representations can be passed directly to such libraries. In particular, {{ qutipFull }} implements a range of standard functions, metrics, transforms and utility functions for working with state vectors and density matrices. A brief numerical example is given below, see {{ qutipDocs }} for more possibilities.
+
++++
+
+### Convert numerical arrays to QuTiP objects
+
+```{code-cell} ipython3
+# Import QuTip
+from qutip import *
+
+# Wrap density matrices to QuTip objects
+# Note sum('Sym') to ensure 2D matrix, and .data to pass Numpy data array only
+pa = Qobj(daOut.sum('Sym').data)    # Reference continuum density matrix
+pb = Qobj(daOut_noise.sum('Sym').data)  # Noisy case
+
+# QuTip objects have data as Numpy arrays, and render as typeset matrices in a notebook
+pa
+```
+
+### Fidelity metric
+
+Fidelity between two density matrices $\rho_{a},\rho_{b}$ can be defined as per Refs. {cite}`benatti2010QuantumInformationComputation, nielsen2010QuantumComputationQuantum`: 
+
+$F(\rho_{a},\rho_{b})=\operatorname{Tr} {\sqrt {{\sqrt {\rho_{a}}}\rho_{b} {\sqrt {\rho_{a}}}}}$
+
+This is implemented by the `fidelity` function in QuTip. Of note in this case is the close to limiting case value of $F(\rho_{a},\rho_{b})=1$ for the test case herein, despite the added noise and some per-element disparities as shown in   {numref}`fig-denMatD2hCompExample`(c). This reflects the conceptual difference between an element-wise evaluation of the differences, vs. a formal scalar metric.
+
+% $F(\rho,\sigma )=\left(\operatorname{tr} {\sqrt {{\sqrt {\rho }}\sigma {\sqrt {\rho }}}}\right)^{2}$
+% Wiki defn. from https://en.wikipedia.org/wiki/Fidelity_of_quantum_states
+% Cite nielsen2010QuantumComputationQuantum
+
+
+```{code-cell} ipython3
+# Test fidelity, =1 if trace-normalised
+print(f"Fidelity (a,a) = {fidelity(pa,pa)}")
+print(f"Trace = {pa.tr()}")
+print(f"Trace-normed fidelity = {fidelity(pa,pa)/pa.tr()}")
+```
+
+```{code-cell} ipython3
+# Test fidelity vs noisy case
+print(f"Fidelity (a,b) = {fidelity(pa,pb)}")
+print(f"Trace a = {pa.tr()}, Trace b = {pb.tr()}")
+print(f"Trace-normed fidelity = {fidelity(pa/pa.tr(),pb/pb.tr())}")
+```
+
+```{code-cell} ipython3
+# This can also be computed rapidly with lower-level QuTip functionality...
+
+# Compute inner term, note .sqrtm() for square root.
+inner = pa.sqrtm() * pa * pa.sqrtm()
+
+# Compute fidelity
+inner.sqrtm().tr()
+```
+
++++ {"tags": ["remove-cell"]}
+
+### Von Neuman entropy
+% Not sure if this is interesting as yet... see S3.1 in benatti2010QuantumInformationComputation
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+entropy_vn(pa/pa.tr())
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+entropy_vn(pb/pb.tr())
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+entropy_vn(pa/pa.tr()) - entropy_vn(pb/pb.tr())
+```
+
++++ {"tags": ["remove-cell"]}
+
+### Relative entropy
+
+% Not sure if this is interesting as yet... see S3.2 in benatti2010QuantumInformationComputation
+% inf for (A,B) case here?
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+entropy_relative(pa/pa.tr(),pa/pa.tr())  # Indentical case = 0
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+entropy_relative(pa/pa.tr(),pb/pb.tr())
+```
+
 +++ {"tags": ["remove-cell"]}
 
 ## SCRATCH
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+break
+```
 
 ```{code-cell} ipython3
 :tags: [remove-cell]

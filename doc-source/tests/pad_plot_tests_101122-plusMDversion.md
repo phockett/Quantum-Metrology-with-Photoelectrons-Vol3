@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.0
+    jupytext_version: 1.14.4
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -34,7 +34,24 @@ BLM = setBLMs([[0,0,1],[1,1,1],[2,2,1]])   # Note different index
 # BLM
 
 # Set the backend to 'pl' for an interactive surface plot with Plotly
-ep.sphFromBLMPlot(BLM, facetDim='t', plotFlag = True, backend = 'pl');
+ep.sphFromBLMPlot(BLM, facetDim='t', plotFlag = True, backend = 'pl', camR=0.8);
+```
+
+```{code-cell} ipython3
+# Check current Git commit for local ePSproc version
+# NOTE this only works for local repo copies, not if git installed via Pip
+from pathlib import Path
+!git -C {Path(ep.__file__).parent} branch
+!git -C {Path(ep.__file__).parent} log --format="%H" -n 1
+```
+
+```{code-cell} ipython3
+Path(ep.__file__)
+```
+
+```{code-cell} ipython3
+# Check current remote commits
+!git ls-remote --heads https://github.com/phockett/ePSproc
 ```
 
 ```{code-cell} ipython3

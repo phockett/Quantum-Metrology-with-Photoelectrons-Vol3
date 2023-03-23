@@ -19,14 +19,13 @@
   journal = {Computer Physics Communications},
   volume = {250},
   eprint = {1905.06156},
-  eprinttype = {arxiv},
   pages = {107062},
   issn = {0010-4655},
   doi = {10.1016/j.cpc.2019.107062},
   url = {https://www.sciencedirect.com/science/article/pii/S0010465519303856},
   urldate = {2022-11-09},
   abstract = {RMT is a programme which solves the time-dependent Schr\"odinger equation for general, multielectron atoms, ions and molecules interacting with laser light. As such it can be used to model ionization (single-photon, multiphoton and strong-field), recollision (high-harmonic generation, strong-field rescattering) and, more generally, absorption or scattering processes with a full account of the multielectron correlation effects in a time-dependent manner. Calculations can be performed for targets interacting with ultrashort, intense laser pulses of long wavelength and arbitrary polarization. Calculations for atoms can optionally include the Breit\textendash Pauli correction terms for the description of relativistic (in particular, spin\textendash orbit) effects. Program summary Program Title: (RMT) R-matrix with time-dependence Program Files doi: http://dx.doi.org/10.17632/3ptyfg2bmx.1 Licensing provisions: GPLv3 Programming language: Fortran Nature of problem: The interaction of laser light with matter can be modelled with the time-dependent Schr\"odinger equation (TDSE). The solution of the TDSE for general, multielectron atomic and molecular systems is computationally demanding, and has previously been limited either to particular laser wavelengths and intensities, or to simple, few-electron cases. RMT overcomes this limitation by using a general approach to modelling dynamics in atoms and molecules which is applicable to multielectron systems and a wide range of perturbative and non-perturbative phenomena. Solution method: We use the R-matrix paradigm, partitioning the interaction region into an `inner' and an `outer' region. In the inner region (within some small radius of the nucleus/nuclei), full account is taken of all multielectron interactions including electron exchange and correlation. In the outer region, far from the nucleus/nuclei, these are neglected and a single, ionized electron moves in the long-range potential of the residual ionic system and the laser field. The key computational aspect of the RMT approach is the use of a different numerical scheme in each region, facilitating efficient parallelization without sacrificing accuracy. Given an initial wavefunction and the electric field of the driving laser pulse, the wavefunction for all subsequent times and the associated observables are computed using an explicit, Arnoldi propagator method. Additional comments including restrictions and unusual features: The description of the atomic/molecular structure is provided from other, time-independent R-matrix codes [1], [2], [3], and the capabilities (in terms of structure) are, in some sense, inherited therefrom. Thus, the atomic calculations can optionally include Breit\textendash Pauli relativistic corrections to the Hamiltonian, in order to account for the spin\textendash orbit effect. However, no such capability exists for the molecular case. Furthermore, the fixed-nuclei approximation is adopted in the molecular calculations (so nuclear motion is neglected). Similarly, all calculations are restricted to the description of a single electron in the outer region, and consequently the study of double-ionization phenomena is not yet within the capabilities of the method. Finally, the parallel strategy employed necessitates the use of at least two (and usually many more) computer cores. As a result, there is no option for serial calculations and, for most realistic cases, a massively parallel architecture (several hundred cores) will be required. Program repository available at: https://gitlab.com/Uk-amor/RMT References [1] C. P. Ballance Parallel R-matrix codes, http://connorb.freeshell.org. [2] R-matrix II codes, http://gitlab.com/uk-amor/rmt/rmatrixii. [3] Z. Ma\v{s}\'in et al UKRmol+: a suite for modelling of electronic processes in molecules interacting with electrons, positrons and photons using the R-matrix method, Comput. Phys. Commun., accepted, http://dx.doi.org/10.1016/j.cpc.2019.107092.},
-  archiveprefix = {arXiv},
+  archiveprefix = {arxiv},
   langid = {english},
   keywords = {-matrix,\#nosource,Attosecond physics,Electron correlation,Ionization,Strong-field physics,Ultrafast physics},
   file = {D\:\\literature\\LiteratureStore\\Computer Physics Communications\\2020\\brown_et_al_2020_rmt.pdf;D\:\\literature\\databases\\PHzot2020_Stimpy\\storage\\NDVLB5CZ\\S0010465519303856.html}
@@ -288,6 +287,46 @@
   file = {D\:\\literature\\LiteratureStore\\Journal of Open Research Software\\2017\\hoyer_hamman_2017_xarray.pdf;D\:\\literature\\databases\\PHzot2020_Stimpy\\storage\\N6YTSIKT\\jors.148.html}
 }
 
+@article{johansson2012QuTiPOpensourcePython,
+  title = {{{QuTiP}}: {{An}} Open-Source {{Python}} Framework for the Dynamics of Open Quantum Systems},
+  shorttitle = {{{QuTiP}}},
+  author = {Johansson, J. R. and Nation, P. D. and Nori, Franco},
+  year = {2012},
+  month = aug,
+  journal = {Computer Physics Communications},
+  volume = {183},
+  number = {8},
+  pages = {1760--1772},
+  issn = {0010-4655},
+  doi = {10.1016/j.cpc.2012.02.021},
+  url = {https://www.sciencedirect.com/science/article/pii/S0010465512000835},
+  urldate = {2023-02-25},
+  abstract = {We present an object-oriented open-source framework for solving the dynamics of open quantum systems written in Python. Arbitrary Hamiltonians, including time-dependent systems, may be built up from operators and states defined by a quantum object class, and then passed on to a choice of master equation or Monte Carlo solvers. We give an overview of the basic structure for the framework before detailing the numerical simulation of open system dynamics. Several examples are given to illustrate the build up to a complete calculation. Finally, we measure the performance of our library against that of current implementations. The framework described here is particularly well suited to the fields of quantum optics, superconducting circuit devices, nanomechanics, and trapped ions, while also being ideal for use in classroom instruction. Program summary Program title: QuTiP: The Quantum Toolbox in Python Catalogue identifier: AEMB\_v1\_0 Program summary URL: http://cpc.cs.qub.ac.uk/summaries/AEMB\_v1\_0.html Program obtainable from: CPC Program Library, Queen's University, Belfast, N. Ireland Licensing provisions: GNU General Public License, version 3 No. of lines in distributed program, including test data, etc.: 16\,482 No. of bytes in distributed program, including test data, etc.: 213\,438 Distribution format: tar.gz Programming language: Python Computer: i386, x86-64 Operating system: Linux, Mac OSX, Windows RAM: 2+ Gigabytes Classification: 7 External routines: NumPy (http://numpy.scipy.org/), SciPy (http://www.scipy.org/), Matplotlib (http://matplotlib.sourceforge.net/) Nature of problem: Dynamics of open quantum systems. Solution method: Numerical solutions to Lindblad master equation or Monte Carlo wave function method. Restrictions: Problems must meet the criteria for using the master equation in Lindblad form. Running time: A few seconds up to several tens of minutes, depending on size of underlying Hilbert space.},
+  langid = {english},
+  keywords = {Lindblad master equation,Open quantum systems,Python,Quantum Monte Carlo},
+  file = {D\:\\literature\\LiteratureStore\\Computer Physics Communications\\2012\\johansson_et_al_2012_qutip.pdf;D\:\\literature\\databases\\PHzot2020_Stimpy\\storage\\GL9BZJKB\\S0010465512000835.html}
+}
+
+@article{johansson2013QuTiPPythonFramework,
+  title = {{{QuTiP}} 2: {{A Python}} Framework for the Dynamics of Open Quantum Systems},
+  shorttitle = {{{QuTiP}} 2},
+  author = {Johansson, J. R. and Nation, P. D. and Nori, Franco},
+  year = {2013},
+  month = apr,
+  journal = {Computer Physics Communications},
+  volume = {184},
+  number = {4},
+  pages = {1234--1240},
+  issn = {0010-4655},
+  doi = {10.1016/j.cpc.2012.11.019},
+  url = {https://www.sciencedirect.com/science/article/pii/S0010465512003955},
+  urldate = {2023-02-25},
+  abstract = {We present version 2 of QuTiP, the Quantum Toolbox in Python. Compared to the preceding version [J.R. Johansson, P.D. Nation, F. Nori, Comput. Phys. Commun. 183 (2012) 1760.], we have introduced numerous new features, enhanced performance, and made changes in the Application Programming Interface (API) for improved functionality and consistency within the package, as well as increased compatibility with existing conventions used in other scientific software packages for Python. The most significant new features include efficient solvers for arbitrary time-dependent Hamiltonians and collapse operators, support for the Floquet formalism, and new solvers for Bloch\textendash Redfield and Floquet\textendash Markov master equations. Here we introduce these new features, demonstrate their use, and give a summary of the important backward-incompatible API changes introduced in this version. Program Summary Program title: QuTiP: The Quantum Toolbox in Python Catalog identifier: AEMB\_v2\_0 Program summary URL:http://cpc.cs.qub.ac.uk/summaries/AEMB\_v2\_0.html Program obtainable from: CPC Program Library, Queen's University, Belfast, N. Ireland Licensing provisions: GNU General Public License, version 3 No. of lines in distributed program, including test data, etc.: 33625 No. of bytes in distributed program, including test data, etc.: 410064 Distribution format: tar.gz Programming language: Python. Computer: i386, x86-64. Operating system: Linux, Mac OSX. RAM: 2+ Gigabytes Classification: 7. External routines: NumPy, SciPy, Matplotlib, Cython Catalog identifier of previous version: AEMB\_v1\_0 Journal reference of previous version: Comput. Phys. Comm. 183 (2012) 1760 Does the new version supercede the previous version?: Yes Nature of problem: Dynamics of open quantum systems Solution method: Numerical solutions to Lindblad, Floquet\textendash Markov, and Bloch\textendash Redfield master equations, as well as the Monte Carlo wave function method. Reasons for new version: Compared to the preceding version we have introduced numerous new features, enhanced performance, and made changes in the Application Programming Interface (API) for improved functionality and consistency within the package, as well as increased compatibility with existing conventions used in other scientific software packages for Python. The most significant new features include efficient solvers for arbitrary time-dependent Hamiltonians and collapse operators, support for the Floquet formalism, and new solvers for Bloch\textendash Redfield and Floquet\textendash Markov master equations. Restrictions: Problems must meet the criteria for using the master equation in Lindblad, Floquet\textendash Markov, or Bloch\textendash Redfield form. Running time: A few seconds up to several tens of hours, depending on size of the underlying Hilbert space.},
+  langid = {english},
+  keywords = {Bloch–Redfield,Floquet–Markov,Lindblad,Master equation,Open quantum systems,Python,Quantum Monte Carlo},
+  file = {D\:\\literature\\LiteratureStore\\Computer Physics Communications\\2013\\johansson_et_al_2013_qutip_2.pdf;D\:\\literature\\databases\\PHzot2020_Stimpy\\storage\\HDSU7ASQ\\S0010465512003955.html}
+}
+
 @article{johansson2017AutomaticProcedureGeneratinga,
   title = {Automatic Procedure for Generating Symmetry Adapted Wavefunctions},
   author = {Johansson, Marcus and Veryazov, Valera},
@@ -386,6 +425,13 @@
   file = {D\:\\literature\\databases\\PHzot2020_Stimpy\\storage\\8JNTVJGW\\11813.html}
 }
 
+@misc{QuTiPQuantumToolboxWebsite,
+  title = {{{QuTiP}} - {{Quantum Toolbox}} in {{Python}}},
+  url = {https://qutip.org/},
+  urldate = {2023-02-25},
+  file = {D\:\\literature\\databases\\PHzot2020_Stimpy\\storage\\PKEGGDKV\\qutip.org.html}
+}
+
 @misc{RmatrixRepo,
   ids = {brown2019RMTRmatrixTimedependence},
   title = {{{RMT}}: {{R-matrix}} with Time-Dependence (Repository)},
@@ -394,10 +440,9 @@
   year = {2020},
   month = may,
   eprint = {1905.06156},
-  eprinttype = {arxiv},
   url = {https://gitlab.com/Uk-amor/RMT/rmt},
   urldate = {2022-11-09},
-  archiveprefix = {arXiv},
+  archiveprefix = {arxiv},
   keywords = {-matrix,\#nosource,Attosecond physics,Electron correlation,Ionization,Strong-field physics,Ultrafast physics}
 }
 

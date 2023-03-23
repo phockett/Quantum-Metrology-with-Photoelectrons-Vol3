@@ -180,7 +180,9 @@ parse:
     ePS_manual: "[ePolyScat website and manual](https://epolyscat.droppages.com/) {cite}`luccheseEPolyScatUserManual`"
     ePS_full: "[ePolyScat (ePS)](https://epolyscat.droppages.com/) {cite}`Lucchese1986,Gianturco1994,Natalense1999,luccheseEPolyScatUserManual`"
     libmsym: "[libmsym](https://github.com/mcodev31/libmsym) {cite}`johansson2017AutomaticProcedureGeneratinga,johansson2022LibmsymGithub`"
-    shtools: "[pySHtools](https://shtools.oca.eu) {cite}`SHtoolsGithub, wieczorek2018SHToolsToolsWorking`"   
+    shtools: "[pySHtools](https://shtools.oca.eu) {cite}`SHtoolsGithub, wieczorek2018SHToolsToolsWorking`"
+    qutipFull: "[the QuTiP (_Quantum Toolkbox in Python_) library](https://qutip.org/) {cite}` johansson2012QuTiPOpensourcePython, johansson2013QuTiPPythonFramework, QuTiPQuantumToolboxWebsite`"
+    qutipDocs: "[the QuTiP documentation](https://qutip.org/) {cite}`QuTiPQuantumToolboxWebsite`"
     
     # Glossary terms
     MF: "{term}`MF`"
