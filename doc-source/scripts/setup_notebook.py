@@ -28,6 +28,18 @@ imgFormat=os.getenv('IMGFORMAT')
 if imgFormat is None:
     imgFormat = 'png'
 
+# Ugly - set default static render size (passed to modified Glue and setPlotters()
+imgWidth=os.getenv('IMGWIDTH')
+if imgWidth is None:
+    imgWidth = 1000
+    
+imgHeight=os.getenv('IMGHEIGHT')
+if imgHeight is None:
+    # imgHeight = None    # Leave as None for default (should maintain aspect?)
+    pass
+
+imgSize = [imgWidth, imgHeight]
+
 # imgPath (currently set for subdir of working notebook dir only)
 imgPath=os.getenv('IMGPATH')
 if imgPath is None:
@@ -161,7 +173,7 @@ def glueDecorator(func):
                 return func(name, Image(imgFile), display=displayFig)
                 
             elif 'plotly' in str(type(fig)):
-                fig.write_image(imgFile,format=imgFormat)  # See https://plotly.com/python/static-image-export/
+                fig.write_image(imgFile,format=imgFormat, width=imgWidth, height=imgHeight)  # See https://plotly.com/python/static-image-export/ and https://plotly.github.io/plotly.py-docs/generated/plotly.io.write_image.html
                 # Glue static render
                 return func(name, Image(imgFile), display=displayFig)
 
@@ -267,7 +279,7 @@ except ImportError as e:
 # -
 
 # Set some plot options
-ep.plot.hvPlotters.setPlotters()
+ep.plot.hvPlotters.setPlotters(width=imgWidth, height=imgHeight)
 
 # # Some definitions for local use
 hv = ep.plot.hvPlotters.hv
