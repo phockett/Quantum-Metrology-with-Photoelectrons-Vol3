@@ -31,12 +31,13 @@ if imgFormat is None:
 # Ugly - set default static render size (passed to modified Glue and setPlotters()
 imgWidth=os.getenv('IMGWIDTH')
 if imgWidth is None:
-    imgWidth = 1000
+    imgWidth = 1200
     
 imgHeight=os.getenv('IMGHEIGHT')
 if imgHeight is None:
     # imgHeight = None    # Leave as None for default (should maintain aspect?)
-    pass
+    imgHeight = 800
+    # pass
 
 imgSize = [imgWidth, imgHeight]
 
@@ -150,7 +151,12 @@ def glueDecorator(func):
                 # For Plotly may need Panel wrapper for HTML render in some cases...?
                 # Without Panel some basic plot types work, but not surface plots - may also be browser-dependent?
                 # Or due to maths bug, per https://jupyterbook.org/en/stable/interactive/interactive.html#plotly
-                return func(name, pn.pane.Plotly(fig, **kwargs), display=displayFig)
+                # return func(name, pn.pane.Plotly(fig, **kwargs), display=displayFig)
+                
+                # With explict size set for Plotly object
+                # return func(name, pn.pane.Plotly(fig.update_layout(height=imgHeight, width=imgWidth), **kwargs), display=displayFig)
+                # FOR HTML FIX SIZE to match JBook template?
+                return func(name, pn.pane.Plotly(fig.update_layout(height=800, width=1000), **kwargs), display=displayFig)
             
             else:
                 return func(name, fig, display=displayFig)  # For non-PDF builds, use regular glue()
