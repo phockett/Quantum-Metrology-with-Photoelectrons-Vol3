@@ -82,6 +82,7 @@ sphinx:
       papersize: letterpaper,table
       # These lines add the desired packages to the latex build
       preamble: |+
+        \nonstopmode   % 23/03/23 added to skip current Qutip build issues, but should be careful with this, and fix properly! See https://tex.stackexchange.com/questions/140845/how-can-i-ignore-latex-error-while-compiling
         \usepackage{xcolor}
         \usepackage{booktabs}
         \usepackage{multirow}
