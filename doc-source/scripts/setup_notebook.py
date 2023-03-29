@@ -23,6 +23,11 @@ if buildEnv is None:
     
 print(f'Build env: {buildEnv}')
 
+# Set default colour map - use None for plotter defaults.
+# Note this is only used by Seaborn and Matplotlib routines currently.
+cmap=None
+# cmap = 'vlag'
+
 # Set image export format for use with gluePlotly ONLY
 imgFormat=os.getenv('IMGFORMAT')
 if imgFormat is None:
@@ -436,3 +441,47 @@ plotBackend = 'pl'
 # # Also use as gluePlotly() & glueHV names for back compatibility
 # gluePlotly = glue
 # glueHV = glue
+
+
+# *********** ADDITIONAL UTIL FUNCS - should be rolled into ePSproc/PEMtk with some work
+
+def cleanBLMs(daIn, refDims = 'defaults'):
+    """
+    Basic routine to clean BLM to remove terms with m>l.
+    
+    Default case checks for coords ['l','m'] and ['L','M'], or specify coord pair.
+    
+    TODO:
+    
+    - integrate with existing routines.
+    - in some updated ePSproc routines these are now set in da.attrs, should propagate this! May also have some additional testing routines, see ep.sphFuncs.
+    
+    29/03/23 - now in ePSproc, should be present as ep.sphFuncs.sphConv.cleanLMcoords()
+    
+    """
+    
+    da = daIn.copy()
+    
+    # Quick dim checks
+    # For default case check for (l,m) and (L,M)
+    # NOTE - in some updated ePSproc routines these are now set in da.attrs, should propagate this!
+    if refDims == 'defaults':
+        # Manual case
+#         dimCheck = ep.util.misc.checkDims(da, refDims=['l','m'])
+    
+#         if not dimCheck['refDims']:
+#             dimCheck = ep.util.misc.checkDims(da, refDims=['L','M'])
+    
+        # With function
+        da = ep.sphFuncs.sphConv.checkSphDims(da)
+        
+        # Use da.attrs['harmonics']['dimList'] or 'lDim' and 'mDim'
+        dimCheck = {'refDims': da.attrs['harmonics']['dimList']}
+    
+    else:
+        dimCheck = ep.util.misc.checkDims(da, refDims=refDims)
+        
+    # Clean array - note this assumes [l,m] ordering.
+    daOut = da.where(np.abs(da.coords[dimCheck['refDims'][1]])<=da.coords[dimCheck['refDims'][0]],drop=True)
+    
+    return daOut
