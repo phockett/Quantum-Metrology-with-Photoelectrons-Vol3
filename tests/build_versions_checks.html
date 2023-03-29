@@ -1,49 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Build versions and config tests &#8212; Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -51,60 +62,92 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tests/build_versions_checks';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="Glossary" href="../backmatter/glossary.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/ePSproc_logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/ePSproc_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/ePSproc_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -113,411 +156,245 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Frontmatter
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Frontmatter</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../frontmatter/overview_270122.html">
-   Overview
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/overview_270122.html">Overview</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Theory &amp; software
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory &amp; software</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../part1/main_intro_051122.html">
-   1. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part1/platform_intro_071122.html">
-   2. Quantum metrology software platform/ecosystem overview
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../part1/theory_101122.html">
-   3. Theory
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part1/theory_observables_intro_211122.html">
-     3.1. Observables: photoelectron flux in the LF and MF
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part1/theory_photoionization_dynamics_191122.html">
-     3.2. Photoionization dynamics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part1/theory_tensor_formalism_201122.html">
-     3.3. Tensor formulation of photoionization
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part1/theory_density_matrices_310123.html">
-     3.4. Density matrix representation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part1/theory_info_content_221122.html">
-     3.5. Information content
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part1/numerics_231122.html">
-   4. Numerical implementation
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../part1/main_intro_051122.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part1/platform_intro_071122.html">2. Quantum metrology software platform/ecosystem overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part1/theory_101122.html">3. Theory</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_observables_intro_211122.html">3.1. Observables: photoelectron flux in the LF and MF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_photoionization_dynamics_191122.html">3.2. Photoionization dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_tensor_formalism_201122.html">3.3. Tensor formulation of photoionization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_density_matrices_310123.html">3.4. Density matrix representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_info_content_221122.html">3.5. Information content &amp; sensitivity</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Backmatter
- </span>
-</p>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../part1/numerics_231122.html">4. Numerical implementation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../backmatter/bibliography.html">
-   Bibliography
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../backmatter/glossary.html">
-   Glossary
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../backmatter/bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backmatter/glossary.html">Glossary</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Test pages
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Test pages</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Build versions and config tests
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Build versions and config tests</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/main?urlpath=tree/doc-source/tests/build_versions_checks.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/new?title=Issue%20on%20page%20%2Ftests/build_versions_checks.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/tests/build_versions_checks.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/new?title=Issue%20on%20page%20%2Ftests/build_versions_checks.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/tests/build_versions_checks.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="../_sources/tests/build_versions_checks.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#versions">
-   Versions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#docker-build-env">
-   Docker build env
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#book-versions">
-   Book versions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#github-pkg-versions">
-   Github pkg versions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#full-conda-env">
-   Full conda env
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Build versions and config tests</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#versions">
-   Versions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#docker-build-env">
-   Docker build env
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#book-versions">
-   Book versions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#github-pkg-versions">
-   Github pkg versions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#full-conda-env">
-   Full conda env
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Build versions and config tests</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#versions">Versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-build-env">Docker build env</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#book-versions">Book versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-pkg-versions">Github pkg versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-conda-env">Full conda env</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="build-versions-and-config-tests">
-<h1>Build versions and config tests<a class="headerlink" href="#build-versions-and-config-tests" title="Permalink to this headline">#</a></h1>
+<h1>Build versions and config tests<a class="headerlink" href="#build-versions-and-config-tests" title="Permalink to this heading">#</a></h1>
 <section id="versions">
-<h2>Versions<a class="headerlink" href="#versions" title="Permalink to this headline">#</a></h2>
+<h2>Versions<a class="headerlink" href="#versions" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scooby</span>
@@ -619,12 +496,12 @@ title="Print to PDF"
     } else {
       root._bokeh_is_loading = css_urls.length + js_urls.length + js_modules.length;
     }    if (((window['GridStack'] !== undefined) && (!(window['GridStack'] instanceof HTMLElement))) || window.requirejs) {
-      var urls = ['https://cdn.holoviz.org/panel/0.14.3/dist/bundled/gridstack/gridstack@4.2.5/dist/gridstack-h5.js'];
+      var urls = ['https://cdn.holoviz.org/panel/0.14.4/dist/bundled/gridstack/gridstack@4.2.5/dist/gridstack-h5.js'];
       for (var i = 0; i < urls.length; i++) {
         skip.push(urls[i])
       }
     }    if (((window['Notyf'] !== undefined) && (!(window['Notyf'] instanceof HTMLElement))) || window.requirejs) {
-      var urls = ['https://cdn.holoviz.org/panel/0.14.3/dist/bundled/notificationarea/notyf@3/notyf.min.js'];
+      var urls = ['https://cdn.holoviz.org/panel/0.14.4/dist/bundled/notificationarea/notyf@3/notyf.min.js'];
       for (var i = 0; i < urls.length; i++) {
         skip.push(urls[i])
       }
@@ -2449,7 +2326,7 @@ if (window.Jupyter !== undefined) {
 }
 </style></div><div class="output text_html"><table style='border: 1.5px solid;'>
   <tr>
-     <td style='text-align: center; font-weight: bold; font-size: 1.2em; border: 1px solid;' colspan='8'>Fri Feb 10 12:38:46 2023 EST</td>
+     <td style='text-align: center; font-weight: bold; font-size: 1.2em; border: 1px solid;' colspan='8'>Wed Mar 29 13:59:36 2023 EDT</td>
   </tr>
   <tr>
     <td style='text-align: right; border: 1px solid;'>OS</td>
@@ -2491,7 +2368,7 @@ if (window.Jupyter !== undefined) {
     <td style='text-align: right; border: 1px solid;'>jupyterlab</td>
     <td style='text-align: left; border: 1px solid;'>3.2.1</td>
     <td style='text-align: right; border: 1px solid;'>plotly</td>
-    <td style='text-align: left; border: 1px solid;'>5.13.0</td>
+    <td style='text-align: left; border: 1px solid;'>5.13.1</td>
   </tr>
   <tr>
     <td style='text-align: right; border: 1px solid;'>holoviews</td>
@@ -2507,17 +2384,17 @@ if (window.Jupyter !== undefined) {
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter-book --version
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter-book<span class="w"> </span>--version
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jupyter Book      : 0.13.2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jupyter Book      : 0.15.1
 External ToC      : 0.3.1
-MyST-Parser       : 0.15.2
-MyST-NB           : 0.13.2
-Sphinx Book Theme : 0.3.3
-Jupyter-Cache     : 0.4.3
+MyST-Parser       : 0.18.1
+MyST-NB           : 0.17.1
+Sphinx Book Theme : 1.0.0
+Jupyter-Cache     : 0.5.0
 NbClient          : 0.5.4
 </pre></div>
 </div>
@@ -2525,23 +2402,23 @@ NbClient          : 0.5.4
 </div>
 </section>
 <section id="docker-build-env">
-<h2>Docker build env<a class="headerlink" href="#docker-build-env" title="Permalink to this headline">#</a></h2>
+<h2>Docker build env<a class="headerlink" href="#docker-build-env" title="Permalink to this heading">#</a></h2>
 <p>To do</p>
 </section>
 <section id="book-versions">
-<h2>Book versions<a class="headerlink" href="#book-versions" title="Permalink to this headline">#</a></h2>
+<h2>Book versions<a class="headerlink" href="#book-versions" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">QMpath</span> <span class="o">=</span> <span class="s1">&#39;/home/jovyan/QM3&#39;</span>
-<span class="o">!</span>git -C <span class="o">{</span>QMpath<span class="o">}</span> branch
-<span class="o">!</span>git -C <span class="o">{</span>QMpath<span class="o">}</span> log --format<span class="o">=</span><span class="s2">&quot;%H&quot;</span> -n <span class="m">1</span>
+<span class="o">!</span>git<span class="w"> </span>-C<span class="w"> </span><span class="o">{</span>QMpath<span class="o">}</span><span class="w"> </span>branch
+<span class="o">!</span>git<span class="w"> </span>-C<span class="w"> </span><span class="o">{</span>QMpath<span class="o">}</span><span class="w"> </span>log<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%H&quot;</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  gh-pages
 * <span class=" -Color -Color-Green">main</span>
-243628f53b0913b00ece8a2b2217465617c2a420
+145b10a3aedee84915005e57840a4f271b64ad0a
 </pre></div>
 </div>
 </div>
@@ -2549,20 +2426,20 @@ NbClient          : 0.5.4
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check current remote commits</span>
-<span class="o">!</span>git ls-remote --heads https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3
+<span class="o">!</span>git<span class="w"> </span>ls-remote<span class="w"> </span>--heads<span class="w"> </span>https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d4b9479728c9ecab2c6a332864bb105e555f8e7f	refs/heads/gh-pages
-243628f53b0913b00ece8a2b2217465617c2a420	refs/heads/main
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4263720ddb7693f9a31bfb2d2d9f93f38d78c940	refs/heads/gh-pages
+017025c5c83572dde75504fde177b3a34c432ed4	refs/heads/main
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="github-pkg-versions">
-<h2>Github pkg versions<a class="headerlink" href="#github-pkg-versions" title="Permalink to this headline">#</a></h2>
+<h2>Github pkg versions<a class="headerlink" href="#github-pkg-versions" title="Permalink to this heading">#</a></h2>
 <p>Note - can’t get versions for local pip installs from repo(?).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2583,8 +2460,8 @@ NbClient          : 0.5.4
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check current Git commit for local ePSproc version - NOTE THIS ONLY WORKS FOR INSTALLED FROM GIT CLONES</span>
 <span class="c1"># from pathlib import Path</span>
 <span class="c1"># import epsproc as ep</span>
-<span class="o">!</span>git -C <span class="o">{</span>Path<span class="o">(</span>ep.__file__<span class="o">)</span>.parent<span class="o">}</span> branch
-<span class="o">!</span>git -C <span class="o">{</span>Path<span class="o">(</span>ep.__file__<span class="o">)</span>.parent<span class="o">}</span> log --format<span class="o">=</span><span class="s2">&quot;%H&quot;</span> -n <span class="m">1</span>
+<span class="o">!</span>git<span class="w"> </span>-C<span class="w"> </span><span class="o">{</span>Path<span class="o">(</span>ep.__file__<span class="o">)</span>.parent<span class="o">}</span><span class="w"> </span>branch
+<span class="o">!</span>git<span class="w"> </span>-C<span class="w"> </span><span class="o">{</span>Path<span class="o">(</span>ep.__file__<span class="o">)</span>.parent<span class="o">}</span><span class="w"> </span>log<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%H&quot;</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
 </div>
@@ -2598,20 +2475,21 @@ fatal: not a git repository (or any of the parent directories): .git
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check current remote commits</span>
-<span class="o">!</span>git ls-remote --heads https://github.com/phockett/ePSproc
+<span class="o">!</span>git<span class="w"> </span>ls-remote<span class="w"> </span>--heads<span class="w"> </span>https://github.com/phockett/ePSproc
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>897d73392a7b32ffba4ca6b6b4755c61e7c1c8d7	refs/heads/dependabot/pip/notes/envs/envs-versioned/certifi-2022.12.7
 457f8cd85d89bd6474296b6c01e5165a4a7ce7fc	refs/heads/dependabot/pip/notes/envs/envs-versioned/cryptography-39.0.1
+2855573d0f088b45d19acf2fd9a71eeb7af0a29b	refs/heads/dependabot/pip/notes/envs/envs-versioned/ipython-8.10.0
 92c661789a7d2927f2b53d7266f57de70b3834fa	refs/heads/dependabot/pip/notes/envs/envs-versioned/mistune-2.0.3
 fe1e9540c7b91fe571f60562acd31d8e489d491e	refs/heads/dependabot/pip/notes/envs/envs-versioned/nbconvert-6.5.1
 70b80a1e3a54de91c2bfe3b6be82d611fcfd5f43	refs/heads/dependabot/pip/notes/envs/envs-versioned/pillow-9.3.0
 92fc79b09aafedadcb645f88bb7ed771c96d5b52	refs/heads/dependabot/pip/notes/envs/envs-versioned/setuptools-65.5.1
 fa33ed8d63a5c4a4043cc4c261059cc09e4c2bf7	refs/heads/dependabot/pip/notes/envs/envs-versioned/wheel-0.38.1
 41cdfe43750e08c510f98b05e024a9c62da42771	refs/heads/dependabot/pip/setuptools-65.5.1
-dec4e5902adc562ef2bc9baeae19da1781b7e98b	refs/heads/dev
+e1165bbb81743262984e5d79998b12f50b69f4f5	refs/heads/dev
 1c0b8fd409648f07c85f4f20628b5ea7627e0c4e	refs/heads/master
 69cd89ce5bc0ad6d465a4bd8df6fba15d3fd1aee	refs/heads/numba-tests
 ea30878c842f09d525fbf39fa269fa2302a13b57	refs/heads/revert-9-master
@@ -2623,7 +2501,7 @@ baf0be0c962e8ab3c3df57c8f70f0e939f99cbd7	refs/heads/testDev
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check current remote commits</span>
-<span class="o">!</span>git ls-remote --heads https://github.com/phockett/PEMtk
+<span class="o">!</span>git<span class="w"> </span>ls-remote<span class="w"> </span>--heads<span class="w"> </span>https://github.com/phockett/PEMtk
 </pre></div>
 </div>
 </div>
@@ -2636,10 +2514,10 @@ baf0be0c962e8ab3c3df57c8f70f0e939f99cbd7	refs/heads/testDev
 </div>
 </section>
 <section id="full-conda-env">
-<h2>Full conda env<a class="headerlink" href="#full-conda-env" title="Permalink to this headline">#</a></h2>
+<h2>Full conda env<a class="headerlink" href="#full-conda-env" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>conda list
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>conda<span class="w"> </span>list
 </pre></div>
 </div>
 </div>
@@ -2649,6 +2527,7 @@ baf0be0c962e8ab3c3df57c8f70f0e939f99cbd7	refs/heads/testDev
 # Name                    Version                   Build  Channel
 _libgcc_mutex             0.1                 conda_forge    conda-forge
 _openmp_mutex             4.5                      1_llvm    conda-forge
+accessible-pygments       0.0.3                    pypi_0    pypi
 alabaster                 0.7.13                   pypi_0    pypi
 alembic                   1.7.4              pyhd8ed1ab_0    conda-forge
 alsa-lib                  1.2.3.2              h166bdaf_0    conda-forge
@@ -2657,7 +2536,7 @@ ansi2html                 1.8.0            py39hf3d152e_1    conda-forge
 anyio                     3.3.4            py39hf3d152e_0    conda-forge
 appdirs                   1.4.4              pyh9f0ad1d_0    conda-forge
 argon2-cffi               21.1.0           py39h3811e60_0    conda-forge
-asteval                   0.9.28             pyhd8ed1ab_0    conda-forge
+asteval                   0.9.29             pyhd8ed1ab_0    conda-forge
 astropy                   5.0.4            py39hd257fcd_0    conda-forge
 async_generator           1.10                       py_0    conda-forge
 atk-1.0                   2.36.0               h3371d22_4    conda-forge
@@ -2709,7 +2588,7 @@ curl                      7.79.1               h2574ce0_1    conda-forge
 cycler                    0.10.0                     py_2    conda-forge
 cython                    0.29.24          py39he80948d_0    conda-forge
 cytoolz                   0.11.0           py39h3811e60_3    conda-forge
-dash                      2.8.1              pyhd8ed1ab_0    conda-forge
+dash                      2.9.1              pyhd8ed1ab_0    conda-forge
 dask                      2021.10.0          pyhd8ed1ab_0    conda-forge
 dask-core                 2021.10.0          pyhd8ed1ab_0    conda-forge
 dbus                      1.13.6               h5008d03_3    conda-forge
@@ -2719,15 +2598,15 @@ decorator                 5.1.0              pyhd8ed1ab_0    conda-forge
 defusedxml                0.7.1              pyhd8ed1ab_0    conda-forge
 dill                      0.3.4              pyhd8ed1ab_0    conda-forge
 distributed               2021.10.0        py39hf3d152e_0    conda-forge
-docutils                  0.17.1                   pypi_0    pypi
+docutils                  0.18.1                   pypi_0    pypi
 ducc0                     0.23.0           py39h5a03fae_0    conda-forge
 entrypoints               0.3             py39hde42818_1002    conda-forge
 epsproc                   1.3.2.dev0               pypi_0    pypi
-exceptiongroup            1.1.0              pyhd8ed1ab_0    conda-forge
+exceptiongroup            1.1.1              pyhd8ed1ab_0    conda-forge
 expat                     2.4.8                h27087fc_0    conda-forge
 ffmpeg                    4.4.0                h6987444_4    conda-forge
 fftw                      3.3.10          nompi_h77c792f_102    conda-forge
-firefox                   109.0                hcb278e6_0    conda-forge
+firefox                   100.0                h27087fc_0    conda-forge
 flask                     2.1.3              pyhd8ed1ab_0    conda-forge
 flask-compress            1.13               pyhd8ed1ab_0    conda-forge
 font-ttf-dejavu-sans-mono 2.37                 hab24e00_0    conda-forge
@@ -2744,15 +2623,13 @@ fsspec                    2021.10.1          pyhd8ed1ab_0    conda-forge
 future                    0.18.3             pyhd8ed1ab_0    conda-forge
 gdal                      3.3.3            py39h0494519_2    conda-forge
 gdk-pixbuf                2.42.6               h04a7f16_0    conda-forge
-geckodriver               0.32.2               hd2f7af9_0    conda-forge
+geckodriver               0.30.0               h3146498_0    conda-forge
 geos                      3.10.0               h9c3ff4c_0    conda-forge
 geotiff                   1.7.0                hcfb7246_3    conda-forge
 gettext                   0.19.8.1          h73d1719_1008    conda-forge
 ghostscript               9.54.0               h27087fc_2    conda-forge
 ghp-import                2.1.0                    pypi_0    pypi
 giflib                    5.2.1                h36c2ea0_2    conda-forge
-gitdb                     4.0.10                   pypi_0    pypi
-gitpython                 3.1.30                   pypi_0    pypi
 glib                      2.70.2               h780b84a_4    conda-forge
 glib-tools                2.70.2               h780b84a_4    conda-forge
 gmp                       6.2.1                h58526e2_0    conda-forge
@@ -2768,13 +2645,14 @@ gst-plugins-base          1.18.5               hf529b03_3    conda-forge
 gstreamer                 1.18.5               h9f60fe5_3    conda-forge
 gtk2                      2.24.33              h539f30e_1    conda-forge
 h11                       0.14.0             pyhd8ed1ab_0    conda-forge
+h5netcdf                  1.1.0              pyhd8ed1ab_1    conda-forge
 h5py                      3.4.0           nompi_py39h7e08c79_101    conda-forge
 harfbuzz                  3.1.1                h83ec7ef_0    conda-forge
 hdf4                      4.2.15               h10796ff_3    conda-forge
 hdf5                      1.12.1          nompi_h2750804_101    conda-forge
 heapdict                  1.0.1                      py_0    conda-forge
 holoviews                 1.15.4             pyhd8ed1ab_0    conda-forge
-hvplot                    0.8.2                      py_0    pyviz
+hvplot                    0.8.3                      py_0    pyviz
 icu                       68.2                 h9c3ff4c_0    conda-forge
 idna                      3.1                pyhd3deb0d_0    conda-forge
 imagecodecs               2021.8.26        py39h571908b_2    conda-forge
@@ -2797,11 +2675,9 @@ jpeg                      9d                   h36c2ea0_0    conda-forge
 json-c                    0.15                 h98cffda_0    conda-forge
 json5                     0.9.5              pyh9f0ad1d_0    conda-forge
 jsonschema                4.1.2              pyhd8ed1ab_0    conda-forge
-jupyter-book              0.13.2                   pypi_0    pypi
-jupyter-cache             0.4.3                    pypi_0    pypi
+jupyter-book              0.15.1                   pypi_0    pypi
+jupyter-cache             0.5.0                    pypi_0    pypi
 jupyter-dash              0.4.2              pyhd8ed1ab_1    conda-forge
-jupyter-server-mathjax    0.2.6                    pypi_0    pypi
-jupyter-sphinx            0.3.2                    pypi_0    pypi
 jupyter_client            7.0.6              pyhd8ed1ab_0    conda-forge
 jupyter_core              4.9.1            py39hf3d152e_0    conda-forge
 jupyter_server            1.11.1             pyhd8ed1ab_0    conda-forge
@@ -2809,11 +2685,11 @@ jupyter_telemetry         0.1.0              pyhd8ed1ab_1    conda-forge
 jupyterhub                1.4.2            py39hf3d152e_0    conda-forge
 jupyterhub-base           1.4.2            py39hf3d152e_0    conda-forge
 jupyterlab                3.2.1              pyhd8ed1ab_0    conda-forge
-jupyterlab-spellchecker   0.7.2                    pypi_0    pypi
+jupyterlab-spellchecker   0.7.3                    pypi_0    pypi
 jupyterlab_pygments       0.1.2              pyh9f0ad1d_0    conda-forge
 jupyterlab_server         2.8.2              pyhd8ed1ab_0    conda-forge
 jupyterlab_widgets        1.0.2              pyhd8ed1ab_0    conda-forge
-jupytext                  1.14.4             pyhcff175f_0    conda-forge
+jupytext                  1.14.5             pyhcff175f_0    conda-forge
 jxrlib                    1.1                  h7f98852_2    conda-forge
 kaleido-core              0.2.1                h3644ca4_0    conda-forge
 kealib                    1.4.14               h87e4c3c_3    conda-forge
@@ -2839,12 +2715,13 @@ libedit                   3.1.20191231         he28a2e2_2    conda-forge
 libev                     4.33                 h516909a_1    conda-forge
 libevent                  2.1.10               h9b69904_4    conda-forge
 libffi                    3.4.2                h9c3ff4c_4    conda-forge
-libgcc-ng                 12.2.0              h65d4601_19    conda-forge
+libgcc-ng                 11.2.0              h1d223b6_11    conda-forge
 libgd                     2.3.3                h6ad9fb6_0    conda-forge
 libgdal                   3.3.3                h18e3bf0_2    conda-forge
 libgfortran-ng            11.2.0              h69a702a_11    conda-forge
 libgfortran5              11.2.0              h5c6108e_11    conda-forge
 libglib                   2.70.2               h174f98d_4    conda-forge
+libgomp                   11.2.0              h1d223b6_11    conda-forge
 libiconv                  1.16                 h516909a_0    conda-forge
 libkml                    1.3.0             h238a007_1014    conda-forge
 liblapack                 3.9.0           12_linux64_openblas    conda-forge
@@ -2865,7 +2742,7 @@ libsodium                 1.0.18               h36c2ea0_1    conda-forge
 libsolv                   0.7.19               h780b84a_5    conda-forge
 libspatialite             5.0.1               h1d9e4f1_10    conda-forge
 libssh2                   1.10.0               ha56f1ee_2    conda-forge
-libstdcxx-ng              12.2.0              h46fd767_19    conda-forge
+libstdcxx-ng              11.2.0              he4da1e4_11    conda-forge
 libtiff                   4.3.0                h6f004c6_2    conda-forge
 libuuid                   2.32.1            h7f98852_1000    conda-forge
 libuv                     1.41.1               h7f98852_0    conda-forge
@@ -2889,12 +2766,12 @@ lzo                       2.10              h516909a_1000    conda-forge
 mako                      1.1.5              pyhd8ed1ab_0    conda-forge
 mamba                     0.17.0           py39h951de11_0    conda-forge
 markdown                  3.4.1              pyhd8ed1ab_0    conda-forge
-markdown-it-py            1.1.0                    pypi_0    pypi
+markdown-it-py            2.2.0              pyhd8ed1ab_0    conda-forge
 markupsafe                2.0.1            py39h3811e60_0    conda-forge
 mathjax                   2.7.7                ha770c72_3    conda-forge
 matplotlib-base           3.4.3            py39h2fa2bec_1    conda-forge
 matplotlib-inline         0.1.3              pyhd8ed1ab_0    conda-forge
-mdit-py-plugins           0.2.8                    pypi_0    pypi
+mdit-py-plugins           0.3.5              pyhd8ed1ab_0    conda-forge
 mdurl                     0.1.0              pyhd8ed1ab_0    conda-forge
 mistune                   0.8.4           py39h3811e60_1004    conda-forge
 mock                      4.0.3            py39hf3d152e_1    conda-forge
@@ -2904,12 +2781,11 @@ mpmath                    1.2.1              pyhd8ed1ab_0    conda-forge
 msgpack-python            1.0.2            py39h1a9c180_1    conda-forge
 mysql-common              8.0.27               ha770c72_3    conda-forge
 mysql-libs                8.0.27               hfa10184_3    conda-forge
-myst-nb                   0.13.2                   pypi_0    pypi
-myst-parser               0.15.2                   pypi_0    pypi
+myst-nb                   0.17.1                   pypi_0    pypi
+myst-parser               0.18.1                   pypi_0    pypi
 nbclassic                 0.3.3              pyhd8ed1ab_0    conda-forge
 nbclient                  0.5.4              pyhd8ed1ab_0    conda-forge
 nbconvert                 6.2.0            py39hf3d152e_0    conda-forge
-nbdime                    3.1.1                    pypi_0    pypi
 nbformat                  5.1.3              pyhd8ed1ab_0    conda-forge
 ncurses                   6.2                  h58526e2_4    conda-forge
 nest-asyncio              1.5.1              pyhd8ed1ab_0    conda-forge
@@ -2928,16 +2804,16 @@ olefile                   0.46               pyh9f0ad1d_1    conda-forge
 openblas                  0.3.18          pthreads_h4748800_0    conda-forge
 openh264                  2.1.1                h780b84a_0    conda-forge
 openjpeg                  2.4.0                hb52868f_1    conda-forge
-openssl                   1.1.1s               h0b41bf4_1    conda-forge
+openssl                   1.1.1o               h166bdaf_0    conda-forge
 outcome                   1.2.0              pyhd8ed1ab_0    conda-forge
 packaging                 21.0               pyhd8ed1ab_0    conda-forge
 pamela                    1.0.0                      py_0    conda-forge
 pandas                    1.3.4            py39hde0f152_0    conda-forge
 pandoc                    2.15                 h7f98852_0    conda-forge
 pandocfilters             1.5.0              pyhd8ed1ab_0    conda-forge
-panel                     0.14.3             pyhd8ed1ab_0    conda-forge
+panel                     0.14.4             pyhd8ed1ab_0    conda-forge
 pango                     1.48.10              h54213e6_2    conda-forge
-param                     1.12.3             pyh1a96a4e_0    conda-forge
+param                     1.13.0             pyh1a96a4e_0    conda-forge
 parso                     0.8.2              pyhd8ed1ab_0    conda-forge
 partd                     1.2.0              pyhd8ed1ab_0    conda-forge
 patsy                     0.5.2              pyhd8ed1ab_0    conda-forge
@@ -2948,7 +2824,7 @@ pickleshare               0.7.5           py39hde42818_1002    conda-forge
 pillow                    8.3.2            py39ha612740_0    conda-forge
 pip                       21.3.1             pyhd8ed1ab_0    conda-forge
 pixman                    0.40.0               h36c2ea0_0    conda-forge
-plotly                    5.13.0             pyhd8ed1ab_0    conda-forge
+plotly                    5.13.1             pyhd8ed1ab_0    conda-forge
 pooch                     1.5.2              pyhd8ed1ab_0    conda-forge
 poppler                   21.09.0              ha39eefc_3    conda-forge
 poppler-data              0.4.12               hd8ed1ab_0    conda-forge
@@ -2967,9 +2843,9 @@ pycparser                 2.20               pyh9f0ad1d_2    conda-forge
 pyct                      0.4.6                      py_0    conda-forge
 pyct-core                 0.4.6                      py_0    conda-forge
 pycurl                    7.44.1           py39h72e3413_0    conda-forge
-pydata-sphinx-theme       0.8.1                    pypi_0    pypi
+pydata-sphinx-theme       0.13.1                   pypi_0    pypi
 pyerfa                    2.0.0.1          py39hd257fcd_2    conda-forge
-pygments                  2.10.0             pyhd8ed1ab_0    conda-forge
+pygments                  2.14.0                   pypi_0    pypi
 pygmt                     0.5.0              pyhd8ed1ab_1    conda-forge
 pyjwt                     2.3.0              pyhd8ed1ab_0    conda-forge
 pyopenssl                 21.0.0             pyhd8ed1ab_0    conda-forge
@@ -3007,24 +2883,23 @@ scipy                     1.7.1            py39hee8e79c_0    conda-forge
 scooby                    0.7.1              pyhd8ed1ab_0    conda-forge
 seaborn                   0.9.0                      py_2    conda-forge
 seaborn-base              0.11.2             pyhd8ed1ab_0    conda-forge
-selenium                  4.7.2              pyhd8ed1ab_0    conda-forge
+selenium                  4.8.2              pyhd8ed1ab_0    conda-forge
 send2trash                1.8.0              pyhd8ed1ab_0    conda-forge
 setuptools                58.2.0           py39hf3d152e_0    conda-forge
 setuptools-scm            6.4.2              pyhd8ed1ab_0    conda-forge
 shapely                   1.8.0            py39hc7dd4e9_2    conda-forge
 six                       1.16.0             pyh6c4a22f_0    conda-forge
-smmap                     5.0.0                    pypi_0    pypi
 snappy                    1.1.8                he1b5a44_3    conda-forge
 sniffio                   1.2.0            py39hf3d152e_1    conda-forge
 snowballstemmer           2.2.0                    pypi_0    pypi
 sortedcontainers          2.4.0              pyhd8ed1ab_0    conda-forge
 soupsieve                 2.0.1                      py_1    conda-forge
 spherical_functions       2022.4.1           pyhd8ed1ab_1    conda-forge
-sphinx                    4.5.0                    pypi_0    pypi
-sphinx-book-theme         0.3.3                    pypi_0    pypi
+sphinx                    5.0.2                    pypi_0    pypi
+sphinx-book-theme         1.0.0                    pypi_0    pypi
 sphinx-comments           0.0.3                    pypi_0    pypi
 sphinx-copybutton         0.5.1                    pypi_0    pypi
-sphinx-design             0.1.0                    pypi_0    pypi
+sphinx-design             0.3.0                    pypi_0    pypi
 sphinx-external-toc       0.3.1                    pypi_0    pypi
 sphinx-jupyterbook-latex  0.5.2                    pypi_0    pypi
 sphinx-multitoc-numbering 0.1.3                    pypi_0    pypi
@@ -3042,8 +2917,9 @@ sqlalchemy                1.4.26           py39h3811e60_0    conda-forge
 sqlite                    3.36.0               h9cd32fc_2    conda-forge
 statsmodels               0.13.0           py39hce5d2b2_0    conda-forge
 sympy                     1.9              py39hf3d152e_0    conda-forge
+tabulate                  0.9.0                    pypi_0    pypi
 tblib                     1.7.0              pyhd8ed1ab_0    conda-forge
-tenacity                  8.1.0              pyhd8ed1ab_0    conda-forge
+tenacity                  8.2.2              pyhd8ed1ab_0    conda-forge
 terminado                 0.12.1           py39hf3d152e_0    conda-forge
 testpath                  0.5.0              pyhd8ed1ab_0    conda-forge
 threadpoolctl             3.0.0              pyh8a188c0_0    conda-forge
@@ -3057,7 +2933,7 @@ tornado                   6.1              py39h3811e60_1    conda-forge
 tqdm                      4.62.3             pyhd8ed1ab_0    conda-forge
 traitlets                 5.1.1              pyhd8ed1ab_0    conda-forge
 trio                      0.22.0           py39hf3d152e_1    conda-forge
-trio-websocket            0.9.2              pyhd8ed1ab_0    conda-forge
+trio-websocket            0.10.2             pyhd8ed1ab_0    conda-forge
 typing_extensions         3.10.0.2           pyha770c72_0    conda-forge
 tzcode                    2022a                h166bdaf_0    conda-forge
 tzdata                    2021e                he74cb21_0    conda-forge
@@ -3124,43 +3000,94 @@ zstd                      1.5.0                ha95c52a_0    conda-forge
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../backmatter/glossary.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Glossary</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../backmatter/glossary.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Glossary</p>
+      </div>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#versions">Versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-build-env">Docker build env</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#book-versions">Book versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-pkg-versions">Github pkg versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-conda-env">Full conda env</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
   
-    By Paul Hockett<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
-</div>
+<p class="component-author">
+By Paul Hockett
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
 
-      </div>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

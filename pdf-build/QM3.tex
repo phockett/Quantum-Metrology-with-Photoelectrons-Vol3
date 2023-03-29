@@ -71,6 +71,7 @@
 \usepackage{sphinxmessages}
 
 
+\nonstopmode   % 23/03/23 added to skip current Qutip build issues, but should be careful with this, and fix properly! See https://tex.stackexchange.com/questions/140845/how-can-i-ignore-latex-error-while-compiling
 \usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage{multirow}
@@ -115,7 +116,7 @@
         
 
 \title{Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*}
-\date{Feb 10, 2023}
+\date{Mar 29, 2023}
 \release{}
 \author{Paul Hockett}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -361,7 +362,7 @@ General method development: geometric tensor treatment of
 photoionization, fitting \& matrix\sphinxhyphen{}inversion techniques
 
 \sphinxAtStartPar
-a.  Theory development overview \sphinxhyphen{} tensor methods (e.g. \sphinxhref{https:///epsproc.readthedocs.io/en/latest/methodsgeometric\_method\_dev\_pt3\_AFBLM\_090620\_010920\_dev\_bk100920.html}{\sphinxstyleemphasis{ePSproc tensor methods}})
+a.  Theory development overview \sphinxhyphen{} tensor methods (e.g. \sphinxhref{https:/epsproc.readthedocs.io/en/latest/methodsgeometric\_method\_dev\_pt3\_AFBLM\_090620\_010920\_dev\_bk100920.html}{\sphinxstyleemphasis{ePSproc tensor methods}})
 
 \sphinxAtStartPar
 b.  Direct molecular frame reconstruction via matrix\sphinxhyphen{}inversion methods (see Gregory, Margaret, Paul Hockett, Albert Stolow, and Varun Makhija. “Towards Molecular Frame Photoelectron Angular Distributions in Polyatomic Molecules from Lab Frame Coherent Rotational Wavepacket Evolution.” \sphinxstyleemphasis{Journal of Physics B: Atomic, Molecular and Optical Physics} 54, no. 14 (July 2021): 145601.\sphinxhref{https://doi.org/10.1088/1361-6455/ac135f}{\sphinxstyleemphasis{DOI: 10.1088/1361\sphinxhyphen{}6455/ac135f}}.)
@@ -911,7 +912,7 @@ other codes. An intial build of the \sphinxcode{\sphinxupquote{limapack}} suite 
 
 \item {} 
 \sphinxAtStartPar
-{\hyperref[\detokenize{part1/theory_info_content_221122::doc}]{\sphinxcrossref{Information content}}}
+{\hyperref[\detokenize{part1/theory_info_content_221122::doc}]{\sphinxcrossref{Information content \& sensitivity}}}
 
 \end{itemize}
 
@@ -951,13 +952,33 @@ an experimentally\sphinxhyphen{}defined axis in the {\hyperref[\detokenize{backm
 
 \PYG{c+c1}{\PYGZsh{} BLM = setBLMs([[0,0,1],[1,1,1],[2,2,1]])}
 \PYG{c+c1}{\PYGZsh{} BLM = setBLMs([[0,0,1,1,1],[1,1,1,0.5,0.2],[2,2,1,1,0.2]])   \PYGZsh{} Note different index}
-\PYG{n}{BLM} \PYG{o}{=} \PYG{n}{setBLMs}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mf}{0.5}\PYG{p}{,}\PYG{l+m+mf}{0.8}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mf}{0.5}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,}
-               \PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mf}{0.5}\PYG{p}{]}\PYG{p}{,}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mf}{0.5}\PYG{p}{]}\PYG{p}{]}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} BLM = setBLMs([[0,0,1,1,1,1],[1,1,0,0.5,0.8,1],[2,0,1,0.5,0,0],}
+\PYG{c+c1}{\PYGZsh{}                [4,2,0,0,0,0.5],[4,\PYGZhy{}2,0,0,0,0.5]])}
+\PYG{c+c1}{\PYGZsh{} BLM = setBLMs([[0,0,1,1,1,1,1,1],[1,1,0,0.5,0.8,1,1,1.5],[1,\PYGZhy{}1,0,0.5,0.8,1,1,1.5],[2,0,1,0.5,0,0,0.5,1],}
+\PYG{c+c1}{\PYGZsh{}                [4,2,0,0,0,0.5,0.8,1],[4,\PYGZhy{}2,0,0,0,0.5,0.8,\PYGZhy{}1]])}
+\PYG{n}{BLM} \PYG{o}{=} \PYG{n}{setBLMs}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,}
+               \PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mf}{0.5}\PYG{p}{,}\PYG{l+m+mf}{0.8}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mf}{0.5}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mf}{0.5}\PYG{p}{,}\PYG{l+m+mf}{0.8}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mf}{0.5}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mf}{0.5}\PYG{p}{,}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.5}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mf}{0.5}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,}
+               \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mf}{0.5}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mf}{0.5}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,}
+               \PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mf}{0.5}\PYG{p}{,}\PYG{l+m+mf}{0.8}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.8}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{]}\PYG{p}{)}
 
+\PYG{c+c1}{\PYGZsh{} Quick tabulation with Pandas}
+\PYG{n}{BLM}\PYG{o}{.}\PYG{n}{to\PYGZus{}pandas}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-output}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{c+c1}{\PYGZsh{} Set the backend to \PYGZsq{}pl\PYGZsq{} for an interactive surface plot with Plotly}
 \PYG{c+c1}{\PYGZsh{} NOTE PL FIG RETURN BROKEN FOR THIS CASE (ePSproc v1.3.1), so run sphSumPlotX too.}
+\PYG{n}{rc} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{]}  \PYG{c+c1}{\PYGZsh{} Explict layout setting}
 \PYG{n}{dataPlot}\PYG{p}{,} \PYG{n}{figObj} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{sphFromBLMPlot}\PYG{p}{(}\PYG{n}{BLM}\PYG{p}{,} \PYG{n}{facetDim}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{plotFlag} \PYG{o}{=} \PYG{k+kc}{False}\PYG{p}{,} \PYG{n}{backend} \PYG{o}{=} \PYG{n}{plotBackend}\PYG{p}{)}\PYG{p}{;}
-\PYG{n}{figObj} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{sphSumPlotX}\PYG{p}{(}\PYG{n}{dataPlot}\PYG{p}{,}\PYG{n}{facetDim}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{plotFlag} \PYG{o}{=} \PYG{k+kc}{False}\PYG{p}{,} \PYG{n}{backend} \PYG{o}{=} \PYG{n}{plotBackend}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{figObj} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{sphSumPlotX}\PYG{p}{(}\PYG{n}{dataPlot}\PYG{p}{,}\PYG{n}{facetDim}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{plotFlag} \PYG{o}{=} \PYG{k+kc}{False}\PYG{p}{,} \PYG{n}{backend} \PYG{o}{=} \PYG{n}{plotBackend}\PYG{p}{,} \PYG{n}{rc}\PYG{o}{=}\PYG{n}{rc}\PYG{p}{)}\PYG{p}{;}
 
 \PYG{c+c1}{\PYGZsh{} And GLUE for display later with caption}
 \PYG{c+c1}{\PYGZsh{} from myst\PYGZus{}nb import glue}
@@ -966,7 +987,10 @@ an experimentally\sphinxhyphen{}defined axis in the {\hyperref[\detokenize{backm
 \PYG{c+c1}{\PYGZsh{} gluePlotly(\PYGZdq{}padExamplePlot\PYGZdq{}, figObj[0])   \PYGZsh{} Working in Render test notebook, but not here? Issue with subplots?}
 
 \PYG{c+c1}{\PYGZsh{} Test in separate cell...}
-\PYG{n}{gluePlotly}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{padExamplePlot}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{figObj}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{} Working in Render test notebook, but not here? Issue with subplots?}
+\PYG{c+c1}{\PYGZsh{} gluePlotly(\PYGZdq{}padExamplePlot\PYGZdq{}, figObj[0])   \PYGZsh{} Working in Render test notebook, but not here? Issue with subplots?}
+
+\PYG{c+c1}{\PYGZsh{} With additional layout settings \PYGZhy{} defaults give cropped subplots?}
+\PYG{n}{gluePlotly}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{padExamplePlot}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{figObj}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{}.update\PYGZus{}layout(height=1400, width=1400))}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -976,20 +1000,14 @@ an experimentally\sphinxhyphen{}defined axis in the {\hyperref[\detokenize{backm
 \begin{figure}[htbp]
 \centering
 \capstart
-\begin{sphinxVerbatimOutput}
 
-\begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{theory_observables_intro_211122_3_2}.png}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-\caption{Examples of angular distributions (expansions in spherical harmonics \(Y_{L,M}\)), for a range of cases. Note that up\sphinxhyphen{}down asymmetry is associated with odd\sphinxhyphen{}\(l\) contributions, and breaking of cylindrical symmetry with \(m\neq0\) terms.}\label{\detokenize{part1/theory_observables_intro_211122:fig-pads-example}}\end{figure}
+\noindent\sphinxincludegraphics{{535e89ab48f6d074d745a025de12dfbd1aa042b542393a240115022aa923122a}.png}
+\caption{Examples of angular distributions (expansions in spherical harmonics \(Y_{L,M}\)), for a range of cases indexed by \(t\). Note that up\sphinxhyphen{}down asymmetry is associated with odd\sphinxhyphen{}\(l\) contributions (e.g. \(t=1,2\)), breaking of cylindrical symmetry with \(m\neq0\) terms (all \(t>0\)), and asymmetries in the (x,y) plane (skew/directionality) with different \(\pm m\) terms (magnitude or phase, e.g. \(t=2,3,4\)). Higher\sphinxhyphen{}order \(L,M\) terms have more nodes, and lead to more complex angular structures, as shown in the lower row (\(t=3,4,5\)).}\label{\detokenize{part1/theory_observables_intro_211122:fig-pads-example}}\end{figure}
 
 \begin{figure}[htbp]
 \centering
 \capstart
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}\begin{equation*}
+\begin{equation*}
 \begin{split}\begin{tabular}{llrrrr}
 \toprule
   & t &    0 &    1 &    2 &    3 \\
@@ -1002,9 +1020,7 @@ l & m &      &      &      &      \\
   &  2 &  0.0 &  0.0 &  0.0 &  0.5 \\
 \bottomrule
 \end{tabular}\end{split}
-\end{equation*}
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-\caption{Values used for the plots in \hyperref[\detokenize{part1/theory_observables_intro_211122:fig-pads-example}]{Fig.\@ \ref{\detokenize{part1/theory_observables_intro_211122:fig-pads-example}}}.}\label{\detokenize{part1/theory_observables_intro_211122:blm-tab}}\end{figure}
+\end{equation*}\caption{Values used for the plots in \hyperref[\detokenize{part1/theory_observables_intro_211122:fig-pads-example}]{Fig.\@ \ref{\detokenize{part1/theory_observables_intro_211122:fig-pads-example}}}.}\label{\detokenize{part1/theory_observables_intro_211122:blm-tab}}\end{figure}
 
 \sphinxAtStartPar
 In general, the spherical harmonic rank and order \((L,M)\) of Eq. \eqref{equation:part1/theory_observables_intro_211122:eq:AF-PAD-general} are constrained by experimental factors in the {\hyperref[\detokenize{backmatter/glossary:term-LF}]{\sphinxtermref{\DUrole{xref,std,std-term}{LF}}}} or {\hyperref[\detokenize{backmatter/glossary:term-AF}]{\sphinxtermref{\DUrole{xref,std,std-term}{AF}}}}, and \(n\) is effectively limited by the molecular alignment (which is correlated with the photon\sphinxhyphen{}order for gas phase experiments, or conservation of angular momentum in the {\hyperref[\detokenize{backmatter/glossary:term-LF}]{\sphinxtermref{\DUrole{xref,std,std-term}{LF}}}} more generally {[}\hyperlink{cite.backmatter/bibliography:id814}{35}{]}), but in the {\hyperref[\detokenize{backmatter/glossary:term-MF}]{\sphinxtermref{\DUrole{xref,std,std-term}{MF}}}} is defined by the maximum continuum angular momentum \(n=l_{max}\) imparted by the scattering event {[}\hyperlink{cite.backmatter/bibliography:id485}{36}{]} (note lower\sphinxhyphen{}case \(l\) here refers specifically to the continuum photoelectron wavefunction, see Eq. \eqref{equation:part1/theory_photoionization_dynamics_191122:eq:elwf}).
@@ -1123,9 +1139,7 @@ Full tabulations of the parameters available in HTML or notebook formats only.
 \begin{figure}[htbp]
 \centering
 \capstart
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}\begin{equation*}
+\begin{equation*}
 \begin{split}\begin{tabular}{lllllll}
 \toprule
    &   &    E &  C2\textasciicircum 1 &  S4\textasciicircum 1 &    σd &  C3\textasciicircum 1 \\
@@ -1138,9 +1152,7 @@ T1 & 3 &  3.0 &  -1.0 &   1.0 &  -1.0 &   0.0 \\
 T2 & 3 &  3.0 &  -1.0 &  -1.0 &   1.0 &   0.0 \\
 \bottomrule
 \end{tabular}\end{split}
-\end{equation*}
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-\caption{Example character table for \DUrole{pasted-text}{Td} symmetry generated with the \sphinxhref{https://github.com/phockett/PEMtk}{Photoelectron Metrology Toolkit} {[}\hyperlink{cite.backmatter/bibliography:id574}{4}{]} wrapper for \sphinxhref{https://github.com/mcodev31/libmsym}{libmsym} {[}\hyperlink{cite.backmatter/bibliography:id593}{33}, \hyperlink{cite.backmatter/bibliography:id594}{34}{]}.}\label{\detokenize{part1/theory_observables_intro_211122:tab-chartable-example}}\end{figure}
+\end{equation*}\caption{Example character table for \DUrole{pasted-text}{Td} symmetry generated with the \sphinxhref{https://github.com/phockett/PEMtk}{Photoelectron Metrology Toolkit} {[}\hyperlink{cite.backmatter/bibliography:id574}{4}{]} wrapper for \sphinxhref{https://github.com/mcodev31/libmsym}{libmsym} {[}\hyperlink{cite.backmatter/bibliography:id593}{33}, \hyperlink{cite.backmatter/bibliography:id594}{34}{]}.}\label{\detokenize{part1/theory_observables_intro_211122:tab-chartable-example}}\end{figure}
 
 \begin{sphinxuseclass}{cell}
 \begin{sphinxuseclass}{tag_hide-output}\begin{sphinxVerbatimInput}
@@ -1180,7 +1192,8 @@ T2 & 3 &  3.0 &  -1.0 &  -1.0 &   1.0 &   0.0 \\
 \PYG{c+c1}{\PYGZsh{} Note \PYGZsq{}squeeze=True\PYGZsq{} to force drop of singleton dims may be required.}
 \PYG{c+c1}{\PYGZsh{} data.padPlot(keys=\PYGZsq{}symHarm\PYGZsq{},dataType=\PYGZsq{}BLM\PYGZsq{}, facetDims = [\PYGZsq{}Cont\PYGZsq{}], squeeze = True, backend=plotBackend)}
 
-\PYG{n}{data}\PYG{o}{.}\PYG{n}{padPlot}\PYG{p}{(}\PYG{n}{keys}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{symHarm}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{n}{dataType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{BLM}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{facetDims} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Cont}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{squeeze} \PYG{o}{=} \PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{backend}\PYG{o}{=}\PYG{n}{plotBackend}\PYG{p}{,} \PYG{n}{plotFlag}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{,} \PYG{n}{returnFlag}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Working}
+\PYG{n}{rc} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{]}  \PYG{c+c1}{\PYGZsh{} Explict layout setting}
+\PYG{n}{data}\PYG{o}{.}\PYG{n}{padPlot}\PYG{p}{(}\PYG{n}{keys}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{symHarm}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{n}{dataType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{BLM}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{facetDims} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Cont}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{squeeze} \PYG{o}{=} \PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{backend}\PYG{o}{=}\PYG{n}{plotBackend}\PYG{p}{,} \PYG{n}{rc} \PYG{o}{=} \PYG{n}{rc}\PYG{p}{,} \PYG{n}{plotFlag}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{,} \PYG{n}{returnFlag}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Working}
 \PYG{n}{figObj} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{symHarm}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{plots}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{BLM}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{polar}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
 
 \PYG{c+c1}{\PYGZsh{} And GLUE for display later with caption}
@@ -1196,12 +1209,8 @@ T2 & 3 &  3.0 &  -1.0 &  -1.0 &   1.0 &   0.0 \\
 \begin{figure}[htbp]
 \centering
 \capstart
-\begin{sphinxVerbatimOutput}
 
-\begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{theory_observables_intro_211122_17_3}.png}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+\noindent\sphinxincludegraphics{{2761c00d3b9766092516663fd674aed92f287503c4cbe62eda3ded917e537df3}.png}
 \caption{Examples of angular distributions from expansions in symmetrized harmonics \(X_{hl}^{\Gamma\mu*}(\theta,\phi)\), for all irreducible representations in \DUrole{pasted-text}{Td} symmetry (\(l_{max}=\)\DUrole{pasted-text}{6}). (Note \(A_2\) only has components for \(l\geq 6\).)}\label{\detokenize{part1/theory_observables_intro_211122:fig-symharmpads-example}}
 \begin{sphinxlegend}\end{sphinxlegend}
 \end{figure}
@@ -1212,24 +1221,6 @@ T2 & 3 &  3.0 &  -1.0 &  -1.0 &   1.0 &   0.0 \\
 
 \subsection{Legendre polynomials}
 \label{\detokenize{part1/theory_observables_intro_211122:legendre-polynomials}}
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{o}{!}date
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-Fri 10 Feb 2023 12:43:35 PM EST
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-
-\end{sphinxuseclass}
 \sphinxstepscope
 
 
@@ -1413,10 +1404,6 @@ form:
 \sphinxAtStartPar
 This tensorial form is numerically implemented in the \sphinxhref{https://github.com/phockett/ePSproc}{ePSproc} {[}\hyperlink{cite.backmatter/bibliography:id508}{13}{]} codebase, and is in contradistinction to standard numerical routines in which the requisite terms are usually computed from vectorial and/or nested summations, which can be somewhat opaque to
 detailed interpretation, and typically implement the full computation of the observables in one monolithic computational routine. The \sphinxhref{https://github.com/phockett/PEMtk}{Photoelectron Metrology Toolkit} {[}\hyperlink{cite.backmatter/bibliography:id574}{4}{]} codebase implements matrix element retrieval based on the tensor formalism, with pre\sphinxhyphen{}computation of all the geometric tensor components (channel functions) prior to a fitting protocol for matrix element analysis, essentially a fit to Eqn. \eqref{equation:part1/theory_tensor_formalism_201122:eqn:channel-fns}, with terms \(I^{\zeta}(\epsilon)\) as the unknowns (in magnitude, phase form per \eqref{equation:part1/theory_tensor_formalism_201122:eqn:I-zeta-mag-phase}). The main computational cost of a tensor\sphinxhyphen{}based approach is that more RAM is required to store the full set of tensor variables; however, the method is computationally efficient since it is inherently parallel (as compared to a traditional, serial loop\sphinxhyphen{}based solution), hence may lead to significantly faster evaluation of observables. Furthermore, the method allows for the computational routines to match the formalism quite closely, and investigation of the properties of the channel functions for a given problem in general terms, as well as for specific experimental cases.
-
-\sphinxAtStartPar
-TODO: numerical examples here or below.
-TODO: benchmarks, or link to them (see test fitting notebooks…?).
 
 
 \subsection{Full tensor expansion}
@@ -1608,9 +1595,7 @@ Full tabulations of the parameters available in HTML or notebook formats only.
 \begin{figure}[htbp]
 \centering
 \capstart
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}\begin{equation*}
+\begin{equation*}
 \begin{split}\begin{tabular}{llllllllll}
 \toprule
     &   &   & {} & \multicolumn{6}{l}{b} \\
@@ -1644,9 +1629,7 @@ B3u & 0 & 1 &  1 &  1.0 &      &      &      &      &      \\
     &   &   &  3 &      &      &  1.0 &      &      &      \\
 \bottomrule
 \end{tabular}\end{split}
-\end{equation*}
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-\caption{Symmetrized harmonics coefficients (\(b_{hl\lambda}^{\Gamma\mu}\), see \eqref{equation:part1/theory_observables_intro_211122:eq:symHarm-defn}) for \DUrole{pasted-text}{D2h} symmetry (\(l_{max}=\)\DUrole{pasted-text}{4}) generated with the \sphinxhref{https://github.com/phockett/PEMtk}{Photoelectron Metrology Toolkit} {[}\hyperlink{cite.backmatter/bibliography:id574}{4}{]} wrapper for \sphinxhref{https://github.com/mcodev31/libmsym}{libmsym} {[}\hyperlink{cite.backmatter/bibliography:id593}{33}, \hyperlink{cite.backmatter/bibliography:id594}{34}{]}. Note that, in this case, the coeffcients have the property that \(\mu=0\) only, and the \(h\) index is redundant (maps uniquely to \(l\)).}\label{\detokenize{part1/theory_tensor_formalism_201122:tab-d2hxlm}}\end{figure}
+\end{equation*}\caption{Symmetrized harmonics coefficients (\(b_{hl\lambda}^{\Gamma\mu}\), see \eqref{equation:part1/theory_observables_intro_211122:eq:symHarm-defn}) for \DUrole{pasted-text}{D2h} symmetry (\(l_{max}=\)\DUrole{pasted-text}{4}) generated with the \sphinxhref{https://github.com/phockett/PEMtk}{Photoelectron Metrology Toolkit} {[}\hyperlink{cite.backmatter/bibliography:id574}{4}{]} wrapper for \sphinxhref{https://github.com/mcodev31/libmsym}{libmsym} {[}\hyperlink{cite.backmatter/bibliography:id593}{33}, \hyperlink{cite.backmatter/bibliography:id594}{34}{]}. Note that, in this case, the coeffcients have the property that \(\mu=0\) only, and the \(h\) index is redundant (maps uniquely to \(l\)).}\label{\detokenize{part1/theory_tensor_formalism_201122:tab-d2hxlm}}\end{figure}
 
 \begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
 
@@ -1744,7 +1727,7 @@ M_{1} & M_{2} & M_{3}
 \end{equation*}
 \sphinxAtStartPar
 Note also some definitions use conjugate spherical harmonics, which can be converted as, e.g., Eq. C.21 in Blum {[}\hyperlink{cite.backmatter/bibliography:id444}{52}{]}:
-\label{equation:part1/theory_tensor_formalism_201122:afcdda52-9f16-4993-9487-826583cea9c4}\begin{equation}
+\label{equation:part1/theory_tensor_formalism_201122:9f9ad0e8-538b-4af1-8f6e-ec42fbec837c}\begin{equation}
 \beta_{L,M}^{\mu_{i},\mu_{f}}Y_{LM}^{*}(\theta_{\hat{k}},\phi_{\hat{k}})=\beta_{L,-M}^{\mu_{i},\mu_{f}}(-1)^{M}Y_{L,-M}(\theta_{\hat{k}},\phi_{\hat{k}})\label{eq:sph-conj-conv}
 \end{equation}
 \sphinxAtStartPar
@@ -1803,7 +1786,7 @@ Numerically, various standard functions may be used to quickly gain deeper insig
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{c+c1}{\PYGZsh{}*** Plot BLM terms for basis set \PYGZhy{} Plot with some additional figure formatting options}
 
-\PYG{n}{cmap}\PYG{o}{=}\PYG{k+kc}{None}   \PYG{c+c1}{\PYGZsh{} cmap = None for default. \PYGZsq{}vlag\PYGZsq{} good?}
+\PYG{c+c1}{\PYGZsh{} cmap=None   \PYGZsh{} cmap = None for default. \PYGZsq{}vlag\PYGZsq{} good?}
 \PYG{c+c1}{\PYGZsh{} cmap = \PYGZsq{}vlag\PYGZsq{}}
 
 \PYG{n}{labelRound} \PYG{o}{=} \PYG{l+m+mi}{1}
@@ -1838,12 +1821,8 @@ Numerically, various standard functions may be used to quickly gain deeper insig
 \begin{figure}[htbp]
 \centering
 \capstart
-\begin{sphinxVerbatimOutput}
 
-\begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{theory_tensor_formalism_201122_20_2}.png}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+\noindent\sphinxincludegraphics{{fc4c2a4c5a465295210c34432a0ec4a08f4018ce3f2e3488a442ae551a2e1443}.png}
 \caption{Example \(B_{L,M}\) basis functions for \DUrole{pasted-text}{D2h} symmetry. Note figure is truncated to \(l_{max}=l'_{max}=\)\DUrole{pasted-text}{2} for clarity.}\label{\detokenize{part1/theory_tensor_formalism_201122:fig-blm-basis-d2h}}\end{figure}
 
 
@@ -1851,7 +1830,7 @@ Numerically, various standard functions may be used to quickly gain deeper insig
 \label{\detokenize{part1/theory_tensor_formalism_201122:electric-field-geometric-coupling-term-e-p-r-hat-e-mu-0}}\label{\detokenize{part1/theory_tensor_formalism_201122:sec-theory-epr-term}}
 \sphinxAtStartPar
 The coupling of two 1\sphinxhyphen{}photon terms (which arises in the square of the ionization matrix element as per Eq. \eqref{equation:part1/theory_photoionization_dynamics_191122:eq:I-reduced-LF-2_45-vol1}) can be written as a tensor contraction:
-\label{equation:part1/theory_tensor_formalism_201122:33e09f69-977f-4877-91a1-a6eac3a2939a}\begin{equation}
+\label{equation:part1/theory_tensor_formalism_201122:7950fbac-75c3-4025-bc3c-c96738653264}\begin{equation}
 E_{PR}(\hat{e})=[e\otimes e^{*}]_{R}^{P}=[P]^{\frac{1}{2}}\sum_{p}(-1)^{R}\left(\begin{array}{ccc}
 1 & 1 & P\\
 p & R-p & -R
@@ -1876,12 +1855,12 @@ the symbol \(\mu_{0}\) is conventionally used to denote the {\hyperref[\detokeni
 
 \sphinxAtStartPar
 (To derive this result, one can start from, e.g., Eq. 5.40 in Zare
-\label{equation:part1/theory_tensor_formalism_201122:a04e8151-a121-4e29-8766-535c1b13aafc}\begin{equation}
+\label{equation:part1/theory_tensor_formalism_201122:bd65d488-6285-40f6-8931-e283c287ef99}\begin{equation}
 [A^{(1)}\otimes B^{(1)}]_{q}^{k}=\sum_{m}\langle1m,1q-m|kq\rangle A(1,m)B(1,q-m)
 \end{equation}
 \sphinxAtStartPar
 Convert to \(3j\) form:
-\label{equation:part1/theory_tensor_formalism_201122:e1406433-184d-465f-be69-6a4ce36761f0}\begin{equation}
+\label{equation:part1/theory_tensor_formalism_201122:f99eb4e8-73ba-4866-8c5d-ba9739df9c0d}\begin{equation}
 [A^{(1)}\otimes B^{(1)}]_{q}^{k}=\sum_{m}(-1)^{q}[k]^{1/2}\left(\begin{array}{ccc}
 1 & 1 & k\\
 m & q-m & -q
@@ -1922,12 +1901,8 @@ As before, we can visualise these values…
 \begin{figure}[htbp]
 \centering
 \capstart
-\begin{sphinxVerbatimOutput}
 
-\begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{theory_tensor_formalism_201122_29_2}.png}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+\noindent\sphinxincludegraphics{{12c20e1faddfcdeb2fcf118a6201197aab8c94815198c641b92fbbc4186234ee}.png}
 \caption{Example \(E_{P,R}\) basis functions. Note that for linearly polarised light \(p=R-p=0\) only, hence only the terms \(E_{0,0}\) and \(E_{2,0}\) are non\sphinxhyphen{}zero in this case. For non\sphinxhyphen{}linearly polarised cases many other terms are allowed.}\label{\detokenize{part1/theory_tensor_formalism_201122:fig-epr-basis}}\end{figure}
 
 
@@ -2068,20 +2043,14 @@ For circularly polarized light (\(p=\pm1\), hence \(P=0,1,2\) and \(R=R'=0\)), o
 \begin{figure}[htbp]
 \centering
 \capstart
-\begin{sphinxVerbatimOutput}
 
-\begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{theory_tensor_formalism_201122_34_2}.png}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+\noindent\sphinxincludegraphics{{8617def9b4801c655e45ad191160b6afbf59b43d1800775e3840c455d08a3727}.png}
 \caption{Example \(\Delta_{L,M}(0,0,0)\) basis functions (see also \hyperref[\detokenize{part1/theory_tensor_formalism_201122:tab-deltaterm000}]{Fig.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:tab-deltaterm000}}}). For illustration purposes, the plot only shows terms for \(R'=0\). See main text for discussion.}\label{\detokenize{part1/theory_tensor_formalism_201122:fig-deltaterm000}}\end{figure}
 
 \begin{figure}[htbp]
 \centering
 \capstart
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}\begin{equation*}
+\begin{equation*}
 \begin{split}\begin{tabular}{lllllllllll}
 \toprule
   & L &    0 & \multicolumn{3}{l}{1} & \multicolumn{5}{l}{2} \\
@@ -2099,9 +2068,7 @@ P & R &      &        &        &        &      &      &      &      &      \\
   &  2 &      &        &        &        &  0.2 &      &      &      &      \\
 \bottomrule
 \end{tabular}\end{split}
-\end{equation*}
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-\caption{Example \(\Delta_{L,M}(0,0,0)\) basis functions (see also \hyperref[\detokenize{part1/theory_tensor_formalism_201122:fig-deltaterm000}]{Fig.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:fig-deltaterm000}}}). For illustration purposes, the table only shows terms for \(R'=0\). See main text for discussion.}\label{\detokenize{part1/theory_tensor_formalism_201122:tab-deltaterm000}}\end{figure}
+\end{equation*}\caption{Example \(\Delta_{L,M}(0,0,0)\) basis functions (see also \hyperref[\detokenize{part1/theory_tensor_formalism_201122:fig-deltaterm000}]{Fig.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:fig-deltaterm000}}}). For illustration purposes, the table only shows terms for \(R'=0\). See main text for discussion.}\label{\detokenize{part1/theory_tensor_formalism_201122:tab-deltaterm000}}\end{figure}
 
 \begin{sphinxuseclass}{cell}
 \begin{sphinxuseclass}{tag_hide-output}\begin{sphinxVerbatimInput}
@@ -2128,23 +2095,15 @@ P & R &      &        &        &        &      &      &      &      &      \\
 \begin{figure}[htbp]
 \centering
 \capstart
-\begin{sphinxVerbatimOutput}
 
-\begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{theory_tensor_formalism_201122_37_3}.png}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+\noindent\sphinxincludegraphics{{6faa50b16e6c32dde498027193ccd0837c9680ab0622719792c4b605de89a33f}.png}
 \caption{Example ADMs used for {\hyperref[\detokenize{backmatter/glossary:term-AF}]{\sphinxtermref{\DUrole{xref,std,std-term}{AF}}}} basis function example (see \hyperref[\detokenize{part1/theory_tensor_formalism_201122:fig-afterm-linearramp}]{Fig.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:fig-afterm-linearramp}}}). These ADMs essentially show an increasing degree of alignment with the \(t\) parameter, with high\sphinxhyphen{}order terms increasing at later \(t\).}\label{\detokenize{part1/theory_tensor_formalism_201122:fig-adms-linearramp}}\end{figure}
 
 \begin{figure}[htbp]
 \centering
 \capstart
-\begin{sphinxVerbatimOutput}
 
-\begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{theory_tensor_formalism_201122_37_5}.png}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+\noindent\sphinxincludegraphics{{30dc5e8238a6787facf4cafdeffa6288715d26263b400cc240eafc4559e23a3d}.png}
 \caption{Example of \(\tilde{\Delta}_{L,M}(t)\) basis values for various choices of alignment (as per \hyperref[\detokenize{part1/theory_tensor_formalism_201122:fig-adms-linearramp}]{Fig.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:fig-adms-linearramp}}}). The ADMs essentially show an increasing degree of alignment with the \(t\) parameter, with high\sphinxhyphen{}order terms increasing at later \(t\), and this is reflected in the \(\tilde{\Delta}_{L,M}(t)\) terms with higher\sphinxhyphen{}order \(L\) appearing at later \(t\).}\label{\detokenize{part1/theory_tensor_formalism_201122:fig-afterm-linearramp}}\end{figure}
 
 \sphinxAtStartPar
@@ -2219,12 +2178,8 @@ As discussed above, for the case where \(Q\neq0\) and/or \(S\neq0\) additional s
 \begin{figure}[htbp]
 \centering
 \capstart
-\begin{sphinxVerbatimOutput}
 
-\begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{theory_tensor_formalism_201122_42_2}.png}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+\noindent\sphinxincludegraphics{{6faa50b16e6c32dde498027193ccd0837c9680ab0622719792c4b605de89a33f}.png}
 \caption{Example \(\tilde{\Delta}_{L,M}(t)\) basis values for various choices of “3D” alignment, i.e. including some \(K\neq0\) and \(S\neq0\) terms. Note, in particular, the presence of \(M\neq0\) terms in general, and a complicated dependence of the allowed terms on the alignment ({\hyperref[\detokenize{backmatter/glossary:term-ADMs}]{\sphinxtermref{\DUrole{xref,std,std-term}{ADMs}}}}), which may increase, decrease, or even change sign for a given \(L,M\).}\label{\detokenize{part1/theory_tensor_formalism_201122:fig-adms-3dlinearramp}}\end{figure}
 
 \sphinxAtStartPar
@@ -2244,8 +2199,10 @@ Following the above, further resultant terms can also be examined, up to and inc
 Polarisation \& ADM product term: the main product basis returned, \sphinxcode{\sphinxupquote{polProd}}, contains the tensor product \(\Lambda_{R}\otimes E_{PR}(\hat{e})\otimes \Delta_{L,M}(K,Q,S)\otimes A^{K}_{Q,S}(t)\), expanded over all quantum numbers (see \sphinxhref{https://epsproc.readthedocs.io/en/dev/methods/geometric\_method\_dev\_pt3\_AFBLM\_090620\_010920\_dev\_bk100920.html\#\%5Cbeta\_\%7BL,M\%7D\%5E\%7BAF\%7D-rewrite}{full definition here}). This term, therefore, incorporates all of the dependence (or response) of the AF\sphinxhyphen{}\(\beta_{LM}\)s on the polarisation state, and the axis distribution. Example results, making use of the linear\sphinxhyphen{}ramp {\hyperref[\detokenize{backmatter/glossary:term-ADMs}]{\sphinxtermref{\DUrole{xref,std,std-term}{ADMs}}}} of \hyperref[\detokenize{part1/theory_tensor_formalism_201122:sec-theory-af-alignment-term-basic}]{Sect.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:sec-theory-af-alignment-term-basic}}} are illustrated in \hyperref[\detokenize{part1/theory_tensor_formalism_201122:fig-polprod-linearramp}]{Fig.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:fig-polprod-linearramp}}}.
 
 \sphinxAtStartPar
-The full channel (response) functions \(\varUpsilon_{L,M}^{u,\zeta\zeta'}\) as defined in \eqref{equation:part1/theory_tensor_formalism_201122:eq:channelFunc-MF-defn} and \eqref{equation:part1/theory_tensor_formalism_201122:eq:channelFunc-AF-defn} can be determined by the product of this term with the \(B_{L,M}\) tensor. This is essentially the complete geometric basis set, \% (\sphinxhref{https://epsproc.readthedocs.io/en/dev/methods/geometric\_method\_dev\_pt3\_AFBLM\_090620\_010920\_dev\_bk100920.html\#\%5Cbeta\_\%7BL,M\%7D\%5E\%7BAF\%7D-rewrite}{give or take a phase term or two}),
-hence equivalent to the AF\sphinxhyphen{}\(\beta_{LM}\) if the ionization matrix elements were set to unity. This illustrates not only the coupling of the geometric terms into the observable \(L,M\), but also how the partial wave \(|l,m\rangle\) terms map to the observables. Example results, making use of the linear\sphinxhyphen{}ramp {\hyperref[\detokenize{backmatter/glossary:term-ADMs}]{\sphinxtermref{\DUrole{xref,std,std-term}{ADMs}}}} of \hyperref[\detokenize{part1/theory_tensor_formalism_201122:sec-theory-af-alignment-term-basic}]{Sect.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:sec-theory-af-alignment-term-basic}}} are illustrated in \hyperref[\detokenize{part1/theory_tensor_formalism_201122:fig-channelfunc-linearramp}]{Fig.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:fig-channelfunc-linearramp}}}.
+The full channel (response) functions \(\varUpsilon_{L,M}^{u,\zeta\zeta'}\) as defined in \eqref{equation:part1/theory_tensor_formalism_201122:eq:channelFunc-MF-defn} and \eqref{equation:part1/theory_tensor_formalism_201122:eq:channelFunc-AF-defn} can be determined by the product of this term with the \(B_{L,M}\) tensor. This is essentially the complete geometric basis set,
+
+\sphinxAtStartPar
+hence equivalent to the AF\sphinxhyphen{}\(\beta_{LM}\) if the ionization matrix elements were set to unity. This illustrates not only the coupling of the geometric terms into the observable \(L,M\), but also how the partial wave \(|l,m\rangle\) terms map to the observables, and hence the sensitivity of the observables to given partial wave properties. Example results, making use of the linear\sphinxhyphen{}ramp {\hyperref[\detokenize{backmatter/glossary:term-ADMs}]{\sphinxtermref{\DUrole{xref,std,std-term}{ADMs}}}} of \hyperref[\detokenize{part1/theory_tensor_formalism_201122:sec-theory-af-alignment-term-basic}]{Sect.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:sec-theory-af-alignment-term-basic}}} are illustrated in \hyperref[\detokenize{part1/theory_tensor_formalism_201122:fig-channelfunc-linearramp}]{Fig.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:fig-channelfunc-linearramp}}}.
 
 \begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
 
@@ -2316,23 +2273,15 @@ Subselected from dataset \PYGZsq{}ADM\PYGZsq{}, dataType \PYGZsq{}ADM\PYGZsq{}: 
 \begin{figure}[htbp]
 \centering
 \capstart
-\begin{sphinxVerbatimOutput}
 
-\begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{theory_tensor_formalism_201122_49_2}.png}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+\noindent\sphinxincludegraphics{{dc52eda4839ef92e0bd42e710dcebaf1753faa2a7063a7fd4a2c99b8666b4d0b}.png}
 \caption{Example product basis function for the polarisation and ADM terms.}\label{\detokenize{part1/theory_tensor_formalism_201122:fig-polprod-linearramp}}\end{figure}
 
 \begin{figure}[htbp]
 \centering
 \capstart
-\begin{sphinxVerbatimOutput}
 
-\begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{theory_tensor_formalism_201122_50_3}.png}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+\noindent\sphinxincludegraphics{{33f17b18ddf9e22605b75c34c5a55ab35e721af79ecca54469259b5c1e0a4945}.png}
 \caption{Example of \(\bar{\varUpsilon_{}}_{L,M}^{u,\zeta\zeta'}\) basis values for various choices of alignment (as per \hyperref[\detokenize{part1/theory_tensor_formalism_201122:fig-adms-linearramp}]{Fig.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:fig-adms-linearramp}}}), shown for \(L=2\) only. The basis essentially shows the obsevable terms if the ionization matrix elements are neglected, hence the sensitivity of the configuration to each pair of partial wave terms. Note, in general, that the sensitivity to any given pair \$\(\langle l',m'|l,m\rangle\), increases with alignment (hence with \(t\) in this example) for the linear polarisation case (\(\mu=\mu'=0\)), but typically decreases with alignment for cross\sphinxhyphen{}polarised terms.}\label{\detokenize{part1/theory_tensor_formalism_201122:fig-channelfunc-linearramp}}\end{figure}
 
 \begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
@@ -2347,7 +2296,7 @@ Subselected from dataset \PYGZsq{}ADM\PYGZsq{}, dataType \PYGZsq{}ADM\PYGZsq{}: 
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-Fri 10 Feb 2023 12:44:01 PM EST
+Wed 29 Mar 2023 02:05:22 PM EDT
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -2362,12 +2311,7 @@ Fri 10 Feb 2023 12:44:01 PM EST
 \subsection{General introduction}
 \label{\detokenize{part1/theory_density_matrices_310123:general-introduction}}\label{\detokenize{part1/theory_density_matrices_310123:sec-density-mat-intro}}
 \sphinxAtStartPar
-The general density operator, for a mixture of independent states \(|\psi_{n} \rangle\), can be defined as (Eqn. 2.8 in Blum, Ref. {[}\hyperlink{cite.backmatter/bibliography:id444}{52}{]} \sphinxstepexplicit %
-\begin{footnote}[1]\phantomsection\label{\thesphinxscope.1}%
-\sphinxAtStartFootnote
-For general discussion of density matrix techniques and applications in AMO physics, see Blum’s textbook \sphinxcode{\sphinxupquote{Density Matrix Theory and Applications}} {[}\hyperlink{cite.backmatter/bibliography:id444}{52}{]}, which is referred to extensively herein.
-%
-\end{footnote}):
+For a general introduction, and discussion of density matrix techniques and applications in AMO physics, see Blum’s textbook \sphinxstyleemphasis{Density Matrix Theory and Applications} {[}\hyperlink{cite.backmatter/bibliography:id444}{52}{]}, which is referred to extensively herein. The general density operator, for a mixture of independent states \(|\psi_{n}\rangle\), can be defined as per Eqn. 2.8 in Blum {[}\hyperlink{cite.backmatter/bibliography:id444}{52}{]}:
 \begin{equation*}
 \begin{split}
 \hat{\rho}=\sum_{n}W_{n}|\psi_{n}\rangle\langle\psi_{n}|
@@ -2377,7 +2321,7 @@ For general discussion of density matrix techniques and applications in AMO phys
 Where \(W_{n}\) defines the (statistical) weighting of each state \(\psi_{n}\) in the mixture.
 
 \sphinxAtStartPar
-For a given basis set, \(|\phi_{m}\rangle\), the states can be expanded and the matrix elements of \(\rho\) defined (Eqns. 2.9 \sphinxhyphen{} 2.11 in Blum, Ref. {[}\hyperlink{cite.backmatter/bibliography:id444}{52}{]} \sphinxfootnotemark[1]):
+For a given basis set, \(|\phi_{m}\rangle\), the states can be expanded and the matrix elements of \(\rho\) defined as per Eqns. 2.9 \sphinxhyphen{} 2.11 in Blum {[}\hyperlink{cite.backmatter/bibliography:id444}{52}{]}:
 \begin{equation*}
 \begin{split}
 | \psi_{n} \rangle = \sum_{m'} a_{m'}^{(n)}| \phi_{m'}\rangle
@@ -2399,9 +2343,9 @@ For all pairs of basis states \((i,j)\). This defines the density matrix in the 
 
 
 \subsection{Continuum density matrices}
-\label{\detokenize{part1/theory_density_matrices_310123:continuum-density-matrices}}\label{\detokenize{part1/theory_density_matrices_310123:id5}}
+\label{\detokenize{part1/theory_density_matrices_310123:continuum-density-matrices}}\label{\detokenize{part1/theory_density_matrices_310123:id4}}
 \sphinxAtStartPar
-In general, the discussion herein will focus on the photoelectron properties and generally assume a single final ion, and associated free\sphinxhyphen{}electron state of interest, hence the final state (Eq. \eqref{equation:part1/theory_photoionization_dynamics_191122:eq:continuum-state-vec}) can be simplified to \(|\Psi_f\rangle\equiv|\mathbf{k}\rangle\). This is equivalent to a “pure state” in density matrix terminology, which can then expanded (coherently) in an appropriate representation (basis). Following this, the density operator associated with the continuum state can be written as \(\hat{\rho}=|\Psi_f\rangle\langle\Psi_f|\equiv|\mathbf{k}\rangle\langle\mathbf{k}|\). Making use of the tensor notation introduced in \hyperref[\detokenize{part1/theory_tensor_formalism_201122:sec-tensor-formulation}]{Sect.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:sec-tensor-formulation}}}, the final continuum state can then be expanded as a density matrix in the \(\zeta\zeta'\) representation (with the observable dimensions \(\{L,M\}\) explicitly included in the density matrix), which will also be dependent on the choice of channel functions (\(u\)), can then be given as:
+In general, the discussion herein will focus on the photoelectron properties and generally assume a single final ion, and associated free\sphinxhyphen{}electron state of interest, hence the final state (Eq. \eqref{equation:part1/theory_photoionization_dynamics_191122:eq:continuum-state-vec}) can be simplified to \(|\Psi_f\rangle\equiv|\mathbf{k}\rangle\). This is equivalent to a “pure state” in density matrix terminology, which can then expanded (coherently) in an appropriate representation (basis). Following this, the density operator associated with the continuum state can be written as \(\hat{\rho}=|\Psi_f\rangle\langle\Psi_f|\equiv|\mathbf{k}\rangle\langle\mathbf{k}|\). Making use of the tensor notation introduced in \hyperref[\detokenize{part1/theory_tensor_formalism_201122:sec-tensor-formulation}]{Sect.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:sec-tensor-formulation}}}, the final continuum state can then be expanded as a density matrix in the \(\zeta\zeta'\) representation (with the observable dimensions \(\{L,M\}\) explicitly included in the density matrix), which will also be dependent on the choice of channel functions (\(u\)); the density matrix can then be given as:
 \begin{equation}\label{equation:part1/theory_density_matrices_310123:eqn:full-density-mat}
 \begin{split}
 {\rho}_{L,M}^{u,\zeta\zeta'}=\varUpsilon_{L,M}^{u,\zeta\zeta'}\mathbb{I}^{\zeta,\zeta'}
@@ -2438,7 +2382,7 @@ In a more traditional notation (following Eq. \eqref{equation:part1/theory_photo
 \end{split}
 \end{equation}
 \sphinxAtStartPar
-with \(\rho_i = |\Psi_i\rangle\langle\Psi_i|\). This is, effectively, equivalent to an expansion in the various tensor operators defined in the channel function notation above (Eq. \eqref{equation:part1/theory_density_matrices_310123:eqn:full-density-mat}), but in a standard state\sphinxhyphen{}vector notation. Note, also, that this form explicitly defines the initial state of the system as a density matrix \(\rho_i\), and explicitly allows for time\sphinxhyphen{}dependence via the \(A_{Q,S}^{K}(t)\) term. (For further discussion of the use of density matrices in other specific cases, see \sphinxstyleemphasis{Quantum Metrology} Vol. 1 {[}\hyperlink{cite.backmatter/bibliography:id569}{1}{]}, particularly Chpts. 2 \& 3, and refs. therein.)
+This is, effectively, equivalent to an expansion in the various tensor operators defined in the channel function notation above (Eq. \eqref{equation:part1/theory_density_matrices_310123:eqn:full-density-mat}), but in a standard state\sphinxhyphen{}vector notation. Note, also, that this form explicitly defines the initial state of the system as a density matrix \(\rho_i = |\Psi_i\rangle\langle\Psi_i|\), and explicitly allows for time\sphinxhyphen{}dependence via the \(A_{Q,S}^{K}(t)\) term. (For further discussion of the use of density matrices in other specific cases, see \sphinxstyleemphasis{Quantum Metrology} Vol. 1 {[}\hyperlink{cite.backmatter/bibliography:id569}{1}{]}, particularly Chpts. 2 \& 3, and refs. therein.)
 
 \sphinxAtStartPar
 The main benefit of a (continuum) density matrix representation in the current work is as a rapid way to visualize the phase relations between the photoionization matrix elements (the off\sphinxhyphen{}diagonal density matrix elements), and the ability to quickly check the overall pattern of the elements, hence confirm that no phase\sphinxhyphen{}relations are missing and orthogonality relations are fulfilled \sphinxhyphen{} some numerical examples are given below. Since the method for computing the density matrices is also numerically equivalent to a tensor outer\sphinxhyphen{}product, density matrices and visualizations can also be rapidly composed for other properties of interest, e.g. the various channel functions defined herein, providing another complementary methodology and tool for investigation. (Further examples can be found in the \sphinxhref{https://epsproc.readthedocs.io}{ePSproc documentation} {[}\hyperlink{cite.backmatter/bibliography:id506}{14}{]}, as well as in the literature, see, e.g., Ref. {[}\hyperlink{cite.backmatter/bibliography:id444}{52}{]} for general discussion, Ref. {[}\hyperlink{cite.backmatter/bibliography:id694}{45}{]} for application in pump\sphinxhyphen{}probe schemes.)
@@ -2456,55 +2400,61 @@ This follows the setup in \hyperref[\detokenize{part1/theory_tensor_formalism_20
 \subsection{Compute a density matrix}
 \label{\detokenize{part1/theory_density_matrices_310123:compute-a-density-matrix}}
 \sphinxAtStartPar
-A basic density matrix computation routine is implemented in the \sphinxhref{https://epsproc.readthedocs.io}{ePSproc codebase} {[}\hyperlink{cite.backmatter/bibliography:id561}{12}, \hyperlink{cite.backmatter/bibliography:id508}{13}, \hyperlink{cite.backmatter/bibliography:id506}{14}{]}. This makes use of input tensor arrays, and computes the density matrix as an outer\sphinxhyphen{}product of the defined dimension(s). The numerics essentially compute the outer product from the specified dimensions, which can be written generally as per Eqns. \eqref{equation:part1/theory_density_matrices_310123:eqn:density-mat-outer-prod}, \eqref{equation:part1/theory_density_matrices_310123:eqn:density-mat-generic}, where \(a_{i}^{(n)}a_{j}^{(n)*}\) are the values along the specified dimensions/state vector/representation. These dimensions must be in input arrays, but will be restacked as necessary to define the effective basis space. For instance, from the ionization matrix element demonstrated herein, setting \sphinxcode{\sphinxupquote{{[}l,m{]}}} would select the \(|\zeta\rangle = |l,m\rangle\) basis (equivalently \sphinxcode{\sphinxupquote{LM}}, since the dimensions are already stacked in the ionization matrix elements). Setting \sphinxcode{\sphinxupquote{{[}'LM','mu'{]}}} would set the \(|\zeta\rangle = |l,m,\mu\rangle\) as the basis vector and so forth, where \(|\zeta\rangle\) is used as a generic state vector denoting all required quantum numbers.
+A basic density matrix computation routine is implemented in the \sphinxhref{https://epsproc.readthedocs.io}{ePSproc codebase} {[}\hyperlink{cite.backmatter/bibliography:id561}{12}, \hyperlink{cite.backmatter/bibliography:id508}{13}, \hyperlink{cite.backmatter/bibliography:id506}{14}{]}. This makes use of input tensor arrays, and computes the density matrix as an outer\sphinxhyphen{}product of the defined dimension(s). The numerics essentially compute the outer product from the specified dimensions, which can be written generally as per Eqns. \eqref{equation:part1/theory_density_matrices_310123:eqn:density-mat-outer-prod}, \eqref{equation:part1/theory_density_matrices_310123:eqn:density-mat-generic}, where \(a_{i}^{(n)}a_{j}^{(n)*}\) are the values along the specified dimensions/state vector/representation. These dimensions must be in input arrays, but will be restacked as necessary to define the effective basis space, and all coherent pairs will be computed.
 
 \sphinxAtStartPar
-Note, however, that this selection is purely based on the numerics, which compute the outer product \(|\zeta\rangle\langle\zeta'|\) to form the density matrix, hence does not guarantee a well\sphinxhyphen{}formed density matrix in the strictest sense (depending on the basis set), although will always present a basis state correlation matrix of sorts. A brief example, for the \DUrole{pasted-text}{D2h} defined matrix element is given below; for more examples see the \sphinxhref{https://epsproc.readthedocs.io}{ePSproc documentation} {[}\hyperlink{cite.backmatter/bibliography:id506}{14}{]}.
+For instance, considering the ionization matrix elements demonstrated herein, setting indexes (quantum numbers) as \sphinxcode{\sphinxupquote{{[}l,m{]}}} will select the \(|\zeta\rangle = |l,m\rangle\) basis,
+
+\sphinxAtStartPar
+hence define the density operator as \(\hat{\rho} = |\zeta\rangle \langle\zeta'| = |l,m\rangle\langle l',m'|\) and the corresponding density matrix elements \(\rho^{\zeta,\zeta'}=\langle\zeta|\hat{\rho}|\zeta'\rangle=a_{l,m}a_{l',m'}^{*}\). Similarly, setting \sphinxcode{\sphinxupquote{{[}'l','m','mu'{]}}} will set the \(|\zeta\rangle = |l,m,\mu\rangle\) as the basis vector and so forth, where \(|\zeta\rangle\) is used as a generic state vector denoting all required quantum numbers. Additionally, other quantum numbers/dimensions can be kept, summed or selected from the input tensors prior to computation, thus density matrices can be readily computed as a function of other parameters, or averaged, according to the properties of interest, experimental parameters and observables.
+
+\sphinxAtStartPar
+Note, however, that this selection is purely based on the numerics, which compute the outer product along the defined dimensions \(|\zeta\rangle\langle\zeta'|\) to form the density matrix, hence does not guarantee a well\sphinxhyphen{}formed density matrix in the strictest sense (depending on the basis set), although will always present a basis state correlation matrix of sorts. A brief example, for the  defined matrix element is given below; for more examples see the \sphinxhref{https://epsproc.readthedocs.io}{ePSproc documentation} {[}\hyperlink{cite.backmatter/bibliography:id506}{14}{]}.
 
 \begin{sphinxuseclass}{cell}
 \begin{sphinxuseclass}{tag_hide-output}\begin{sphinxVerbatimInput}
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} DEMO CODE FROM http://jake/jupyter/user/paul/doc/tree/code\PYGZhy{}share/stimpy\PYGZhy{}docker\PYGZhy{}local/MFPADs\PYGZus{}recon\PYGZus{}manuscript\PYGZus{}dev\PYGZus{}April\PYGZus{}2022/MFrecon\PYGZus{}manuscript\PYGZus{}fig\PYGZus{}generation\PYGZus{}170422\PYGZhy{}Stimpy\PYGZus{}MAIN\PYGZhy{}oldPkgs.ipynb}
-\PYG{c+c1}{\PYGZsh{} SEE ALSO DOCS, https://epsproc.readthedocs.io/en/dev/methods/density\PYGZus{}mat\PYGZus{}notes\PYGZus{}demo\PYGZus{}300821.html\PYGZsh{}Density\PYGZhy{}Matrices}
+\PYG{c+c1}{\PYGZsh{} See the docs for more, https://epsproc.readthedocs.io/en/dev/methods/density\PYGZus{}mat\PYGZus{}notes\PYGZus{}demo\PYGZus{}300821.html}
 
-\PYG{c+c1}{\PYGZsh{} Import routines}
+\PYG{c+c1}{\PYGZsh{} Import routines for density calculation and plotting}
 \PYG{k+kn}{from} \PYG{n+nn}{epsproc}\PYG{n+nn}{.}\PYG{n+nn}{calc} \PYG{k+kn}{import} \PYG{n}{density}
 
-\PYG{c+c1}{\PYGZsh{} Compose density matrix}
+\PYG{c+c1}{\PYGZsh{}*** Compose density matrix}
 
 \PYG{c+c1}{\PYGZsh{} Set dimensions/state vector/representation}
 \PYG{c+c1}{\PYGZsh{} These must be in original data, but will be restacked as necessary to define the effective basis space.}
-\PYG{n}{denDims} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{LM}\PYG{l+s+s1}{\PYGZsq{}}  \PYG{c+c1}{\PYGZsh{}, \PYGZsq{}mu\PYGZsq{}]}
-\PYG{n}{selDims} \PYG{o}{=} \PYG{k+kc}{None}  \PYG{c+c1}{\PYGZsh{}\PYGZob{}\PYGZsq{}Type\PYGZsq{}:\PYGZsq{}L\PYGZsq{}\PYGZcb{}}
-\PYG{n}{pTypes}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{i}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
-\PYG{n}{thres} \PYG{o}{=} \PYG{l+m+mf}{1e\PYGZhy{}4}    \PYG{c+c1}{\PYGZsh{} 0.2 \PYGZsh{} Threshold out l\PYGZgt{}3 terms if using full \PYGZsq{}orb5\PYGZsq{} set.}
-\PYG{n}{normME} \PYG{o}{=} \PYG{k+kc}{False}
-\PYG{n}{normDen} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{max}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{denDims} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{LM}\PYG{l+s+s1}{\PYGZsq{}}  \PYG{c+c1}{\PYGZsh{} Set dimensions for density matrix. Note stacked dims are OK, in this case LM = \PYGZob{}l,m\PYGZcb{}}
+\PYG{n}{selDims} \PYG{o}{=} \PYG{k+kc}{None}  \PYG{c+c1}{\PYGZsh{} Select on any other dimensions?}
+\PYG{n}{sumDims} \PYG{o}{=} \PYG{k+kc}{None}  \PYG{c+c1}{\PYGZsh{} Sum over any other dimensions? (Set sumDims=True to sum over all dims except denDims.)}
+\PYG{n}{pTypes}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{i}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{c+c1}{\PYGZsh{} Plotting types \PYGZsq{}r\PYGZsq{}=real, \PYGZsq{}i\PYGZsq{}=imaginary}
+\PYG{n}{thres} \PYG{o}{=} \PYG{l+m+mf}{1e\PYGZhy{}4}    \PYG{c+c1}{\PYGZsh{} Threshold for outputs (otherwise set to zero and/or dropped from result)}
+\PYG{n}{normME} \PYG{o}{=} \PYG{k+kc}{False}  \PYG{c+c1}{\PYGZsh{} Normalise matrix elements before computing?}
+\PYG{n}{normDen} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{max}\PYG{l+s+s1}{\PYGZsq{}} \PYG{c+c1}{\PYGZsh{} Method to normalise density matrix}
 
 \PYG{c+c1}{\PYGZsh{} Calculate \PYGZhy{} Ref case}
-\PYG{c+c1}{\PYGZsh{} matE = data.data[\PYGZsq{}subset\PYGZsq{}][\PYGZsq{}matE\PYGZsq{}]}
-\PYG{c+c1}{\PYGZsh{} Set data from master class}
-\PYG{c+c1}{\PYGZsh{} k = \PYGZsq{}orb5\PYGZsq{}  \PYGZsh{} N2 orb5 (SG) dataset}
-\PYG{c+c1}{\PYGZsh{} k = \PYGZsq{}subset\PYGZsq{}}
 \PYG{n}{k} \PYG{o}{=} \PYG{n}{sym}
-\PYG{n}{matE} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{data}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{matE}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{matE} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{data}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{matE}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Set data from main class instance by key}
+
+\PYG{c+c1}{\PYGZsh{} Normalise input matrix elements?}
 \PYG{k}{if} \PYG{n}{normME}\PYG{p}{:}
     \PYG{n}{matE} \PYG{o}{=} \PYG{n}{matE}\PYG{o}{/}\PYG{n}{matE}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{p}{)}
 
-\PYG{n}{daOut}\PYG{p}{,} \PYG{o}{*}\PYG{n}{\PYGZus{}} \PYG{o}{=} \PYG{n}{density}\PYG{o}{.}\PYG{n}{densityCalc}\PYG{p}{(}\PYG{n}{matE}\PYG{p}{,} \PYG{n}{denDims} \PYG{o}{=} \PYG{n}{denDims}\PYG{p}{,} \PYG{n}{selDims} \PYG{o}{=} \PYG{n}{selDims}\PYG{p}{,} \PYG{n}{thres} \PYG{o}{=} \PYG{n}{thres}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} OK}
+\PYG{c+c1}{\PYGZsh{}*** Compute density matrix for given parameters}
+\PYG{c+c1}{\PYGZsh{} See demo at https://epsproc.readthedocs.io/en/latest/methods/density\PYGZus{}mat\PYGZus{}notes\PYGZus{}demo\PYGZus{}300821.html}
+\PYG{c+c1}{\PYGZsh{} API docs https://epsproc.readthedocs.io/en/latest/modules/epsproc.calc.density.html\PYGZsh{}epsproc.calc.density.densityCalc}
+\PYG{n}{daOut}\PYG{p}{,} \PYG{o}{*}\PYG{n}{\PYGZus{}} \PYG{o}{=} \PYG{n}{density}\PYG{o}{.}\PYG{n}{densityCalc}\PYG{p}{(}\PYG{n}{matE}\PYG{p}{,} \PYG{n}{denDims} \PYG{o}{=} \PYG{n}{denDims}\PYG{p}{,} \PYG{n}{selDims} \PYG{o}{=} \PYG{n}{selDims}\PYG{p}{,} \PYG{n}{thres} \PYG{o}{=} \PYG{n}{thres}\PYG{p}{)}
 
+\PYG{c+c1}{\PYGZsh{} Renormlise output?}
 \PYG{k}{if} \PYG{n}{normDen}\PYG{o}{==}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{max}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}
     \PYG{n}{daOut} \PYG{o}{=} \PYG{n}{daOut}\PYG{o}{/}\PYG{n}{daOut}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{p}{)}
 \PYG{k}{elif} \PYG{n}{normDen}\PYG{o}{==}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{trace}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}
     \PYG{n}{daOut} \PYG{o}{=} \PYG{n}{daOut}\PYG{o}{/}\PYG{p}{(}\PYG{n}{daOut}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sym}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{pipe}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{trace}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Need sym sum here to get 2D trace}
-    
-\PYG{c+c1}{\PYGZsh{} daPlot = density.matPlot(daOut.sum(\PYGZsq{}Sym\PYGZsq{}))}
-\PYG{n}{daPlot} \PYG{o}{=} \PYG{n}{density}\PYG{o}{.}\PYG{n}{matPlot}\PYG{p}{(}\PYG{n}{daOut}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sym}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,} \PYG{n}{pTypes}\PYG{o}{=}\PYG{n}{pTypes}\PYG{p}{)}
 
-\PYG{c+c1}{\PYGZsh{} Glue figure for later \PYGZhy{} real part only in this case}
-\PYG{n}{glue}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{denMatD2hRealOnly}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{daPlot}\PYG{o}{.}\PYG{n}{select}\PYG{p}{(}\PYG{n}{pType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Real}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Plot density matrix with Holoviews}
+\PYG{c+c1}{\PYGZsh{} Note sum over \PYGZsq{}Sym\PYGZsq{} dimension to flatten plot to (l,m) dims only.}
+\PYG{n}{daPlot} \PYG{o}{=} \PYG{n}{density}\PYG{o}{.}\PYG{n}{matPlot}\PYG{p}{(}\PYG{n}{daOut}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sym}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,} \PYG{n}{pTypes}\PYG{o}{=}\PYG{n}{pTypes}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -2514,70 +2464,59 @@ Note, however, that this selection is purely based on the numerics, which comput
 \begin{figure}[htbp]
 \centering
 \capstart
-\begin{sphinxVerbatimOutput}
 
-\begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{theory_density_matrices_310123_9_6}.png}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-\caption{Example density matrix, computed from matrix elements defined purely by \DUrole{pasted-text}{D2h} symmetry. Note in this case only the real part is non\sphinxhyphen{}zero.}\label{\detokenize{part1/theory_density_matrices_310123:fig-denmatd2hrealonly}}\end{figure}
+\noindent\sphinxincludegraphics{{deedb9a45fe875bec49734526ce33cb6ac456fc23a2a0727178716b8d49a2984}.png}
+\caption{Example density matrix, computed from matrix elements defined purely by  symmetry. Note in this case only the real part is non\sphinxhyphen{}zero. Axes labels give terms \(\{L,M\}\) and \(\{L',M'\}\).}\label{\detokenize{part1/theory_density_matrices_310123:fig-denmatd2hrealonly}}\end{figure}
 
 
 \subsection{Visualising matrix element reconstruction fidelity with density matrices}
 \label{\detokenize{part1/theory_density_matrices_310123:visualising-matrix-element-reconstruction-fidelity-with-density-matrices}}
 \sphinxAtStartPar
-To demonstrate the use of the density matrix representation as a means to test similarity or fidelity between two sets of matrix elements, a trial set of matrix elements can be derived from the original set used above, plus random noise, and the differences in the density matrices directly computed. An example is shown in \hyperref[\detokenize{part1/theory_density_matrices_310123:fig-denmatd2hcompexample}]{Fig.\@ \ref{\detokenize{part1/theory_density_matrices_310123:fig-denmatd2hcompexample}}}; in this example 10\% noise has been added to the original (input) matrix elements, and the resultant density matrix computed. The difference matrix (\hyperref[\detokenize{part1/theory_density_matrices_310123:fig-denmatd2hcompexample}]{Fig.\@ \ref{\detokenize{part1/theory_density_matrices_310123:fig-denmatd2hcompexample}}}(c)) then provides the fidelity between the original and noisy case. In testing reconstructions, this type of analysis thus provides a quick means to test reconstruction results vs. known inputs. Although this case is only illustrated for real density matrices, a similar analysis can be used for the imaginary (or phase) components, thus coherences can also be quickly visualised in this manner.
+To demonstrate the use of the density matrix representation as a means to test similarity or fidelity between two sets of matrix elements, a trial set of matrix elements can be derived from the original set used above, plus random noise, and the differences in the density matrices directly computed. An example is shown in \hyperref[\detokenize{part1/theory_density_matrices_310123:fig-denmatd2hcompexample}]{Fig.\@ \ref{\detokenize{part1/theory_density_matrices_310123:fig-denmatd2hcompexample}}}; in this example up to 10\% random noise has been added to the original (input) matrix elements, and the resultant density matrix computed. The difference matrix (\hyperref[\detokenize{part1/theory_density_matrices_310123:fig-denmatd2hcompexample}]{Fig.\@ \ref{\detokenize{part1/theory_density_matrices_310123:fig-denmatd2hcompexample}}}(c)) then provides the fidelity between the original and noisy case. In testing retrieval methodologies, this type of analysis thus provides a quick means to test reconstruction results vs. known inputs. Although this case is only illustrated for real density matrices, a similar analysis can be used for the imaginary (or phase) components, thus coherences can also be quickly visualised in this manner.
 
 \begin{sphinxuseclass}{cell}
 \begin{sphinxuseclass}{tag_hide-output}\begin{sphinxVerbatimInput}
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Trial matrix element for comparison}
+\PYG{c+c1}{\PYGZsh{}*** Set trial matrix element for comparison with the original case computed above}
 \PYG{n}{matE} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{data}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{matE}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
-
-\PYG{c+c1}{\PYGZsh{} Add random noise, +/\PYGZhy{} 5\PYGZpc{}}
-\PYG{n}{matE} \PYG{o}{=} \PYG{n}{matE} \PYG{o}{+} \PYG{n}{matE}\PYG{o}{*}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{o}{*}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{matE}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{)}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mf}{0.5}\PYG{p}{)} \PYG{o}{*} \PYG{l+m+mf}{0.2}
 
 \PYG{k}{if} \PYG{n}{normME}\PYG{p}{:}
     \PYG{n}{matE} \PYG{o}{=} \PYG{n}{matE}\PYG{o}{/}\PYG{n}{matE}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{p}{)}
-
-\PYG{n}{daOut2}\PYG{p}{,} \PYG{o}{*}\PYG{n}{\PYGZus{}} \PYG{o}{=} \PYG{n}{density}\PYG{o}{.}\PYG{n}{densityCalc}\PYG{p}{(}\PYG{n}{matE}\PYG{p}{,} \PYG{n}{denDims} \PYG{o}{=} \PYG{n}{denDims}\PYG{p}{,} \PYG{n}{selDims} \PYG{o}{=} \PYG{n}{selDims}\PYG{p}{,} \PYG{n}{thres} \PYG{o}{=} \PYG{n}{thres}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} OK}
-
-\PYG{k}{if} \PYG{n}{normDen}\PYG{o}{==}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{max}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}
-    \PYG{n}{daOut2} \PYG{o}{=} \PYG{n}{daOut2}\PYG{o}{/}\PYG{n}{daOut2}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{p}{)}
-\PYG{k}{elif} \PYG{n}{normDen}\PYG{o}{==}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{trace}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}
-    \PYG{n}{daOut2} \PYG{o}{=} \PYG{n}{daOut2}\PYG{o}{/}\PYG{p}{(}\PYG{n}{daOut2}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sym}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{pipe}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{trace}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}
     
-\PYG{n}{daPlot2} \PYG{o}{=} \PYG{n}{density}\PYG{o}{.}\PYG{n}{matPlot}\PYG{p}{(}\PYG{n}{daOut2}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sym}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,} \PYG{n}{pTypes}\PYG{o}{=}\PYG{n}{pTypes}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{}.sel(Eke=slice(0.5,1.5,1)))}
+\PYG{c+c1}{\PYGZsh{} Add random noise, +/\PYGZhy{} 10\PYGZpc{}}
+\PYG{c+c1}{\PYGZsh{} Note this is applied to normalised matE}
+\PYG{c+c1}{\PYGZsh{} For the normalised case this results in a standard deviation in the difference density matrix elements of \PYGZti{}sqrt(2*(0.1\PYGZca{}2) + 2*0.1) = 0.2}
+\PYG{c+c1}{\PYGZsh{} (Derived from basic error propagation, ignoring the actual values \PYGZhy{} see https://en.wikipedia.org/wiki/Propagation\PYGZus{}of\PYGZus{}uncertainty\PYGZsh{}Example\PYGZus{}formulae.)}
+\PYG{n}{noise} \PYG{o}{=} \PYG{l+m+mf}{0.1}
+\PYG{n}{SD} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{o}{*}\PYG{p}{(}\PYG{n}{noise}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{matE\PYGZus{}noise} \PYG{o}{=} \PYG{n}{matE} \PYG{o}{+} \PYG{n}{matE}\PYG{o}{*}\PYG{p}{(}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{o}{*}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{matE}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{)}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mf}{0.5}\PYG{p}{)} \PYG{o}{*} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{noise}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Set range to random values +/\PYGZhy{}1 * noise}
 
+\PYG{c+c1}{\PYGZsh{} Compute density matrix}
+\PYG{n}{daOut\PYGZus{}noise}\PYG{p}{,} \PYG{o}{*}\PYG{n}{\PYGZus{}} \PYG{o}{=} \PYG{n}{density}\PYG{o}{.}\PYG{n}{densityCalc}\PYG{p}{(}\PYG{n}{matE\PYGZus{}noise}\PYG{p}{,} \PYG{n}{denDims} \PYG{o}{=} \PYG{n}{denDims}\PYG{p}{,} \PYG{n}{selDims} \PYG{o}{=} \PYG{n}{selDims}\PYG{p}{,} \PYG{n}{thres} \PYG{o}{=} \PYG{n}{thres}\PYG{p}{)}
 
-\PYG{c+c1}{\PYGZsh{} Compute difference}
-\PYG{n}{daDiff} \PYG{o}{=} \PYG{n}{daOut}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sym}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{daOut2}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sym}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Renormlise output?}
+\PYG{k}{if} \PYG{n}{normDen}\PYG{o}{==}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{max}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}
+    \PYG{n}{daOut\PYGZus{}noise} \PYG{o}{=} \PYG{n}{daOut\PYGZus{}noise}\PYG{o}{/}\PYG{n}{daOut\PYGZus{}noise}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{p}{)}
+\PYG{k}{elif} \PYG{n}{normDen}\PYG{o}{==}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{trace}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}
+    \PYG{n}{daOut\PYGZus{}noise} \PYG{o}{=} \PYG{n}{daOut\PYGZus{}noise}\PYG{o}{/}\PYG{p}{(}\PYG{n}{daOut\PYGZus{}noise}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sym}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{pipe}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{trace}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}
+    
+\PYG{n}{daPlot\PYGZus{}noise} \PYG{o}{=} \PYG{n}{density}\PYG{o}{.}\PYG{n}{matPlot}\PYG{p}{(}\PYG{n}{daOut\PYGZus{}noise}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sym}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,} \PYG{n}{pTypes}\PYG{o}{=}\PYG{n}{pTypes}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Compute differences}
+\PYG{n}{daDiff} \PYG{o}{=} \PYG{n}{daOut}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sym}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{daOut\PYGZus{}noise}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sym}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 \PYG{n}{daDiff}\PYG{o}{.}\PYG{n}{name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Difference}\PYG{l+s+s1}{\PYGZsq{}}
 \PYG{n}{daPlotDiff} \PYG{o}{=} \PYG{n}{density}\PYG{o}{.}\PYG{n}{matPlot}\PYG{p}{(}\PYG{n}{daDiff}\PYG{p}{,} \PYG{n}{pTypes}\PYG{o}{=}\PYG{n}{pTypes}\PYG{p}{)}
 
-\PYG{c+c1}{\PYGZsh{} \PYGZsh{}******** Plot}
-\PYG{c+c1}{\PYGZsh{} daLayout = (daPlot.layout(\PYGZsq{}pType\PYGZsq{}) + daPlot2.opts(show\PYGZus{}title=False).layout(\PYGZsq{}pType\PYGZsq{}).opts(show\PYGZus{}title=False) + daPlotDiff.opts(show\PYGZus{}title=False).layout(\PYGZsq{}pType\PYGZsq{})).cols(1)  \PYGZsh{} No cols? AH \PYGZhy{} set to 1 works.}
-\PYG{c+c1}{\PYGZsh{} daLayout = (daPlot.select(pType=\PYGZsq{}Real\PYGZsq{}) + daPlot2.opts(show\PYGZus{}title=False).select(pType=\PYGZsq{}Real\PYGZsq{}).opts(show\PYGZus{}title=False) + daPlotDiff.opts(show\PYGZus{}title=False).select(pType=\PYGZsq{}Real\PYGZsq{})).cols(1)  \PYGZsh{} No cols? AH \PYGZhy{} set to 1 works.}
-\PYG{c+c1}{\PYGZsh{} daLayout.opts(width=300, height=300)  \PYGZsh{} Doesn\PYGZsq{}t work?}
-\PYG{c+c1}{\PYGZsh{} daLayout.opts(hv.opts.HeatMap(width=300, frame\PYGZus{}width=300, aspect=\PYGZsq{}square\PYGZsq{}, tools=[\PYGZsq{}hover\PYGZsq{}], colorbar=True, cmap=\PYGZsq{}coolwarm\PYGZsq{}))  \PYGZsh{} .opts(show\PYGZus{}title=False)  \PYGZsh{} .opts(title=\PYGZdq{}Custom Title\PYGZdq{})  \PYGZsh{}OK}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Noise = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{noise}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{, SD (approx) = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{SD}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{maxDiff} \PYG{o}{=} \PYG{n}{daDiff}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{values}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Max difference = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{maxDiff}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 
-\PYG{c+c1}{\PYGZsh{} Additional formatting options for PDF vs. HTML outputs.}
-\PYG{c+c1}{\PYGZsh{} TODO: improve/set global options + label figures.}
-\PYG{n}{nCols} \PYG{o}{=} \PYG{l+m+mi}{1}
-\PYG{k}{try}\PYG{p}{:}
-    \PYG{k}{if} \PYG{n}{buildEnv} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{pdf}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}
-        \PYG{n}{nCols} \PYG{o}{=} \PYG{l+m+mi}{2}
-\PYG{k}{except}\PYG{p}{:}
-    \PYG{k}{pass}
-
-\PYG{c+c1}{\PYGZsh{} Layout for real parts, with custom titles.}
-\PYG{n}{daLayout} \PYG{o}{=} \PYG{p}{(}\PYG{n}{daPlot}\PYG{o}{.}\PYG{n}{select}\PYG{p}{(}\PYG{n}{pType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Real}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{opts}\PYG{p}{(}\PYG{n}{title}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{(a) Original}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)} \PYG{o}{+} \PYG{n}{daPlot2}\PYG{o}{.}\PYG{n}{select}\PYG{p}{(}\PYG{n}{pType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Real}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{opts}\PYG{p}{(}\PYG{n}{title}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{(b) With noise}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)} 
-            \PYG{o}{+} \PYG{n}{daPlotDiff}\PYG{o}{.}\PYG{n}{select}\PYG{p}{(}\PYG{n}{pType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Real}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{opts}\PYG{p}{(}\PYG{n}{title}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{(c) Difference (fidelity)}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}\PYG{o}{.}\PYG{n}{cols}\PYG{p}{(}\PYG{n}{nCols}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} No cols? AH \PYGZhy{} set to 1 works.}
-
-\PYG{c+c1}{\PYGZsh{} Glue layout}
-\PYG{n}{glue}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{denMatD2hCompExample}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}\PYG{n}{daLayout}\PYG{o}{.}\PYG{n}{opts}\PYG{p}{(}\PYG{n}{hv}\PYG{o}{.}\PYG{n}{opts}\PYG{o}{.}\PYG{n}{HeatMap}\PYG{p}{(}\PYG{n}{aspect}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{square}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{tools}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{hover}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{colorbar}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{cmap}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{coolwarm}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}*** Layout plot from Holoviews objects for real parts, with custom titles.}
+\PYG{n}{daLayout} \PYG{o}{=} \PYG{p}{(}\PYG{n}{daPlot}\PYG{o}{.}\PYG{n}{select}\PYG{p}{(}\PYG{n}{pType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Real}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{opts}\PYG{p}{(}\PYG{n}{title}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{(a) Original}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{xlabel}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{L,M}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{ylabel}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{L}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{,M}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)} 
+            \PYG{o}{+} \PYG{n}{daPlot\PYGZus{}noise}\PYG{o}{.}\PYG{n}{select}\PYG{p}{(}\PYG{n}{pType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Real}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{opts}\PYG{p}{(}\PYG{n}{title}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{(b) With noise}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{xlabel}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{L,M}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{ylabel}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{L}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{,M}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)} 
+            \PYG{o}{+} \PYG{n}{daPlotDiff}\PYG{o}{.}\PYG{n}{select}\PYG{p}{(}\PYG{n}{pType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Real}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{opts}\PYG{p}{(}\PYG{n}{title}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{(c) Difference (fidelity)}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{xlabel}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{L,M}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{ylabel}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{L}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{,M}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -2587,19 +2526,64 @@ To demonstrate the use of the density matrix representation as a means to test s
 \begin{figure}[htbp]
 \centering
 \capstart
+
+\noindent\sphinxincludegraphics{{feb707e8defecf2586216958b5b8894b088f9f1167a88818b222160b50f15008}.png}
+\caption{Example density matrices, computed from matrix elements defined purely by  symmetry. Here the panels show (a) the original density matrix, (b) density matrix computed with +/\sphinxhyphen{} 10\% random noise added to the original matrix elements, (c) the difference matrix, which indicates the fidelity of the noisy case relative to the original case. For normalised density matrices the 10\% noise case translates to a standard deviation \(\sigma\approx\)\DUrole{pasted-text}{0.2} on the differences; the maximum error in the test case as illustrated =\DUrole{pasted-text}{0.3}.}\label{\detokenize{part1/theory_density_matrices_310123:fig-denmatd2hcompexample}}\end{figure}
+
+
+\subsection{Working with density matrices with QuTiP library functions}
+\label{\detokenize{part1/theory_density_matrices_310123:working-with-density-matrices-with-qutip-library-functions}}
+\sphinxAtStartPar
+From the numerical density matrix, a range of other standard properties can be computed; of particular interest are likely to be various standard quantities such as the trace, Von Neuman entropy and so forth. Naturally these can be computed numerically directly from the relevant formal definitions; however many of the fundamentals are already implemented in other libraries, and numerical representations can be passed directly to such libraries. In particular, \sphinxhref{https://qutip.org/}{the QuTiP (\sphinxstyleemphasis{Quantum Toolkbox in Python}) library} {[}{]} implements a range of standard functions, metrics, transforms and utility functions for working with state vectors and density matrices. A brief numerical example is given below, see \sphinxhref{https://qutip.org/}{the QuTiP documentation} {[}{]} for more possibilities.
+
+
+\subsubsection{Convert numerical arrays to QuTiP objects}
+\label{\detokenize{part1/theory_density_matrices_310123:convert-numerical-arrays-to-qutip-objects}}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Import QuTip}
+\PYG{k+kn}{from} \PYG{n+nn}{qutip} \PYG{k+kn}{import} \PYG{o}{*}
+
+\PYG{c+c1}{\PYGZsh{} Wrap density matrices to QuTip objects}
+\PYG{c+c1}{\PYGZsh{} Note sum(\PYGZsq{}Sym\PYGZsq{}) to ensure 2D matrix, and .data to pass Numpy data array only}
+\PYG{n}{pa} \PYG{o}{=} \PYG{n}{Qobj}\PYG{p}{(}\PYG{n}{daOut}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sym}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{data}\PYG{p}{)}    \PYG{c+c1}{\PYGZsh{} Reference continuum density matrix}
+\PYG{n}{pb} \PYG{o}{=} \PYG{n}{Qobj}\PYG{p}{(}\PYG{n}{daOut\PYGZus{}noise}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sym}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{data}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Noisy case}
+
+\PYG{c+c1}{\PYGZsh{} QuTip objects have data as Numpy arrays, and render as typeset matrices in a notebook}
+\PYG{n}{pa}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
 \begin{sphinxVerbatimOutput}
 
-\begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{theory_density_matrices_310123_12_4}.png}
-
+\begin{sphinxuseclass}{cell_output}\begin{equation*}
+\begin{split}Quantum object: dims = [[25], [25]], shape = (25, 25), type = oper, isherm = True $ \\ \left(\begin{matrix}1.0 & 0.0 & 0.0 & 0.0 & 0.707 & \cdots & 1.0 & 0.0 & 0.707 & 0.0 & 0.707\\0.0 & 1.000 & 0.0 & 0.0 & 0.0 & \cdots & 0.0 & 0.0 & 0.0 & 0.0 & 0.0\\0.0 & 0.0 & 1.0 & 0.0 & 0.0 & \cdots & 0.0 & 0.0 & 0.0 & 0.0 & 0.0\\0.0 & 0.0 & 0.0 & 1.000 & 0.0 & \cdots & 0.0 & 0.0 & 0.0 & 0.0 & 0.0\\0.707 & 0.0 & 0.0 & 0.0 & 1.000 & \cdots & 0.707 & 0.0 & 0.0 & 0.0 & 0.0\\\vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots & \vdots\\1.0 & 0.0 & 0.0 & 0.0 & 0.707 & \cdots & 1.0 & 0.0 & 0.707 & 0.0 & 0.707\\0.0 & 0.0 & 0.0 & 0.0 & 0.0 & \cdots & 0.0 & 1.000 & 0.0 & 1.000 & 0.0\\0.707 & 0.0 & 0.0 & 0.0 & 0.0 & \cdots & 0.707 & 0.0 & 1.000 & 0.0 & 1.000\\0.0 & 0.0 & 0.0 & 0.0 & 0.0 & \cdots & 0.0 & 1.000 & 0.0 & 1.000 & 0.0\\0.707 & 0.0 & 0.0 & 0.0 & 0.0 & \cdots & 0.707 & 0.0 & 1.000 & 0.0 & 1.000\\\end{matrix}\right)$\end{split}
+\end{equation*}
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
-\caption{Example density matrices, computed from matrix elements defined purely by \DUrole{pasted-text}{D2h} symmetry. Here the panels show (a) the original density matrix, (b) values with +/\sphinxhyphen{} 10\% random noise, (c) the difference matrix, which indicates the fidelity of the noisy state relative to the original matrix elements.}\label{\detokenize{part1/theory_density_matrices_310123:fig-denmatd2hcompexample}}\end{figure}
+
+\end{sphinxuseclass}
+
+\subsubsection{Fidelity metric}
+\label{\detokenize{part1/theory_density_matrices_310123:fidelity-metric}}
+\sphinxAtStartPar
+Fidelity between two density matrices \(\rho_{a},\rho_{b}\) can be defined as per Refs. {[}{]}:
+
+\sphinxAtStartPar
+\(F(\rho_{a},\rho_{b})=\operatorname{Tr} {\sqrt {{\sqrt {\rho_{a}}}\rho_{b} {\sqrt {\rho_{a}}}}}\)
+
+\sphinxAtStartPar
+This is implemented by the \sphinxcode{\sphinxupquote{fidelity}} function in QuTip. Of note in this case is the close to limiting case value of \(F(\rho_{a},\rho_{b})=1\) for the test case herein, despite the added noise and some per\sphinxhyphen{}element disparities as shown in   \hyperref[\detokenize{part1/theory_density_matrices_310123:fig-denmatd2hcompexample}]{Fig.\@ \ref{\detokenize{part1/theory_density_matrices_310123:fig-denmatd2hcompexample}}}(c). This reflects the conceptual difference between an element\sphinxhyphen{}wise evaluation of the differences, vs. a formal scalar metric.
 
 \begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{o}{!}date
+\PYG{c+c1}{\PYGZsh{} Test fidelity, =1 if trace\PYGZhy{}normalised}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Fidelity (a,a) = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{fidelity}\PYG{p}{(}\PYG{n}{pa}\PYG{p}{,}\PYG{n}{pa}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Trace = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{pa}\PYG{o}{.}\PYG{n}{tr}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Trace\PYGZhy{}normed fidelity = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{fidelity}\PYG{p}{(}\PYG{n}{pa}\PYG{p}{,}\PYG{n}{pa}\PYG{p}{)}\PYG{o}{/}\PYG{n}{pa}\PYG{o}{.}\PYG{n}{tr}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -2607,21 +2591,81 @@ To demonstrate the use of the density matrix representation as a means to test s
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-Fri 10 Feb 2023 12:43:11 PM EST
+Fidelity (a,a) = 25.00000031332397
+Trace = 25.0
+Trace\PYGZhy{}normed fidelity = 1.0000000125329587
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
 
-\bigskip\hrule\bigskip
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Test fidelity vs noisy case}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Fidelity (a,b) = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{fidelity}\PYG{p}{(}\PYG{n}{pa}\PYG{p}{,}\PYG{n}{pb}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Trace a = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{pa}\PYG{o}{.}\PYG{n}{tr}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{, Trace b = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{pb}\PYG{o}{.}\PYG{n}{tr}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Trace\PYGZhy{}normed fidelity = }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{fidelity}\PYG{p}{(}\PYG{n}{pa}\PYG{o}{/}\PYG{n}{pa}\PYG{o}{.}\PYG{n}{tr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{n}{pb}\PYG{o}{/}\PYG{n}{pb}\PYG{o}{.}\PYG{n}{tr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
 
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
 
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Fidelity (a,b) = 22.97696895871
+Trace a = 25.0, Trace b = 21.191266275131078
+Trace\PYGZhy{}normed fidelity = 0.99826862071642
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} This can also be computed rapidly with lower\PYGZhy{}level QuTip functionality...}
+
+\PYG{c+c1}{\PYGZsh{} Compute inner term, note .sqrtm() for square root.}
+\PYG{n}{inner} \PYG{o}{=} \PYG{n}{pa}\PYG{o}{.}\PYG{n}{sqrtm}\PYG{p}{(}\PYG{p}{)} \PYG{o}{*} \PYG{n}{pa} \PYG{o}{*} \PYG{n}{pa}\PYG{o}{.}\PYG{n}{sqrtm}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Compute fidelity}
+\PYG{n}{inner}\PYG{o}{.}\PYG{n}{sqrtm}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tr}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+(25.00000059788841+8.879641550582872e\PYGZhy{}08j)
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
 \sphinxstepscope
 
 
-\section{Information content}
-\label{\detokenize{part1/theory_info_content_221122:information-content}}\label{\detokenize{part1/theory_info_content_221122:sec-info-content}}\label{\detokenize{part1/theory_info_content_221122::doc}}
+\section{Information content \& sensitivity}
+\label{\detokenize{part1/theory_info_content_221122:information-content-sensitivity}}\label{\detokenize{part1/theory_info_content_221122:sec-info-content}}\label{\detokenize{part1/theory_info_content_221122::doc}}
+\sphinxAtStartPar
+A useful tool in considering the possibility of matrix element retrieval is the response, or sensitivity, of the experimental observables to the matrix elements of interest. Aspects of this have already been explored in \hyperref[\detokenize{part1/theory_tensor_formalism_201122:sec-tensor-formulation}]{Sect.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:sec-tensor-formulation}}}, where consideration of the various geometric tensors (or geometric basis set) provided a route to investigating the coupling \sphinxhyphen{} hence sensitivity \sphinxhyphen{} of various parameters into product terms. In particular the tensor products discussed in \hyperref[\detokenize{part1/theory_tensor_formalism_201122:sec-theory-tensor-products}]{Sect.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:sec-theory-tensor-products}}}, including the full channel (response) functions \(\varUpsilon_{L,M}^{u,\zeta\zeta'}\) (\eqref{equation:part1/theory_tensor_formalism_201122:eq:channelFunc-MF-defn} and \eqref{equation:part1/theory_tensor_formalism_201122:eq:channelFunc-AF-defn}), can be used to examine the overall sensitivity of a given measurement to the underlying observables. By careful consideration of the problem at hand, experiments may then be tailored for particular cases based on these sensitivities. A related question, is how a given experimental sensitivity might be more readily quantified, and interpreted, for reconstruction problems, in a simpler manner. In general, this can be termed as the \sphinxstyleemphasis{information content} of the measurement(s); an important aspect of such a metric is that it should be readily interpretable and, ideally, related to whether a reconstruction will be possible in a given case (this has, for example, been considered by other authors for specific cases, e.g. Refs. {[}\hyperlink{cite.backmatter/bibliography:id726}{58}, \hyperlink{cite.backmatter/bibliography:id692}{59}{]}).
+
+\sphinxAtStartPar
+Work in this direction is ongoing, and some thoughts are given below. In particular, the use of the observable \(\beta_{L,M}\) presents an experimental route to (roughly) define a form of information content, whilst metrics derived from channel functions or density matrices may present a more rigorous theoretical route to a useful parameterization of information content.
+
+
+\subsection{Numerical setup}
+\label{\detokenize{part1/theory_info_content_221122:numerical-setup}}
+\sphinxAtStartPar
+This follows the setup in \hyperref[\detokenize{part1/theory_tensor_formalism_201122:sec-tensor-formulation}]{Sect.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:sec-tensor-formulation}}} {\hyperref[\detokenize{part1/theory_tensor_formalism_201122:sec-tensor-formulation}]{\sphinxcrossref{\DUrole{std,std-ref}{Tensor formulation of photoionization}}}}, using a symmetry\sphinxhyphen{}based set of basis functions for demonstration purposes. (Repeated code is hidden in PDF version.)
+
+
+\subsection{Experimental information content}
+\label{\detokenize{part1/theory_info_content_221122:experimental-information-content}}\label{\detokenize{part1/theory_info_content_221122:sec-expt-info-content}}
 \sphinxAtStartPar
 As discussed in \sphinxstyleemphasis{Quantum Metrology} Vol. 2 {[}\hyperlink{cite.backmatter/bibliography:id570}{2}{]}, the information content of a single observable might be regarded as simply the number of contributing \(\beta_{L,M}\) parameters. In set notation:
 \begin{equation}\label{equation:part1/theory_info_content_221122:eq:BLM-set}
@@ -2641,8 +2685,8 @@ e.g. as a function of energy \(\epsilon\) or time \(t\), the information
 content will naturally be larger:
 \begin{equation*}
 \begin{split}\begin{aligned}
-M_{u} & = & \sum_{u,k,t}\mathrm{n}\{\beta_{L,M}^{u}(\epsilon,t)\}\\
- & = & M_{u}\times M\end{aligned}\end{split}
+M_{u,\epsilon,t} & = & \sum_{u,\epsilon,t}\mathrm{n}\{\beta_{L,M}^{u}(\epsilon,t)\}\\
+ & = & M_{u}\times M_{\epsilon,t}\end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
 where the second line pertains if each measurement has the same native
@@ -2661,6 +2705,328 @@ the complexity of the problem (cf. Eq. \eqref{equation:part1/theory_tensor_forma
 interest. In this sense, more measurements, and larger \(M\), may only add
 redundancy, rather than new information.
 
+\sphinxAtStartPar
+From a set of numerical results, it is relatively trivial to investigate some of these properties as a function of various constraints, using standard Python functionality, as shown in the code blocks below. For example, \(M\) can be determined numerically as the number of elements in the dataset, the number of \sphinxstyleemphasis{unique} elements, the number of elements within a certain range or above a threshold, and so on.
+
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} For the basic case, the data (Xarray object) can be queried, and relevant dimensions investigated}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Available dimensions: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{BetaNorm}\PYG{o}{.}\PYG{n}{dims}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Show BLM dimension details from Xarray dataset}
+\PYG{n}{display}\PYG{p}{(}\PYG{n}{BetaNorm}\PYG{o}{.}\PYG{n}{BLM}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Available dimensions: (\PYGZsq{}Labels\PYGZsq{}, \PYGZsq{}t\PYGZsq{}, \PYGZsq{}Type\PYGZsq{}, \PYGZsq{}it\PYGZsq{}, \PYGZsq{}Eke\PYGZsq{}, \PYGZsq{}BLM\PYGZsq{})
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZlt{}xarray.DataArray \PYGZsq{}BLM\PYGZsq{} (BLM: 9)\PYGZgt{}
+array([(0, \PYGZhy{}1), (0, 0), (0, 1), (1, \PYGZhy{}1), (1, 0), (1, 1), (2, \PYGZhy{}1), (2, 0),
+       (2, 1)], dtype=object)
+Coordinates:
+  * BLM      (BLM) MultiIndex
+  \PYGZhy{} l        (BLM) int64 0 0 0 1 1 1 2 2 2
+  \PYGZhy{} m        (BLM) int64 \PYGZhy{}1 0 1 \PYGZhy{}1 0 1 \PYGZhy{}1 0 1
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Note, however, that the indexes may not always be physical, depending on how the data has been composed and cleaned up.}
+\PYG{c+c1}{\PYGZsh{} For example, the above has l=0, m=+/\PYGZhy{}1 cases, which are non\PYGZhy{}physical.}
+
+\PYG{c+c1}{\PYGZsh{} Clean array to remove terms |m|\PYGZgt{}l, and display}
+\PYG{c+c1}{\PYGZsh{} BetaNorm.BLM.where(np.abs(BetaNorm.BLM.m)\PYGZlt{}=BetaNorm.BLM.l,drop=True)}
+\PYG{c+c1}{\PYGZsh{} BetaNorm.where(np.abs(BetaNorm.m)\PYGZlt{}=BetaNorm.l,drop=True)}
+
+\PYG{n}{cleanBLMs}\PYG{p}{(}\PYG{n}{BetaNorm}\PYG{p}{)}\PYG{o}{.}\PYG{n}{BLM}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZlt{}xarray.DataArray \PYGZsq{}BLM\PYGZsq{} (BLM: 7)\PYGZgt{}
+array([(0, 0), (1, \PYGZhy{}1), (1, 0), (1, 1), (2, \PYGZhy{}1), (2, 0), (2, 1)], dtype=object)
+Coordinates:
+  * BLM      (BLM) MultiIndex
+  \PYGZhy{} l        (BLM) int64 0 1 1 1 2 2 2
+  \PYGZhy{} m        (BLM) int64 0 \PYGZhy{}1 0 1 \PYGZhy{}1 0 1
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Thresholding can also be used to reduce the results}
+\PYG{n}{ep}\PYG{o}{.}\PYG{n}{matEleSelector}\PYG{p}{(}\PYG{n}{BetaNorm}\PYG{p}{,} \PYG{n}{thres}\PYG{o}{=}\PYG{l+m+mf}{1e\PYGZhy{}4}\PYG{p}{)}\PYG{o}{.}\PYG{n}{BLM}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZlt{}xarray.DataArray \PYGZsq{}BLM\PYGZsq{} (BLM: 2)\PYGZgt{}
+array([(0, 0), (2, 0)], dtype=object)
+Coordinates:
+  * BLM      (BLM) MultiIndex
+  \PYGZhy{} l        (BLM) int64 0 2
+  \PYGZhy{} m        (BLM) int64 0 0
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} The index can be returned as a Pandas object, and statistical routines applied...}
+\PYG{c+c1}{\PYGZsh{} For example, nunique() will provide the number of unique values.}
+
+\PYG{n}{thres}\PYG{o}{=}\PYG{l+m+mf}{1e\PYGZhy{}4}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Original array M=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{BetaNorm}\PYG{o}{.}\PYG{n}{BLM}\PYG{o}{.}\PYG{n}{indexes}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{BLM}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{nunique}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} print(f\PYGZdq{}Cleaned array M=\PYGZob{}BetaNorm.BLM.where(np.abs(BetaNorm.BLM.m)\PYGZlt{}=BetaNorm.BLM.l,drop=True).size\PYGZcb{}\PYGZdq{})}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Cleaned array M=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{cleanBLMs}\PYG{p}{(}\PYG{n}{BetaNorm}\PYG{p}{)}\PYG{o}{.}\PYG{n}{BLM}\PYG{o}{.}\PYG{n}{size}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Thresholded array (thres=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{thres}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{), M=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{ep}\PYG{o}{.}\PYG{n}{matEleSelector}\PYG{p}{(}\PYG{n}{BetaNorm}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{thres}\PYG{o}{=}\PYG{n}{thres}\PYG{p}{)}\PYG{o}{.}\PYG{n}{BLM}\PYG{o}{.}\PYG{n}{indexes}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{BLM}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{nunique}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Original array M=9
+Cleaned array M=7
+Thresholded array (thres=0.0001), M=2
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\sphinxAtStartPar
+For more complicated cases, with \(u>1\), e.g. time\sphinxhyphen{}dependent measurements, interrogating the statistics of the observables may also be an interesting avenue to explore. The examples below investigate this for the example “linear ramp” {\hyperref[\detokenize{backmatter/glossary:term-ADMs}]{\sphinxtermref{\DUrole{xref,std,std-term}{ADMs}}}} case. Here the statistical analysis is, potentially, a measure of the useful/non\sphinxhyphen{}redundant information content, for instance the range or variance in a particular observable can be analysed, as can the number of unique values and so forth.
+
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Convert to PD and tabulate with epsproc functionality}
+\PYG{c+c1}{\PYGZsh{} Note restack along \PYGZsq{}t\PYGZsq{} dimension}
+\PYG{n}{BetaNormLinearADMsPD}\PYG{p}{,} \PYG{n}{\PYGZus{}} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{util}\PYG{o}{.}\PYG{n}{multiDimXrToPD}\PYG{p}{(}\PYG{n}{BetaNormLinearADMs}\PYG{o}{.}\PYG{n}{squeeze}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{real}\PYG{p}{,} \PYG{n}{thres}\PYG{o}{=}\PYG{l+m+mf}{1e\PYGZhy{}4}\PYG{p}{,} \PYG{n}{colDims}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Basic describe with Pandas, see https://pandas.pydata.org/docs/user\PYGZus{}guide/basics.html\PYGZsh{}summarizing\PYGZhy{}data\PYGZhy{}describe}
+\PYG{c+c1}{\PYGZsh{} This will give properties per t}
+\PYG{n}{BetaNormLinearADMsPD}\PYG{o}{.}\PYG{n}{describe}\PYG{p}{(}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{}([pd.unique])   \PYGZsh{}([\PYGZsq{}nunique\PYGZsq{}])}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}\begin{equation*}
+\begin{split}\begin{tabular}{lrrrrrrrrrr}
+\toprule
+t &      0 &      1 &      2 &      3 &      4 &      5 &      6 &      7 &      8 &      9 \\
+\midrule
+count &  2.000 &  5.000 &  5.000 &  5.000 &  5.000 &  5.000 &  5.000 &  5.000 &  5.000 &  5.000 \\
+mean  &  0.389 &  0.190 &  0.225 &  0.259 &  0.294 &  0.328 &  0.363 &  0.397 &  0.432 &  0.466 \\
+std   &  0.115 &  0.242 &  0.265 &  0.290 &  0.315 &  0.341 &  0.368 &  0.395 &  0.423 &  0.451 \\
+min   &  0.308 &  0.001 &  0.002 &  0.003 &  0.004 &  0.006 &  0.007 &  0.008 &  0.009 &  0.010 \\
+25\%   &  0.348 &  0.009 &  0.017 &  0.026 &  0.035 &  0.043 &  0.052 &  0.060 &  0.069 &  0.078 \\
+50\%   &  0.389 &  0.041 &  0.083 &  0.124 &  0.166 &  0.207 &  0.249 &  0.290 &  0.332 &  0.373 \\
+75\%   &  0.430 &  0.382 &  0.457 &  0.532 &  0.607 &  0.681 &  0.751 &  0.797 &  0.844 &  0.891 \\
+max   &  0.470 &  0.517 &  0.564 &  0.610 &  0.657 &  0.704 &  0.756 &  0.831 &  0.906 &  0.980 \\
+\bottomrule
+\end{tabular}\end{split}
+\end{equation*}
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Basic describe with Pandas, see https://pandas.pydata.org/docs/user\PYGZus{}guide/basics.html\PYGZsh{}summarizing\PYGZhy{}data\PYGZhy{}describe}
+\PYG{c+c1}{\PYGZsh{} By transposing the input array, this will give properties per BLM}
+\PYG{n}{BetaNormLinearADMsPD}\PYG{o}{.}\PYG{n}{T}\PYG{o}{.}\PYG{n}{describe}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}\begin{equation*}
+\begin{split}\begin{tabular}{lrrrrr}
+\toprule
+l &       0 &       2 &      4 &      6 &      8 \\
+m &       0 &       0 &      0 &      0 &      0 \\
+\midrule
+count &  10.000 &  10.000 &  9.000 &  9.000 &  9.000 \\
+mean  &   0.680 &   0.644 &  0.207 &  0.043 &  0.006 \\
+std   &   0.141 &   0.226 &  0.114 &  0.024 &  0.003 \\
+min   &   0.470 &   0.308 &  0.041 &  0.009 &  0.001 \\
+25\%   &   0.575 &   0.476 &  0.124 &  0.026 &  0.003 \\
+50\%   &   0.680 &   0.644 &  0.207 &  0.043 &  0.006 \\
+75\%   &   0.786 &   0.812 &  0.290 &  0.060 &  0.008 \\
+max   &   0.891 &   0.980 &  0.373 &  0.078 &  0.010 \\
+\bottomrule
+\end{tabular}\end{split}
+\end{equation*}
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\sphinxAtStartPar
+For further insight and control, specific aggregation functions and criteria can be specified. For instance, it may be interesting to look at the number of unique values to a certain precision (e.g. depending on experimental uncertainties), or consider deviation of values from the mean.
+
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Round values to 1 d.p., then apply statistical methods}
+\PYG{n}{BetaNormLinearADMsPD}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{.}\PYG{n}{agg}\PYG{p}{(}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{min}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{max}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{var}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{count}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{nunique}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}\begin{equation*}
+\begin{split}\begin{tabular}{lrrrrrrrrrr}
+\toprule
+t &     0 &      1 &      2 &      3 &     4 &      5 &      6 &      7 &      8 &      9 \\
+\midrule
+min     &  0.30 &  0.000 &  0.000 &  0.000 &  0.00 &  0.000 &  0.000 &  0.000 &  0.000 &  0.000 \\
+max     &  0.50 &  0.500 &  0.600 &  0.600 &  0.70 &  0.700 &  0.800 &  0.800 &  0.900 &  1.000 \\
+var     &  0.02 &  0.062 &  0.083 &  0.083 &  0.11 &  0.127 &  0.152 &  0.145 &  0.167 &  0.207 \\
+count   &  2.00 &  5.000 &  5.000 &  5.000 &  5.00 &  5.000 &  5.000 &  5.000 &  5.000 &  5.000 \\
+nunique &  2.00 &  3.000 &  4.000 &  4.000 &  4.00 &  3.000 &  4.000 &  4.000 &  5.000 &  5.000 \\
+\bottomrule
+\end{tabular}\end{split}
+\end{equation*}
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Define demean function and apply (from https://stackoverflow.com/a/26110278)}
+\PYG{n}{demean} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{x}\PYG{p}{:} \PYG{n}{x} \PYG{o}{\PYGZhy{}} \PYG{n}{x}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Compute differences from mean}
+\PYG{n}{BetaNormLinearADMsPD}\PYG{o}{.}\PYG{n}{transform}\PYG{p}{(}\PYG{n}{demean}\PYG{p}{,}\PYG{n}{axis}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{columns}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{}.round(1).agg([\PYGZsq{}min\PYGZsq{},\PYGZsq{}max\PYGZsq{},\PYGZsq{}var\PYGZsq{},\PYGZsq{}count\PYGZsq{},\PYGZsq{}nunique\PYGZsq{}])   \PYGZsh{} OK, matches above case.}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}\begin{equation*}
+\begin{split}\begin{tabular}{llrrrrrrrrrr}
+\toprule
+  & t &      0 &      1 &      2 &      3 &      4 &          5 &      6 &      7 &      8 &      9 \\
+l & m &        &        &        &        &        &            &        &        &        &        \\
+\midrule
+0 & 0 & -0.210 & -0.164 & -0.117 & -0.070 & -0.023 &  2.336e-02 &  0.070 &  0.117 &  0.164 &  0.210 \\
+2 & 0 & -0.336 & -0.262 & -0.187 & -0.112 & -0.037 &  3.736e-02 &  0.112 &  0.187 &  0.262 &  0.336 \\
+4 & 0 &    NaN & -0.166 & -0.124 & -0.083 & -0.041 &  0.000e+00 &  0.041 &  0.083 &  0.124 &  0.166 \\
+6 & 0 &    NaN & -0.035 & -0.026 & -0.017 & -0.009 &  0.000e+00 &  0.009 &  0.017 &  0.026 &  0.035 \\
+8 & 0 &    NaN & -0.004 & -0.003 & -0.002 & -0.001 & -8.674e-19 &  0.001 &  0.002 &  0.003 &  0.004 \\
+\bottomrule
+\end{tabular}\end{split}
+\end{equation*}
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Apply statistical functions to differences from mean.}
+\PYG{n}{BetaNormLinearADMsPD}\PYG{o}{.}\PYG{n}{transform}\PYG{p}{(}\PYG{n}{demean}\PYG{p}{,}\PYG{n}{axis}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{columns}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{.}\PYG{n}{agg}\PYG{p}{(}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{min}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{max}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{var}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{count}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{nunique}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}\begin{equation*}
+\begin{split}\begin{tabular}{lrrrrrrrrrr}
+\toprule
+t &      0 &      1 &      2 &      3 &    4 &    5 &      6 &      7 &      8 &      9 \\
+\midrule
+min     & -0.300 & -0.300 & -0.200 & -0.100 & -0.0 & -0.0 &  0.000 &  0.000 &  0.000 &  0.000 \\
+max     & -0.200 & -0.000 & -0.000 & -0.000 & -0.0 & -0.0 &  0.100 &  0.200 &  0.300 &  0.300 \\
+var     &  0.005 &  0.018 &  0.007 &  0.003 &  0.0 &  0.0 &  0.003 &  0.007 &  0.017 &  0.018 \\
+count   &  2.000 &  5.000 &  5.000 &  5.000 &  5.0 &  5.0 &  5.000 &  5.000 &  5.000 &  5.000 \\
+nunique &  2.000 &  3.000 &  3.000 &  2.000 &  1.0 &  1.0 &  2.000 &  3.000 &  4.000 &  3.000 \\
+\bottomrule
+\end{tabular}\end{split}
+\end{equation*}
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\sphinxAtStartPar
+In this case the analysis suggests that \(t=4,5\) contain minimal, and redundant, information, whilst \(t=0,3,6\) are also of low total information content. However, this analysis is not necessarily absolutely definitive, since some nuances may be lost in this basic statistical analysis, particularly for weaker channels.
+
+\sphinxAtStartPar
+For a more detailed analysis, other standard analysis tools can be deployed. For instance, the covariance matrix can be investigated, given by \(K_{i,j}=\textrm{cov}[X_{i},X_{j}]=\langle(X_{i}-\langle X_{i}\rangle)(X_{j}-\langle X_{j}\rangle)\rangle\). For the linear ramp case this analysis is not particularly useful, but will become more informative for more complicated cases.
+
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} import pandas as pd}
+\PYG{c+c1}{\PYGZsh{} import holoviews as hv}
+\PYG{c+c1}{\PYGZsh{} import hvplot.pandas}
+\PYG{c+c1}{\PYGZsh{} hv.extension(\PYGZsq{}bokeh\PYGZsq{})}
+
+\PYG{c+c1}{\PYGZsh{} Compute covariance matrix with Pandas}
+\PYG{c+c1}{\PYGZsh{} Note this is the pairwise covariance of the columns, }
+\PYG{c+c1}{\PYGZsh{} see https://pandas.pydata.org/pandas\PYGZhy{}docs/stable/reference/api/pandas.DataFrame.cov.html}
+\PYG{n}{covMat} \PYG{o}{=} \PYG{n}{BetaNormLinearADMsPD}\PYG{o}{.}\PYG{n}{cov}\PYG{p}{(}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} covMat.name = \PYGZdq{}Covariance\PYGZdq{}}
+\PYG{c+c1}{\PYGZsh{} Plot with holoviews}
+\PYG{c+c1}{\PYGZsh{} hv.HeatMap(covMat, kdims=\PYGZsq{}t\PYGZsq{})}
+\PYG{c+c1}{\PYGZsh{} import hvplot.pandas}
+\PYG{n}{figObj} \PYG{o}{=} \PYG{n}{covMat}\PYG{o}{.}\PYG{n}{hvplot}\PYG{o}{.}\PYG{n}{heatmap}\PYG{p}{(}\PYG{n}{cmap}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{viridis}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} hvds = hv.Dataset(daPlot)}
+\PYG{c+c1}{\PYGZsh{} hvmap = hvds.to(hv.HeatMap, kdims=kdims)}
+
+\PYG{c+c1}{\PYGZsh{} Import routines for density calculation and plotting \PYGZhy{} FAILS, needs da with specific props}
+\PYG{c+c1}{\PYGZsh{} from epsproc.calc import density}
+\PYG{c+c1}{\PYGZsh{} density.matPlot(covMat)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{4806928bdbc767ebe92b209c0cbed114ab0e4ab97120ee6db56392abbbaa2829}.png}
+\caption{Example \(\beta_\{L,M\}(t)\) covariance matrix, see text for details.}\label{\detokenize{part1/theory_info_content_221122:fig-covmatblmexample}}\end{figure}
+
+
+\subsection{Information content from channel functions}
+\label{\detokenize{part1/theory_info_content_221122:information-content-from-channel-functions}}
 \sphinxAtStartPar
 A more complete accounting of information content would, therefore, also
 include the channel couplings, i.e. sensitivity/dependence of the
@@ -2681,8 +3047,142 @@ rotational wavepacket and channel functions.
 distinction to previously demonstrated cases where the time\sphinxhyphen{}dependence
 was created from a shaped laser\sphinxhyphen{}field, and was integrated over in the
 measurements, which provided a coherently\sphinxhyphen{}multiplexed case, see refs.
-{[}\hyperlink{cite.backmatter/bibliography:id556}{58}, \hyperlink{cite.backmatter/bibliography:id558}{59}, \hyperlink{cite.backmatter/bibliography:id557}{60}{]} for details.)
+{[}\hyperlink{cite.backmatter/bibliography:id556}{60}, \hyperlink{cite.backmatter/bibliography:id558}{61}, \hyperlink{cite.backmatter/bibliography:id557}{62}{]} for details.)
 
+\sphinxAtStartPar
+In the numerical examples below, this is considered in terms of the full channel (response) functions \(\varUpsilon_{L,M}^{u,\zeta\zeta'}\) as defined in \eqref{equation:part1/theory_tensor_formalism_201122:eq:channelFunc-MF-defn} and \eqref{equation:part1/theory_tensor_formalism_201122:eq:channelFunc-AF-defn} (see \hyperref[\detokenize{part1/theory_tensor_formalism_201122:sec-theory-tensor-products}]{Sect.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:sec-theory-tensor-products}}}). Numerically, the routines follow from those already introduced above for exploring the information content of \(\beta_{L,M}\) terms, with the caveat that there are more dimensions to handle in the channel functions, indexed by the relevant set of quantum numbers \(\{\zeta,\zeta'\}\) \sphinxhyphen{} these can be included in the criteria for determination of \(M\), or selected or summed over as desired.
+
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Define a set of channel functions to test}
+\PYG{n}{channelFuncs} \PYG{o}{=} \PYG{p}{(}\PYG{n}{basisProductLinearADMs}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{BLMtableResort}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{*} \PYG{n}{basisProductLinearADMs}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{polProd}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} For illustrative purposes, define a subset to use for analysis}
+\PYG{n}{channelFuncsSubset} \PYG{o}{=} \PYG{n}{channelFuncs}\PYG{o}{.}\PYG{n}{sel}\PYG{p}{(}\PYG{n}{Labels}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{A}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{sel}\PYG{p}{(}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{S\PYGZhy{}Rp}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{mu}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{mup}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{}}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{}.sel(L=2)}
+
+\PYG{c+c1}{\PYGZsh{} Check dimensions}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Available dimensions: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{channelFuncs}\PYG{o}{.}\PYG{n}{dims}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Subset dimensions: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{channelFuncsSubset}\PYG{o}{.}\PYG{n}{dims}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Available dimensions: (\PYGZsq{}m\PYGZsq{}, \PYGZsq{}mp\PYGZsq{}, \PYGZsq{}S\PYGZhy{}Rp\PYGZsq{}, \PYGZsq{}l\PYGZsq{}, \PYGZsq{}lp\PYGZsq{}, \PYGZsq{}L\PYGZsq{}, \PYGZsq{}mu\PYGZsq{}, \PYGZsq{}mup\PYGZsq{}, \PYGZsq{}Labels\PYGZsq{}, \PYGZsq{}M\PYGZsq{}, \PYGZsq{}t\PYGZsq{})
+Subset dimensions: (\PYGZsq{}m\PYGZsq{}, \PYGZsq{}mp\PYGZsq{}, \PYGZsq{}l\PYGZsq{}, \PYGZsq{}lp\PYGZsq{}, \PYGZsq{}L\PYGZsq{}, \PYGZsq{}M\PYGZsq{}, \PYGZsq{}t\PYGZsq{})
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{}
+
+\begin{sphinxadmonition}{note}{Note:}
+\sphinxAtStartPar
+Full tabulations of the parameters available in HTML or notebook formats only.
+\end{sphinxadmonition}
+\end{sphinxShadowBox}
+
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-output}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Convert to PD and tabulate with epsproc functionality}
+\PYG{c+c1}{\PYGZsh{} Note restack along \PYGZsq{}t\PYGZsq{} dimension}
+\PYG{n}{channelFuncsSubsetPD}\PYG{p}{,} \PYG{n}{\PYGZus{}} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{util}\PYG{o}{.}\PYG{n}{multiDimXrToPD}\PYG{p}{(}\PYG{n}{channelFuncsSubset}\PYG{o}{.}\PYG{n}{squeeze}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{real}\PYG{p}{,} \PYG{n}{thres}\PYG{o}{=}\PYG{l+m+mf}{1e\PYGZhy{}4}\PYG{p}{,} \PYG{n}{colDims}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Basic describe with Pandas, see https://pandas.pydata.org/docs/user\PYGZus{}guide/basics.html\PYGZsh{}summarizing\PYGZhy{}data\PYGZhy{}describe}
+\PYG{c+c1}{\PYGZsh{} This will give properties per t}
+\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.describe()   \PYGZsh{}([pd.unique])   \PYGZsh{}([\PYGZsq{}nunique\PYGZsq{}])}
+
+\PYG{c+c1}{\PYGZsh{} Round values to 1 d.p., then apply statistical methods}
+\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.round(1).agg([\PYGZsq{}min\PYGZsq{},\PYGZsq{}max\PYGZsq{},\PYGZsq{}var\PYGZsq{},\PYGZsq{}count\PYGZsq{},\PYGZsq{}nunique\PYGZsq{}])  \PYGZsh{} Compute per t}
+
+\PYG{n}{channelFuncsSubsetPD}\PYG{o}{.}\PYG{n}{T}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{.}\PYG{n}{agg}\PYG{p}{(}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{min}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{max}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{var}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{count}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{nunique}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{T}  \PYG{c+c1}{\PYGZsh{}[0:100]  \PYGZsh{} Compute per basis index and display}
+
+
+\PYG{c+c1}{\PYGZsh{} Plotting tests with hvplot wrapper \PYGZhy{} interesting, but lacking fine control so far...}
+\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.T.round(1).agg([\PYGZsq{}min\PYGZsq{},\PYGZsq{}max\PYGZsq{},\PYGZsq{}var\PYGZsq{},\PYGZsq{}count\PYGZsq{},\PYGZsq{}nunique\PYGZsq{}]).T.hvplot.hist(\PYGZsq{}nunique\PYGZsq{}, by=[\PYGZsq{}L\PYGZsq{},\PYGZsq{}M\PYGZsq{}], subplots=True).cols(1)}
+\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.T.round(3).agg([\PYGZsq{}min\PYGZsq{},\PYGZsq{}max\PYGZsq{},\PYGZsq{}var\PYGZsq{},\PYGZsq{}count\PYGZsq{},\PYGZsq{}nunique\PYGZsq{}]).T.hvplot.hist(\PYGZsq{}nunique\PYGZsq{}, by=[\PYGZsq{}l\PYGZsq{},\PYGZsq{}lp\PYGZsq{}])}
+\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.T.round(3).agg([\PYGZsq{}min\PYGZsq{},\PYGZsq{}max\PYGZsq{},\PYGZsq{}var\PYGZsq{},\PYGZsq{}count\PYGZsq{},\PYGZsq{}nunique\PYGZsq{}]).T.hvplot.hist(\PYGZsq{}nunique\PYGZsq{}, by=[\PYGZsq{}l\PYGZsq{},\PYGZsq{}lp\PYGZsq{}], subplots=True).cols(2)}
+\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.T.round(2).agg([\PYGZsq{}min\PYGZsq{},\PYGZsq{}max\PYGZsq{},\PYGZsq{}var\PYGZsq{},\PYGZsq{}count\PYGZsq{},\PYGZsq{}nunique\PYGZsq{}]).T.hvplot.hist(\PYGZsq{}nunique\PYGZsq{}, by=[\PYGZsq{}L\PYGZsq{},\PYGZsq{}l\PYGZsq{},\PYGZsq{}lp\PYGZsq{}], subplots=True)}
+\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.T.round(2).agg([\PYGZsq{}min\PYGZsq{},\PYGZsq{}max\PYGZsq{},\PYGZsq{}var\PYGZsq{},\PYGZsq{}count\PYGZsq{},\PYGZsq{}nunique\PYGZsq{}]).T.hvplot.heatmap(x=\PYGZsq{}nunique\PYGZsq{},y=\PYGZsq{}L\PYGZsq{}, by=[\PYGZsq{}L\PYGZsq{},\PYGZsq{}l\PYGZsq{},\PYGZsq{}lp\PYGZsq{}], subplots=True)}
+
+\PYG{c+c1}{\PYGZsh{} Holomap version \PYGZhy{} not working in notebook currently? Gives controls, but plot not responding...}
+\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.T.round(2).agg([\PYGZsq{}min\PYGZsq{},\PYGZsq{}max\PYGZsq{},\PYGZsq{}var\PYGZsq{},\PYGZsq{}count\PYGZsq{},\PYGZsq{}nunique\PYGZsq{}]).T.hvplot.hist(\PYGZsq{}nunique\PYGZsq{}, by=[\PYGZsq{}L\PYGZsq{},\PYGZsq{}l\PYGZsq{},\PYGZsq{}lp\PYGZsq{}], groupby=[\PYGZsq{}L\PYGZsq{},\PYGZsq{}l\PYGZsq{},\PYGZsq{}lp\PYGZsq{}])}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\sphinxAtStartPar
+For the higher\sphinxhyphen{}dimensional case, it is useful to plot terms relative to all quantum numbers. For example, in a similar manner to the basis set explorations of \hyperref[\detokenize{part1/theory_tensor_formalism_201122:sec-theory-tensor-products}]{Sect.\@ \ref{\detokenize{part1/theory_tensor_formalism_201122:sec-theory-tensor-products}}}, related properties such as the distance from the mean can be examined with \sphinxcode{\sphinxupquote{lmPlot()}}. And, as previously demonstrated, other properties, such as the covariance, may be examined and plotted.
+
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.transform(demean,axis=\PYGZsq{}columns\PYGZsq{}) }
+\PYG{c+c1}{\PYGZsh{} cmap=None   \PYGZsh{} cmap = None for default. \PYGZsq{}vlag\PYGZsq{} good?}
+\PYG{c+c1}{\PYGZsh{} cmap = \PYGZsq{}vlag\PYGZsq{}}
+
+\PYG{c+c1}{\PYGZsh{} De\PYGZhy{}meaned channel functions}
+\PYG{n}{channelFuncsDemean} \PYG{o}{=} \PYG{n}{channelFuncsSubsetPD}\PYG{o}{.}\PYG{n}{transform}\PYG{p}{(}\PYG{n}{demean}\PYG{p}{,}\PYG{n}{axis}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{columns}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Plot using lmPlot routine \PYGZhy{} note this requires conversion to Xarray data type first.}
+\PYG{n}{daPlot}\PYG{p}{,} \PYG{n}{daPlotpd}\PYG{p}{,} \PYG{n}{legendList}\PYG{p}{,} \PYG{n}{gFig} \PYG{o}{=}  \PYG{n}{ep}\PYG{o}{.}\PYG{n}{lmPlot}\PYG{p}{(}\PYG{n}{channelFuncsDemean}\PYG{o}{.}\PYG{n}{to\PYGZus{}xarray}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{to\PYGZus{}array}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+                                                \PYG{p}{,} \PYG{n}{xDim}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{cmap}\PYG{o}{=}\PYG{n}{cmap}\PYG{p}{,} \PYG{n}{mDimLabel}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{m}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{;} 
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Set dataType (No dataType)
+Plotting data (No filename), pType=a, thres=0.01, with Seaborn
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+No handles with labels found to put in legend.
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{131bbdf66b99623335bab92ea234aec14708cf41f88cc27b210cc0cbb9d9665d}.png}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Full covariance mapping along all dims}
+\PYG{n}{sns}\PYG{o}{.}\PYG{n}{clustermap}\PYG{p}{(}\PYG{n}{channelFuncsSubsetPD}\PYG{o}{.}\PYG{n}{T}\PYG{o}{.}\PYG{n}{cov}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{fillna}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZlt{}seaborn.matrix.ClusterGrid at 0x7f5e813b4d30\PYGZgt{}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{3a8ceaccd805aba1c4135c196f2d6221f41e5a8d4fa5952dfb0eada3df792a36}.png}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+
+\subsection{Information content from density matrices}
+\label{\detokenize{part1/theory_info_content_221122:information-content-from-density-matrices}}
 \sphinxstepscope
 
 
@@ -2706,31 +3206,31 @@ Further details of the numerical implementations \sphinxhyphen{} base packages, 
 
 \chapter{Glossary}
 \label{\detokenize{backmatter/glossary:glossary}}\label{\detokenize{backmatter/glossary::doc}}\begin{description}
-\item[{MF\index{MF@\spxentry{MF}|spxpagem}\phantomsection\label{\detokenize{backmatter/glossary:term-MF}}}] \leavevmode
+\sphinxlineitem{MF\index{MF@\spxentry{MF}|spxpagem}\phantomsection\label{\detokenize{backmatter/glossary:term-MF}}}
 \sphinxAtStartPar
 Molecular frame (MF) \sphinxhyphen{} coordinate system referenced to the molecule, usually with the z\sphinxhyphen{}axis corresponding to the highest symmetry axis.
 
-\item[{LF\index{LF@\spxentry{LF}|spxpagem}\phantomsection\label{\detokenize{backmatter/glossary:term-LF}}}] \leavevmode
+\sphinxlineitem{LF\index{LF@\spxentry{LF}|spxpagem}\phantomsection\label{\detokenize{backmatter/glossary:term-LF}}}
 \sphinxAtStartPar
 Laboratory or lab frame (LF) \sphinxhyphen{} coordinate system referenced to the laboratory frame, usually with the z\sphinxhyphen{}axis corresponding to the laser field polarization. For circularly or elliptically polarized light the propagation direction is conventionally used for the z\sphinxhyphen{}axis. In some cases a different z\sphinxhyphen{}axis may be chosen, e.g. as defined by a detector.
 
-\item[{AF\index{AF@\spxentry{AF}|spxpagem}\phantomsection\label{\detokenize{backmatter/glossary:term-AF}}}] \leavevmode
+\sphinxlineitem{AF\index{AF@\spxentry{AF}|spxpagem}\phantomsection\label{\detokenize{backmatter/glossary:term-AF}}}
 \sphinxAtStartPar
 Aligned frame (AF) \sphinxhyphen{} coordinate system referenced to molecular alignment axis or axes. For 1D alignment, the z\sphinxhyphen{}axis usually corresponds to the alignment field polarization, and hence may be identical to the standard {\hyperref[\detokenize{backmatter/glossary:term-LF}]{\sphinxtermref{\DUrole{xref,std,std-term}{LF}}}} definition. For high degrees of (3D) alignment the AF may approach the {\hyperref[\detokenize{backmatter/glossary:term-MF}]{\sphinxtermref{\DUrole{xref,std,std-term}{MF}}}} in the ideal case, although will usually be limited by the symmetry of the system.
 
-\item[{PADs\index{PADs@\spxentry{PADs}|spxpagem}\phantomsection\label{\detokenize{backmatter/glossary:term-PADs}}}] \leavevmode
+\sphinxlineitem{PADs\index{PADs@\spxentry{PADs}|spxpagem}\phantomsection\label{\detokenize{backmatter/glossary:term-PADs}}}
 \sphinxAtStartPar
 Photoelectron angular distributions (PADs), often with a prefix denoting the reference frame, e.g. LFPADs, MFPADs (sometimes also hypenated, e.g. LF\sphinxhyphen{}PADs). Usage is often synonymous with the associated {\hyperref[\detokenize{backmatter/glossary:term-anisotropy-paramters}]{\sphinxtermref{\DUrole{xref,std,std-term}{anisotropy paramters}}}} (or “betas”).
 
-\item[{anisotropy paramters\index{anisotropy paramters@\spxentry{anisotropy paramters}|spxpagem}\phantomsection\label{\detokenize{backmatter/glossary:term-anisotropy-paramters}}}] \leavevmode
+\sphinxlineitem{anisotropy paramters\index{anisotropy paramters@\spxentry{anisotropy paramters}|spxpagem}\phantomsection\label{\detokenize{backmatter/glossary:term-anisotropy-paramters}}}
 \sphinxAtStartPar
 Expansion parameters \(\beta_{L,M}\) for an expansion in spherical harmonics (or similar basis sets of angular momentum functions in polar coordinates), e.g. Eq. \eqref{equation:part1/theory_observables_intro_211122:eq:AF-PAD-general}. Often referred to simply as “beta parameters”, and may be dependent on various properties, e.g. \(\beta_{L,M}(\epsilon,t...)\). Herein upper\sphinxhyphen{}case \(L,M\) usually refer to observables or the general case, whilst lower\sphinxhyphen{}case \((l,m)\) usually refer specifically to the photoelectron wavefunction partial waves, and \((l,\lambda)\) usually denote these terms referenced specifically to the molecular frame.
 
-\item[{ADMs\index{ADMs@\spxentry{ADMs}|spxpagem}\phantomsection\label{\detokenize{backmatter/glossary:term-ADMs}}}] \leavevmode
+\sphinxlineitem{ADMs\index{ADMs@\spxentry{ADMs}|spxpagem}\phantomsection\label{\detokenize{backmatter/glossary:term-ADMs}}}
 \sphinxAtStartPar
 Expansion parameters \(A_{Q,S}^{K}(t)\) for describing a molecular ensemble alignment described as a set of axis distribution moments, usually expanded as Wigner rotation matrix element, spherical harmonics or Legendre polynomial functions.
 
-\item[{Axis distribution moments\index{Axis distribution moments@\spxentry{Axis distribution moments}|spxpagem}\phantomsection\label{\detokenize{backmatter/glossary:term-Axis-distribution-moments}}}] \leavevmode
+\sphinxlineitem{Axis distribution moments\index{Axis distribution moments@\spxentry{Axis distribution moments}|spxpagem}\phantomsection\label{\detokenize{backmatter/glossary:term-Axis-distribution-moments}}}
 \sphinxAtStartPar
 See {\hyperref[\detokenize{backmatter/glossary:term-ADMs}]{\sphinxtermref{\DUrole{xref,std,std-term}{ADMs}}}}.
 
@@ -2775,7 +3275,7 @@ OMP: Info \PYGZsh{}271: omp\PYGZus{}set\PYGZus{}nested routine deprecated, pleas
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
-  Date: Fri Feb 10 12:44:12 2023 EST
+  Date: Wed Mar 29 14:05:31 2023 EDT
 
                 OS : Linux
             CPU(s) : 64
@@ -2795,7 +3295,7 @@ OMP: Info \PYGZsh{}271: omp\PYGZus{}set\PYGZus{}nested routine deprecated, pleas
              scipy : 1.7.1
         matplotlib : 3.4.3
         jupyterlab : 3.2.1
-            plotly : 5.13.0
+            plotly : 5.13.1
          holoviews : 1.15.4
              numpy : 1.20.3
            IPython : 7.28.0
@@ -2810,7 +3310,7 @@ OMP: Info \PYGZsh{}271: omp\PYGZus{}set\PYGZus{}nested routine deprecated, pleas
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{o}{!}jupyter\PYGZhy{}book \PYGZhy{}\PYGZhy{}version
+\PYG{o}{!}jupyter\PYGZhy{}book\PYG{+w}{ }\PYGZhy{}\PYGZhy{}version
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -2818,12 +3318,12 @@ OMP: Info \PYGZsh{}271: omp\PYGZus{}set\PYGZus{}nested routine deprecated, pleas
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-Jupyter Book      : 0.13.2
+Jupyter Book      : 0.15.1
 External ToC      : 0.3.1
-MyST\PYGZhy{}Parser       : 0.15.2
-MyST\PYGZhy{}NB           : 0.13.2
-Sphinx Book Theme : 0.3.3
-Jupyter\PYGZhy{}Cache     : 0.4.3
+MyST\PYGZhy{}Parser       : 0.18.1
+MyST\PYGZhy{}NB           : 0.17.1
+Sphinx Book Theme : 1.0.0
+Jupyter\PYGZhy{}Cache     : 0.5.0
 NbClient          : 0.5.4
 \end{sphinxVerbatim}
 
@@ -2844,8 +3344,8 @@ To do
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{QMpath} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{/home/jovyan/QM3}\PYG{l+s+s1}{\PYGZsq{}}
-\PYG{o}{!}git \PYGZhy{}C \PYG{o}{\PYGZob{}}QMpath\PYG{o}{\PYGZcb{}} branch
-\PYG{o}{!}git \PYGZhy{}C \PYG{o}{\PYGZob{}}QMpath\PYG{o}{\PYGZcb{}} log \PYGZhy{}\PYGZhy{}format\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}\PYGZpc{}H\PYGZdq{}} \PYGZhy{}n \PYG{l+m}{1}
+\PYG{o}{!}git\PYG{+w}{ }\PYGZhy{}C\PYG{+w}{ }\PYG{o}{\PYGZob{}}QMpath\PYG{o}{\PYGZcb{}}\PYG{+w}{ }branch
+\PYG{o}{!}git\PYG{+w}{ }\PYGZhy{}C\PYG{+w}{ }\PYG{o}{\PYGZob{}}QMpath\PYG{o}{\PYGZcb{}}\PYG{+w}{ }log\PYG{+w}{ }\PYGZhy{}\PYGZhy{}format\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}\PYGZpc{}H\PYGZdq{}}\PYG{+w}{ }\PYGZhy{}n\PYG{+w}{ }\PYG{l+m}{1}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -2855,7 +3355,7 @@ To do
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
   gh\PYGZhy{}pages
 * \PYG{Color+ColorGreen}{main}
-243628f53b0913b00ece8a2b2217465617c2a420
+145b10a3aedee84915005e57840a4f271b64ad0a
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -2866,7 +3366,7 @@ To do
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{c+c1}{\PYGZsh{} Check current remote commits}
-\PYG{o}{!}git ls\PYGZhy{}remote \PYGZhy{}\PYGZhy{}heads https://github.com/phockett/Quantum\PYGZhy{}Metrology\PYGZhy{}with\PYGZhy{}Photoelectrons\PYGZhy{}Vol3
+\PYG{o}{!}git\PYG{+w}{ }ls\PYGZhy{}remote\PYG{+w}{ }\PYGZhy{}\PYGZhy{}heads\PYG{+w}{ }https://github.com/phockett/Quantum\PYGZhy{}Metrology\PYGZhy{}with\PYGZhy{}Photoelectrons\PYGZhy{}Vol3
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -2874,8 +3374,8 @@ To do
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-d4b9479728c9ecab2c6a332864bb105e555f8e7f	refs/heads/gh\PYGZhy{}pages
-243628f53b0913b00ece8a2b2217465617c2a420	refs/heads/main
+4263720ddb7693f9a31bfb2d2d9f93f38d78c940	refs/heads/gh\PYGZhy{}pages
+017025c5c83572dde75504fde177b3a34c432ed4	refs/heads/main
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -2914,8 +3414,8 @@ Note \sphinxhyphen{} can’t get versions for local pip installs from repo(?).
 \PYG{c+c1}{\PYGZsh{} Check current Git commit for local ePSproc version \PYGZhy{} NOTE THIS ONLY WORKS FOR INSTALLED FROM GIT CLONES}
 \PYG{c+c1}{\PYGZsh{} from pathlib import Path}
 \PYG{c+c1}{\PYGZsh{} import epsproc as ep}
-\PYG{o}{!}git \PYGZhy{}C \PYG{o}{\PYGZob{}}Path\PYG{o}{(}ep.\PYGZus{}\PYGZus{}file\PYGZus{}\PYGZus{}\PYG{o}{)}.parent\PYG{o}{\PYGZcb{}} branch
-\PYG{o}{!}git \PYGZhy{}C \PYG{o}{\PYGZob{}}Path\PYG{o}{(}ep.\PYGZus{}\PYGZus{}file\PYGZus{}\PYGZus{}\PYG{o}{)}.parent\PYG{o}{\PYGZcb{}} log \PYGZhy{}\PYGZhy{}format\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}\PYGZpc{}H\PYGZdq{}} \PYGZhy{}n \PYG{l+m}{1}
+\PYG{o}{!}git\PYG{+w}{ }\PYGZhy{}C\PYG{+w}{ }\PYG{o}{\PYGZob{}}Path\PYG{o}{(}ep.\PYGZus{}\PYGZus{}file\PYGZus{}\PYGZus{}\PYG{o}{)}.parent\PYG{o}{\PYGZcb{}}\PYG{+w}{ }branch
+\PYG{o}{!}git\PYG{+w}{ }\PYGZhy{}C\PYG{+w}{ }\PYG{o}{\PYGZob{}}Path\PYG{o}{(}ep.\PYGZus{}\PYGZus{}file\PYGZus{}\PYGZus{}\PYG{o}{)}.parent\PYG{o}{\PYGZcb{}}\PYG{+w}{ }log\PYG{+w}{ }\PYGZhy{}\PYGZhy{}format\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}\PYGZpc{}H\PYGZdq{}}\PYG{+w}{ }\PYGZhy{}n\PYG{+w}{ }\PYG{l+m}{1}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -2935,7 +3435,7 @@ fatal: not a git repository (or any of the parent directories): .git
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{c+c1}{\PYGZsh{} Check current remote commits}
-\PYG{o}{!}git ls\PYGZhy{}remote \PYGZhy{}\PYGZhy{}heads https://github.com/phockett/ePSproc
+\PYG{o}{!}git\PYG{+w}{ }ls\PYGZhy{}remote\PYG{+w}{ }\PYGZhy{}\PYGZhy{}heads\PYG{+w}{ }https://github.com/phockett/ePSproc
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -2945,13 +3445,14 @@ fatal: not a git repository (or any of the parent directories): .git
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 897d73392a7b32ffba4ca6b6b4755c61e7c1c8d7	refs/heads/dependabot/pip/notes/envs/envs\PYGZhy{}versioned/certifi\PYGZhy{}2022.12.7
 457f8cd85d89bd6474296b6c01e5165a4a7ce7fc	refs/heads/dependabot/pip/notes/envs/envs\PYGZhy{}versioned/cryptography\PYGZhy{}39.0.1
+2855573d0f088b45d19acf2fd9a71eeb7af0a29b	refs/heads/dependabot/pip/notes/envs/envs\PYGZhy{}versioned/ipython\PYGZhy{}8.10.0
 92c661789a7d2927f2b53d7266f57de70b3834fa	refs/heads/dependabot/pip/notes/envs/envs\PYGZhy{}versioned/mistune\PYGZhy{}2.0.3
 fe1e9540c7b91fe571f60562acd31d8e489d491e	refs/heads/dependabot/pip/notes/envs/envs\PYGZhy{}versioned/nbconvert\PYGZhy{}6.5.1
 70b80a1e3a54de91c2bfe3b6be82d611fcfd5f43	refs/heads/dependabot/pip/notes/envs/envs\PYGZhy{}versioned/pillow\PYGZhy{}9.3.0
 92fc79b09aafedadcb645f88bb7ed771c96d5b52	refs/heads/dependabot/pip/notes/envs/envs\PYGZhy{}versioned/setuptools\PYGZhy{}65.5.1
 fa33ed8d63a5c4a4043cc4c261059cc09e4c2bf7	refs/heads/dependabot/pip/notes/envs/envs\PYGZhy{}versioned/wheel\PYGZhy{}0.38.1
 41cdfe43750e08c510f98b05e024a9c62da42771	refs/heads/dependabot/pip/setuptools\PYGZhy{}65.5.1
-dec4e5902adc562ef2bc9baeae19da1781b7e98b	refs/heads/dev
+e1165bbb81743262984e5d79998b12f50b69f4f5	refs/heads/dev
 1c0b8fd409648f07c85f4f20628b5ea7627e0c4e	refs/heads/master
 69cd89ce5bc0ad6d465a4bd8df6fba15d3fd1aee	refs/heads/numba\PYGZhy{}tests
 ea30878c842f09d525fbf39fa269fa2302a13b57	refs/heads/revert\PYGZhy{}9\PYGZhy{}master
@@ -2966,7 +3467,7 @@ baf0be0c962e8ab3c3df57c8f70f0e939f99cbd7	refs/heads/testDev
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{c+c1}{\PYGZsh{} Check current remote commits}
-\PYG{o}{!}git ls\PYGZhy{}remote \PYGZhy{}\PYGZhy{}heads https://github.com/phockett/PEMtk
+\PYG{o}{!}git\PYG{+w}{ }ls\PYGZhy{}remote\PYG{+w}{ }\PYGZhy{}\PYGZhy{}heads\PYG{+w}{ }https://github.com/phockett/PEMtk
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -2988,7 +3489,7 @@ baf0be0c962e8ab3c3df57c8f70f0e939f99cbd7	refs/heads/testDev
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{o}{!}conda list
+\PYG{o}{!}conda\PYG{+w}{ }list
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -3001,6 +3502,7 @@ baf0be0c962e8ab3c3df57c8f70f0e939f99cbd7	refs/heads/testDev
 \PYGZsh{} Name                    Version                   Build  Channel
 \PYGZus{}libgcc\PYGZus{}mutex             0.1                 conda\PYGZus{}forge    conda\PYGZhy{}forge
 \PYGZus{}openmp\PYGZus{}mutex             4.5                      1\PYGZus{}llvm    conda\PYGZhy{}forge
+accessible\PYGZhy{}pygments       0.0.3                    pypi\PYGZus{}0    pypi
 alabaster                 0.7.13                   pypi\PYGZus{}0    pypi
 alembic                   1.7.4              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 alsa\PYGZhy{}lib                  1.2.3.2              h166bdaf\PYGZus{}0    conda\PYGZhy{}forge
@@ -3009,7 +3511,7 @@ ansi2html                 1.8.0            py39hf3d152e\PYGZus{}1    conda\PYGZh
 anyio                     3.3.4            py39hf3d152e\PYGZus{}0    conda\PYGZhy{}forge
 appdirs                   1.4.4              pyh9f0ad1d\PYGZus{}0    conda\PYGZhy{}forge
 argon2\PYGZhy{}cffi               21.1.0           py39h3811e60\PYGZus{}0    conda\PYGZhy{}forge
-asteval                   0.9.28             pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
+asteval                   0.9.29             pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 astropy                   5.0.4            py39hd257fcd\PYGZus{}0    conda\PYGZhy{}forge
 async\PYGZus{}generator           1.10                       py\PYGZus{}0    conda\PYGZhy{}forge
 atk\PYGZhy{}1.0                   2.36.0               h3371d22\PYGZus{}4    conda\PYGZhy{}forge
@@ -3061,7 +3563,7 @@ curl                      7.79.1               h2574ce0\PYGZus{}1    conda\PYGZh
 cycler                    0.10.0                     py\PYGZus{}2    conda\PYGZhy{}forge
 cython                    0.29.24          py39he80948d\PYGZus{}0    conda\PYGZhy{}forge
 cytoolz                   0.11.0           py39h3811e60\PYGZus{}3    conda\PYGZhy{}forge
-dash                      2.8.1              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
+dash                      2.9.1              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 dask                      2021.10.0          pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 dask\PYGZhy{}core                 2021.10.0          pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 dbus                      1.13.6               h5008d03\PYGZus{}3    conda\PYGZhy{}forge
@@ -3071,15 +3573,15 @@ decorator                 5.1.0              pyhd8ed1ab\PYGZus{}0    conda\PYGZh
 defusedxml                0.7.1              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 dill                      0.3.4              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 distributed               2021.10.0        py39hf3d152e\PYGZus{}0    conda\PYGZhy{}forge
-docutils                  0.17.1                   pypi\PYGZus{}0    pypi
+docutils                  0.18.1                   pypi\PYGZus{}0    pypi
 ducc0                     0.23.0           py39h5a03fae\PYGZus{}0    conda\PYGZhy{}forge
 entrypoints               0.3             py39hde42818\PYGZus{}1002    conda\PYGZhy{}forge
 epsproc                   1.3.2.dev0               pypi\PYGZus{}0    pypi
-exceptiongroup            1.1.0              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
+exceptiongroup            1.1.1              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 expat                     2.4.8                h27087fc\PYGZus{}0    conda\PYGZhy{}forge
 ffmpeg                    4.4.0                h6987444\PYGZus{}4    conda\PYGZhy{}forge
 fftw                      3.3.10          nompi\PYGZus{}h77c792f\PYGZus{}102    conda\PYGZhy{}forge
-firefox                   109.0                hcb278e6\PYGZus{}0    conda\PYGZhy{}forge
+firefox                   100.0                h27087fc\PYGZus{}0    conda\PYGZhy{}forge
 flask                     2.1.3              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 flask\PYGZhy{}compress            1.13               pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 font\PYGZhy{}ttf\PYGZhy{}dejavu\PYGZhy{}sans\PYGZhy{}mono 2.37                 hab24e00\PYGZus{}0    conda\PYGZhy{}forge
@@ -3096,15 +3598,13 @@ fsspec                    2021.10.1          pyhd8ed1ab\PYGZus{}0    conda\PYGZh
 future                    0.18.3             pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 gdal                      3.3.3            py39h0494519\PYGZus{}2    conda\PYGZhy{}forge
 gdk\PYGZhy{}pixbuf                2.42.6               h04a7f16\PYGZus{}0    conda\PYGZhy{}forge
-geckodriver               0.32.2               hd2f7af9\PYGZus{}0    conda\PYGZhy{}forge
+geckodriver               0.30.0               h3146498\PYGZus{}0    conda\PYGZhy{}forge
 geos                      3.10.0               h9c3ff4c\PYGZus{}0    conda\PYGZhy{}forge
 geotiff                   1.7.0                hcfb7246\PYGZus{}3    conda\PYGZhy{}forge
 gettext                   0.19.8.1          h73d1719\PYGZus{}1008    conda\PYGZhy{}forge
 ghostscript               9.54.0               h27087fc\PYGZus{}2    conda\PYGZhy{}forge
 ghp\PYGZhy{}import                2.1.0                    pypi\PYGZus{}0    pypi
 giflib                    5.2.1                h36c2ea0\PYGZus{}2    conda\PYGZhy{}forge
-gitdb                     4.0.10                   pypi\PYGZus{}0    pypi
-gitpython                 3.1.30                   pypi\PYGZus{}0    pypi
 glib                      2.70.2               h780b84a\PYGZus{}4    conda\PYGZhy{}forge
 glib\PYGZhy{}tools                2.70.2               h780b84a\PYGZus{}4    conda\PYGZhy{}forge
 gmp                       6.2.1                h58526e2\PYGZus{}0    conda\PYGZhy{}forge
@@ -3120,13 +3620,14 @@ gst\PYGZhy{}plugins\PYGZhy{}base          1.18.5               hf529b03\PYGZus{}
 gstreamer                 1.18.5               h9f60fe5\PYGZus{}3    conda\PYGZhy{}forge
 gtk2                      2.24.33              h539f30e\PYGZus{}1    conda\PYGZhy{}forge
 h11                       0.14.0             pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
+h5netcdf                  1.1.0              pyhd8ed1ab\PYGZus{}1    conda\PYGZhy{}forge
 h5py                      3.4.0           nompi\PYGZus{}py39h7e08c79\PYGZus{}101    conda\PYGZhy{}forge
 harfbuzz                  3.1.1                h83ec7ef\PYGZus{}0    conda\PYGZhy{}forge
 hdf4                      4.2.15               h10796ff\PYGZus{}3    conda\PYGZhy{}forge
 hdf5                      1.12.1          nompi\PYGZus{}h2750804\PYGZus{}101    conda\PYGZhy{}forge
 heapdict                  1.0.1                      py\PYGZus{}0    conda\PYGZhy{}forge
 holoviews                 1.15.4             pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
-hvplot                    0.8.2                      py\PYGZus{}0    pyviz
+hvplot                    0.8.3                      py\PYGZus{}0    pyviz
 icu                       68.2                 h9c3ff4c\PYGZus{}0    conda\PYGZhy{}forge
 idna                      3.1                pyhd3deb0d\PYGZus{}0    conda\PYGZhy{}forge
 imagecodecs               2021.8.26        py39h571908b\PYGZus{}2    conda\PYGZhy{}forge
@@ -3149,11 +3650,9 @@ jpeg                      9d                   h36c2ea0\PYGZus{}0    conda\PYGZh
 json\PYGZhy{}c                    0.15                 h98cffda\PYGZus{}0    conda\PYGZhy{}forge
 json5                     0.9.5              pyh9f0ad1d\PYGZus{}0    conda\PYGZhy{}forge
 jsonschema                4.1.2              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
-jupyter\PYGZhy{}book              0.13.2                   pypi\PYGZus{}0    pypi
-jupyter\PYGZhy{}cache             0.4.3                    pypi\PYGZus{}0    pypi
+jupyter\PYGZhy{}book              0.15.1                   pypi\PYGZus{}0    pypi
+jupyter\PYGZhy{}cache             0.5.0                    pypi\PYGZus{}0    pypi
 jupyter\PYGZhy{}dash              0.4.2              pyhd8ed1ab\PYGZus{}1    conda\PYGZhy{}forge
-jupyter\PYGZhy{}server\PYGZhy{}mathjax    0.2.6                    pypi\PYGZus{}0    pypi
-jupyter\PYGZhy{}sphinx            0.3.2                    pypi\PYGZus{}0    pypi
 jupyter\PYGZus{}client            7.0.6              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 jupyter\PYGZus{}core              4.9.1            py39hf3d152e\PYGZus{}0    conda\PYGZhy{}forge
 jupyter\PYGZus{}server            1.11.1             pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
@@ -3161,11 +3660,11 @@ jupyter\PYGZus{}telemetry         0.1.0              pyhd8ed1ab\PYGZus{}1    con
 jupyterhub                1.4.2            py39hf3d152e\PYGZus{}0    conda\PYGZhy{}forge
 jupyterhub\PYGZhy{}base           1.4.2            py39hf3d152e\PYGZus{}0    conda\PYGZhy{}forge
 jupyterlab                3.2.1              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
-jupyterlab\PYGZhy{}spellchecker   0.7.2                    pypi\PYGZus{}0    pypi
+jupyterlab\PYGZhy{}spellchecker   0.7.3                    pypi\PYGZus{}0    pypi
 jupyterlab\PYGZus{}pygments       0.1.2              pyh9f0ad1d\PYGZus{}0    conda\PYGZhy{}forge
 jupyterlab\PYGZus{}server         2.8.2              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 jupyterlab\PYGZus{}widgets        1.0.2              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
-jupytext                  1.14.4             pyhcff175f\PYGZus{}0    conda\PYGZhy{}forge
+jupytext                  1.14.5             pyhcff175f\PYGZus{}0    conda\PYGZhy{}forge
 jxrlib                    1.1                  h7f98852\PYGZus{}2    conda\PYGZhy{}forge
 kaleido\PYGZhy{}core              0.2.1                h3644ca4\PYGZus{}0    conda\PYGZhy{}forge
 kealib                    1.4.14               h87e4c3c\PYGZus{}3    conda\PYGZhy{}forge
@@ -3191,12 +3690,13 @@ libedit                   3.1.20191231         he28a2e2\PYGZus{}2    conda\PYGZh
 libev                     4.33                 h516909a\PYGZus{}1    conda\PYGZhy{}forge
 libevent                  2.1.10               h9b69904\PYGZus{}4    conda\PYGZhy{}forge
 libffi                    3.4.2                h9c3ff4c\PYGZus{}4    conda\PYGZhy{}forge
-libgcc\PYGZhy{}ng                 12.2.0              h65d4601\PYGZus{}19    conda\PYGZhy{}forge
+libgcc\PYGZhy{}ng                 11.2.0              h1d223b6\PYGZus{}11    conda\PYGZhy{}forge
 libgd                     2.3.3                h6ad9fb6\PYGZus{}0    conda\PYGZhy{}forge
 libgdal                   3.3.3                h18e3bf0\PYGZus{}2    conda\PYGZhy{}forge
 libgfortran\PYGZhy{}ng            11.2.0              h69a702a\PYGZus{}11    conda\PYGZhy{}forge
 libgfortran5              11.2.0              h5c6108e\PYGZus{}11    conda\PYGZhy{}forge
 libglib                   2.70.2               h174f98d\PYGZus{}4    conda\PYGZhy{}forge
+libgomp                   11.2.0              h1d223b6\PYGZus{}11    conda\PYGZhy{}forge
 libiconv                  1.16                 h516909a\PYGZus{}0    conda\PYGZhy{}forge
 libkml                    1.3.0             h238a007\PYGZus{}1014    conda\PYGZhy{}forge
 liblapack                 3.9.0           12\PYGZus{}linux64\PYGZus{}openblas    conda\PYGZhy{}forge
@@ -3217,7 +3717,7 @@ libsodium                 1.0.18               h36c2ea0\PYGZus{}1    conda\PYGZh
 libsolv                   0.7.19               h780b84a\PYGZus{}5    conda\PYGZhy{}forge
 libspatialite             5.0.1               h1d9e4f1\PYGZus{}10    conda\PYGZhy{}forge
 libssh2                   1.10.0               ha56f1ee\PYGZus{}2    conda\PYGZhy{}forge
-libstdcxx\PYGZhy{}ng              12.2.0              h46fd767\PYGZus{}19    conda\PYGZhy{}forge
+libstdcxx\PYGZhy{}ng              11.2.0              he4da1e4\PYGZus{}11    conda\PYGZhy{}forge
 libtiff                   4.3.0                h6f004c6\PYGZus{}2    conda\PYGZhy{}forge
 libuuid                   2.32.1            h7f98852\PYGZus{}1000    conda\PYGZhy{}forge
 libuv                     1.41.1               h7f98852\PYGZus{}0    conda\PYGZhy{}forge
@@ -3241,12 +3741,12 @@ lzo                       2.10              h516909a\PYGZus{}1000    conda\PYGZh
 mako                      1.1.5              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 mamba                     0.17.0           py39h951de11\PYGZus{}0    conda\PYGZhy{}forge
 markdown                  3.4.1              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
-markdown\PYGZhy{}it\PYGZhy{}py            1.1.0                    pypi\PYGZus{}0    pypi
+markdown\PYGZhy{}it\PYGZhy{}py            2.2.0              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 markupsafe                2.0.1            py39h3811e60\PYGZus{}0    conda\PYGZhy{}forge
 mathjax                   2.7.7                ha770c72\PYGZus{}3    conda\PYGZhy{}forge
 matplotlib\PYGZhy{}base           3.4.3            py39h2fa2bec\PYGZus{}1    conda\PYGZhy{}forge
 matplotlib\PYGZhy{}inline         0.1.3              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
-mdit\PYGZhy{}py\PYGZhy{}plugins           0.2.8                    pypi\PYGZus{}0    pypi
+mdit\PYGZhy{}py\PYGZhy{}plugins           0.3.5              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 mdurl                     0.1.0              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 mistune                   0.8.4           py39h3811e60\PYGZus{}1004    conda\PYGZhy{}forge
 mock                      4.0.3            py39hf3d152e\PYGZus{}1    conda\PYGZhy{}forge
@@ -3256,12 +3756,11 @@ mpmath                    1.2.1              pyhd8ed1ab\PYGZus{}0    conda\PYGZh
 msgpack\PYGZhy{}python            1.0.2            py39h1a9c180\PYGZus{}1    conda\PYGZhy{}forge
 mysql\PYGZhy{}common              8.0.27               ha770c72\PYGZus{}3    conda\PYGZhy{}forge
 mysql\PYGZhy{}libs                8.0.27               hfa10184\PYGZus{}3    conda\PYGZhy{}forge
-myst\PYGZhy{}nb                   0.13.2                   pypi\PYGZus{}0    pypi
-myst\PYGZhy{}parser               0.15.2                   pypi\PYGZus{}0    pypi
+myst\PYGZhy{}nb                   0.17.1                   pypi\PYGZus{}0    pypi
+myst\PYGZhy{}parser               0.18.1                   pypi\PYGZus{}0    pypi
 nbclassic                 0.3.3              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 nbclient                  0.5.4              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 nbconvert                 6.2.0            py39hf3d152e\PYGZus{}0    conda\PYGZhy{}forge
-nbdime                    3.1.1                    pypi\PYGZus{}0    pypi
 nbformat                  5.1.3              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 ncurses                   6.2                  h58526e2\PYGZus{}4    conda\PYGZhy{}forge
 nest\PYGZhy{}asyncio              1.5.1              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
@@ -3280,16 +3779,16 @@ olefile                   0.46               pyh9f0ad1d\PYGZus{}1    conda\PYGZh
 openblas                  0.3.18          pthreads\PYGZus{}h4748800\PYGZus{}0    conda\PYGZhy{}forge
 openh264                  2.1.1                h780b84a\PYGZus{}0    conda\PYGZhy{}forge
 openjpeg                  2.4.0                hb52868f\PYGZus{}1    conda\PYGZhy{}forge
-openssl                   1.1.1s               h0b41bf4\PYGZus{}1    conda\PYGZhy{}forge
+openssl                   1.1.1o               h166bdaf\PYGZus{}0    conda\PYGZhy{}forge
 outcome                   1.2.0              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 packaging                 21.0               pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 pamela                    1.0.0                      py\PYGZus{}0    conda\PYGZhy{}forge
 pandas                    1.3.4            py39hde0f152\PYGZus{}0    conda\PYGZhy{}forge
 pandoc                    2.15                 h7f98852\PYGZus{}0    conda\PYGZhy{}forge
 pandocfilters             1.5.0              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
-panel                     0.14.3             pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
+panel                     0.14.4             pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 pango                     1.48.10              h54213e6\PYGZus{}2    conda\PYGZhy{}forge
-param                     1.12.3             pyh1a96a4e\PYGZus{}0    conda\PYGZhy{}forge
+param                     1.13.0             pyh1a96a4e\PYGZus{}0    conda\PYGZhy{}forge
 parso                     0.8.2              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 partd                     1.2.0              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 patsy                     0.5.2              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
@@ -3300,7 +3799,7 @@ pickleshare               0.7.5           py39hde42818\PYGZus{}1002    conda\PYG
 pillow                    8.3.2            py39ha612740\PYGZus{}0    conda\PYGZhy{}forge
 pip                       21.3.1             pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 pixman                    0.40.0               h36c2ea0\PYGZus{}0    conda\PYGZhy{}forge
-plotly                    5.13.0             pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
+plotly                    5.13.1             pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 pooch                     1.5.2              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 poppler                   21.09.0              ha39eefc\PYGZus{}3    conda\PYGZhy{}forge
 poppler\PYGZhy{}data              0.4.12               hd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
@@ -3319,9 +3818,9 @@ pycparser                 2.20               pyh9f0ad1d\PYGZus{}2    conda\PYGZh
 pyct                      0.4.6                      py\PYGZus{}0    conda\PYGZhy{}forge
 pyct\PYGZhy{}core                 0.4.6                      py\PYGZus{}0    conda\PYGZhy{}forge
 pycurl                    7.44.1           py39h72e3413\PYGZus{}0    conda\PYGZhy{}forge
-pydata\PYGZhy{}sphinx\PYGZhy{}theme       0.8.1                    pypi\PYGZus{}0    pypi
+pydata\PYGZhy{}sphinx\PYGZhy{}theme       0.13.1                   pypi\PYGZus{}0    pypi
 pyerfa                    2.0.0.1          py39hd257fcd\PYGZus{}2    conda\PYGZhy{}forge
-pygments                  2.10.0             pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
+pygments                  2.14.0                   pypi\PYGZus{}0    pypi
 pygmt                     0.5.0              pyhd8ed1ab\PYGZus{}1    conda\PYGZhy{}forge
 pyjwt                     2.3.0              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 pyopenssl                 21.0.0             pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
@@ -3359,24 +3858,23 @@ scipy                     1.7.1            py39hee8e79c\PYGZus{}0    conda\PYGZh
 scooby                    0.7.1              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 seaborn                   0.9.0                      py\PYGZus{}2    conda\PYGZhy{}forge
 seaborn\PYGZhy{}base              0.11.2             pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
-selenium                  4.7.2              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
+selenium                  4.8.2              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 send2trash                1.8.0              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 setuptools                58.2.0           py39hf3d152e\PYGZus{}0    conda\PYGZhy{}forge
 setuptools\PYGZhy{}scm            6.4.2              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 shapely                   1.8.0            py39hc7dd4e9\PYGZus{}2    conda\PYGZhy{}forge
 six                       1.16.0             pyh6c4a22f\PYGZus{}0    conda\PYGZhy{}forge
-smmap                     5.0.0                    pypi\PYGZus{}0    pypi
 snappy                    1.1.8                he1b5a44\PYGZus{}3    conda\PYGZhy{}forge
 sniffio                   1.2.0            py39hf3d152e\PYGZus{}1    conda\PYGZhy{}forge
 snowballstemmer           2.2.0                    pypi\PYGZus{}0    pypi
 sortedcontainers          2.4.0              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 soupsieve                 2.0.1                      py\PYGZus{}1    conda\PYGZhy{}forge
 spherical\PYGZus{}functions       2022.4.1           pyhd8ed1ab\PYGZus{}1    conda\PYGZhy{}forge
-sphinx                    4.5.0                    pypi\PYGZus{}0    pypi
-sphinx\PYGZhy{}book\PYGZhy{}theme         0.3.3                    pypi\PYGZus{}0    pypi
+sphinx                    5.0.2                    pypi\PYGZus{}0    pypi
+sphinx\PYGZhy{}book\PYGZhy{}theme         1.0.0                    pypi\PYGZus{}0    pypi
 sphinx\PYGZhy{}comments           0.0.3                    pypi\PYGZus{}0    pypi
 sphinx\PYGZhy{}copybutton         0.5.1                    pypi\PYGZus{}0    pypi
-sphinx\PYGZhy{}design             0.1.0                    pypi\PYGZus{}0    pypi
+sphinx\PYGZhy{}design             0.3.0                    pypi\PYGZus{}0    pypi
 sphinx\PYGZhy{}external\PYGZhy{}toc       0.3.1                    pypi\PYGZus{}0    pypi
 sphinx\PYGZhy{}jupyterbook\PYGZhy{}latex  0.5.2                    pypi\PYGZus{}0    pypi
 sphinx\PYGZhy{}multitoc\PYGZhy{}numbering 0.1.3                    pypi\PYGZus{}0    pypi
@@ -3394,8 +3892,9 @@ sqlalchemy                1.4.26           py39h3811e60\PYGZus{}0    conda\PYGZh
 sqlite                    3.36.0               h9cd32fc\PYGZus{}2    conda\PYGZhy{}forge
 statsmodels               0.13.0           py39hce5d2b2\PYGZus{}0    conda\PYGZhy{}forge
 sympy                     1.9              py39hf3d152e\PYGZus{}0    conda\PYGZhy{}forge
+tabulate                  0.9.0                    pypi\PYGZus{}0    pypi
 tblib                     1.7.0              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
-tenacity                  8.1.0              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
+tenacity                  8.2.2              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 terminado                 0.12.1           py39hf3d152e\PYGZus{}0    conda\PYGZhy{}forge
 testpath                  0.5.0              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 threadpoolctl             3.0.0              pyh8a188c0\PYGZus{}0    conda\PYGZhy{}forge
@@ -3409,7 +3908,7 @@ tornado                   6.1              py39h3811e60\PYGZus{}1    conda\PYGZh
 tqdm                      4.62.3             pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 traitlets                 5.1.1              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 trio                      0.22.0           py39hf3d152e\PYGZus{}1    conda\PYGZhy{}forge
-trio\PYGZhy{}websocket            0.9.2              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
+trio\PYGZhy{}websocket            0.10.2             pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 typing\PYGZus{}extensions         3.10.0.2           pyha770c72\PYGZus{}0    conda\PYGZhy{}forge
 tzcode                    2022a                h166bdaf\PYGZus{}0    conda\PYGZhy{}forge
 tzdata                    2021e                he74cb21\PYGZus{}0    conda\PYGZhy{}forge
@@ -3626,13 +4125,19 @@ Malte C Tichy, Florian Mintert, and Andreas Buchleitner. Essential entanglement
 \bibitem[57]{backmatter/bibliography:id820}
 \sphinxAtStartPar
 Joel Yuen\sphinxhyphen{}Zhou, Jacob J Krich, Ivan Kassal, Allan S Johnson, and Alán Aspuru\sphinxhyphen{}Guzik. \sphinxstyleemphasis{Ultrafast Spectroscopy: Quantum Information and Wavepackets}. IOP Publishing, 2014. ISBN 978\sphinxhyphen{}0\sphinxhyphen{}7503\sphinxhyphen{}1062\sphinxhyphen{}8. \sphinxhref{https://doi.org/10.1088/978-0-750-31062-8}{doi:10.1088/978\sphinxhyphen{}0\sphinxhyphen{}750\sphinxhyphen{}31062\sphinxhyphen{}8}.
-\bibitem[58]{backmatter/bibliography:id556}
+\bibitem[58]{backmatter/bibliography:id726}
+\sphinxAtStartPar
+B Schmidtke, M Drescher, N a Cherepkov, and U Heinzmann. On the impossibility to perform a complete valence\sphinxhyphen{}shell photoionization experiment with closed\sphinxhyphen{}shell atoms. \sphinxstyleemphasis{Journal of Physics B: Atomic, Molecular and Optical Physics}, 33(13):2451–2465, July 2000. \sphinxhref{https://doi.org/10.1088/0953-4075/33/13/306}{doi:10.1088/0953\sphinxhyphen{}4075/33/13/306}.
+\bibitem[59]{backmatter/bibliography:id692}
+\sphinxAtStartPar
+S Ramakrishna and Tamar Seideman. On the information content of time\sphinxhyphen{} and angle\sphinxhyphen{}resolved photoelectron spectroscopy. \sphinxstyleemphasis{Journal of Physics B: Atomic, Molecular and Optical Physics}, 45(19):194012, October 2012. \sphinxhref{https://doi.org/10.1088/0953-4075/45/19/194012}{doi:10.1088/0953\sphinxhyphen{}4075/45/19/194012}.
+\bibitem[60]{backmatter/bibliography:id556}
 \sphinxAtStartPar
 P. Hockett, M. Wollenhaupt, C. Lux, and T. Baumert. Complete Photoionization Experiments via Ultrafast Coherent Control with Polarization Multiplexing. \sphinxstyleemphasis{Physical Review Letters}, 112(22):223001, June 2014. \sphinxhref{https://doi.org/10.1103/PhysRevLett.112.223001}{doi:10.1103/PhysRevLett.112.223001}.
-\bibitem[59]{backmatter/bibliography:id558}
+\bibitem[61]{backmatter/bibliography:id558}
 \sphinxAtStartPar
 Paul Hockett, Matthias Wollenhaupt, Christian Lux, and Thomas Baumert. Complete photoionization experiments via ultrafast coherent control with polarization multiplexing. II. Numerics and analysis methodologies. \sphinxstyleemphasis{Physical Review A}, 92(1):013411, July 2015. \sphinxhref{https://doi.org/10.1103/PhysRevA.92.013411}{doi:10.1103/PhysRevA.92.013411}.
-\bibitem[60]{backmatter/bibliography:id557}
+\bibitem[62]{backmatter/bibliography:id557}
 \sphinxAtStartPar
 P Hockett, M Wollenhaupt, and T Baumert. Coherent control of photoelectron wavepacket angular interferograms. \sphinxstyleemphasis{Journal of Physics B: Atomic, Molecular and Optical Physics}, 48(21):214004, November 2015. \sphinxhref{https://doi.org/10.1088/0953-4075/48/21/214004}{doi:10.1088/0953\sphinxhyphen{}4075/48/21/214004}.
 \end{sphinxthebibliography}

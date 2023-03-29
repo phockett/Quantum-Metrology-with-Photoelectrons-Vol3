@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -20,7 +20,8 @@ Theory section on observables
 - 24/11/22 Fixed Pandas Latex/PDF render, see https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/6
   Note not working for displayed sym harm tables from symObj.displayXlm(), although are OK in HTML - likely issue with lack of return object in this case. May not want to include these in any case, but adding return obj option to PEMtk code probably best bet to fix, see phockett/PEMtk@bb51d8b/pemtk/sym/symHarm.py#L577.
 - 09/02/23 All glue() outputs in this page currently broken? Related to changes to `setup_notebook.py` glue wrappers and/or build env (running in new Docker container dated 07/02/23). Weird.
-
+- 23/03/23 Seems OK again (probably after rebuilds of container etc., plus other debugging). Also added some layout options to PAD plots, and set new image size defaults in `setup_notebook.py`.
+   - Also a bit of tidy-up and playing around with first section. Still quite messy.
 
 TODO
 
@@ -69,13 +70,27 @@ from epsproc.sphCalc import setBLMs
 
 # BLM = setBLMs([[0,0,1],[1,1,1],[2,2,1]])
 # BLM = setBLMs([[0,0,1,1,1],[1,1,1,0.5,0.2],[2,2,1,1,0.2]])   # Note different index
-BLM = setBLMs([[0,0,1,1,1,1],[1,1,0,0.5,0.8,1],[2,0,1,0.5,0,0],
-               [4,2,0,0,0,0.5],[4,-2,0,0,0,0.5]])
+# BLM = setBLMs([[0,0,1,1,1,1],[1,1,0,0.5,0.8,1],[2,0,1,0.5,0,0],
+#                [4,2,0,0,0,0.5],[4,-2,0,0,0,0.5]])
+# BLM = setBLMs([[0,0,1,1,1,1,1,1],[1,1,0,0.5,0.8,1,1,1.5],[1,-1,0,0.5,0.8,1,1,1.5],[2,0,1,0.5,0,0,0.5,1],
+#                [4,2,0,0,0,0.5,0.8,1],[4,-2,0,0,0,0.5,0.8,-1]])
+BLM = setBLMs([[0,0,1,1,1,1,1,1],
+               [1,0,0,0.5,0.8,1,0.5,0],[1,-1,0,0.5,0.8,1,0.5,0],[1,1,0,0.5,-0.5,1,0.5,0],
+               [2,0,1,0.5,0,0,0.5,1],
+               [4,2,0,0,0,0.5,0.8,1],[4,-2,0,0,0,0,-0.8,1]])
+
+# Quick tabulation with Pandas
+BLM.to_pandas()
+```
+
+```{code-cell} ipython3
+:tags: [hide-output]
 
 # Set the backend to 'pl' for an interactive surface plot with Plotly
 # NOTE PL FIG RETURN BROKEN FOR THIS CASE (ePSproc v1.3.1), so run sphSumPlotX too.
+rc = [2,3]  # Explict layout setting
 dataPlot, figObj = ep.sphFromBLMPlot(BLM, facetDim='t', plotFlag = False, backend = plotBackend);
-figObj = ep.sphSumPlotX(dataPlot,facetDim='t', plotFlag = False, backend = plotBackend);
+figObj = ep.sphSumPlotX(dataPlot,facetDim='t', plotFlag = False, backend = plotBackend, rc=rc);
 
 # And GLUE for display later with caption
 # from myst_nb import glue
@@ -84,14 +99,17 @@ figObj = ep.sphSumPlotX(dataPlot,facetDim='t', plotFlag = False, backend = plotB
 # gluePlotly("padExamplePlot", figObj[0])   # Working in Render test notebook, but not here? Issue with subplots?
 
 # Test in separate cell...
-gluePlotly("padExamplePlot", figObj[0])   # Working in Render test notebook, but not here? Issue with subplots?
+# gluePlotly("padExamplePlot", figObj[0])   # Working in Render test notebook, but not here? Issue with subplots?
+
+# With additional layout settings - defaults give cropped subplots?
+gluePlotly("padExamplePlot", figObj[0])   #.update_layout(height=1400, width=1400))
 ```
 
 ```{glue:figure} padExamplePlot
 ---
 name: "fig-pads-example"
 ---
-Examples of angular distributions (expansions in spherical harmonics $Y_{L,M}$), for a range of cases. Note that up-down asymmetry is associated with odd-$l$ contributions, and breaking of cylindrical symmetry with $m\neq0$ terms.
+Examples of angular distributions (expansions in spherical harmonics $Y_{L,M}$), for a range of cases indexed by $t$. Note that up-down asymmetry is associated with odd-$l$ contributions (e.g. $t=1,2$), breaking of cylindrical symmetry with $m\neq0$ terms (all $t>0$), and asymmetries in the (x,y) plane (skew/directionality) with different $\pm m$ terms (magnitude or phase, e.g. $t=2,3,4$). Higher-order $L,M$ terms have more nodes, and lead to more complex angular structures, as shown in the lower row ($t=3,4,5$).
 ```
 
 ```{code-cell} ipython3
@@ -131,8 +149,8 @@ gluePlotly("padExamplePlot2", figObj)
 # from epsproc.sphFuncs.sphConv import tabulateLM
 # tabulateLM(BLM.unstack())
 
+# General case
 from epsproc.util import multiDimXrToPD
-
 dataPD, _ = multiDimXrToPD(BLM, colDims='t')
 # dataPD
 glue("blm-tab", dataPD, display=False);
@@ -165,7 +183,7 @@ For basic cases these limits may be low: for instance, a simple 1-photon photoio
 
 In general, these observables may also be dependent on various other parameters; in Eq. {eq}`eq:AF-PAD-general` two such parameters, $(\epsilon,t)$, are included, as the usual variables of interest. Usually $\epsilon$ denotes the photoelectron energy, and $t$ is used in the case of time-dependent (usually pump-probe) measurements. As discussed below ({numref}`Sect. %s <sec:dynamics-intro>`), the origin of such dependencies may be complicated but, in general, the associated photoionization matrix elements are energy-dependent, and time-dependence may also appear for a number of intrinsic or extrinsic (experimental) reasons, e.g. electronic or nuclear dynamics, rotational (alignment) dynamics, electric field dynamics etc. In many cases only one particular aspect may be of interest, so $t$ can be used as a generic label to index changes as per {numref}`fig-pads-example`.
 
-+++ {"tags": []}
++++
 
 (sec:theory:sym-harm-into)=
 ## Symmetrized harmonics
@@ -217,7 +235,7 @@ A brief numerical example is given below, for {glue:text}`symHarmPG` symmetry ($
 
 % TODO: link to symmetrized matrix elements given later?
 
-+++ {"tags": []}
++++
 
 ````{margin}
 ```{note}
@@ -302,7 +320,8 @@ for dataType in ['BLM']:  #['matE','BLM']:
 # Note 'squeeze=True' to force drop of singleton dims may be required.
 # data.padPlot(keys='symHarm',dataType='BLM', facetDims = ['Cont'], squeeze = True, backend=plotBackend)
 
-data.padPlot(keys='symHarm',dataType='BLM', facetDims = ['Cont'], squeeze = True, backend=plotBackend, plotFlag=False, returnFlag=True)  # Working
+rc = [2,3]  # Explict layout setting
+data.padPlot(keys='symHarm',dataType='BLM', facetDims = ['Cont'], squeeze = True, backend=plotBackend, rc = rc, plotFlag=False, returnFlag=True)  # Working
 figObj = data.data['symHarm']['plots']['BLM']['polar'][0]
 
 # And GLUE for display later with caption
@@ -327,6 +346,8 @@ Examples of angular distributions from expansions in symmetrized harmonics $X_{h
 ## Legendre polynomials
 
 ```{code-cell} ipython3
+:tags: [remove-cell]
+
 !date
 ```
 

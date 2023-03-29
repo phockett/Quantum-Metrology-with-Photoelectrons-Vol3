@@ -22,7 +22,7 @@ isinstance(daPlot, hv.core.spaces)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mTypeError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipykernel_77648/500877226.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_84587/500877226.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0misinstance[0m[0;34m([0m[0mdaPlot[0m[0;34m,[0m [0mhv[0m[0;34m.[0m[0mcore[0m[0;34m.[0m[0mspaces[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;31mTypeError[0m: isinstance() arg 2 must be a type or tuple of types
