@@ -3,8 +3,6 @@
 # Basic routine for Quantum Metrology Vol. 3 demo case.
 # See Sect. 3.3 for further notes
 
-print('*** Setting up basis set for symmetry-defined matrix elements, see Quantum Metrology Vol. 3 Sect. 3.3...')
-
 # Imports
 import epsproc as ep
 import numpy as np
@@ -13,13 +11,29 @@ import numpy as np
 from pemtk.fit.fitClass import pemtkFit
 from pemtk.sym.symHarm import symHarm
 
-# Compute hamronics for Td, lmax=4
-sym = 'D2h'
-lmax=4
+# 13/04/23: updated to use argparse for multiple arg passing
+# Note this keeps default case to match previous hard-coded symmetry (Td).
+import argparse
+
+parser = argparse.ArgumentParser(description='Setup symmetrized harmonics and basis functions. Default case runs for sym=D2h, lmax=4, lmaxPlot=2.')
+parser.add_argument("--sym", type=str, default='D2h', help="Symmetry to use, default=D2h. Allowed cases: ['Ci', 'Cs', 'Cnv', 'Dn', 'Dnh', 'Dnd', 'Td', 'O', 'Oh', 'I', 'Ih']")
+# Can set choices to list, but will need to subs all n?
+# For allowed cases, see https://pemtk.readthedocs.io/en/latest/sym/pemtk_symHarm_demo_160322_tidy.html#Create-class-&-compute-harmonics
+# choices=['Ci', 'Cs', 'Cnv', 'Dn', 'Dnh', 'Dnd', 'Td', 'O', 'Oh', 'I', 'Ih']
+parser.add_argument("--lmax", type=int, default=4, help='Maximum l, default=4.')
+parser.add_argument("--lmaxPlot", type=int, default=2, help='Maximum l for plotting only, default=2 (not used directly in script).')
+args = parser.parse_args()
+
+# Set args
+sym = args.sym
+lmax= args.lmax
+lmaxPlot = args.lmaxPlot  # Set lmaxPlot for subselection on plots later.
+
+# Compute harmonics
+print('*** Setting up basis set for symmetry-defined matrix elements, see Quantum Metrology Vol. 3 Sect. 3.3...\n')
 
 print(f"Set symmetry={sym}, lmax={lmax}")
 
-lmaxPlot = 2  # Set lmaxPlot for subselection on plots later.
 
 # TODO: consider different labelling here, can set at init e.g. dims = ['C', 'h', 'muX', 'l', 'm'] - 25/11/22 code currently fails for mu mapping, remap below instead
 symObj = symHarm(sym,lmax)
