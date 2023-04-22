@@ -5,14 +5,12 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.0
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
-
-+++ {"tags": []}
 
 # Glossary
 
@@ -43,6 +41,12 @@ ADMs
 
 Axis distribution moments
   See {{ ADMs }}.
+  
+MS
+  Molecular symmetry group. Symmetry group classification of a molecule, isomorphic to the point group in rigid molecules. See Bunker and Jensen {cite}`bunkerMolSymm` for discussion.
+  
+PG
+  Point group. Symmetry group classification of a molecule, strictly only applicable to rigid systems. See {{ MS }} for more general case.
   
 
 ```
