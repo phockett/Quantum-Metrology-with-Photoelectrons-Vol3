@@ -44,7 +44,12 @@ parts:
   - caption: Extracting matrix elements - numerical methods & case studies
     numbered: true
     chapters:
+    - file: part2/extracting_matrix_elements_overview_270423
     - file: part2/sym-fitting-intro_220423
+    - file: part2/basic_fitting_numerics_intro_260423
+    - file: part2/case-study-N2_270423
+    - file: part2/case-study-OCS_270423
+    - file: part2/case-study-C2H4_270423
 
   - caption: Backmatter
     chapters:
