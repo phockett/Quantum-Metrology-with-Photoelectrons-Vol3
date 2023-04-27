@@ -12,16 +12,18 @@ from pemtk.fit.fitClass import pemtkFit
 from pemtk.sym.symHarm import symHarm
 
 # 13/04/23: updated to use argparse for multiple arg passing
-# Note this keeps default case to match previous hard-coded symmetry (Td).
+# Note this keeps default case to match previous hard-coded symmetry (D2h).
+# Note also that D2h case includes .sum(['h','muX']) (for redundant dims)
+# For now this is OMITTED in all other cases.
 import argparse
 
 parser = argparse.ArgumentParser(description='Setup symmetrized harmonics and basis functions. Default case runs for sym=D2h, lmax=4, lmaxPlot=2.')
-parser.add_argument("--sym", type=str, default='D2h', help="Symmetry to use, default=D2h. Allowed cases: ['Ci', 'Cs', 'Cnv', 'Dn', 'Dnh', 'Dnd', 'Td', 'O', 'Oh', 'I', 'Ih']")
+parser.add_argument("-s","--sym", type=str, default='D2h', help="Symmetry to use, default=D2h. Allowed cases: ['Ci', 'Cs', 'Cnv', 'Dn', 'Dnh', 'Dnd', 'Td', 'O', 'Oh', 'I', 'Ih']")
 # Can set choices to list, but will need to subs all n?
 # For allowed cases, see https://pemtk.readthedocs.io/en/latest/sym/pemtk_symHarm_demo_160322_tidy.html#Create-class-&-compute-harmonics
 # choices=['Ci', 'Cs', 'Cnv', 'Dn', 'Dnh', 'Dnd', 'Td', 'O', 'Oh', 'I', 'Ih']
-parser.add_argument("--lmax", type=int, default=4, help='Maximum l, default=4.')
-parser.add_argument("--lmaxPlot", type=int, default=2, help='Maximum l for plotting only, default=2 (not used directly in script).')
+parser.add_argument("-lm","--lmax", type=int, default=4, help='Maximum l, default=4.')
+parser.add_argument("-lp","--lmaxPlot", type=int, default=2, help='Maximum l for plotting only, default=2 (not used directly in script).')
 args = parser.parse_args()
 
 # Set args
@@ -60,7 +62,16 @@ dataKey = sym
 data.data[dataKey] = {}
 
 for dataType in ['matE','BLM']:
-    data.data[dataKey][dataType] = symObj.coeffs[dataType]['b (comp)'].sum(['h','muX'])  # Select expansion in complex harmonics, and sum redundant dims
+    
+    
+    # Special cases...
+    if sym=='D2h':
+        data.data[dataKey][dataType] = symObj.coeffs[dataType]['b (comp)'].sum(['h','muX'])  # Select expansion in complex harmonics, and sum redundant dims
+    
+    # General case
+    else:
+        data.data[dataKey][dataType] = symObj.coeffs[dataType]['b (comp)']
+    
     data.data[dataKey][dataType].attrs = symObj.coeffs[dataType].attrs
     
     

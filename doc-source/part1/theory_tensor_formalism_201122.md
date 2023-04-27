@@ -851,7 +851,7 @@ daPlot, daPlotpd, legendList, gFig = ep.lmPlot(AFterm.where(AFterm.L<=2).sel(Rp=
                                                xDim = 't', pType = 'r', squeeze = False, cmap='vlag')  # Note squeeze = False required for 1D case (should add this to code!)
 
 # Glue versions for JupyterBook output
-glue("ADMs-3DlinearRamp-lmPlot", ADMFig.fig, display=False)
+glue("ADMs-3DlinearRamp-lmPlot", gFig.fig, display=False)
 ```
 
 ```{glue:figure} ADMs-3DlinearRamp-lmPlot

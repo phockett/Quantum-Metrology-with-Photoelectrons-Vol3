@@ -38,7 +38,13 @@ parts:
 #       sections:
 # #       - file: testChpt/ePSproc_class_demo_161020
 #       - file: testChpt/ePSproc_Matlab_demo_notebook_090821
-  
+    
+  # NO COLONS ALLOWED IN CAPTION - might be able to set as string?  
+  # - caption: Extracting matrix elements: numerical methods & case studies
+  - caption: Extracting matrix elements - numerical methods & case studies
+    numbered: true
+    chapters:
+    - file: part2/sym-fitting-intro_220423
 
   - caption: Backmatter
     chapters:

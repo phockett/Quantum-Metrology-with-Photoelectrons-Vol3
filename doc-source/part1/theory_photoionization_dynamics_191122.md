@@ -273,7 +273,7 @@ from pemtk.sym.symHarm import symHarm
 
 # Compute hamronics for Td, lmax=4
 sym = 'Td'
-lmax=6
+lmax=4
 
 symObj = symHarm(sym,lmax)
 
@@ -287,14 +287,14 @@ symObj.dipole['dipoleSyms']
 sNeutral = 'A1'
 sIon = 'E'
 
-symBasis.directProductContinuum([sNeutral, sIon])
+symObj.directProductContinuum([sNeutral, sIon])
 
 # Results are pushed to self.continuum, in dictionary and Pandas DataFrame formats, and can be manipulated using standard functionality.
 # The subset of allowed values are also set to a separate DataFrame and list.
-symBasis.continuum['allowed']['PD']
+symObj.continuum['allowed']['PD']
 ```
 
 ```{code-cell} ipython3
-# Basis table with the Character values limited to those defined in self.continuum['allowed']['PD'] Target column
-symBasis.displayXlm(symFilter = True) 
+# Ylm basis table with the Character values limited to those defined in self.continuum['allowed']['PD'] Target column
+symObj.displayXlm(symFilter = True)  
 ```

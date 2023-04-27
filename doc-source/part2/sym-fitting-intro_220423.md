@@ -29,9 +29,11 @@ TODO:
 - Some tidying of methods... for PD conversion already have `epsproc.classes._IO.matEtoPD()` as wrapper for main data structure, but not for symmetry class.
 - Comparison with ePS matrix elements just dropped in from "working with symmetry" doc, may want to reduce/tidy a bit, maybe hide outputs.
 - Fix numbering for sym defined case - currently it=0 for 1st case, doesn't match ePS 1-index.
+- Output formatting for lmfit params objects, see https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/9
 
 +++
 
+(sect:basis-sets:fitting-intro)=
 # Basis sets for fitting
 
 In order to retrieve a set of matrix elements from experimental results, various physical properties of the system at hand are required. In particular, the symmetry of the system, the ionizing channel(s) of interest, and the properties of the ionizing radiation are all required to define the basis set used for fitting.
@@ -388,10 +390,24 @@ data.setMatEFit()
 ```
 
 ```{code-cell} ipython3
+display(data.params)
+```
+
+```{code-cell} ipython3
+data.params._repr_html_()
+```
+
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 # Glue table for later
-glue("fittingParamsD10hA1g", data.params)
+# glue("fittingParamsD10hA1g", data.params)   # Shows plain text in HTML output, data dump in PDF render.
+
+# May want pretty_print?
+# data.params.pretty_print(precision=3)
+
+# Need wrapper here otherwise get plain text in current HTML builds, and print(data.params) in PDF version (no data.params._repr_latex_())
+glue("fittingParamsD10hA1g", display(data.params._repr_html_()))
 ```
 
 ```{glue:figure} fittingParamsD10hA1g
@@ -547,6 +563,8 @@ data = pemtkFit(fileBase=dataPath, verbose = 1)
 data.scanFiles()
 ```
 
+% NOTE hide-input set for cells below, OK in HTML, but omits cell AND output in PDF builds? May need to glue output too, or might be HTML display issue?
+
 ```{code-cell} ipython3
 :tags: [hide-input]
 
@@ -620,6 +638,33 @@ In general, the current mappings should be suitable for simulation and reconstru
 1. Add degeneracy factors if required (otherwise will be subsumed into matrix element values).
 
 % TODO: address some of these points in this notebook.
+
++++ {"tags": ["remove-cell"]}
+
+## Format scratch
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+# R example from https://discourse.jupyter.org/t/jupyter-to-latex-how-to-render-tables/14968/2
+function RawBlock (raw)
+  if raw.format:match 'html' then
+    return pandoc.read(raw.text, 'html').blocks
+  end
+end
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+import pandoc
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+!pandoc --help
+```
 
 ```{code-cell} ipython3
 

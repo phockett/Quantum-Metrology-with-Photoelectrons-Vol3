@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -40,7 +40,7 @@ TODO:
 - Floor noise example to zero? Should be more physical than having -ve values allowed?
 - See QuTip for more stuff, e.g. entropy and distance metrics, https://qutip.org/docs/latest/apidoc/functions.html#module-qutip.metrics. Should be able to use directly on numerical matrices?
 
-+++ {"tags": []}
++++
 
 (sec:density-mat-basic)=
 # Density matrix representation
@@ -81,7 +81,7 @@ For all pairs of basis states $(i,j)$. This defines the density matrix in the $\
 
 % [^blumFootnote]: For general discussion of density matrix techniques and applications in AMO physics, see Blum's textbook _Density Matrix Theory and Applications_ {cite}`BlumDensityMat`, which is referred to extensively herein.
 
-+++ {"tags": []}
++++
 
 % TODO: numerical examples here
 % TODO: decide on notation, \Psi_c == \mathbf{k}?
@@ -129,7 +129,7 @@ The main benefit of a (continuum) density matrix representation in the current w
 
 Furthermore, as noted above, the density matrix elements provide a complete description of the photoionization event, and hence make clear the equivalence of the "complete" photoionization experiments (and associated continuum reconstruction methods) discussed herein, with general quantum tomography schemes {cite}`MauroDAriano2003`. The density matrix can also be used as the starting point for further analysis based on standard density matrix techniques - this is discussed, for instance, in Ref. {cite}`BlumDensityMat`, and can also be viewed as a bridge between traditional methods in spectroscopy and AMO physics, and more recent concepts in the quantum information sciences (see, e.g., Refs. {cite}`Tichy2011a,Yuen-Zhou2014` for recent discussions in this context).
 
-+++ {"tags": []}
++++
 
 ## Numerical setup
 
@@ -377,6 +377,8 @@ From the numerical density matrix, a range of other standard properties can be c
 ### Convert numerical arrays to QuTiP objects
 
 ```{code-cell} ipython3
+:tags: [hide-cell]
+
 # Import QuTip
 from qutip import *
 
@@ -386,6 +388,8 @@ pa = Qobj(daOut.sum('Sym').data)    # Reference continuum density matrix
 pb = Qobj(daOut_noise.sum('Sym').data)  # Noisy case
 
 # QuTip objects have data as Numpy arrays, and render as typeset matrices in a notebook
+# DEBUG NOTE 22/04/23 - QuTip matrix latex output currently causing PDF build errors, so set hide output for testing.
+# See https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/8
 pa
 ```
 
@@ -400,7 +404,6 @@ This is implemented by the `fidelity` function in QuTip. Of note in this case is
 % $F(\rho,\sigma )=\left(\operatorname{tr} {\sqrt {{\sqrt {\rho }}\sigma {\sqrt {\rho }}}}\right)^{2}$
 % Wiki defn. from https://en.wikipedia.org/wiki/Fidelity_of_quantum_states
 % Cite nielsen2010QuantumComputationQuantum
-
 
 ```{code-cell} ipython3
 # Test fidelity, =1 if trace-normalised
