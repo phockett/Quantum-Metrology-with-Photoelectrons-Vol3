@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -172,7 +172,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../part1/theory_info_content_221122.html">3.5. Information content &amp; sensitivity</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../part1/numerics_231122.html">4. Numerical implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part1/numerics_231122.html">4. Numerical methodologies for extracting matrix elements</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extracting matrix elements - numerical methods &amp; case studies</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part2/extracting_matrix_elements_overview_270423.html">5. Extracting matrix elements overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/sym-fitting-intro_220423.html">6. Basis sets for fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/basic_fitting_numerics_intro_260423.html">7. Basic fit setup and numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-N2_270423.html">8. Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, <span class="math notranslate nohighlight">\(N_2~(D_{\infty h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-OCS_270423.html">9. Case study: Generalised bootstrapping for a linear heteronuclear scattering system, <span class="math notranslate nohighlight">\(OCS~(C_{\infty v})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-C2H4_270423.html">10. Case study: Generalised bootstrapping for a general asymmetric top scattering system, <span class="math notranslate nohighlight">\(C_2H_4~(C_{2h})\)</span></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
@@ -2326,7 +2335,7 @@ if (window.Jupyter !== undefined) {
 }
 </style></div><div class="output text_html"><table style='border: 1.5px solid;'>
   <tr>
-     <td style='text-align: center; font-weight: bold; font-size: 1.2em; border: 1px solid;' colspan='8'>Wed Mar 29 13:59:36 2023 EDT</td>
+     <td style='text-align: center; font-weight: bold; font-size: 1.2em; border: 1px solid;' colspan='8'>Fri Apr 28 09:45:46 2023 EDT</td>
   </tr>
   <tr>
     <td style='text-align: right; border: 1px solid;'>OS</td>
@@ -2368,7 +2377,7 @@ if (window.Jupyter !== undefined) {
     <td style='text-align: right; border: 1px solid;'>jupyterlab</td>
     <td style='text-align: left; border: 1px solid;'>3.2.1</td>
     <td style='text-align: right; border: 1px solid;'>plotly</td>
-    <td style='text-align: left; border: 1px solid;'>5.13.1</td>
+    <td style='text-align: left; border: 1px solid;'>5.14.1</td>
   </tr>
   <tr>
     <td style='text-align: right; border: 1px solid;'>holoviews</td>
@@ -2392,9 +2401,9 @@ if (window.Jupyter !== undefined) {
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jupyter Book      : 0.15.1
 External ToC      : 0.3.1
 MyST-Parser       : 0.18.1
-MyST-NB           : 0.17.1
-Sphinx Book Theme : 1.0.0
-Jupyter-Cache     : 0.5.0
+MyST-NB           : 0.17.2
+Sphinx Book Theme : 1.0.1
+Jupyter-Cache     : 0.6.1
 NbClient          : 0.5.4
 </pre></div>
 </div>
@@ -2418,7 +2427,7 @@ NbClient          : 0.5.4
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  gh-pages
 * <span class=" -Color -Color-Green">main</span>
-145b10a3aedee84915005e57840a4f271b64ad0a
+2188bc4b9789095e36dcf6f78df8fee3ddcd0522
 </pre></div>
 </div>
 </div>
@@ -2431,8 +2440,8 @@ NbClient          : 0.5.4
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4263720ddb7693f9a31bfb2d2d9f93f38d78c940	refs/heads/gh-pages
-017025c5c83572dde75504fde177b3a34c432ed4	refs/heads/main
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>53d7467e474d709c43eeaca95a110e7e7ef732f6	refs/heads/gh-pages
+cc3fc22779886f6e81320cb9a4666b9de399b066	refs/heads/main
 </pre></div>
 </div>
 </div>
@@ -2489,7 +2498,7 @@ fe1e9540c7b91fe571f60562acd31d8e489d491e	refs/heads/dependabot/pip/notes/envs/en
 92fc79b09aafedadcb645f88bb7ed771c96d5b52	refs/heads/dependabot/pip/notes/envs/envs-versioned/setuptools-65.5.1
 fa33ed8d63a5c4a4043cc4c261059cc09e4c2bf7	refs/heads/dependabot/pip/notes/envs/envs-versioned/wheel-0.38.1
 41cdfe43750e08c510f98b05e024a9c62da42771	refs/heads/dependabot/pip/setuptools-65.5.1
-e1165bbb81743262984e5d79998b12f50b69f4f5	refs/heads/dev
+7407ff832ef3a1c783d8b1d1da520cb24d0b5f6e	refs/heads/dev
 1c0b8fd409648f07c85f4f20628b5ea7627e0c4e	refs/heads/master
 69cd89ce5bc0ad6d465a4bd8df6fba15d3fd1aee	refs/heads/numba-tests
 ea30878c842f09d525fbf39fa269fa2302a13b57	refs/heads/revert-9-master
@@ -2506,7 +2515,7 @@ baf0be0c962e8ab3c3df57c8f70f0e939f99cbd7	refs/heads/testDev
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7b3bcb92ce5262cfc46562366c2ce024dd4509d5	refs/heads/master
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>55c9e37ed075560e67f6d36ca9c9ef1ece22591a	refs/heads/master
 3f4686dffdbb310f15692f978ba36d6a3d15e8d3	refs/heads/mfFittingDev
 </pre></div>
 </div>
@@ -2527,7 +2536,7 @@ baf0be0c962e8ab3c3df57c8f70f0e939f99cbd7	refs/heads/testDev
 # Name                    Version                   Build  Channel
 _libgcc_mutex             0.1                 conda_forge    conda-forge
 _openmp_mutex             4.5                      1_llvm    conda-forge
-accessible-pygments       0.0.3                    pypi_0    pypi
+accessible-pygments       0.0.4                    pypi_0    pypi
 alabaster                 0.7.13                   pypi_0    pypi
 alembic                   1.7.4              pyhd8ed1ab_0    conda-forge
 alsa-lib                  1.2.3.2              h166bdaf_0    conda-forge
@@ -2588,7 +2597,7 @@ curl                      7.79.1               h2574ce0_1    conda-forge
 cycler                    0.10.0                     py_2    conda-forge
 cython                    0.29.24          py39he80948d_0    conda-forge
 cytoolz                   0.11.0           py39h3811e60_3    conda-forge
-dash                      2.9.1              pyhd8ed1ab_0    conda-forge
+dash                      2.9.3              pyhd8ed1ab_0    conda-forge
 dask                      2021.10.0          pyhd8ed1ab_0    conda-forge
 dask-core                 2021.10.0          pyhd8ed1ab_0    conda-forge
 dbus                      1.13.6               h5008d03_3    conda-forge
@@ -2676,7 +2685,7 @@ json-c                    0.15                 h98cffda_0    conda-forge
 json5                     0.9.5              pyh9f0ad1d_0    conda-forge
 jsonschema                4.1.2              pyhd8ed1ab_0    conda-forge
 jupyter-book              0.15.1                   pypi_0    pypi
-jupyter-cache             0.5.0                    pypi_0    pypi
+jupyter-cache             0.6.1                    pypi_0    pypi
 jupyter-dash              0.4.2              pyhd8ed1ab_1    conda-forge
 jupyter_client            7.0.6              pyhd8ed1ab_0    conda-forge
 jupyter_core              4.9.1            py39hf3d152e_0    conda-forge
@@ -2759,13 +2768,13 @@ libzopfli                 1.0.3                h9c3ff4c_0    conda-forge
 linkify-it-py             2.0.0                    pypi_0    pypi
 llvm-openmp               12.0.1               h4bd325d_1    conda-forge
 llvmlite                  0.37.0           py39h1bbdace_0    conda-forge
-lmfit                     1.1.0              pyhd8ed1ab_0    conda-forge
+lmfit                     1.2.0              pyhd8ed1ab_0    conda-forge
 locket                    0.2.0                      py_2    conda-forge
 lz4-c                     1.9.3                h9c3ff4c_1    conda-forge
 lzo                       2.10              h516909a_1000    conda-forge
 mako                      1.1.5              pyhd8ed1ab_0    conda-forge
 mamba                     0.17.0           py39h951de11_0    conda-forge
-markdown                  3.4.1              pyhd8ed1ab_0    conda-forge
+markdown                  3.4.3              pyhd8ed1ab_0    conda-forge
 markdown-it-py            2.2.0              pyhd8ed1ab_0    conda-forge
 markupsafe                2.0.1            py39h3811e60_0    conda-forge
 mathjax                   2.7.7                ha770c72_3    conda-forge
@@ -2781,7 +2790,7 @@ mpmath                    1.2.1              pyhd8ed1ab_0    conda-forge
 msgpack-python            1.0.2            py39h1a9c180_1    conda-forge
 mysql-common              8.0.27               ha770c72_3    conda-forge
 mysql-libs                8.0.27               hfa10184_3    conda-forge
-myst-nb                   0.17.1                   pypi_0    pypi
+myst-nb                   0.17.2                   pypi_0    pypi
 myst-parser               0.18.1                   pypi_0    pypi
 nbclassic                 0.3.3              pyhd8ed1ab_0    conda-forge
 nbclient                  0.5.4              pyhd8ed1ab_0    conda-forge
@@ -2824,7 +2833,7 @@ pickleshare               0.7.5           py39hde42818_1002    conda-forge
 pillow                    8.3.2            py39ha612740_0    conda-forge
 pip                       21.3.1             pyhd8ed1ab_0    conda-forge
 pixman                    0.40.0               h36c2ea0_0    conda-forge
-plotly                    5.13.1             pyhd8ed1ab_0    conda-forge
+plotly                    5.14.1             pyhd8ed1ab_0    conda-forge
 pooch                     1.5.2              pyhd8ed1ab_0    conda-forge
 poppler                   21.09.0              ha39eefc_3    conda-forge
 poppler-data              0.4.12               hd8ed1ab_0    conda-forge
@@ -2843,9 +2852,9 @@ pycparser                 2.20               pyh9f0ad1d_2    conda-forge
 pyct                      0.4.6                      py_0    conda-forge
 pyct-core                 0.4.6                      py_0    conda-forge
 pycurl                    7.44.1           py39h72e3413_0    conda-forge
-pydata-sphinx-theme       0.13.1                   pypi_0    pypi
+pydata-sphinx-theme       0.13.3                   pypi_0    pypi
 pyerfa                    2.0.0.1          py39hd257fcd_2    conda-forge
-pygments                  2.14.0                   pypi_0    pypi
+pygments                  2.15.1                   pypi_0    pypi
 pygmt                     0.5.0              pyhd8ed1ab_1    conda-forge
 pyjwt                     2.3.0              pyhd8ed1ab_0    conda-forge
 pyopenssl                 21.0.0             pyhd8ed1ab_0    conda-forge
@@ -2868,6 +2877,7 @@ pyyaml                    6.0              py39h3811e60_0    conda-forge
 pyzmq                     22.3.0           py39h37b5a0c_0    conda-forge
 qt                        5.12.9               hda022c4_4    conda-forge
 quaternion                2022.4.2         py39hd257fcd_0    conda-forge
+qutip                     4.7.0            py39h5472131_1    conda-forge
 readline                  8.1                  h46c0cb4_0    conda-forge
 reproc                    14.2.3               h7f98852_0    conda-forge
 reproc-cpp                14.2.3               h9c3ff4c_0    conda-forge
@@ -2883,7 +2893,7 @@ scipy                     1.7.1            py39hee8e79c_0    conda-forge
 scooby                    0.7.1              pyhd8ed1ab_0    conda-forge
 seaborn                   0.9.0                      py_2    conda-forge
 seaborn-base              0.11.2             pyhd8ed1ab_0    conda-forge
-selenium                  4.8.2              pyhd8ed1ab_0    conda-forge
+selenium                  4.9.0              pyhd8ed1ab_0    conda-forge
 send2trash                1.8.0              pyhd8ed1ab_0    conda-forge
 setuptools                58.2.0           py39hf3d152e_0    conda-forge
 setuptools-scm            6.4.2              pyhd8ed1ab_0    conda-forge
@@ -2896,9 +2906,9 @@ sortedcontainers          2.4.0              pyhd8ed1ab_0    conda-forge
 soupsieve                 2.0.1                      py_1    conda-forge
 spherical_functions       2022.4.1           pyhd8ed1ab_1    conda-forge
 sphinx                    5.0.2                    pypi_0    pypi
-sphinx-book-theme         1.0.0                    pypi_0    pypi
+sphinx-book-theme         1.0.1                    pypi_0    pypi
 sphinx-comments           0.0.3                    pypi_0    pypi
-sphinx-copybutton         0.5.1                    pypi_0    pypi
+sphinx-copybutton         0.5.2                    pypi_0    pypi
 sphinx-design             0.3.0                    pypi_0    pypi
 sphinx-external-toc       0.3.1                    pypi_0    pypi
 sphinx-jupyterbook-latex  0.5.2                    pypi_0    pypi
@@ -2965,6 +2975,7 @@ xorg-libxt                1.2.1                h7f98852_2    conda-forge
 xorg-renderproto          0.11.1            h7f98852_1002    conda-forge
 xorg-xextproto            7.3.0             h7f98852_1002    conda-forge
 xorg-xproto               7.0.31            h7f98852_1007    conda-forge
+xyzpy                     1.2.1              pyhd8ed1ab_0    conda-forge
 xz                        5.2.5                h516909a_1    conda-forge
 yaml                      0.2.5                h516909a_0    conda-forge
 zeromq                    4.3.4                h9c3ff4c_1    conda-forge
@@ -3006,7 +3017,10 @@ zstd                      1.5.0                ha95c52a_0    conda-forge
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../backmatter/glossary.html"
@@ -3017,7 +3031,10 @@ zstd                      1.5.0                ha95c52a_0    conda-forge
         <p class="prev-next-title">Glossary</p>
       </div>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -3045,13 +3062,13 @@ zstd                      1.5.0                ha95c52a_0    conda-forge
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
     
 <p class="component-author">
-By Paul Hockett
+By Paul Hockett with Varun Makhija
 </p>
 
   </div>
@@ -3075,7 +3092,7 @@ By Paul Hockett
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -3084,8 +3101,8 @@ By Paul Hockett
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

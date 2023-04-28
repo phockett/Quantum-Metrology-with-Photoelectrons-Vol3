@@ -16,6 +16,8 @@ kernelspec:
 
 Subsections for tensor formulation.
 
+- 27/04/23: numerics now broken in build...?? WTF???
+   - UPDATE: fixed at cell 7 by adding `thres=None` to `BetaNormX2, basisFull = ep.geomFunc.afblmXprod(data.data[data.subKey]['matE'], basisReturn = 'Full', thres=None, selDims={}, sqThres=False)` Must have been change in afblmXprod defaults?
 - 22/11/22: basics in place and all refs present.
 
 TODO
@@ -91,7 +93,7 @@ $$\begin{aligned}
 And the LF/AF as:
 
 $$\begin{aligned}
-\bar{\beta}_{L,-M}^{\mu_{i},\mu_{f}}(E,t) & = & (-1)^{M}\sum_{P,R',R}{[P]^{\frac{1}{2}}}{E_{P-R}(\hat{e};\mu_{0})}\\
+\bar{\beta}_{L,-M}^{\mu_{i},\mu_{f}}(\epsilon,t) & = & (-1)^{M}\sum_{P,R',R}{[P]^{\frac{1}{2}}}{E_{P-R}(\hat{e};\mu_{0})}\\
  & \times &\sum_{l,m,\mu}\sum_{l',m',\mu'}(-1)^{(\mu'-\mu_{0})}{\bar{\Lambda}_{R'}(\mu,P,R')B_{L,S-R'}(l,l',m,m')}\\
  & \times &I_{l,m,\mu}^{p_{i}\mu_{i},p_{f}\mu_{f}}(\epsilon)I_{l',m',\mu'}^{p_{i}\mu_{i},p_{f}\mu_{f}*}(\epsilon)\sum_{K,Q,S}\Delta_{L,M}(K,Q,S)A_{Q,S}^{K}(t)\end{aligned}$$ (eq:BLM-tensor-AF)
 
@@ -313,7 +315,8 @@ data.subKey = dataKey
 BetaNormX, basisProduct = data.afblmMatEfit(selDims={}, sqThres=False)
 
 # Using ePSproc directly - this includes full basis return if specified
-BetaNormX2, basisFull = ep.geomFunc.afblmXprod(data.data[data.subKey]['matE'], basisReturn = 'Full', selDims={}, sqThres=False)  #, BLMRenorm = BLMRenorm, **kwargs)
+BetaNormX2, basisFull = ep.geomFunc.afblmXprod(data.data[data.subKey]['matE'], basisReturn = 'Full', 
+                                               thres=None, selDims={}, sqThres=False)  #, BLMRenorm = BLMRenorm, **kwargs)
 
 # The basis dictionary contains various numerical parameters, these are investigated below.
 # See also the ePSproc docs at https://epsproc.readthedocs.io/en/latest/methods/geometric_method_dev_260220_090420_tidy.html
@@ -851,7 +854,7 @@ daPlot, daPlotpd, legendList, gFig = ep.lmPlot(AFterm.where(AFterm.L<=2).sel(Rp=
                                                xDim = 't', pType = 'r', squeeze = False, cmap='vlag')  # Note squeeze = False required for 1D case (should add this to code!)
 
 # Glue versions for JupyterBook output
-glue("ADMs-3DlinearRamp-lmPlot", ADMFig.fig, display=False)
+glue("ADMs-3DlinearRamp-lmPlot", gFig.fig, display=False)
 ```
 
 ```{glue:figure} ADMs-3DlinearRamp-lmPlot
@@ -1105,6 +1108,8 @@ daPlot
 ```
 
 ```{code-cell} ipython3
+:tags: [remove-cell]
+
 !date
 ```
 

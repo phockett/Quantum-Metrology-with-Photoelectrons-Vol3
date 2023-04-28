@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2021.10.28)  29 MAR 2023 14:05
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2021.10.28)  28 APR 2023 10:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1671,34 +1671,29 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ] [2
 
 
-] (./QM3.toc
-LaTeX Info: Redefining \rmfamily on input line 1.
-LaTeX Info: Redefining \sffamily on input line 1.
-LaTeX Info: Redefining \ttfamily on input line 1.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line 4.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 4.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 4.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 4.
-
-[1
-
-])
+] (./QM3.toc)
 \tf@toc=\write7
 \openout7 = `QM3.toc'.
 
- [2]
+[1
+
+] [2
+
+]
 File: mock_covers_2vol_020318.png Graphic file (type bmp)
 <mock_covers_2vol_020318.png>
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00075pt on input line 1.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00053pt on input line 1.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 1.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 1.
 LaTeX Info: Redefining \rmfamily on input line 182.
 LaTeX Info: Redefining \sffamily on input line 182.
 LaTeX Info: Redefining \ttfamily on input line 182.
- [1
-
-]
+ [1]
 File: ccdcf3feb912fb992ab79da89d86a2521bfe1c21.png Graphic file (type bmp)
 <ccdcf3feb912fb992ab79da89d86a2521bfe1c21.png>
 LaTeX Info: Redefining \rmfamily on input line 214.
@@ -1731,18 +1726,38 @@ Chapter 2.
 [11
 
 ]
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-PADs' on page 12 undef
+ined on input line 536.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-PADs' on page 12 undef
+ined on input line 536.
+
 LaTeX Info: Redefining \rmfamily on input line 544.
 LaTeX Info: Redefining \sffamily on input line 544.
 LaTeX Info: Redefining \ttfamily on input line 544.
- [12]
+[12]
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-MF' on page 13 undefin
+ed on input line 566.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 13 undef
+ined on input line 569.
+
 LaTeX Info: Redefining \rmfamily on input line 573.
 LaTeX Info: Redefining \sffamily on input line 573.
 LaTeX Info: Redefining \ttfamily on input line 573.
- [13]
+[13]
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 14 undef
+ined on input line 591.
+
 LaTeX Info: Redefining \rmfamily on input line 620.
 LaTeX Info: Redefining \sffamily on input line 620.
 LaTeX Info: Redefining \ttfamily on input line 620.
- [14]
+[14]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
 (Font)              scaled to size 8.00085pt on input line 631.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
@@ -1778,839 +1793,555 @@ LaTeX Info: Redefining \sffamily on input line 895.
 LaTeX Info: Redefining \ttfamily on input line 895.
  [20]
 Chapter 4.
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-LF' on page 21 undefin
+ed on input line 940.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 21 undefin
+ed on input line 940.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-PADs' on page 21 undef
+ined on input line 940.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-anisotropy-paramters' 
+on page 21 undefined on input line 940.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-LF' on page 21 undefin
+ed on input line 941.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 21 undefin
+ed on input line 941.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-MF' on page 21 undefin
+ed on input line 941.
+
 [21
 
 ]
 File: 535e89ab48f6d074d745a025de12dfbd1aa042b542393a240115022aa923122a.png Grap
 hic file (type bmp)
 <535e89ab48f6d074d745a025de12dfbd1aa042b542393a240115022aa923122a.png>
-LaTeX Info: Redefining \rmfamily on input line 1035.
-LaTeX Info: Redefining \sffamily on input line 1035.
-LaTeX Info: Redefining \ttfamily on input line 1035.
- [22]
-LaTeX Info: Redefining \rmfamily on input line 1035.
-LaTeX Info: Redefining \sffamily on input line 1035.
-LaTeX Info: Redefining \ttfamily on input line 1035.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-LF' on page 22 undefin
+ed on input line 1008.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 22 undefin
+ed on input line 1008.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-LF' on page 22 undefin
+ed on input line 1008.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-MF' on page 22 undefin
+ed on input line 1008.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-MF' on page 22 undefin
+ed on input line 1011.
+
+LaTeX Info: Redefining \rmfamily on input line 1017.
+LaTeX Info: Redefining \sffamily on input line 1017.
+LaTeX Info: Redefining \ttfamily on input line 1017.
+[22]
+LaTeX Info: Redefining \rmfamily on input line 1017.
+LaTeX Info: Redefining \sffamily on input line 1017.
+LaTeX Info: Redefining \ttfamily on input line 1017.
  [23]
-LaTeX Info: Redefining \rmfamily on input line 1110.
-LaTeX Info: Redefining \sffamily on input line 1110.
-LaTeX Info: Redefining \ttfamily on input line 1110.
- [24]
-Overfull \vbox (2.93785pt too high) detected at line 1203
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-MF' on page 24 undefin
+ed on input line 1035.
+
+LaTeX Info: Redefining \rmfamily on input line 1092.
+LaTeX Info: Redefining \sffamily on input line 1092.
+LaTeX Info: Redefining \ttfamily on input line 1092.
+[24]
+Underfull \vbox (badness 1448) detected at line 1167
  []
 
-LaTeX Info: Redefining \rmfamily on input line 1203.
-LaTeX Info: Redefining \sffamily on input line 1203.
-LaTeX Info: Redefining \ttfamily on input line 1203.
+LaTeX Info: Redefining \rmfamily on input line 1167.
+LaTeX Info: Redefining \sffamily on input line 1167.
+LaTeX Info: Redefining \ttfamily on input line 1167.
 [25]
-File: 2761c00d3b9766092516663fd674aed92f287503c4cbe62eda3ded917e537df3.png Grap
-hic file (type bmp)
-<2761c00d3b9766092516663fd674aed92f287503c4cbe62eda3ded917e537df3.png>
-LaTeX Info: Redefining \rmfamily on input line 1219.
-LaTeX Info: Redefining \sffamily on input line 1219.
-LaTeX Info: Redefining \ttfamily on input line 1219.
- [26]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
-(Font)              scaled to size 10.00107pt on input line 1233.
+(Font)              scaled to size 10.00107pt on input line 1191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
-(Font)              scaled to size 7.00075pt on input line 1233.
+(Font)              scaled to size 7.00075pt on input line 1191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
-(Font)              scaled to size 5.00053pt on input line 1233.
+(Font)              scaled to size 5.00053pt on input line 1191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
-(Font)              scaled to size 9.99893pt on input line 1233.
+(Font)              scaled to size 9.99893pt on input line 1191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
-(Font)              scaled to size 6.99925pt on input line 1233.
+(Font)              scaled to size 6.99925pt on input line 1191.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
-(Font)              scaled to size 4.99947pt on input line 1233.
-LaTeX Info: Redefining \rmfamily on input line 1273.
-LaTeX Info: Redefining \sffamily on input line 1273.
-LaTeX Info: Redefining \ttfamily on input line 1273.
- [27]
-LaTeX Info: Redefining \rmfamily on input line 1361.
-LaTeX Info: Redefining \sffamily on input line 1361.
-LaTeX Info: Redefining \ttfamily on input line 1361.
- [28]
-LaTeX Info: Redefining \rmfamily on input line 1407.
-LaTeX Info: Redefining \sffamily on input line 1407.
-LaTeX Info: Redefining \ttfamily on input line 1407.
+(Font)              scaled to size 4.99947pt on input line 1191.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-MF' on page 26 undefin
+ed on input line 1201.
+
+LaTeX Info: Redefining \rmfamily on input line 1216.
+LaTeX Info: Redefining \sffamily on input line 1216.
+LaTeX Info: Redefining \ttfamily on input line 1216.
+[26]
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-MF' on page 27 undefin
+ed on input line 1286.
+
+LaTeX Info: Redefining \rmfamily on input line 1309.
+LaTeX Info: Redefining \sffamily on input line 1309.
+LaTeX Info: Redefining \ttfamily on input line 1309.
+[27]
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-MS' on page 28 undefin
+ed on input line 1327.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-PG' on page 28 undefin
+ed on input line 1327.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-PG' on page 28 undefin
+ed on input line 1349.
+
+LaTeX Info: Redefining \rmfamily on input line 1357.
+LaTeX Info: Redefining \sffamily on input line 1357.
+LaTeX Info: Redefining \ttfamily on input line 1357.
+[28]
+LaTeX Info: Redefining \rmfamily on input line 1439.
+LaTeX Info: Redefining \sffamily on input line 1439.
+LaTeX Info: Redefining \ttfamily on input line 1439.
  [29]
-LaTeX Info: Redefining \rmfamily on input line 1476.
-LaTeX Info: Redefining \sffamily on input line 1476.
-LaTeX Info: Redefining \ttfamily on input line 1476.
+LaTeX Info: Redefining \rmfamily on input line 1492.
+LaTeX Info: Redefining \sffamily on input line 1492.
+LaTeX Info: Redefining \ttfamily on input line 1492.
  [30]
-LaTeX Info: Redefining \rmfamily on input line 1573.
-LaTeX Info: Redefining \sffamily on input line 1573.
-LaTeX Info: Redefining \ttfamily on input line 1573.
- [31]
-LaTeX Info: Redefining \rmfamily on input line 1666.
-LaTeX Info: Redefining \sffamily on input line 1666.
-LaTeX Info: Redefining \ttfamily on input line 1666.
- [32]
-LaTeX Info: Redefining \rmfamily on input line 1666.
-LaTeX Info: Redefining \sffamily on input line 1666.
-LaTeX Info: Redefining \ttfamily on input line 1666.
- [33]
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-MF' on page 31 undefin
+ed on input line 1529.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-LF' on page 31 undefin
+ed on input line 1529.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 31 undefin
+ed on input line 1529.
+
+LaTeX Info: Redefining \rmfamily on input line 1546.
+LaTeX Info: Redefining \sffamily on input line 1546.
+LaTeX Info: Redefining \ttfamily on input line 1546.
+[31]
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 32 undefin
+ed on input line 1560.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 32 undef
+ined on input line 1560.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-MF' on page 32 undefin
+ed on input line 1564.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 32 undefin
+ed on input line 1564.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 32 undefin
+ed on input line 1568.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-Axis-distribution-mome
+nts' on page 32 undefined on input line 1572.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 32 undef
+ined on input line 1572.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 32 undefin
+ed on input line 1572.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 32 undefin
+ed on input line 1592.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-MF' on page 32 undefin
+ed on input line 1592.
+
+LaTeX Info: Redefining \rmfamily on input line 1625.
+LaTeX Info: Redefining \sffamily on input line 1625.
+LaTeX Info: Redefining \ttfamily on input line 1625.
+[32]
+Overfull \vbox (1.55923pt too high) detected at line 1690
+ []
+
+LaTeX Info: Redefining \rmfamily on input line 1690.
+LaTeX Info: Redefining \sffamily on input line 1690.
+LaTeX Info: Redefining \ttfamily on input line 1690.
+[33]
+LaTeX Info: Redefining \rmfamily on input line 1754.
+LaTeX Info: Redefining \sffamily on input line 1754.
+LaTeX Info: Redefining \ttfamily on input line 1754.
+ [34]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1681.
+(hyperref)                removing `math shift' on input line 1799.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 1681.
+(hyperref)                removing `subscript' on input line 1799.
 
-LaTeX Info: Redefining \rmfamily on input line 1736.
-LaTeX Info: Redefining \sffamily on input line 1736.
-LaTeX Info: Redefining \ttfamily on input line 1736.
-[34]
-LaTeX Info: Redefining \rmfamily on input line 1815.
-LaTeX Info: Redefining \sffamily on input line 1815.
-LaTeX Info: Redefining \ttfamily on input line 1815.
- [35]
+LaTeX Info: Redefining \rmfamily on input line 1845.
+LaTeX Info: Redefining \sffamily on input line 1845.
+LaTeX Info: Redefining \ttfamily on input line 1845.
+[35]
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 36 undefin
+ed on input line 1852.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-MF' on page 36 undefin
+ed on input line 1852.
+
+LaTeX Info: Redefining \rmfamily on input line 1933.
+LaTeX Info: Redefining \sffamily on input line 1933.
+LaTeX Info: Redefining \ttfamily on input line 1933.
+[36]
 File: fc4c2a4c5a465295210c34432a0ec4a08f4018ce3f2e3488a442ae551a2e1443.png Grap
 hic file (type bmp)
 <fc4c2a4c5a465295210c34432a0ec4a08f4018ce3f2e3488a442ae551a2e1443.png>
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1829.
+(hyperref)                removing `math shift' on input line 1947.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 1829.
+(hyperref)                removing `subscript' on input line 1947.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hat' on input line 1829.
+(hyperref)                removing `\hat' on input line 1947.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 1829.
+(hyperref)                removing `subscript' on input line 1947.
 
-LaTeX Info: Redefining \rmfamily on input line 1895.
-LaTeX Info: Redefining \sffamily on input line 1895.
-LaTeX Info: Redefining \ttfamily on input line 1895.
-[36]
-LaTeX Info: Redefining \rmfamily on input line 1895.
-LaTeX Info: Redefining \sffamily on input line 1895.
-LaTeX Info: Redefining \ttfamily on input line 1895.
- [37]
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-LF' on page 37 undefin
+ed on input line 1970.
+
+LaTeX Info: Redefining \rmfamily on input line 1986.
+LaTeX Info: Redefining \sffamily on input line 1986.
+LaTeX Info: Redefining \ttfamily on input line 1986.
+[37]
+LaTeX Info: Redefining \rmfamily on input line 1986.
+LaTeX Info: Redefining \sffamily on input line 1986.
+LaTeX Info: Redefining \ttfamily on input line 1986.
+ [38]
 File: 12c20e1faddfcdeb2fcf118a6201197aab8c94815198c641b92fbbc4186234ee.png Grap
 hic file (type bmp)
 <12c20e1faddfcdeb2fcf118a6201197aab8c94815198c641b92fbbc4186234ee.png>
-LaTeX Info: Redefining \rmfamily on input line 1909.
-LaTeX Info: Redefining \sffamily on input line 1909.
-LaTeX Info: Redefining \ttfamily on input line 1909.
- [38]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1909.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1944.
+(hyperref)                removing `math shift' on input line 2027.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 1944.
+LaTeX Warning: Hyper reference `backmatter/glossary:term-LF' on page 39 undefin
+ed on input line 2030.
 
-LaTeX Info: Redefining \rmfamily on input line 1988.
-LaTeX Info: Redefining \sffamily on input line 1988.
-LaTeX Info: Redefining \ttfamily on input line 1988.
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-MF' on page 39 undefin
+ed on input line 2030.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-MF' on page 39 undefin
+ed on input line 2040.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-MF' on page 39 undefin
+ed on input line 2040.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-LF' on page 39 undefin
+ed on input line 2043.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 39 undefin
+ed on input line 2043.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-LF' on page 39 undefin
+ed on input line 2053.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 39 undefin
+ed on input line 2053.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 39 undef
+ined on input line 2053.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-LF' on page 39 undefin
+ed on input line 2056.
+
+LaTeX Info: Redefining \rmfamily on input line 2062.
+LaTeX Info: Redefining \sffamily on input line 2062.
+LaTeX Info: Redefining \ttfamily on input line 2062.
 [39]
-Overfull \vbox (2.77797pt too high) detected at line 2037
- []
+LaTeX Info: Redefining \rmfamily on input line 2062.
+LaTeX Info: Redefining \sffamily on input line 2062.
+LaTeX Info: Redefining \ttfamily on input line 2062.
+ [40]
 
-LaTeX Info: Redefining \rmfamily on input line 2037.
-LaTeX Info: Redefining \sffamily on input line 2037.
-LaTeX Info: Redefining \ttfamily on input line 2037.
-[40]
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2062.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 2062.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-LF' on page 41 undefin
+ed on input line 2065.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 41 undefin
+ed on input line 2065.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 41 undef
+ined on input line 2065.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 41 undef
+ined on input line 2078.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-MF' on page 41 undefin
+ed on input line 2085.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 41 undefin
+ed on input line 2085.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-LF' on page 41 undefin
+ed on input line 2085.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-LF' on page 41 undefin
+ed on input line 2097.
+
+LaTeX Info: Redefining \rmfamily on input line 2155.
+LaTeX Info: Redefining \sffamily on input line 2155.
+LaTeX Info: Redefining \ttfamily on input line 2155.
+[41]
 File: 8617def9b4801c655e45ad191160b6afbf59b43d1800775e3840c455d08a3727.png Grap
 hic file (type bmp)
 <8617def9b4801c655e45ad191160b6afbf59b43d1800775e3840c455d08a3727.png>
-
-Underfull \vbox (badness 2050) detected at line 2089
- []
-
-
-Overfull \vbox (2.08574pt too high) detected at line 2089
- []
-
-LaTeX Info: Redefining \rmfamily on input line 2089.
-LaTeX Info: Redefining \sffamily on input line 2089.
-LaTeX Info: Redefining \ttfamily on input line 2089.
-[41]
 File: 6faa50b16e6c32dde498027193ccd0837c9680ab0622719792c4b605de89a33f.png Grap
 hic file (type bmp)
 <6faa50b16e6c32dde498027193ccd0837c9680ab0622719792c4b605de89a33f.png>
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 42 undefin
+ed on input line 2218.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 42 undefin
+ed on input line 2218.
+
 File: 30dc5e8238a6787facf4cafdeffa6288715d26263b400cc240eafc4559e23a3d.png Grap
 hic file (type bmp)
 <30dc5e8238a6787facf4cafdeffa6288715d26263b400cc240eafc4559e23a3d.png>
-LaTeX Info: Redefining \rmfamily on input line 2133.
-LaTeX Info: Redefining \sffamily on input line 2133.
-LaTeX Info: Redefining \ttfamily on input line 2133.
- [42]
-LaTeX Info: Redefining \rmfamily on input line 2133.
-LaTeX Info: Redefining \sffamily on input line 2133.
-LaTeX Info: Redefining \ttfamily on input line 2133.
+LaTeX Info: Redefining \rmfamily on input line 2229.
+LaTeX Info: Redefining \sffamily on input line 2229.
+LaTeX Info: Redefining \ttfamily on input line 2229.
+[42]
+LaTeX Info: Redefining \rmfamily on input line 2229.
+LaTeX Info: Redefining \sffamily on input line 2229.
+LaTeX Info: Redefining \ttfamily on input line 2229.
  [43]
-LaTeX Info: Redefining \rmfamily on input line 2133.
-LaTeX Info: Redefining \sffamily on input line 2133.
-LaTeX Info: Redefining \ttfamily on input line 2133.
- [44]
-File: 6faa50b16e6c32dde498027193ccd0837c9680ab0622719792c4b605de89a33f.png Grap
-hic file (type bmp)
-<6faa50b16e6c32dde498027193ccd0837c9680ab0622719792c4b605de89a33f.png>
-LaTeX Info: Redefining \rmfamily on input line 2193.
-LaTeX Info: Redefining \sffamily on input line 2193.
-LaTeX Info: Redefining \ttfamily on input line 2193.
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 44 undefin
+ed on input line 2231.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-AF' on page 44 undefin
+ed on input line 2231.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 44 undef
+ined on input line 2234.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 44 undef
+ined on input line 2254.
+
+LaTeX Info: Redefining \rmfamily on input line 2290.
+LaTeX Info: Redefining \sffamily on input line 2290.
+LaTeX Info: Redefining \ttfamily on input line 2290.
+[44]
+LaTeX Info: Redefining \rmfamily on input line 2290.
+LaTeX Info: Redefining \sffamily on input line 2290.
+LaTeX Info: Redefining \ttfamily on input line 2290.
  [45]
-LaTeX Info: Redefining \rmfamily on input line 2193.
-LaTeX Info: Redefining \sffamily on input line 2193.
-LaTeX Info: Redefining \ttfamily on input line 2193.
+LaTeX Info: Redefining \rmfamily on input line 2290.
+LaTeX Info: Redefining \sffamily on input line 2290.
+LaTeX Info: Redefining \ttfamily on input line 2290.
  [46]
-LaTeX Info: Redefining \rmfamily on input line 2267.
-LaTeX Info: Redefining \sffamily on input line 2267.
-LaTeX Info: Redefining \ttfamily on input line 2267.
- [47]
+File: c7fe87aac6c11749f240583321ca77346dfe75ac4fa6df75d9feb1b9ea7f0912.png Grap
+hic file (type bmp)
+<c7fe87aac6c11749f240583321ca77346dfe75ac4fa6df75d9feb1b9ea7f0912.png>
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 47 undef
+ined on input line 2301.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 47 undef
+ined on input line 2301.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 47 undef
+ined on input line 2317.
+
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 47 undef
+ined on input line 2323.
+
+LaTeX Info: Redefining \rmfamily on input line 2324.
+LaTeX Info: Redefining \sffamily on input line 2324.
+LaTeX Info: Redefining \ttfamily on input line 2324.
+[47]
+LaTeX Info: Redefining \rmfamily on input line 2324.
+LaTeX Info: Redefining \sffamily on input line 2324.
+LaTeX Info: Redefining \ttfamily on input line 2324.
+ [48]
 File: dc52eda4839ef92e0bd42e710dcebaf1753faa2a7063a7fd4a2c99b8666b4d0b.png Grap
 hic file (type bmp)
 <dc52eda4839ef92e0bd42e710dcebaf1753faa2a7063a7fd4a2c99b8666b4d0b.png>
 File: 33f17b18ddf9e22605b75c34c5a55ab35e721af79ecca54469259b5c1e0a4945.png Grap
 hic file (type bmp)
 <33f17b18ddf9e22605b75c34c5a55ab35e721af79ecca54469259b5c1e0a4945.png>
-LaTeX Info: Redefining \rmfamily on input line 2308.
-LaTeX Info: Redefining \sffamily on input line 2308.
-LaTeX Info: Redefining \ttfamily on input line 2308.
- [48]
-LaTeX Info: Redefining \rmfamily on input line 2308.
-LaTeX Info: Redefining \sffamily on input line 2308.
-LaTeX Info: Redefining \ttfamily on input line 2308.
+LaTeX Info: Redefining \rmfamily on input line 2429.
+LaTeX Info: Redefining \sffamily on input line 2429.
+LaTeX Info: Redefining \ttfamily on input line 2429.
  [49]
-LaTeX Info: Redefining \rmfamily on input line 2369.
-LaTeX Info: Redefining \sffamily on input line 2369.
-LaTeX Info: Redefining \ttfamily on input line 2369.
+LaTeX Info: Redefining \rmfamily on input line 2429.
+LaTeX Info: Redefining \sffamily on input line 2429.
+LaTeX Info: Redefining \ttfamily on input line 2429.
  [50]
-LaTeX Info: Redefining \rmfamily on input line 2410.
-LaTeX Info: Redefining \sffamily on input line 2410.
-LaTeX Info: Redefining \ttfamily on input line 2410.
+LaTeX Info: Redefining \rmfamily on input line 2429.
+LaTeX Info: Redefining \sffamily on input line 2429.
+LaTeX Info: Redefining \ttfamily on input line 2429.
  [51]
-Underfull \vbox (badness 1117) detected at line 2458
- []
-
-LaTeX Info: Redefining \rmfamily on input line 2458.
-LaTeX Info: Redefining \sffamily on input line 2458.
-LaTeX Info: Redefining \ttfamily on input line 2458.
-[52]
+LaTeX Info: Redefining \rmfamily on input line 2486.
+LaTeX Info: Redefining \sffamily on input line 2486.
+LaTeX Info: Redefining \ttfamily on input line 2486.
+ [52]
+LaTeX Info: Redefining \rmfamily on input line 2518.
+LaTeX Info: Redefining \sffamily on input line 2518.
+LaTeX Info: Redefining \ttfamily on input line 2518.
+ [53]
 File: deedb9a45fe875bec49734526ce33cb6ac456fc23a2a0727178716b8d49a2984.png Grap
 hic file (type bmp)
 <deedb9a45fe875bec49734526ce33cb6ac456fc23a2a0727178716b8d49a2984.png>
-LaTeX Info: Redefining \rmfamily on input line 2472.
-LaTeX Info: Redefining \sffamily on input line 2472.
-LaTeX Info: Redefining \ttfamily on input line 2472.
- [53]
-File: feb707e8defecf2586216958b5b8894b088f9f1167a88818b222160b50f15008.png Grap
-hic file (type bmp)
-<feb707e8defecf2586216958b5b8894b088f9f1167a88818b222160b50f15008.png>
-LaTeX Info: Redefining \rmfamily on input line 2534.
-LaTeX Info: Redefining \sffamily on input line 2534.
-LaTeX Info: Redefining \ttfamily on input line 2534.
+LaTeX Info: Redefining \rmfamily on input line 2572.
+LaTeX Info: Redefining \sffamily on input line 2572.
+LaTeX Info: Redefining \ttfamily on input line 2572.
  [54]
-LaTeX Info: Redefining \rmfamily on input line 2534.
-LaTeX Info: Redefining \sffamily on input line 2534.
-LaTeX Info: Redefining \ttfamily on input line 2534.
+LaTeX Info: Redefining \rmfamily on input line 2572.
+LaTeX Info: Redefining \sffamily on input line 2572.
+LaTeX Info: Redefining \ttfamily on input line 2572.
  [55]
-! Missing } inserted.
-<inserted text> 
-                }
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing { inserted.
-<inserted text> 
-                {
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing { inserted.
-<inserted text> 
-                {
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing { inserted.
-<inserted text> 
-                {
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Extra alignment tab has been changed to \cr.
-<recently read> \endtemplate 
-                             
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-You have given more \span or & marks than there were
-in the preamble to the \halign or \valign now in progress.
-So I'll assume that you meant to type \cr instead.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing { inserted.
-<inserted text> 
-                {
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.2562 ...& 1.000\\\end{matrix}\right)$\end{split}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-LaTeX Info: Redefining \rmfamily on input line 2568.
-LaTeX Info: Redefining \sffamily on input line 2568.
-LaTeX Info: Redefining \ttfamily on input line 2568.
-[56]
-LaTeX Info: Redefining \rmfamily on input line 2659.
-LaTeX Info: Redefining \sffamily on input line 2659.
-LaTeX Info: Redefining \ttfamily on input line 2659.
+File: 47e28a4816ec2364e38fac94f7d41608fb6f99ce211e5b1e48fdb1b7574e6832.png Grap
+hic file (type bmp)
+<47e28a4816ec2364e38fac94f7d41608fb6f99ce211e5b1e48fdb1b7574e6832.png>
+LaTeX Info: Redefining \rmfamily on input line 2634.
+LaTeX Info: Redefining \sffamily on input line 2634.
+LaTeX Info: Redefining \ttfamily on input line 2634.
+ [56]
+LaTeX Info: Redefining \rmfamily on input line 2634.
+LaTeX Info: Redefining \sffamily on input line 2634.
+LaTeX Info: Redefining \ttfamily on input line 2634.
  [57]
-LaTeX Info: Redefining \rmfamily on input line 2729.
-LaTeX Info: Redefining \sffamily on input line 2729.
-LaTeX Info: Redefining \ttfamily on input line 2729.
+LaTeX Info: Redefining \rmfamily on input line 2727.
+LaTeX Info: Redefining \sffamily on input line 2727.
+LaTeX Info: Redefining \ttfamily on input line 2727.
  [58]
-LaTeX Info: Redefining \rmfamily on input line 2828.
-LaTeX Info: Redefining \sffamily on input line 2828.
-LaTeX Info: Redefining \ttfamily on input line 2828.
+LaTeX Info: Redefining \rmfamily on input line 2785.
+LaTeX Info: Redefining \sffamily on input line 2785.
+LaTeX Info: Redefining \ttfamily on input line 2785.
  [59]
-LaTeX Info: Redefining \rmfamily on input line 2922.
-LaTeX Info: Redefining \sffamily on input line 2922.
-LaTeX Info: Redefining \ttfamily on input line 2922.
+LaTeX Info: Redefining \rmfamily on input line 2876.
+LaTeX Info: Redefining \sffamily on input line 2876.
+LaTeX Info: Redefining \ttfamily on input line 2876.
  [60]
-LaTeX Info: Redefining \rmfamily on input line 3015.
-LaTeX Info: Redefining \sffamily on input line 3015.
-LaTeX Info: Redefining \ttfamily on input line 3015.
- [61]
-File: 4806928bdbc767ebe92b209c0cbed114ab0e4ab97120ee6db56392abbbaa2829.png Grap
-hic file (type bmp)
-<4806928bdbc767ebe92b209c0cbed114ab0e4ab97120ee6db56392abbbaa2829.png>
-LaTeX Info: Redefining \rmfamily on input line 3077.
-LaTeX Info: Redefining \sffamily on input line 3077.
-LaTeX Info: Redefining \ttfamily on input line 3077.
+
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 61 undef
+ined on input line 2902.
+
+LaTeX Info: Redefining \rmfamily on input line 2955.
+LaTeX Info: Redefining \sffamily on input line 2955.
+LaTeX Info: Redefining \ttfamily on input line 2955.
+[61]
+LaTeX Info: Redefining \rmfamily on input line 3025.
+LaTeX Info: Redefining \sffamily on input line 3025.
+LaTeX Info: Redefining \ttfamily on input line 3025.
  [62]
-LaTeX Info: Redefining \rmfamily on input line 3077.
-LaTeX Info: Redefining \sffamily on input line 3077.
-LaTeX Info: Redefining \ttfamily on input line 3077.
+LaTeX Info: Redefining \rmfamily on input line 3107.
+LaTeX Info: Redefining \sffamily on input line 3107.
+LaTeX Info: Redefining \ttfamily on input line 3107.
  [63]
-LaTeX Info: Redefining \rmfamily on input line 3142.
-LaTeX Info: Redefining \sffamily on input line 3142.
-LaTeX Info: Redefining \ttfamily on input line 3142.
+LaTeX Info: Redefining \rmfamily on input line 3152.
+LaTeX Info: Redefining \sffamily on input line 3152.
+LaTeX Info: Redefining \ttfamily on input line 3152.
  [64]
-File: 131bbdf66b99623335bab92ea234aec14708cf41f88cc27b210cc0cbb9d9665d.png Grap
-hic file (type bmp)
-<131bbdf66b99623335bab92ea234aec14708cf41f88cc27b210cc0cbb9d9665d.png>
-LaTeX Info: Redefining \rmfamily on input line 3174.
-LaTeX Info: Redefining \sffamily on input line 3174.
-LaTeX Info: Redefining \ttfamily on input line 3174.
- [65]
-File: 3a8ceaccd805aba1c4135c196f2d6221f41e5a8d4fa5952dfb0eada3df792a36.png Grap
-hic file (type bmp)
-<3a8ceaccd805aba1c4135c196f2d6221f41e5a8d4fa5952dfb0eada3df792a36.png>
-LaTeX Info: Redefining \rmfamily on input line 3189.
-LaTeX Info: Redefining \sffamily on input line 3189.
-LaTeX Info: Redefining \ttfamily on input line 3189.
- [66]
 Chapter 5.
-[67
+Missing character: There is no 𝜌 in font [FreeSerifBold.otf]/OT:script=latn;lan
+guage=dflt;!
 
-]
-LaTeX Info: Redefining \rmfamily on input line 3197.
-LaTeX Info: Redefining \sffamily on input line 3197.
-LaTeX Info: Redefining \ttfamily on input line 3197.
- [68
-
-] [69] [70]
-Chapter 6.
-[71
-
-]
-LaTeX Info: Redefining \rmfamily on input line 3207.
-LaTeX Info: Redefining \sffamily on input line 3207.
-LaTeX Info: Redefining \ttfamily on input line 3207.
- [72
-
-]
-Chapter 7.
-[73]
-LaTeX Info: Redefining \rmfamily on input line 3242.
-LaTeX Info: Redefining \sffamily on input line 3242.
-LaTeX Info: Redefining \ttfamily on input line 3242.
- [74
-
-] [75] [76]
-Chapter 8.
-[77
-
-]
-LaTeX Info: Redefining \rmfamily on input line 3403.
-LaTeX Info: Redefining \sffamily on input line 3403.
-LaTeX Info: Redefining \ttfamily on input line 3403.
- [78]
-LaTeX Info: Redefining \rmfamily on input line 3486.
-LaTeX Info: Redefining \sffamily on input line 3486.
-LaTeX Info: Redefining \ttfamily on input line 3486.
- [79]
-Overfull \vbox (0.7279pt too high) detected at line 3951
- []
-
-LaTeX Info: Redefining \rmfamily on input line 3951.
-LaTeX Info: Redefining \sffamily on input line 3951.
-LaTeX Info: Redefining \ttfamily on input line 3951.
-[80]
-Underfull \vbox (badness 10000) detected at line 3951
- []
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 65 undef
+ined on input line 3158.
 
 
-Underfull \vbox (badness 10000) detected at line 3951
- []
-
-LaTeX Info: Redefining \rmfamily on input line 3951.
-LaTeX Info: Redefining \sffamily on input line 3951.
-LaTeX Info: Redefining \ttfamily on input line 3951.
-[81]
-Underfull \vbox (badness 10000) detected at line 3951
- []
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 65 undef
+ined on input line 3158.
 
 
-Underfull \vbox (badness 10000) detected at line 3951
- []
+LaTeX Warning: Hyper reference `backmatter/glossary:term-PADs' on page 65 undef
+ined on input line 3161.
 
-LaTeX Info: Redefining \rmfamily on input line 3951.
-LaTeX Info: Redefining \sffamily on input line 3951.
-LaTeX Info: Redefining \ttfamily on input line 3951.
-[82]
-Underfull \vbox (badness 10000) detected at line 3951
- []
+File: bootstrap_flowchart_290822.gv.png Graphic file (type bmp)
+<bootstrap_flowchart_290822.gv.png>
+
+LaTeX Warning: Float too large for page by 24.17998pt on input line 3168.
 
 
-Underfull \vbox (badness 10000) detected at line 3951
- []
-
-LaTeX Info: Redefining \rmfamily on input line 3951.
-LaTeX Info: Redefining \sffamily on input line 3951.
-LaTeX Info: Redefining \ttfamily on input line 3951.
-[83]
-Underfull \vbox (badness 10000) detected at line 3951
- []
+LaTeX Warning: Hyper reference `part1/numerics_231122:fig-bootstrap-fitting-dia
+g' on page 65 undefined on input line 3174.
 
 
-Underfull \vbox (badness 10000) detected at line 3951
- []
-
-LaTeX Info: Redefining \rmfamily on input line 3951.
-LaTeX Info: Redefining \sffamily on input line 3951.
-LaTeX Info: Redefining \ttfamily on input line 3951.
-[84]
-Underfull \vbox (badness 10000) detected at line 3951
- []
+LaTeX Warning: Reference `part1/numerics_231122:fig-bootstrap-fitting-diag' on 
+page 65 undefined on input line 3174.
 
 
-Underfull \vbox (badness 10000) detected at line 3951
- []
+LaTeX Warning: Hyper reference `backmatter/glossary:term-ADMs' on page 65 undef
+ined on input line 3174.
 
-LaTeX Info: Redefining \rmfamily on input line 3951.
-LaTeX Info: Redefining \sffamily on input line 3951.
-LaTeX Info: Redefining \ttfamily on input line 3951.
-[85]
-Underfull \vbox (badness 10000) detected at line 3951
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3951
- []
-
-LaTeX Info: Redefining \rmfamily on input line 3951.
-LaTeX Info: Redefining \sffamily on input line 3951.
-LaTeX Info: Redefining \ttfamily on input line 3951.
-[86]
-Underfull \vbox (badness 10000) detected at line 3951
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3951
- []
-
-LaTeX Info: Redefining \rmfamily on input line 3951.
-LaTeX Info: Redefining \sffamily on input line 3951.
-LaTeX Info: Redefining \ttfamily on input line 3951.
-[87]
-LaTeX Info: Redefining \rmfamily on input line 3956.
-LaTeX Info: Redefining \sffamily on input line 3956.
-LaTeX Info: Redefining \ttfamily on input line 3956.
- [88]
-Underfull \hbox (badness 10000) in paragraph at lines 3970--3972
-[]\TU/FreeSerif(0)/m/n/10 Paul Hockett. Open Photoionization Docker Stacks. URL
-: [][]$[][][][][] [] [] [] [][][][][][] [] [][][] [] [][][][][][][][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3994--3996
-[]\TU/FreeSerif(0)/m/n/10 Paul Hockett. ePSproc: Post-processing for ePolyScat 
-(Github repository). Github, 2016.
- []
-
-[89
-
-
-]
-LaTeX Info: Redefining \rmfamily on input line 4068.
-LaTeX Info: Redefining \sffamily on input line 4068.
-LaTeX Info: Redefining \ttfamily on input line 4068.
- [90]
-Underfull \hbox (badness 5832) in paragraph at lines 4093--4095
-\TU/FreeSerif(0)/m/n/10 ets to observables. \TU/FreeSerif(0)/m/it/10 Physical c
-hemistry chemical physics : PCCP\TU/FreeSerif(0)/m/n/10 , 13(41):18447–67, Nove
-mber 2011.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4099--4101
-[]\TU/FreeSerif(0)/m/n/10 Toshinori Suzuki and Benjamin J. Whitaker. Non-adiaba
-tic effects in chemistry revealed by time-
- []
-
-LaTeX Info: Redefining \rmfamily on input line 4119.
-LaTeX Info: Redefining \sffamily on input line 4119.
-LaTeX Info: Redefining \ttfamily on input line 4119.
-[91] (./QM3.ind
-LaTeX Info: Redefining \rmfamily on input line 1.
-LaTeX Info: Redefining \sffamily on input line 1.
-LaTeX Info: Redefining \ttfamily on input line 1.
- [92] [93
-
-
-
-])
-The property list \polyglossia@langsetup contains the pairs (without outer
-braces):
->  {latex/script}  =>  {latin}
->  {latex/lcscript}  =>  {latin}
->  {latex/scripttag}  =>  {}
->  {latex/language}  =>  {Latex}
->  {latex/langtag}  =>  {ENG}
->  {latex/bcp47}  =>  {}
->  {latex/hyphennames}  =>  {english}
->  {latex/direction}  =>  {LR}
->  {latex/hyphenmins}  =>  {2,3}
->  {latex/frenchspacing}  =>  {false}
->  {latex/indentfirst}  =>  {false}
->  {latex/fontsetup}  =>  {true}
->  {latex/envname}  =>  {latex}
->  {latex/babelname}  =>  {latex}
->  {latex/localnumeral}  =>  {polyglossia@C@localnumeral}
->  {latex/Localnumeral}  =>  {polyglossia@C@localnumeral}
->  {english/script}  =>  {latin}
->  {english/lcscript}  =>  {latin}
->  {english/scripttag}  =>  {}
->  {english/language}  =>  {English}
->  {english/langtag}  =>  {ENG}
->  {english/bcp47}  =>  {en-US}
->  {english/hyphennames}  =>  {english,american,usenglish,USenglish}
->  {english/direction}  =>  {LR}
->  {english/hyphenmins}  =>  {2,3}
->  {english/frenchspacing}  =>  {false}
->  {english/indentfirst}  =>  {false}
->  {english/fontsetup}  =>  {true}
->  {english/envname}  =>  {english}
->  {english/babelname}  =>  {american}
->  {english/localnumeral}  =>  {polyglossia@C@localnumeral}
->  {english/Localnumeral}  =>  {polyglossia@C@localnumeral}.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4153.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 4153.
- (./QM3.aux
-LaTeX Info: Redefining \rmfamily on input line 19.
-LaTeX Info: Redefining \sffamily on input line 19.
-LaTeX Info: Redefining \ttfamily on input line 19.
-)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4153.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4153.
-
-Package rerunfilecheck Info: File `QM3.out' has not changed.
-(rerunfilecheck)             Checksum: 2005464636421D61A8121E3B8E2B85FB;5447.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
-Here is how much of TeX's memory you used:
- 42594 strings out of 481804
- 967050 string characters out of 5937875
- 2960800 words of memory out of 5000000
- 58724 multiletter control sequences out of 15000+600000
- 542540 words of font info for 140 fonts, out of 8000000 for 9000
- 15 hyphenation exceptions out of 8191
- 71i,28n,109p,2025b,2291s stack positions out of 5000i,500n,10000p,200000b,80000s
-
-Output written on QM3.pdf (97 pages).

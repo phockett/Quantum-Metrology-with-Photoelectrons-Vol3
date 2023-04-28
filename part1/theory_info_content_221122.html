@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'part1/theory_info_content_221122';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Numerical implementation" href="numerics_231122.html" />
+    <link rel="next" title="4. Numerical methodologies for extracting matrix elements" href="numerics_231122.html" />
     <link rel="prev" title="3.4. Density matrix representation" href="theory_density_matrices_310123.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -175,7 +175,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">3.5. Information content &amp; sensitivity</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="numerics_231122.html">4. Numerical implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numerics_231122.html">4. Numerical methodologies for extracting matrix elements</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extracting matrix elements - numerical methods &amp; case studies</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part2/extracting_matrix_elements_overview_270423.html">5. Extracting matrix elements overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/sym-fitting-intro_220423.html">6. Basis sets for fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/basic_fitting_numerics_intro_260423.html">7. Basic fit setup and numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-N2_270423.html">8. Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, <span class="math notranslate nohighlight">\(N_2~(D_{\infty h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-OCS_270423.html">9. Case study: Generalised bootstrapping for a linear heteronuclear scattering system, <span class="math notranslate nohighlight">\(OCS~(C_{\infty v})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-C2H4_270423.html">10. Case study: Generalised bootstrapping for a general asymmetric top scattering system, <span class="math notranslate nohighlight">\(C_2H_4~(C_{2h})\)</span></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
@@ -395,7 +404,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="information-content-sensitivity">
 <span id="sec-info-content"></span><h1><span class="section-number">3.5. </span>Information content &amp; sensitivity<a class="headerlink" href="#information-content-sensitivity" title="Permalink to this heading">#</a></h1>
-<p>A useful tool in considering the possibility of matrix element retrieval is the response, or sensitivity, of the experimental observables to the matrix elements of interest. Aspects of this have already been explored in <a class="reference internal" href="theory_tensor_formalism_201122.html#sec-tensor-formulation"><span class="std std-numref">Sect. 3.3</span></a>, where consideration of the various geometric tensors (or geometric basis set) provided a route to investigating the coupling - hence sensitivity - of various parameters into product terms. In particular the tensor products discussed in <a class="reference internal" href="theory_tensor_formalism_201122.html#sec-theory-tensor-products"><span class="std std-numref">Sect. 3.3.8</span></a>, including the full channel (response) functions <span class="math notranslate nohighlight">\(\varUpsilon_{L,M}^{u,\zeta\zeta'}\)</span> (<a class="reference internal" href="theory_tensor_formalism_201122.html#equation-eq-channelfunc-mf-defn">(3.20)</a> and <a class="reference internal" href="theory_tensor_formalism_201122.html#equation-eq-channelfunc-af-defn">(3.21)</a>), can be used to examine the overall sensitivity of a given measurement to the underlying observables. By careful consideration of the problem at hand, experiments may then be tailored for particular cases based on these sensitivities. A related question, is how a given experimental sensitivity might be more readily quantified, and interpreted, for reconstruction problems, in a simpler manner. In general, this can be termed as the <em>information content</em> of the measurement(s); an important aspect of such a metric is that it should be readily interpretable and, ideally, related to whether a reconstruction will be possible in a given case (this has, for example, been considered by other authors for specific cases, e.g. Refs. <span id="id1">[<a class="reference internal" href="../backmatter/bibliography.html#id726" title="B Schmidtke, M Drescher, N a Cherepkov, and U Heinzmann. On the impossibility to perform a complete valence-shell photoionization experiment with closed-shell atoms. Journal of Physics B: Atomic, Molecular and Optical Physics, 33(13):2451–2465, July 2000. doi:10.1088/0953-4075/33/13/306.">58</a>, <a class="reference internal" href="../backmatter/bibliography.html#id692" title="S Ramakrishna and Tamar Seideman. On the information content of time- and angle-resolved photoelectron spectroscopy. Journal of Physics B: Atomic, Molecular and Optical Physics, 45(19):194012, October 2012. doi:10.1088/0953-4075/45/19/194012.">59</a>]</span>).</p>
+<p>A useful tool in considering the possibility of matrix element retrieval is the response, or sensitivity, of the experimental observables to the matrix elements of interest. Aspects of this have already been explored in <a class="reference internal" href="theory_tensor_formalism_201122.html#sec-tensor-formulation"><span class="std std-numref">Sect. 3.3</span></a>, where consideration of the various geometric tensors (or geometric basis set) provided a route to investigating the coupling - hence sensitivity - of various parameters into product terms. In particular the tensor products discussed in <a class="reference internal" href="theory_tensor_formalism_201122.html#sec-theory-tensor-products"><span class="std std-numref">Sect. 3.3.8</span></a>, including the full channel (response) functions <span class="math notranslate nohighlight">\(\varUpsilon_{L,M}^{u,\zeta\zeta'}\)</span> (<a class="reference internal" href="theory_tensor_formalism_201122.html#equation-eq-channelfunc-mf-defn">(3.23)</a> and <a class="reference internal" href="theory_tensor_formalism_201122.html#equation-eq-channelfunc-af-defn">(3.24)</a>), can be used to examine the overall sensitivity of a given measurement to the underlying observables. By careful consideration of the problem at hand, experiments may then be tailored for particular cases based on these sensitivities. A related question, is how a given experimental sensitivity might be more readily quantified, and interpreted, for reconstruction problems, in a simpler manner. In general, this can be termed as the <em>information content</em> of the measurement(s); an important aspect of such a metric is that it should be readily interpretable and, ideally, related to whether a reconstruction will be possible in a given case (this has, for example, been considered by other authors for specific cases, e.g. Refs. <span id="id1">[<a class="reference internal" href="../backmatter/bibliography.html#id782" title="B Schmidtke, M Drescher, N a Cherepkov, and U Heinzmann. On the impossibility to perform a complete valence-shell photoionization experiment with closed-shell atoms. Journal of Physics B: Atomic, Molecular and Optical Physics, 33(13):2451–2465, July 2000. URL: http://stacks.iop.org/0953-4075/33/i=13/a=306?key=crossref.ec62c50a4abb6a8ccb8209c7b3c89478, doi:10.1088/0953-4075/33/13/306.">65</a>, <a class="reference internal" href="../backmatter/bibliography.html#id748" title="S Ramakrishna and Tamar Seideman. On the information content of time- and angle-resolved photoelectron spectroscopy. Journal of Physics B: Atomic, Molecular and Optical Physics, 45(19):194012, October 2012. URL: http://stacks.iop.org/0953-4075/45/i=19/a=194012?key=crossref.68faa78abc832ed11020afde085ac486 (visited on 2012-11-06), doi:10.1088/0953-4075/45/19/194012.">66</a>]</span>).</p>
 <p>Work in this direction is ongoing, and some thoughts are given below. In particular, the use of the observable <span class="math notranslate nohighlight">\(\beta_{L,M}\)</span> presents an experimental route to (roughly) define a form of information content, whilst metrics derived from channel functions or density matrices may present a more rigorous theoretical route to a useful parameterization of information content.</p>
 <section id="numerical-setup">
 <h2><span class="section-number">3.5.1. </span>Numerical setup<a class="headerlink" href="#numerical-setup" title="Permalink to this heading">#</a></h2>
@@ -420,7 +429,7 @@ document.write(`
 For more details see https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basic_demo_030621-full.html
 To use local source code, pass the parent path to this script at run time, e.g. &quot;setup_fit_demo ~/github&quot;
 
-*** Running: 2023-03-29 13:58:38
+*** Running: 2023-04-28 09:36:40
 Working dir: /home/jovyan/jake-home/buildTmp/_latest_build/html/doc-source/part1
 Build env: html
 
@@ -430,14 +439,13 @@ Build env: html
 * Setting plotter defaults with epsproc.basicPlotters.setPlotters(). Run directly to modify, or change options in local env.
 * Set Holoviews with bokeh.
 * pyevtk not found, VTK export not available. 
-***xyzpy not found, parallel functions not available.
 * Set Holoviews with bokeh.
 Jupyter Book      : 0.15.1
 External ToC      : 0.3.1
 MyST-Parser       : 0.18.1
-MyST-NB           : 0.17.1
-Sphinx Book Theme : 1.0.0
-Jupyter-Cache     : 0.5.0
+MyST-NB           : 0.17.2
+Sphinx Book Theme : 1.0.1
+Jupyter-Cache     : 0.6.1
 NbClient          : 0.5.4
 </pre></div>
 </div>
@@ -883,12 +891,24 @@ if (window.Jupyter !== undefined) {
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*** Setting up basis set for symmetry-defined matrix elements, see Quantum Metrology Vol. 3 Sect. 3.3...
+
 Set symmetry=D2h, lmax=4
+*** Mapping coeffs to ePSproc dataType = matE
+Remapped dims: {&#39;C&#39;: &#39;Cont&#39;, &#39;mu&#39;: &#39;it&#39;}
+Added dim Eke
+Added dim Targ
+Added dim Total
+Added dim mu
+Added dim Type
+Found dipole symmetries: 
+{&#39;B1u&#39;: {&#39;m&#39;: [0], &#39;pol&#39;: [&#39;z&#39;]}, &#39;B2u&#39;: {&#39;m&#39;: [-1, 1], &#39;pol&#39;: [&#39;y&#39;]}, &#39;B3u&#39;: {&#39;m&#39;: [-1, 1], &#39;pol&#39;: [&#39;x&#39;]}}
+*** Mapping coeffs to ePSproc dataType = BLM
 Remapped dims: {&#39;C&#39;: &#39;Cont&#39;, &#39;mu&#39;: &#39;muX&#39;}
 Added dim Eke
 Added dim P
 Added dim T
 Added dim C
+*** Mapping coeffs to ePSproc dataType = matE
 Remapped dims: {&#39;C&#39;: &#39;Cont&#39;, &#39;mu&#39;: &#39;muX&#39;}
 Added dim Eke
 Added dim Targ
@@ -896,11 +916,77 @@ Added dim Total
 Added dim mu
 Added dim it
 Added dim Type
-Product basis elements: dict_keys([&#39;BLMtableResort&#39;, &#39;polProd&#39;, &#39;phaseConvention&#39;, &#39;BLMRenorm&#39;])
-Full basis elements: dict_keys([&#39;QNs&#39;, &#39;EPRX&#39;, &#39;lambdaTerm&#39;, &#39;BLMtable&#39;, &#39;BLMtableResort&#39;, &#39;AFterm&#39;, &#39;AKQS&#39;, &#39;polProd&#39;, &#39;phaseConvention&#39;, &#39;BLMRenorm&#39;])
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">~/</span><span class="n">jake</span><span class="o">-</span><span class="n">home</span><span class="o">/</span><span class="n">buildTmp</span><span class="o">/</span><span class="n">_latest_build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">doc</span><span class="o">-</span><span class="n">source</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">setup_symmetry_basis_tensors</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span> 
+<span class="g g-Whitespace">     </span><span class="mi">89</span> <span class="c1"># Using ePSproc directly - this includes full basis return if specified</span>
+<span class="ne">---&gt; </span><span class="mi">90</span> <span class="n">BetaNormX2</span><span class="p">,</span> <span class="n">basisFull</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">geomFunc</span><span class="o">.</span><span class="n">afblmXprod</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">subKey</span><span class="p">][</span><span class="s1">&#39;matE&#39;</span><span class="p">],</span> <span class="n">basisReturn</span> <span class="o">=</span> <span class="s1">&#39;Full&#39;</span><span class="p">,</span> <span class="n">selDims</span><span class="o">=</span><span class="p">{},</span> <span class="n">sqThres</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#, BLMRenorm = BLMRenorm, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span> <span class="n">BetaNorm2</span> <span class="o">=</span> <span class="n">BetaNormX2</span>  <span class="c1"># Set alias</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span> 
 
-*** Setting trial results for linear ramp ADMs.
-Subselected from dataset &#39;ADM&#39;, dataType &#39;ADM&#39;: 50 from 50 points (100.00%)
+<span class="nn">/opt/conda/lib/python3.9/site-packages/epsproc/geomFunc/afblmGeom.py</span> in <span class="ni">afblmXprod</span><span class="nt">(matEin, QNs, AKQS, EPRX, p, BLMtable, BLMtableResort, lambdaTerm, polProd, AFterm, thres, thresDims, selDims, sqThres, dropThres, sumDims, sumDimsPol, symSum, degenDrop, SFflag, SFflagRenorm, BLMRenorm, squeeze, phaseConvention, basisReturn, verbose, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">423</span>         <span class="n">mTermSumThres</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">mTermSumThres</span><span class="o">/</span><span class="n">mTermSumThres</span><span class="o">.</span><span class="n">SF</span>
+<span class="g g-Whitespace">    </span><span class="mi">424</span> 
+<span class="ne">--&gt; </span><span class="mi">425</span>     <span class="n">mTermSumThres</span><span class="p">[</span><span class="s1">&#39;XSraw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mTermSumThres</span><span class="o">.</span><span class="n">sel</span><span class="p">({</span><span class="s1">&#39;L&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">})</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;LM&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># This basically works, and keeps all non-summed dims... but may give issues later...? Make sure to .copy(), otherwise it&#39;s just a pointer.</span>
+<span class="g g-Whitespace">    </span><span class="mi">426</span> 
+<span class="g g-Whitespace">    </span><span class="mi">427</span>     <span class="c1"># Rescale by sqrt(4pi)*SF, this matches GetCro XS outputs in testing.</span>
+
+<span class="nn">/opt/conda/lib/python3.9/site-packages/xarray/core/dataarray.py</span> in <span class="ni">sel</span><span class="nt">(self, indexers, method, tolerance, drop, **indexers_kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1327</span>         <span class="n">Dimensions</span> <span class="n">without</span> <span class="n">coordinates</span><span class="p">:</span> <span class="n">points</span>
+<span class="g g-Whitespace">   </span><span class="mi">1328</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1329</span><span class="sd">         ds = self._to_temp_dataset().sel(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1330</span><span class="sd">             indexers=indexers,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1331</span><span class="sd">             drop=drop,</span>
+
+<span class="nn">/opt/conda/lib/python3.9/site-packages/xarray/core/dataset.py</span> in <span class="ni">sel</span><span class="nt">(self, indexers, method, tolerance, drop, **indexers_kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2499</span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2500</span>         <span class="n">indexers</span> <span class="o">=</span> <span class="n">either_dict_or_kwargs</span><span class="p">(</span><span class="n">indexers</span><span class="p">,</span> <span class="n">indexers_kwargs</span><span class="p">,</span> <span class="s2">&quot;sel&quot;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2501</span>         <span class="n">pos_indexers</span><span class="p">,</span> <span class="n">new_indexes</span> <span class="o">=</span> <span class="n">remap_label_indexers</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2502</span>             <span class="bp">self</span><span class="p">,</span> <span class="n">indexers</span><span class="o">=</span><span class="n">indexers</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span>
+<span class="g g-Whitespace">   </span><span class="mi">2503</span>         <span class="p">)</span>
+
+<span class="nn">/opt/conda/lib/python3.9/site-packages/xarray/core/coordinates.py</span> in <span class="ni">remap_label_indexers</span><span class="nt">(obj, indexers, method, tolerance, **indexers_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">419</span>     <span class="p">}</span>
+<span class="g g-Whitespace">    </span><span class="mi">420</span> 
+<span class="ne">--&gt; </span><span class="mi">421</span>     <span class="n">pos_indexers</span><span class="p">,</span> <span class="n">new_indexes</span> <span class="o">=</span> <span class="n">indexing</span><span class="o">.</span><span class="n">remap_label_indexers</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">422</span>         <span class="n">obj</span><span class="p">,</span> <span class="n">v_indexers</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span>
+<span class="g g-Whitespace">    </span><span class="mi">423</span>     <span class="p">)</span>
+
+<span class="nn">/opt/conda/lib/python3.9/site-packages/xarray/core/indexing.py</span> in <span class="ni">remap_label_indexers</span><span class="nt">(data_obj, indexers, method, tolerance)</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span>     <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">indexes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span>         <span class="n">labels</span> <span class="o">=</span> <span class="n">grouped_indexers</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">121</span>         <span class="n">idxr</span><span class="p">,</span> <span class="n">new_idx</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">122</span>         <span class="n">pos_indexers</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="n">idxr</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span>         <span class="k">if</span> <span class="n">new_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">/opt/conda/lib/python3.9/site-packages/xarray/core/indexes.py</span> in <span class="ni">query</span><span class="nt">(self, labels, method, tolerance)</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span>             <span class="n">is_nested_vals</span> <span class="o">=</span> <span class="n">_is_nested_tuple</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">labels</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span>             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">nlevels</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_nested_vals</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">344</span>                 <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">345</span>             <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span>                 <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">labels</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+<span class="nn">/opt/conda/lib/python3.9/site-packages/pandas/core/indexes/multi.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2930</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2931</span>         <span class="k">if</span> <span class="n">keylen</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">nlevels</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_unique</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2932</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2933</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2934</span>         <span class="c1"># -- partial selection or non-unique index</span>
+
+<span class="nn">/opt/conda/lib/python3.9/site-packages/pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.BaseMultiIndexCodesEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">/opt/conda/lib/python3.9/site-packages/pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">/opt/conda/lib/python3.9/site-packages/pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.UInt64HashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.UInt64HashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: 3
 </pre></div>
 </div>
 </div>
@@ -923,9 +1009,9 @@ Subselected from dataset &#39;ADM&#39;, dataType &#39;ADM&#39;: 50 from 50 point
 </section>
 <section id="experimental-information-content">
 <span id="sec-expt-info-content"></span><h2><span class="section-number">3.5.2. </span>Experimental information content<a class="headerlink" href="#experimental-information-content" title="Permalink to this heading">#</a></h2>
-<p>As discussed in <em>Quantum Metrology</em> Vol. 2 <span id="id2">[<a class="reference internal" href="../backmatter/bibliography.html#id570" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. doi:10.1088/978-1-6817-4688-3.">2</a>]</span>, the information content of a single observable might be regarded as simply the number of contributing <span class="math notranslate nohighlight">\(\beta_{L,M}\)</span> parameters. In set notation:</p>
+<p>As discussed in <em>Quantum Metrology</em> Vol. 2 <span id="id2">[<a class="reference internal" href="../backmatter/bibliography.html#id614" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3, doi:10.1088/978-1-6817-4688-3.">2</a>]</span>, the information content of a single observable might be regarded as simply the number of contributing <span class="math notranslate nohighlight">\(\beta_{L,M}\)</span> parameters. In set notation:</p>
 <div class="math notranslate nohighlight" id="equation-eq-blm-set">
-<span class="eqno">(3.37)<a class="headerlink" href="#equation-eq-blm-set" title="Permalink to this equation">#</a></span>\[M=\mathrm{n}\{\beta_{L,M}\}\]</div>
+<span class="eqno">(3.40)<a class="headerlink" href="#equation-eq-blm-set" title="Permalink to this equation">#</a></span>\[M=\mathrm{n}\{\beta_{L,M}\}\]</div>
 <p>where <span class="math notranslate nohighlight">\(M\)</span> is the information content of the measurement, defined as
 <span class="math notranslate nohighlight">\(\mathrm{n}\{...\}\)</span> the cardinality (number of elements) of the set of
 contributing parameters. A set of measurements, made for some
@@ -949,7 +1035,7 @@ total measurement space spanned by the full set of
 <span class="math notranslate nohighlight">\(\{\beta_{L,M}^{u}(k,t)\}\)</span>. However, in this basic definition a larger
 <span class="math notranslate nohighlight">\(M_{u}\)</span> does not necessarily indicate a higher information content for
 quantum retrieval applications. The reason for this is simply down to
-the complexity of the problem (cf. Eq. <a class="reference internal" href="theory_tensor_formalism_201122.html#equation-eqn-channel-fns">(3.15)</a>), in which many couplings define the sensitivity of the observable to the underlying system properties of
+the complexity of the problem (cf. Eq. <a class="reference internal" href="theory_tensor_formalism_201122.html#equation-eqn-channel-fns">(3.18)</a>), in which many couplings define the sensitivity of the observable to the underlying system properties of
 interest. In this sense, more measurements, and larger <span class="math notranslate nohighlight">\(M\)</span>, may only add
 redundancy, rather than new information.</p>
 <p>From a set of numerical results, it is relatively trivial to investigate some of these properties as a function of various constraints, using standard Python functionality, as shown in the code blocks below. For example, <span class="math notranslate nohighlight">\(M\)</span> can be determined numerically as the number of elements in the dataset, the number of <em>unique</em> elements, the number of elements within a certain range or above a threshold, and so on.</p>
@@ -1325,9 +1411,9 @@ array([(0, -1), (0, 0), (0, 1), (1, -1), (1, 0), (1, 1), (2, -1), (2, 0),
 Coordinates:
   * BLM      (BLM) MultiIndex
   - l        (BLM) int64 0 0 0 1 1 1 2 2 2
-  - m        (BLM) int64 -1 0 1 -1 0 1 -1 0 1</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'BLM'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>BLM</span>: 9</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-c4421179-7ff6-4a72-ae70-047d0a67bf71' class='xr-array-in' type='checkbox' checked><label for='section-c4421179-7ff6-4a72-ae70-047d0a67bf71' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>(0, -1) (0, 0) (0, 1) (1, -1) (1, 0) (1, 1) (2, -1) (2, 0) (2, 1)</span></div><div class='xr-array-data'><pre>array([(0, -1), (0, 0), (0, 1), (1, -1), (1, 0), (1, 1), (2, -1), (2, 0),
-       (2, 1)], dtype=object)</pre></div></div></li><li class='xr-section-item'><input id='section-9e40a7c1-edea-48a5-9e45-7f545d72e101' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9e40a7c1-edea-48a5-9e45-7f545d72e101' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>BLM</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>MultiIndex</div><div class='xr-var-preview xr-preview'>(l, m)</div><input id='attrs-ff6f91ce-b5a5-461e-8a72-5b3c293a2053' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ff6f91ce-b5a5-461e-8a72-5b3c293a2053' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-57e9fd39-6df2-4c31-96fc-91965710ab1f' class='xr-var-data-in' type='checkbox'><label for='data-57e9fd39-6df2-4c31-96fc-91965710ab1f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([(0, -1), (0, 0), (0, 1), (1, -1), (1, 0), (1, 1), (2, -1), (2, 0),
-       (2, 1)], dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>l</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 0 0 1 1 1 2 2 2</div><input id='attrs-421fc4b2-4da9-4f67-a801-d47d38fe1c2c' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-421fc4b2-4da9-4f67-a801-d47d38fe1c2c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-149f1424-afc9-4dbd-94a0-0f78fbe4ff4a' class='xr-var-data-in' type='checkbox'><label for='data-149f1424-afc9-4dbd-94a0-0f78fbe4ff4a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 0, 0, 1, 1, 1, 2, 2, 2])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>m</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>-1 0 1 -1 0 1 -1 0 1</div><input id='attrs-51b2f5f2-a973-43e0-b581-b79e8b239f93' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-51b2f5f2-a973-43e0-b581-b79e8b239f93' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bbfe4046-4113-45f6-bda5-a0883eff3981' class='xr-var-data-in' type='checkbox'><label for='data-bbfe4046-4113-45f6-bda5-a0883eff3981' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([-1,  0,  1, -1,  0,  1, -1,  0,  1])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9f7be1f8-7a79-474d-b3a7-8b4b9e0ac3ad' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-9f7be1f8-7a79-474d-b3a7-8b4b9e0ac3ad' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+  - m        (BLM) int64 -1 0 1 -1 0 1 -1 0 1</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'BLM'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>BLM</span>: 9</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-5e67e155-1fc6-4917-af19-b65fcc79b74c' class='xr-array-in' type='checkbox' checked><label for='section-5e67e155-1fc6-4917-af19-b65fcc79b74c' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>(0, -1) (0, 0) (0, 1) (1, -1) (1, 0) (1, 1) (2, -1) (2, 0) (2, 1)</span></div><div class='xr-array-data'><pre>array([(0, -1), (0, 0), (0, 1), (1, -1), (1, 0), (1, 1), (2, -1), (2, 0),
+       (2, 1)], dtype=object)</pre></div></div></li><li class='xr-section-item'><input id='section-08626bff-8d85-41bc-b720-5adc18010106' class='xr-section-summary-in' type='checkbox'  checked><label for='section-08626bff-8d85-41bc-b720-5adc18010106' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>BLM</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>MultiIndex</div><div class='xr-var-preview xr-preview'>(l, m)</div><input id='attrs-2169f043-285c-405f-9060-f48b349fdf4c' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2169f043-285c-405f-9060-f48b349fdf4c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-868a484d-3dc7-4cbe-93ad-9bbd219a1b03' class='xr-var-data-in' type='checkbox'><label for='data-868a484d-3dc7-4cbe-93ad-9bbd219a1b03' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([(0, -1), (0, 0), (0, 1), (1, -1), (1, 0), (1, 1), (2, -1), (2, 0),
+       (2, 1)], dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>l</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 0 0 1 1 1 2 2 2</div><input id='attrs-412112e4-fe1d-4a6d-aa10-739a2d108574' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-412112e4-fe1d-4a6d-aa10-739a2d108574' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9aacfbd1-ab57-482c-b4a6-61151ddc2d42' class='xr-var-data-in' type='checkbox'><label for='data-9aacfbd1-ab57-482c-b4a6-61151ddc2d42' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 0, 0, 1, 1, 1, 2, 2, 2])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>m</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>-1 0 1 -1 0 1 -1 0 1</div><input id='attrs-56660ffa-cf71-4c3e-b430-0bda337779d9' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-56660ffa-cf71-4c3e-b430-0bda337779d9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9558e7a0-92d9-4e59-a868-b6fdcad4ca21' class='xr-var-data-in' type='checkbox'><label for='data-9558e7a0-92d9-4e59-a868-b6fdcad4ca21' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([-1,  0,  1, -1,  0,  1, -1,  0,  1])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-fd31d02c-8f85-4c25-93e6-469c2d70171a' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-fd31d02c-8f85-4c25-93e6-469c2d70171a' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1699,7 +1785,7 @@ array([(0, 0), (1, -1), (1, 0), (1, 1), (2, -1), (2, 0), (2, 1)], dtype=object)
 Coordinates:
   * BLM      (BLM) MultiIndex
   - l        (BLM) int64 0 1 1 1 2 2 2
-  - m        (BLM) int64 0 -1 0 1 -1 0 1</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'BLM'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>BLM</span>: 7</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-5c4c4d7d-0c1e-4044-a868-718dd4f0c7ab' class='xr-array-in' type='checkbox' checked><label for='section-5c4c4d7d-0c1e-4044-a868-718dd4f0c7ab' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>(0, 0) (1, -1) (1, 0) (1, 1) (2, -1) (2, 0) (2, 1)</span></div><div class='xr-array-data'><pre>array([(0, 0), (1, -1), (1, 0), (1, 1), (2, -1), (2, 0), (2, 1)], dtype=object)</pre></div></div></li><li class='xr-section-item'><input id='section-701d59a7-c75a-4404-9cc8-d741ace63220' class='xr-section-summary-in' type='checkbox'  checked><label for='section-701d59a7-c75a-4404-9cc8-d741ace63220' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>BLM</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>MultiIndex</div><div class='xr-var-preview xr-preview'>(l, m)</div><input id='attrs-16ec0dde-a0fa-4b81-8a45-fe6b83746506' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-16ec0dde-a0fa-4b81-8a45-fe6b83746506' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fa66a5ae-c5f1-4c0f-8b13-008ca200470c' class='xr-var-data-in' type='checkbox'><label for='data-fa66a5ae-c5f1-4c0f-8b13-008ca200470c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([(0, 0), (1, -1), (1, 0), (1, 1), (2, -1), (2, 0), (2, 1)], dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>l</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 1 1 2 2 2</div><input id='attrs-8f8dc7b4-2140-44dc-8d0a-b799da06cd78' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8f8dc7b4-2140-44dc-8d0a-b799da06cd78' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5d0bf4d3-7634-48da-b87d-428e0dc37630' class='xr-var-data-in' type='checkbox'><label for='data-5d0bf4d3-7634-48da-b87d-428e0dc37630' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 1, 1, 2, 2, 2])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>m</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 -1 0 1 -1 0 1</div><input id='attrs-791e2bab-988b-45b9-86fb-e9eae0e8be0a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-791e2bab-988b-45b9-86fb-e9eae0e8be0a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b325885d-b22a-467f-a1bf-dcfca023328a' class='xr-var-data-in' type='checkbox'><label for='data-b325885d-b22a-467f-a1bf-dcfca023328a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 0, -1,  0,  1, -1,  0,  1])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-061a513c-e6cc-49e9-a039-31d65b108ada' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-061a513c-e6cc-49e9-a039-31d65b108ada' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+  - m        (BLM) int64 0 -1 0 1 -1 0 1</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'BLM'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>BLM</span>: 7</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-1d430f05-7f81-43e2-ace3-31c604b0882a' class='xr-array-in' type='checkbox' checked><label for='section-1d430f05-7f81-43e2-ace3-31c604b0882a' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>(0, 0) (1, -1) (1, 0) (1, 1) (2, -1) (2, 0) (2, 1)</span></div><div class='xr-array-data'><pre>array([(0, 0), (1, -1), (1, 0), (1, 1), (2, -1), (2, 0), (2, 1)], dtype=object)</pre></div></div></li><li class='xr-section-item'><input id='section-f9587775-acc3-4f5e-8c68-8af8ac522b7c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f9587775-acc3-4f5e-8c68-8af8ac522b7c' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>BLM</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>MultiIndex</div><div class='xr-var-preview xr-preview'>(l, m)</div><input id='attrs-79ba36d4-c79e-4502-bbfe-3165ce810d09' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-79ba36d4-c79e-4502-bbfe-3165ce810d09' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1e55c247-55d1-4b8b-8f50-5e22724f04b2' class='xr-var-data-in' type='checkbox'><label for='data-1e55c247-55d1-4b8b-8f50-5e22724f04b2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([(0, 0), (1, -1), (1, 0), (1, 1), (2, -1), (2, 0), (2, 1)], dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>l</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 1 1 2 2 2</div><input id='attrs-621226a9-7e89-461f-8c78-a69d218055ad' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-621226a9-7e89-461f-8c78-a69d218055ad' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a363ad45-bdc6-49d8-94f7-521b7e470271' class='xr-var-data-in' type='checkbox'><label for='data-a363ad45-bdc6-49d8-94f7-521b7e470271' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 1, 1, 1, 2, 2, 2])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>m</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 -1 0 1 -1 0 1</div><input id='attrs-3b6bc76a-97f8-4c6d-b263-5323933f798f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3b6bc76a-97f8-4c6d-b263-5323933f798f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5a9eeda2-dd77-4fe2-9af9-5ee5047a8f50' class='xr-var-data-in' type='checkbox'><label for='data-5a9eeda2-dd77-4fe2-9af9-5ee5047a8f50' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 0, -1,  0,  1, -1,  0,  1])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-7da59de5-37bd-4bf3-86fa-b874c3878c96' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-7da59de5-37bd-4bf3-86fa-b874c3878c96' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2060,12 +2146,12 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;BLM&#x27; (BLM: 2)&gt;
-array([(0, 0), (2, 0)], dtype=object)
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;BLM&#x27; (BLM: 0)&gt;
+array([], dtype=object)
 Coordinates:
   * BLM      (BLM) MultiIndex
-  - l        (BLM) int64 0 2
-  - m        (BLM) int64 0 0</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'BLM'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>BLM</span>: 2</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-ef93fa4d-291d-4a96-94f5-396c84e6b6d7' class='xr-array-in' type='checkbox' checked><label for='section-ef93fa4d-291d-4a96-94f5-396c84e6b6d7' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>(0, 0) (2, 0)</span></div><div class='xr-array-data'><pre>array([(0, 0), (2, 0)], dtype=object)</pre></div></div></li><li class='xr-section-item'><input id='section-1eaa08f8-9313-43f4-acd7-728199afa185' class='xr-section-summary-in' type='checkbox'  checked><label for='section-1eaa08f8-9313-43f4-acd7-728199afa185' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>BLM</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>MultiIndex</div><div class='xr-var-preview xr-preview'>(l, m)</div><input id='attrs-5fbe826f-0b28-409d-a4ff-c9043dd5b08e' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-5fbe826f-0b28-409d-a4ff-c9043dd5b08e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-61cca9af-b5c9-477a-a2f6-d880d7671b0e' class='xr-var-data-in' type='checkbox'><label for='data-61cca9af-b5c9-477a-a2f6-d880d7671b0e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([(0, 0), (2, 0)], dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>l</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 2</div><input id='attrs-f80213b9-702f-4bae-bccb-0c723dbd1d39' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-f80213b9-702f-4bae-bccb-0c723dbd1d39' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b1db10ea-77fc-4679-b48b-e38663c10815' class='xr-var-data-in' type='checkbox'><label for='data-b1db10ea-77fc-4679-b48b-e38663c10815' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 2])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>m</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 0</div><input id='attrs-d0963dcd-5902-4b3e-92c6-ffa2fc46671d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d0963dcd-5902-4b3e-92c6-ffa2fc46671d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-54f0fc1d-d458-4568-a377-4727ee0f1cb2' class='xr-var-data-in' type='checkbox'><label for='data-54f0fc1d-d458-4568-a377-4727ee0f1cb2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0, 0])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-643e5ccb-02d9-42aa-a2fd-9709ae7542f0' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-643e5ccb-02d9-42aa-a2fd-9709ae7542f0' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+  - l        (BLM) int64 
+  - m        (BLM) int64 </pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'BLM'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>BLM</span>: 0</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-04a4391d-7253-4f12-a173-507f7dad0f72' class='xr-array-in' type='checkbox' checked><label for='section-04a4391d-7253-4f12-a173-507f7dad0f72' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span></span></div><div class='xr-array-data'><pre>array([], dtype=object)</pre></div></div></li><li class='xr-section-item'><input id='section-f3ab21e6-0ef6-4c90-a2f3-700cad0dd57a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f3ab21e6-0ef6-4c90-a2f3-700cad0dd57a' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>BLM</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>MultiIndex</div><div class='xr-var-preview xr-preview'>(l, m)</div><input id='attrs-6d7a5568-69f5-40ea-be7a-f3d52bee83d4' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6d7a5568-69f5-40ea-be7a-f3d52bee83d4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0e884961-8927-4291-a717-8879f736ce49' class='xr-var-data-in' type='checkbox'><label for='data-0e884961-8927-4291-a717-8879f736ce49' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([], dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>l</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'></div><input id='attrs-13571cbb-9656-4d1d-963a-44c6cd05912e' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-13571cbb-9656-4d1d-963a-44c6cd05912e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ca3a9cf9-7e86-4d5f-861e-bcd49f1ad8c0' class='xr-var-data-in' type='checkbox'><label for='data-ca3a9cf9-7e86-4d5f-861e-bcd49f1ad8c0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([], dtype=int64)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>m</span></div><div class='xr-var-dims'>(BLM)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'></div><input id='attrs-6f43af7a-7f02-496c-b191-664d5572663f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6f43af7a-7f02-496c-b191-664d5572663f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c1bc6ad3-02e4-4ea5-aef2-e4ecddc2ff62' class='xr-var-data-in' type='checkbox'><label for='data-c1bc6ad3-02e4-4ea5-aef2-e4ecddc2ff62' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([], dtype=int64)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-73382a61-db5a-40e9-8d07-77ed60ec90bf' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-73382a61-db5a-40e9-8d07-77ed60ec90bf' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2084,7 +2170,7 @@ Coordinates:
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original array M=9
 Cleaned array M=7
-Thresholded array (thres=0.0001), M=2
+Thresholded array (thres=0.0001), M=0
 </pre></div>
 </div>
 </div>
@@ -2103,144 +2189,19 @@ Thresholded array (thres=0.0001), M=2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_69391</span><span class="o">/</span><span class="mf">2303616640.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Convert to PD and tabulate with epsproc functionality</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># Note restack along &#39;t&#39; dimension</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">BetaNormLinearADMsPD</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">multiDimXrToPD</span><span class="p">(</span><span class="n">BetaNormLinearADMs</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">thres</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">colDims</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Basic describe with Pandas, see https://pandas.pydata.org/docs/user_guide/basics.html#summarizing-data-describe</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>t</th>
-      <th>0</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>5</th>
-      <th>6</th>
-      <th>7</th>
-      <th>8</th>
-      <th>9</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>2.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>0.389</td>
-      <td>0.190</td>
-      <td>0.225</td>
-      <td>0.259</td>
-      <td>0.294</td>
-      <td>0.328</td>
-      <td>0.363</td>
-      <td>0.397</td>
-      <td>0.432</td>
-      <td>0.466</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>0.115</td>
-      <td>0.242</td>
-      <td>0.265</td>
-      <td>0.290</td>
-      <td>0.315</td>
-      <td>0.341</td>
-      <td>0.368</td>
-      <td>0.395</td>
-      <td>0.423</td>
-      <td>0.451</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>0.308</td>
-      <td>0.001</td>
-      <td>0.002</td>
-      <td>0.003</td>
-      <td>0.004</td>
-      <td>0.006</td>
-      <td>0.007</td>
-      <td>0.008</td>
-      <td>0.009</td>
-      <td>0.010</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>0.348</td>
-      <td>0.009</td>
-      <td>0.017</td>
-      <td>0.026</td>
-      <td>0.035</td>
-      <td>0.043</td>
-      <td>0.052</td>
-      <td>0.060</td>
-      <td>0.069</td>
-      <td>0.078</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>0.389</td>
-      <td>0.041</td>
-      <td>0.083</td>
-      <td>0.124</td>
-      <td>0.166</td>
-      <td>0.207</td>
-      <td>0.249</td>
-      <td>0.290</td>
-      <td>0.332</td>
-      <td>0.373</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>0.430</td>
-      <td>0.382</td>
-      <td>0.457</td>
-      <td>0.532</td>
-      <td>0.607</td>
-      <td>0.681</td>
-      <td>0.751</td>
-      <td>0.797</td>
-      <td>0.844</td>
-      <td>0.891</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>0.470</td>
-      <td>0.517</td>
-      <td>0.564</td>
-      <td>0.610</td>
-      <td>0.657</td>
-      <td>0.704</td>
-      <td>0.756</td>
-      <td>0.831</td>
-      <td>0.906</td>
-      <td>0.980</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<span class="ne">NameError</span>: name &#39;BetaNormLinearADMs&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2250,108 +2211,6 @@ Thresholded array (thres=0.0001), M=2
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr>
-      <th>l</th>
-      <th>0</th>
-      <th>2</th>
-      <th>4</th>
-      <th>6</th>
-      <th>8</th>
-    </tr>
-    <tr>
-      <th>m</th>
-      <th>0</th>
-      <th>0</th>
-      <th>0</th>
-      <th>0</th>
-      <th>0</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>10.000</td>
-      <td>10.000</td>
-      <td>9.000</td>
-      <td>9.000</td>
-      <td>9.000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>0.680</td>
-      <td>0.644</td>
-      <td>0.207</td>
-      <td>0.043</td>
-      <td>0.006</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>0.141</td>
-      <td>0.226</td>
-      <td>0.114</td>
-      <td>0.024</td>
-      <td>0.003</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>0.470</td>
-      <td>0.308</td>
-      <td>0.041</td>
-      <td>0.009</td>
-      <td>0.001</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>0.575</td>
-      <td>0.476</td>
-      <td>0.124</td>
-      <td>0.026</td>
-      <td>0.003</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>0.680</td>
-      <td>0.644</td>
-      <td>0.207</td>
-      <td>0.043</td>
-      <td>0.006</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>0.786</td>
-      <td>0.812</td>
-      <td>0.290</td>
-      <td>0.060</td>
-      <td>0.008</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>0.891</td>
-      <td>0.980</td>
-      <td>0.373</td>
-      <td>0.078</td>
-      <td>0.010</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>For further insight and control, specific aggregation functions and criteria can be specified. For instance, it may be interesting to look at the number of unique values to a certain precision (e.g. depending on experimental uncertainties), or consider deviation of values from the mean.</p>
 <div class="cell docutils container">
@@ -2361,106 +2220,6 @@ Thresholded array (thres=0.0001), M=2
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>t</th>
-      <th>0</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>5</th>
-      <th>6</th>
-      <th>7</th>
-      <th>8</th>
-      <th>9</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>min</th>
-      <td>0.30</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>0.00</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>0.000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>0.50</td>
-      <td>0.500</td>
-      <td>0.600</td>
-      <td>0.600</td>
-      <td>0.70</td>
-      <td>0.700</td>
-      <td>0.800</td>
-      <td>0.800</td>
-      <td>0.900</td>
-      <td>1.000</td>
-    </tr>
-    <tr>
-      <th>var</th>
-      <td>0.02</td>
-      <td>0.062</td>
-      <td>0.083</td>
-      <td>0.083</td>
-      <td>0.11</td>
-      <td>0.127</td>
-      <td>0.152</td>
-      <td>0.145</td>
-      <td>0.167</td>
-      <td>0.207</td>
-    </tr>
-    <tr>
-      <th>count</th>
-      <td>2.00</td>
-      <td>5.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-      <td>5.00</td>
-      <td>5.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-    </tr>
-    <tr>
-      <th>nunique</th>
-      <td>2.00</td>
-      <td>3.000</td>
-      <td>4.000</td>
-      <td>4.000</td>
-      <td>4.00</td>
-      <td>3.000</td>
-      <td>4.000</td>
-      <td>4.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2472,126 +2231,6 @@ Thresholded array (thres=0.0001), M=2
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>t</th>
-      <th>0</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>5</th>
-      <th>6</th>
-      <th>7</th>
-      <th>8</th>
-      <th>9</th>
-    </tr>
-    <tr>
-      <th>l</th>
-      <th>m</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>-0.210</td>
-      <td>-0.164</td>
-      <td>-0.117</td>
-      <td>-0.070</td>
-      <td>-0.023</td>
-      <td>2.336e-02</td>
-      <td>0.070</td>
-      <td>0.117</td>
-      <td>0.164</td>
-      <td>0.210</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>0</th>
-      <td>-0.336</td>
-      <td>-0.262</td>
-      <td>-0.187</td>
-      <td>-0.112</td>
-      <td>-0.037</td>
-      <td>3.736e-02</td>
-      <td>0.112</td>
-      <td>0.187</td>
-      <td>0.262</td>
-      <td>0.336</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <th>0</th>
-      <td>NaN</td>
-      <td>-0.166</td>
-      <td>-0.124</td>
-      <td>-0.083</td>
-      <td>-0.041</td>
-      <td>0.000e+00</td>
-      <td>0.041</td>
-      <td>0.083</td>
-      <td>0.124</td>
-      <td>0.166</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <th>0</th>
-      <td>NaN</td>
-      <td>-0.035</td>
-      <td>-0.026</td>
-      <td>-0.017</td>
-      <td>-0.009</td>
-      <td>0.000e+00</td>
-      <td>0.009</td>
-      <td>0.017</td>
-      <td>0.026</td>
-      <td>0.035</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <th>0</th>
-      <td>NaN</td>
-      <td>-0.004</td>
-      <td>-0.003</td>
-      <td>-0.002</td>
-      <td>-0.001</td>
-      <td>-8.674e-19</td>
-      <td>0.001</td>
-      <td>0.002</td>
-      <td>0.003</td>
-      <td>0.004</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2600,106 +2239,6 @@ Thresholded array (thres=0.0001), M=2
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>t</th>
-      <th>0</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>5</th>
-      <th>6</th>
-      <th>7</th>
-      <th>8</th>
-      <th>9</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>min</th>
-      <td>-0.300</td>
-      <td>-0.300</td>
-      <td>-0.200</td>
-      <td>-0.100</td>
-      <td>-0.0</td>
-      <td>-0.0</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>0.000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>-0.200</td>
-      <td>-0.000</td>
-      <td>-0.000</td>
-      <td>-0.000</td>
-      <td>-0.0</td>
-      <td>-0.0</td>
-      <td>0.100</td>
-      <td>0.200</td>
-      <td>0.300</td>
-      <td>0.300</td>
-    </tr>
-    <tr>
-      <th>var</th>
-      <td>0.005</td>
-      <td>0.018</td>
-      <td>0.007</td>
-      <td>0.003</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.003</td>
-      <td>0.007</td>
-      <td>0.017</td>
-      <td>0.018</td>
-    </tr>
-    <tr>
-      <th>count</th>
-      <td>2.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-      <td>5.000</td>
-    </tr>
-    <tr>
-      <th>nunique</th>
-      <td>2.000</td>
-      <td>3.000</td>
-      <td>3.000</td>
-      <td>2.000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>2.000</td>
-      <td>3.000</td>
-      <td>4.000</td>
-      <td>3.000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>In this case the analysis suggests that <span class="math notranslate nohighlight">\(t=4,5\)</span> contain minimal, and redundant, information, whilst <span class="math notranslate nohighlight">\(t=0,3,6\)</span> are also of low total information content. However, this analysis is not necessarily absolutely definitive, since some nuances may be lost in this basic statistical analysis, particularly for weaker channels.</p>
 <p>For a more detailed analysis, other standard analysis tools can be deployed. For instance, the covariance matrix can be investigated, given by <span class="math notranslate nohighlight">\(K_{i,j}=\textrm{cov}[X_{i},X_{j}]=\langle(X_{i}-\langle X_{i}\rangle)(X_{j}-\langle X_{j}\rangle)\rangle\)</span>. For the linear ramp case this analysis is not particularly useful, but will become more informative for more complicated cases.</p>
@@ -2742,58 +2281,8 @@ Thresholded array (thres=0.0001), M=2
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:param.HeatMapPlot02995: Due to internal constraints, when aspect and width/height is set, the bokeh backend uses those values as frame_width/frame_height instead. This ensures the aspect is respected, but means that the plot might be slightly larger than anticipated. Set the frame_width/frame_height explicitly to suppress this warning.
-</pre></div>
-</div>
-</div>
 </details>
 </div>
-<figure class="align-default" id="fig-covmatblmexample">
-<div class="output text_html"><div id='1002'>
-
-
-
-
-
-  <div class="bk-root" id="9410545b-8681-48e8-bc89-b7ccb8c3aa6f" data-root-id="1002"></div>
-</div>
-<script type="application/javascript">(function(root) {
-  function embed_document(root) {
-    var docs_json = {"b023ecd9-65b7-49c3-b1e5-552da8d164ad":{"defs":[{"extends":null,"module":null,"name":"ReactiveHTML1","overrides":[],"properties":[]},{"extends":null,"module":null,"name":"FlexBox1","overrides":[],"properties":[{"default":"flex-start","kind":null,"name":"align_content"},{"default":"flex-start","kind":null,"name":"align_items"},{"default":"row","kind":null,"name":"flex_direction"},{"default":"wrap","kind":null,"name":"flex_wrap"},{"default":"flex-start","kind":null,"name":"justify_content"}]},{"extends":null,"module":null,"name":"GridStack1","overrides":[],"properties":[{"default":"warn","kind":null,"name":"mode"},{"default":null,"kind":null,"name":"ncols"},{"default":null,"kind":null,"name":"nrows"},{"default":true,"kind":null,"name":"allow_resize"},{"default":true,"kind":null,"name":"allow_drag"},{"default":[],"kind":null,"name":"state"}]},{"extends":null,"module":null,"name":"click1","overrides":[],"properties":[{"default":"","kind":null,"name":"terminal_output"},{"default":"","kind":null,"name":"debug_name"},{"default":0,"kind":null,"name":"clears"}]},{"extends":null,"module":null,"name":"NotificationAreaBase1","overrides":[],"properties":[{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"}]},{"extends":null,"module":null,"name":"NotificationArea1","overrides":[],"properties":[{"default":[],"kind":null,"name":"notifications"},{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"},{"default":[{"background":"#ffc107","icon":{"className":"fas fa-exclamation-triangle","color":"white","tagName":"i"},"type":"warning"},{"background":"#007bff","icon":{"className":"fas fa-info-circle","color":"white","tagName":"i"},"type":"info"}],"kind":null,"name":"types"}]},{"extends":null,"module":null,"name":"Notification","overrides":[],"properties":[{"default":null,"kind":null,"name":"background"},{"default":3000,"kind":null,"name":"duration"},{"default":null,"kind":null,"name":"icon"},{"default":"","kind":null,"name":"message"},{"default":null,"kind":null,"name":"notification_type"},{"default":false,"kind":null,"name":"_destroyed"}]},{"extends":null,"module":null,"name":"TemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]},{"extends":null,"module":null,"name":"MaterialTemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]}],"roots":{"references":[{"attributes":{"active_drag":{"id":"1023"},"active_scroll":{"id":"1024"},"tools":[{"id":"1005"},{"id":"1022"},{"id":"1023"},{"id":"1024"},{"id":"1025"},{"id":"1026"}]},"id":"1028","type":"Toolbar"},{"attributes":{},"id":"1016","type":"CategoricalTicker"},{"attributes":{"callback":null,"renderers":[{"id":"1043"}],"tags":["hv_created"],"tooltips":[["columns","@{columns}"],["index","@{index}"],["value","@{value}"]]},"id":"1005","type":"HoverTool"},{"attributes":{"high":0.2030150557427047,"low":-0.0072736743196940646,"nan_color":"white","palette":["#440154","#440255","#440357","#450558","#45065a","#45085b","#46095c","#460b5e","#460c5f","#460e61","#470f62","#471163","#471265","#471466","#471567","#471669","#47186a","#48196b","#481a6c","#481c6e","#481d6f","#481e70","#482071","#482172","#482273","#482374","#472575","#472676","#472777","#472878","#472a79","#472b7a","#472c7b","#462d7c","#462f7c","#46307d","#46317e","#45327f","#45347f","#453580","#453681","#443781","#443982","#433a83","#433b83","#433c84","#423d84","#423e85","#424085","#414186","#414286","#404387","#404487","#3f4587","#3f4788","#3e4888","#3e4989","#3d4a89","#3d4b89","#3d4c89","#3c4d8a","#3c4e8a","#3b508a","#3b518a","#3a528b","#3a538b","#39548b","#39558b","#38568b","#38578c","#37588c","#37598c","#365a8c","#365b8c","#355c8c","#355d8c","#345e8d","#345f8d","#33608d","#33618d","#32628d","#32638d","#31648d","#31658d","#31668d","#30678d","#30688d","#2f698d","#2f6a8d","#2e6b8e","#2e6c8e","#2e6d8e","#2d6e8e","#2d6f8e","#2c708e","#2c718e","#2c728e","#2b738e","#2b748e","#2a758e","#2a768e","#2a778e","#29788e","#29798e","#287a8e","#287a8e","#287b8e","#277c8e","#277d8e","#277e8e","#267f8e","#26808e","#26818e","#25828e","#25838d","#24848d","#24858d","#24868d","#23878d","#23888d","#23898d","#22898d","#228a8d","#228b8d","#218c8d","#218d8c","#218e8c","#208f8c","#20908c","#20918c","#1f928c","#1f938b","#1f948b","#1f958b","#1f968b","#1e978a","#1e988a","#1e998a","#1e998a","#1e9a89","#1e9b89","#1e9c89","#1e9d88","#1e9e88","#1e9f88","#1ea087","#1fa187","#1fa286","#1fa386","#20a485","#20a585","#21a685","#21a784","#22a784","#23a883","#23a982","#24aa82","#25ab81","#26ac81","#27ad80","#28ae7f","#29af7f","#2ab07e","#2bb17d","#2cb17d","#2eb27c","#2fb37b","#30b47a","#32b57a","#33b679","#35b778","#36b877","#38b976","#39b976","#3bba75","#3dbb74","#3ebc73","#40bd72","#42be71","#44be70","#45bf6f","#47c06e","#49c16d","#4bc26c","#4dc26b","#4fc369","#51c468","#53c567","#55c666","#57c665","#59c764","#5bc862","#5ec961","#60c960","#62ca5f","#64cb5d","#67cc5c","#69cc5b","#6bcd59","#6dce58","#70ce56","#72cf55","#74d054","#77d052","#79d151","#7cd24f","#7ed24e","#81d34c","#83d34b","#86d449","#88d547","#8bd546","#8dd644","#90d643","#92d741","#95d73f","#97d83e","#9ad83c","#9dd93a","#9fd938","#a2da37","#a5da35","#a7db33","#aadb32","#addc30","#afdc2e","#b2dd2c","#b5dd2b","#b7dd29","#bade27","#bdde26","#bfdf24","#c2df22","#c5df21","#c7e01f","#cae01e","#cde01d","#cfe11c","#d2e11b","#d4e11a","#d7e219","#dae218","#dce218","#dfe318","#e1e318","#e4e318","#e7e419","#e9e419","#ece41a","#eee51b","#f1e51c","#f3e51e","#f6e61f","#f8e621","#fae622","#fde724"]},"id":"1035","type":"LinearColorMapper"},{"attributes":{},"id":"1049","type":"AllLabels"},{"attributes":{"axis":{"id":"1015"},"coordinates":null,"grid_line_color":null,"group":null,"ticker":null},"id":"1017","type":"Grid"},{"attributes":{"overlay":{"id":"1027"}},"id":"1025","type":"BoxZoomTool"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"field":"zvalues","transform":{"id":"1035"}},"hatch_alpha":{"value":0.1},"height":{"field":"height"},"line_alpha":{"value":0},"line_color":{"value":"#1f77b4"},"width":{"value":1},"x":{"field":"columns"},"y":{"field":"index"}},"id":"1040","type":"Rect"},{"attributes":{"bar_line_color":"black","color_mapper":{"id":"1035"},"coordinates":null,"group":null,"label_standoff":8,"location":[0,0],"major_label_policy":{"id":"1061"},"major_tick_line_color":"black","ticker":{"id":"1045"}},"id":"1046","type":"ColorBar"},{"attributes":{},"id":"1022","type":"SaveTool"},{"attributes":{},"id":"1019","type":"BasicTicker"},{"attributes":{},"id":"1052","type":"AllLabels"},{"attributes":{},"id":"1061","type":"NoOverlap"},{"attributes":{"children":[{"id":"1006"}],"margin":[0,0,0,0],"name":"Row02983","sizing_mode":"fixed","tags":["embedded"]},"id":"1002","type":"Row"},{"attributes":{"coordinates":null,"group":null,"text_color":"black","text_font_size":"12pt"},"id":"1007","type":"Title"},{"attributes":{"fill_color":{"field":"zvalues","transform":{"id":"1035"}},"height":{"field":"height"},"line_alpha":{"value":0},"line_color":{"value":"#1f77b4"},"width":{"value":1},"x":{"field":"columns"},"y":{"field":"index"}},"id":"1041","type":"Rect"},{"attributes":{},"id":"1023","type":"PanTool"},{"attributes":{"source":{"id":"1036"}},"id":"1044","type":"CDSView"},{"attributes":{},"id":"1045","type":"BasicTicker"},{"attributes":{},"id":"1048","type":"CategoricalTickFormatter"},{"attributes":{"bottom_units":"screen","coordinates":null,"fill_alpha":0.5,"fill_color":"lightgrey","group":null,"left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","syncable":false,"top_units":"screen"},"id":"1027","type":"BoxAnnotation"},{"attributes":{"axis_label":"","coordinates":null,"formatter":{"id":"1048"},"group":null,"major_label_policy":{"id":"1049"},"ticker":{"id":"1016"}},"id":"1015","type":"CategoricalAxis"},{"attributes":{"factors":["0","1","2","3","4","5","6","7","8","9"],"tags":[[["columns","columns",null]]]},"id":"1003","type":"FactorRange"},{"attributes":{"fill_color":{"field":"zvalues","transform":{"id":"1035"}},"height":{"field":"height"},"line_alpha":{"value":0},"line_color":{"value":"#1f77b4"},"width":{"value":1},"x":{"field":"columns"},"y":{"field":"index"}},"id":"1039","type":"Rect"},{"attributes":{"fill_alpha":{"value":0.2},"fill_color":{"field":"zvalues","transform":{"id":"1035"}},"hatch_alpha":{"value":0.2},"height":{"field":"height"},"line_alpha":{"value":0},"line_color":{"value":"#1f77b4"},"width":{"value":1},"x":{"field":"columns"},"y":{"field":"index"}},"id":"1042","type":"Rect"},{"attributes":{"axis_label":"","coordinates":null,"formatter":{"id":"1051"},"group":null,"major_label_policy":{"id":"1052"},"ticker":{"id":"1019"}},"id":"1018","type":"LinearAxis"},{"attributes":{},"id":"1026","type":"ResetTool"},{"attributes":{"data":{"columns":["0","0","0","0","0","0","0","0","0","0","1","1","1","1","1","1","1","1","1","1","2","2","2","2","2","2","2","2","2","2","3","3","3","3","3","3","3","3","3","3","4","4","4","4","4","4","4","4","4","4","5","5","5","5","5","5","5","5","5","5","6","6","6","6","6","6","6","6","6","6","7","7","7","7","7","7","7","7","7","7","8","8","8","8","8","8","8","8","8","8","9","9","9","9","9","9","9","9","9","9"],"height":{"__ndarray__":"AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8=","dtype":"float64","order":"little","shape":[100]},"index":[0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9],"value":["0.013193","0.010919","0.0086449","0.0063708","0.0040967","0.0018227","-0.00045143","-0.0027255","-0.0049996","-0.0072737","0.010919","0.058628","0.064052","0.069476","0.0749","0.080324","0.085748","0.091172","0.096596","0.10202","0.0086449","0.064052","0.070376","0.0767","0.083024","0.089348","0.095673","0.102","0.10832","0.11464","0.0063708","0.069476","0.0767","0.083924","0.091149","0.098373","0.1056","0.11282","0.12004","0.12727","0.0040967","0.0749","0.083024","0.091149","0.099273","0.1074","0.11552","0.12365","0.13177","0.13989","0.0018227","0.080324","0.089348","0.098373","0.1074","0.11642","0.12545","0.13447","0.14349","0.15252","-0.00045143","0.085748","0.095673","0.1056","0.11552","0.12545","0.13537","0.14529","0.15522","0.16514","-0.0027255","0.091172","0.102","0.11282","0.12365","0.13447","0.14529","0.15612","0.16694","0.17777","-0.0049996","0.096596","0.10832","0.12004","0.13177","0.14349","0.15522","0.16694","0.17867","0.19039","-0.0072737","0.10202","0.11464","0.12727","0.13989","0.15252","0.16514","0.17777","0.19039","0.20302"],"zvalues":{"__ndarray__":"+P1BJvYEiz+zS9QgsFyGP3iZZhtqtIE/es7xK0gYej/vaRYhvMdwP+QV7FjA3F0/HPEFSr+VPb8Qh/f+z1NmvxMoVwp0enS/iYwyFQDLfb+zS9QgsFyGP0m14BKHBK4/E0cJRbtlsD+CM6IAM8mxP/AfO7yqLLM/XwzUdyKQtD/O+GwzmvO1PzvlBe8RV7c/qdGeqom6uD8YvjdmAR66P3iZZhtqtIE/E0cJRbtlsD/EQVoxLwSyP3c8qx2jorM/KDf8CRdBtT/aMU32it+2P4wsnuL+fbg/OifvznIcuj/tIUC75rq7P6AckadaWb0/es7xK0gYej+CM6IAM8mxP3c8qx2jorM/akW0OhN8tT9gTr1Xg1W3P1ZXxnTzLrk/SmDPkWMIuz88adiu0+G8PzJy4ctDu74/lD119FlKwD/vaRYhvMdwP/AfO7yqLLM/KDf8CRdBtT9gTr1Xg1W3P5hlfqXvabk/0Hw/81t+uz8IlABByJK9Pz6rwY40p78/O2FBbtDdwD/Y7CGVBujBP+QV7FjA3F0/XwzUdyKQtD/aMU32it+2P1ZXxnTzLrk/0Hw/81t+uz9LorhxxM29P+XjGHiWDsA/oHZVt0o2wT9eCZL2/l3CPxyczjWzhcM/HPEFSr+VPb/O+GwzmvO1P4wsnuL+fbg/SmDPkWMIuz8IlABByJK9P+XjGHiWDsA/w32xz8hTwT+hF0on+5jCP4Cx4n4t3sM/YEt71l8jxT8Qh/f+z1NmvzvlBe8RV7c/OifvznIcuj88adiu0+G8Pz6rwY40p78/oHZVt0o2wT+hF0on+5jCP6C4Pper+8M/oVkzB1xexT+i+id3DMHGPxMoVwp0enS/qdGeqom6uD/tIUC75rq7PzJy4ctDu74/O2FBbtDdwD9eCZL2/l3CP4Cx4n4t3sM/oVkzB1xexT/DAYSPit7GP+ap1Be5Xsg/iYwyFQDLfb8YvjdmAR66P6AckadaWb0/lD119FlKwD/Y7CGVBujBPxyczjWzhcM/YEt71l8jxT+i+id3DMHGP+ap1Be5Xsg/K1mBuGX8yT8=","dtype":"float64","order":"little","shape":[100]}},"selected":{"id":"1037"},"selection_policy":{"id":"1065"}},"id":"1036","type":"ColumnDataSource"},{"attributes":{"coordinates":null,"data_source":{"id":"1036"},"glyph":{"id":"1039"},"group":null,"hover_glyph":null,"muted_glyph":{"id":"1042"},"nonselection_glyph":{"id":"1040"},"selection_glyph":{"id":"1041"},"view":{"id":"1044"}},"id":"1043","type":"GlyphRenderer"},{"attributes":{"below":[{"id":"1015"}],"center":[{"id":"1017"},{"id":"1021"}],"frame_height":500,"frame_width":500,"height":null,"left":[{"id":"1018"}],"margin":[5,5,5,5],"min_border_bottom":10,"min_border_left":10,"min_border_right":10,"min_border_top":10,"renderers":[{"id":"1043"}],"right":[{"id":"1046"}],"sizing_mode":"fixed","title":{"id":"1007"},"toolbar":{"id":"1028"},"width":null,"x_range":{"id":"1003"},"x_scale":{"id":"1011"},"y_range":{"id":"1004"},"y_scale":{"id":"1013"}},"id":"1006","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1037","type":"Selection"},{"attributes":{},"id":"1013","type":"LinearScale"},{"attributes":{"axis":{"id":"1018"},"coordinates":null,"dimension":1,"grid_line_color":null,"group":null,"ticker":null},"id":"1021","type":"Grid"},{"attributes":{},"id":"1065","type":"UnionRenderers"},{"attributes":{"end":9.5,"reset_end":9.5,"reset_start":-0.5,"start":-0.5,"tags":[[["index","index",null]]]},"id":"1004","type":"Range1d"},{"attributes":{},"id":"1051","type":"BasicTickFormatter"},{"attributes":{},"id":"1024","type":"WheelZoomTool"},{"attributes":{},"id":"1011","type":"CategoricalScale"}],"root_ids":["1002"]},"title":"Bokeh Application","version":"2.4.1"}};
-    var render_items = [{"docid":"b023ecd9-65b7-49c3-b1e5-552da8d164ad","root_ids":["1002"],"roots":{"1002":"9410545b-8681-48e8-bc89-b7ccb8c3aa6f"}}];
-    root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
-    for (const render_item of render_items) {
-      for (const root_id of render_item.root_ids) {
-	const id_el = document.getElementById(root_id)
-	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
-	  const root_el = id_el.children[0]
-	  root_el.id = root_el.id + '-rendered'
-	}
-      }
-    }
-  }
-  if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined && ( root['Plotly'] !== undefined)) {
-    embed_document(root);
-  } else {
-    var attempts = 0;
-    var timer = setInterval(function(root) {
-      if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined && (root['Plotly'] !== undefined)) {
-        clearInterval(timer);
-        embed_document(root);
-      } else if (document.readyState == "complete") {
-        attempts++;
-        if (attempts > 200) {
-          clearInterval(timer);
-          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
-        }
-      }
-    }, 25, root)
-  }
-})(window);</script></div><figcaption>
-<p><span class="caption-number">Fig. 3.17 </span><span class="caption-text">Example <span class="math notranslate nohighlight">\(\beta_\{L,M\}(t)\)</span> covariance matrix, see text for details.</span><a class="headerlink" href="#fig-covmatblmexample" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -2806,12 +2295,6 @@ Thresholded array (thres=0.0001), M=2
 <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">covMat</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.matrix.ClusterGrid at 0x7f0896d6bac0&gt;
-</pre></div>
-</div>
-<img alt="../_images/cf72c54d733feaf01b1d6466ec7cec536d47d7e99ff871c26f9f90b3edd30ecf.png" src="../_images/cf72c54d733feaf01b1d6466ec7cec536d47d7e99ff871c26f9f90b3edd30ecf.png" />
 </div>
 </details>
 </div>
@@ -2833,8 +2316,8 @@ rotational wavepacket and channel functions.</p>
 distinction to previously demonstrated cases where the time-dependence
 was created from a shaped laser-field, and was integrated over in the
 measurements, which provided a coherently-multiplexed case, see refs.
-<span id="id3">[<a class="reference internal" href="../backmatter/bibliography.html#id556" title="P. Hockett, M. Wollenhaupt, C. Lux, and T. Baumert. Complete Photoionization Experiments via Ultrafast Coherent Control with Polarization Multiplexing. Physical Review Letters, 112(22):223001, June 2014. doi:10.1103/PhysRevLett.112.223001.">60</a>, <a class="reference internal" href="../backmatter/bibliography.html#id558" title="Paul Hockett, Matthias Wollenhaupt, Christian Lux, and Thomas Baumert. Complete photoionization experiments via ultrafast coherent control with polarization multiplexing. II. Numerics and analysis methodologies. Physical Review A, 92(1):013411, July 2015. doi:10.1103/PhysRevA.92.013411.">61</a>, <a class="reference internal" href="../backmatter/bibliography.html#id557" title="P Hockett, M Wollenhaupt, and T Baumert. Coherent control of photoelectron wavepacket angular interferograms. Journal of Physics B: Atomic, Molecular and Optical Physics, 48(21):214004, November 2015. doi:10.1088/0953-4075/48/21/214004.">62</a>]</span> for details.)</p>
-<p>In the numerical examples below, this is considered in terms of the full channel (response) functions <span class="math notranslate nohighlight">\(\varUpsilon_{L,M}^{u,\zeta\zeta'}\)</span> as defined in <a class="reference internal" href="theory_tensor_formalism_201122.html#equation-eq-channelfunc-mf-defn">(3.20)</a> and <a class="reference internal" href="theory_tensor_formalism_201122.html#equation-eq-channelfunc-af-defn">(3.21)</a> (see <a class="reference internal" href="theory_tensor_formalism_201122.html#sec-theory-tensor-products"><span class="std std-numref">Sect. 3.3.8</span></a>). Numerically, the routines follow from those already introduced above for exploring the information content of <span class="math notranslate nohighlight">\(\beta_{L,M}\)</span> terms, with the caveat that there are more dimensions to handle in the channel functions, indexed by the relevant set of quantum numbers <span class="math notranslate nohighlight">\(\{\zeta,\zeta'\}\)</span> - these can be included in the criteria for determination of <span class="math notranslate nohighlight">\(M\)</span>, or selected or summed over as desired.</p>
+<span id="id3">[<a class="reference internal" href="../backmatter/bibliography.html#id600" title="P. Hockett, M. Wollenhaupt, C. Lux, and T. Baumert. Complete Photoionization Experiments via Ultrafast Coherent Control with Polarization Multiplexing. Physical Review Letters, 112(22):223001, June 2014. URL: http://link.aps.org/doi/10.1103/PhysRevLett.112.223001, doi:10.1103/PhysRevLett.112.223001.">67</a>, <a class="reference internal" href="../backmatter/bibliography.html#id602" title="Paul Hockett, Matthias Wollenhaupt, Christian Lux, and Thomas Baumert. Complete photoionization experiments via ultrafast coherent control with polarization multiplexing. II. Numerics and analysis methodologies. Physical Review A, 92(1):013411, July 2015. URL: http://link.aps.org/doi/10.1103/PhysRevA.92.013411, doi:10.1103/PhysRevA.92.013411.">68</a>, <a class="reference internal" href="../backmatter/bibliography.html#id601" title="P Hockett, M Wollenhaupt, and T Baumert. Coherent control of photoelectron wavepacket angular interferograms. Journal of Physics B: Atomic, Molecular and Optical Physics, 48(21):214004, November 2015. URL: http://stacks.iop.org/0953-4075/48/i=21/a=214004?key=crossref.8f534585af9180a499934cb25c9994c1, doi:10.1088/0953-4075/48/21/214004.">69</a>]</span> for details.)</p>
+<p>In the numerical examples below, this is considered in terms of the full channel (response) functions <span class="math notranslate nohighlight">\(\varUpsilon_{L,M}^{u,\zeta\zeta'}\)</span> as defined in <a class="reference internal" href="theory_tensor_formalism_201122.html#equation-eq-channelfunc-mf-defn">(3.23)</a> and <a class="reference internal" href="theory_tensor_formalism_201122.html#equation-eq-channelfunc-af-defn">(3.24)</a> (see <a class="reference internal" href="theory_tensor_formalism_201122.html#sec-theory-tensor-products"><span class="std std-numref">Sect. 3.3.8</span></a>). Numerically, the routines follow from those already introduced above for exploring the information content of <span class="math notranslate nohighlight">\(\beta_{L,M}\)</span> terms, with the caveat that there are more dimensions to handle in the channel functions, indexed by the relevant set of quantum numbers <span class="math notranslate nohighlight">\(\{\zeta,\zeta'\}\)</span> - these can be included in the criteria for determination of <span class="math notranslate nohighlight">\(M\)</span>, or selected or summed over as desired.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a set of channel functions to test</span>
@@ -2849,12 +2332,6 @@ measurements, which provided a coherently-multiplexed case, see refs.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Available dimensions: (&#39;m&#39;, &#39;mp&#39;, &#39;S-Rp&#39;, &#39;l&#39;, &#39;lp&#39;, &#39;L&#39;, &#39;mu&#39;, &#39;mup&#39;, &#39;Labels&#39;, &#39;M&#39;, &#39;t&#39;)
-Subset dimensions: (&#39;m&#39;, &#39;mp&#39;, &#39;l&#39;, &#39;lp&#39;, &#39;L&#39;, &#39;M&#39;, &#39;t&#39;)
-</pre></div>
-</div>
-</div>
 </div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -2864,7 +2341,7 @@ Subset dimensions: (&#39;m&#39;, &#39;mp&#39;, &#39;l&#39;, &#39;lp&#39;, &#39;L
 </div>
 </aside>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert to PD and tabulate with epsproc functionality</span>
 <span class="c1"># Note restack along &#39;t&#39; dimension</span>
 <span class="n">channelFuncsSubsetPD</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">multiDimXrToPD</span><span class="p">(</span><span class="n">channelFuncsSubset</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">thres</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">colDims</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
@@ -2891,1369 +2368,6 @@ Subset dimensions: (&#39;m&#39;, &#39;mp&#39;, &#39;l&#39;, &#39;lp&#39;, &#39;L
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th>min</th>
-      <th>max</th>
-      <th>var</th>
-      <th>count</th>
-      <th>nunique</th>
-    </tr>
-    <tr>
-      <th>L</th>
-      <th>M</th>
-      <th>l</th>
-      <th>lp</th>
-      <th>m</th>
-      <th>mp</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="25" valign="top">0</th>
-      <th rowspan="25" valign="top">0</th>
-      <th>0</th>
-      <th>0</th>
-      <th>0</th>
-      <th>0</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th rowspan="3" valign="top">1</th>
-      <th rowspan="3" valign="top">1</th>
-      <th>-1</th>
-      <th>1</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th rowspan="5" valign="top">2</th>
-      <th rowspan="5" valign="top">2</th>
-      <th>-2</th>
-      <th>2</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th rowspan="7" valign="top">3</th>
-      <th rowspan="7" valign="top">3</th>
-      <th>-3</th>
-      <th>3</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>-2</th>
-      <th>2</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <th>-3</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th rowspan="9" valign="top">4</th>
-      <th rowspan="9" valign="top">4</th>
-      <th>-4</th>
-      <th>4</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>-3</th>
-      <th>3</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>-2</th>
-      <th>2</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <th>-3</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <th>-4</th>
-      <td>0.09</td>
-      <td>0.18</td>
-      <td>9.167e-04</td>
-      <td>10.0</td>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th rowspan="40" valign="top">2</th>
-      <th rowspan="40" valign="top">0</th>
-      <th>0</th>
-      <th>2</th>
-      <th>0</th>
-      <th>0</th>
-      <td>0.04</td>
-      <td>0.12</td>
-      <td>6.767e-04</td>
-      <td>10.0</td>
-      <td>9.0</td>
-    </tr>
-    <tr>
-      <th rowspan="6" valign="top">1</th>
-      <th rowspan="3" valign="top">1</th>
-      <th>-1</th>
-      <th>1</th>
-      <td>-0.05</td>
-      <td>-0.02</td>
-      <td>1.611e-04</td>
-      <td>10.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.03</td>
-      <td>0.11</td>
-      <td>6.667e-04</td>
-      <td>10.0</td>
-      <td>9.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>-0.05</td>
-      <td>-0.02</td>
-      <td>1.611e-04</td>
-      <td>10.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th rowspan="3" valign="top">3</th>
-      <th>-1</th>
-      <th>1</th>
-      <td>0.03</td>
-      <td>0.09</td>
-      <td>4.233e-04</td>
-      <td>10.0</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.03</td>
-      <td>0.11</td>
-      <td>6.667e-04</td>
-      <td>10.0</td>
-      <td>9.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>0.03</td>
-      <td>0.09</td>
-      <td>4.233e-04</td>
-      <td>10.0</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th rowspan="11" valign="top">2</th>
-      <th>0</th>
-      <th>0</th>
-      <th>0</th>
-      <td>0.04</td>
-      <td>0.12</td>
-      <td>6.767e-04</td>
-      <td>10.0</td>
-      <td>9.0</td>
-    </tr>
-    <tr>
-      <th rowspan="5" valign="top">2</th>
-      <th>-2</th>
-      <th>2</th>
-      <td>-0.08</td>
-      <td>-0.02</td>
-      <td>3.333e-04</td>
-      <td>10.0</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>0.01</td>
-      <td>0.04</td>
-      <td>1.167e-04</td>
-      <td>10.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.02</td>
-      <td>0.08</td>
-      <td>3.333e-04</td>
-      <td>10.0</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>0.01</td>
-      <td>0.04</td>
-      <td>1.167e-04</td>
-      <td>10.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>-0.08</td>
-      <td>-0.02</td>
-      <td>3.333e-04</td>
-      <td>10.0</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th rowspan="5" valign="top">4</th>
-      <th>-2</th>
-      <th>2</th>
-      <td>0.02</td>
-      <td>0.07</td>
-      <td>2.500e-04</td>
-      <td>10.0</td>
-      <td>6.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>0.03</td>
-      <td>0.09</td>
-      <td>4.622e-04</td>
-      <td>10.0</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.03</td>
-      <td>0.10</td>
-      <td>5.344e-04</td>
-      <td>10.0</td>
-      <td>8.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>0.03</td>
-      <td>0.09</td>
-      <td>4.622e-04</td>
-      <td>10.0</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>0.02</td>
-      <td>0.07</td>
-      <td>2.500e-04</td>
-      <td>10.0</td>
-      <td>6.0</td>
-    </tr>
-    <tr>
-      <th rowspan="8" valign="top">3</th>
-      <th rowspan="3" valign="top">1</th>
-      <th>-1</th>
-      <th>1</th>
-      <td>0.03</td>
-      <td>0.09</td>
-      <td>4.233e-04</td>
-      <td>10.0</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.03</td>
-      <td>0.11</td>
-      <td>6.667e-04</td>
-      <td>10.0</td>
-      <td>9.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>0.03</td>
-      <td>0.09</td>
-      <td>4.233e-04</td>
-      <td>10.0</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th rowspan="5" valign="top">3</th>
-      <th>-3</th>
-      <th>3</th>
-      <td>-0.09</td>
-      <td>-0.03</td>
-      <td>4.544e-04</td>
-      <td>10.0</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>0.02</td>
-      <td>0.05</td>
-      <td>1.611e-04</td>
-      <td>10.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.02</td>
-      <td>0.07</td>
-      <td>3.122e-04</td>
-      <td>10.0</td>
-      <td>6.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>0.02</td>
-      <td>0.05</td>
-      <td>1.611e-04</td>
-      <td>10.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <th>-3</th>
-      <td>-0.09</td>
-      <td>-0.03</td>
-      <td>4.544e-04</td>
-      <td>10.0</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th rowspan="14" valign="top">4</th>
-      <th rowspan="5" valign="top">2</th>
-      <th>-2</th>
-      <th>2</th>
-      <td>0.02</td>
-      <td>0.07</td>
-      <td>2.500e-04</td>
-      <td>10.0</td>
-      <td>6.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>0.03</td>
-      <td>0.09</td>
-      <td>4.622e-04</td>
-      <td>10.0</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.03</td>
-      <td>0.10</td>
-      <td>5.344e-04</td>
-      <td>10.0</td>
-      <td>8.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>0.03</td>
-      <td>0.09</td>
-      <td>4.622e-04</td>
-      <td>10.0</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>0.02</td>
-      <td>0.07</td>
-      <td>2.500e-04</td>
-      <td>10.0</td>
-      <td>6.0</td>
-    </tr>
-    <tr>
-      <th rowspan="9" valign="top">4</th>
-      <th>-4</th>
-      <th>4</th>
-      <td>-0.10</td>
-      <td>-0.03</td>
-      <td>5.167e-04</td>
-      <td>10.0</td>
-      <td>8.0</td>
-    </tr>
-    <tr>
-      <th>-3</th>
-      <th>3</th>
-      <td>-0.02</td>
-      <td>-0.01</td>
-      <td>2.667e-05</td>
-      <td>10.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>-2</th>
-      <th>2</th>
-      <td>0.01</td>
-      <td>0.03</td>
-      <td>5.444e-05</td>
-      <td>10.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>0.02</td>
-      <td>0.06</td>
-      <td>1.878e-04</td>
-      <td>10.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.02</td>
-      <td>0.07</td>
-      <td>2.500e-04</td>
-      <td>10.0</td>
-      <td>6.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>0.02</td>
-      <td>0.06</td>
-      <td>1.878e-04</td>
-      <td>10.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>0.01</td>
-      <td>0.03</td>
-      <td>5.444e-05</td>
-      <td>10.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <th>-3</th>
-      <td>-0.02</td>
-      <td>-0.01</td>
-      <td>2.667e-05</td>
-      <td>10.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <th>-4</th>
-      <td>-0.10</td>
-      <td>-0.03</td>
-      <td>5.167e-04</td>
-      <td>10.0</td>
-      <td>8.0</td>
-    </tr>
-    <tr>
-      <th rowspan="39" valign="top">4</th>
-      <th rowspan="39" valign="top">0</th>
-      <th>0</th>
-      <th>4</th>
-      <th>0</th>
-      <th>0</th>
-      <td>0.01</td>
-      <td>0.05</td>
-      <td>2.500e-04</td>
-      <td>9.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th rowspan="3" valign="top">1</th>
-      <th rowspan="3" valign="top">3</th>
-      <th>-1</th>
-      <th>1</th>
-      <td>-0.03</td>
-      <td>-0.00</td>
-      <td>1.000e-04</td>
-      <td>9.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.01</td>
-      <td>0.05</td>
-      <td>1.944e-04</td>
-      <td>9.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>-0.03</td>
-      <td>-0.00</td>
-      <td>1.000e-04</td>
-      <td>9.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th rowspan="10" valign="top">2</th>
-      <th rowspan="5" valign="top">2</th>
-      <th>-2</th>
-      <th>2</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>2.778e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>-0.03</td>
-      <td>-0.00</td>
-      <td>1.000e-04</td>
-      <td>9.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.01</td>
-      <td>0.05</td>
-      <td>1.944e-04</td>
-      <td>9.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>-0.03</td>
-      <td>-0.00</td>
-      <td>1.000e-04</td>
-      <td>9.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>2.778e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th rowspan="5" valign="top">4</th>
-      <th>-2</th>
-      <th>2</th>
-      <td>-0.04</td>
-      <td>-0.00</td>
-      <td>1.500e-04</td>
-      <td>9.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>2.778e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.00</td>
-      <td>0.03</td>
-      <td>1.000e-04</td>
-      <td>9.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>2.778e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>-0.04</td>
-      <td>-0.00</td>
-      <td>1.500e-04</td>
-      <td>9.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th rowspan="10" valign="top">3</th>
-      <th rowspan="3" valign="top">1</th>
-      <th>-1</th>
-      <th>1</th>
-      <td>-0.03</td>
-      <td>-0.00</td>
-      <td>1.000e-04</td>
-      <td>9.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.01</td>
-      <td>0.05</td>
-      <td>1.944e-04</td>
-      <td>9.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>-0.03</td>
-      <td>-0.00</td>
-      <td>1.000e-04</td>
-      <td>9.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th rowspan="7" valign="top">3</th>
-      <th>-3</th>
-      <th>3</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>2.500e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>-2</th>
-      <th>2</th>
-      <td>-0.03</td>
-      <td>-0.00</td>
-      <td>1.111e-04</td>
-      <td>9.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.000e+00</td>
-      <td>9.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.00</td>
-      <td>0.03</td>
-      <td>1.000e-04</td>
-      <td>9.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.000e+00</td>
-      <td>9.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>-0.03</td>
-      <td>-0.00</td>
-      <td>1.111e-04</td>
-      <td>9.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <th>-3</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>2.500e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th rowspan="15" valign="top">4</th>
-      <th>0</th>
-      <th>0</th>
-      <th>0</th>
-      <td>0.01</td>
-      <td>0.05</td>
-      <td>2.500e-04</td>
-      <td>9.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th rowspan="5" valign="top">2</th>
-      <th>-2</th>
-      <th>2</th>
-      <td>-0.04</td>
-      <td>-0.00</td>
-      <td>1.500e-04</td>
-      <td>9.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>2.778e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.00</td>
-      <td>0.03</td>
-      <td>1.000e-04</td>
-      <td>9.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>2.778e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>-0.04</td>
-      <td>-0.00</td>
-      <td>1.500e-04</td>
-      <td>9.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th rowspan="9" valign="top">4</th>
-      <th>-4</th>
-      <th>4</th>
-      <td>0.00</td>
-      <td>0.02</td>
-      <td>6.111e-05</td>
-      <td>9.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>-3</th>
-      <th>3</th>
-      <td>-0.03</td>
-      <td>-0.00</td>
-      <td>1.000e-04</td>
-      <td>9.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>-2</th>
-      <th>2</th>
-      <td>-0.02</td>
-      <td>-0.00</td>
-      <td>3.611e-05</td>
-      <td>9.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>2.500e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.00</td>
-      <td>0.03</td>
-      <td>7.778e-05</td>
-      <td>9.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>2.500e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>-0.02</td>
-      <td>-0.00</td>
-      <td>3.611e-05</td>
-      <td>9.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <th>-3</th>
-      <td>-0.03</td>
-      <td>-0.00</td>
-      <td>1.000e-04</td>
-      <td>9.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <th>-4</th>
-      <td>0.00</td>
-      <td>0.02</td>
-      <td>6.111e-05</td>
-      <td>9.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th rowspan="26" valign="top">6</th>
-      <th rowspan="26" valign="top">0</th>
-      <th rowspan="5" valign="top">2</th>
-      <th rowspan="5" valign="top">4</th>
-      <th>-2</th>
-      <th>2</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>1.111e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>-0.02</td>
-      <td>-0.00</td>
-      <td>3.611e-05</td>
-      <td>9.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.00</td>
-      <td>0.02</td>
-      <td>6.111e-05</td>
-      <td>9.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>-0.02</td>
-      <td>-0.00</td>
-      <td>3.611e-05</td>
-      <td>9.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>1.111e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th rowspan="7" valign="top">3</th>
-      <th rowspan="7" valign="top">3</th>
-      <th>-3</th>
-      <th>3</th>
-      <td>-0.00</td>
-      <td>-0.00</td>
-      <td>0.000e+00</td>
-      <td>9.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>-2</th>
-      <th>2</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>2.500e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>-0.02</td>
-      <td>-0.00</td>
-      <td>3.611e-05</td>
-      <td>9.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.00</td>
-      <td>0.02</td>
-      <td>6.111e-05</td>
-      <td>9.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>-0.02</td>
-      <td>-0.00</td>
-      <td>3.611e-05</td>
-      <td>9.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>2.500e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <th>-3</th>
-      <td>-0.00</td>
-      <td>-0.00</td>
-      <td>0.000e+00</td>
-      <td>9.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th rowspan="14" valign="top">4</th>
-      <th rowspan="5" valign="top">2</th>
-      <th>-2</th>
-      <th>2</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>1.111e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>-0.02</td>
-      <td>-0.00</td>
-      <td>3.611e-05</td>
-      <td>9.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.00</td>
-      <td>0.02</td>
-      <td>6.111e-05</td>
-      <td>9.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>-0.02</td>
-      <td>-0.00</td>
-      <td>3.611e-05</td>
-      <td>9.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>1.111e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th rowspan="9" valign="top">4</th>
-      <th>-4</th>
-      <th>4</th>
-      <td>-0.00</td>
-      <td>-0.00</td>
-      <td>0.000e+00</td>
-      <td>9.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>-3</th>
-      <th>3</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>2.778e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>-2</th>
-      <th>2</th>
-      <td>-0.01</td>
-      <td>-0.00</td>
-      <td>2.500e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>-0.00</td>
-      <td>-0.00</td>
-      <td>0.000e+00</td>
-      <td>8.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>2.500e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>-0.00</td>
-      <td>-0.00</td>
-      <td>0.000e+00</td>
-      <td>8.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>-0.01</td>
-      <td>-0.00</td>
-      <td>2.500e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <th>-3</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>2.778e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <th>-4</th>
-      <td>-0.00</td>
-      <td>-0.00</td>
-      <td>0.000e+00</td>
-      <td>9.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th rowspan="9" valign="top">8</th>
-      <th rowspan="9" valign="top">0</th>
-      <th rowspan="9" valign="top">4</th>
-      <th rowspan="9" valign="top">4</th>
-      <th>-4</th>
-      <th>4</th>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.000e+00</td>
-      <td>3.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>-3</th>
-      <th>3</th>
-      <td>-0.00</td>
-      <td>-0.00</td>
-      <td>0.000e+00</td>
-      <td>9.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>-2</th>
-      <th>2</th>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.000e+00</td>
-      <td>9.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>-1</th>
-      <th>1</th>
-      <td>-0.01</td>
-      <td>-0.00</td>
-      <td>2.778e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <th>0</th>
-      <td>0.00</td>
-      <td>0.01</td>
-      <td>2.778e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>-1</th>
-      <td>-0.01</td>
-      <td>-0.00</td>
-      <td>2.778e-05</td>
-      <td>9.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>-2</th>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.000e+00</td>
-      <td>9.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <th>-3</th>
-      <td>-0.00</td>
-      <td>-0.00</td>
-      <td>0.000e+00</td>
-      <td>9.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <th>-4</th>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.000e+00</td>
-      <td>3.0</td>
-      <td>1.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</details>
 </div>
 <p>For the higher-dimensional case, it is useful to plot terms relative to all quantum numbers. For example, in a similar manner to the basis set explorations of <a class="reference internal" href="theory_tensor_formalism_201122.html#sec-theory-tensor-products"><span class="std std-numref">Sect. 3.3.8</span></a>, related properties such as the distance from the mean can be examined with <code class="docutils literal notranslate"><span class="pre">lmPlot()</span></code>. And, as previously demonstrated, other properties, such as the covariance, may be examined and plotted.</p>
 <div class="cell docutils container">
@@ -4271,16 +2385,6 @@ Subset dimensions: (&#39;m&#39;, &#39;mp&#39;, &#39;l&#39;, &#39;lp&#39;, &#39;L
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set dataType (No dataType)
-Plotting data (No filename), pType=a, thres=0.01, with Seaborn
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No handles with labels found to put in legend.
-</pre></div>
-</div>
-<img alt="../_images/131bbdf66b99623335bab92ea234aec14708cf41f88cc27b210cc0cbb9d9665d.png" src="../_images/131bbdf66b99623335bab92ea234aec14708cf41f88cc27b210cc0cbb9d9665d.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4288,12 +2392,6 @@ Plotting data (No filename), pType=a, thres=0.01, with Seaborn
 <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">channelFuncsSubsetPD</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.matrix.ClusterGrid at 0x7f0896e3dfd0&gt;
-</pre></div>
-</div>
-<img alt="../_images/3a8ceaccd805aba1c4135c196f2d6221f41e5a8d4fa5952dfb0eada3df792a36.png" src="../_images/3a8ceaccd805aba1c4135c196f2d6221f41e5a8d4fa5952dfb0eada3df792a36.png" />
 </div>
 </div>
 </section>
@@ -4328,7 +2426,10 @@ Plotting data (No filename), pType=a, thres=0.01, with Seaborn
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="theory_density_matrices_310123.html"
@@ -4344,11 +2445,14 @@ Plotting data (No filename), pType=a, thres=0.01, with Seaborn
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Numerical implementation</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Numerical methodologies for extracting matrix elements</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -4375,13 +2479,13 @@ Plotting data (No filename), pType=a, thres=0.01, with Seaborn
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
     
 <p class="component-author">
-By Paul Hockett
+By Paul Hockett with Varun Makhija
 </p>
 
   </div>
@@ -4405,7 +2509,7 @@ By Paul Hockett
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -4414,8 +2518,8 @@ By Paul Hockett
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

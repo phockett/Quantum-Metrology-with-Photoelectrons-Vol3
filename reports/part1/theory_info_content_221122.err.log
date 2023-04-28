@@ -17,25 +17,24 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# channelFuncsSubsetPD.transform(demean,axis='columns') 
-# cmap=None   # cmap = None for default. 'vlag' good?
-# cmap = 'vlag'
+# Convert to PD and tabulate with epsproc functionality
+# Note restack along 't' dimension
+BetaNormLinearADMsPD, _ = ep.util.multiDimXrToPD(BetaNormLinearADMs.squeeze().real, thres=1e-4, colDims='t')
 
-# De-meaned channel functions
-channelFuncsDemean = channelFuncsSubsetPD.transform(demean,axis='columns')
-
-# Plot using lmPlot routine - note this requires conversion to Xarray data type first.
-daPlot, daPlotpd, legendList, gFig =  ep.lmPlot(channelFuncsDemean.to_xarray().to_array('t')
-                                                , xDim='t', cmap=cmap, mDimLabel='m'); 
+# Basic describe with Pandas, see https://pandas.pydata.org/docs/user_guide/basics.html#summarizing-data-describe
+# This will give properties per t
+BetaNormLinearADMsPD.describe()   #([pd.unique])   #(['nunique'])
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1294/1923297759.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      8[0m [0;31m# Plot using lmPlot routine - note this requires conversion to Xarray data type first.[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      9[0m daPlot, daPlotpd, legendList, gFig =  ep.lmPlot(channelFuncsDemean.to_xarray().to_array('t')
-[0;32m---> 10[0;31m                                                 , xDim='t', cmap=cmap, mDimLabel='m'); 
-[0m
-[0;31mNameError[0m: name 'cmap' is not defined
-NameError: name 'cmap' is not defined
+[0;32m/tmp/ipykernel_69391/2303616640.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Convert to PD and tabulate with epsproc functionality[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;31m# Note restack along 't' dimension[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mBetaNormLinearADMsPD[0m[0;34m,[0m [0m_[0m [0;34m=[0m [0mep[0m[0;34m.[0m[0mutil[0m[0;34m.[0m[0mmultiDimXrToPD[0m[0;34m([0m[0mBetaNormLinearADMs[0m[0;34m.[0m[0msqueeze[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mreal[0m[0;34m,[0m [0mthres[0m[0;34m=[0m[0;36m1e-4[0m[0;34m,[0m [0mcolDims[0m[0;34m=[0m[0;34m't'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;31m# Basic describe with Pandas, see https://pandas.pydata.org/docs/user_guide/basics.html#summarizing-data-describe[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'BetaNormLinearADMs' is not defined
+NameError: name 'BetaNormLinearADMs' is not defined
 
