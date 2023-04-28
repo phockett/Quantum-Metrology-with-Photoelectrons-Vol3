@@ -16,7 +16,8 @@ kernelspec:
 
 Subsections for photoionization theory
 
-- 22/04/22 Added symmetry section, and numerical example for selection rules only.
+- 22/04/23 Added symmetry section, and numerical example for selection rules only.
+   - `\boldsymbol` rendering broken in current builds for Photoionization Theory page (Firefox), possibly since adding computational example with symmetry? Rendering OK in Ice Dragon however. Sigh.
 - 22/11/22 Basics in place, needs some work and numerical examples to add.
 
 ---
@@ -220,8 +221,7 @@ elements - as emphasised in the magnitude-phase form of Eq. {eq}`eq:I-reduced-LF
 (sec:theory:symmetry-intro)=
 ## Symmetry in photoionization
 
-Symmetry in photoionization has briefly been suggested by the introduction of symmetrized harmonics ({numref}`Sect. %s <sec:theory:sym-harm-into>`), and is discussed in detail in {{ QM1 }} (Sect. 2.2.3.3). Herein a brief review is given, with a focus on using symmetry in matrix element retrieval problems. For further details, see {{ QM1 }}; for a more general discussion of symmetry in molecular spectroscopy see the textbook by  Bunker and Jensen {cite}`bunkerMolSymm`, and the specific case of photoionization is expanded on in the work of Signorell and Merkt {cite}`Signorell1997`. 
-
+Symmetry in photoionization has briefly been suggested by the introduction of symmetrized harmonics ({numref}`Sect. %s <sec:theory:sym-harm-into>`), and is discussed in detail in {{ QM1 }} (Sect. 2.2.3.3). Herein a brief review is given, with a focus on using symmetry in matrix element retrieval problems. For further details, see {{ QM1 }}; for a more general discussion of symmetry in molecular spectroscopy see the textbook by  Bunker and Jensen {cite}`bunkerMolSymm`, and the specific case of photoionization is expanded on in the work of Signorell and Merkt {cite}`Signorell1997`.
 
 +++
 
@@ -251,9 +251,7 @@ $$ (eq:ionization-symm-electronic)
 
 And $\Gamma^{e(X)}$ indicates that the continuum symmetries are expressed in a basis of symmetrized harmonics ({numref}`Sect. %s <sec:theory:sym-harm-into>`). From Eq. {eq}`eq:ionization-symm-electronic`, the set of allowed matrix elements for a given ionization event can be expressed, in terms of the allowed set of symmetrized harmonics $X_{hl}^{\Gamma\mu*}(\theta,\phi)$, or (equivalently) the usual partial wave basis expressed in spherical harmonics $Y_{l,\lambda}(\theta,\phi)$, and a set of associated symmetrization coefficients $b_{hl\lambda}^{\Gamma\mu}$.
 
-A brief numerical example is given below, and a more detailed treatment for a range of photoionization cases in **PART II**.
-
-
+A brief numerical example is given below, and a more detailed treatment for a range of photoionization cases forms the second half of the book, see {numref}`Chapter %s: <sec:extracting-matrix-elements-overview>` {ref}`sec:extracting-matrix-elements-overview` for details.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -272,7 +270,7 @@ A brief numerical example is given below, and a more detailed treatment for a ra
 from pemtk.sym.symHarm import symHarm
 
 # Compute hamronics for Td, lmax=4
-sym = 'Td'
+sym = 'D2h'
 lmax=4
 
 symObj = symHarm(sym,lmax)
@@ -284,8 +282,8 @@ symObj.dipole['dipoleSyms']
 ```{code-cell} ipython3
 # Setting the symmetry for the neutral and ion allows direct products to be computed, and allowed terms to be determined.
 
-sNeutral = 'A1'
-sIon = 'E'
+sNeutral = 'A1g'
+sIon = 'B2u'
 
 symObj.directProductContinuum([sNeutral, sIon])
 
@@ -297,4 +295,8 @@ symObj.continuum['allowed']['PD']
 ```{code-cell} ipython3
 # Ylm basis table with the Character values limited to those defined in self.continuum['allowed']['PD'] Target column
 symObj.displayXlm(symFilter = True)  
+```
+
+```{code-cell} ipython3
+
 ```

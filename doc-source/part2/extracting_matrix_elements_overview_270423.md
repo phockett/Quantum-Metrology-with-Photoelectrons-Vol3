@@ -12,6 +12,7 @@ kernelspec:
   name: python3
 ---
 
+(chpt:extracting-matrix-elements-overview)=
 # Extracting matrix elements overview
 
 In this part, various case studies are presented. To provide context, and ensure that the examples are transparent and can be run directly from the source notebooks, there are also chapters covering the general setup and configuration for the fitting routines. These are, unavoidably, rather technical and code-heavy, so readers only interested in the results should skip these sections. Additionally, these sections may be rather truncated in hard-copy (or PDF) versions of the text, but are available in full in the HTML or source notebooks for readers that wish to perform their own calculations.

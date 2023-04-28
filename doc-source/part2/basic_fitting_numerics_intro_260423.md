@@ -217,44 +217,6 @@ data.data[key][dataType]
 data.ADMplot(keys = 'ADM')
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-from epsproc.sphFuncs.sphConv import checkSphDims
-checkSphDims(data.data[key][dataType])
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-data.data[key][dataType].attrs['harmonics'] = {'stackDim':'ADM'}
-
-# Standard case:
-# {'dtype': 'Complex harmonics', 'kind': 'complex', 'normType': 'ortho', 'csPhase': True, 'keyDims': {'LM': ['l', 'm']}, 'LMStackFlag': True, 'stackDim': 'LM', 'dimList': ['l', 'm'], 'lDim': 'l', 'mDim': 'm'}
-
-# The ADMplot routine will show a basic line plot, note it needs keys = 'ADM' in the current implementation (otherwise will loop over all keys)
-data.ADMplot(keys = 'ADM', backend = 'hv')  #, returnPlot=True, renderPlot=False)
-
-# THIS CURRENTLY FAILS
-# hvDS = hvPlotters.hv.Dataset(xrDS.unstack(xrDS.attrs['harmonics']['stackDim']))
-# NEED TO SET stackDims correctly for ADMs!
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-# SAME ISSUES AS ABOVE WITH SPH DEFINITIONS
-# Expand ADMs to P(theta)
-data.data['ADM']['ADM'].attrs['jobLabel'] = 'ADMs'
-
-# Old version
-# ADMdistFull = data.padPlot(keys = 'ADM', dataType='ADM', Etype = 't', pType='r', pStyle='grid', reducePhi='sum', returnFlag = True, sumDims = {})
-
-# Updated 23/04/22
-data.padPlot(keys = 'ADM', dataType='ADM', Etype = 't', pType='r', pStyle='grid', reducePhi='sum', returnFlag = True, sumDims = {})
-ADMdistFull = data.data['ADM']['plots']['ADM']['pData']
-```
-
 ### Polarisation geometry/ies
 
 This wraps [ep.setPolGeoms](https://epsproc.readthedocs.io/en/dev/modules/epsproc.sphCalc.html#epsproc.sphCalc.setPolGeoms). This defaults to (x,y,z) polarization geometries. Values are set in `self.data['pol']`.
@@ -560,6 +522,48 @@ The steps demonstrated above are also wrapped in a helper script, although some 
 %run {dataPath/"setup_fit_demo.py"} -d {dataPath}
 ```
 
-```{code-cell} ipython3
++++ {"tags": ["remove-cell"]}
 
+# SCRATCH
+
+Plot testing below mainly.
+
+Outputs hidden, but note these STILL EXECUTE at build.
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+from epsproc.sphFuncs.sphConv import checkSphDims
+checkSphDims(data.data[key][dataType])
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+data.data[key][dataType].attrs['harmonics'] = {'stackDim':'ADM'}
+
+# Standard case:
+# {'dtype': 'Complex harmonics', 'kind': 'complex', 'normType': 'ortho', 'csPhase': True, 'keyDims': {'LM': ['l', 'm']}, 'LMStackFlag': True, 'stackDim': 'LM', 'dimList': ['l', 'm'], 'lDim': 'l', 'mDim': 'm'}
+
+# The ADMplot routine will show a basic line plot, note it needs keys = 'ADM' in the current implementation (otherwise will loop over all keys)
+data.ADMplot(keys = 'ADM', backend = 'hv')  #, returnPlot=True, renderPlot=False)
+
+# THIS CURRENTLY FAILS
+# hvDS = hvPlotters.hv.Dataset(xrDS.unstack(xrDS.attrs['harmonics']['stackDim']))
+# NEED TO SET stackDims correctly for ADMs!
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+# SAME ISSUES AS ABOVE WITH SPH DEFINITIONS
+# Expand ADMs to P(theta)
+data.data['ADM']['ADM'].attrs['jobLabel'] = 'ADMs'
+
+# Old version
+# ADMdistFull = data.padPlot(keys = 'ADM', dataType='ADM', Etype = 't', pType='r', pStyle='grid', reducePhi='sum', returnFlag = True, sumDims = {})
+
+# Updated 23/04/22
+data.padPlot(keys = 'ADM', dataType='ADM', Etype = 't', pType='r', pStyle='grid', reducePhi='sum', returnFlag = True, sumDims = {})
+ADMdistFull = data.data['ADM']['plots']['ADM']['pData']
 ```

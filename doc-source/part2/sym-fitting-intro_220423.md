@@ -30,6 +30,7 @@ TODO:
 - Comparison with ePS matrix elements just dropped in from "working with symmetry" doc, may want to reduce/tidy a bit, maybe hide outputs.
 - Fix numbering for sym defined case - currently it=0 for 1st case, doesn't match ePS 1-index.
 - Output formatting for lmfit params objects, see https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/9
+- `hide-input` tag only works in HTML, for PDF case this just removes cell completely (input and output), so may need to address with `glue()` for basis set comparison tables at end. (See also )https://jupyterbook.org/en/stable/interactive/hiding.html)
 
 +++
 
@@ -260,7 +261,7 @@ The final preparatory steps for tackling a specific retrieval problem is to map 
 1. For symmetry-defined basis sets, these must first be mapped to an ePSproc data structure, although this step is not necessary when working from _ab initio_ basis sets. This is explored in {numref}`Sect. %s <sec:basis-sets:remapping-to-ePS>`.
 1. From a given basis set, the parameters used for fitting data are determined. This converts the parameters to `lmfit` objects in magnitude-phase form, and (optionally) sets various symmetry relations and constraints. This is explored in {numref}`Sect. %s <sec:basis-sets:remapping-to-fittingParams>`.
 
-Further examples can be found in the remainder of this text, and also in the {{ PEMtk-docs }}.
+Further examples can be found in the remainder of this text, and also in the {{ PEMtk_docs }}.
 
 +++
 

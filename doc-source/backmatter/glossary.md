@@ -17,6 +17,7 @@ kernelspec:
 +++
 
 ```{glossary}
+
 MF
   Molecular frame (MF) - coordinate system referenced to the molecule, usually with the z-axis corresponding to the highest symmetry axis.
 

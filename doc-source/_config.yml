@@ -19,6 +19,8 @@ only_build_toc_files        : true  # Skip processing all other files, e.g. back
 # 22/11/22 Quick test with cache is OK for quick HTML builds, and text updates, but can cause issues otherwise.
 # TODO - set this from a switch?
 execute:
+  # 27/04/23 - added arb timeout in s here, some fitting notebooks not completing?
+  timeout: 1000
   execute_notebooks: 'force'
   # execute_notebooks: 'cache'
   
@@ -44,6 +46,8 @@ bibtex_bibfiles:
 # Ongoing bib
   # 23/04/23 - auto-updating from Zotero on Stimpy.
   - bibs/MF_recon_manuscript_June2020_bbt_bibtex_ongoing.bib
+  # 27/04/23 added for rot wavepacket refs.
+  - bibs/new_refs_jpbreview_VM_020323.bib
   # - bibs/QM3_ongoing.bib
 #  - references.bib  # Sample file
 
