@@ -23,7 +23,7 @@ parts:
     numbered: true   # Add numbering for refs, see https://jupyterbook.org/en/stable/structure/configure.html#toc-numbering and https://jupyterbook.org/en/stable/content/references.html#reference-numbered-sections
                     # For default case this is true in PDF, but not HTML output.
     chapters:
-    - file: part1/main_intro_051122
+    - file: part1/main_intro_060723
     - file: part1/platform_intro_071122
     - file: part1/theory_101122
       sections:
