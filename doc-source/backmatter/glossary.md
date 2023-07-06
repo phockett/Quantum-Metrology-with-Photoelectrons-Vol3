@@ -57,7 +57,14 @@ PG
 HOMO
   Highest occupied molecular orbital. Short-hand for the outermost (highest energy) valence orbital, also often used in the form HOMO-n to number lower-lying orbitals in reverse energetic order, e.g. HOMO-1 for the penultimate valence orbital.
   
+
+VMI
+  Velocity-map imaging. Experimental technique for measuring energy and angle-resolved photoelectron "images".
   
+
+RWP
+  Rotational wavepacket. A purely rotational wavepacket (superposition of rotational eigenstates) in a molecular system, typically created via cascaded Raman interaction with a (relatively) strong IR pulse ($>10^{12}$~Wcm$^{-2}$). The resulting time-dependent molecular axis distribution can be described by a set of {{ ADMs }}.
+
 
 ```
 
