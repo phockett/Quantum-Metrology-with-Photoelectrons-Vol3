@@ -34,7 +34,8 @@ parts:
       - file: part1/theory_density_matrices_310123
       - file: part1/theory_info_content_221122
       # Note numerics section currently breaks PDF builds (27/03/23), needs debugging - might just be notes section not removed?
-    - file: part1/numerics_231122
+    # - file: part1/numerics_231122
+    - file: part1/numerics_070723
       
     # - file: part1/theory_101122-Render-debug
     # - file: part1/theory_101122-RenderTests-glue2_171122

@@ -203,6 +203,7 @@ parse:
     MS: "{term}`MS`"
     PG: "{term}`PG`"
     HOMO: "{term}`HOMO`"
+    RWP: "{term}`RWP`"
     
     # Maths shorthand
     # BLM: "$\beta_{L,M}$"  # This fails, seems to cut eqn, maybe drops first $?
