@@ -17,6 +17,7 @@ parts:
     # - file: frontmatter/provisional_contents_020921
     - file: frontmatter/about_the_authors
     - file: frontmatter/abstract
+    - file: frontmatter/book_versions_note
     - file: frontmatter/overview_270122
 
   - caption: Theory & software
