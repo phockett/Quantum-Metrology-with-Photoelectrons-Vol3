@@ -96,7 +96,6 @@ Conceptual outline for the generalised bootstrap matrix element retrieval protoc
 
 ```
 
-
 +++
 
 ### Generalised geometric metrology protocols
@@ -169,10 +168,10 @@ Although the analysis herein focuses on the {{ RWP }} case, the techniques and c
 % 06/07/23: added links for Sphinx etc. directly here, may want to configure as proper refs.
 
 As noted previously, Vol. 3 is somewhat distinct from the previous volumes in the series; although involving computational elements, {{ QM12 }} are more traditional publications. The material presented in this volume aims to continue the exploration of quantum metrology with photoelectrons, with a focus on numerical analysis techniques, forging a closer link between experimental and theoretical results, and making the methodologies discussed directly accessible via a new software platform/ecosystem, {{ PEMtk_repo }}, introduced in more detail in {numref}`Chapter %s <chpt:platformIntro>`. 
-In order to fulfill this aim, Vol. 3 is a computational/computable document, with code directly available to readers to facilitate code transparency and reuse. This can be broken down as follows:
+In order to fulfill this aim, Vol. 3 is an open source computational/computable document, with code directly available to readers to facilitate code transparency and reuse. This can be broken down as follows:
 
-1. The book itself is written as a set of Jupyter Notebooks {cite}`ProjectJupyter`.[^jupyterFootnote]  
-    * These are `.ipynb` files, usually running a python kernel, each of which is designed such that it can be modified and used independently.
+1. The book itself is written as a set of [Jupyter Notebooks](https://jupyter.org) {cite}`ProjectJupyter`.[^jupyterFootnote]  
+    * These are `.ipynb` files, usually running a [Python kernel](https://www.python.org/) {cite}`PythonOrgWebsite`, each of which is designed such that it can be modified and used independently.
     * The full book is compiled from these sections using the [Jupyter Book](https://jupyterbook.org/) {cite}`JupyterBookProject,community2020JupyterBook` project platform,[^jupyterBookFootnote] which includes build tools and specifications for the specific flavour of [Markdown (MyST)](https://mystmd.org/) {cite}`MySTMarkdownTools` used for the written text, and uses [Sphinx](https://www.sphinx-doc.org) {cite}`SphinxDocumentation` to build HTML and Latex/PDF flavours of the book.
     * The book source code is available via a Github repository, {{ book_repo }}, which includes all the notebooks (in the `doc-source` directory), as well as installation and build notes for building the book itself. 
     * An HTML version is also available at {{ book_HTML }}, which includes interactive figures.
@@ -188,17 +187,19 @@ In order to fulfill this aim, Vol. 3 is a computational/computable document, wit
     * It is, of course, also hoped that established researchers in the field will find the tools useful, and readily adaptable, to related problems of interest.
     * Further documentation for the software tools (including the full PEMtk API) can be found online in the {{ PEMtk_docs }}.
 
-Finally, it is of note that whilst readers unfamiliar with the Jupyter and Python ecosystem may find that there is somewhat of a barrier to entry for making use of the platform, it is one that may be worth surmounting given the ubiquity of these tools, and general usefulness in modern scientific/data-science workflows; readers already making use of these tools in their work should have no difficultly, and the platform adheres to standard practice wherever possible.
+Finally, it is of note that whilst readers unfamiliar with the Jupyter and Python ecosystem may find that there is somewhat of a barrier to entry for making use of the platform, it is one that may be worth surmounting given the ubiquity of these tools, and general usefulness in modern scientific/data-science workflows; readers already making use of these tools in their work should have no difficultly, and the platform adheres to standard practice wherever possible. For an introduction to Python for data science, the [Python Data Science Handbook](https://github.com/jakevdp/PythonDataScienceHandbook) provides a solid introduction, and is itself [an open source textbook available via Github](https://github.com/jakevdp/PythonDataScienceHandbook) {cite}`vanderplas2016PythonDataScience, vanderplasPythonDataScienceBookGithub`.
 
 +++
 
-### Open science, open source software and reproducibility
+### A brief note on open science, open source software and reproducibility
 
 % Here or in code intro chpt?  See ePSdata for text? Or recent publications with some open science TOP blurb.
 
-A large part of the motivation for creating new tools, keeping them open source, and standardized, is down to the nature of the modern scientific endeavour, and the difficulty of reproducibility. In short, many projects now involve a substantial element of analysis making use of in-house codes, which are often inaccessible to other researchers; the same may apply to the raw datasets used. Whilst this may be justified in some cases, in general it leads to a lack of transparency and portability for the computational and/or data component(s) of research. The Open Science movement, in part, aims to challenge these issues - see, for further discussion, Refs. {cite}`Barnes2010, mcnutt2016TakingTOP, Nosek2015, StateOpenData2016, Stodden2014, Downs2015, howison2015UnderstandingScientificSoftware`, or the [Wikipeadia Open Science page](https://en.wikipedia.org/wiki/Open_science) for a brief summary {cite}`wikipeadiaOpenScience`.
+A large part of the motivation for creating new tools, making them open source, and standardized, is down to the nature of the modern scientific endeavour, and the difficulty of reproducibility. In short, many projects now involve a substantial element of analysis making use of in-house codes, which are often inaccessible to other researchers; the same may apply to the raw datasets used. Whilst this may be justified in some cases, in general it leads to a lack of transparency and portability for the computational and/or data component(s) of research. The Open Science movement, in part, aims to challenge these issues - see, for further discussion, Refs. {cite}`Barnes2010, mcnutt2016TakingTOP, Nosek2015, StateOpenData2016, Stodden2014, Downs2015, howison2015UnderstandingScientificSoftware`, or the [Wikipeadia Open Science page](https://en.wikipedia.org/wiki/Open_science) for a brief summary {cite}`wikipeadiaOpenScience`. 
 
-As noted above, this book is fully open-source, including the full book source code, the computational libraries used and the datasets illustrated herein, and available via {{ book_repo }}; this is detailed further in {numref}`Sect. %s <chpt:platformIntro>`. In order to aid portability and reproducibility, Docker builds are also available, which provide a means to define a full computational platform/stack, from the OS level and up, including all necessary dependencies and version; further details can be found in {numref}`Sect. %s <sect:platform:docker>`. 
+As noted above, this book is fully open-source, including the full book source code, the computational libraries used and the datasets illustrated herein, and available via {{ book_repo }}; this is detailed further in {numref}`Sect. %s <chpt:platformIntro>`. In order to aid portability and reproducibility, Docker builds are also available: these provide a means to define a full computational platform/stack, from the OS level and up, including all necessary dependencies and version; further details can be found in {numref}`Sect. %s <sect:platform:docker>`.
+
+In general, it is hoped that making such tools more accessible, usable, and interconnected - as well as making computational data generally available - will lower the barrier to entry to the field and create a useful foundation for interested researchers to work from.
 
 +++
 
@@ -207,55 +208,3 @@ As noted above, this book is fully open-source, including the full book source c
 [^jupyterFootnote]: For more information on the [Jupyter Project and ecosystem](https://jupyter.org), see [jupyter.org](https://jupyter.org) and Refs. {cite}`ProjectJupyter,kluyver2016JupyterNotebooksPublishing,granger2021JupyterThinkingStorytelling`.)
 
 [^jupyterBookFootnote]: For more information see [jupyterbook.org](https://jupyterbook.org) and Refs. {cite}`JupyterBookProject,community2020JupyterBook`.
-
-% Notes on open source and TOP here?
-
-+++ {"tags": ["hide-cell", "remove-cell"]}
-
-## SCRATCH
-
-+++ {"tags": ["hide-cell", "remove-cell"]}
-
-### Technical context and notes - v2 clarifications
-
-As noted previously, Vol. 3 is somewhat distinct from the previous volumes in the series; although involving computational elements, {{ QM12 }} % Vols. 1 & 2 {cite}`hockett2018QMP1,hockett2018QMP2` 
-are more traditional publications. The material presented in this volume aims to continue the exploration of quantum metrology with photoelectrons, with a focus on numerical analysis techniques, forging a closer link between experimental and theoretical results, and making the methodologies discussed directly accessible via a new software platform/ecosystem, {{ PEMtk_repo }}. %, introduced in more detail in {numref}`Chapter %s <chpt:platformIntro>`. 
-In order to fulfill this aim, Vol. 3 is a computational/computable document, with code directly available to readers to facilitate code transparency and reuse. This can be broken down as follows:
-
-1. The book itself is written as a set of Jupyter Notebooks.[^jupyterFootnote]  
-    * These are `.ipynb` files, usually running a python kernel, each of which is designed such that it can be modified and used independently.
-    * The full book is compiled from these sections using the Jupyter Book project platform,[^jupyterBookFootnote] which includes build tools and specifications for the specific flavour of Markdown (MyST) used for the written text.
-    * The book source code is available via a Github repository, {{ book_repo }}, which includes all the notebooks (in the `doc-source` directory), as well as installation and build notes for building the book itself. 
-    * An HTML version is also available at {{ book_HTML }}, which includes interactive figures.
-2. The code examples _within_ the book make use the new {{ PEMtk_repo }}.
-    * In order to run code examples, a specific python environment (with various additional python packages) is required.
-    * A full introduction to the relevant software tool-chain, including installation instructions for the codes used _within_ the book, can be found in {numref}`Chapter %s: <chpt:platformIntro>` {ref}`chpt:platformIntro`.
-    * For a quick and easy installation, including all requirements, a Docker build  of the platform can also be used, see {numref}`Sect. %s: <sect:platform:docker>` {ref}`sect:platform:docker`.  % {{ open_photo_stacks_repo }}).
-    * Once configured, any code examples from the book can be executed locally by the user/reader, and modified as desired.
-3. The book can be regarded as, essentially, a manual and introduction to the {{ PEMtk_repo }}, as well as a foundation for those wishing to use (and potentially extend) the platform.
-    * Part I covers all required background material, including details of the theory and numerical methods implemented.
-    * Part II contains various examples of usage for a range of problems, and possible extensions.
-    * Since no specific knowledge of the underlying physics should be required to use the software tools, they will hopefully also provide a suitable platform for new researchers wishing to learn about photoionization in general. 
-    * It is, of course, also hoped that established researchers in the field will find the tools useful, and readily adaptable, to related problems of interest.
-
-Finally, it is of note that whilst readers unfamiliar with the Jupyter and Python ecosystem may find that there is somewhat of a barrier to entry for making use of the platform, it is one that may be worth surmounting given the ubiquity of these tools, and general usefulness in modern scientific/data-science workflows; readers already making use of these tools in their work should have no difficultly, and the platform adheres to standard practice wherever possible.
-
-+++ {"tags": ["hide-cell", "remove-cell"]}
-
-### Technical context and notes - v1 draft
-
-As noted previously, Vol. 3 is somewhat distinct from the previous volumes in the series; although involving computational elements, {{ QM12 }} % Vols. 1 & 2 {cite}`hockett2018QMP1,hockett2018QMP2` 
-are more traditional publications. The material presented in this volume aims to continue the exploration of quantum metrology with photoelectrons, with a focus on numerical analysis techniques, forging a closer link between experimental and theoretical results, and making the methodologies discussed directly accessible via a new software platform/ecosystem, {{ PEMtk_repo }}. %, introduced in more detail in  {numref}`Chapter %s <chpt:platformIntro>`. 
-In order to fulfill this aim, Vol. 3 is a computational/computable document, with code directly available to readers. Each chapter or section is composed of a Jupyter Notebook (`.ipynb` files, usually running a python kernel), each of which can be modified and used independently.[^jupyterFootnote] The full book is compiled from these sections using the Jupyter Book project platform,[^jupyterBookFootnote] which includes build tools and specifications for the specific flavour of Markdown (MyST) used for the written text.
-
-To facilitate code transparency and reuse, the book source code is available via a Github repository, {{ book_repo }}, which includes installation and build notes for building the book itself, as well as links to the required codes. An HTML version is also available at {{ book_HTML }}, which includes interactive figures. A full introduction to the relevant software tool-chain, including installation instructions for the codes used _within_ the book, can be found in {numref}`Chapter %s: <chpt:platformIntro>` {ref}`chpt:platformIntro`.
-
-Finally, it is of note that whilst readers unfamiliar with the Jupyter and Python ecosystem may find that there is somewhat of a barrier to entry for making use of the platform, it is one that may be worth surmounting given the ubiquity of these tools; readers already making use of these tools should have no difficultly, and the platform adheres to standard practice wherever possible. Since no specific knowledge of the underlying physics should be required to use the software tools, they will hopefully also provide a suitable platform for new researchers wishing to learn about photoionization in general. It is, of course, also hoped that established researchers in the field will find the tools useful, and readily adaptable, to related problems of interest.
-
-```{code-cell} ipython3
-
-```
-
-```{code-cell} ipython3
-
-```
