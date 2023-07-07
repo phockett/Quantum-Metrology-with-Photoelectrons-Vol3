@@ -48,6 +48,7 @@ bibtex_bibfiles:
   # 23/04/23 - auto-updating from Zotero on Stimpy.
   - bibs/MF_recon_manuscript_June2020_bbt_bibtex_ongoing.bib
   # 27/04/23 added for rot wavepacket refs.
+  # NOTE - this is NOT in Zotero!
   - bibs/new_refs_jpbreview_VM_020323.bib
   # - bibs/QM3_ongoing.bib
 #  - references.bib  # Sample file

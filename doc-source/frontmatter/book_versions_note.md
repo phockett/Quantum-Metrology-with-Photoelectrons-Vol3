@@ -6,7 +6,7 @@ This book exists in multiple formats, which are not all equal:
 
 2. HTML pages. Compiled from the notebooks, include interactive figures and most computational outputs. The HTML version is available at {{ book_HTML }}.
 
-3. PDF and hard-copy. Standard static outputs, compiled from the notebooks. In this form some computational outputs are truncated or omitted for brevity and readability.
+3. PDF and hard-copy. Standard static outputs, compiled from the notebooks. In this form some computational outputs are truncated or omitted for brevity and readability. Since some formats may not support hyperlinks, full URLs to external references are also included in the bibliography.
 
 For more details on the aims, tools and build-chain, see {numref}`Sect. %s <sec:intro-technical-notes>`.
 
@@ -17,3 +17,4 @@ In many cases where there is significant truncation of the presentation in the P
 *Full tabulations of the parameters available in HTML or notebook formats only.*
 ```
 ````
+
