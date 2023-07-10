@@ -37,6 +37,7 @@ TODO
 
 The observables of interest - the photoelectron flux as a function of energy, ejection angle, and time - can be written quite generally as expansions in radial and angular basis functions. Various types and definitions are given in this section, including worked numerical examples.
 
+(sec:theory:sph-harm-intro)=
 ## Spherical harmonics
 
 The photoelectron flux as a function of energy, ejection angle, and time, can be written generally as an expansion in spherical harmonics:

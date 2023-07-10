@@ -191,6 +191,7 @@ Finally, it is of note that whilst readers unfamiliar with the Jupyter and Pytho
 
 +++
 
+(sect:intro:open-science)=
 ### A brief note on open science, open source software and reproducibility
 
 % Here or in code intro chpt?  See ePSdata for text? Or recent publications with some open science TOP blurb.
