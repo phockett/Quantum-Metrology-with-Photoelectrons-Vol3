@@ -157,6 +157,18 @@ A Docker container for this book is also available from the {{ book_repo }}, whi
 % TODO: include build notes here, as appendix, or in the repo? Very basic guide currently in main readme.
 
 
+### Running examples
+
+Any of the source notebooks can be run individually in a correctly configured Python/Jupyter environment (readers unfamiliar with Jupyter [can find introductory materials online at jupyter.org](https://jupyter.org) {cite}`ProjectJupyter`). Note that the majority of the imports are handled by a setup script, executed at the top of each notebook, for brevity and to ensure a standardized build:
+
+```
+%run '../scripts/setup_notebook.py'
+```
+
+For additional customization this script can be modified as desired. Depending on the build environment the full path to the script may also need to be set (the current code assumes the script will be located in the `doc-source/scripts` directory).
+
++++
+
 (sect:platform:general)=
 ## General platform discussion
 
