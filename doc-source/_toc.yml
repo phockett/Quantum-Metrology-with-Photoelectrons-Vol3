@@ -20,13 +20,13 @@ parts:
     - file: frontmatter/book_versions_note
     - file: frontmatter/overview_270122
 
-  - caption: Theory & software
+  - caption: Part I - Theory & software
     numbered: true   # Add numbering for refs, see https://jupyterbook.org/en/stable/structure/configure.html#toc-numbering and https://jupyterbook.org/en/stable/content/references.html#reference-numbered-sections
                     # For default case this is true in PDF, but not HTML output.
     chapters:
     - file: part1/main_intro_060723
-    - file: part1/platform_intro_071122
-    - file: part1/theory_101122
+    - file: part1/platform_intro_070723
+    - file: part1/theory_100723
       sections:
       - file: part1/theory_observables_intro_211122
       - file: part1/theory_photoionization_dynamics_191122
@@ -46,7 +46,7 @@ parts:
     
   # NO COLONS ALLOWED IN CAPTION - might be able to set as string?  
   # - caption: Extracting matrix elements: numerical methods & case studies
-  - caption: Extracting matrix elements - numerical methods & case studies
+  - caption: Part II - Extracting matrix elements - numerical methods & case studies
     numbered: true
     chapters:
     - file: part2/extracting_matrix_elements_overview_270423
