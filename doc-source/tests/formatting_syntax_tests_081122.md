@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -25,8 +25,6 @@ Only outstanding point is use of raw latex? Is this possible...?
 ```{code-cell} ipython3
 !date
 ```
-
-+++ {"tags": []}
 
 ## Links and refs
 
@@ -65,7 +63,7 @@ Sub test with URL: {{ PEMtk_repo }}
 
 Sub test with maths: {{ BLM }} (working if esc \ in maths defn).
 
-+++ {"tags": []}
++++
 
 ## Maths
 
@@ -321,7 +319,6 @@ render:
     align: center
     caption: This is a figure caption from metadata.
     name: pads-demo-test
-tags: []
 ---
 # import epsproc as ep
 
@@ -422,7 +419,7 @@ Here is my figure caption!
 
 This seems to work
 
-+++ {"tags": []}
++++
 
 ### Fig testing (from URL)
 
@@ -476,7 +473,6 @@ Cell below marked as raw > latex in metadata.
 
 ```{raw-cell}
 :raw_mimetype: text/latex
-:tags: []
 
 \bf{This is a test} \\
 It allows latex $\alpha=\beta$ and test:

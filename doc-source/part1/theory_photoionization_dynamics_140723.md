@@ -16,6 +16,8 @@ kernelspec:
 
 Subsections for photoionization theory
 
+STATUS: complete, but could possibly do with a little more polish/integration to other sections.
+
 - 14/07/23 
     - Symmetry moved to separate section
     - Text/formalism review in progress...

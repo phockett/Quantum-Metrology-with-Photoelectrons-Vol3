@@ -28,7 +28,7 @@ parts:
     - file: part1/platform_intro_070723
     - file: part1/theory_100723
       sections:
-      - file: part1/theory_photoionization_dynamics_191122
+      - file: part1/theory_photoionization_dynamics_140723
       - file: part1/theory_tensor_formalism_201122
       - file: part1/theory_density_matrices_310123
       - file: part1/theory_symmetry_140723

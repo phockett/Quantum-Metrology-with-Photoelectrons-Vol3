@@ -211,6 +211,9 @@ parse:
     BLM: "$\\beta_{L,M}$"   # This works, note esc for \ IN MATHS seems required.
     ADMsymbol: "$A_{Q,S}^{K}(t)$"
     
+    # Additional links/cross-refs
+    PARTII: "{ref}`Part II <chpt:extracting-matrix-elements-overview>`"
+    
     
 # Global substitutions, see https://jupyterbook.org/en/stable/content/content-blocks.html?highlight=substitutions#define-substitutions-for-your-whole-book
 # parse:

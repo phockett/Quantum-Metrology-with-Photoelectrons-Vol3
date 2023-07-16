@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.7
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -178,7 +178,7 @@ Values used for the plots in {numref}`fig-pads-example`.
 
 In general, the spherical harmonic rank and order $(L,M)$ of Eq. {eq}`eq:AF-PAD-general` are constrained by experimental factors in the {{ LF }} or {{ AF }}, and $n$ is effectively limited by the molecular alignment (which is correlated with the photon-order for gas phase experiments, or conservation of angular momentum in the {{ LF }} more generally {cite}`Yang1948`), but in the {{ MF }} is defined by the maximum continuum angular momentum $n=l_{max}$ imparted by the scattering event {cite}`Dill1976` (note lower-case $l$ here refers specifically to the continuum photoelectron wavefunction, see Eq. {eq}`eq:elwf`).
 
-For basic cases these limits may be low: for instance, a simple 1-photon photoionization event ($n=1$) from an isotropic ensemble (zero net ensemble angular momentum) defines $L_{max}=2$; for cylindrically symmetric cases (i.e. $D_{\infty h}$ symmetry) $M=0$ only. For {{ MF }} cases, $l_{max}=4$ is often given as a reasonable rule-of-thumb for the continuum - hence $L_{max}=8$ - although in practice higher-$l$ may be populated. Some realistic example cases are discussed later ({ref}`Part II <chpt:extracting-matrix-elements-overview>`), see also ref. {cite}`hockett2018QMP1` for more discussion and complex examples.
+For basic cases these limits may be low: for instance, a simple 1-photon photoionization event ($n=1$) from an isotropic ensemble (zero net ensemble angular momentum) defines $L_{max}=2$; for cylindrically symmetric cases (i.e. $D_{\infty h}$ symmetry) $M=0$ only. For {{ MF }} cases, $l_{max}=4$ is often given as a reasonable rule-of-thumb for the continuum - hence $L_{max}=8$ - although in practice higher-$l$ may be populated. Some realistic example cases are discussed later ({{ PARTII }}), see also ref. {cite}`hockett2018QMP1` for more discussion and complex examples.
 
 In general, these observables may also be dependent on various other parameters; in Eq. {eq}`eq:AF-PAD-general` two such parameters, $(\epsilon,t)$, are included, as the usual variables of interest. Usually $\epsilon$ denotes the photoelectron energy, and $t$ is used in the case of time-dependent (usually pump-probe) measurements. As discussed in {numref}`Sect. %s <sec:dynamics-intro>`, the origin of such dependencies may be complicated but, in general, the associated photoionization matrix elements are energy-dependent, and time-dependence may also appear for a number of intrinsic or extrinsic (experimental) reasons, e.g. electronic or nuclear dynamics, rotational (alignment) dynamics, electric field dynamics etc. In many cases only one particular aspect may be of interest, so $t$ can be used as a generic label to index changes as per {numref}`fig-pads-example`.
 
@@ -338,8 +338,6 @@ gluePlotly("symHarmPADs", figObj)
 name: "fig-symHarmPADs-example"
 ---
 Examples of angular distributions from expansions in symmetrized harmonics $X_{hl}^{\Gamma\mu*}(\theta,\phi)$, for all irreducible representations in {glue:text}`symHarmPG` symmetry ($l_{max}=${glue:text}`symHarmLmax`). (Note $A_2$ only has components for $l\geq 6$.)
-% {glue:math}`symHarmPG` or type 2 {glue:math}`symHarmPG2`. TODO: work out how to set maths glue.
-% {glue:text}`symHarmPG` symmetry ($l_{max}={glue:}`symHarmLmax`$).
 ```
 
 +++
@@ -389,7 +387,8 @@ symObj.coeffs['XR']
 ```
 
 ```{code-cell} ipython3
-%matplotlib inline
+:tags: [hide-cell, hide-output]
+
 # Example conversion routine
 from epsproc.sphCalc import setBLMs
 from epsproc.sphFuncs.sphConv import *
@@ -400,64 +399,28 @@ BLMre = setBLMs([[0,0,1],[1,1,1],[2,2,1]], kind='real').squeeze(drop=True)
 # Convert to complex form
 BLMim = sphRealConvert(BLMre)
 
-# Generate complex harmonics
-IC = ep.sphCalc(Lmax = 2, res = 50)
-
-# Plot
-# CURRENTLY BORKED FOR ALL FORMS
-# UPDATE: fixed pl case in ePSproc code, 13/07/23
-# MPL version working in Stimpy test build, so looks like MPL version changes?
-#  Matplotlib giving empty plot in QM3 build, MPL v3.7.1... not sure why... working fine on Stimpy build, MPL v3.5.1
-#  Might be axes 3D issues?
-
-#  Plotly singleton case broken, need to fix source sphPlotPL, see line 863 in sphPlot() - seems to be due to changes in March 2023
-#  Matplotlib giving empty plot... not sure why...
-backend='mpl'
+# Plot for visual comparison
+backend='pl'
+Itp, fig = ep.sphFromBLMPlot(BLMre, plotFlag = True, backend = backend)  #, pType='a')  #, rc=[1,1], norm='global')
 ItpCSH, fig = ep.sphFromBLMPlot(BLMim, plotFlag = True, backend = backend)  #, pType='a')  #, rc=[1,1], norm='global')
 
-
-# # Direct Xarray tensor multiplication - this will correctly handle dimensions if names match.
-# Iim = BLMim.rename({'BLM':'LM'}).squeeze(drop=True) * IC
-# # ep.sphSumPlotX(Irand, facetDim = 't')   # Note this may need facetDim set explicitly here for non-1D cases
-# ep.sphSumPlotX(Iim, facetDim=None, backend='pl');
-```
-
-```{code-cell} ipython3
-# TESTING MPL VERSION CHANGES
-
-ItpCSH, fig = ep.sphFromBLMPlot(BLMim, plotFlag = False, backend = backend)
+# Difference plot
+# ep.sphSumPlotX(ItpCSH - Itp, facetDim=None, backend=backend);
+# Numerical diff
+print(f"Max difference complex-real: {((ItpCSH - Itp)**2).max()}")
 
 
-import matplotlib
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-from matplotlib import cm, colors
 
-from epsproc.sphPlot import sphToCart, plotTypeSelector
+#*** Complex and real harmonics can also be generated directly
+# Generate complex harmonics
+IC = ep.sphCalc(Lmax = 2, res = 50)
+# Generate real harmonics
+IR = ep.sphCalc(Lmax = 2, res = 50, fnType='real')
 
-dataPlot = ItpCSH.sum(dim='LM')
-dataPlot = plotTypeSelector(dataPlot, pType = 'a', axisUW = None)
 
-theta, phi = np.meshgrid(dataPlot.Theta, dataPlot.Phi)
-convention = 'phys'
-    
-X, Y, Z = sphToCart(dataPlot, theta, phi, convention = convention)
-
-# Plot in a new figure using Matplotlib
-if float(matplotlib.__version__[:-2]) < 3.4:
-    fig = plt.figure()
-    ax = Axes3D(fig)
-else:
-    fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
-    
-# ax.plot_surface(x, y, z, rstride=1, cstride=1, cmap=cm.jet)
-ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.jet)
-# ax.axis('equal') # Not implemented for 3D axes
-# Rescale axis to equal, hack from https://stackoverflow.com/questions/8130823/set-matplotlib-3d-plot-aspect-ratio
-scaling = np.array([getattr(ax, 'get_{}lim'.format(dim))() for dim in 'xyz'])
-# ax.auto_scale_xyz(*[[np.min(scaling), np.max(scaling)]]*3)  # Not quite right - can have lopsided axes for asymmetric distributions.
-mRange = np.max([np.abs(np.min(scaling)), np.max(scaling)])
-ax.auto_scale_xyz(*[[-mRange, mRange]]*3)
+#*** Direct Xarray tensor multiplication - this will correctly handle dimensions if names match.
+Iim = BLMim.rename({'BLM':'LM'}).squeeze(drop=True) * IC
+ep.sphSumPlotX(Iim, facetDim=None, backend=backend);  # Note this may need facetDim set explicitly here for non-1D cases
 ```
 
 ```{code-cell} ipython3
@@ -483,16 +446,31 @@ Where $Sph$ and $Lg$ labels have been added to make explicit that the expansion 
 Herein only spherical harmonic expansions are used, but the {{ ePSproc_full }} does include a conversion routine to convert expansion parameters as required. Again more information can be found in the {{ ePSproc_docs }}, particularly the ["Working with spherical harmonics"](https://epsproc.readthedocs.io/en/dev/special_topics/ePSproc_docs_working_with_spherical_harmonics_200922.html) notebook.
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 # Set example BLMs and convert to Lg basis
-# Note 'renorm=True' setting to renorm by B0.
+# Note 'renorm=True' setting to renorm by B0 (will affect abs value of B0, but not form of distribution)
 # Note also 'harmonics' and 'normType' specifications in output data.
 
-BLMsph = setBLMs([[0,0,1],[1,0,0.5],[2,0,0.8]])
-ep.util.conversion.conv_BL_BLM(BLMsph, to = 'lg', renorm = True)
+BLMsph = setBLMs([[0,0,1],[1,0,0.5],[2,0,0.8]]).squeeze(drop=True)
+BLMlg = ep.util.conversion.conv_BL_BLM(BLMsph, to = 'lg', renorm = True)
+BLMlg
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-cell, hide-output]
 
+# Plot distributions to test...
+Isph, fig1 = ep.sphFromBLMPlot(BLMsph, plotFlag = True, backend = backend) #, facetDim='t')
+Ilg, fig2 = ep.sphFromBLMPlot(BLMlg, plotFlag = True, backend = backend)  #, facetDim='t')
+
+# Difference plot
+# ep.sphSumPlotX(Isph - Ilg, backend=backend);
+# Numerical diff - NOTE this will not be zero if renorm=True
+print(f"Max difference complex-lg: {((Isph - Ilg)**2).max()}")
+
+# Generate Lg functions directly
+# Ilg = ep.sphCalc(Lmax = 2, res = 50, fnType='lg')
 ```
 
 ```{code-cell} ipython3
