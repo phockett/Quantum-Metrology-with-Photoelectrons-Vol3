@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.7
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -527,6 +527,11 @@ Include with `{include}` directive:
 ```{include} testInclude.txt
 ```
 
-```{code-cell} ipython3
++++
 
-```
+## Glossary and index
+
+See https://jupyterbook.org/en/stable/content/content-blocks.html?highlight=index#the-index-directive
+
+- Currently using Glossary with shortcuts/macros defined in `_config.yml`
+- Don't have an index set, but PDF build seems to automatically add one from the Glossary?

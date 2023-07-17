@@ -19,15 +19,15 @@ kernelspec:
 ```{glossary}
 
 MF
-  Molecular frame (MF) - coordinate system referenced to the molecule, usually with the z-axis corresponding to the highest symmetry axis.
+  Molecular frame (MF) - coordinate system referenced to the molecule, usually with the z-axis corresponding to the highest symmetry axis. See {numref}`Sect. %s <sec:frame-definitions>` for further details.
 
 
 LF
-  Laboratory or lab frame (LF) - coordinate system referenced to the laboratory frame, usually with the z-axis corresponding to the laser field polarization. For circularly or elliptically polarized light the propagation direction is conventionally used for the z-axis. In some cases a different z-axis may be chosen, e.g. as defined by a detector.
+  Laboratory or lab frame (LF) - coordinate system referenced to the laboratory frame, usually with the z-axis corresponding to the laser field polarization. For circularly or elliptically polarized light the propagation direction is conventionally used for the z-axis. In some cases a different z-axis may be chosen, e.g. as defined by a detector. See {numref}`Sect. %s <sec:frame-definitions>` for further details.
 
 
 AF
-  Aligned frame (AF) - coordinate system referenced to molecular alignment axis or axes. For 1D alignment, the z-axis usually corresponds to the alignment field polarization, and hence may be identical to the standard {{ LF }} definition, although is usually reserved for use in cases where there is some molecular alignment. For the limiting case of an isotropic distribution, the {{ AF }} and (traditional) {{ LF }} are identical. For high degrees of (3D) alignment the AF may approach the {{ MF }} in the ideal case, although will usually be limited by the symmetry of the system.
+  Aligned frame (AF) - coordinate system referenced to molecular alignment axis or axes. For 1D alignment, the z-axis usually corresponds to the alignment field polarization, and hence may be identical to the standard {{ LF }} definition, although is usually reserved for use in cases where there is some molecular alignment. For the limiting case of an isotropic distribution, the {{ AF }} and (traditional) {{ LF }} are identical. For high degrees of (3D) alignment the AF may approach the {{ MF }} in the ideal case, although will usually be limited by the symmetry of the system. See {numref}`Sect. %s <sec:frame-definitions>` for further details.
 
 
 PADs
@@ -39,10 +39,10 @@ anisotropy paramters
 
 
 ADMs
-  Expansion parameters {{ ADMsymbol }} for describing a molecular ensemble alignment described as a set of axis distribution moments, usually expanded as Wigner rotation matrix element, spherical harmonics or Legendre polynomial functions.
+  Expansion parameters {{ ADMsymbol }} for describing a molecular ensemble alignment described as a set of axis distribution moments, usually expanded as Wigner rotation matrix element, spherical harmonics or Legendre polynomial functions. See {numref}`Sect. %s <sect:theory:alignment>` for details.
 
 
-Axis distribution moments
+axis distribution moments
   See {{ ADMs }}.
 
 
@@ -68,7 +68,8 @@ RWP
 
 partial-wave expansion
   General term for an expansion of a wavefunction in a spherical-wave basis in scattering theory, typically spherical harmonics $Y_{l,m}$, where the spherical harmonics are the partial wave basis set, and specific $\psi_{l,m}$ terms can be referred to as partial waves - see for example Refs. {cite}`landau, messiah, Sakurai`. Note conventional use of lower-case $l,m$ for these components, whilst upper-case $L,M$ are usually used for labelling harmonics pertaining to observable quantities (see {{ betas }}). 
-  
+
+
 partial-waves
   See {term}`partial-wave expansion`.
 
@@ -87,6 +88,22 @@ radial matrix elements
 
 symmetrized harmonics
   A basis set of spherical harmonics expanded/defined for a given point-group symmetry. See {numref}`Sect. %s <sec:theory:sym-harm-into>`, particularly Eq. {eq}`eq:symHarm-defn`, for details. Other symmetrized functions may assume such a basis set, or explicitly incorporate symmetry parameters/weightings directly, as is the case for symmetrized {{ RADMATE }} which incorporate symmetry parameters $b_{hl\lambda}^{\Gamma\mu}$ into the value of the matrix elements.
+
+
+frame rotation
+  General term for the rotation of one frame of reference (corresponding to a set of $x,y,z$ axes), e.g. as defined by an electric field vector in the laboratory, to another, e.g. as defined by a molecular axis. Usually specified herein in terms of a set of Euler angles $R_{\hat{n}}=\{\chi,\Theta,\Phi\}$, and can also be schematically denoted as, e.g., $(x,y,z)\leftarrow(x',y',z')$.
+  
+
+Euler angles
+  A set of angles $R_{\hat{n}}=\{\chi,\Theta,\Phi\}$ defining a frame rotation. For discussion see Wikipedia](https://en.wikipedia.org/wiki/Euler_angles){cite}`wikiEulerAngles` and Zare, Chpt. 3 {cite}`zareAngMom`.
+
+
+Wigner rotation matrix elements
+  A function defining a basis set for rotations in three-dimensions ($SO(3)$). Also known as "Wigner D-matrix elements". For discussion see Wikipedia](https://en.wikipedia.org/wiki/Wigner_D-matrix){cite}`wikiWignerDmatrix` and Zare, Chpt. 3 {cite}`zareAngMom`.
+
+
+molecular alignment
+  General term for describing the case where molecules have some alignment in the {{ LF }}, as compared to an isotropic distribution. Defined herein terms of molecular {term}`axis distribution moments` and associated parameters {{ ADMsymbol }}. See {numref}`Sect. %s <sect:theory:alignment>` for details.
 
 ```
 

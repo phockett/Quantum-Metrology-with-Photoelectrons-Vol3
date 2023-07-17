@@ -19,9 +19,11 @@ Subsections for tensor formulation.
 - 16/07/23:
     - New version for tidy-up/July 2023
     - Added some more general/review refs
+    - Added Frame Definitions section, could do with some work (or drop it again).
     - General tidy-up
         - Removed most old notes and hidden cells.
         - Code tidy up.
+        
 - 27/04/23: numerics now broken in build...?? WTF???
    - UPDATE: fixed at cell 7 by adding `thres=None` to `BetaNormX2, basisFull = ep.geomFunc.afblmXprod(data.data[data.subKey]['matE'], basisReturn = 'Full', thres=None, selDims={}, sqThres=False)` Must have been change in afblmXprod defaults?
 - 22/11/22: basics in place and all refs present.
@@ -81,7 +83,7 @@ This tensorial form is numerically implemented in the {{ ePSproc_repo }} codebas
 % TODO: numerical examples here or below.
 % TODO: benchmarks, or link to them (see test fitting notebooks...?).
 
-+++ {"jp-MarkdownHeadingCollapsed": true}
++++
 
 (sec:full-tensor-expansion)= 
 ## Full tensor expansion
@@ -162,6 +164,28 @@ the photoionization problem, despite these differences in the details of
 the theory and notation.
 
 The various tensors defined above are implemented as functions in the {{ ePSproc_full }}, and further wrapped for fitting cases in the {{ PEMtk_repo }}. In the remainder of this section, numerical examples using these codes are illustrated and explored. Full computational details can be found in the {{ ePSproc_docs }}, including [extended discussion of each tensor](https://epsproc.readthedocs.io/en/latest/methods/geometric_method_dev_260220_090420_tidy.html) and complete function references in the [geomCalc submodule documentation](https://epsproc.readthedocs.io/en/latest/modules/epsproc.geomFunc.geomCalc.html).
+
++++
+
+(sec:frame-definitions)=
+## Frame definitions
+
+A conceptual overview of the {{ LF }}/{{ AF }} and relation to the {{ MF }}, in the context of the bootstrap reconstruction protocol, can be found in {numref}`fig-bootstrap-concept-outline`. A more detailed definition is given in {numref}`fig-frame-defns`, as pertains to the use of angular momentum notation and projections. The figure shows the general use of angular momenta and associated projection terms in molecular spectroscopy as an aid to visualising the discussion in the following sections. Note, however, that some alternative notations are used in this volume, in particular specific projection terms may be used for certain physical quantities.
+
+In simple cases, the frame definition for the {{ AF }} is identical to that of the {{ LF }}, since it is usually defined by the laser polarization, with the distinction that an aligned molecular ensemble is additionally present. For the limiting case of an isotropic distribution, the {{ AF }} and (traditional) {{ LF }} are identical. However, in cases with non-linear laser polarization, and/or multiple pulses with different polarization vectors, the situation may be more complicated, and additional FRAMEROT(s) may be required (see {numref}`fig-frame-defns` inset). In such cases the reference frame may be chosen as the final ionizing laser pulse polarization, or as a symmetry axis in the {{ AF }}. For high degrees of (3D) alignment the AF may approach the {{ MF }} in the ideal case, although will usually be limited by the symmetry of the system.
+
++++
+
+```{figure} ../images/axes_QNs_inc_rotations_QM1.pdf
+---
+name: fig-frame-defns
+---
+
+
+Reference frame and angular momentum definitions for the Laboratory frame ({{ LF }}) and Molecular frame ({{ MF }}), using a general notation from molecular spectroscopy. In this case the {{ LF }} shows an angular momentum vectors $J$ and $l$; $J$ is usually used to define rotational (or sometimes total) angular momentum of the system, and $l$ the electronic component. Projection terms onto the {{ LF }} $z$-axis, $M_J$ and $m_l$ are also indicated. In the {{ MF }} equivalent angular momentum terms are shown, with projections $K$ and $\lambda$ onto the molecular symmetry axis. The insert shows a {{ FRAMEROT }} $(x,y,z)\leftarrow(x',y',z')$, defined by a set of {{ EULER }} $R_{\hat{n}}=\{\chi,\Theta,\Phi\}$, and illustrating the rotation of the $z$-axis (defined by the electric field vector $E$), and a spherical harmonic function in the $(x',y',z')$ frame. See also {numref}`fig-bootstrap-concept-outline`. Figure reproduced from {{ QM1 }}, Fig. 2.3, and shows  - note that some alternative notations are used in this volume.
+
+
+```
 
 +++
 
@@ -251,8 +275,11 @@ glue("symHarmBasislmaxPlot", lmaxPlot, display=False)
 ```
 
 ```{code-cell} ipython3
-:tags: [hide-output]
-
+---
+jupyter:
+  outputs_hidden: true
+tags: [hide-output]
+---
 # Display results (real harmonics)
 symObj.displayXlm(setCols='h')  #, dropLevels='mu')
 
@@ -370,7 +397,9 @@ Note also some definitions use conjugate spherical harmonics, which can be conve
 
 % TODO: note on numerical implementation for conjugates here?
 
-In the current {{ PEMtk_repo }} codebase, the relevant basis item can be inspected as below, in order to illustrate the sensitivity of different $(L,M)$ terms to the matrix element products. Note for the {{ AF }} case the terms may be reindexed by $M=S-R'$ - this allows for all {{ MF }} projections to contribute, rather than just a single specified polarization geometry. However, in many typical cases, this term is nonetheless restricted to only $M=0$ components overall by other geometric factors (see below). 
+In the current {{ PEMtk_repo }} codebase, the relevant basis item can be inspected as below, in order to illustrate the sensitivity of different $(L,M)$ terms to the matrix element products. In many typical cases, however, this term is restricted to only $M=0$ components overall by other geometric factors (see below). 
+
+% Note for the {{ AF }} case the terms may be reindexed by $M=S-R'$ - this allows for all {{ MF }} projections to contribute, rather than just a single specified polarization geometry. 
 
 The code cells below illustrate this for the current example case, and {numref}`fig-BLM-basis-D2h` offers a general summary. In general, this is a convenient way to visualize the selection rules into the observable: for instance, only terms $l=l'$ and $m=-m'$ contribute to the overall photoionization cross-section term ($L=0, M=0$), and the maximum observable $L_{max}=2l_{max}$. However, since these terms are fairly simply followed algebraically in this case, via the rules inherent in the $3j$ product (Eq. {eq}`eq:basis-BLM-defn`), this is not particularly insightful (although useful pedagogically). These visualizations will become more useful when dealing with real sets of matrix elements, and specific polarization geometries, which will further modulate or restrict the $B_{L,M}$ terms. 
 
@@ -384,8 +413,11 @@ Numerically, various standard functions may be used to quickly gain deeper insig
 % TODO: check and illustrate formalism here, rename term!
 
 ```{code-cell} ipython3
-:tags: [hide-output]
-
+---
+jupyter:
+  outputs_hidden: true
+tags: [hide-output]
+---
 #*** Tabulate basis
 
 basisKey = 'BLMtableResort'  # Key for BLM basis set
@@ -453,20 +485,24 @@ Example $B_{L,M}$ basis functions for {glue:text}`symHarmPGmatE` symmetry. Note 
 
 The coupling of two 1-photon terms (which arises in the square of the ionization matrix element as per Eq. {eq}`eq:I-reduced-LF-2_45-vol1`) can be written as a tensor contraction:
 
-\begin{equation}
-E_{PR}(\hat{e})=[e\otimes e^{*}]_{R}^{P}=[P]^{\frac{1}{2}}\sum_{p}(-1)^{R}\left(\begin{array}{ccc}
+$$
+E_{P,R}(\hat{e})=[e\otimes e^{*}]_{R}^{P}=[P]^{\frac{1}{2}}\sum_{p}(-1)^{R}\left(\begin{array}{ccc}
 1 & 1 & P\\
 p & R-p & -R
-\end{array}\right)e_{p}e_{R-p}^{*}\label{eq:EPR-defn-1}
-\end{equation}
+\end{array}\right)e_{p}e_{R-p}^{*}
+$$ (eq:EPR-defn-1)
 
 Where: 
 
 - $e_{p}$ and $e_{R-p}$ define the field strengths for the polarizations $p$ and $R-p$, which are coupled into the spherical tensor $E_{PR}$; 
 - square-brackets indicate degeneracy terms, e.g. $[P]^{\frac{1}{2}} = (2P+1)^{\frac{1}{2}}$;
-- the symbol $\mu_{0}$ is conventionally used to denote the {{ LF }} field projection definition, given in full as $(1,\mu_0)$ for the 1-photon case, **in general for the LF/AF case $\mu_0=p$, while for the MF case all projection terms are allowed, and are usually labelled by $\mu$ or $q$.** TO FIX
+- in the literature {{ LF }}/{{ AF }} field projection terms are usually denoted $p$ (as above) or $\mu_0$ (used as a more general angular-momentum projection notation). For the {{ MF }} case photon projection terms are usually denoted by $q$ or $\mu$.
+- The polarization vector or propagation direction is usually chosen to define the {{ LF }}/{{ AF }} z-axis for linear or non-linearly polarized light respectively (see {numref}`fig-bootstrap-concept-outline` for the linear example), or defined relative to the molecular symmetry axis in the {{ MF }}. (See {numref}`Sect. %s <sec:frame-definitions>` for further details.)
+- For a given case the polarization geometry may define a single projection term, or there may be multiple terms allowed. For instance, linearly polarized light is defined by $\mu_0=0$ only, resulting in non-zero values for just the $P=0,2$ terms in Eq. {eq}`eq:EPR-defn-1`, i.e. product terms $E_{0,0}, E_{2,0}$ are allowed. Non-linearly polarized light may contain all allowed components ($\mu_0=-1,0,1$). For the {{ MF }} case, allowed components may be defined directly in the {{ MF }} or determined via a frame transformation from the {{ LF }} - see {numref}`Sect. %s <sec:theory:lambda-term>`.
+- Note this notation implicitly describes only the time-independent photon angular momentum coupling, but time-dependent/shaped laser fields can be readily incorporated by allowing for time-dependent fields $e_{p}(t)$ (see, for instance, Ref. \cite{hockett2015CompletePhotoionizationExperiments}). (Support for this is planned in {{ ePSproc_repo }}, as of v1.3.2 this is in the development and testing phase.)
 
-(To derive this result, one can start from, e.g., Eq. 5.40 in Zare
+
+To derive this result, one can start from a general spherical tensor direct product, e.g., Eq. 5.36 in Zare {cite}`zareAngMom`; for two first-rank tensors (e.g. electric field vectors) this contraction is given explicitly by Eq. 5.40 in Zare {cite}`zareAngMom`:
 
 \begin{equation}
 [A^{(1)}\otimes B^{(1)}]_{q}^{k}=\sum_{m}\langle1m,1q-m|kq\rangle A(1,m)B(1,q-m)
@@ -481,28 +517,30 @@ m & q-m & -q
 \end{array}\right)A(1,m)B(1,q-m)
 \end{equation}
 
-And substitute in appropriate terms.)
+And substitute in appropriate terms.
 
-As before, we can visualise these values...
+As before, we can visualise these values with the {{ PEMtk_repo }}.
 
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-# For illustration, recompute EPR term for default case.
+#*** For illustration, recompute EPR term for default case.
 EPRX = ep.geomCalc.EPR(form = 'xarray')
 
 # Set parameters to restack the Xarray into (L,M) pairs
-# plotDimsRed = ['l', 'p', 'lp', 'R-p']
 plotDimsRed = ['p', 'R-p']
 xDim = {'PR':['P','R']}
 
 # Plot with ep.lmPlot(), real values
-daPlot, daPlotpd, legendList, gFig = ep.lmPlot(EPRX, plotDims=plotDimsRed, xDim=xDim, pType = 'r')
-# Version summed over l,m
-# daPlot, daPlotpd, legendList, gFig = ep.lmPlot(EPRX.unstack().sum(['l','lp','R-p']), xDim=xDim, pType = 'r')
+*_, gFig = ep.lmPlot(EPRX, plotDims=plotDimsRed, xDim=xDim, 
+                     pType = 'r', 
+                     titleString=f'$E_{{P,R}}$ terms (all cases).')
 
-# For glue
-glue("lmPlot_EPR_basis", gFig.fig, display=False)
+# Alternative version summed over l,l',m
+# *_, gFig = ep.lmPlot(EPRX.unstack().sum(['l','lp','R-p']), xDim=xDim, pType = 'r')
+
+# Glue figure
+glue("lmPlot_EPR_basis", gFig.fig)
 ```
 
 ```{glue:figure} lmPlot_EPR_basis
@@ -526,7 +564,7 @@ $$
 \end{array}\right)D_{-R',-R}^{P}(R_{\hat{n}})
 $$ (eq:basis-lambda-MF-defn)
 
-This is similar to the $E_{PR}$ term, and essentially rotates it into the {{ MF }}, defining the projections of the polarization vector (photon angular momentum) $\mu$ into the {{ MF }} for a given molecular orientation (frame rotation) defined by $R_{\hat{n}}$. 
+This is similar to the $E_{P,R}$ term, and essentially rotates it into the {{ MF }}, defining the projections of the polarization vector (photon angular momentum) $\mu$ into the {{ MF }} for a given molecular orientation ({{ FRAMEROT }}) defined by a set of rotations. The {{ FRAMEROT }} is parameterized by a set of {{ EULER }}), $R_{\hat{n}}=\{\chi,\Theta,\Phi\}$, with projections given by {{ WIGNERD }} $D_{-R',-R}^{P}(R_{\hat{n}})$.
 
 % And the the $\Lambda_{R',R}$ term is a simplified form of the previously derived MF term:
 
@@ -541,9 +579,10 @@ $$ (eq:basis-lambda-LF-defn)
 
 This form pertains since - in the {{ LF }}/{{ AF }} case - there is no specific frame transformation defined (i.e. there is no single molecular orientation defined in relation to the light polarization, rather a distribution as defined by the {{ ADMs }}), but the total angular momentum coupling of the photon terms is still required in the equations.
 
-Numerically, the function is calculated for a specified set of orientations, which default to the standard set of $(x,y,z)$ MF polarization cases. For the LF/AF case, this term is still used, but restricted to $R_{\hat{n}} = (0,0,0) = z$, i.e. no frame rotation relative to the {{ LF }} $E_{PR}$ definition.
+Numerically, the function is calculated for a specified set of orientations, which default to the standard set of $(x,y,z)$ {{ MF }} polarization cases in the {{ PEMtk_repo }} routines. For the {{ LF }}/{{ AF }} case, this term is still used, but restricted to $R_{\hat{n}} = (0,0,0) = z$, i.e. no frame rotation relative to the {{ LF }} $E_{P,R}$ definition. In some cases additional frame transformations may be required here to define, e.g., the use of the propagation axis as the reference $z$-axis for circularly or elliptically polarized light. (See {numref}`Sect. %s <sec:frame-definitions>` for further discussion.)
 
-TODO: frame rotation illustration as well as term plots? Cf. QM1?
+% TODO: frame rotation illustration as well as term plots? Cf. QM1 fig 2.3 - could reproduce here but some differences in notation? Don't have this in code at the moment.
+% UPDATE 17/07/23, added {numref}`Sect. %s <sec:frame-definitions>` for further details.
 
 +++
 
