@@ -205,6 +205,12 @@ parse:
     PG: "{term}`PG`"
     HOMO: "{term}`HOMO`"
     RWP: "{term}`RWP`"
+    GAMMACHANNEL: "{term}`channel functions`"
+    RADMATE: "{term}`radial matrix elements`"
+    SYMHARM: "{term}`symmetrized harmonics`"
+    GEOMPARAMS: "{term}`geometric coupling parameters`"
+    PARTIALWAVES: "{term}`partial-waves`"
+    PARTIALWAVEEXP: "{term}`partial-wave expansion`"
     
     # Maths shorthand
     # BLM: "$\beta_{L,M}$"  # This fails, seems to cut eqn, maybe drops first $?

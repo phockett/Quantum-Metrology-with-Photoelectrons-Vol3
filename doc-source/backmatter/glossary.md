@@ -66,8 +66,27 @@ RWP
   Rotational wavepacket. A purely rotational wavepacket (superposition of rotational eigenstates) in a molecular system, typically created via cascaded Raman interaction with a (relatively) strong IR pulse ($>10^{12}$~Wcm$^{-2}$). The resulting time-dependent molecular axis distribution can be described by a set of {{ ADMs }}.
 
 
-partial wave expansion
+partial-wave expansion
   General term for an expansion of a wavefunction in a spherical-wave basis in scattering theory, typically spherical harmonics $Y_{l,m}$, where the spherical harmonics are the partial wave basis set, and specific $\psi_{l,m}$ terms can be referred to as partial waves - see for example Refs. {cite}`landau, messiah, Sakurai`. Note conventional use of lower-case $l,m$ for these components, whilst upper-case $L,M$ are usually used for labelling harmonics pertaining to observable quantities (see {{ betas }}). 
+  
+partial-waves
+  See {term}`partial-wave expansion`.
+
+
+channel functions
+  Geometric (angular-momentum) coupling parameters in the tensor formulation of photoionzation, denoted by $\varUpsilon_{L,M}^{u,\zeta\zeta'}$ herein. See Eq. {eq}`eqn:channel-fns`. These can be regarded as an alternative form of the more traditional geometric coupling parameters (Eq. {eq}`eq:I-reduced-LF-2_45-vol1`). See also {term}`geometric coupling parameters`.
+
+
+geometric coupling parameters
+  Geometric (angular-momentum) coupling parameters in photoionization, comprising all angular-momentum coupling terms. Denoted $\gamma_{l,m}$ herein (Eq. {eq}`eq:r-kllam`), and $\gamma_{\alpha\alpha_{+}l\lambda ml'\lambda'm'}$ for the coherent square of these terms (Eq. {eq}`eq:I-reduced-LF-2_45-vol1`). See also {term}`channel functions`.
+
+
+radial matrix elements
+  General term for the radial part of the ionization matrix elements, after separation into radial and angular parts. Although this type of separation may be applied in many cases, herein this term always refers specifically to the radial (or reduced) _photoionization dipole matrix elements_. These are denoted herein as $\mathbf{r}_{k,l,m}$ (see Eqs. {eq}`eq:r-kllam`, {eq}`eq:r-kllam-integral`), and also appear as $\mathbb{I}^{\zeta\zeta'}$ for the coherent square of these terms in the {{ GAMMACHANNEL }} (tensor) form, see Eq. {eq}`eqn:channel-fns`. These complex matrix elements are the unknowns to be determined in quantum metrology with photoelectons fitting or reconstruction problems.
+
+
+symmetrized harmonics
+  A basis set of spherical harmonics expanded/defined for a given point-group symmetry. See {numref}`Sect. %s <sec:theory:sym-harm-into>`, particularly Eq. {eq}`eq:symHarm-defn`, for details. Other symmetrized functions may assume such a basis set, or explicitly incorporate symmetry parameters/weightings directly, as is the case for symmetrized {{ RADMATE }} which incorporate symmetry parameters $b_{hl\lambda}^{\Gamma\mu}$ into the value of the matrix elements.
 
 ```
 

@@ -122,7 +122,7 @@ $$ (eq:dipole-operator)
 
 +++
 
-The position space photoelectron wavefunction is typically expressed as a {term}`partial wave expansion`, expanded as (asymptotic) continuum
+The position space photoelectron wavefunction is typically expressed as a {{ PARTIALWAVEEXP }}, expanded as (asymptotic) continuum
 eignstates of orbital angular momentum, with angular momentum components
 $(l,m)$,
 
@@ -148,7 +148,7 @@ which includes the geometric rotations into the {{ LF }} arising from the dot
 product in Eq. {eq}`eq:r-kllam` and other angular-momentum coupling terms - are
 know, knowledge of the so-called radial (or reduced) dipole matrix
 elements, at a given $k$ thus equates to a full description of the
-system dynamics (and, hence, the observables). Determination of these radial matrix elements - which are complex quantities with magnitudes and phases - is the aim of the reconstruction methodologies discussed herein (see {numref}`Sect. %s <chpt:numerical-details>`).
+system dynamics (and, hence, the observables). Determination of these {{ RADMATE }} - which are complex quantities with magnitudes and phases - is the aim of the reconstruction methodologies discussed herein (see {numref}`Sect. %s <chpt:numerical-details>`).
 
 For the simplest treatment, the radial matrix element can be
 approximated as a 1-electron integral involving the initial electronic
@@ -190,7 +190,7 @@ $$ (eq:I-reduced-LF-2_45-vol1)
 
 % TODO: fix/generalise this, also update notation for LF vs. MF case above, or discuss. May be better to remove some of this and just refer to Vol. 1?
 
-In this form $\alpha$ denotes all other quantum numbers required to define the initial state, and $\alpha_{+}$ the final state of the molecular ion. The radial matrix elements $\boldsymbol{r}_{kl\lambda}$, denote an integral over the radial part of the wavefunctions, in this case labelled by the {{ MF }} quantum numbers, and the associated scattering phase is given by $\eta_{l\lambda}(k)$ (i.e. the matrix elements are written in magnitude-phase form, rather than complex form). The $\gamma$ term denotes a general set of geometric paramters arising from the coherent square. A tensor form is also given herein, see {numref}`Sect. %s <sec:full-tensor-expansion>`, and includes a full breakdown of these terms and details of numerical implementations. 
+In this form $\alpha$ denotes all other quantum numbers required to define the initial state, and $\alpha_{+}$ the final state of the molecular ion. The {{ RADMATE }} $\boldsymbol{r}_{kl\lambda}$, denote an integral over the radial part of the wavefunctions, in this case labelled by the {{ MF }} quantum numbers, and the associated scattering phase is given by $\eta_{l\lambda}(k)$ (i.e. the matrix elements are written in magnitude-phase form, rather than complex form). The $\gamma$ term denotes a general set of {{ GEOMPARAMS }} arising from the coherent square. A tensor form is also given herein, see {numref}`Sect. %s <sec:full-tensor-expansion>`, and includes a full breakdown of these terms and details of numerical implementations. 
 
 Comparison of Eq. {eq}`eq:I-reduced-LF-2_45-vol1` with Eq. {eq}`eq:AF-PAD-general` indicates that the amplitudes
 in Eq. {eq}`eq:r-kllam` also determine the observable {{ betas }} $\beta_{L,M}(\epsilon,t)$ (Eq.
@@ -222,10 +222,9 @@ Typically, for reconstruction experiments, a given measurement will be
 selected to simplify this as much as possible by, e.g., populating only
 a single ionic state (or states for which the corresponding observables
 are experimentally energetically-resolvable), and with a bandwidth
-$d\bf{k}$ which is small enough such that the matrix elements can be
+$d\bf{k}$ which is small enough such that the {{ RADMATE }} can be
 assumed constant over the observation window. Importantly, the angle-resolved observables are
-sensitive to the magnitudes and (relative) phases of these matrix
-elements - as emphasised in the magnitude-phase form of Eq. {eq}`eq:I-reduced-LF-2_45-vol1` - and can be considered as angular interferograms. It is the interferometric nature of the {{ PADs }} which enables a phase-sensitive reconstruction protocol to be pursued.
+sensitive to the magnitudes and (relative) phases of these {{ RADMATE }} - as emphasised in the magnitude-phase form of Eq. {eq}`eq:I-reduced-LF-2_45-vol1` - and can be considered as angular interferograms. It is the interferometric nature of the {{ PADs }} which enables a phase-sensitive reconstruction protocol to be pursued.
 
 +++
 
