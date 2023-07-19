@@ -32,6 +32,8 @@ TODO:
 - Output formatting for lmfit params objects, see https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/9
 - `hide-input` tag only works in HTML, for PDF case this just removes cell completely (input and output), so may need to address with `glue()` for basis set comparison tables at end. (See also )https://jupyterbook.org/en/stable/interactive/hiding.html)
 
+ADD NOTE ON PHASE CONVENTIONS AND NUMERICAL ACCURACY/STABILITY here of in overview doc.
+
 +++
 
 (sect:basis-sets:fitting-intro)=

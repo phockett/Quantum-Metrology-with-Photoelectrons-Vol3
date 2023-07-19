@@ -22,10 +22,11 @@ E.g. *Full tabulations of the parameters available in HTML or notebook formats o
 
 Code (Python) appears in formatted cells, with comments, and outputs below the cell:
 
-```{code-cell} ipython3
+```python
 # Example comment in code
 value = 3*3
 print(f'This is a code cell, value={value}')
+
 ```
 
 In HTML and PDF formats some code cells that appear in the source notebooks may be hidden or removed, or have outputs hidden or removed. This is usually for brevity - e.g. to remove additional code-only examples that are only useful when working directly on the code, or repeated code - or to hide additional formatting commands required only for Jupyter Book builds. All code cells are annotated to indicate their contents.
@@ -39,4 +40,6 @@ For more details on the aims, tools and build-chain, see {numref}`Sect. %s <sec:
 In some cases additional formatting is required for defining Jupter Notebook to HTML and PDF outputs (via the Jupyter Book build-chain, see {numref}`Sect. %s <sec:intro-technical-notes>`), in particular the `glue` command is used for formatting figure outputs with captions. In general use these are not required, but will transparently display figures when executed in the Jupyter Lab environment.
 
 
+## Numerics
 
+At the time of writing the main code-bases used in this work are still in active development, bugs, inconsistencies and errors cannot, therefore, be ruled out in the numerical examples. However, the case for 1D alignment and reconstruction has been well-tested in the past, so is expected to be accurate; cases with 3D alignment are presented in a provisional context.

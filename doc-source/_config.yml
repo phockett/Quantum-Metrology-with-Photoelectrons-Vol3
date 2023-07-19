@@ -193,6 +193,7 @@ parse:
     shtools: "[pySHtools](https://shtools.oca.eu) {cite}`SHtoolsGithub, wieczorek2018SHToolsToolsWorking`"
     qutipFull: "[the QuTiP (_Quantum Toolkbox in Python_) library](https://qutip.org/) {cite}` johansson2012QuTiPOpensourcePython, johansson2013QuTiPPythonFramework, QuTiPQuantumToolboxWebsite`"
     qutipDocs: "[the QuTiP documentation](https://qutip.org/) {cite}`QuTiPQuantumToolboxWebsite`"
+    xarray:  "[`Xarray`](https://docs.xarray.dev) {cite}`hoyer2017XarrayNDLabeled,XarrayDocumentation`"
     
     # Glossary terms
     MF: "{term}`MF`"

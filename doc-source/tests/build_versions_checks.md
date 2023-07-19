@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.0
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -27,6 +27,10 @@ scooby.Report(additional=['pemtk','epsproc','xarray', 'pandas', 'scipy', 'matplo
 !jupyter-book --version
 ```
 
+```{code-cell} ipython3
+!jupyter --version
+```
+
 ## Docker build env
 
 To do
@@ -45,8 +49,6 @@ QMpath = '/home/jovyan/QM3'
 # Check current remote commits
 !git ls-remote --heads https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3
 ```
-
-+++ {"tags": []}
 
 ## Github pkg versions
 
