@@ -64,7 +64,7 @@ For more details on the aims, tools and build-chain, see {numref}`Sect. %s <sec:
 
 In some cases additional formatting is required for defining Jupter Notebook to HTML and PDF outputs (via the Jupyter Book build-chain, see {numref}`Sect. %s <sec:intro-technical-notes>`), in particular the `glue` command is used for formatting figure outputs with captions. In general use these are not required, but will transparently display figures when executed in the Jupyter Lab environment.
 
-
+(sec:numerics:disclaimer)=
 ## Numerics
 
 At the time of writing the main code-bases used in this work (see {numref}`Sect. %s <chpt:platformIntro>` are still in active development, bugs, inconsistencies and errors cannot, therefore, be ruled out in the numerical examples. However, the case for 1D alignment and reconstruction has been well-tested in the past (e.g. Refs. {cite}`marceau2017MolecularFrameReconstruction,hockett2022TopicalReviewMFpreprint,hockett2023TopicalReviewExtracting`), so is expected to be accurate; cases with 3D alignment are presented in a provisional context, with caveats as above, although the general methodology as demonstrated is robust.
