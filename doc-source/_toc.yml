@@ -31,7 +31,7 @@ parts:
       - file: part1/theory_photoionization_dynamics_140723
       - file: part1/theory_symmetry_140723
       - file: part1/theory_tensor_formalism_160723
-      - file: part1/theory_density_matrices_310123
+      - file: part1/theory_density_matrices_190723
       - file: part1/theory_molecular_alignment_170723
       - file: part1/theory_observables_intro_100723
       - file: part1/theory_info_content_221122

@@ -86,17 +86,18 @@ data.subKey = dataKey
 BetaNormX, basisProduct = data.afblmMatEfit(selDims={}, sqThres=False)
 BetaNorm = BetaNormX  # Set alias
 
+# 19/07/23 - removed this part as throwing errors in new build. Not sure why, seems to be key issue?
 # Using ePSproc directly - this includes full basis return if specified
-BetaNormX2, basisFull = ep.geomFunc.afblmXprod(data.data[data.subKey]['matE'], basisReturn = 'Full', selDims={}, sqThres=False)  #, BLMRenorm = BLMRenorm, **kwargs)
-BetaNorm2 = BetaNormX2  # Set alias
+# BetaNormX2, basisFull = ep.geomFunc.afblmXprod(data.data[data.subKey]['matE'], basisReturn = 'Full', selDims={}, sqThres=False)  #, BLMRenorm = BLMRenorm, **kwargs)
+# BetaNorm2 = BetaNormX2  # Set alias
 
-# The basis dictionary contains various numerical parameters, these are investigated below.
-# See also the ePSproc docs at https://epsproc.readthedocs.io/en/latest/methods/geometric_method_dev_260220_090420_tidy.html
-print(f"Product basis elements: {basisProduct.keys()}")
-print(f"Full basis elements: {basisFull.keys()}")
+# # The basis dictionary contains various numerical parameters, these are investigated below.
+# # See also the ePSproc docs at https://epsproc.readthedocs.io/en/latest/methods/geometric_method_dev_260220_090420_tidy.html
+# print(f"Product basis elements: {basisProduct.keys()}")
+# print(f"Full basis elements: {basisFull.keys()}")
 
-# Use full basis for following sections
-basis = basisFull
+# # Use full basis for following sections
+# basis = basisFull
 
 
 #*** Compute results for aligned case with test ADMs
