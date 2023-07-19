@@ -29,6 +29,8 @@ Subsections for tensor formulation.
         - TODO: test debug for 3D demo cases, then rebuild for 3D case. Previous fix for ePS case, `phaseCons['afblmCons']['negM'] = not(phaseCons['genMatEcons']['negm'])` seems to be incorrect (or may be to do with matrix element sign definitions...).
         - Updated Docker builds 19/07/23 fixes phase issues for S case, and tensor formalism chpt now consistent, e.g. http://jake:9988/lab/tree/QM3/doc-source/part1/theory_tensor_formalism_160723-DEBUG_updates190723_buildTest.ipynb
         - TODO: more careful checks of plots etc. on next book build.
+        - 19/07/23: build with current code (in Docker `jupyterlab_qm3_local:190723`) looks good.
+                    Additional formatting and fixes now in place.
         
 - 27/04/23: numerics now broken in build...?? WTF???
    - UPDATE: fixed at cell 7 by adding `thres=None` to `BetaNormX2, basisFull = ep.geomFunc.afblmXprod(data.data[data.subKey]['matE'], basisReturn = 'Full', thres=None, selDims={}, sqThres=False)` Must have been change in afblmXprod defaults?
