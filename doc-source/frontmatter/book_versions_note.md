@@ -1,3 +1,17 @@
+---
+jupytext:
+  formats: ipynb,md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.14.5
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
+---
+
 # A note on book versions, formats and conventions
 
 ## Versions
@@ -20,16 +34,27 @@ E.g. *Full tabulations of the parameters available in HTML or notebook formats o
 ```
 ````
 
++++
+
 Code (Python) appears in formatted cells, with comments, and outputs below the cell:
 
-```python
+```{code-cell} ipython3
 # Example comment in code
 value = 3*3
 print(f'This is a code cell, value={value}')
-
 ```
 
 In HTML and PDF formats some code cells that appear in the source notebooks may be hidden or removed, or have outputs hidden or removed. This is usually for brevity - e.g. to remove additional code-only examples that are only useful when working directly on the code, or repeated code - or to hide additional formatting commands required only for Jupyter Book builds. All code cells are annotated to indicate their contents.
+
+```{code-cell} ipython3
+:tags: [hide-cell, hide-output]
+
+# This is a hidden code cell (will not appear in PDF versions)
+import numpy as np
+
+value = 2+np.pi
+print(f'This is a hidden code cell, with hidden output, value={value}')
+```
 
 Code-related terms in the text, e.g. the names of functions, packages etc., usually appear as in-line blocks, e.g. `Numpy`, and may additionally be linked to relevant web resources, e.g. [`Numpy`](https://numpy.org/).
 
@@ -42,4 +67,8 @@ In some cases additional formatting is required for defining Jupter Notebook to 
 
 ## Numerics
 
-At the time of writing the main code-bases used in this work are still in active development, bugs, inconsistencies and errors cannot, therefore, be ruled out in the numerical examples. However, the case for 1D alignment and reconstruction has been well-tested in the past, so is expected to be accurate; cases with 3D alignment are presented in a provisional context.
+At the time of writing the main code-bases used in this work (see {numref}`Sect. %s <chpt:platformIntro>` are still in active development, bugs, inconsistencies and errors cannot, therefore, be ruled out in the numerical examples. However, the case for 1D alignment and reconstruction has been well-tested in the past (e.g. Refs. {cite}`marceau2017MolecularFrameReconstruction,hockett2022TopicalReviewMFpreprint,hockett2023TopicalReviewExtracting`), so is expected to be accurate; cases with 3D alignment are presented in a provisional context, with caveats as above, although the general methodology as demonstrated is robust.
+
+```{code-cell} ipython3
+
+```
