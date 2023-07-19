@@ -130,7 +130,7 @@ $$\Psi_\mathbf{k}(\boldsymbol{r})\equiv\left<\boldsymbol{r}|\mathbf{k}\right> = 
 $$ (eq:elwf)
 
 where $\boldsymbol{r}$ are MF electronic coordinates and
-$Y_{lm}(\mathbf{\hat{k}})$ are the spherical harmonics. Note the lower-case notation for the partial wave angular-momentum components, distinct from upper-case for the similar terms $(L,M)$ in the observables ({ref}`Sect. %s <sect:theory:observables>`).
+$Y_{lm}(\mathbf{\hat{k}})$ are the spherical harmonics. Note the lower-case notation for the partial wave angular-momentum components, distinct from upper-case for the similar terms $(L,M)$ in the observables ({numref}`Sect. %s <sect:theory:observables>`).
 
 Similarly, the ionization dipole matrix elements can be separated
 generally into radial (energy-dependent or 'dynamical' terms) and

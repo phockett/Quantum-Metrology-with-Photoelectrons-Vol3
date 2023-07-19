@@ -107,7 +107,10 @@ $$ (eq:ionization-symm-electronic)
 
 And $\Gamma^{e(X)}$ indicates that the continuum symmetries are expressed in a basis of symmetrized harmonics ({numref}`Sect. %s <sec:theory:sym-harm-into>`). From Eq. {eq}`eq:ionization-symm-electronic`, the set of allowed matrix elements for a given ionization event can be expressed, in terms of the allowed set of symmetrized harmonics $X_{hl}^{\Gamma\mu*}(\theta,\phi)$, or (equivalently) the usual partial wave basis expressed in spherical harmonics $Y_{l,\lambda}(\theta,\phi)$, and a set of associated symmetrization coefficients $b_{hl\lambda}^{\Gamma\mu}$.
 
-A brief numerical example is given below, and a more detailed treatment for a range of photoionization cases forms the second half of the book, see {numref}`Chapter %s: <sec:extracting-matrix-elements-overview>` {ref}`sec:extracting-matrix-elements-overview` for details.
+A brief numerical example is given below, and a more detailed treatment for a range of photoionization cases forms the second half of the book, see {numref}`Chapter %s: <sec:extracting-matrix-elements-overview>` for details.
+
+% Note {ref} with name fails for nested sections.
+% {ref}`sec:extracting-matrix-elements-overview` for details.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -136,20 +139,23 @@ symObj.dipole['dipoleSyms']
 ```
 
 ```{code-cell} ipython3
-# Setting the symmetry for the neutral and ion allows direct products to be computed, and allowed terms to be determined.
+# Setting the symmetry for the neutral and ion allows direct products to be computed, 
+# and allowed terms to be determined.
 
 sNeutral = 'A1g'
 sIon = 'B2u'
 
 symObj.directProductContinuum([sNeutral, sIon])
 
-# Results are pushed to self.continuum, in dictionary and Pandas DataFrame formats, and can be manipulated using standard functionality.
+# Results are pushed to self.continuum, in dictionary and Pandas DataFrame formats, 
+# and can be manipulated using standard functionality.
 # The subset of allowed values are also set to a separate DataFrame and list.
 symObj.continuum['allowed']['PD']
 ```
 
 ```{code-cell} ipython3
-# Ylm basis table with the Character values limited to those defined in self.continuum['allowed']['PD'] Target column
+# Ylm basis table with the Character values limited to those defined 
+# in self.continuum['allowed']['PD'] Target column
 symObj.displayXlm(symFilter = True)  
 ```
 
