@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.7
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -33,9 +33,13 @@ TO DO:
 (sect:theory:alignment)=
 # Molecular alignment
 
+## A very brief introduction to molecular alignment
+
 The term {term}`molecular alignment` can be used, in general, to define any case where the {{ MF }} is specified relative to the {{ LF }} in some way - for instance if the molecular symmetry axis is constrained to the {{ LF }} $z$-axis. Herein, it is generally used more specifically, to refer to the case of a (time-dependent) aligned molecular ensemble in gas-phase experiments (e.g. as illustrated in {numref}`fig-bootstrap-concept-outline`). Any such axis distribution, in which there is a defined arrangement of axes created in the {{ LF }}, can be discussed, and characterised, in terms of the axis distribution moments ({{ ADMs }}), which have already been introduced passing in {numref}`Sect. %s <sec:tensor-formulation>`. More specifically, {{ ADMs }} are coefficients in a multipole expansion, usually in terms of {{ WIGNERD }}, of the molecular axis probability distribution. In this section some additional definitions are given, along with numerical examples. 
 
 The creation of an aligned ensemble in the gas phase can be achieved via a single, or sequence of, N-photon transitions, or strong-field mediated techniques. Of the latter, adiabatic and non-adiabatic alignment methods are particularly powerful, and make use of a strong, slowly-varying or impulsive laser field respectively. (Here the "slow" and "impulsive" time-scales are defined in relation to molecular rotations, roughly on the ps time-scale, with ns and fs laser fields corresponding to the typical slow and fast control fields.) In the former case, the molecular axis, or axes, will gradually align along the electric-field vector(s) while the field is present. In the latter, impulsive case, a broad rotational wavepacket ({{ RWP }}) can be created, initiating complex rotational dynamics including field-free revivals of ensemble alignment. For further general discussion, there is a rich literature on molecular alignment available, see, for instance, Refs. {cite}`Stapelfeldt2003,hasegawa2015NonadiabaticMolecularAlignment, koch2019QuantumControlMolecular,nielsen2022Helium` for reviews and further introductory materials, and further discussion in the current context can be found in {{ QM12 }} and Refs. {cite}`Reid2000, Underwood2000, Ramakrishna2012, Ramakrishna2013, hockett2015GeneralPhenomenologyIonization, hockett2023TopicalReviewExtracting` and references therein.
+
+For {{ RADMATE }} retrieval problems based on {{ RWP }} methods, the absolute degree of alignment may - or may not - be critical in a given case. The sampling of a range of *different* alignments, however, is vital, since this directly feeds into the information content of the measurements (see {numref}`Sect. %s <sec:theory:AF-alignment-term>` and {numref}`Sect. %s <sec:info-content>`). In the case-studies of {{ PARTII }}, the {{ ADMs }} are assumed to be known, but in general these must be determined from experimental data, this is discussed in {numref}`Sect. %s <sect:numerics:alignment-retrieval>`.
 
 +++
 
@@ -59,7 +63,7 @@ In the examples given in {numref}`Sect. %s <sec:tensor-formulation>`, some arbit
 
 +++
 
-## Numerical examples
+## Numerical setup
 
 For illustrative purposes, the {{ ADMs }} used for the $OCS$ fitting example are here loaded and used to compute $P(\Omega,t)$.
 
@@ -90,7 +94,9 @@ data.data['ADM']['ADM'].unstack().squeeze().real.hvplot.line(x='t').overlay('K')
 data.data['subset']['ADM'].unstack().squeeze().real.hvplot.line(x='t').overlay('K')
 ```
 
-### Compute $P(\theta)$ distribtuions + metrics
+## Compute $P(\theta,\Phi,t)$ distributions
+
+For 1D and 2D cases, the full axis distributions can be expanded in spherical harmonics and plotted using {{ PEMtk_repo }} class methods. This is briefly illustrated below. Note that expansions in {{ WIGNERD }} are not currently supported by these routines.
 
 ```{code-cell} ipython3
 # Broken in jupyterlab_epsproc_dev:180523
@@ -120,6 +126,10 @@ data.data['subset']['plots']['ADM']['grid']
 tAxis = tAxis = data.data[dataKey]['ADM'].t
 data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pType='a', returnFlag = True, selDims={'t':tAxis[1:30:5]}, backend='pl')
 ```
+
++++ {"tags": ["remove-cell"]}
+
+## Alignment metrics
 
 +++ {"tags": ["remove-cell"]}
 

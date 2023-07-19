@@ -87,6 +87,7 @@ Finally, it is also of note that, although the case herein focusses on rotationa
 
 +++
 
+(sect:numerics:alignment-retrieval)=
 ### Computation and linear fitting for alignment characterisation
 
 % Moderately adapted from MF recon manuscript - may want to rework further and add some numerical examples here (or elsewhere).
