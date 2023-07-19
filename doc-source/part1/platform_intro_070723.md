@@ -51,6 +51,12 @@ The two main components of the platform for analysis tasks, as used herein, are:
     elements from {{ ePS_full }}, or equivalent matrix elements from other sources (dedicated support for R-matrix results from [the RMT suite](https://gitlab.com/Uk-amor/RMT/rmt) {cite}`brown2020RMTRmatrixTimedependence,RmatrixRepo` is in development, for an overview of *ab initio* methods/packages see Ref. {cite}`dowek2022TrendsAngleresolvedMolecular`). 
     The core functionality includes the computation of AF and MF observables. Manual computation without known matrix elements is also possible, e.g. for investigating
     limiting cases, or data analysis and fitting - hence these routines also provide the backend functionality for PEMtk fitting routines. Again more technical details can be found in the {{ ePSproc_docs }}.
+    
+````{margin}
+```{warning}
+As {ref}`noted elsewhere <sec:numerics:disclaimer>`, many components of the toolkit are still in active development, and some numerical details may change.
+```
+````
 
 +++
 
@@ -100,10 +106,10 @@ The core analysis tools, which constitute the {{ PEMtk_repo }} platform, are the
 * General ND-array and tensor handling and manipulation makes use of the [`Xarray` library](https://docs.xarray.dev) {cite}`hoyer2017XarrayNDLabeled,XarrayDocumentation`.
 * Angular momentum functions
     * Wigner D and 3js are currently implemented directly, or via the [Spherical Functions library](https://github.com/moble/spherical_functions) {cite}`boyle2022SphericalFunctionsGithub, boyle2023MobleSphericalFunctions`, and have been tested for consistency with the definitions in Zare (for details see [the ePSproc docs](https://epsproc.readthedocs.io/en/latest/tests/Spherical_function_testing_Aug_2019.html) {cite}`ePSprocDocs`). The Spherical Functions library also uses [`quaternion`](https://github.com/moble/quaternion) {cite}`boyle2023MobleQuaternionRelease, MobleQuaternionGithub` which implements a quaternion datatype in Numpy.
-    * Spherical harmonics are defined with the usual physics conventions: orthonormalised, and including the Condon-Shortley phase. Numerically they are implemented directly or via SciPy's `sph_harm` function (see [the SciPy docs for details](https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.sph_harm.html) {cite}`SciPyDocumentation`. Further manipulation and conversion between different normalisations can be readily implemented with the [pySHtools library](https://shtools.github.io/SHTOOLS/) {cite}`SHtoolsGithub, wieczorek2018SHToolsToolsWorking, wieczorek2019SHTOOLSSHTOOLSVersion, wieczorek2022SHtoolsDocs`. See {numref}`Sect. %s <sec:theory:sph-harm-intro>` for examples.
-    * Symmetry functionality, specifically computing symmetrized harmonics $X_{hl}^{\Gamma\mu*}(\theta,\phi)$ (see Eq. {eq}`eq:AF-PAD-general`), makes use of `libmsym` {cite}`johansson2017AutomaticProcedureGeneratinga, johansson2022LibmsymGithub` (symmetry coefficients) and {{ shtools }} (general spherical harmonic handling and conversion).  See {numref}`Sect. %s <sec:theory:sym-harm-into>` for examples.
+    * Spherical harmonics are defined with the usual physics conventions: orthonormalised, and including the Condon-Shortley phase. Numerically they are implemented directly or via SciPy's `sph_harm` function (see [the SciPy docs for details](https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.sph_harm.html) {cite}`SciPyDocumentation`. Further manipulation and conversion between different normalisations can be readily implemented with the [`pySHtools` library](https://shtools.github.io/SHTOOLS/) {cite}`SHtoolsGithub, wieczorek2018SHToolsToolsWorking, wieczorek2019SHTOOLSSHTOOLSVersion, wieczorek2022SHtoolsDocs`. See {numref}`Sect. %s <sec:theory:sph-harm-intro>` for examples.
+    * Symmetry functionality, specifically computing symmetrized harmonics $X_{hl}^{\Gamma\mu*}(\theta,\phi)$ (see Eq. {eq}`eq:AF-PAD-general`), makes use of {{ libmsym }} (symmetry coefficients) and {{ shtools }} (general spherical harmonic handling and conversion).  See {numref}`Sect. %s <sec:theory:sym-harm-into>` for examples.
 * Non-linear optimization (fitting):
-    * Fitting is handled via the [lmfit library](https://lmfit.github.io/lmfit-py) {cite}`LMFITDocumentation, newville2014LMFITNonLinearLeastSquare`, which implements and/or wraps a range of non-linear fitting routines in Python, including classes for handling fitting parameters and outputs. In this work only the Levenberg-Marquardt least-squares minimization method has been used, which wraps [Scipy's `least_squares` functionality](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html) {cite}`SciPyDocumentation`, hence this is the core numerical minimization routine for the demonstration cases herein. (See {numref}`Chapter %s <chpt:numerical-details>` for further discussion of fitting methods.)
+    * Fitting is handled via the {{ lmfit }}, which implements and/or wraps a range of non-linear fitting routines in Python, including classes for handling fitting parameters and outputs. In this work only the Levenberg-Marquardt least-squares minimization method has been used, which wraps [Scipy's `least_squares` functionality](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html) {cite}`SciPyDocumentation`, hence this is the core numerical minimization routine for the demonstration cases herein. (See {numref}`Chapter %s <chpt:numerical-details>` for further discussion of fitting methods.)
     * Basic parallelization for fitting routines is implemented using the [`xyzpy`](https://xyzpy.readthedocs.io/en/latest/) library {cite}`XyzpyDocumentation`, see {numref}`Chapter %s <sect:basic-fit-setup>` for further details.
 
 * For plotting a range of tools can be used, some of which are implemented/wrapped in the {{ PEMtk_repo }}, or can be used directly with `Xarray` data structures, including: 
@@ -165,7 +171,9 @@ Any of the source notebooks can be run individually in a correctly configured Py
 %run '../scripts/setup_notebook.py'
 ```
 
-For additional customization this script can be modified as desired. Depending on the build environment the full path to the script may also need to be set (the current code assumes the script will be located in the `doc-source/scripts` directory).
+For additional customization this script can be modified as desired. Depending on the build environment the full path to the script may also need to be set (the current code assumes the script will be located in the `qm3-repo/doc-source/scripts` directory, and notebooks run from their source dirs, e.g. `qm3-repo/doc-source/part1`).
+
+% TODO: fix this, should be able to set from working dirs...?
 
 +++
 
@@ -175,7 +183,7 @@ For additional customization this script can be modified as desired. Depending o
 Note that, at the time of writing:
 
 * Rotational wavepacket simulation is not yet implemented in the {{ PEMtk_repo }}, and these must be obtained via other codes. An intial build of the [`limapack` suite](https://github.com/jonathanunderwood/limapack) {cite}`underwood2021Limapack` for rotational wavepacket simulations is currently part of the {{ open_photo_stacks_repo }}, but has yet to be used in this work.
-* Fitting has not yet been carefully optimized, with only a general non-linear least squares method implemented. However, other methods should be easy to implement, either via the `lmfit` library or with other Python libraries or custom codes; optimization making use of Numba should also be possible.
+* Fitting has not yet been carefully optimized, with only a general non-linear least squares method implemented. However, other methods should be easy to implement, either via the {{ lmfit }} or with other Python libraries or custom codes; optimization making use of `Numba` should also be possible.
 * The {{ PEMtk_repo }} code-base is currently still under heavy development, so readers may wish to consult the ongoing {{ PEMtk_docs }} in future for changes and updates.
 
 Nonetheless, although both the code-base and methodologies are still under development, a range of numerical methods have been successfully trialled (as illustrated in Part II herein), and are now available to other researchers to make use of and build on.
