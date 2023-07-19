@@ -184,9 +184,12 @@ Note that, at the time of writing:
 
 * Rotational wavepacket simulation is not yet implemented in the {{ PEMtk_repo }}, and these must be obtained via other codes. An intial build of the [`limapack` suite](https://github.com/jonathanunderwood/limapack) {cite}`underwood2021Limapack` for rotational wavepacket simulations is currently part of the {{ open_photo_stacks_repo }}, but has yet to be used in this work.
 * Fitting has not yet been carefully optimized, with only a general non-linear least squares method implemented. However, other methods should be easy to implement, either via the {{ lmfit }} or with other Python libraries or custom codes; optimization making use of `Numba` should also be possible.
-* The {{ PEMtk_repo }} code-base is currently still under heavy development, so readers may wish to consult the ongoing {{ PEMtk_docs }} in future for changes and updates.
+* The {{ PEMtk_repo }} codebase is currently still under heavy development, so readers may wish to consult the ongoing {{ PEMtk_docs }} in future for changes and updates.
+* For specific guides to various aspects of both codebases, see the relevant docs, which include full API guides. Some particular materials of introductory interest include:
+  * A general quick-start demo can be found in the {{ ePSproc_docs }}, [specifically the ePSproc class intro page](https://epsproc.readthedocs.io/en/latest/demos/ePSproc_class_demo_161020.html).
+  * For more details of the data structures used, see the {{ ePSproc_docs }}, specifically the [data structures page](https://epsproc.readthedocs.io/en/latest/dataStructures/ePSproc_dataStructures_demo_070622.html).
 
-Nonetheless, although both the code-base and methodologies are still under development, a range of numerical methods have been successfully trialled (as illustrated in Part II herein), and are now available to other researchers to make use of and build on.
+Nonetheless, although both the codebase and methodologies are still under development, a range of numerical methods have been successfully trialled (as illustrated in {{ PARTII }} herein), and are now available to other researchers to make use of and build on.
 
 ```{code-cell} ipython3
 
