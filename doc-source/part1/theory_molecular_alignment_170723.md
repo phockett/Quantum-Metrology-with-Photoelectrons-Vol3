@@ -123,61 +123,24 @@ data.data['subset']['ADM'].unstack().where(data.data['subset']['ADM'].unstack().
 For 1D and 2D cases, the full axis distributions can be expanded in spherical harmonics and plotted using {{ PEMtk_repo }} class methods. This is briefly illustrated below. Note that expansions in {{ WIGNERD }} are not currently supported by these routines.
 
 ```{code-cell} ipython3
-# Broken in jupyterlab_epsproc_dev:180523
-# Working in updated 3D builds.
-# NOTE: broken in latest Matplotlib v3.7.1, but OK in v3.4.3
-#       get "Error in callback <function _draw_all_if_interactive at 0x7f38ec7c7d90> (for post_execute):" and
-#       get "TypeError: Arrow3D.draw() missing 1 required positional argument: 'renderer'" 
-# Axis distributions P(theta) vs. t (summed over phi)
-# Pt = data.padPlot(keys = 'ADM', dataType='ADM', Etype = 't', pStyle='grid', reducePhi='sum', returnFlag = True)  #, facetDims=['t', 'Eke'])
-
-%matplotlib inline
+# Plot P(theta,t) with summation over phi dimension
+# Note the plotting function automatically expands the ADMs in spherical harmonics
 dataKey = 'subset'
-# Pt = data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pType='a', 
-#                   pStyle='grid', reducePhi='sum', returnFlag = True)  #, backend='mpl', facetDims=['t', None])  # squeeze=True, facetDims=['t', 'Eke'])  # Real plot to check values OK.
-
-Pt = data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pStyle='grid', reducePhi='sum', returnFlag = True)  #, facetDims=['t', 'Eke'])
+data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pStyle='grid', reducePhi='sum', returnFlag = True)
 ```
 
 ```{code-cell} ipython3
-tPlot = [39.402, 40.791, 42.18]
-dataKey='subset'
-tAxis = data.data[dataKey]['ADM'].t
-# tPlot = [tAxis[7], tAxis[14], tAxis[21]] 
+# Plot full axis distributions at selected time-steps
+tPlot = [39.402, 40.791, 42.18]  # Manual setting for baseline case, and at max and min K=2 times.
+
+# Alternatively, plot at selected times by index slice
+# Note that selDims below requires labels (not index inds)
+# tPlot = data.data[dataKey]['ADM'].t[::5]
 
 data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pType='a', 
              returnFlag = True, selDims={'t':tPlot}, backend='pl')
 ```
 
-```{code-cell} ipython3
-tAxis = data.data[dataKey]['ADM'].t
-data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pType='a', 
-             returnFlag = True, selDims={'t':tAxis[1:30:10]}, backend='pl',labelRound=2)
-             # rc=[2,3])
-```
-
 +++ {"tags": ["remove-cell"]}
 
 ## Alignment metrics
-
-+++ {"tags": ["remove-cell"]}
-
-## SCRATCH
-
-% FROM MF RECON MANUSCRIPT
-
-For gas phase experiments, the most common methods involve creating some form of alignment or orientation \footnote{In the technical sense, alignment retains 
-% \textbf{inversion symmetry in the LF, while orientation typically implies reduction of the LF symmetry to match the molecular point group symmetry}.
-inversion symmetry in the LF, while orientation typically implies reduction of the LF symmetry to match the molecular point group symmetry. The term "orientation" is used herein as synonymous with the MF for an arbitrary molecular system, but in some cases - e.g. homonuclear diatomics - alignment may be sufficient for observation of MF observables.} 
-in the gas phase molecular ensemble, which defines a relationship between the LF and MF. In general, measurements made from such an ensemble can be termed as corresponding to ``the aligned frame (AF)", and may still involve averaging over some DOFs; in the 
-% \textbf{classical} 
-classical limit of perfect orientation, the AF and MF are conformal/indistinguishable. 
-
-Perhaps the simplest AF technique is the creation of alignment via a single-photon pump process (as used in many resonance-enhanced mulit-photon ionization (REMPI) type experimental schemes, which may even be rotational-state selected); in this case a parallel or perpendicular transition moment will create a $\cos^2(\theta)$ or $\sin^2(\theta)$ distribution, respectively, of the corresponding molecular axis. Any such axis distribution, in which there is a defined arrangement of axes created in the LF, can be discussed, and characterised, in terms of the axis distribution moments (ADMs). ADMs are coefficients in a multipole expansion, in terms of Wigner D-Matrix Elements (see Sect. \ref{sec:full-tensor-expansion}), of the molecular axis probability distribution. These are spherical tensors, equivalent to density matrix elements \cite{BlumDensityMat}. Many authors have address aspects of this problem in the past in frequency-domain work, see, for instance, the textbooks of Zare \cite{zareAngMom} and Blum \cite{BlumDensityMat}, treatments for various experimental cases in Refs. \cite{Docker1988,Dubs1989,Greene1983}, and application in complete photoionization experiments in Refs. \cite{Leahy1991,hockett2009RotationallyResolvedPhotoelectron}.
-% \textbf{Wigner D-Matrix Elements}.)
-
-Further control can be gained via a single, or sequence of, N-photon transitions, or strong-field mediated techniques. Of the latter, adiabatic and non-adiabatic alignment methods are particularly powerful, and make use of a strong, slowly-varying or impulsive laser field respectively. (Here the ``slow" and ``impulsive" time-scales are defined in relation to molecular rotations, roughly on the ps time-scale, with ns and fs laser fields corresponding to the typical slow and fast control fields.) In the former case, the molecular axis, or axes, will gradually align along the electric-field vector(s) while the field is present. In the latter, impulsive case, a broad rotational wavepacket (RWP) can be created, initiating complex rotational dynamics including field-free revivals of ensemble alignment. Both techniques are powerful, but multiple laser fields are typically required in order to control more than one molecular axis, leading to relatively complex experimental requirements. The absolute degree of alignment obtained in a given case is also dependent on a number of intrinsic and experimental properties, including the molecular polarisability 
-% \textbf{and moment of inertia} 
-and moment of inertia tensors, rotational temperature and separability of the rotational degrees of freedom from other DOFs (loosely speaking, this can be considered in terms of the stiffness of the molecule). Recent studies of molecules embedded in Helium droplets have addressed some of these issues, achieving stronger and longer lived 3D alignment. These studies also examined several complications associated with coupling between molecular and droplet DOFs.   Therefore, although general in principle, in practice not all molecular targets are amenable to ``good" (i.e. a high degree of) alignment. For more general details, see, for example, Refs. \cite{koch2019QuantumControlMolecular,Stapelfeldt2003,nielsen2022Helium}, and for applications in photoionization see Sect. \ref{sec:theory-lit}.
-
-Whilst gas phase alignment experiments can become rather complex, multi-pulse affairs, they are increasingly popular in the AMO community for a number of possible reasons. Conceptually and experimentally, they are a relatively tractable extension to existing techniques. They are interesting experiments in their own right, and, practically, they are usually feasible with existing high-power pulsed laser sources in the ns to fs regime. Alignment techniques have been combined with a range of different probes, including non-linear and high-harmonic optical probes, as well as photoionization-based methods - for recent reviews see \cite{hasegawa2015NonadiabaticMolecularAlignment,koch2019QuantumControlMolecular}.
