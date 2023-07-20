@@ -83,7 +83,7 @@ for dataType in ['matE','BLM']:
 data.subKey = dataKey
 
 # Using PEMtk - this only returns the product basis set as used for fitting
-BetaNormX, basisProduct = data.afblmMatEfit(selDims={}, sqThres=False)
+BetaNormX, basisProduct = data.afblmMatEfit(selDims={}, sqThres=False, thres=None)
 BetaNorm = BetaNormX  # Set alias
 
 # 19/07/23 - removed this part as throwing errors in new build. Not sure why, seems to be key issue?
@@ -100,6 +100,21 @@ BetaNorm = BetaNormX  # Set alias
 # # Use full basis for following sections
 # basis = basisFull
 
+# 20/07/23 - working version, needed thres=None? Must have been change in defaults that caused the issue
+# Using ePSproc directly - this includes full basis return if specified
+# See the docs for more details, https://epsproc.readthedocs.io
+BetaNormX2, basisFull = ep.geomFunc.afblmXprod(data.data[data.subKey]['matE'], 
+                                               basisReturn = 'Full', 
+                                               thres=None, selDims={}, sqThres=False,)
+                                               # phaseConvention=phaseConvention)
+
+# The basis dictionary contains various numerical parameters, these are investigated below.
+# See also the ePSproc docs at https://epsproc.readthedocs.io/en/latest/methods/geometric_method_dev_260220_090420_tidy.html
+print(f"Product basis elements: {basisProduct.keys()}")
+print(f"Full basis elements: {basisFull.keys()}")
+
+# Use full basis for following sections
+basis = basisFull
 
 #*** Compute results for aligned case with test ADMs
 # Set ADMs for increasing alignment (linear ramp)...
