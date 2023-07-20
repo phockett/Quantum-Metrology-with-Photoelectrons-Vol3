@@ -160,16 +160,12 @@ This follows the setup in {numref}`Sect. %s <sec:tensor-formulation>` {ref}`sec:
 ```
 
 ```{code-cell} ipython3
-:tags: [remove-cell]
-
 # 19/07/23 - this needs debugging, but skipped for now!
 # Not sure what has changed - might be issue with dim names?
 # ep.geomFunc.afblmXprod(data.data[data.subKey]['matE'], basisReturn = 'Full', selDims={}, sqThres=False)
 ```
 
 ```{code-cell} ipython3
-:tags: [remove-cell]
-
 # Now run in script above
 
 # # Setup symmetry-defined matrix elements using PEMtk
@@ -213,8 +209,6 @@ This follows the setup in {numref}`Sect. %s <sec:tensor-formulation>` {ref}`sec:
 ```
 
 ```{code-cell} ipython3
-:tags: [remove-cell]
-
 # # Compute basis functions for given matrix elements
 
 # # Set data
@@ -281,7 +275,8 @@ if normME:
 #   https://epsproc.readthedocs.io/en/latest/methods/density_mat_notes_demo_300821.html
 # API docs:
 #   https://epsproc.readthedocs.io/en/latest/modules/epsproc.calc.density.html#epsproc.calc.density.densityCalc
-daOut, *_ = density.densityCalc(matE, denDims = denDims, selDims = selDims, thres = thres)
+daOut, *_ = density.densityCalc(matE, denDims = denDims, 
+                                selDims = selDims, thres = thres)
 
 # Renormlise output?
 if normDen=='max':
@@ -359,7 +354,8 @@ maxDiff = daDiff.max().values
 print(f'Max difference = {maxDiff}')
 
 #*** Layout plot from Holoviews objects for real parts, with custom titles.
-daLayout = (daPlot.select(pType='Real').opts(title="(a) Original", xlabel='L,M', ylabel="L',M'") 
+daLayout = (daPlot.select(pType='Real').opts(title="(a) Original", xlabel='L,M', 
+                                             ylabel="L',M'") 
             + daPlot_noise.select(pType='Real').opts(title="(b) With noise", 
                 xlabel='L,M', ylabel="L',M'") 
             + daPlotDiff.select(pType='Real').opts(title="(c) Difference (fidelity)", 
@@ -458,7 +454,7 @@ inner.sqrtm().tr()
 +++ {"tags": ["remove-cell"]}
 
 ### Von Neuman entropy
-% Not sure if this is interesting as yet... see S3.1 in benatti2010QuantumInformationComputation
+Not sure if this is interesting as yet... see S3.1 in benatti2010QuantumInformationComputation
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -482,8 +478,9 @@ entropy_vn(pa/pa.tr()) - entropy_vn(pb/pb.tr())
 
 ### Relative entropy
 
-% Not sure if this is interesting as yet... see S3.2 in benatti2010QuantumInformationComputation
-% inf for (A,B) case here?
+Not sure if this is interesting as yet... see S3.2 in benatti2010QuantumInformationComputation
+
+inf for (A,B) case here?
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -495,162 +492,4 @@ entropy_relative(pa/pa.tr(),pa/pa.tr())  # Indentical case = 0
 :tags: [remove-cell]
 
 entropy_relative(pa/pa.tr(),pb/pb.tr())
-```
-
-+++ {"tags": ["remove-cell"]}
-
-## SCRATCH
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-break
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-type(daPlot)
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-isinstance(daPlot, hv.core.spaces.HoloMap)
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-isinstance(daPlot, hv.core.spaces)
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-type(daPlot.select(pType='Real'))
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-'holoviews' in str(type(daPlot.select(pType='Real')))
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-type(glue)
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-def superglue(func):
-    '''Decorator for glue() with interactive plot types forced to static for PDF builds.'''
-    
-    def glueWrapper(name,fig,**kwargs):
-        
-        # Set names for file out
-        # Note imgFormat and imgPath should be set globally, or passed as kwargs.
-        imgFile = f'{name}.{imgFormat}'
-        imgFile = os.path.join(imgPath,imgFile)
-        
-        # Set glue() output according to fig type and build env.
-        # Note buildEnv should be set globally, or passed as a kwarg.
-        if buildEnv != 'pdf':
-            return func(name, fig, display=False)  # For non-PDF builds, use regular glue()
-        
-        else:
-            # Holoviews object
-            # Note for Bokeh backend may need additional pkgs, selenium, firefox and geckodriver
-            # See https://holoviews.org/user_guide/Plots_and_Renderers.html#saving-and-rendering
-            if 'holoviews' in str(type(fig)):
-                # Force render and glue
-                hv.save(fig, imgFile, fmt=imgFormat)
-                
-            elif 'plotly' in str(type(fig)):
-                fig.write_image(imgFile,format=imgFormat)  # See https://plotly.com/python/static-image-export/
-                
-            
-            # Glue static render
-            return func(name, Image(imgFile), display=False)
-        
-        
-    return glueWrapper
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-glue = superglue(glue)
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-glue("glueTestDec", daPlot)
-```
-
-+++ {"tags": ["remove-cell"]}
-
-```{glue:figure} glueTestDec
----
-name: "fig-glueTestDec"
----
-Raw output to glue decorated with superglue().
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-# Quick decorator example from https://www.geeksforgeeks.org/function-wrappers-in-python/
-
-import time
-
-
-def timeis(func):
-	'''Decorator that reports the execution time.'''
-
-	def wrap(*args, **kwargs):
-		start = time.time()
-		result = func(*args, **kwargs)
-		end = time.time()
-		
-		print(func.__name__, end-start)
-		return result
-	return wrap
-
-@timeis
-def countdown(n):
-	'''Counts down'''
-	while n > 0:
-		n -= 1
-
-countdown(5)
-countdown(1000)
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-hv.core.options.Store.loaded_backends()
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-daLayout = (daPlot.layout('pType')).cols(1)
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-type(daLayout)
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-print(daLayout)
 ```
