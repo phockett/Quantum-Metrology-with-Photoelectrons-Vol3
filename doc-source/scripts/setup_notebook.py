@@ -485,3 +485,22 @@ def cleanBLMs(daIn, refDims = 'defaults'):
     daOut = da.where(np.abs(da.coords[dimCheck['refDims'][1]])<=da.coords[dimCheck['refDims'][0]],drop=True)
     
     return daOut
+
+
+
+# Quick decorator example from https://www.geeksforgeeks.org/function-wrappers-in-python/
+
+import time
+
+
+def timeis(func):
+	'''Decorator that reports the execution time.'''
+
+	def wrap(*args, **kwargs):
+		start = time.time()
+		result = func(*args, **kwargs)
+		end = time.time()
+		
+		print(func.__name__, end-start)
+		return result
+	return wrap
