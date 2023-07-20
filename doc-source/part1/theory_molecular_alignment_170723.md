@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -27,6 +27,11 @@ TO DO:
               Also note P(theta) distributions may need A000/2pi?  Not sure - should integrate to one I think.
               UPDATE: test build didn't work properly, need to use subselected ADMs for script-loaded case?
               May want to switch to N2 case for simplicity.
+  - TRY OLDER MATPLOTLIB VERSION - working in Stimpy build.
+  - UPDATE: 
+      - actually, it's the molplot setup part that's failing in newer builds, can ignore for now.
+      - BUT only on a rerun of the notebook, seems related to when %matplotlib inline is called, and what is in the buffer...?
+      - Working in current build after `pip install matplotlib==3.5`, although still getting inconsistent behaviour with Mol Plot (which seems to be the source of the issues). Go with this for now.
 
 +++
 
@@ -70,6 +75,7 @@ For illustrative purposes, the {{ ADMs }} used for the $OCS$ fitting example are
 ```{code-cell} ipython3
 :tags: [hide-output, hide-cell]
 
+%matplotlib inline
 # Run default config - may need to set full path here
 %run '../scripts/setup_notebook.py'
 
@@ -83,15 +89,33 @@ dataPath = Path('/home/jovyan/QM3/doc-source/part2/OCSfitting')
 ```
 
 ```{code-cell} ipython3
-data.data.keys()
+:tags: [hide-cell, hide-output]
+
+# The general config script sets an ADM Xarray, and a downsampled version in 'subset'
+print(data.data['subset']['ADM'].dims)
+
+# Tidy up t-coords for demo case, set to reduced d.p.
+data.data['subset']['ADM']['t'] = data.data['subset']['ADM'].t.pipe(np.round, decimals=3)
+
+print('*** Set reduced t-coords for demo case')
+print(data.data['subset']['ADM'].t)
 ```
 
 ```{code-cell} ipython3
-data.data['ADM']['ADM'].unstack().squeeze().real.hvplot.line(x='t').overlay('K')
+:tags: [remove-cell]
+
+# TODO: fix ADM plot!
+# Wrapper currently fails for Matplotlib with mulitple indexes, and HV with dim names issues.
+# data.ADMplot(keys=data.subKey, backend='hv')
 ```
 
 ```{code-cell} ipython3
-data.data['subset']['ADM'].unstack().squeeze().real.hvplot.line(x='t').overlay('K')
+# Quick plot for subselected ADMs (setup in the script), using hvplot
+# data.data['subset']['ADM'].unstack().squeeze().real.hvplot.line(x='t').overlay('K')
+
+# As above, but plot K>0 terms only, and keep 'Q','S' indexes (here all =0)
+data.data['subset']['ADM'].unstack().where(data.data['subset']['ADM'].unstack().K>0) \
+        .real.hvplot.line(x='t').overlay(['K','Q','S'])
 ```
 
 ## Compute $P(\theta,\Phi,t)$ distributions
@@ -116,15 +140,20 @@ Pt = data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pStyle='grid', re
 ```
 
 ```{code-cell} ipython3
-# The returned data array contains the plotted values
-# Pt
+tPlot = [39.402, 40.791, 42.18]
+dataKey='subset'
+tAxis = data.data[dataKey]['ADM'].t
+# tPlot = [tAxis[7], tAxis[14], tAxis[21]] 
 
-data.data['subset']['plots']['ADM']['grid']
+data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pType='a', 
+             returnFlag = True, selDims={'t':tPlot}, backend='pl')
 ```
 
 ```{code-cell} ipython3
-tAxis = tAxis = data.data[dataKey]['ADM'].t
-data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pType='a', returnFlag = True, selDims={'t':tAxis[1:30:5]}, backend='pl')
+tAxis = data.data[dataKey]['ADM'].t
+data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pType='a', 
+             returnFlag = True, selDims={'t':tAxis[1:30:10]}, backend='pl',labelRound=2)
+             # rc=[2,3])
 ```
 
 +++ {"tags": ["remove-cell"]}
