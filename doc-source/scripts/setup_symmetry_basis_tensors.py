@@ -87,6 +87,7 @@ BetaNormX, basisProduct = data.afblmMatEfit(selDims={}, sqThres=False)
 BetaNorm = BetaNormX  # Set alias
 
 # 19/07/23 - removed this part as throwing errors in new build. Not sure why, seems to be key issue?
+# Working OK in tensor demo notebook however?
 # Using ePSproc directly - this includes full basis return if specified
 # BetaNormX2, basisFull = ep.geomFunc.afblmXprod(data.data[data.subKey]['matE'], basisReturn = 'Full', selDims={}, sqThres=False)  #, BLMRenorm = BLMRenorm, **kwargs)
 # BetaNorm2 = BetaNormX2  # Set alias
