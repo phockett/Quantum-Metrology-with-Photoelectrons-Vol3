@@ -316,20 +316,21 @@ symObj.toePSproc()
 data.data['symHarm'] = {}
 
 for dataType in ['BLM']:  #['matE','BLM']:
-    data.data['symHarm'][dataType] = symObj.coeffs[dataType]['b (comp)']  # Select expansion in complex harmonics
+    # Select expansion in complex harmonics
+    data.data['symHarm'][dataType] = symObj.coeffs[dataType]['b (comp)']  
     data.data['symHarm'][dataType].attrs = symObj.coeffs[dataType].attrs
     
 # Plot full harmonics expansions, plots by symmetry
 # Note 'squeeze=True' to force drop of singleton dims may be required.
 # data.padPlot(keys='symHarm',dataType='BLM', facetDims = ['Cont'], squeeze = True, backend=plotBackend)
 
+# As above, with some additional layout options
 rc = [2,3]  # Explict layout setting
-data.padPlot(keys='symHarm',dataType='BLM', facetDims = ['Cont'], squeeze = True, backend=plotBackend, rc = rc, plotFlag=False, returnFlag=True)
+data.padPlot(keys='symHarm',dataType='BLM', facetDims = ['Cont'], squeeze = True, backend=plotBackend, 
+             rc = rc, plotFlag=False, returnFlag=True)
 figObj = data.data['symHarm']['plots']['BLM']['polar'][0]
 
 # And GLUE for display later with caption
-# from myst_nb import glue
-# glue("padExamplePlot2", figObj, display=False);
 gluePlotly("symHarmPADs", figObj)
 ```
 
@@ -401,8 +402,8 @@ BLMim = sphRealConvert(BLMre)
 
 # Plot for visual comparison
 backend='pl'
-Itp, fig = ep.sphFromBLMPlot(BLMre, plotFlag = True, backend = backend)  #, pType='a')  #, rc=[1,1], norm='global')
-ItpCSH, fig = ep.sphFromBLMPlot(BLMim, plotFlag = True, backend = backend)  #, pType='a')  #, rc=[1,1], norm='global')
+Itp, fig = ep.sphFromBLMPlot(BLMre, plotFlag = True, backend = backend) 
+ItpCSH, fig = ep.sphFromBLMPlot(BLMim, plotFlag = True, backend = backend)
 
 # Difference plot
 # ep.sphSumPlotX(ItpCSH - Itp, facetDim=None, backend=backend);
@@ -424,6 +425,8 @@ ep.sphSumPlotX(Iim, facetDim=None, backend=backend);  # Note this may need facet
 ```
 
 ```{code-cell} ipython3
+:tags: [remove-cell]
+
 ItpCSH
 ```
 
