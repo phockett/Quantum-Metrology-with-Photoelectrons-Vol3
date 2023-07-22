@@ -162,7 +162,8 @@ def glueDecorator(func):
                 # With explict size set for Plotly object
                 # return func(name, pn.pane.Plotly(fig.update_layout(height=imgHeight, width=imgWidth), **kwargs), display=displayFig)
                 # FOR HTML FIX SIZE to match JBook template?
-                return func(name, pn.pane.Plotly(fig.update_layout(height=800, width=800), **kwargs), display=displayFig)
+                # NOTE USING 1200x800 - slighly wider then template, but good for 3 col PAD figures.
+                return func(name, pn.pane.Plotly(fig.update_layout(height=1200, width=800), **kwargs), display=displayFig)
             
             else:
                 return func(name, fig, display=displayFig)  # For non-PDF builds, use regular glue()
