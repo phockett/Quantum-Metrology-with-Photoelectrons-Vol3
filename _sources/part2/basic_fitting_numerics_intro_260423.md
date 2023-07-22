@@ -58,6 +58,39 @@ Here the setup is mainly handled by some basic scripts, these follow the outline
 ```
 
 ```{code-cell} ipython3
+# Pull data files as required from Github, note the path here is required
+
+# from epsproc.util.io import getFilesFromGithub
+
+# fDict, fAll = getFilesFromGithub(subpath='data/alignment/OCS_ADMs_28K_VM_070722', ref='dev')   # OK
+
+# 26/05/23 - Monkeypatch version for debug
+# Above should be fine after source updates
+import requests
+from epsproc.util import io
+io.requests = requests 
+
+dataName = 'n2fitting'
+fDictMatE, fAllMatE = io.getFilesFromGithub(subpath='data/photoionization/n2_multiorb', dataName=dataName)  #, download=False)   # N2 matrix elements
+fDictADM, fAllMatADM = io.getFilesFromGithub(subpath='data/alignment', dataName=dataName)  #, download=False)   # N2 alignment data
+# Note this is missing script - should consolidate all to book repo?
+
+# Alternatively supply URLs directly for file downloader
+# Pull N2 data from ePSproc Github repo
+# URLs for test ePSproc datasets - n2
+# For more datasets use ePSdata, see https://epsproc.readthedocs.io/en/dev/demos/ePSdata_download_demo_300720.html
+urls = {'n2PU':"https://github.com/phockett/ePSproc/blob/master/data/photoionization/n2_multiorb/n2_1pu_0.1-50.1eV_A2.inp.out",
+        'n2SU':"https://github.com/phockett/ePSproc/blob/master/data/photoionization/n2_multiorb/n2_3sg_0.1-50.1eV_A2.inp.out",
+        'n2ADMs':"https://github.com/phockett/ePSproc/blob/master/data/alignment/N2_ADM_VM_290816.mat",
+        'demoScript':"https://github.com/phockett/PEMtk/blob/master/demos/fitting/setup_fit_demo.py"}
+
+fList, fDict = io.getFilesFromURLs(urls, dataName=dataName)
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+# TODO 01/05/23: now should use getFilesFromURLs and getFilesFromGithub function.
 
 import wget
 from pathlib import Path
@@ -215,6 +248,14 @@ data.data[key][dataType]
 
 %matplotlib inline
 data.ADMplot(keys = 'ADM')
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+# HVplot example
+# data.ADMplot(keys = 'ADM', dataType='ADM', backend='hv')  # FAILS, issue with assumed dims?
+data.data['ADM']['ADM'].unstack().squeeze().real.hvplot.line(x='t').overlay('K')
 ```
 
 ### Polarisation geometry/ies

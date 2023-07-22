@@ -1,0 +1,160 @@
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/conda/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+#*** Compute basis functions for given matrix elements using PEMtk fit class
+# This illustration uses the symmetrized matrix elements set above
+
+#*** To use ePSproc/PEMtk classes, these values can be converted to ePSproc BLM data type...
+# Run conversion - the default is to set the coeffs to the 'BLM' data type, additional dim mappings can also be set
+# Outputs are set to symObj.coeffs[dataType]
+dimMap = {'C':'Cont','mu':'muX'}
+symObj.toePSproc(dimMap=dimMap)
+
+# Run conversion with a different dimMap & dataType
+# Outputs are set to symObj.coeffs[dataType]
+dataType = 'matE'
+symObj.toePSproc(dimMap = dimMap, dataType=dataType)
+
+
+#*** Setup class object
+data = pemtkFit()
+
+# Set to new key in data class
+dataKey = sym
+data.data[dataKey] = {}
+
+# Set data.data[dataKey][dataType] from cases set above
+# This pushes the symmetrized coeffs computed above to the PEMtk fit class object for general use with PEMtk methods.
+# Here set 'matE' for use as matrix elements, and 'BLM' for pad plotting routines.
+for dataType in ['matE','BLM']:
+    data.data[dataKey][dataType] = symObj.coeffs[dataType]['b (comp)'].sum(['h','muX'])  # Select expansion in complex harmonics, and sum redundant dims
+    data.data[dataKey][dataType].attrs = symObj.coeffs[dataType].attrs
+
+# Set data by key
+# data.subKey is the default location used by the PEMtk routines
+data.subKey = dataKey
+
+
+#*** Compute basis function - two flavours
+# Using PEMtk `afblmMatEfit` method - this only returns the product basis set as used for fitting
+# See the docs for more details, https://pemtk.readthedocs.io
+phaseConvention='S'  # For consistency in the method, explicitly set the phase convention used here ('S' = standard, 'E' = ePS).
+BetaNormX, basisProduct = data.afblmMatEfit(selDims={}, sqThres=False, phaseConvention=phaseConvention)
+
+# Using ePSproc directly - this includes full basis return if specified
+# See the docs for more details, https://epsproc.readthedocs.io
+BetaNormX2, basisFull = ep.geomFunc.afblmXprod(data.data[data.subKey]['matE'], 
+                                               basisReturn = 'Full', 
+                                               thres=None, selDims={}, sqThres=False,
+                                               phaseConvention=phaseConvention)
+
+# The basis dictionary contains various numerical parameters, these are investigated below.
+# See also the ePSproc docs at https://epsproc.readthedocs.io/en/latest/methods/geometric_method_dev_260220_090420_tidy.html
+print(f"Product basis elements: {basisProduct.keys()}")
+print(f"Full basis elements: {basisFull.keys()}")
+
+# Use full basis for following sections
+basis = basisFull
+------------------
+
+----- stdout -----
+*** Mapping coeffs to ePSproc dataType = BLM
+Remapped dims: {'C': 'Cont', 'mu': 'muX'}
+Added dim Eke
+Added dim P
+Added dim T
+Added dim C
+*** Mapping coeffs to ePSproc dataType = matE
+Remapped dims: {'C': 'Cont', 'mu': 'muX'}
+Added dim Eke
+Added dim Targ
+Added dim Total
+Added dim mu
+Added dim it
+Added dim Type
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[5], line 39[0m
+[1;32m     35[0m [38;5;66;03m#*** Compute basis function - two flavours[39;00m
+[1;32m     36[0m [38;5;66;03m# Using PEMtk `afblmMatEfit` method - this only returns the product basis set as used for fitting[39;00m
+[1;32m     37[0m [38;5;66;03m# See the docs for more details, https://pemtk.readthedocs.io[39;00m
+[1;32m     38[0m phaseConvention[38;5;241m=[39m[38;5;124m'[39m[38;5;124mS[39m[38;5;124m'[39m  [38;5;66;03m# For consistency in the method, explicitly set the phase convention used here ('S' = standard, 'E' = ePS).[39;00m
+[0;32m---> 39[0m BetaNormX, basisProduct [38;5;241m=[39m [43mdata[49m[38;5;241;43m.[39;49m[43mafblmMatEfit[49m[43m([49m[43mselDims[49m[38;5;241;43m=[39;49m[43m{[49m[43m}[49m[43m,[49m[43m [49m[43msqThres[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m[43m [49m[43mphaseConvention[49m[38;5;241;43m=[39;49m[43mphaseConvention[49m[43m)[49m
+[1;32m     41[0m [38;5;66;03m# Using ePSproc directly - this includes full basis return if specified[39;00m
+[1;32m     42[0m [38;5;66;03m# See the docs for more details, https://epsproc.readthedocs.io[39;00m
+[1;32m     43[0m BetaNormX2, basisFull [38;5;241m=[39m ep[38;5;241m.[39mgeomFunc[38;5;241m.[39mafblmXprod(data[38;5;241m.[39mdata[data[38;5;241m.[39msubKey][[38;5;124m'[39m[38;5;124mmatE[39m[38;5;124m'[39m], 
+[1;32m     44[0m                                                basisReturn [38;5;241m=[39m [38;5;124m'[39m[38;5;124mFull[39m[38;5;124m'[39m, 
+[1;32m     45[0m                                                thres[38;5;241m=[39m[38;5;28;01mNone[39;00m, selDims[38;5;241m=[39m{}, sqThres[38;5;241m=[39m[38;5;28;01mFalse[39;00m,
+[1;32m     46[0m                                                phaseConvention[38;5;241m=[39mphaseConvention)
+
+File [0;32m~/github/PEMtk/pemtk/fit/fitClass.py:718[0m, in [0;36mpemtkFit.afblmMatEfit[0;34m(self, matE, data, lmmuList, basis, ADM, pol, resetBasis, selDims, thres, thresDims, lmModelFlag, XSflag, weights, backend, debug, **kwargs)[0m
+[1;32m    716[0m     [38;5;66;03m# Run AFBLM calculation; set basis if not already set.[39;00m
+[1;32m    717[0m     [38;5;28;01mif[39;00m basis [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 718[0m         BetaNormX, basis [38;5;241m=[39m [43mbackend[49m[43m([49m[43mmatE[49m[43m,[49m[43m [49m[43mAKQS[49m[38;5;241;43m=[39;49m[43mADM[49m[43m,[49m[43m   [49m[38;5;66;43;03m# FOR AF ONLY[39;49;00m
+[1;32m    719[0m [43m                                       [49m[43mRX[49m[38;5;241;43m=[39;49m[43mpol[49m[43m,[49m[43m  [49m[38;5;66;43;03m# FOR MF ONLY - RX removed in ePSproc v1.3.0 for AF - not required/valid for AF calcs.[39;49;00m
+[1;32m    720[0m [43m                                       [49m[43mthres[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[43mthres[49m[43m,[49m[43m [49m[43mselDims[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[43mselDims[49m[43m,[49m[43m [49m[43mthresDims[49m[38;5;241;43m=[39;49m[43mthresDims[49m[43m,[49m
+[1;32m    721[0m [43m                                       [49m[43mbasisReturn[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mProductBasis[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mBLMRenorm[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[43mBLMRenorm[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    723[0m [38;5;66;03m#         return BetaNormX, basis[39;00m
+[1;32m    724[0m         [38;5;66;03m# if resetBasis:[39;00m
+[1;32m    725[0m         [38;5;66;03m#     self.basis = basis[39;00m
+[1;32m    726[0m 
+[1;32m    727[0m     [38;5;28;01melse[39;00m:
+[1;32m    728[0m         [38;5;66;03m# Pass **basis here to allow for passing generically through fitting routine and easy/flexible unpacking into afblmXprod()[39;00m
+[1;32m    729[0m         BetaNormX [38;5;241m=[39m backend(matE, [38;5;241m*[39m[38;5;241m*[39mbasis,
+[1;32m    730[0m                                            thres [38;5;241m=[39m thres, selDims [38;5;241m=[39m selDims, thresDims[38;5;241m=[39mthresDims, basisReturn [38;5;241m=[39m [38;5;124m'[39m[38;5;124mBLM[39m[38;5;124m'[39m, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+
+File [0;32m~/github/ePSproc/epsproc/geomFunc/afblmGeom.py:267[0m, in [0;36mafblmXprod[0;34m(matEin, QNs, AKQS, EPRX, p, BLMtable, BLMtableResort, lambdaTerm, polProd, AFterm, thres, thresDims, selDims, sqThres, dropThres, sumDims, sumDimsPol, symSum, outputDims, degenDrop, SFflag, SFflagRenorm, BLMRenorm, squeeze, phaseConvention, basisReturn, verbose, **kwargs)[0m
+[1;32m    264[0m     EPRXresort [38;5;241m=[39m EPRX[38;5;241m.[39msqueeze([[38;5;124m'[39m[38;5;124ml[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mlp[39m[38;5;124m'[39m])[38;5;241m.[39mdrop([[38;5;124m'[39m[38;5;124ml[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mlp[39m[38;5;124m'[39m])  [38;5;66;03m# Safe squeeze & drop of selected singleton dims only.[39;00m
+[1;32m    266[0m     [38;5;28;01mif[39;00m phaseCons[[38;5;124m'[39m[38;5;124mmfblmCons[39m[38;5;124m'[39m][[38;5;124m'[39m[38;5;124mnegRcoordSwap[39m[38;5;124m'[39m]:
+[0;32m--> 267[0m         EPRXresort[[38;5;124m'[39m[38;5;124mR[39m[38;5;124m'[39m] [38;5;241m*[39m[38;5;241m=[39m [38;5;241m-[39m[38;5;241m1[39m
+[1;32m    269[0m [38;5;28;01mif[39;00m (lambdaTerm [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m) [38;5;129;01mand[39;00m (polProd [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m):  [38;5;66;03m# Skip if product term already passed[39;00m
+[1;32m    270[0m     [38;5;66;03m# Set polGeoms if Euler angles are passed.[39;00m
+[1;32m    271[0m     [38;5;66;03m# if eulerAngs is not None:[39;00m
+[0;32m   (...)[0m
+[1;32m    287[0m     [38;5;66;03m# if polLabel is not None:[39;00m
+[1;32m    288[0m     [38;5;66;03m#     RX = RX.sel({'Label':polLabel})[39;00m
+[1;32m    290[0m     RX [38;5;241m=[39m sphCalc[38;5;241m.[39msetPolGeoms(eulerAngs [38;5;241m=[39m [[38;5;241m0[39m,[38;5;241m0[39m,[38;5;241m0[39m])  [38;5;66;03m# Use setPolGeoms, but ONLY VALID FOR (0,0,0) case BY DEFINITION (no frame rotation term in AF formulation, although can ACCIDENTALLY APPLY with MFproj() function below).[39;00m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/xarray/core/_typed_ops.py:293[0m, in [0;36mDataArrayOpsMixin.__imul__[0;34m(self, other)[0m
+[1;32m    292[0m [38;5;28;01mdef[39;00m [38;5;21m__imul__[39m([38;5;28mself[39m, other):
+[0;32m--> 293[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_inplace_binary_op[49m[43m([49m[43mother[49m[43m,[49m[43m [49m[43moperator[49m[38;5;241;43m.[39;49m[43mimul[49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/xarray/core/dataarray.py:3121[0m, in [0;36mDataArray._inplace_binary_op[0;34m(self, other, f)[0m
+[1;32m   3119[0m [38;5;28;01mtry[39;00m:
+[1;32m   3120[0m     [38;5;28;01mwith[39;00m [38;5;28mself[39m[38;5;241m.[39mcoords[38;5;241m.[39m_merge_inplace(other_coords):
+[0;32m-> 3121[0m         [43mf[49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mvariable[49m[43m,[49m[43m [49m[43mother_variable[49m[43m)[49m
+[1;32m   3122[0m [38;5;28;01mexcept[39;00m MergeError [38;5;28;01mas[39;00m exc:
+[1;32m   3123[0m     [38;5;28;01mraise[39;00m MergeError(
+[1;32m   3124[0m         [38;5;124m"[39m[38;5;124mAutomatic alignment is not supported for in-place operations.[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
+[1;32m   3125[0m         [38;5;124m"[39m[38;5;124mConsider aligning the indices manually or using a not-in-place operation.[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
+[1;32m   3126[0m         [38;5;124m"[39m[38;5;124mSee https://github.com/pydata/xarray/issues/3910 for more explanations.[39m[38;5;124m"[39m
+[1;32m   3127[0m     ) [38;5;28;01mfrom[39;00m [38;5;21;01mexc[39;00m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/xarray/core/_typed_ops.py:483[0m, in [0;36mVariableOpsMixin.__imul__[0;34m(self, other)[0m
+[1;32m    482[0m [38;5;28;01mdef[39;00m [38;5;21m__imul__[39m([38;5;28mself[39m, other):
+[0;32m--> 483[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_inplace_binary_op[49m[43m([49m[43mother[49m[43m,[49m[43m [49m[43moperator[49m[38;5;241;43m.[39;49m[43mimul[49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/xarray/core/variable.py:2875[0m, in [0;36mIndexVariable._inplace_binary_op[0;34m(self, other, f)[0m
+[1;32m   2874[0m [38;5;28;01mdef[39;00m [38;5;21m_inplace_binary_op[39m([38;5;28mself[39m, other, f):
+[0;32m-> 2875[0m     [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m(
+[1;32m   2876[0m         [38;5;124m"[39m[38;5;124mValues of an IndexVariable are immutable and can not be modified inplace[39m[38;5;124m"[39m
+[1;32m   2877[0m     )
+
+[0;31mTypeError[0m: Values of an IndexVariable are immutable and can not be modified inplace
+

@@ -1,0 +1,122 @@
+\selectlanguage *{english}
+\contentsline {part}{I\hspace {1em}Frontmatter}{5}{part.1}%
+\contentsline {chapter}{\numberline {1}About the authors}{7}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Abstract}{9}{chapter.2}%
+\contentsline {chapter}{\numberline {3}A note on book versions, formats and conventions}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Versions}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Conventions}{11}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Formatting}{12}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Numerics}{12}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Overview}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}General overview}{13}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Provisional contents}{13}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Part 1: theory \& software}{13}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Part 2: numerical examples}{14}{subsection.4.2.2}%
+\contentsline {part}{II\hspace {1em}Part I \sphinxhyphen {} Theory \& software}{15}{part.2}%
+\contentsline {chapter}{\numberline {5}Introduction}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Topical introduction: from quantum metrology to a generalised bootstrapping protocol}{17}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Quantum metrology with photoelectrons}{17}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Generalised geometric metrology protocols}{20}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}Context \& aims for Vol. 3}{21}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Scientific aims}{21}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Technical context and notes}{22}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}A brief note on open science, open source software and reproducibility}{23}{subsection.5.2.3}%
+\contentsline {chapter}{\numberline {6}Quantum metrology software platform/ecosystem overview}{25}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Analysis components}{25}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Additional tools}{27}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Python ecosystem (backends, libraries and packages)}{27}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Installation and environment set\sphinxhyphen {}up}{29}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Quick\sphinxhyphen {}start installation}{29}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Docker deployments}{29}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Running examples}{29}{subsection.6.4.3}%
+\contentsline {section}{\numberline {6.5}General platform discussion}{30}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Theory}{31}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Photoionization dynamics}{31}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Symmetry in photoionization}{33}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Tensor formulation of photoionization}{36}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Channel functions}{36}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Full tensor expansion}{37}{subsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.3.3}Frame definitions}{39}{subsection.7.3.3}%
+\contentsline {subsection}{\numberline {7.3.4}Numerical aside: symmetry\sphinxhyphen {}defined channel functions}{40}{subsection.7.3.4}%
+\contentsline {subsection}{\numberline {7.3.5}Matrix element geometric coupling term \(B_{L,M}\)}{43}{subsection.7.3.5}%
+\contentsline {subsection}{\numberline {7.3.6}Electric field geometric coupling term \({E_{P,R}(\hat {e};\mitmu _{0})}\)}{46}{subsection.7.3.6}%
+\contentsline {subsection}{\numberline {7.3.7}Molecular frame projection term \(\mitLambda \)}{48}{subsection.7.3.7}%
+\contentsline {subsection}{\numberline {7.3.8}Alignment tensor \(\mitDelta _{L,M}(K,Q,S)\)}{48}{subsection.7.3.8}%
+\contentsline {subsubsection}{Basic cases}{48}{subsubsection*.7}%
+\contentsline {subsubsection}{3D alignments and symmetry breaking}{54}{subsubsection*.8}%
+\contentsline {subsection}{\numberline {7.3.9}Tensor product terms}{54}{subsection.7.3.9}%
+\contentsline {section}{\numberline {7.4}Density matrix representation}{56}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}General introduction}{56}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Continuum density matrices}{59}{subsection.7.4.2}%
+\contentsline {subsection}{\numberline {7.4.3}Numerical setup}{60}{subsection.7.4.3}%
+\contentsline {subsection}{\numberline {7.4.4}Compute a density matrix}{62}{subsection.7.4.4}%
+\contentsline {subsection}{\numberline {7.4.5}Visualising matrix element reconstruction fidelity with density matrices}{63}{subsection.7.4.5}%
+\contentsline {subsection}{\numberline {7.4.6}Working with density matrices with QuTiP library functions}{64}{subsection.7.4.6}%
+\contentsline {subsubsection}{Convert numerical arrays to QuTiP objects}{64}{subsubsection*.9}%
+\contentsline {subsubsection}{Fidelity metric}{64}{subsubsection*.10}%
+\contentsline {section}{\numberline {7.5}Molecular alignment}{65}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}A very brief introduction to molecular alignment}{65}{subsection.7.5.1}%
+\contentsline {subsection}{\numberline {7.5.2}Alignment distribution moments (ADMs)}{65}{subsection.7.5.2}%
+\contentsline {subsection}{\numberline {7.5.3}Numerical setup}{66}{subsection.7.5.3}%
+\contentsline {subsection}{\numberline {7.5.4}Compute \(P(\mittheta ,\mitPhi ,t)\) distributions}{66}{subsection.7.5.4}%
+\contentsline {section}{\numberline {7.6}Observables: photoelectron flux in the LF and MF}{68}{section.7.6}%
+\contentsline {subsection}{\numberline {7.6.1}Spherical harmonics}{68}{subsection.7.6.1}%
+\contentsline {subsection}{\numberline {7.6.2}Symmetrized harmonics}{70}{subsection.7.6.2}%
+\contentsline {subsubsection}{Real \& complex forms}{72}{subsubsection*.11}%
+\contentsline {subsection}{\numberline {7.6.3}Legendre polynomials}{75}{subsection.7.6.3}%
+\contentsline {section}{\numberline {7.7}Information content \& sensitivity}{75}{section.7.7}%
+\contentsline {subsection}{\numberline {7.7.1}Numerical setup}{76}{subsection.7.7.1}%
+\contentsline {subsection}{\numberline {7.7.2}Experimental information content}{76}{subsection.7.7.2}%
+\contentsline {subsection}{\numberline {7.7.3}Information content from channel functions}{80}{subsection.7.7.3}%
+\contentsline {subsection}{\numberline {7.7.4}Information content from density matrices}{82}{subsection.7.7.4}%
+\contentsline {chapter}{\numberline {8}Numerical methodologies for extracting matrix elements}{83}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Fitting methodologies}{83}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Computation and linear fitting for alignment characterisation}{85}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Non\sphinxhyphen {}linear fitting for matrix elements}{86}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}Adaptation and fitting for different reconstruction protocols}{86}{subsection.8.1.3}%
+\contentsline {section}{\numberline {8.2}Fitting strategies}{86}{section.8.2}%
+\contentsline {part}{III\hspace {1em}Part II \sphinxhyphen {} Extracting matrix elements \sphinxhyphen {} numerical methods \& case studies}{87}{part.3}%
+\contentsline {chapter}{\numberline {9}Extracting matrix elements overview}{89}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Basis sets for fitting}{91}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Symmetry\sphinxhyphen {}defined basis sets}{91}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Computationally\sphinxhyphen {}defined basis sets}{91}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Basis creation worked examples}{91}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Simple case: \(N_2\nobreakspace {}3\mitsigma _g^{-1}\) ionization}{92}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Degenerate case example: \(N_2\nobreakspace {}3\mitpi _u^{-1}\) ionization}{93}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.3.3}Defining symmetrized harmonics}{93}{subsection.10.3.3}%
+\contentsline {subsection}{\numberline {10.3.4}Mapping symmetrized harmonics to fit parameters}{96}{subsection.10.3.4}%
+\contentsline {subsubsection}{Remapping to ePolyScat definitions}{96}{subsubsection*.12}%
+\contentsline {subsubsection}{Mapping to fitting parameters (and reduction)}{99}{subsubsection*.13}%
+\contentsline {section}{\numberline {10.4}Comparison with symmetry\sphinxhyphen {}defined and computational matrix elements}{104}{section.10.4}%
+\contentsline {chapter}{\numberline {11}Basic fit setup and numerics}{107}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Init and pulling data}{107}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Setup with options}{108}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Alignment distribution moments (ADMs)}{109}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}Polarisation geometry/ies}{111}{subsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.2.3}Subselect data}{112}{subsection.11.2.3}%
+\contentsline {section}{\numberline {11.3}Compute AF\sphinxhyphen {}\(\mitbeta _{LM}\) and simulate data}{113}{section.11.3}%
+\contentsline {subsection}{\numberline {11.3.1}Compute AF\sphinxhyphen {}\(\mitbeta _{LM}\)s}{113}{subsection.11.3.1}%
+\contentsline {subsection}{\numberline {11.3.2}AF\sphinxhyphen {}\(\mitbeta _{LM}\)s}{114}{subsection.11.3.2}%
+\contentsline {section}{\numberline {11.4}Fitting the data}{115}{section.11.4}%
+\contentsline {subsection}{\numberline {11.4.1}Set the data to fit}{115}{subsection.11.4.1}%
+\contentsline {subsection}{\numberline {11.4.2}Adding noise}{115}{subsection.11.4.2}%
+\contentsline {subsection}{\numberline {11.4.3}Setting up the fit parameters}{116}{subsection.11.4.3}%
+\contentsline {subsection}{\numberline {11.4.4}Running fits}{117}{subsection.11.4.4}%
+\contentsline {subsubsection}{Single fit}{117}{subsubsection*.14}%
+\contentsline {subsubsection}{Extended execution methods, including parallel and batched execution}{118}{subsubsection*.15}%
+\contentsline {section}{\numberline {11.5}Quick setup with script}{121}{section.11.5}%
+\contentsline {chapter}{\numberline {12}Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, \(N_2\nobreakspace {}(D_{\infty h})\)}{123}{chapter.12}%
+\contentsline {chapter}{\numberline {13}Case study: Generalised bootstrapping for a linear heteronuclear scattering system, \(OCS\nobreakspace {}(C_{\infty v})\)}{125}{chapter.13}%
+\contentsline {chapter}{\numberline {14}Case study: Generalised bootstrapping for a general asymmetric top scattering system, \(C_2H_4\nobreakspace {}(D_{2h})\)}{127}{chapter.14}%
+\contentsline {part}{IV\hspace {1em}Backmatter}{129}{part.4}%
+\contentsline {chapter}{\numberline {15}Bibliography}{131}{chapter.15}%
+\contentsline {chapter}{\numberline {16}Glossary}{133}{chapter.16}%
+\contentsline {part}{V\hspace {1em}Test pages}{137}{part.5}%
+\contentsline {chapter}{\numberline {17}Build versions and config tests}{139}{chapter.17}%
+\contentsline {section}{\numberline {17.1}Versions}{139}{section.17.1}%
+\contentsline {section}{\numberline {17.2}Docker build env}{140}{section.17.2}%
+\contentsline {section}{\numberline {17.3}Book versions}{140}{section.17.3}%
+\contentsline {section}{\numberline {17.4}Github pkg versions}{141}{section.17.4}%
+\contentsline {section}{\numberline {17.5}Full conda env}{142}{section.17.5}%
+\contentsline {chapter}{Bibliography}{153}{chapter*.39}%
+\contentsline {chapter}{Index}{161}{section*.40}%

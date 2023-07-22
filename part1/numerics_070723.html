@@ -1,0 +1,628 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Numerical methodologies for extracting matrix elements &#8212; Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part1/numerics_070723';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Extracting matrix elements overview" href="../part2/extracting_matrix_elements_overview_270423.html" />
+    <link rel="prev" title="3.7. Information content &amp; sensitivity" href="theory_info_content_221122.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/ePSproc_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/ePSproc_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    About the book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Frontmatter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/about_the_authors.html">About the authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/book_versions_note.html">A note on book versions, formats and conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/overview_270122.html">Overview</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I - Theory &amp; software</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="main_intro_060723.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="platform_intro_070723.html">2. Quantum metrology software platform/ecosystem overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="theory_100723.html">3. Theory</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="theory_photoionization_dynamics_140723.html">3.1. Photoionization dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory_symmetry_140723.html">3.2. Symmetry in photoionization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory_tensor_formalism_160723.html">3.3. Tensor formulation of photoionization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory_density_matrices_190723.html">3.4. Density matrix representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory_molecular_alignment_170723.html">3.5. Molecular alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory_observables_intro_100723.html">3.6. Observables: photoelectron flux in the LF and MF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory_info_content_221122.html">3.7. Information content &amp; sensitivity</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Numerical methodologies for extracting matrix elements</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II - Extracting matrix elements - numerical methods &amp; case studies</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part2/extracting_matrix_elements_overview_270423.html">5. Extracting matrix elements overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/sym-fitting-intro_220423.html">6. Basis sets for fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/basic_fitting_numerics_intro_260423.html">7. Basic fit setup and numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-N2_270423.html">8. Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, <span class="math notranslate nohighlight">\(N_2~(D_{\infty h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-OCS_270423-headerOnly.html">9. Case study: Generalised bootstrapping for a linear heteronuclear scattering system, <span class="math notranslate nohighlight">\(OCS~(C_{\infty v})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-C2H4_270423.html">10. Case study: Generalised bootstrapping for a general asymmetric top scattering system, <span class="math notranslate nohighlight">\(C_2H_4~(D_{2h})\)</span></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../backmatter/bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backmatter/glossary.html">Glossary</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Test pages</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tests/build_versions_checks.html">Build versions and config tests</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/new?title=Issue%20on%20page%20%2Fpart1/numerics_070723.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part1/numerics_070723.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Numerical methodologies for extracting matrix elements</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-methodologies">4.1. Fitting methodologies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-and-linear-fitting-for-alignment-characterisation">4.1.1. Computation and linear fitting for alignment characterisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-fitting-for-matrix-elements">4.1.2. Non-linear fitting for matrix elements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptation-and-fitting-for-different-reconstruction-protocols">4.1.3. Adaptation and fitting for different reconstruction protocols</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-strategies">4.2. Fitting strategies</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="numerical-methodologies-for-extracting-matrix-elements">
+<span id="chpt-numerical-details"></span><h1><span class="section-number">4. </span>Numerical methodologies for extracting matrix elements<a class="headerlink" href="#numerical-methodologies-for-extracting-matrix-elements" title="Permalink to this heading">#</a></h1>
+<p>Following the tensor notation outline in <a class="reference internal" href="theory_tensor_formalism_160723.html#sec-tensor-formulation"><span class="std std-numref">Sect. 3.3</span></a>, the complete quantum metrology of a photoionization event (aka. a “complete” photoionization experiment) can be characterized as recovery of the matrix elements <span class="math notranslate nohighlight">\(I^{\zeta}(\epsilon)\)</span> (per Eqs. <a class="reference internal" href="theory_tensor_formalism_160723.html#equation-eqn-channel-fns">(3.13)</a>, <a class="reference internal" href="theory_tensor_formalism_160723.html#equation-eqn-i-zeta">(3.14)</a>) from the experimental measurements or, equivalently, the density matrix <span class="math notranslate nohighlight">\(\mathbf{\rho}^{\zeta\zeta'}\)</span> (Eqs. <a class="reference internal" href="theory_density_matrices_190723.html#equation-eqn-full-density-mat">(3.31)</a> - <a class="reference internal" href="theory_density_matrices_190723.html#equation-eqn-beta-density-mat">(3.33)</a>). (For further discussion and background, see Refs. <span id="id1">[<a class="reference internal" href="../backmatter/bibliography.html#id822" title="Katharine L Reid. Photoelectron angular distributions. Annual review of physical chemistry, 54(19):397–424, January 2003. URL: http://dx.doi.org/10.1146/annurev.physchem.54.011002.103814 (visited on 2012-07-17).">83</a>, <a class="reference internal" href="../backmatter/bibliography.html#id708" title="Hans Kleinpoppen, Bernd Lohmann, and Alexei N Grum-Grzhimailo. Perfect/Complete Scattering Experiments. Volume 75. Springer Berlin Heidelberg, Berlin, Heidelberg, 2013. ISBN 978-3-642-40513-6. URL: https://books.google.ca/books?id=Cia4BAAAQBAJ.">85</a>]</span> and <em>Quantum Metrology</em> Vol. 1 <span id="id2">[<a class="reference internal" href="../backmatter/bibliography.html#id663" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5.">2</a>]</span>.) This may be possible provided the channel functions are known, and the information content of the measurements is sufficient.</p>
+<p>For schemes making use of molecular alignment, or other control methods, the contribution of these parameters to the channel functions must, therefore, be accounted for. In general, these contributions may be computed and/or obtained from experiment. For the rotational wavepacket case, this can be considered as the requirement for the determination of the molecular axis distributions (<a class="reference internal" href="../backmatter/glossary.html#term-ADMs"><span class="xref std std-term">ADMs</span></a>): this can be treated as a reduced-dimensionality MF signal retrieval problem, with sets of computed <a class="reference internal" href="../backmatter/glossary.html#term-ADMs"><span class="xref std std-term">ADMs</span></a> forming the basis set for the fitting, and this forms the first step in both the generalised bootstrapping method explored herein. (Note here that the matrix elements are assumed to be time-independent, although that may not be the case for the most complicated examples including vibronic dynamics, see <em>Quantum Metrology</em> Vol. 2 <span id="id3">[<a class="reference internal" href="../backmatter/bibliography.html#id664" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3.">5</a>]</span> for further discussion on this point.)</p>
+<p>Of particular import for matrix element retrieval is the phase-sensitive nature of the observables (<a class="reference internal" href="theory_observables_intro_100723.html#sect-theory-observables"><span class="std std-numref">Sect. 3.6</span></a>), which is required in order to obtain partial wave phase information. <a class="reference internal" href="../backmatter/glossary.html#term-PADs"><span class="xref std std-term">PADs</span></a> can also be considered as angular interferograms, and reconstruction can be considered conceptually similar to other phase-retrieval problems, e.g. optical field recovery with techniques such as FROG <span id="id4">[<a class="reference internal" href="../backmatter/bibliography.html#id908" title="Rick Trebino. Frequency-Resolved Optical Gating: The Measurement of Ultrashort Laser Pulses. Springer New York, NY, 2000. ISBN 978-1-4613-5432-1. URL: https://link.springer.com/book/10.1007/978-1-4615-1181-6 (visited on 2022-05-02).">118</a>]</span>, and general quantum tomography <span id="id5">[<a class="reference internal" href="../backmatter/bibliography.html#id764" title="G. Mauro D'Ariano, Matteo G.A. Paris, and Massimiliano F. Sacchi. Quantum Tomography. In Advances in Imaging and Electron Physics, Vol. 128, pages 205–308. 2003. URL: http://linkinghub.elsevier.com/retrieve/pii/S1076567003800654 (visited on 2017-09-11).">91</a>]</span>.</p>
+<figure class="align-default" id="fig-bootstrap-fitting-diag">
+<img alt="../_images/bootstrap_flowchart_290822.gv.png" src="../_images/bootstrap_flowchart_290822.gv.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Outline of the 2-stage generalised bootstrap matrix element retrieval protocol.</span><a class="headerlink" href="#fig-bootstrap-fitting-diag" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="fitting-methodologies">
+<h2><span class="section-number">4.1. </span>Fitting methodologies<a class="headerlink" href="#fitting-methodologies" title="Permalink to this heading">#</a></h2>
+<p>In general, the extraction of parameters from a data set can be viewed as a general minimization (fitting) problem. This type of treatment is versatile, and can be multi-stage depending on the complexity of the problem. For the generalised bootstrapping method, the treatment of photoionization data is split into two types of fit, as shown in <a class="reference internal" href="#fig-bootstrap-fitting-diag"><span class="std std-numref">Fig. 4.1</span></a>. Firstly, a linear fitting stage to retrieve the molecular axis distribution, characterised by a set of <a class="reference internal" href="../backmatter/glossary.html#term-ADMs"><span class="xref std std-term">ADMs</span></a> (see <a class="reference internal" href="theory_tensor_formalism_160723.html#sec-theory-af-alignment-term"><span class="std std-numref">Sect. 3.3.8</span></a> for details); secondly, a non-linear fitting stage to retrieve the complex-valued matrix elements.</p>
+<p>In terms of the data, the 1st stage can be written as:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-beta-convolution-c">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-eqn-beta-convolution-c" title="Permalink to this equation">#</a></span>\[
+\bar{\beta}_{L,M}^{u}(\epsilon,t)=\sum_{K,Q,S}A_{Q,S}^{K}(t)\bar{C}_{KQS}^{LM}(\epsilon)
+\]</div>
+<p>And the 2nd stage as per Eqs. <a class="reference internal" href="theory_tensor_formalism_160723.html#equation-eqn-channel-fns">(3.13)</a> and <a class="reference internal" href="theory_tensor_formalism_160723.html#equation-eq-blm-tensor-af">(3.17)</a> for the AF case:</p>
+<div class="math notranslate nohighlight">
+\[
+\bar{\beta}_{L,M}^{u}(\epsilon,t)=\sum_{\zeta,\zeta'}\bar{\varUpsilon_{}}_{L,M}^{u,\zeta\zeta'}(t)\mathbb{I}^{\zeta\zeta'}(\epsilon)
+\]</div>
+<p>In these forms, the terms are:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(A_{Q,S}^{K}(t)\)</span>, the set of <a class="reference internal" href="../backmatter/glossary.html#term-ADMs"><span class="xref std std-term">ADMs</span></a> defining the molecular alignment, and associated parameters <span class="math notranslate nohighlight">\(\bar{C}_{KQS}^{LM}(\epsilon)\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{\varUpsilon_{}}_{L,M}^{u,\zeta\zeta'}(t)\)</span>, the channel functions in the <a class="reference internal" href="../backmatter/glossary.html#term-AF"><span class="xref std std-term">AF</span></a> (Eq. <a class="reference internal" href="theory_tensor_formalism_160723.html#equation-eq-blm-tensor-af">(3.17)</a>, and matrix elements <span class="math notranslate nohighlight">\(\mathbb{I}^{\zeta\zeta'}(\epsilon)\)</span>.</p></li>
+</ol>
+<p>Hence stage (2) relies on the inputs of stage (1), i.e. the <a class="reference internal" href="../backmatter/glossary.html#term-ADMs"><span class="xref std std-term">ADMs</span></a>; and the parameters in stage (1) can be determined via fitting the data (linear regression) making use of computed sets of <span class="math notranslate nohighlight">\(A_{Q,S}^{K}(t)\)</span> as a function of experimental parameters (laser fluence and rotational temperature). In this case, a range of <a class="reference internal" href="../backmatter/glossary.html#term-ADMs"><span class="xref std std-term">ADMs</span></a> “basis sets” are computed, and the best match to the experimental data chosen - more details are discussed in Sect. XX. In a similar manner, the 2nd stage makes use of a known basis set - the channel functions - but a non-linear fit is required to determine the set of matrix elements, see Sect. XX.</p>
+<p>Finally, it is also of note that, although the case herein focusses on rotational wavepackets as a control parameter, the same general approach can be applied to other cases, e.g. fitting <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a> <a class="reference internal" href="../backmatter/glossary.html#term-PADs"><span class="xref std std-term">PADs</span></a> directly (for which only the 2nd stage is required), fitting <a class="reference internal" href="../backmatter/glossary.html#term-PADs"><span class="xref std std-term">PADs</span></a> obtained via rotational state-resolved transitions, with shaped laser pulses and so on, as detailed in <em>Quantum Metrology</em> Vols. 1 &amp; 2 <span id="id6">[<a class="reference internal" href="../backmatter/bibliography.html#id663" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5.">2</a>, <a class="reference internal" href="../backmatter/bibliography.html#id664" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3.">5</a>]</span>. Although only rotational wavepacket cases are illustrated in this work (see <a class="reference internal" href="../part2/extracting_matrix_elements_overview_270423.html#chpt-extracting-matrix-elements-overview"><span class="std std-numref">Chpt. 5</span></a>), by suitable choice of dataset and channel functions many other experimental schemes may be modelled and analysed; the <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id7">[<a class="reference internal" href="../backmatter/bibliography.html#id668" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">3</a>]</span> is designed with  this flexibility in mind.</p>
+<section id="computation-and-linear-fitting-for-alignment-characterisation">
+<span id="sect-numerics-alignment-retrieval"></span><h3><span class="section-number">4.1.1. </span>Computation and linear fitting for alignment characterisation<a class="headerlink" href="#computation-and-linear-fitting-for-alignment-characterisation" title="Permalink to this heading">#</a></h3>
+<p>Efforts to align and orient molecules in recent decades have</p>
+<p>led to detailed studies of the rotational dynamics of molecules after interaction with a non-resonant femtosecond laser pulse. A significant outcome of these studies has been the development of a reliable model capable of accurate simulations of rotational wavepacket dynamics that quantitatively agree with experimental results [REFS]. By measurement of a signal from a time evolving rotational wavepacket, this ability to accurately simulate the wavepacket dynamics can be used to reconstruct the measured signal in the molecular frame. Since in this case the time resolved measurement constitutes a set of measurements of the same quantity from a variety of molecular axes distributions, it is reasonable to conclude that if the axes distributions are known, and provided a large enough space of orientations is explored by the molecule over the experimental time window, the molecular frame signal should be extractable.</p>
+<p>This is relatively straight forward for a signal that is a single number (scalar) in the MF for a given polarization of the light, such as the photoionization yield. Such a signal may, in general, be expressed as an expansion,</p>
+<div class="math notranslate nohighlight" id="equation-eq-mfrealsig">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-eq-mfrealsig" title="Permalink to this equation">#</a></span>\[
+S(\theta,\chi)=\sum_{jk}C_{jk}D^{j}_{0k}(\theta,\chi),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\chi\)</span> are the MF spherical polar and azimuthal angles of the linearly polarized electric field vector generating the signal; <span class="math notranslate nohighlight">\(C_{jk}\)</span> are unknown expansion coefficients; and <span class="math notranslate nohighlight">\(D^{j}_{0k}\)</span> are the Wigner D-Matrix elements, a basis on the space of orientations. A time resolved measurement of <span class="math notranslate nohighlight">\(S\)</span> from a rotational wavepacket is the quantum expectation value of this expression,</p>
+<div class="math notranslate nohighlight" id="equation-eq-st-cjk">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-eq-st-cjk" title="Permalink to this equation">#</a></span>\[
+\langle S \rangle(t) = \sum_{jk}C_{jk}\langle D^{j}_{0k} \rangle (t).
+\]</div>
+<p>Since the rotational wavepacket can be accurately simulated, the <span class="math notranslate nohighlight">\(\langle D^{j}_{0k} \rangle (t)\)</span> are considered known. The time resolved signal <span class="math notranslate nohighlight">\(\langle S \rangle(t)\)</span> being measured, the unknown coefficients <span class="math notranslate nohighlight">\(C_{jk}\)</span> can be determined by linear regression, and the molecular frame signal in Eqn.~\ref{eq:mfrealsig} constructed. In this form the method was initially applied to strong field ionization and dubbed Orientation Reconstruction through Rotational Coherence Spectroscopy (ORRCS) <span id="id8">[<a class="reference internal" href="../backmatter/bibliography.html#id974" title="Varun Makhija, Xiaoming Ren, Drue Gockel, Anh-Thu Le, and Vinod Kumarappan. Orientation resolution through rotational coherence spectroscopy. arXiv preprint arXiv:1611.06476, 2016.">119</a>, <a class="reference internal" href="../backmatter/bibliography.html#id973" title="Xu Wang, Anh-Thu Le, Zhaoyan Zhou, Hui Wei, and CD Lin. Theory of retrieving orientation-resolved molecular information using time-domain rotational coherence spectroscopy. Physical Review A, 96(2):023424, 2017.">120</a>]</span>.
+It has since been applied to strong field ionization of various molecules <span id="id9">[<a class="reference internal" href="../backmatter/bibliography.html#id975" title="Péter Sándor, Adonay Sissay, François Mauger, Paul M Abanador, Timothy T Gorman, Timothy D Scarborough, Mette B Gaarde, Kenneth Lopata, Kenneth J Schafer, and Robert R Jones. Angle dependence of strong-field single and double ionization of carbonyl sulfide. Physical Review A, 98(4):043425, 2018.">121</a>, <a class="reference internal" href="../backmatter/bibliography.html#id976" title="Péter Sándor, Adonay Sissay, François Mauger, Mark W Gordon, TT Gorman, TD Scarborough, Mette B Gaarde, Kenneth Lopata, KJ Schafer, and RR Jones. Angle-dependent strong-field ionization of halomethanes. The Journal of chemical physics, 151(19):194308, 2019.">122</a>, <a class="reference internal" href="../backmatter/bibliography.html#id979" title="Tomthin Nganba Wangjam, Huynh Van Sa Lam, and Vinod Kumarappan. Strong-field ionization of the triplet ground state of o 2. Physical Review A, 104(4):043112, 2021.">123</a>]</span>,
+strong field dissociation <span id="id10">[<a class="reference internal" href="../backmatter/bibliography.html#id978" title="Huynh Van Sa Lam, Suresh Yarlagadda, Anbu Venkatachalam, Tomthin Nganba Wangjam, Rajesh K Kushawaha, Chuan Cheng, Peter Svihra, Andrei Nomerotski, Thomas Weinacht, Daniel Rolles, and others. Angle-dependent strong-field ionization and fragmentation of carbon dioxide measured using rotational wave packets. Physical Review A, 102(4):043119, 2020.">124</a>]</span> and few-photon ionization <span id="id11">[<a class="reference internal" href="../backmatter/bibliography.html#id977" title="Huynh Van Sa Lam, Tomthin Nganba Wangjam, and Vinod Kumarappan. Alignment dependence of photoelectron angular distributions in the few-photon ionization of molecules by ultraviolet pulses. Physical Review A, 105(5):053109, 2022.">125</a>]</span>.</p>
+<p>(A large range of other experimental methods have also addressed alignment and orientation dependence and retrieval, other recent examples include Coulomb-explosion imaging <span id="id12">[<a class="reference internal" href="../backmatter/bibliography.html#id918" title="Jonathan G. Underwood, I. Procino, L. Christiansen, J. Maurer, and H. Stapelfeldt. Velocity map imaging with non-uniform detection: Quantitative molecular axis alignment measurements via Coulomb explosion imaging. Review of Scientific Instruments, 86(7):073101, July 2015. URL: https://aip.scitation.org/doi/10.1063/1.4922137 (visited on 2022-09-08), arXiv:1502.04007.">126</a>]</span>, high-harmonic spectroscopy <span id="id13">[<a class="reference internal" href="../backmatter/bibliography.html#id635" title="Lixin He, Pengfei Lan, Anh-Thu Le, Baoning Wang, Bincheng Wang, Xiaosong Zhu, Peixiang Lu, and C. D. Lin. Real-Time Observation of Molecular Spinning with Angular High-Harmonic Spectroscopy. Physical Review Letters, 121(16):163201, October 2018. URL: https://link.aps.org/doi/10.1103/PhysRevLett.121.163201 (visited on 2023-03-09).">127</a>, <a class="reference internal" href="../backmatter/bibliography.html#id636" title="Yanqing He, Lixin He, Pu Wang, Bincheng Wang, Siqi Sun, Ruxuan Liu, Baoning Wang, Pengfei Lan, and Peixiang Lu. Measuring the rotational temperature and pump intensity in molecular alignment experiments via high harmonic generation. Optics Express, 28(14):21182–21191, July 2020. URL: https://opg.optica.org/oe/abstract.cfm?uri=oe-28-14-21182 (visited on 2023-03-09).">128</a>]</span>, optical imaging <span id="id14">[<a class="reference internal" href="../backmatter/bibliography.html#id743" title="V. Loriot, R. Tehini, E. Hertz, B. Lavorel, and O. Faucher. Snapshot imaging of postpulse transient molecular alignment revivals. Physical Review A, 78(1):013412, July 2008. URL: http://link.aps.org/doi/10.1103/PhysRevA.78.013412 (visited on 2013-02-27).">129</a>]</span> and rotational echo spectroscopy <span id="id15">[<a class="reference internal" href="../backmatter/bibliography.html#id932" title="Pu Wang, Lixin He, Yanqing He, Jianchang Hu, Siqi Sun, Pengfei Lan, and Peixiang Lu. Rotational echo spectroscopy for accurate measurement of molecular alignment. Optics Letters, 47(5):1033–1036, March 2022. URL: https://opg.optica.org/ol/abstract.cfm?uri=ol-47-5-1033 (visited on 2023-03-09).">130</a>]</span>, see Refs. <span id="id16">[<a class="reference internal" href="../backmatter/bibliography.html#id711" title="Christiane P Koch, Mikhail Lemeshko, and Dominique Sugny. Quantum control of molecular rotation. Reviews of Modern Physics, 91(3):035005, 2019.">101</a>, <a class="reference internal" href="../backmatter/bibliography.html#id816" title="S. Ramakrishna and Tamar Seideman. Rotational wave-packet imaging of molecules. Physical Review A, 87(2):023411, February 2013. URL: http://link.aps.org/doi/10.1103/PhysRevA.87.023411 (visited on 2014-02-10).">104</a>]</span> for further discussion.)</p>
+<p>The case of PADs is a more challenging one, since they are not generally described by Eqn.~\ref{eq:mfrealsig}. Instead, both <a class="reference internal" href="../backmatter/glossary.html#term-AF"><span class="xref std std-term">AF</span></a> and <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a> <a class="reference internal" href="../backmatter/glossary.html#term-PADs"><span class="xref std std-term">PADs</span></a> are determined by the radial dipole matrix elements. However, the correspondence of the problem with an equation of the form of Eqn. \ref{eq:St-Cjk} - essentially a convolution - can be made. This is discussed in detail in Ref. <span id="id17">[<a class="reference internal" href="../backmatter/bibliography.html#id916" title="Jonathan G. Underwood and Katharine L. Reid. Time-resolved photoelectron angular distributions as a probe of intramolecular dynamics: Connecting the molecular frame and the laboratory frame. The Journal of Chemical Physics, 113(3):1067, 2000. URL: http://link.aip.org/link/JCPSA6/v113/i3/p1067/s1&amp;Agg=doi (visited on 2012-07-17).">87</a>]</span>. In the current case Eqs. <a class="reference internal" href="theory_tensor_formalism_160723.html#equation-eqn-channel-fns">(3.13)</a> and <a class="reference internal" href="theory_tensor_formalism_160723.html#equation-eq-blm-tensor-af">(3.17)</a> can be rewritten in a similar form to Eq. <a class="reference internal" href="#equation-eq-st-cjk">(4.3)</a> by explicitly separating out the axis distribution moments <span class="math notranslate nohighlight">\(A_{Q,S}^{K}(t)\)</span> and collapsing all other terms. The case of photoionization from a time-dependent ensemble can then be reparameterized as indicated in Eq. <a class="reference internal" href="#equation-eqn-beta-convolution-c">(4.1)</a>.</p>
+<p>Here the set of axis distribution moments can thus be viewed as modulating all observables <span class="math notranslate nohighlight">\(\beta_{L,M}^{u}(t)\)</span>. The unknowns, <span class="math notranslate nohighlight">\(\bar{C}_{KQS}^{LM}\)</span> and axis distribution moments <span class="math notranslate nohighlight">\(A_{Q,S}^{K}(t)\)</span>, can be retrieved in a similar manner to that discussed for the simpler scalar observable case above, i.e. via linear regression with simulated rotational wavepackets.</p>
+<p>In practice this equates to (accurately) simulating rotational wavepackets, hence obtaining the corresponding <span class="math notranslate nohighlight">\(A_{Q,S}^{K}(t)\)</span> parameters (expectation values), as a function of laser fluence and rotational temperature. Given experimental data, a 2D uncertainty (or error) surface in these two fundamental quantities can then be obtained from a linear regression for each set of <span class="math notranslate nohighlight">\(A_{Q,S}^{K}(t)\)</span>. The closest set of parameters to the experimental case is then determined by selection of the best results (smallest uncertainty) from such a parameter-space mapping, which constitutes determination of both the rotational wavepacket (hence <span class="math notranslate nohighlight">\(A_{Q,S}^{K}(t)\)</span>) and <span class="math notranslate nohighlight">\(\bar{C}_{KQS}^{LM}(\epsilon)\)</span>. Optimally, the corresponding physical properties can be cross-checked with other experimental estimates for additional confirmation of the fidelity of the protocol, although this may not always be possible. Note that, in this case, the photoionization dynamics are phenomenologically described by the real parameters <span class="math notranslate nohighlight">\(\bar{C}_{KQS}^{LM}\)</span>, but details of the matrix elements are not obtained directly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Numerical examples of ADMs and rotational wavepackets here? Some also now in fitting basis set chpt.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="non-linear-fitting-for-matrix-elements">
+<h3><span class="section-number">4.1.2. </span>Non-linear fitting for matrix elements<a class="headerlink" href="#non-linear-fitting-for-matrix-elements" title="Permalink to this heading">#</a></h3>
+<p>The nature of the photoionization problem suggests that a fitting approach can work, in general, which can be expressed (for example) in the standard way as a (non-linear) least-squares minimization problem:</p>
+<div class="math notranslate nohighlight" id="equation-eq-chi2-i">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-eq-chi2-i" title="Permalink to this equation">#</a></span>\[
+\chi^{2}(\mathbb{I}^{\zeta\zeta'})=\sum_{u}\left[\beta^{u}_{L,M}(\epsilon,t;\mathbb{I}^{\zeta\zeta'})-\beta^{u}_{L,M}(\epsilon,t)\right]^{2}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\beta^{u}_{L,M}(\epsilon,t;\mathbb{I}^{\zeta\zeta'})\)</span> denotes  the values from a model function, computed for a given set of (complex) matrix elements <span class="math notranslate nohighlight">\(\mathbb{I}^{\zeta\zeta'}\)</span>, and <span class="math notranslate nohighlight">\(\beta^{u}_{L,M}(\epsilon,t)\)</span> the experimentally-measured parameters, for a given configuration <span class="math notranslate nohighlight">\(u\)</span>. Implicit in the notation is that the matrix elements are independent of <span class="math notranslate nohighlight">\(u\)</span> (or otherwise averaged over <span class="math notranslate nohighlight">\(u\)</span>). Once the matrix elements are obtained in this manner then <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a> observables, for any arbitrary <span class="math notranslate nohighlight">\(u\)</span>, can be calculated. Generally fitting routines do not handle complex-valued functions, so the fitting parameter space is usually defined by parameters in magnitude-phase form (Eq. <a class="reference internal" href="theory_tensor_formalism_160723.html#equation-eqn-i-zeta-mag-phase">(3.15)</a>; see also discussion in <a class="reference internal" href="theory_tensor_formalism_160723.html#sec-channel-funcs"><span class="std std-numref">Sect. 3.3.1</span></a>)</p>
+<p>Although in principle a very general approach, outstanding questions with such protocols remain, in particular fit uniqueness and reproducibility, the optimal measurement space <span class="math notranslate nohighlight">\(u\)</span> - or associated information content <span class="math notranslate nohighlight">\(M_u\)</span> - for any given case or measurement schema, and how well they will scale to larger problems (more matrix elements/partial waves). Exploration of these questions for various exemplar systems is the topic of the latter part of this book (see <a class="reference internal" href="../part2/extracting_matrix_elements_overview_270423.html#chpt-extracting-matrix-elements-overview"><span class="std std-numref">Chpt. 5</span></a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Numerical example here? May skip this, since it&#39;s in latter chpts.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adaptation-and-fitting-for-different-reconstruction-protocols">
+<span id="sect-numerics-other-protocols"></span><h3><span class="section-number">4.1.3. </span>Adaptation and fitting for different reconstruction protocols<a class="headerlink" href="#adaptation-and-fitting-for-different-reconstruction-protocols" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="fitting-strategies">
+<h2><span class="section-number">4.2. </span>Fitting strategies<a class="headerlink" href="#fitting-strategies" title="Permalink to this heading">#</a></h2>
+<p>Notes on stats, repeated fitting etc. here? Now illustrated in Part 2, but no formalism given. See also QM1/2…?</p>
+<p>Basis set choices are also introduced later.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="theory_info_content_221122.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3.7. </span>Information content &amp; sensitivity</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../part2/extracting_matrix_elements_overview_270423.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Extracting matrix elements overview</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-methodologies">4.1. Fitting methodologies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-and-linear-fitting-for-alignment-characterisation">4.1.1. Computation and linear fitting for alignment characterisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-fitting-for-matrix-elements">4.1.2. Non-linear fitting for matrix elements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptation-and-fitting-for-different-reconstruction-protocols">4.1.3. Adaptation and fitting for different reconstruction protocols</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-strategies">4.2. Fitting strategies</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Paul Hockett with Varun Makhija
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

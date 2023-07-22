@@ -1,122 +1,123 @@
 Traceback (most recent call last):
-  File "/opt/conda/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/client.py", line 1117, in execute
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/util.py", line 78, in wrapped
-    return just_run(coro(*args, **kwargs))
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/util.py", line 57, in just_run
-    return loop.run_until_complete(coro)
-  File "/opt/conda/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/conda/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
     return future.result()
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/client.py", line 558, in async_execute
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/client.py", line 862, in async_execute_cell
-    self._check_raise_for_error(cell, exec_reply)
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/client.py", line 765, in _check_raise_for_error
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# As above, but for a time-dependent case...
-# SHOULD BE per http://jake/jupyter/user/paul/doc/tree/code-share/jupyter-shared/PEMtk_dev_2022/basisSets/PEMtk_fitting_basis-set_demo_050621-full-revisit-Jake_040822.ipynb
-# BUT CURRENTLY not working - issue with dims and/or recent code changes?
-
-# Import routines
-from epsproc.calc import density
-
-# Set some test data - here include time-dependence
-testBasis = (basis['BLMtableResort'] * basis['polProd']).sel({'Labels':'A', 'S-Rp':0})
-
-# Compose density matrix
-# Set dimensions/state vector/representation
-# These must be in original data, but will be restacked as necessary to define the effective basis space.
-# denDims = 'LM'  #, 'mu']
-
-# denDims = list(set(testBasis.dims) - set('t')) # FAILS on restack, not sure why.
-# above gives: ['L', 'mp', 'M', 'l', 'lp', 'mup', 'm', 'mu']
-denDims = ['mp','l', 'lp', 'm']
-
-selDims = None  #{'Type':'L'}
-pTypes=['r','i']
-thres = 1e-4    # 0.2 # Threshold out l>3 terms if using full 'orb5' set.
-normME = False
-normDen = 'max'
-
-# Calculate - Ref case
-# matE = data.data['subset']['matE']
-# Set data from master class
-# k = 'orb5'  # N2 orb5 (SG) dataset
-# k = 'subset'
-k = sym
-# matE = data.data[k]['matE']
-matE = testBasis
-
-if normME:
-    matE = matE/matE.max()
-
-daOut, *_ = density.densityCalc(matE, denDims = denDims, selDims = selDims, thres = thres, sumDims=False)   #, compute=False)
-
-if normDen=='max':
-    daOut = daOut/daOut.max()
-elif normDen=='trace':
-    daOut = daOut/(daOut.sum('Sym').pipe(np.trace)**2)  # Need sym sum here to get 2D trace
-    
-# daPlot = density.matPlot(daOut.sum('Sym'))
-daPlot = density.matPlot(daOut.sum('Sym'), pTypes=pTypes)
+daPlot, daPlotpd, legendList, gFig = ep.lmPlot(AFterm.where(AFterm.L<=2).sel(M=1),    # .sel(R=0).sel(Rp=0), #M=0 for R=Rp=0
+                                               xDim = 't', pType = 'r', squeeze = False, cmap='vlag')  # Note squeeze = False required for 1D case (should add this to code!)
 ------------------
 
+
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mValueError[0m                                Traceback (most recent call last)
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/common.py[0m in [0;36m_get_axis_num[0;34m(self, dim)[0m
-[1;32m    181[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 182[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mdims[0m[0;34m.[0m[0mindex[0m[0;34m([0m[0mdim[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    183[0m         [0;32mexcept[0m [0mValueError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+File [0;32m/opt/conda/lib/python3.10/site-packages/pandas/core/indexes/base.py:3802[0m, in [0;36mIndex.get_loc[0;34m(self, key, method, tolerance)[0m
+[1;32m   3801[0m [38;5;28;01mtry[39;00m:
+[0;32m-> 3802[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_engine[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mcasted_key[49m[43m)[49m
+[1;32m   3803[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m [38;5;28;01mas[39;00m err:
 
-[0;31mValueError[0m: tuple.index(x): x not in tuple
+File [0;32m/opt/conda/lib/python3.10/site-packages/pandas/_libs/index.pyx:138[0m, in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
 
-During handling of the above exception, another exception occurred:
+File [0;32m/opt/conda/lib/python3.10/site-packages/pandas/_libs/index.pyx:165[0m, in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
 
-[0;31mValueError[0m                                Traceback (most recent call last)
-[0;32m/tmp/ipykernel_70137/4168892302.py[0m in [0;36m<module>[0;34m[0m
-[1;32m     44[0m [0;34m[0m[0m
-[1;32m     45[0m [0;31m# daPlot = density.matPlot(daOut.sum('Sym'))[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 46[0;31m [0mdaPlot[0m [0;34m=[0m [0mdensity[0m[0;34m.[0m[0mmatPlot[0m[0;34m([0m[0mdaOut[0m[0;34m.[0m[0msum[0m[0;34m([0m[0;34m'Sym'[0m[0;34m)[0m[0;34m,[0m [0mpTypes[0m[0;34m=[0m[0mpTypes[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/common.py[0m in [0;36mwrapped_func[0;34m(self, dim, axis, skipna, **kwargs)[0m
-[1;32m     56[0m [0;34m[0m[0m
-[1;32m     57[0m             [0;32mdef[0m [0mwrapped_func[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mdim[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0mskipna[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 58[0;31m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mreduce[0m[0;34m([0m[0mfunc[0m[0;34m,[0m [0mdim[0m[0;34m,[0m [0maxis[0m[0;34m,[0m [0mskipna[0m[0;34m=[0m[0mskipna[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     59[0m [0;34m[0m[0m
-[1;32m     60[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+File [0;32mpandas/_libs/hashtable_class_helper.pxi:2263[0m, in [0;36mpandas._libs.hashtable.Int64HashTable.get_item[0;34m()[0m
 
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/dataarray.py[0m in [0;36mreduce[0;34m(self, func, dim, axis, keep_attrs, keepdims, **kwargs)[0m
-[1;32m   2694[0m         """
-[1;32m   2695[0m [0;34m[0m[0m
-[0;32m-> 2696[0;31m         [0mvar[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mvariable[0m[0;34m.[0m[0mreduce[0m[0;34m([0m[0mfunc[0m[0;34m,[0m [0mdim[0m[0;34m,[0m [0maxis[0m[0;34m,[0m [0mkeep_attrs[0m[0;34m,[0m [0mkeepdims[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   2697[0m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_replace_maybe_drop_dims[0m[0;34m([0m[0mvar[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   2698[0m [0;34m[0m[0m
+File [0;32mpandas/_libs/hashtable_class_helper.pxi:2273[0m, in [0;36mpandas._libs.hashtable.Int64HashTable.get_item[0;34m()[0m
 
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/variable.py[0m in [0;36mreduce[0;34m(self, func, dim, axis, keep_attrs, keepdims, **kwargs)[0m
-[1;32m   1795[0m [0;34m[0m[0m
-[1;32m   1796[0m         [0;32mif[0m [0mdim[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 1797[0;31m             [0maxis[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mget_axis_num[0m[0;34m([0m[0mdim[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   1798[0m [0;34m[0m[0m
-[1;32m   1799[0m         [0;32mwith[0m [0mwarnings[0m[0;34m.[0m[0mcatch_warnings[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;31mKeyError[0m: 1
 
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/common.py[0m in [0;36mget_axis_num[0;34m(self, dim)[0m
-[1;32m    176[0m             [0;32mreturn[0m [0mtuple[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_get_axis_num[0m[0;34m([0m[0md[0m[0;34m)[0m [0;32mfor[0m [0md[0m [0;32min[0m [0mdim[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    177[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 178[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_get_axis_num[0m[0;34m([0m[0mdim[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    179[0m [0;34m[0m[0m
-[1;32m    180[0m     [0;32mdef[0m [0m_get_axis_num[0m[0;34m([0m[0mself[0m[0;34m:[0m [0mAny[0m[0;34m,[0m [0mdim[0m[0;34m:[0m [0mHashable[0m[0;34m)[0m [0;34m->[0m [0mint[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+The above exception was the direct cause of the following exception:
 
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/common.py[0m in [0;36m_get_axis_num[0;34m(self, dim)[0m
-[1;32m    182[0m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mdims[0m[0;34m.[0m[0mindex[0m[0;34m([0m[0mdim[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    183[0m         [0;32mexcept[0m [0mValueError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 184[0;31m             [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34mf"{dim!r} not found in array dimensions {self.dims!r}"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    185[0m [0;34m[0m[0m
-[1;32m    186[0m     [0;34m@[0m[0mproperty[0m[0;34m[0m[0;34m[0m[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+Cell [0;32mIn[19], line 1[0m
+[0;32m----> 1[0m daPlot, daPlotpd, legendList, gFig [38;5;241m=[39m ep[38;5;241m.[39mlmPlot([43mAFterm[49m[38;5;241;43m.[39;49m[43mwhere[49m[43m([49m[43mAFterm[49m[38;5;241;43m.[39;49m[43mL[49m[38;5;241;43m<[39;49m[38;5;241;43m=[39;49m[38;5;241;43m2[39;49m[43m)[49m[38;5;241;43m.[39;49m[43msel[49m[43m([49m[43mM[49m[38;5;241;43m=[39;49m[38;5;241;43m1[39;49m[43m)[49m,    [38;5;66;03m# .sel(R=0).sel(Rp=0), #M=0 for R=Rp=0[39;00m
+[1;32m      2[0m                                                xDim [38;5;241m=[39m [38;5;124m'[39m[38;5;124mt[39m[38;5;124m'[39m, pType [38;5;241m=[39m [38;5;124m'[39m[38;5;124mr[39m[38;5;124m'[39m, squeeze [38;5;241m=[39m [38;5;28;01mFalse[39;00m, cmap[38;5;241m=[39m[38;5;124m'[39m[38;5;124mvlag[39m[38;5;124m'[39m)  [38;5;66;03m# Note squeeze = False required for 1D case (should add this to code!)[39;00m
 
-[0;31mValueError[0m: 'Sym' not found in array dimensions ('L', 'mu', 'mup', 'm,lp,mp,l', 'm,lp,mp,l_p')
-ValueError: 'Sym' not found in array dimensions ('L', 'mu', 'mup', 'm,lp,mp,l', 'm,lp,mp,l_p')
+File [0;32m/opt/conda/lib/python3.10/site-packages/xarray/core/dataarray.py:1329[0m, in [0;36mDataArray.sel[0;34m(self, indexers, method, tolerance, drop, **indexers_kwargs)[0m
+[1;32m   1220[0m [38;5;28;01mdef[39;00m [38;5;21msel[39m(
+[1;32m   1221[0m     [38;5;28mself[39m,
+[1;32m   1222[0m     indexers: Mapping[Any, Any] [38;5;241m=[39m [38;5;28;01mNone[39;00m,
+[0;32m   (...)[0m
+[1;32m   1226[0m     [38;5;241m*[39m[38;5;241m*[39mindexers_kwargs: Any,
+[1;32m   1227[0m ) [38;5;241m-[39m[38;5;241m>[39m DataArray:
+[1;32m   1228[0m [38;5;250m    [39m[38;5;124;03m"""Return a new DataArray whose data is given by selecting index[39;00m
+[1;32m   1229[0m [38;5;124;03m    labels along the specified dimension(s).[39;00m
+[1;32m   1230[0m 
+[0;32m   (...)[0m
+[1;32m   1327[0m [38;5;124;03m    Dimensions without coordinates: points[39;00m
+[1;32m   1328[0m [38;5;124;03m    """[39;00m
+[0;32m-> 1329[0m     ds [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_to_temp_dataset[49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43msel[49m[43m([49m
+[1;32m   1330[0m [43m        [49m[43mindexers[49m[38;5;241;43m=[39;49m[43mindexers[49m[43m,[49m
+[1;32m   1331[0m [43m        [49m[43mdrop[49m[38;5;241;43m=[39;49m[43mdrop[49m[43m,[49m
+[1;32m   1332[0m [43m        [49m[43mmethod[49m[38;5;241;43m=[39;49m[43mmethod[49m[43m,[49m
+[1;32m   1333[0m [43m        [49m[43mtolerance[49m[38;5;241;43m=[39;49m[43mtolerance[49m[43m,[49m
+[1;32m   1334[0m [43m        [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mindexers_kwargs[49m[43m,[49m
+[1;32m   1335[0m [43m    [49m[43m)[49m
+[1;32m   1336[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_from_temp_dataset(ds)
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/xarray/core/dataset.py:2501[0m, in [0;36mDataset.sel[0;34m(self, indexers, method, tolerance, drop, **indexers_kwargs)[0m
+[1;32m   2440[0m [38;5;250m[39m[38;5;124;03m"""Returns a new dataset with each array indexed by tick labels[39;00m
+[1;32m   2441[0m [38;5;124;03malong the specified dimension(s).[39;00m
+[1;32m   2442[0m 
+[0;32m   (...)[0m
+[1;32m   2498[0m [38;5;124;03mDataArray.sel[39;00m
+[1;32m   2499[0m [38;5;124;03m"""[39;00m
+[1;32m   2500[0m indexers [38;5;241m=[39m either_dict_or_kwargs(indexers, indexers_kwargs, [38;5;124m"[39m[38;5;124msel[39m[38;5;124m"[39m)
+[0;32m-> 2501[0m pos_indexers, new_indexes [38;5;241m=[39m [43mremap_label_indexers[49m[43m([49m
+[1;32m   2502[0m [43m    [49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[43mindexers[49m[38;5;241;43m=[39;49m[43mindexers[49m[43m,[49m[43m [49m[43mmethod[49m[38;5;241;43m=[39;49m[43mmethod[49m[43m,[49m[43m [49m[43mtolerance[49m[38;5;241;43m=[39;49m[43mtolerance[49m
+[1;32m   2503[0m [43m[49m[43m)[49m
+[1;32m   2504[0m [38;5;66;03m# TODO: benbovy - flexible indexes: also use variables returned by Index.query[39;00m
+[1;32m   2505[0m [38;5;66;03m# (temporary dirty fix).[39;00m
+[1;32m   2506[0m new_indexes [38;5;241m=[39m {k: v[[38;5;241m0[39m] [38;5;28;01mfor[39;00m k, v [38;5;129;01min[39;00m new_indexes[38;5;241m.[39mitems()}
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/xarray/core/coordinates.py:421[0m, in [0;36mremap_label_indexers[0;34m(obj, indexers, method, tolerance, **indexers_kwargs)[0m
+[1;32m    414[0m indexers [38;5;241m=[39m either_dict_or_kwargs(indexers, indexers_kwargs, [38;5;124m"[39m[38;5;124mremap_label_indexers[39m[38;5;124m"[39m)
+[1;32m    416[0m v_indexers [38;5;241m=[39m {
+[1;32m    417[0m     k: v[38;5;241m.[39mvariable[38;5;241m.[39mdata [38;5;28;01mif[39;00m [38;5;28misinstance[39m(v, DataArray) [38;5;28;01melse[39;00m v
+[1;32m    418[0m     [38;5;28;01mfor[39;00m k, v [38;5;129;01min[39;00m indexers[38;5;241m.[39mitems()
+[1;32m    419[0m }
+[0;32m--> 421[0m pos_indexers, new_indexes [38;5;241m=[39m [43mindexing[49m[38;5;241;43m.[39;49m[43mremap_label_indexers[49m[43m([49m
+[1;32m    422[0m [43m    [49m[43mobj[49m[43m,[49m[43m [49m[43mv_indexers[49m[43m,[49m[43m [49m[43mmethod[49m[38;5;241;43m=[39;49m[43mmethod[49m[43m,[49m[43m [49m[43mtolerance[49m[38;5;241;43m=[39;49m[43mtolerance[49m
+[1;32m    423[0m [43m[49m[43m)[49m
+[1;32m    424[0m [38;5;66;03m# attach indexer's coordinate to pos_indexers[39;00m
+[1;32m    425[0m [38;5;28;01mfor[39;00m k, v [38;5;129;01min[39;00m indexers[38;5;241m.[39mitems():
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/xarray/core/indexing.py:121[0m, in [0;36mremap_label_indexers[0;34m(data_obj, indexers, method, tolerance)[0m
+[1;32m    119[0m [38;5;28;01mfor[39;00m dim, index [38;5;129;01min[39;00m indexes[38;5;241m.[39mitems():
+[1;32m    120[0m     labels [38;5;241m=[39m grouped_indexers[dim]
+[0;32m--> 121[0m     idxr, new_idx [38;5;241m=[39m [43mindex[49m[38;5;241;43m.[39;49m[43mquery[49m[43m([49m[43mlabels[49m[43m,[49m[43m [49m[43mmethod[49m[38;5;241;43m=[39;49m[43mmethod[49m[43m,[49m[43m [49m[43mtolerance[49m[38;5;241;43m=[39;49m[43mtolerance[49m[43m)[49m
+[1;32m    122[0m     pos_indexers[dim] [38;5;241m=[39m idxr
+[1;32m    123[0m     [38;5;28;01mif[39;00m new_idx [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/xarray/core/indexes.py:241[0m, in [0;36mPandasIndex.query[0;34m(self, labels, method, tolerance)[0m
+[1;32m    237[0m                 [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m(
+[1;32m    238[0m                     [38;5;124mf[39m[38;5;124m"[39m[38;5;124mnot all values found in index [39m[38;5;132;01m{[39;00mcoord_name[38;5;132;01m!r}[39;00m[38;5;124m"[39m
+[1;32m    239[0m                 )
+[1;32m    240[0m         [38;5;28;01melse[39;00m:
+[0;32m--> 241[0m             indexer [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mindex[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mlabel_value[49m[43m)[49m
+[1;32m    242[0m [38;5;28;01melif[39;00m label[38;5;241m.[39mdtype[38;5;241m.[39mkind [38;5;241m==[39m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m:
+[1;32m    243[0m     indexer [38;5;241m=[39m label
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/pandas/core/indexes/base.py:3804[0m, in [0;36mIndex.get_loc[0;34m(self, key, method, tolerance)[0m
+[1;32m   3802[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_engine[38;5;241m.[39mget_loc(casted_key)
+[1;32m   3803[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m [38;5;28;01mas[39;00m err:
+[0;32m-> 3804[0m     [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m(key) [38;5;28;01mfrom[39;00m [38;5;21;01merr[39;00m
+[1;32m   3805[0m [38;5;28;01mexcept[39;00m [38;5;167;01mTypeError[39;00m:
+[1;32m   3806[0m     [38;5;66;03m# If we have a listlike key, _check_indexing_error will raise[39;00m
+[1;32m   3807[0m     [38;5;66;03m#  InvalidIndexError. Otherwise we fall through and re-raise[39;00m
+[1;32m   3808[0m     [38;5;66;03m#  the TypeError.[39;00m
+[1;32m   3809[0m     [38;5;28mself[39m[38;5;241m.[39m_check_indexing_error(key)
+
+[0;31mKeyError[0m: 1
 

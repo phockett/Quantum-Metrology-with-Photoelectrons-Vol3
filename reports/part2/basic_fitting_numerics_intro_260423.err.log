@@ -1,19 +1,17 @@
 Traceback (most recent call last):
-  File "/opt/conda/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/client.py", line 1117, in execute
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/util.py", line 78, in wrapped
-    return just_run(coro(*args, **kwargs))
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/util.py", line 57, in just_run
-    return loop.run_until_complete(coro)
-  File "/opt/conda/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/conda/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
     return future.result()
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/client.py", line 558, in async_execute
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/client.py", line 862, in async_execute_cell
-    self._check_raise_for_error(cell, exec_reply)
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/client.py", line 765, in _check_raise_for_error
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -30,50 +28,78 @@ data.ADMplot(keys = 'ADM', backend = 'hv')  #, returnPlot=True, renderPlot=False
 # NEED TO SET stackDims correctly for ADMs!
 ------------------
 
+
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mValueError[0m                                Traceback (most recent call last)
-[0;32m/tmp/ipykernel_70494/1552123943.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      5[0m [0;34m[0m[0m
-[1;32m      6[0m [0;31m# The ADMplot routine will show a basic line plot, note it needs keys = 'ADM' in the current implementation (otherwise will loop over all keys)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 7[0;31m [0mdata[0m[0;34m.[0m[0mADMplot[0m[0;34m([0m[0mkeys[0m [0;34m=[0m [0;34m'ADM'[0m[0;34m,[0m [0mbackend[0m [0;34m=[0m [0;34m'hv'[0m[0;34m)[0m  [0;31m#, returnPlot=True, renderPlot=False)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      8[0m [0;34m[0m[0m
-[1;32m      9[0m [0;31m# THIS CURRENTLY FAILS[0m[0;34m[0m[0;34m[0m[0m
+Cell [0;32mIn[34], line 7[0m
+[1;32m      1[0m data[38;5;241m.[39mdata[key][dataType][38;5;241m.[39mattrs[[38;5;124m'[39m[38;5;124mharmonics[39m[38;5;124m'[39m] [38;5;241m=[39m {[38;5;124m'[39m[38;5;124mstackDim[39m[38;5;124m'[39m:[38;5;124m'[39m[38;5;124mADM[39m[38;5;124m'[39m}
+[1;32m      3[0m [38;5;66;03m# Standard case:[39;00m
+[1;32m      4[0m [38;5;66;03m# {'dtype': 'Complex harmonics', 'kind': 'complex', 'normType': 'ortho', 'csPhase': True, 'keyDims': {'LM': ['l', 'm']}, 'LMStackFlag': True, 'stackDim': 'LM', 'dimList': ['l', 'm'], 'lDim': 'l', 'mDim': 'm'}[39;00m
+[1;32m      5[0m 
+[1;32m      6[0m [38;5;66;03m# The ADMplot routine will show a basic line plot, note it needs keys = 'ADM' in the current implementation (otherwise will loop over all keys)[39;00m
+[0;32m----> 7[0m [43mdata[49m[38;5;241;43m.[39;49m[43mADMplot[49m[43m([49m[43mkeys[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mADM[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mbackend[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mhv[39;49m[38;5;124;43m'[39;49m[43m)[49m  [38;5;66;03m#, returnPlot=True, renderPlot=False)[39;00m
+[1;32m      9[0m [38;5;66;03m# THIS CURRENTLY FAILS[39;00m
+[1;32m     10[0m [38;5;66;03m# hvDS = hvPlotters.hv.Dataset(xrDS.unstack(xrDS.attrs['harmonics']['stackDim']))[39;00m
+[1;32m     11[0m [38;5;66;03m# NEED TO SET stackDims correctly for ADMs![39;00m
 
-[0;32m/opt/conda/lib/python3.9/site-packages/epsproc/classes/_plotters.py[0m in [0;36mADMplot[0;34m(self, dataType, xDim, Etype, col, **kwargs)[0m
-[1;32m    419[0m [0;34m[0m[0m
-[1;32m    420[0m     [0;31m# Pass explicitly[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 421[0;31m     [0mself[0m[0;34m.[0m[0mBLMplot[0m[0;34m([0m[0mdataType[0m [0;34m=[0m [0mdataType[0m[0;34m,[0m [0mxDim[0m [0;34m=[0m [0mxDim[0m[0;34m,[0m [0mEtype[0m [0;34m=[0m [0mEtype[0m[0;34m,[0m [0mcol[0m [0;34m=[0m [0mcol[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    422[0m [0;34m[0m[0m
-[1;32m    423[0m [0;34m[0m[0m
+File [0;32m~/github/ePSproc/epsproc/classes/_plotters.py:421[0m, in [0;36mADMplot[0;34m(self, dataType, xDim, Etype, col, **kwargs)[0m
+[1;32m    412[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    413[0m [38;5;124;03mWrap BLMplot() for ADMs. Thin wrapper with some ADM-specific defaults.[39;00m
+[1;32m    414[0m 
+[1;32m    415[0m [38;5;124;03mTODO: make this good.[39;00m
+[1;32m    416[0m [38;5;124;03m"""[39;00m
+[1;32m    417[0m [38;5;66;03m# Pass using locals()[39;00m
+[1;32m    418[0m [38;5;66;03m# self.BLMplot(**locals())  # Almost neat, but needs logic to remove self and unpack kwargs[39;00m
+[1;32m    419[0m 
+[1;32m    420[0m [38;5;66;03m# Pass explicitly[39;00m
+[0;32m--> 421[0m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mBLMplot[49m[43m([49m[43mdataType[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[43mdataType[49m[43m,[49m[43m [49m[43mxDim[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[43mxDim[49m[43m,[49m[43m [49m[43mEtype[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[43mEtype[49m[43m,[49m[43m [49m[43mcol[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[43mcol[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
 
-[0;32m/opt/conda/lib/python3.9/site-packages/epsproc/classes/_plotters.py[0m in [0;36mBLMplot[0;34m(self, Erange, Etype, dataType, xDim, selDims, col, row, thres, keys, verbose, backend, overlay, XS, **kwargs)[0m
-[1;32m    456[0m     [0;32mif[0m [0mbackend[0m [0;34m==[0m [0;34m'hv'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    457[0m         [0;31m# self._hvBLMplot(**locals())[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 458[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_hvBLMplot[0m[0;34m([0m[0;34m**[0m[0;34m{[0m[0mk[0m[0;34m:[0m[0mv[0m [0;32mfor[0m [0mk[0m[0;34m,[0m[0mv[0m [0;32min[0m [0mlocals[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;34m)[0m [0;32mif[0m [0mk[0m [0;32mnot[0m [0;32min[0m [0;34m[[0m[0;34m'self'[0m[0;34m,[0m[0;34m'kwargs'[0m[0;34m][0m[0;34m}[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    459[0m [0;34m[0m[0m
-[1;32m    460[0m     [0;31m# Set xDim if not passed.[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m~/github/ePSproc/epsproc/classes/_plotters.py:458[0m, in [0;36mBLMplot[0;34m(self, Erange, Etype, dataType, xDim, selDims, col, row, thres, keys, verbose, backend, overlay, XS, **kwargs)[0m
+[1;32m    429[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    430[0m [38;5;124;03mBasic BLM line plots using Xarray plotter.[39;00m
+[1;32m    431[0m 
+[0;32m   (...)[0m
+[1;32m    453[0m 
+[1;32m    454[0m [38;5;124;03m"""[39;00m
+[1;32m    456[0m [38;5;28;01mif[39;00m backend [38;5;241m==[39m [38;5;124m'[39m[38;5;124mhv[39m[38;5;124m'[39m:
+[1;32m    457[0m     [38;5;66;03m# self._hvBLMplot(**locals())[39;00m
+[0;32m--> 458[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_hvBLMplot[49m[43m([49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43m{[49m[43mk[49m[43m:[49m[43mv[49m[43m [49m[38;5;28;43;01mfor[39;49;00m[43m [49m[43mk[49m[43m,[49m[43mv[49m[43m [49m[38;5;129;43;01min[39;49;00m[43m [49m[38;5;28;43mlocals[39;49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mitems[49m[43m([49m[43m)[49m[43m [49m[38;5;28;43;01mif[39;49;00m[43m [49m[43mk[49m[43m [49m[38;5;129;43;01mnot[39;49;00m[43m [49m[38;5;129;43;01min[39;49;00m[43m [49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mself[39;49m[38;5;124;43m'[39;49m[43m,[49m[38;5;124;43m'[39;49m[38;5;124;43mkwargs[39;49m[38;5;124;43m'[39;49m[43m][49m[43m}[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    460[0m [38;5;66;03m# Set xDim if not passed.[39;00m
+[1;32m    461[0m [38;5;28;01mif[39;00m xDim [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
 
-[0;32m/opt/conda/lib/python3.9/site-packages/epsproc/classes/_plotters.py[0m in [0;36m_hvBLMplot[0;34m(self, Erange, Etype, dataType, xDim, selDims, col, row, thres, keys, verbose, backend, overlay, keyDim, XS, pType, renderPlot, returnPlot, **kwargs)[0m
-[1;32m    662[0m [0;34m[0m[0m
-[1;32m    663[0m     [0;31m#*** Holoviews init[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 664[0;31m     [0mhvDS[0m [0;34m=[0m [0mhvPlotters[0m[0;34m.[0m[0mhv[0m[0;34m.[0m[0mDataset[0m[0;34m([0m[0mxrDS[0m[0;34m.[0m[0munstack[0m[0;34m([0m[0mxrDS[0m[0;34m.[0m[0mattrs[0m[0;34m[[0m[0;34m'harmonics'[0m[0;34m][0m[0;34m[[0m[0;34m'stackDim'[0m[0;34m][0m[0;34m)[0m[0;34m)[0m  [0;31m# Need to unstack, otherwise sometimes get empty plots?[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    665[0m                                                                                       [0;31m# Seems to be issue with tuple/MultiIndex case.[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    666[0m [0;34m[0m[0m
+File [0;32m~/github/ePSproc/epsproc/classes/_plotters.py:664[0m, in [0;36m_hvBLMplot[0;34m(self, Erange, Etype, dataType, xDim, selDims, col, row, thres, keys, verbose, backend, overlay, keyDim, XS, pType, renderPlot, returnPlot, **kwargs)[0m
+[1;32m    661[0m checkSphDims(xrDS)
+[1;32m    663[0m [38;5;66;03m#*** Holoviews init[39;00m
+[0;32m--> 664[0m hvDS [38;5;241m=[39m hvPlotters[38;5;241m.[39mhv[38;5;241m.[39mDataset([43mxrDS[49m[38;5;241;43m.[39;49m[43munstack[49m[43m([49m[43mxrDS[49m[38;5;241;43m.[39;49m[43mattrs[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mharmonics[39;49m[38;5;124;43m'[39;49m[43m][49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mstackDim[39;49m[38;5;124;43m'[39;49m[43m][49m[43m)[49m)  [38;5;66;03m# Need to unstack, otherwise sometimes get empty plots?[39;00m
+[1;32m    665[0m                                                                                   [38;5;66;03m# Seems to be issue with tuple/MultiIndex case.[39;00m
+[1;32m    667[0m hvObj [38;5;241m=[39m hvDS[38;5;241m.[39mto(hvPlotters[38;5;241m.[39mhv[38;5;241m.[39mCurve, kdims[38;5;241m=[39mEtype)  [38;5;66;03m# .overlay(xrDS.attrs['harmonics']['dimList'])   # OK[39;00m
 
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/dataarray.py[0m in [0;36munstack[0;34m(self, dim, fill_value, sparse)[0m
-[1;32m   2199[0m         [0mDataArray[0m[0;34m.[0m[0mstack[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   2200[0m         """
-[0;32m-> 2201[0;31m         [0mds[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_to_temp_dataset[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0munstack[0m[0;34m([0m[0mdim[0m[0;34m,[0m [0mfill_value[0m[0;34m,[0m [0msparse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   2202[0m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_from_temp_dataset[0m[0;34m([0m[0mds[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   2203[0m [0;34m[0m[0m
+File [0;32m/opt/conda/lib/python3.10/site-packages/xarray/core/dataarray.py:2201[0m, in [0;36mDataArray.unstack[0;34m(self, dim, fill_value, sparse)[0m
+[1;32m   2141[0m [38;5;28;01mdef[39;00m [38;5;21munstack[39m(
+[1;32m   2142[0m     [38;5;28mself[39m,
+[1;32m   2143[0m     dim: Hashable [38;5;241m|[39m Sequence[Hashable] [38;5;241m|[39m [38;5;28;01mNone[39;00m [38;5;241m=[39m [38;5;28;01mNone[39;00m,
+[1;32m   2144[0m     fill_value: Any [38;5;241m=[39m dtypes[38;5;241m.[39mNA,
+[1;32m   2145[0m     sparse: [38;5;28mbool[39m [38;5;241m=[39m [38;5;28;01mFalse[39;00m,
+[1;32m   2146[0m ) [38;5;241m-[39m[38;5;241m>[39m DataArray:
+[1;32m   2147[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m   2148[0m [38;5;124;03m    Unstack existing dimensions corresponding to MultiIndexes into[39;00m
+[1;32m   2149[0m [38;5;124;03m    multiple new dimensions.[39;00m
+[0;32m   (...)[0m
+[1;32m   2199[0m [38;5;124;03m    DataArray.stack[39;00m
+[1;32m   2200[0m [38;5;124;03m    """[39;00m
+[0;32m-> 2201[0m     ds [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_to_temp_dataset[49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43munstack[49m[43m([49m[43mdim[49m[43m,[49m[43m [49m[43mfill_value[49m[43m,[49m[43m [49m[43msparse[49m[43m)[49m
+[1;32m   2202[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_from_temp_dataset(ds)
 
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/dataset.py[0m in [0;36munstack[0;34m(self, dim, fill_value, sparse)[0m
-[1;32m   4168[0m             [0mmissing_dims[0m [0;34m=[0m [0;34m[[0m[0md[0m [0;32mfor[0m [0md[0m [0;32min[0m [0mdims[0m [0;32mif[0m [0md[0m [0;32mnot[0m [0;32min[0m [0mself[0m[0;34m.[0m[0mdims[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[1;32m   4169[0m             [0;32mif[0m [0mmissing_dims[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 4170[0;31m                 raise ValueError(
-[0m[1;32m   4171[0m                     [0;34mf"Dataset does not contain the dimensions: {missing_dims}"[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   4172[0m                 )
+File [0;32m/opt/conda/lib/python3.10/site-packages/xarray/core/dataset.py:4170[0m, in [0;36mDataset.unstack[0;34m(self, dim, fill_value, sparse)[0m
+[1;32m   4168[0m missing_dims [38;5;241m=[39m [d [38;5;28;01mfor[39;00m d [38;5;129;01min[39;00m dims [38;5;28;01mif[39;00m d [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39mdims]
+[1;32m   4169[0m [38;5;28;01mif[39;00m missing_dims:
+[0;32m-> 4170[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[1;32m   4171[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mDataset does not contain the dimensions: [39m[38;5;132;01m{[39;00mmissing_dims[38;5;132;01m}[39;00m[38;5;124m"[39m
+[1;32m   4172[0m     )
+[1;32m   4174[0m non_multi_dims [38;5;241m=[39m [
+[1;32m   4175[0m     d [38;5;28;01mfor[39;00m d [38;5;129;01min[39;00m dims [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m([38;5;28mself[39m[38;5;241m.[39mget_index(d), pd[38;5;241m.[39mMultiIndex)
+[1;32m   4176[0m ]
+[1;32m   4177[0m [38;5;28;01mif[39;00m non_multi_dims:
 
 [0;31mValueError[0m: Dataset does not contain the dimensions: ['LM']
-ValueError: Dataset does not contain the dimensions: ['LM']
 

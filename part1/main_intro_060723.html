@@ -1,0 +1,672 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Introduction &#8212; Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part1/main_intro_060723';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Quantum metrology software platform/ecosystem overview" href="platform_intro_070723.html" />
+    <link rel="prev" title="Overview" href="../frontmatter/overview_270122.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/ePSproc_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/ePSproc_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    About the book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Frontmatter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/about_the_authors.html">About the authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/book_versions_note.html">A note on book versions, formats and conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/overview_270122.html">Overview</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I - Theory &amp; software</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="platform_intro_070723.html">2. Quantum metrology software platform/ecosystem overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="theory_100723.html">3. Theory</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="theory_photoionization_dynamics_140723.html">3.1. Photoionization dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory_symmetry_140723.html">3.2. Symmetry in photoionization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory_tensor_formalism_160723.html">3.3. Tensor formulation of photoionization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory_density_matrices_190723.html">3.4. Density matrix representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory_molecular_alignment_170723.html">3.5. Molecular alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory_observables_intro_100723.html">3.6. Observables: photoelectron flux in the LF and MF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory_info_content_221122.html">3.7. Information content &amp; sensitivity</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="numerics_070723.html">4. Numerical methodologies for extracting matrix elements</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II - Extracting matrix elements - numerical methods &amp; case studies</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part2/extracting_matrix_elements_overview_270423.html">5. Extracting matrix elements overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/sym-fitting-intro_220423.html">6. Basis sets for fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/basic_fitting_numerics_intro_260423.html">7. Basic fit setup and numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-N2_270423.html">8. Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, <span class="math notranslate nohighlight">\(N_2~(D_{\infty h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-OCS_270423-headerOnly.html">9. Case study: Generalised bootstrapping for a linear heteronuclear scattering system, <span class="math notranslate nohighlight">\(OCS~(C_{\infty v})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-C2H4_270423.html">10. Case study: Generalised bootstrapping for a general asymmetric top scattering system, <span class="math notranslate nohighlight">\(C_2H_4~(D_{2h})\)</span></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../backmatter/bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backmatter/glossary.html">Glossary</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Test pages</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tests/build_versions_checks.html">Build versions and config tests</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/new?title=Issue%20on%20page%20%2Fpart1/main_intro_060723.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part1/main_intro_060723.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topical-introduction-from-quantum-metrology-to-a-generalised-bootstrapping-protocol">1.1. Topical introduction: from quantum metrology to a generalised bootstrapping protocol</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-metrology-with-photoelectrons">1.1.1. Quantum metrology with photoelectrons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalised-geometric-metrology-protocols">1.1.2. Generalised geometric metrology protocols</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#context-aims-for-vol-3">1.2. Context &amp; aims for Vol. 3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-aims">1.2.1. Scientific aims</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-context-and-notes">1.2.2. Technical context and notes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-note-on-open-science-open-source-software-and-reproducibility">1.2.3. A brief note on open science, open source software and reproducibility</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<span id="chpt-intro"></span><h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+<p>The overall aim of <em>Quantum Metrology with Photoelectrons Vol. 3</em> is to expand, explore, and illustrate, new computational developments in quantum metrology with photoelectrons: specifically, the application of new python-based tools to tackle problems in matrix element retrieval. The book itself is written as a set of Jupyter Notebooks, hence all the material herein is available directly to readers, and can be run locally to further explore the topic interactively, and provide a foundation which can be adapted to apply the methodology to new problems.</p>
+<p>Whilst this volume aims to provide a self-contained text, and focuses on computational examples which may be used without extensive background knowledge, a brief contextual introduction is presented here (<a class="reference internal" href="#sec-topical-intro"><span class="std std-numref">Sect. 1.1</span></a> below), and the  necessary core physics,as well as some recent extensions, is also presented herein (<a class="reference internal" href="theory_100723.html#chpt-theory"><span class="std std-numref">Chapter 3</span></a>). The unfamiliar reader is referred to <em>Quantum Metrology</em> Vol. 1 <span id="id1">[<a class="reference internal" href="../backmatter/bibliography.html#id663" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5.">2</a>]</span> for a more detailed introduction to the physics, and as a more general gateway to the literature. Following the topical introduction, the remainder of Part I introduces the main computational and software tools (<a class="reference internal" href="platform_intro_070723.html#chpt-platformintro"><span class="std std-numref">Chapter 2</span></a>), recent theory developments (<a class="reference internal" href="theory_100723.html#chpt-theory"><span class="std std-numref">Chapter 3</span></a>), and concludes with a general overview for approaching matrix element retrieval numerically (<a class="reference internal" href="numerics_070723.html#chpt-numerical-details"><span class="std std-numref">Chapter 4</span></a>).</p>
+<p>Part II details the application of these tools to a few specific cases, including a general guide to setting up and running the <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id2">[<a class="reference internal" href="../backmatter/bibliography.html#id668" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">3</a>]</span> fitting routines (see <a class="reference internal" href="../part2/extracting_matrix_elements_overview_270423.html#chpt-extracting-matrix-elements-overview"><span class="std std-numref">Chapter 5</span></a> for an outline), then proceeding with a (relatively) simple homonuclear diatomic example (<a class="reference internal" href="../part2/case-study-N2_270423.html#chpt-n2-case-study"><span class="std std-numref">Chapter 8</span></a>), and escalating in complexity to a the most general polyatomic asymmetric top case.</p>
+<section id="topical-introduction-from-quantum-metrology-to-a-generalised-bootstrapping-protocol">
+<span id="sec-topical-intro"></span><h2><span class="section-number">1.1. </span>Topical introduction: from quantum metrology to a generalised bootstrapping protocol<a class="headerlink" href="#topical-introduction-from-quantum-metrology-to-a-generalised-bootstrapping-protocol" title="Permalink to this heading">#</a></h2>
+<p>There are two core topics at the heart of this work, specifically photoelectron spectroscopy (and associated experimental, theoretical and analysis methodologies) and quantum metrology in general. To briefly (re)introduce these topics, and contextually frame the work discussed herein, some brief comments from <em>Quantum Metrology</em> Vol. 1 <span id="id3">[<a class="reference internal" href="../backmatter/bibliography.html#id663" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5.">2</a>]</span> are reproduced below; the reader is referred to the introductory chapters of <em>Quantum Metrology</em> Vol. 1 <span id="id4">[<a class="reference internal" href="../backmatter/bibliography.html#id663" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5.">2</a>]</span> for a lengthier treatment, and <a class="reference external" href="https://vimeo.com/223603377">an introductory video to <em>Phase-sensitive Photoelectron Metrology</em> can be found online</a> (see also Refs. <span id="id5">[<a class="reference internal" href="../backmatter/bibliography.html#id659">4</a>]</span> for further introductory presentation videos, materials and resources around the topic).</p>
+<section id="quantum-metrology-with-photoelectrons">
+<h3><span class="section-number">1.1.1. </span>Quantum metrology with photoelectrons<a class="headerlink" href="#quantum-metrology-with-photoelectrons" title="Permalink to this heading">#</a></h3>
+<p>To set the general context, consider quantum metrology in general…</p>
+<blockquote class="epigraph">
+<div><p>Quantum metrology can be loosely defined as any class of experiment which provides detailed information on quantum mechanical properties (phases, coherences, entanglement etc.) of a system. To stay with the spirit of modern metrology, this definition can further be refined to measurements which provide high-resolution quantum information; a clear contemporary example is therefore experimental methodologies which provide full quantum state reconstruction (e.g. quantum tomography), and/or make use of quantum mechanical properties as a tool for measurement (e.g. atom interferometry). Traditional high-resolution spectroscopies may also fit within this definition in some cases, although in the majority of cases high-resolution spectroscopic measurements provide transition line-strengths and energies, but lack sufficient information for a full determination or reconstruction of the underlying quantum state.</p>
+<p>[…]</p>
+<p>…at what point does a measurement of a quantum mechanical system become quantum metrology? A pragmatic view on this is that the complete quantum state of the system must be capable of <em>unique definition from the experimental measurement(s)</em>. This is pragmatic in the sense that it leaves the door open for both <em>inferred</em> and <em>direct</em> reconstruction techniques. In the former case, the experimental data informs the theory and analysis, but is not directly ‘analysed’ or ‘inverted’ to provide or reconstruct the full quantum information; in the latter case one obtains the desired quantum mechanical information from the measurement in a more ‘direct’ fashion (which may, admittedly, still remain as a rather convoluted process, depending on the level of theoretical input required). Traditional spectroscopies again provide a touchstone here - high-resolution spectroscopy measurements can be compared with models or ab initio computations to provide quantum mechanical details of a system, but typically do not directly provide this information from a set of measurements alone. In this sense they fit a pragmatic definition of quantum metrology, but not a more specific definition of quantum metrology as a (somewhat) direct empirical technique.</p>
+<p>[…]</p>
+<p>In summary, while quantum metrology can come in many flavours, at heart it might be considered as any set of measurements (and associated analysis methodologies) which provide detailed (quantitative) quantum mechanical information on a given system of interest - ideally with little or no restriction on the complexity of the system - and it is discussed in this spirit herein.</p>
+<p class="attribution">—<em>Quantum Metrology</em> Vol. 1 <span id="id6">[<a class="reference internal" href="../backmatter/bibliography.html#id663" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5.">2</a>]</span>, Chpt. 1</p>
+</div></blockquote>
+<p>And, for the specific case of photoionization…</p>
+<blockquote class="epigraph">
+<div><p>… both <em>ab initio</em> methods and <em>high-dimensionality measurements</em> (combined with detailed <em>analysis methodologies</em>) can nonetheless provide detailed information on the photoionization dynamics. Although the simple analogy with Young’s double-slit [i.e. basic two-path interferometry] fails, the resulting photoelectron flux, measured spatially, remains, in essence, a self-referencing angular interferogram of the continuum wavefunction. In a more abstract sense, the basic interferometer paradigm can be extended to the general ‘photoionization interferometer’, one just has to keep in mind that there are now potentially many, many channels. In the most basic sense, the energy and angle resolved interferograms - the photoelectron flux as a function of energy and angle <span class="math notranslate nohighlight">\(I(E,\theta,\phi)\)</span> - which may be measured, are nothing more than an interferometric measurement sensitive to the relative phases of the different angular momentum components.</p>
+<p>[…]</p>
+<p>In the photoionization community, the angular interferograms (which will usually be considered at a single energy <span class="math notranslate nohighlight">\(E\)</span>) are photoelectron angular distributions (<a class="reference internal" href="../backmatter/glossary.html#term-PADs"><span class="xref std std-term">PADs</span></a>), and have long been used as a means to learn about the process of photoionization. In this context, <a class="reference internal" href="../backmatter/glossary.html#term-PADs"><span class="xref std std-term">PADs</span></a> measured for a range of experimental parameters can provide a dataset with sufficient information content to determine the magnitudes and phases of the photoelectron wavefunction, hence the photoionization dynamics may be reconstructed from the measurements in favourable cases. This class of measurement is traditionally termed a <em>complete photoionization experiment</em>, although the exact nature of the completeness may vary. The phase-sensitivity of photoelectron interferograms have also been used in complementary fashions in other contexts, including as a means to probe the phase-shift induced by a specific prepared pathway, and control in multipath schemes, and in many other regimes.</p>
+<p>[…]</p>
+<p>… the combination of a phase-sensitive quantum mechanical observable - photoelectron interferograms - with modern experimental and computational techniques provides the tools required for a full quantum metrology based on this class of measurement. Following the above discussion and definitions, a full metrology technique is one which allows both the <em>intrinsic</em> and <em>extrinsic/dynamic</em> quantum mechanical properties of the system under study to be obtained/reconstructed from a measurement, or set of measurements. In the simplest case, one might seek to understand just the intrinsic photoionization dynamics of a scattering system (e.g. the magnitudes and phases of the various pathways […]), while in more complex cases the intrinsic properties are part of a probe process for additional properties or dynamics of the system […]. In all cases, the key is measurement (and possibly control) with a high information-content technique, and a detailed understanding of the processes involved.</p>
+<p class="attribution">—<em>Quantum Metrology</em> Vol. 1 <span id="id7">[<a class="reference internal" href="../backmatter/bibliography.html#id663" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5.">2</a>]</span>, Chpt. 1</p>
+</div></blockquote>
+<p>In summary, the focus of the work presented herein is the quantitative analysis of phase-sensitive observables from photoionization, specifically photoelectron angular distributions (<a class="reference internal" href="../backmatter/glossary.html#term-PADs"><span class="xref std std-term">PADs</span></a>) as a function of energy, angle and time, which will be denoted <span class="math notranslate nohighlight">\(I(\epsilon,t,\theta,\phi)\)</span> in general herein. These <em>photoelectron interferograms</em> are introducted in more detail (including examples) in <a class="reference internal" href="theory_observables_intro_100723.html#sect-theory-observables"><span class="std std-numref">Sect. 3.6</span></a>.</p>
+<figure class="align-default" id="fig-bootstrap-concept-outline">
+<img alt="../_images/concepts_fig_draft_010417_withAxes.png" src="../_images/concepts_fig_draft_010417_withAxes.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Conceptual outline for the generalised bootstrap matrix element retrieval protocol, including retrieval of <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a> properties, via a set of time-resolved measurements and suitable post-processing scheme. In the <a class="reference internal" href="../backmatter/glossary.html#term-LF"><span class="xref std std-term">LF</span></a>/<a class="reference internal" href="../backmatter/glossary.html#term-AF"><span class="xref std std-term">AF</span></a>, a set of laser pulses creates and probes an aligned distribution of molecules, and photoelectron images are measured (as a function of time, hence molecular alignment). The experimental data is analyzed through a multi-step “bootstrap” protocol to obtain matrix elements, which constitute a complete description of the photoionization event. These can further be used to obtain <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a> observables, for any polarization geometry. Note the coordinates show will be used throughout the book, with the <a class="reference internal" href="../backmatter/glossary.html#term-LF"><span class="xref std std-term">LF</span></a> z-axis defined relative to the laser field (E) polarization, and the <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a> defined with the molecular axis aligned along the z-axis (and polarization geometries for the laser field (E) referenced to this axis) - see also <a class="reference internal" href="theory_tensor_formalism_160723.html#fig-frame-defns"><span class="std std-numref">Fig. 3.1</span></a> for a more detailed frame definition.</span><a class="headerlink" href="#fig-bootstrap-concept-outline" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="generalised-geometric-metrology-protocols">
+<h3><span class="section-number">1.1.2. </span>Generalised geometric metrology protocols<a class="headerlink" href="#generalised-geometric-metrology-protocols" title="Permalink to this heading">#</a></h3>
+<p>In order to develop a quantitative form of photoelectron spectroscopy, hence analyse photoelectron interferograms in the context of quantum metrology in general, a number of techniques have previously been investigated (see <em>Quantum Metrology</em> Vols. 1 &amp; 2 <span id="id8">[<a class="reference internal" href="../backmatter/bibliography.html#id663" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5.">2</a>, <a class="reference internal" href="../backmatter/bibliography.html#id664" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3.">5</a>]</span>). In general, any applicable technique involves the manipulation or control of parameters which affect the observables in analytically-defined (or otherwise well-characterised) ways; measurements over a set of suitable experimental or control parameters then provide the high information-content dataset required for a full characterisation of the system at hand. Typically, “geometric” (angular-momentum) properties of the system provide a suitable set of control parameters, and a number of experimental methodologies with different flavours of these parameters have been demonstrated (see <em>Quantum Metrology</em> Vol. 2 <span id="id9">[<a class="reference internal" href="../backmatter/bibliography.html#id664" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3.">5</a>]</span>). The main, outstanding, issue with previous techniques was the system-specific nature of many of the applications: ideally, one would like to make use of a generalised protocol, which is independent of the particulars of the system under study, hence does not require, for example, specific spectroscopic properties to be known and/or be experimentally accessible.</p>
+<p>The main aim of the work in the current volume is the further development, deployment and demonstrations of, such a scheme. The focus is on one specific <em>high information-content</em> technique: the <em>generalised bootstrapping</em> protocol, which makes use of experiments using rotational wavepackets as a (geometric) control dimension, and time-resolved photoelectron measurements as a high-dimensionality, phase-sensitive observable; the combination of these measurements with a quantitative analysis methodology provides a (relatively) general route to a full quantum metrology with photoelectrons (a.k.a. complete photoionization experiments, a.k.a. quantum state reconstruction/quantum tomography). A brief introduction to the technique is given below, with theoretical and numerical techniques and demonstrations forming the remainder of this book; interested readers can find a longer topical introduction in <em>Quantum Metrology</em> Vol. 2 <span id="id10">[<a class="reference internal" href="../backmatter/bibliography.html#id664" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3.">5</a>]</span> (in particular Chpt. 11), and see also Ref. <span id="id11">[<a class="reference internal" href="../backmatter/bibliography.html#id758" title="Claude Marceau, Varun Makhija, Dominique Platzer, A. \relax Yu. Naumov, P. B. Corkum, Albert Stolow, D. M. Villeneuve, and Paul Hockett. Molecular Frame Reconstruction Using Time-Domain Photoionization Interferometry. Physical Review Letters, 119(8):083401, August 2017. URL: https://link.aps.org/doi/10.1103/PhysRevLett.119.083401.">1</a>]</span> for an experimental demonstration, and Refs. <span id="id12">[]</span> for a recent review in the context of molecular frame reconstruction.</p>
+<p>As defined in <em>Quantum Metrology</em> Vol. 2 <span id="id13">[<a class="reference internal" href="../backmatter/bibliography.html#id664" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3.">5</a>]</span>:</p>
+<blockquote class="epigraph">
+<div><p>For the analysis of the data [time-resolved photoelectron images from a rotationally-excited system], a ‘bootstrapping’ fitting approach was developed. This methodology [… is illustrated conceptually in <a class="reference internal" href="#fig-bootstrap-concept-outline"><span class="std std-numref">Fig. 1.1</span></a>, and outlined in more detail in <a class="reference internal" href="numerics_070723.html#fig-bootstrap-fitting-diag"><span class="std std-numref">Fig. 4.1</span></a> …] is comprised of two stages (potentially split into multiple steps) which allow for the separation of the two sets of unknowns (rotational and ionization dynamics), and provides a way to gradually bootstrap to the complete <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a> results via stages of analysis of increasing complexity. The nature of the fitting at each stage also provides a flexible methodology which can be used to carefully sample the solution hyperspace in order to ensure unique results, and fit with variable information content (experimental measurements) based on computational time and desired precision, based on a similar Monte-Carlo sampling manner to the methodologies already discussed […]. In all cases, the underlying physics provides stringent limits on the form of the fitting functions, hence the fitting procedure at each stage is expected to be somewhat reliable by construction. Further analysis of the results, including comparison with experimental parameters, additional data not used in the analysis, and <em>ab initio</em> calculations all provide additional means of cross-checking and verifying the extracted physical parameters.</p>
+<p>In terms of information content, the bootstrapping procedure gradually increases both the experimental information content - the number of geometric configurations of the photoionization interferometer - and the level of physical information included (hence fitted/extracted) in the analysis. In the first step, <a class="reference internal" href="../backmatter/glossary.html#term-ADMs"><span class="xref std std-term">ADMs</span></a> [i.e. molecular alignment properties] are determined without the need for accurate treatment of the ionization probe <span id="id14">[<a class="reference internal" href="../backmatter/bibliography.html#id756">6</a>]</span>; in the second step this information is used as part of the calculation to determine the ionization dynamics. In the sub-steps to determine the ionization dynamics, the experimental information content included in the analysis is gradually increased: the initial coarse steps in this procedure provide a base-line high information content, without the necessity for many temporal points, via the selection of highly distinct molecular axis distributions, while latter sub-steps allow for fine-tuning of the data by gradually coupling additional time-steps [or other constraints] into the analysis.</p>
+<p class="attribution">—<em>Quantum Metrology</em> Vol. 2 <span id="id15">[<a class="reference internal" href="../backmatter/bibliography.html#id664" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3.">5</a>]</span>, Chpt. 11</p>
+</div></blockquote>
+<p>The protocol as presented relies on certain steps to be experimentally realisable, and theoretically calculable:</p>
+<ol class="arabic simple">
+<li><p>Molecular alignment. Experimentally, this can be induced in any system with a strong (typically <span class="math notranslate nohighlight">\(&gt;10^{12}\)</span>~Wcm<span class="math notranslate nohighlight">\(^{-2}\)</span>), short (few hundred femtosecond timescale or shorter) infra-red laser pulse, which (impulsively) creates a rotational wavepacket in the system. The exact nature of the wavepacket is laser pulse(s) and system dependent, but the technique is general.</p></li>
+<li><p>Time-resolved photoelectron measurements. Experimentally, this requires - at minumum - a pump-probe type configuration, with the alignment pulse as the pump, and a time-delayed ionization pulse. This is a typical experimental configuration in many ultrafast laser labs, with pulses typically in the atto- or femto-second regime. Measurements may be made by any angle-resolved technique; photoelectron imaging (via velocity-map imaging, <a class="reference internal" href="../backmatter/glossary.html#term-VMI"><span class="xref std std-term">VMI</span></a>) is currently the most accessible and widespread method.</p></li>
+<li><p>Data analysis. This provides the bridge from high information-content measurements to a full quantum
+metrology (system characterisation). For the generalised bootstrapping approach this requires:</p>
+<ul class="simple">
+<li><p>In order to characterise the rotational wavepacket created, alignment calculations of the system must be possible - such computations are increasingly tractable, if not already (somewhat) routine for a number of groups, although quite challenging and computational expensive for asymmetric top systems. These calculations are required in order to determine the rotational wavepacket (<a class="reference internal" href="../backmatter/glossary.html#term-RWP"><span class="xref std std-term">RWP</span></a>) quantitatively, and in order to determine the corresponding <a class="reference internal" href="../backmatter/glossary.html#term-ADMs"><span class="xref std std-term">ADMs</span></a> from/for the experiment. <a class="reference internal" href="../backmatter/glossary.html#term-RWP"><span class="xref std std-term">RWP</span></a> computation is beyond the scope of the current work, but their use in the bootstrapping protocol is discussed in <a class="reference internal" href="numerics_070723.html#chpt-numerical-details"><span class="std std-numref">Chapter 4</span></a>.</p></li>
+<li><p>To characterise the <em>intrinsic</em> photoionization dynamics, a set of appropriate geometric basis functions must be computed, and combined with a sufficiently large dataset to enable extraction of the photoionization matrix elements via a fitting procedure. This is the main focus of Part II herein.</p></li>
+<li><p>(Optional) In cases with <em>extrinsic</em> dynamics, these may further be analysed once the <em>intrinsic</em> dynamics have been characterised (or as part of that characterisation); this may, however, remain qualitative or semi-quantitative, depending on the system dynamics and complexity. This aspect of photoelectron metrology is beyond the scope of the current work, see discussion in <em>Quantum Metrology</em> Vol. 2 <span id="id16">[<a class="reference internal" href="../backmatter/bibliography.html#id664" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3.">5</a>]</span> for more discussion; recent examples of such work may be found in Refs. <span id="id17">[]</span>, which investigated coherent electronic dynamics and complete quantum tomography of such a case.</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>(Optional) <em>Ab initio</em> computations may also be performed to compare with any or all of the previous steps; comparison with step 3 is particularly powerful, since one can compare fundamental quantum mechanical properties, as opposed to comparisons between measured and simulated observables, which may be integrated over many degrees of freedom of the system.</p></li>
+</ol>
+<p>As detailed in the following section (<a class="reference internal" href="#sec-intro-context"><span class="std std-numref">Sect. 1.2</span></a>), the main aims herein are the development of the methodology and toolkit to address the data analysis requirement (step 3), and to test this methodology for a range of example cases.</p>
+</section>
+</section>
+<section id="context-aims-for-vol-3">
+<span id="sec-intro-context"></span><h2><span class="section-number">1.2. </span>Context &amp; aims for Vol. 3<a class="headerlink" href="#context-aims-for-vol-3" title="Permalink to this heading">#</a></h2>
+<section id="scientific-aims">
+<h3><span class="section-number">1.2.1. </span>Scientific aims<a class="headerlink" href="#scientific-aims" title="Permalink to this heading">#</a></h3>
+<p>The work in the current volume primarily addresses recent developments towards a generalised bootstrapping protocol (i.e. the analysis of the data obtained by time-resolved photoelectron imaging measurements - or similar - from a rotationally-excited system), as previously outlined in <em>Quantum Metrology</em> Vol. 2 <span id="id18">[<a class="reference internal" href="../backmatter/bibliography.html#id664" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3.">5</a>]</span> Sect. 12.3; in particular the new <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id19">[<a class="reference internal" href="../backmatter/bibliography.html#id668" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">3</a>]</span> has been built with the aim of making the protocol easy to use and apply to any given problem (as distinct from a bespoke/per-experiment analysis methodology and/or non-open-source codebase).</p>
+<p>Part I herein includes a full precis of the new codebase (<a class="reference internal" href="platform_intro_070723.html#chpt-platformintro"><span class="std std-numref">Chapter 2</span></a>), along with the theory (<a class="reference internal" href="theory_100723.html#chpt-theory"><span class="std std-numref">Chapter 3</span></a>) and numerics (<a class="reference internal" href="numerics_070723.html#chpt-numerical-details"><span class="std std-numref">Chapter 4</span></a>) implemented towards this end; <a class="reference internal" href="../part2/extracting_matrix_elements_overview_270423.html#chpt-extracting-matrix-elements-overview"><span class="std std-ref">Part II</span></a> provides multiple demonstrations of the new code-base, including the use of the toolkit to investigate more complex systems beyond the simple homonuclear diatomic case demonstrated to date.</p>
+<p>Although the analysis herein focuses on the <a class="reference internal" href="../backmatter/glossary.html#term-RWP"><span class="xref std std-term">RWP</span></a> case, the techniques and codebase developed are equally applicable to <em>any methodology or protocol making use of geometric properties as a variable</em>, and are built with all such problems in mind - although minor modifications or extensions may be required for specific cases. Examples include other cases discussed in <em>Quantum Metrology</em> Vols. 1 &amp; 2 <span id="id20">[<a class="reference internal" href="../backmatter/bibliography.html#id663" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5.">2</a>, <a class="reference internal" href="../backmatter/bibliography.html#id664" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3.">5</a>]</span>, e.g. the use of shaped laser pulses or the use of narrow-band, state-selected rotational excitation; in all cases the fitting/retrieval of matrix elements is carried out in the same manner, and the only changes required to the methodology are the choice of control variable and the corresponding input experimental or theoretical parameters - this is discussed further in <a class="reference internal" href="numerics_070723.html#sect-numerics-other-protocols"><span class="std std-numref">Sect. 4.1.3</span></a>.</p>
+</section>
+<section id="technical-context-and-notes">
+<span id="sec-intro-technical-notes"></span><h3><span class="section-number">1.2.2. </span>Technical context and notes<a class="headerlink" href="#technical-context-and-notes" title="Permalink to this heading">#</a></h3>
+<p>As noted previously, Vol. 3 is somewhat distinct from the previous volumes in the series; although involving computational elements, <em>Quantum Metrology</em> Vols. 1 &amp; 2 <span id="id21">[<a class="reference internal" href="../backmatter/bibliography.html#id663" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5.">2</a>, <a class="reference internal" href="../backmatter/bibliography.html#id664" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3.">5</a>]</span> are more traditional publications. The material presented in this volume aims to continue the exploration of quantum metrology with photoelectrons, with a focus on numerical analysis techniques, forging a closer link between experimental and theoretical results, and making the methodologies discussed directly accessible via a new software platform/ecosystem, <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id22">[<a class="reference internal" href="../backmatter/bibliography.html#id668" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">3</a>]</span>, introduced in more detail in <a class="reference internal" href="platform_intro_070723.html#chpt-platformintro"><span class="std std-numref">Chapter 2</span></a>.
+In order to fulfill this aim, Vol. 3 is an open source computational/computable document, with code directly available to readers to facilitate code transparency and reuse. This can be broken down as follows:</p>
+<ol class="arabic simple">
+<li><p>The book itself is written as a set of <a class="reference external" href="https://jupyter.org">Jupyter Notebooks</a> <span id="id23">[<a class="reference internal" href="../backmatter/bibliography.html#id809" title="Project Jupyter. URL: https://jupyter.org (visited on 2023-01-16).">7</a>]</span>.<a class="footnote-reference brackets" href="#jupyterfootnote" id="id24" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<ul class="simple">
+<li><p>These are <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> files, usually running a <a class="reference external" href="https://www.python.org/">Python kernel</a> <span id="id25">[<a class="reference internal" href="../backmatter/bibliography.html#id811" title="Python.org. July 2023. URL: https://www.python.org/ (visited on 2023-07-07).">8</a>]</span>, each of which is designed such that it can be modified and used independently.</p></li>
+<li><p>The full book is compiled from these sections using the <a class="reference external" href="https://jupyterbook.org/">Jupyter Book</a> <span id="id26">[<a class="reference internal" href="../backmatter/bibliography.html#id695" title="Jupyter Book Project. URL: https://jupyterbook.org.">9</a>, <a class="reference internal" href="../backmatter/bibliography.html#id556" title="Executable Books Community. Jupyter Book. Zenodo, February 2020. URL: https://zenodo.org/record/4539666 (visited on 2023-01-16).">10</a>]</span> project platform,<a class="footnote-reference brackets" href="#jupyterbookfootnote" id="id27" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> which includes build tools and specifications for the specific flavour of <a class="reference external" href="https://mystmd.org/">Markdown (MyST)</a> <span id="id28">[<a class="reference internal" href="../backmatter/bibliography.html#id784" title="MyST Markdown - Tools for the future of technical communication. URL: https://mystmd.org/ (visited on 2023-07-07).">11</a>]</span> used for the written text, and uses <a class="reference external" href="https://www.sphinx-doc.org">Sphinx</a> <span id="id29">[<a class="reference internal" href="../backmatter/bibliography.html#id881" title="Sphinx documentation. URL: https://www.sphinx-doc.org (visited on 2023-07-07).">12</a>]</span> to build HTML and Latex/PDF flavours of the book.</p></li>
+<li><p>The book source code is available via a Github repository, <a class="reference external" href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3"><em>Quantum Metrology</em> Vol. 3 (Github repo)</a>, which includes all the notebooks (in the <code class="docutils literal notranslate"><span class="pre">doc-source</span></code> directory), as well as installation and build notes for building the book itself.</p></li>
+<li><p>An HTML version is also available at <a class="reference external" href="https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/part1/main_intro_051122.html"><em>Quantum Metrology</em> Vol. 3 (HTML version)</a>, which includes interactive figures.</p></li>
+</ul>
+</li>
+<li><p>The code examples <em>within</em> the book make use the new <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id30">[<a class="reference internal" href="../backmatter/bibliography.html#id668" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">3</a>]</span>.</p>
+<ul class="simple">
+<li><p>In order to run code examples, a specific python environment (with various additional python packages) is required.</p></li>
+<li><p>A full introduction to the relevant software tool-chain, including installation instructions for the codes used <em>within</em> the book, can be found in <a class="reference internal" href="platform_intro_070723.html#chpt-platformintro"><span class="std std-numref">Chapter 2:</span></a> <a class="reference internal" href="platform_intro_070723.html#chpt-platformintro"><span class="std std-ref">Quantum metrology software platform/ecosystem overview</span></a>.</p></li>
+<li><p>For a quick and easy installation, including all requirements, a Docker build  of the platform can also be used, see <a class="reference internal" href="platform_intro_070723.html#sect-platform-docker"><span class="std std-numref">Sect. 2.4.2:</span></a> <a class="reference internal" href="platform_intro_070723.html#sect-platform-docker"><span class="std std-ref">Docker deployments</span></a> (see also the <a class="reference external" href="https://github.com/phockett/open-photoionization-docker-stacks">Open Photoionization Docker Stacks</a> <span id="id31">[<a class="reference internal" href="../backmatter/bibliography.html#id671" title="Paul Hockett. Open Photoionization Docker Stacks. URL: https://github.com/phockett/open-photoionization-docker-stacks (visited on 2022-08-04).">13</a>]</span> for more related tools).</p></li>
+<li><p>Once configured, any code examples from the book can be executed locally by the user/reader, and modified as desired. Each notebook is designed to be run as a stand-alone computational document.</p></li>
+</ul>
+</li>
+<li><p>The book can be regarded as, essentially, a manual and introduction to the <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id32">[<a class="reference internal" href="../backmatter/bibliography.html#id668" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">3</a>]</span>, as well as a foundation for those wishing to use (and potentially extend) the platform.</p>
+<ul class="simple">
+<li><p>Part I covers all required background material, including details of the theory and numerical methods implemented.</p></li>
+<li><p>Part II contains various examples of usage for a range of problems, and possible extensions.</p></li>
+<li><p>Since no specific knowledge of the underlying physics should be required to use the software tools, they will hopefully also provide a suitable platform for new researchers wishing to learn about photoionization in general.</p></li>
+<li><p>It is, of course, also hoped that established researchers in the field will find the tools useful, and readily adaptable, to related problems of interest.</p></li>
+<li><p>Further documentation for the software tools (including the full PEMtk API) can be found online in the <a class="reference external" href="https://pemtk.readthedocs.io">PEMtk documentation</a> <span id="id33">[<a class="reference internal" href="../backmatter/bibliography.html#id667" title="Paul Hockett. PEMtk - the Photoelectron Metrology Toolkit - documentation. 2021. URL: https://pemtk.readthedocs.io (visited on 2022-02-18).">14</a>]</span>.</p></li>
+</ul>
+</li>
+</ol>
+<p>Finally, it is of note that whilst readers unfamiliar with the Jupyter and Python ecosystem may find that there is somewhat of a barrier to entry for making use of the platform, it is one that may be worth surmounting given the ubiquity of these tools, and general usefulness in modern scientific/data-science workflows; readers already making use of these tools in their work should have no difficultly, and the platform adheres to standard practice wherever possible. For an introduction to Python for data science, the <a class="reference external" href="https://github.com/jakevdp/PythonDataScienceHandbook">Python Data Science Handbook</a> provides a solid introduction, and is itself <a class="reference external" href="https://github.com/jakevdp/PythonDataScienceHandbook">an open source textbook available via Github</a> <span id="id34">[<a class="reference internal" href="../backmatter/bibliography.html#id921" title="Jake VanderPlas. Python Data Science Handbook. O'Reilly Media, Inc., 2016. ISBN 978-1-4919-1205-8. URL: https://www.oreilly.com/library/view/python-data-science/9781491912126/ (visited on 2023-07-07).">15</a>, <a class="reference internal" href="../backmatter/bibliography.html#id922" title="Jake VanderPlas. Python Data Science Handbook. July 2023. URL: https://github.com/jakevdp/PythonDataScienceHandbook (visited on 2023-07-07).">16</a>]</span>.</p>
+</section>
+<section id="a-brief-note-on-open-science-open-source-software-and-reproducibility">
+<span id="sect-intro-open-science"></span><h3><span class="section-number">1.2.3. </span>A brief note on open science, open source software and reproducibility<a class="headerlink" href="#a-brief-note-on-open-science-open-source-software-and-reproducibility" title="Permalink to this heading">#</a></h3>
+<p>A large part of the motivation for creating new tools, making them open source, and standardized, is down to the nature of the modern scientific endeavour, and the difficulty of reproducibility. In short, many projects now involve a substantial element of analysis making use of in-house codes, which are often inaccessible to other researchers; the same may apply to the raw datasets used. Whilst this may be justified in some cases, in general it leads to a lack of transparency and portability for the computational and/or data component(s) of research. The Open Science movement, in part, aims to challenge these issues - see, for further discussion, Refs. <span id="id35">[<a class="reference internal" href="../backmatter/bibliography.html#id509" title="Nick Barnes. Publish your computer code: it is good enough. Nature, 467(7317):753, October 2010. URL: http://www.nature.com/news/2010/101013/full/467753a.html (visited on 2016-04-18).">17</a>, <a class="reference internal" href="../backmatter/bibliography.html#id768" title="Marcia McNutt. Taking up TOP. Science, 2016. URL: http://science.sciencemag.org/content/352/6290/1147.full (visited on 2017-04-04).">18</a>, <a class="reference internal" href="../backmatter/bibliography.html#id789" title="B. A. Nosek, G. Alter, G. C. Banks, D. Borsboom, S. D. Bowman, S. J. Breckler, S. Buck, C. D. Chambers, G. Chin, G. Christensen, M. Contestabile, A. Dafoe, E. Eich, J. Freese, R. Glennerster, D. Goroff, D. P. Green, B. Hesse, M. Humphreys, J. Ishiyama, D. Karlan, A. Kraut, A. Lupia, P. Mabry, T. Madon, N. Malhotra, E. Mayo-Wilson, M. McNutt, E. Miguel, E. Levy Paluck, U. Simonsohn, C. Soderberg, B. A. Spellman, J. Turitto, G. VandenBos, S. Vazire, E. J. Wagenmakers, R. Wilson, and T. Yarkoni. Promoting an open research culture. Science, 348(6242):1422–1425, June 2015. URL: http://science.sciencemag.org.proxy.bib.uottawa.ca/content/348/6242/1422.full (visited on 2017-04-04).">19</a>, <a class="reference internal" href="../backmatter/bibliography.html#id885" title="Victoria Stodden and Sheila Miguez. Best Practices for Computational Science: Software Infrastructure and Environments for Reproducible and Extensible Research. Journal of Open Research Software, 2(1):e21, July 2014. URL: http://openresearchsoftware.metajnl.com/articles/10.5334/jors.ay/ (visited on 2016-03-17).">20</a>]</span>, or the <a class="reference external" href="https://en.wikipedia.org/wiki/Open_science">Wikipeadia Open Science page</a> for a brief summary <span id="id36">[<a class="reference internal" href="../backmatter/bibliography.html#id940">21</a>]</span>.</p>
+<p>As noted above, this book is fully open-source, including the full book source code, the computational libraries used and the datasets illustrated herein, and available via <a class="reference external" href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3"><em>Quantum Metrology</em> Vol. 3 (Github repo)</a>; this is detailed further in <a class="reference internal" href="platform_intro_070723.html#chpt-platformintro"><span class="std std-numref">Sect. 2</span></a>. In order to aid portability and reproducibility, Docker builds are also available: these provide a means to define a full computational platform/stack, from the OS level and up, including all necessary dependencies and version; further details can be found in <a class="reference internal" href="platform_intro_070723.html#sect-platform-docker"><span class="std std-numref">Sect. 2.4.2</span></a>.</p>
+<p>In general, it is hoped that making such tools more accessible, usable, and interconnected - as well as making computational data generally available - will lower the barrier to entry to the field and create a useful foundation for interested researchers to work from.</p>
+<hr class="footnotes docutils" />
+<aside class="footnote brackets" id="jupyterfootnote" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id24">1</a><span class="fn-bracket">]</span></span>
+<p>For more information on the <a class="reference external" href="https://jupyter.org">Jupyter Project and ecosystem</a>, see <a class="reference external" href="https://jupyter.org">jupyter.org</a> and Refs. <span id="id37">[<a class="reference internal" href="../backmatter/bibliography.html#id809" title="Project Jupyter. URL: https://jupyter.org (visited on 2023-01-16).">7</a>, <a class="reference internal" href="../backmatter/bibliography.html#id709" title="Thomas Kluyver, Benjamin Ragan-Kelley, P&amp;#233, Fernando Rez, Brian Granger, Matthias Bussonnier, Jonathan Frederic, Kyle Kelley, Jessica Hamrick, Jason Grout, Sylvain Corlay, Paul Ivanov, Dami&amp;#225 Avila, n, Safia Abdalla, Carol Willing, and Jupyter Development Team. Jupyter Notebooks – a publishing format for reproducible computational workflows. Positioning and Power in Academic Publishing: Players, Agents and Agendas, pages 87–90, 2016. URL: https://ebooks.iospress.nl/doi/10.3233/978-1-61499-649-1-87 (visited on 2023-01-16).">22</a>, <a class="reference internal" href="../backmatter/bibliography.html#id623" title="Brian E. Granger and Fernando Pérez. Jupyter: Thinking and Storytelling With Code and Data. Computing in Science &amp; Engineering, 23(2):7–14, March 2021.">23</a>]</span>.)</p>
+</aside>
+<aside class="footnote brackets" id="jupyterbookfootnote" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id27">2</a><span class="fn-bracket">]</span></span>
+<p>For more information see <a class="reference external" href="https://jupyterbook.org">jupyterbook.org</a> and Refs. <span id="id38">[<a class="reference internal" href="../backmatter/bibliography.html#id695" title="Jupyter Book Project. URL: https://jupyterbook.org.">9</a>, <a class="reference internal" href="../backmatter/bibliography.html#id556" title="Executable Books Community. Jupyter Book. Zenodo, February 2020. URL: https://zenodo.org/record/4539666 (visited on 2023-01-16).">10</a>]</span>.</p>
+</aside>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../frontmatter/overview_270122.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Overview</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="platform_intro_070723.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Quantum metrology software platform/ecosystem overview</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topical-introduction-from-quantum-metrology-to-a-generalised-bootstrapping-protocol">1.1. Topical introduction: from quantum metrology to a generalised bootstrapping protocol</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-metrology-with-photoelectrons">1.1.1. Quantum metrology with photoelectrons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalised-geometric-metrology-protocols">1.1.2. Generalised geometric metrology protocols</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#context-aims-for-vol-3">1.2. Context &amp; aims for Vol. 3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-aims">1.2.1. Scientific aims</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-context-and-notes">1.2.2. Technical context and notes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-note-on-open-science-open-source-software-and-reproducibility">1.2.3. A brief note on open science, open source software and reproducibility</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Paul Hockett with Varun Makhija
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

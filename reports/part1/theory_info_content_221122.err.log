@@ -1,19 +1,17 @@
 Traceback (most recent call last):
-  File "/opt/conda/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/client.py", line 1117, in execute
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/util.py", line 78, in wrapped
-    return just_run(coro(*args, **kwargs))
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/util.py", line 57, in just_run
-    return loop.run_until_complete(coro)
-  File "/opt/conda/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/conda/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
     return future.result()
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/client.py", line 558, in async_execute
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/client.py", line 862, in async_execute_cell
-    self._check_raise_for_error(cell, exec_reply)
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/client.py", line 765, in _check_raise_for_error
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -26,15 +24,56 @@ BetaNormLinearADMsPD, _ = ep.util.multiDimXrToPD(BetaNormLinearADMs.squeeze().re
 BetaNormLinearADMsPD.describe()   #([pd.unique])   #(['nunique'])
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipykernel_69391/2303616640.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0;31m# Convert to PD and tabulate with epsproc functionality[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      2[0m [0;31m# Note restack along 't' dimension[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 3[0;31m [0mBetaNormLinearADMsPD[0m[0;34m,[0m [0m_[0m [0;34m=[0m [0mep[0m[0;34m.[0m[0mutil[0m[0;34m.[0m[0mmultiDimXrToPD[0m[0;34m([0m[0mBetaNormLinearADMs[0m[0;34m.[0m[0msqueeze[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mreal[0m[0;34m,[0m [0mthres[0m[0;34m=[0m[0;36m1e-4[0m[0;34m,[0m [0mcolDims[0m[0;34m=[0m[0;34m't'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      4[0m [0;34m[0m[0m
-[1;32m      5[0m [0;31m# Basic describe with Pandas, see https://pandas.pydata.org/docs/user_guide/basics.html#summarizing-data-describe[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mNameError[0m: name 'BetaNormLinearADMs' is not defined
-NameError: name 'BetaNormLinearADMs' is not defined
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+Cell [0;32mIn[10], line 7[0m
+[1;32m      3[0m BetaNormLinearADMsPD, _ [38;5;241m=[39m ep[38;5;241m.[39mutil[38;5;241m.[39mmultiDimXrToPD(BetaNormLinearADMs[38;5;241m.[39msqueeze()[38;5;241m.[39mreal, thres[38;5;241m=[39m[38;5;241m1e-4[39m, colDims[38;5;241m=[39m[38;5;124m'[39m[38;5;124mt[39m[38;5;124m'[39m)
+[1;32m      5[0m [38;5;66;03m# Basic describe with Pandas, see https://pandas.pydata.org/docs/user_guide/basics.html#summarizing-data-describe[39;00m
+[1;32m      6[0m [38;5;66;03m# This will give properties per t[39;00m
+[0;32m----> 7[0m [43mBetaNormLinearADMsPD[49m[38;5;241;43m.[39;49m[43mdescribe[49m[43m([49m[43m)[49m   [38;5;66;03m#([pd.unique])   #(['nunique'])[39;00m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/pandas/core/generic.py:10940[0m, in [0;36mNDFrame.describe[0;34m(self, percentiles, include, exclude, datetime_is_numeric)[0m
+[1;32m  10691[0m [38;5;129m@final[39m
+[1;32m  10692[0m [38;5;28;01mdef[39;00m [38;5;21mdescribe[39m(
+[1;32m  10693[0m     [38;5;28mself[39m: NDFrameT,
+[0;32m   (...)[0m
+[1;32m  10697[0m     datetime_is_numeric: bool_t [38;5;241m=[39m [38;5;28;01mFalse[39;00m,
+[1;32m  10698[0m ) [38;5;241m-[39m[38;5;241m>[39m NDFrameT:
+[1;32m  10699[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m  10700[0m [38;5;124;03m    Generate descriptive statistics.[39;00m
+[1;32m  10701[0m 
+[0;32m   (...)[0m
+[1;32m  10938[0m [38;5;124;03m    max            NaN      3.0[39;00m
+[1;32m  10939[0m [38;5;124;03m    """[39;00m
+[0;32m> 10940[0m     [38;5;28;01mreturn[39;00m [43mdescribe_ndframe[49m[43m([49m
+[1;32m  10941[0m [43m        [49m[43mobj[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[43m,[49m
+[1;32m  10942[0m [43m        [49m[43minclude[49m[38;5;241;43m=[39;49m[43minclude[49m[43m,[49m
+[1;32m  10943[0m [43m        [49m[43mexclude[49m[38;5;241;43m=[39;49m[43mexclude[49m[43m,[49m
+[1;32m  10944[0m [43m        [49m[43mdatetime_is_numeric[49m[38;5;241;43m=[39;49m[43mdatetime_is_numeric[49m[43m,[49m
+[1;32m  10945[0m [43m        [49m[43mpercentiles[49m[38;5;241;43m=[39;49m[43mpercentiles[49m[43m,[49m
+[1;32m  10946[0m [43m    [49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/pandas/core/describe.py:94[0m, in [0;36mdescribe_ndframe[0;34m(obj, include, exclude, datetime_is_numeric, percentiles)[0m
+[1;32m     89[0m     describer [38;5;241m=[39m SeriesDescriber(
+[1;32m     90[0m         obj[38;5;241m=[39mcast([38;5;124m"[39m[38;5;124mSeries[39m[38;5;124m"[39m, obj),
+[1;32m     91[0m         datetime_is_numeric[38;5;241m=[39mdatetime_is_numeric,
+[1;32m     92[0m     )
+[1;32m     93[0m [38;5;28;01melse[39;00m:
+[0;32m---> 94[0m     describer [38;5;241m=[39m [43mDataFrameDescriber[49m[43m([49m
+[1;32m     95[0m [43m        [49m[43mobj[49m[38;5;241;43m=[39;49m[43mcast[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mDataFrame[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mobj[49m[43m)[49m[43m,[49m
+[1;32m     96[0m [43m        [49m[43minclude[49m[38;5;241;43m=[39;49m[43minclude[49m[43m,[49m
+[1;32m     97[0m [43m        [49m[43mexclude[49m[38;5;241;43m=[39;49m[43mexclude[49m[43m,[49m
+[1;32m     98[0m [43m        [49m[43mdatetime_is_numeric[49m[38;5;241;43m=[39;49m[43mdatetime_is_numeric[49m[43m,[49m
+[1;32m     99[0m [43m    [49m[43m)[49m
+[1;32m    101[0m result [38;5;241m=[39m describer[38;5;241m.[39mdescribe(percentiles[38;5;241m=[39mpercentiles)
+[1;32m    102[0m [38;5;28;01mreturn[39;00m cast(NDFrameT, result)
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/pandas/core/describe.py:171[0m, in [0;36mDataFrameDescriber.__init__[0;34m(self, obj, include, exclude, datetime_is_numeric)[0m
+[1;32m    168[0m [38;5;28mself[39m[38;5;241m.[39mexclude [38;5;241m=[39m exclude
+[1;32m    170[0m [38;5;28;01mif[39;00m obj[38;5;241m.[39mndim [38;5;241m==[39m [38;5;241m2[39m [38;5;129;01mand[39;00m obj[38;5;241m.[39mcolumns[38;5;241m.[39msize [38;5;241m==[39m [38;5;241m0[39m:
+[0;32m--> 171[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;124mCannot describe a DataFrame without columns[39m[38;5;124m"[39m)
+[1;32m    173[0m [38;5;28msuper[39m()[38;5;241m.[39m[38;5;21m__init__[39m(obj, datetime_is_numeric[38;5;241m=[39mdatetime_is_numeric)
+
+[0;31mValueError[0m: Cannot describe a DataFrame without columns
 

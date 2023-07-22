@@ -37,7 +37,7 @@ gluePlotly("padExamplePlot2", figObj)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mTypeError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipykernel_69681/458058874.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_129180/458058874.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      8[0m [0;34m[0m[0m
 [1;32m      9[0m [0mdata[0m[0;34m.[0m[0msetData[0m[0;34m([0m[0;34m'BLMtest'[0m[0;34m,[0m [0mBLM[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0;32m---> 10[0;31m [0mdata[0m[0;34m.[0m[0mpadPlot[0m[0;34m([0m[0mkeys[0m [0;34m=[0m [0;34m'BLMtest'[0m[0;34m,[0m [0mdataType[0m[0;34m=[0m[0;34m'AFBLM'[0m[0;34m,[0m [0mEtype[0m[0;34m=[0m[0;34m't'[0m[0;34m,[0m [0mbackend[0m[0;34m=[0m[0mplotBackend[0m[0;34m,[0m [0mplotFlag[0m[0;34m=[0m[0;32mFalse[0m[0;34m,[0m [0mreturnFlag[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m  [0;31m# Working[0m[0;34m[0m[0;34m[0m[0m

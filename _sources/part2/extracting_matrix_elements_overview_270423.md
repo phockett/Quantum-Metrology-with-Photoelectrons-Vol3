@@ -28,6 +28,10 @@ The layout for this part is as follows:
    - {numref}`Chapter %s: <chpt:ocs-case-study>` {ref}`chpt:ocs-case-study`: A more complicated example. In this case, $C_{\infty v}$, up-down symmetry is broken in the molecular frame. Fitting for various cases is explored, looking at 1D and 3D alignment.
    - {numref}`Chapter %s: <chpt:c2h4-case-study>` {ref}`chpt:c2h4-case-study`: The most general example of an asymmetric top system, in this case $C_2H_4$ (ethylene), $C_{2h}$. Again various cases and limitations are examined, for 1D and 3D alignment.
 
-```{code-cell} ipython3
++++
 
+````{margin}
+```{warning}
+As {ref}`noted elsewhere <sec:numerics:disclaimer>`, many components of the toolkit are still in active development, and some numerical details may change. This is particularly true for 3D alignment examples, which are here presented as new, and provisional, results.
 ```
+````

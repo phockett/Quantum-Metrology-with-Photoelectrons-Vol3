@@ -1,0 +1,81 @@
+\begin{sphinxtheindex}
+\let\lettergroup\sphinxstyleindexlettergroup
+\let\lettergroupDefault\sphinxstyleindexlettergroupDefault
+\let\spxpagem\sphinxstyleindexpagemain
+\let\spxentry\sphinxstyleindexentry
+\let\spxextra\sphinxstyleindexextra
+
+
+  \lettergroup{A}
+  \item \spxentry{ADMs}, \spxpagem{\hyperpage{131}}
+  \item \spxentry{AF}, \spxpagem{\hyperpage{131}}
+  \item \spxentry{anisotropy paramters}, \spxpagem{\hyperpage{131}}
+  \item \spxentry{axis distribution moments}, \spxpagem{\hyperpage{131}}
+
+  \indexspace
+
+  \lettergroup{C}
+  \item \spxentry{channel functions}, \spxpagem{\hyperpage{132}}
+
+  \indexspace
+
+  \lettergroup{E}
+  \item \spxentry{Euler angles}, \spxpagem{\hyperpage{132}}
+
+  \indexspace
+
+  \lettergroup{F}
+  \item \spxentry{frame rotation}, \spxpagem{\hyperpage{132}}
+
+  \indexspace
+
+  \lettergroup{G}
+  \item \spxentry{geometric coupling parameters}, \spxpagem{\hyperpage{132}}
+
+  \indexspace
+
+  \lettergroup{H}
+  \item \spxentry{HOMO}, \spxpagem{\hyperpage{132}}
+
+  \indexspace
+
+  \lettergroup{L}
+  \item \spxentry{LF}, \spxpagem{\hyperpage{131}}
+
+  \indexspace
+
+  \lettergroup{M}
+  \item \spxentry{MF}, \spxpagem{\hyperpage{131}}
+  \item \spxentry{molecular alignment}, \spxpagem{\hyperpage{133}}
+  \item \spxentry{MS}, \spxpagem{\hyperpage{131}}
+
+  \indexspace
+
+  \lettergroup{P}
+  \item \spxentry{PADs}, \spxpagem{\hyperpage{131}}
+  \item \spxentry{partial\sphinxhyphen {}wave expansion}, \spxpagem{\hyperpage{132}}
+  \item \spxentry{partial\sphinxhyphen {}waves}, \spxpagem{\hyperpage{132}}
+  \item \spxentry{PG}, \spxpagem{\hyperpage{131}}
+
+  \indexspace
+
+  \lettergroup{R}
+  \item \spxentry{radial matrix elements}, \spxpagem{\hyperpage{132}}
+  \item \spxentry{RWP}, \spxpagem{\hyperpage{132}}
+
+  \indexspace
+
+  \lettergroup{S}
+  \item \spxentry{symmetrized harmonics}, \spxpagem{\hyperpage{132}}
+
+  \indexspace
+
+  \lettergroup{V}
+  \item \spxentry{VMI}, \spxpagem{\hyperpage{132}}
+
+  \indexspace
+
+  \lettergroup{W}
+  \item \spxentry{Wigner rotation matrix elements}, \spxpagem{\hyperpage{132}}
+
+\end{sphinxtheindex}
