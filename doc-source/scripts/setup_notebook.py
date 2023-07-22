@@ -219,6 +219,10 @@ import numpy as np
 import xarray as xr
 import pandas as pd
 
+# Added 22/07/23 for plt.plot() for glue
+# May break other default fig options?
+from matplotlib import pyplot as plt
+
 #*** Pandas display options
 pd.set_option("display.precision", 3)
 

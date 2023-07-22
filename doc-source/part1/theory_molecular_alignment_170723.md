@@ -32,7 +32,8 @@ TO DO:
       - actually, it's the molplot setup part that's failing in newer builds, can ignore for now.
       - BUT only on a rerun of the notebook, seems related to when %matplotlib inline is called, and what is in the buffer...?
       - Working in current build after `pip install matplotlib==3.5`, although still getting inconsistent behaviour with Mol Plot (which seems to be the source of the issues). Go with this for now.
-      - 22/07/23, working v3.5.3 BUT ONLY with `%matplotlib inline` included at beginning of ADM plotting cell, otherwise get callback errors again. Weird.
+      - 22/07/23, working v3.5.3 BUT ONLY with `%matplotlib inline` included at beginning of ADM plotting cell, otherwise get callback errors again. Weird. UPDATE: looks like Arrow3D issue, see note to fix https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/11
+      - 22/07/23, added some extra plot tests and GLUE tests (to finish). 
 
 +++
 
@@ -124,11 +125,43 @@ data.data['subset']['ADM'].unstack().where(data.data['subset']['ADM'].unstack().
 For 1D and 2D cases, the full axis distributions can be expanded in spherical harmonics and plotted using {{ PEMtk_repo }} class methods. This is briefly illustrated below. Note that expansions in {{ WIGNERD }} are not currently supported by these routines.
 
 ```{code-cell} ipython3
-%matplotlib inline  # NOTE - need this in some builds if Matplotlib has call-back errors.
+# NOTE - need this in some builds if Matplotlib has call-back errors.
+%matplotlib inline  
 # Plot P(theta,t) with summation over phi dimension
 # Note the plotting function automatically expands the ADMs in spherical harmonics
 dataKey = 'subset'
 data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pStyle='grid', reducePhi='sum', returnFlag = True)
+
+# And GLUE for display later with caption
+# Object return not working here? Try plt.gca() instead.
+glue("PthetaGrid", plt.gca())
+```
+
+```{code-cell} ipython3
+# GLUE TESTING ONLY
+
+# # Glue figure for display
+# figObj = data.data[dataKey]['plots']['ADM']['grid']
+
+# # And GLUE for display later with caption
+# gluePlotly("PthetaGrid", figObj)
+
+# dir(figObj)
+# # figObj.draw(renderer=None)
+# from matplotlib import pyplot as plt
+# plt.show()
+
+# Test hv plot version
+# subset.plot(x='Theta', y=Etype, col=list({*facetDimsCheck}-{Etype})[0], robust=True)
+# data.data[dataKey]['plots']['ADM']['pData'].plot(x='Theta', y='t', robust=True)
+norm = data.data[dataKey]['plots']['ADM']['pData'].max()
+# (data.data[dataKey]['plots']['ADM']['pData']/norm).hvplot(x='Theta', y='t', cmap='vlag')
+(data.data[dataKey]['plots']['ADM']['pData']/norm).hvplot(y='Theta', x='t', cmap='vlag')
+# pObj = plt.gca()
+```
+
+```{code-cell} ipython3
+# glue("PthetaGrid", pObj)
 ```
 
 ```{code-cell} ipython3
