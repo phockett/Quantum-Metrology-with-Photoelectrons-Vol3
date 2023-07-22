@@ -32,6 +32,7 @@ TO DO:
       - actually, it's the molplot setup part that's failing in newer builds, can ignore for now.
       - BUT only on a rerun of the notebook, seems related to when %matplotlib inline is called, and what is in the buffer...?
       - Working in current build after `pip install matplotlib==3.5`, although still getting inconsistent behaviour with Mol Plot (which seems to be the source of the issues). Go with this for now.
+      - 22/07/23, working v3.5.3 BUT ONLY with `%matplotlib inline` included at beginning of ADM plotting cell, otherwise get callback errors again. Weird.
 
 +++
 
@@ -123,6 +124,7 @@ data.data['subset']['ADM'].unstack().where(data.data['subset']['ADM'].unstack().
 For 1D and 2D cases, the full axis distributions can be expanded in spherical harmonics and plotted using {{ PEMtk_repo }} class methods. This is briefly illustrated below. Note that expansions in {{ WIGNERD }} are not currently supported by these routines.
 
 ```{code-cell} ipython3
+%matplotlib inline  # NOTE - need this in some builds if Matplotlib has call-back errors.
 # Plot P(theta,t) with summation over phi dimension
 # Note the plotting function automatically expands the ADMs in spherical harmonics
 dataKey = 'subset'
