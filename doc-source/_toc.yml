@@ -58,6 +58,9 @@ parts:
     # - file: part2/case-study-OCS_270423  # Skip for now - has lots of fitting embeded
     - file: part2/case-study-OCS_270423-headerOnly
     - file: part2/case-study-C2H4_270423
+    - file: part2/case-study-summaries_240723
+    - file: part2/conclusions_240723
+    
 
   - caption: Backmatter
     chapters:
