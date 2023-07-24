@@ -215,6 +215,7 @@ parse:
     FRAMEROT: "{term}`frame rotation`"
     EULER: "{term}`Euler angles`"
     WIGNERD: "{term}`Wigner rotation matrix elements`"
+    BOOTSTRAP: "{term}`bootstrap retrieval protocol`"
     
     # Maths shorthand
     # BLM: "$\beta_{L,M}$"  # This fails, seems to cut eqn, maybe drops first $?

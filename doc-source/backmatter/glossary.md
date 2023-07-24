@@ -105,6 +105,11 @@ Wigner rotation matrix elements
 molecular alignment
   General term for describing the case where molecules have some alignment in the {{ LF }}, as compared to an isotropic distribution. Defined herein terms of molecular {term}`axis distribution moments` and associated parameters {{ ADMsymbol }}. See {numref}`Sect. %s <sect:theory:alignment>` for details.
 
+
+bootstrap retrieval protocol
+  General term of a retrieval method which determines successively more complex properties of a system in multiple steps, each of which builds on the previous step and adds complexity. Herein, used for the "generalised bootstrapping" method for {{ RADMATE }} retrieval from photoionzation data. For general useage, [see wikipedia's *Bootstrapping* page](https://en.wikipedia.org/wiki/Bootstrapping).
+  
+
 ```
 
 ```{code-cell} ipython3
