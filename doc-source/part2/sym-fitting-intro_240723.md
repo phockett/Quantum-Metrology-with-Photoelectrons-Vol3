@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -608,7 +608,7 @@ dataManual.setMatE(data = [[0,0, *np.ones(EPoints)], [2,0, *np.linspace(0,1,EPoi
              dataNames=['l','m'])
 
 # Matrix elements are set to Xarray and Pandas formats, under the 'matE' key
-dataManual.data['matE'].pd
+dataManual.data['matE']['matE'].pd
 ```
 
 ```{code-cell} ipython3
@@ -619,10 +619,10 @@ dataManual.setMatE(data = [[0,0, *np.ones(EPoints)], [2,0, *np.linspace(0,1,EPoi
              dataNames=['l','m'], conformDims=True)
 
 # Then use as normal
-data.selOpts['matE'] = {'thres': 0.01, 'inds': {'Type':'U', 'Eke':1} }
-data.setSubset(dataKey = 'matE', dataType = 'matE')
-data.data[data.subKey]['matE']['it'] = [1]   # In some cases NaN values may need to be set for setMatEFit.
-data.setMatEFit()
+dataManual.selOpts['matE'] = {'thres': 0.01, 'inds': {'Type':'U', 'Eke':1} }
+dataManual.setSubset(dataKey = 'matE', dataType = 'matE')
+dataManual.data[data.subKey]['matE']['it'] = [1]   # In some cases NaN values may need to be set for setMatEFit.
+dataManual.setMatEFit()
 ```
 
 (sec:basis-sets:comparison-with-abinitio)=
@@ -630,46 +630,31 @@ data.setMatEFit()
 
 +++
 
-For comparison of a given symmetry-defined basis set with sample _ab initio_ calculations using {{ ePS_full }} calculations, results can be computed locally or pulled from the web. Some sample/test datasets can be found as part of the [ePSproc repo](https://github.com/phockett/ePSproc/tree/master/data), which includes $N_2$. Further {{ ePS_full }} datasets are available from the {{ ePSdata_repo }}, and [data can be pulled using the python ePSdata interface](https://epsproc.readthedocs.io/en/dev/demos/ePSdata_download_demo_300720.html).
+For comparison of a given symmetry-defined basis set with sample _ab initio_ calculations using {{ ePS_full }} calculations, results can be computed locally or pulled from the web. Some sample/test datasets can be found as part of the [ePSproc repo](https://github.com/phockett/ePSproc/tree/master/data), which includes the case study examples herein. Further {{ ePS_full }} datasets are available from the {{ ePSdata_repo }}, and [data can be pulled using the python ePSdata interface](https://epsproc.readthedocs.io/en/dev/demos/ePSdata_download_demo_300720.html).
 
-In the following, the test case above for $N_2~3\sigma_g^{-1}$ ionization is illustrated. Note that this comparison shows the results of a full _ab initio_ computation of the matrix elements (Eq. {eq}`eq:matE-dipole`) versus the symmetry-allowed harmonics and associated $b_{hl\lambda}^{\Gamma\mu}$ parameters (Eq. {eq}`eq:symHarm-defn`). In the former case, the $b_{hl\lambda}^{\Gamma\mu}$ are incorporated into the numerical results, but the full angular momentum selection rules and dipole integrals are also included; in the latter case the $b_{hl\lambda}^{\Gamma\mu}$ parameters serve to define the allowed matrix elements, and symmetry relations (e.g. phase, rotations and degeneracy), but _do not_ include any other effects. Hence the comparison here indicates whether the symmetry-defined basis set is sufficient for a matrix element reconstruction, but it may contain terms which are zero in practice, or otherwise drop out from the complete photoionization treatment.
+In the following, the test case above for $N_2~3\sigma_g^{-1}$ ionization is illustrated. Note that this comparison shows the results of a full _ab initio_ computation of the matrix elements (Eq. {eq}`eq:matE-dipole`) versus the symmetry-allowed harmonics and associated $b_{hl\lambda}^{\Gamma\mu}$ parameters (Eq. {eq}`eq:symHarm-defn`). In the former case, the $b_{hl\lambda}^{\Gamma\mu}$ are incorporated into the numerical results, but the full angular momentum selection rules and dipole integrals are also included; in the latter case the $b_{hl\lambda}^{\Gamma\mu}$ parameters serve to define the allowed matrix elements, and symmetry relations (e.g. phase, rotations and degeneracy), but _do not_ include any other effects. Hence the comparison here indicates whether the symmetry-defined basis set is sufficient for a matrix element reconstruction, but it may contain terms which are zero in practice, or otherwise drop out from the complete photoionization treatment. Some conventions may also be different.
 
 ```{code-cell} ipython3
 # Pull N2 data from ePSproc Github repo
-import wget
-from pathlib import Path
-
-# URLs for test ePSproc datasets - n2
-# For more datasets use ePSdata, see https://epsproc.readthedocs.io/en/dev/demos/ePSdata_download_demo_300720.html
-urls = {'n2PU':"https://github.com/phockett/ePSproc/blob/master/data/photoionization/n2_multiorb/n2_1pu_0.1-50.1eV_A2.inp.out",
-        'n2SU':"https://github.com/phockett/ePSproc/blob/master/data/photoionization/n2_multiorb/n2_3sg_0.1-50.1eV_A2.inp.out"}
+dataName = 'n2Data'
 
 # Set data dir
 dataPath = Path(Path.cwd(), 'n2Data')
 
-# Create and pull files if dir not present (NOTE doesn't check per file here)
-if not dataPath.is_dir():
-    dataPath.mkdir()
-
-    # Pull files with wget
-    for k,v in urls.items():
-        wget.download(v+'?raw=true',out=dataPath.as_posix())  # For Github add '?raw=true' to URL
-
-
-# List files
-list(dataPath.glob('*.out'))
+# For pulling data from Github, a utility function is available
+# This requires the repo subpath, and optionally branch
+fDictMatE, fAllMatE = ep.util.io.getFilesFromGithub(subpath='data/photoionization/n2_multiorb', 
+                                                    dataName=dataName, ref='dev')  # Optional settings
 ```
 
 ```{code-cell} ipython3
-# Import data - PEMtk object
-# For more details on ePSproc usage see https://epsproc.readthedocs.io/en/dev/demos/ePSproc_class_demo_161020.html
-
-# from epsproc.classes.multiJob import ePSmultiJob
-# from epsproc.classes.base import ePSbase
-# from pemtk.fit.fitClass import pemtkFit
+# Import data with PEMtk class
+# For more details on ePSproc usage see 
+# https://epsproc.readthedocs.io/en/dev/demos/ePSproc_class_demo_161020.html
 
 # Instantiate class object.
-# Minimally this needs just the dataPath, if verbose = 1 is set then some useful output will also be printed.
+# Minimally this needs just the dataPath, if verbose = 1 is set 
+# then some useful output will also be printed.
 data = pemtkFit(fileBase=dataPath, verbose = 1)
 
 # ScanFiles() - this will look for data files on the path provided, and read from them.
@@ -682,42 +667,28 @@ data.scanFiles()
 :tags: [hide-input]
 
 # Tabulate some demo matrix elements
-singleEdata = ep.matEleSelector(data.data['orb5']['matE'], inds={'Eke':slice(0.001,1,1),'Type':'L'}, thres=1e-3)  #, drop=False, sq=False)   # CURRENTLY ALWAYS DROPPING TYPE HERE
-# singleEdata = ep.matEleSelector(data.data['orb6']['matE'], inds={'Eke':slice(0.001,1,1)}, thres=1e-3)  
-# singleEdata = data.Esubset(key='orb6',dataType='matE',Erange=[0,1,1],Etype='Eke')
+singleEdata = ep.matEleSelector(data.data['orb5']['matE'], inds={'Eke':slice(0.001,1,1),'Type':'L'}, thres=1e-3)
 
-matEPD, _ = ep.multiDimXrToPD(singleEdata, colDims = 'Cont', thres=1e-4)  #, squeeze=False, dropna=False)
-# matEPD.fillna('')
+matEPD, _ = ep.multiDimXrToPD(singleEdata, colDims = 'Cont', thres=1e-4) 
 
 
 # Compare results
 # For side-by-side tables, code adapted from https://stackoverflow.com/a/50899244
-
 from IPython.display import display_html 
 
-# Full case
-# # df1 = symBasis.coeffs['symAllowed']['PD'].droplevel('h').droplevel('Type').sort_index().fillna('')   # .sort_index(level='it', sort_remaining=False)
-# df1 = symBasis.coeffs['symAllowed']['PD'].droplevel('Type').sort_index().fillna('')   # .sort_index(level='it', sort_remaining=False)
-# df2 = matEPD.fillna('').sort_index().sort_index(level='Total', ascending=[False]).sort_index(axis=1, ascending=False)  # Swap sym label ordering to match symmetry case. Note ascenting=[False] for multindex case single level only.
-
-# df1_styler = df1.style.set_table_attributes("style='display:inline'").set_caption('<b>Symmetry basis</b>')
-# df2_styler = df2.style.set_table_attributes("style='display:inline'").set_caption('<b>ePS basis</b>')
-
-# display_html(df1_styler._repr_html_()+df2_styler._repr_html_(), raw=True)
-
-
-# Check specific symmetry sets...
-
-# df1['A1g'].dropna()
-syms = ['A2u','SU']
-# syms = ['E1u','PU']
-# df1 = symBasis.coeffs['symAllowed']['PD'].droplevel('Type').sort_index()[syms[0]].dropna().to_frame()
+# Check specific symmetry sets
+syms = ['A2u','SU']  # Set for [manual, ePS] symmetry label selections
 df1 = symObjA1g.coeffs['symAllowed']['PD'].droplevel('h').droplevel('Type').sort_index()[syms[0]].dropna().to_frame()
 df2 = matEPD.sort_index().sort_index(level='Total', ascending=[False]).sort_index(axis=1, ascending=False)[syms[1]].dropna().to_frame()
 
 df1_styler = df1.style.set_table_attributes("style='display:inline'").set_caption('<b>Symmetry basis</b>')
 df2_styler = df2.style.set_table_attributes("style='display:inline'").set_caption('<b>ePS basis</b>')
 
+# display_html(df1_styler._repr_html_()+df2_styler._repr_html_(), raw=True)
+```
+
+```{code-cell} ipython3
+# Format and display results from previous cell (hidden in some formats)
 display_html(df1_styler._repr_html_()+df2_styler._repr_html_(), raw=True)
 ```
 
@@ -726,17 +697,19 @@ Here the basis sets are identical, aside from the difference in $l_{max}$.
 ```{code-cell} ipython3
 :tags: [hide-input]
 
-# Check specific sets...
-
-# df1['A1g'].dropna()
-syms = ['E1u','PU']
-# df1 = symBasis.coeffs['symAllowed']['PD'].droplevel('Type').sort_index()[syms[0]].dropna().to_frame()
+# Check specific sets
+syms = ['E1u','PU']   # Set for [manual, ePS] symmetry label selections
 df1 = symObjA1g.coeffs['symAllowed']['PD'].droplevel('h').droplevel('Type').sort_index()[syms[0]].dropna().to_frame()
 df2 = matEPD.sort_index().sort_index(level='Total', ascending=[False]).sort_index(axis=1, ascending=False)[syms[1]].dropna().to_frame()
 
 df1_styler = df1.style.set_table_attributes("style='display:inline'").set_caption('<b>Symmetry basis</b>')
 df2_styler = df2.style.set_table_attributes("style='display:inline'").set_caption('<b>ePS basis</b>')
+```
 
+```{code-cell} ipython3
+:tags: [hide-input]
+
+# Format and display results from previous cell (hidden in some formats)
 display_html(df1_styler._repr_html_()+df2_styler._repr_html_(), raw=True)
 ```
 
@@ -747,7 +720,7 @@ Here the symmetry-defined basis has two degenerate continuua, `it=0,1`, with a p
 In general, the current mappings should be suitable for simulation and reconstruction, but care should be taken to:
 
 1. Confirm symmetry and angular momentum relations for a given case.
-1. Apply additional transformations for comparison if comparison with computational results is required.
+1. Apply additional transformations if comparison with computational results is required.
 1. Add degeneracy factors if required (otherwise will be subsumed into matrix element values).
 
 % TODO: address some of these points in this notebook.
@@ -780,5 +753,16 @@ import pandoc
 ```
 
 ```{code-cell} ipython3
+:tags: [remove-cell]
+
+# Full case for table comparison
+# # df1 = symBasis.coeffs['symAllowed']['PD'].droplevel('h').droplevel('Type').sort_index().fillna('')   # .sort_index(level='it', sort_remaining=False)
+# df1 = symBasis.coeffs['symAllowed']['PD'].droplevel('Type').sort_index().fillna('')   # .sort_index(level='it', sort_remaining=False)
+# df2 = matEPD.fillna('').sort_index().sort_index(level='Total', ascending=[False]).sort_index(axis=1, ascending=False)  # Swap sym label ordering to match symmetry case. Note ascenting=[False] for multindex case single level only.
+
+# df1_styler = df1.style.set_table_attributes("style='display:inline'").set_caption('<b>Symmetry basis</b>')
+# df2_styler = df2.style.set_table_attributes("style='display:inline'").set_caption('<b>ePS basis</b>')
+
+# display_html(df1_styler._repr_html_()+df2_styler._repr_html_(), raw=True)
 
 ```
