@@ -174,6 +174,16 @@ In the examples above, the allowed irreducible representations are defined by ha
 
 +++
 
+````{margin}
+```{note}
+
+Full tabulations of the parameters available in HTML or notebook formats only.
+
+```
+````
+
++++
+
 Computationally, the cylindrically-symmetric $\infty$ groups can be approximated by a high-order group, e.g. $D_{\infty h} \approx D_{10h}$. (For a cross-check, see the [full tables and direct products online](http://www.gernot-katzers-spice-pages.com/character_tables/D10h.html).)  Here the notational convention is $A1 = \Sigma^{+}$, $A2 = \Sigma^{-}$, $E1 = \Pi$, $E2 = \Delta$ and so forth (see the [$D_{\infty h}$ character table](http://symmetry.jacobs-university.de/cgi-bin/group.cgi?group=1001&option=4) for more details).
 
 ```{code-cell} ipython3
@@ -262,10 +272,25 @@ Dipole-allowed continuum symmetries ("Target") for $D_{10h}$, $E_{1u}$ ionizatio
 The allowed terms can be further expressed in terms of the spherical harmonic components.
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 # Basis table with the Character values limited to those defined in 
 # self.continuum['allowed']['PD'] Target column
 symObjE1u.displayXlm(symFilter = True, YlmType='comp') 
+
+# Glue table for later
+glue("dipoleTermsD10hBasis", symObjE1u.displayXlm(symFilter = True, 
+                                                  YlmType='comp', returnPD=True))
 ```
+
+```{glue:figure} dipoleTermsD10hBasis
+---
+name: "fig-dipoleTermsD10hBasis"
+---
+Dipole-allowed basis set for $D_{10h}$, $E_{1u}$ ionization.
+```
+
++++
 
 (sec:basis-sets:mapping-params)=
 ### Mapping symmetrized harmonics to fit parameters
@@ -358,9 +383,9 @@ Dipole-allowed continuum matrix elements for $D_{10h}$, $A_{1g}$ ionization, arr
 (sec:basis-sets:remapping-to-fittingParams)=
 #### Mapping to fitting parameters (and reduction)
 
-Finally, the basis set of matrix elements can be set to a set of fitting parameters. In this case, as detailed in **SECT XX**, the parameters are mapped to magnitude-phase form; additionally, the fitting routine allows for the definition of relationships between the parameters. This provides a way to reduce the effective size of the basis set to only the unique values, with other terms defined purely by their symmetry relations. Consequently, degenerate cases, as detailed above, as well as cases with defined phase relations, can be efficiently reduced to a smaller basis set for fitting.
+Finally, the basis set of matrix elements can be set to a set of fitting parameters. In this case, as per Eq. {eq}`eqn:I-zeta-mag-phase`, the parameters are mapped to magnitude-phase form; additionally, the fitting routine allows for the definition of relationships between the parameters. This provides a way to reduce the effective size of the basis set to only the unique values, with other terms defined purely by their symmetry relations. Consequently, degenerate cases, as detailed above, as well as cases with defined phase relations, can be efficiently reduced to a smaller basis set for fitting.
 
-The automated routine currently checks for the following relationships: identity (equal complex values), magnitude and phase equality, complex rotations by $\pm\pi$, and matrix elements are grouped by symmetry (specifically `Cont`) and `l` prior to pair-wise testing. For more control, additional functions can be passed. Alternatively, the automatic setting can be skipped and/or relationships redefined. This provides a way to test if the symmetry-definitions are manifest in experimental data, rather than imposing them during fitting, or to explore other possible correlations between fitted parameters. Note, however, that in some cases the number of unique parameters in an unsymmetrized case may be large, so care should also be taken to ensure that fit results are meaningful in such cases (e.g. by employing a sufficiently large dataset, and testing for reproducibility).
+For quick setup, there is an automated routine to set relations if applicable. The automated routine currently checks for the following relationships: identity (equal complex values), magnitude and phase equality, complex rotations by $\pm\pi$, where matrix elements are grouped by symmetry (specifically `Cont`) and `l` prior to pair-wise testing. For more control, additional functions can be passed. Alternatively, the automatic setting can be skipped and/or relationships redefined or set manually. This provides a way to test if the symmetry-definitions are manifest in experimental data, rather than imposing them during fitting, or to explore other possible correlations between fitted parameters. Note, however, that in some cases the number of unique parameters in an unsymmetrized case may be large, so care should also be taken to ensure that fit results are meaningful in such cases (e.g. by employing a sufficiently large dataset, and testing for reproducibility).
 
 ```{code-cell} ipython3
 # Default matrix element relationship tests are set by symCheckDefns
@@ -382,23 +407,14 @@ dataKey = sym
 data.data[dataKey] = {}
 
 # Assign allowed matrix elements to fit object
-
-# General case
-# for dataType in ['matE']:   #,'BLM']:
-      
-#     # Special cases...
-#     if sym=='D2h':
-#         data.data[dataKey][dataType] = symObj.coeffs[dataType]['b (comp)'].sum(['h','muX'])  # Select expansion in complex harmonics, and sum redundant dims
-    
-#     # General case
-#     else:
-#         data.data[dataKey][dataType] = symObj.coeffs[dataType]['b (comp)']
-    
-#     data.data[dataKey][dataType].attrs = symObj.coeffs[dataType].attrs
-
-# Specific case
 dataType = 'matE'
+# General case - just use complex coeffs directly
+# data.data[dataKey][dataType] = symObj.coeffs[dataType]['b (comp)']
+
+# Specific case - e.g. sum over 'h'
 data.data[dataKey][dataType] = symObjA1g.coeffs['symAllowed']['XR']['b (comp)'].sum('h')
+
+# Propagate attrs
 data.data[dataKey][dataType].attrs = symObjA1g.coeffs['symAllowed']['XR'].attrs
 ```
 
@@ -415,23 +431,55 @@ data.setSubset(dataKey = sym, dataType = 'matE')  #, resetSelectors=True)  # Sub
 ```
 
 ```{code-cell} ipython3
-:tags: [hide-output]
-
 # Set matrix elements to fitting parameters
-# Running for the default case will attempt to automatically set the relations between matrix elements according to symmetry.
+# Running for the default case will attempt to automatically set the relations between 
+# matrix elements according to symmetry.
 data.setMatEFit()
 ```
 
 ```{code-cell} ipython3
-display(data.params)
+:tags: [hide-cell, hide-output]
+
+# Glue table for later
+# Need wrapper here otherwise get plain text in current HTML builds, and print(data.params) in PDF version (no data.params._repr_latex_())
+glue("fittingParamsD10hA1g", params_to_dataframe(data.params))
+
+# display(data.params)
 ```
 
 ```{code-cell} ipython3
-data.params._repr_html_()
+:tags: [remove-cell]
+
+# DATA RETURN DEBUG
+# dir(data.params)
+
+# data.params.pretty_repr()  # Print plain text, no return
+# pdDF = pd.DataFrame(data.params.pretty_print())
+# pdDF
+
+# JSON repr
+# data.params.dumps()
+# pd.read_json(data.params.dumps())
+
+# HTML repr
+# data.params._repr_html_()
+
+# # From https://github.com/lmfit/lmfit-py/discussions/827#discussioncomment-4219101
+# def params_to_dataframe(params):
+#     "convert parametes to a dataframe"
+#     par_attrs = ('name', 'value', 'stderr', 'vary', 'expr', 'init_value',
+#                  'min', 'max', 'brute_step', 'correl')
+#     dat = {attr: [] for attr  in par_attrs}
+#     for par in params.values():
+#         for attr in par_attrs:
+#             dat[attr].append(getattr(par, attr, None))
+#     return pd.DataFrame(dat, columns=par_attrs)
+
+# params_to_dataframe(data.params)
 ```
 
 ```{code-cell} ipython3
-:tags: [hide-cell]
+:tags: [hide-cell, remove-cell]
 
 # Glue table for later
 # glue("fittingParamsD10hA1g", data.params)   # Shows plain text in HTML output, data dump in PDF render.
@@ -439,8 +487,8 @@ data.params._repr_html_()
 # May want pretty_print?
 # data.params.pretty_print(precision=3)
 
-# Need wrapper here otherwise get plain text in current HTML builds, and print(data.params) in PDF version (no data.params._repr_latex_())
-glue("fittingParamsD10hA1g", display(data.params._repr_html_()))
+# # Need wrapper here otherwise get plain text in current HTML builds, and print(data.params) in PDF version (no data.params._repr_latex_())
+# glue("fittingParamsD10hA1g", display(data.params._repr_html_()))
 ```
 
 ```{glue:figure} fittingParamsD10hA1g
@@ -454,7 +502,17 @@ Fitting parameters as assigned for $D_{10h}$, $A_{1g}$ ionization. Note the `var
 
 **Modifying fitting basis parameters**
 
-A brief illustration of defining constraints is given below, for more details see the {{ PEMtk_docs }}, particularly the [basic fitting guide](https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basic_demo_030621-full_010922.html#Setting-parameter-relations/constraints). For more details on the base lmfit parameters class that is used here, see the {{ lmfit }}, particularly the documentation on [parameters](https://lmfit.github.io/lmfit-py/parameters.html) and [constraints](https://lmfit.github.io/lmfit-py/constraints.html).
+A brief illustration of defining constraints is given below, for more details see the {{ PEMtk_docs }}, particularly the [basic fitting guide](https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basic_demo_030621-full_010922.html#Setting-parameter-relations/constraints). For more details on the base lmfit parameters class that is used here, see {{ lmfit }}, particularly the documentation on [parameters](https://lmfit.github.io/lmfit-py/parameters.html) and [constraints](https://lmfit.github.io/lmfit-py/constraints.html).
+
++++
+
+````{margin}
+```{note}
+
+Full tabulations of the parameters available in HTML or notebook formats only.
+
+```
+````
 
 ```{code-cell} ipython3
 :tags: [hide-output]
@@ -468,7 +526,8 @@ data.setMatEFit(paramsCons = None)
 
 # To add manual constraints
 # Set param constraints as dict
-# Any basic mathematical relations can be set here, see https://lmfit.github.io/lmfit-py/constraints.html
+# Any basic mathematical relations can be set here, 
+# see https://lmfit.github.io/lmfit-py/constraints.html
 paramsCons = {}
 paramsCons['m_A2u_0_A1g_A2u_1_0_0_0'] = '5*m_A2u_0_A1g_A2u_3_0_0_0'
 
@@ -480,12 +539,16 @@ data.setMatEFit(paramsCons = paramsCons)
 ```
 
 ```{code-cell} ipython3
-# Individual parameters can be addressed by name, and properties modified using lmfit's `.set()` method.
+# Individual parameters can be addressed by name, 
 
 data.params['m_E1u_0_A1g_E1u_1_n1_n1_0']
 ```
 
 ```{code-cell} ipython3
+# Properties can be modified directly... 
+data.params['m_A2u_0_A1g_A2u_3_0_0_0'].value = 1.777
+
+# ...or by using lmfit's `.set()` method.
 data.params['m_E1u_0_A1g_E1u_1_n1_n1_0'].set(value = 1.36)
 data.params['m_E1u_0_A1g_E1u_1_n1_n1_0'].set(vary = False)
 data.params['m_E1u_0_A1g_E1u_1_n1_n1_0']
@@ -532,17 +595,34 @@ data.matEtoPD(keys = 'subset', xDim = 'Sym', drop=False, printTable=False)
 To modify and/or set a basis set manually, the same functions can be used with different inputs and/or options. A few examples are given here, see the {{ PEMtk_docs }} for more information.
 
 ```{code-cell} ipython3
-# TODO: needs container rebuild for updated PEMtk code 25/04/23
+:tags: [hide-output]
 
-# # Manual configuration of matrix elements
-# # from pemtk.fit.fitClass import pemtkFit
+# Manual configuration of matrix elements
+# Example using data class
+dataManual = pemtkFit()
 
-# # Example using data class (setup in init script)
-# dataManual = pemtkFit()
+# Manual setting for matrix elements
+# See API docs at https://epsproc.readthedocs.io/en/dev/modules/epsproc.util.setMatE.html
+EPoints = 10
+dataManual.setMatE(data = [[0,0, *np.ones(EPoints)], [2,0, *np.linspace(0,1,EPoints)], [4,0, *np.linspace(0,0.5,EPoints)]], 
+             dataNames=['l','m'])
 
-# # Manual setting for matrix elements
-# # See API docs at https://epsproc.readthedocs.io/en/dev/modules/epsproc.util.setMatE.html
-# data.setMatE(data = [[0,0, *np.ones(10)], [2,0, *np.linspace(0,1,EPoints)], [4,0, *np.linspace(0,0.5,EPoints)]], dataNames=['l','m'])
+# Matrix elements are set to Xarray and Pandas formats, under the 'matE' key
+dataManual.data['matE'].pd
+```
+
+```{code-cell} ipython3
+:tags: [hide-output]
+
+# To use manual settings for fitting, set `conformDims=True` to ensure ePSproc labelling
+dataManual.setMatE(data = [[0,0, *np.ones(EPoints)], [2,0, *np.linspace(0,1,EPoints)], [4,0, *np.linspace(0,0.5,EPoints)]], 
+             dataNames=['l','m'], conformDims=True)
+
+# Then use as normal
+data.selOpts['matE'] = {'thres': 0.01, 'inds': {'Type':'U', 'Eke':1} }
+data.setSubset(dataKey = 'matE', dataType = 'matE')
+data.data[data.subKey]['matE']['it'] = [1]   # In some cases NaN values may need to be set for setMatEFit.
+data.setMatEFit()
 ```
 
 (sec:basis-sets:comparison-with-abinitio)=
