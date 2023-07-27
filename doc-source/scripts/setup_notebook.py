@@ -509,3 +509,15 @@ def timeis(func):
 		print(func.__name__, end-start)
 		return result
 	return wrap
+
+# Wrapper for lmfit parameters > Pandas dataframe
+# From https://github.com/lmfit/lmfit-py/discussions/827#discussioncomment-4219101
+def params_to_dataframe(params):
+    "convert parametes to a dataframe"
+    par_attrs = ('name', 'value', 'stderr', 'vary', 'expr', 'init_value',
+                 'min', 'max', 'brute_step', 'correl')
+    dat = {attr: [] for attr  in par_attrs}
+    for par in params.values():
+        for attr in par_attrs:
+            dat[attr].append(getattr(par, attr, None))
+    return pd.DataFrame(dat, columns=par_attrs)
