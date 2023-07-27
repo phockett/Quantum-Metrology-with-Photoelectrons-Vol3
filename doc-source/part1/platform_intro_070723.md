@@ -25,7 +25,7 @@ v 07/07/23
 - TODO: include more detailed installation and build notes here, as appendix, or in the repo?
     - Some basic notes now in place.
     - Very basic guide currently in main readme.
-    - JUST SCRIPT IT? (See Dockerfile?)  https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3 readme also has a very basic version!
+    - JUST SCRIPT IT? (See Dockerfile?)  https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3 readme also has a very basic version! 
 
 +++
 
@@ -102,7 +102,7 @@ The core analysis tools, which constitute the {{ PEMtk_repo }} platform, are the
 * General functionality makes use of the usual "Scientific Python" stack, in particular: 
    * [`Numpy`](https://numpy.org/) {cite}`NumPy` for general numerical methods and data types.
    * [`pandas`](https://pandas.pydata.org/) {cite}`PandasPythonData` for statistical methods, and various tabulation and sorting tasks.
-   * [`Scipy`](https://scipy.org/) {cite}`SciPy` for some special functions and computational routines, particularly spherical harmonics and fitting routines (see below).
+   * {{ scipy }} for some special functions and computational routines, particularly spherical harmonics and fitting routines (see below).
 * General ND-array and tensor handling and manipulation makes use of the [`Xarray` library](https://docs.xarray.dev) {cite}`hoyer2017XarrayNDLabeled,XarrayDocumentation`.
 * Angular momentum functions
     * Wigner D and 3js are currently implemented directly, or via the [Spherical Functions library](https://github.com/moble/spherical_functions) {cite}`boyle2022SphericalFunctionsGithub, boyle2023MobleSphericalFunctions`, and have been tested for consistency with the definitions in Zare (for details see [the ePSproc docs](https://epsproc.readthedocs.io/en/latest/tests/Spherical_function_testing_Aug_2019.html) {cite}`ePSprocDocs`). The Spherical Functions library also uses [`quaternion`](https://github.com/moble/quaternion) {cite}`boyle2023MobleQuaternionRelease, MobleQuaternionGithub` which implements a quaternion datatype in Numpy.

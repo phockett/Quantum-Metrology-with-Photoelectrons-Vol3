@@ -41,3 +41,15 @@ The layout for this part is as follows:
 - Summary, conclusions and outlook
    - {numref}`Chapter %s: <chpt:case-study-summaries>` {ref}`chpt:case-study-summaries`: general overview of the case study results and conclusions.
    - {numref}`Chapter %s: <chpt:conclusions>` {ref}`chpt:conclusions`: General conclusions and outlook.
+
++++
+
+## General notes on the case studies
+
+The case studies presented herein represent various different types (classes or degrees-of-difficulty) of fitting problem. They are intended both to indicate ways to proceed in general, and also aim to address what is, and isn't, possible in these given cases. The simplest case, $N_2$, has been well-studied, and reconstruction of {{ RADMATE }} via the {{ BOOTSTRAP }} has proved successful in a range of valence ionization cases - see Ref. {cite}`marceau2017MolecularFrameReconstruction` for the initial experimental demonstration, and updated analysis using the {{ PEMtk_repo }} in Ref. {cite}`hockett2023TopicalReviewExtracting`, as well as {numref}`Chapter %s: <chpt:n2-case-study>` herein.
+
+The more complex cases, involving 3D alignment, are new, and very much work-in-progress. The current state-of-the-art is presented herein, but it is of note that these results are provisional, and work is ongoing. In particular, there are a large range of fitting configuration options and parameters which have yet to be explored in these cases, which may significantly improve on the current results in terms of computational effort required, reliability of the fitting protocol, and size of the required dataset. Nonetheless, these new results are interesting and present a stepping-stone for studies on {{ RADMATE }} retrieval in complex systems, and a launching point for similar studies.
+
+*Each case study has a setup script and associated data, which was used to create sample data and configure the {{ BOOTSTRAP }} in each case (the general procedure is outlined in {numref}`Chapter %s <sect:basic-fit-setup>`). However, since the fitting is computationally demanding, code execution for this is not run upon building the book - rather data files are used. Each case study therefore contains an initial setup stage which can be used to run fits, or load existing data, prior to analysis.*
+
+Finally, it is of note that - as discussed in the {ref}`preamble on book versions <chpt:book-versions>` - output may be significantly truncated in some cases. Readers wishing to obtain all computational details should pull the source notebooks from {{ book_repo }}, or consult the online HTML version at {{ book_HTML }}.

@@ -19,6 +19,8 @@ kernelspec:
 24/07/23
 
 - Tidying up...
+- Issues with formatting for lmfit params objects possibly solved with wrapper, but may still need HTML/PDF build fixes, TBC.
+- Similarly, final section with manually-configured PD table layouts may need work, but probably OK.
 
 
 22/04/23
@@ -359,6 +361,8 @@ symObjA1g.coeffs['symAllowed']['PD'].fillna('')
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 # Plot values
 %matplotlib inline
 titleString=f'Symmetrized matrix elements defined for {sym}, {sNeutral}$^{{-1}}$ ionization'
@@ -431,6 +435,8 @@ data.setSubset(dataKey = sym, dataType = 'matE')  #, resetSelectors=True)  # Sub
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 # Set matrix elements to fitting parameters
 # Running for the default case will attempt to automatically set the relations between 
 # matrix elements according to symmetry.
@@ -639,7 +645,7 @@ In the following, the test case above for $N_2~3\sigma_g^{-1}$ ionization is ill
 dataName = 'n2Data'
 
 # Set data dir
-dataPath = Path(Path.cwd(), 'n2Data')
+dataPath = Path(Path.cwd(), dataName)
 
 # For pulling data from Github, a utility function is available
 # This requires the repo subpath, and optionally branch
@@ -764,5 +770,4 @@ import pandoc
 # df2_styler = df2.style.set_table_attributes("style='display:inline'").set_caption('<b>ePS basis</b>')
 
 # display_html(df1_styler._repr_html_()+df2_styler._repr_html_(), raw=True)
-
 ```
