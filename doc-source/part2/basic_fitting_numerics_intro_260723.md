@@ -22,6 +22,7 @@ kernelspec:
 - KEEP matplotlib plots, these appear nicely in PDF output. Additional HV plots nice, but only in PDF with glue().
 - Shuffled section ordering a little bit
 - Now included batch example as text only (non-executable).
+- REMOVED notes and scratch cells, were triggering build issues. See `_drafts` dir for extended notes.
 
 26/04/23
 
@@ -43,6 +44,14 @@ In this notebook cover pulling ePS data from standard sources, running fits and 
 
 TO DECIDE: full general intro here, or just run scripted version? In general there are a few things that might change, e.g. ADM times etc.
 
++++ {"tags": ["remove-cell"]}
+
+% PLOTTING - one liner with hvplot, or longer from http://jake:9966/lab/tree/code-share/stimpy-docker-local/MFPADs_recon_manuscript_dev_April_2022/MFrecon_manuscript_fig_generation_170422-Stimpy_MAIN-oldPkgs.ipynb
+
+% ISN'T THIS NOW WRAPPED....????????
+
+% YES, but backend=hv currently not working for ADM plot defaults.
+
 +++
 
 (sect:basic-fit-setup)=
@@ -52,12 +61,11 @@ For the case studies in {numref}`Chapter %s <chpt:n2-case-study>` - {numref}`%s 
 
 For the case studies, all the sample data is available from the {{ ePSproc_repo }} Github repo, and the examples below include steps for pulling the required data files. Note that further {{ ePS_full }} datasets are available from the {{ ePSdata_repo }}, and [data can be pulled using the python ePSdata interface](https://epsproc.readthedocs.io/en/dev/demos/ePSdata_download_demo_300720.html).
 
-
 +++
 
 ## Init and pulling data
 
-Here the setup is mainly handled by some basic scripts, these follow the outline in the {{ PEMtk_docs }}, see in particular [the intro to fitting](https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basic_demo_030621-full_010922.html). 
+Here the setup is mainly handled by some basic scripts, these follow the outline in the {{ PEMtk_docs }}, see in particular [the intro to fitting](https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basic_demo_030621-full_010922.html).
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -161,12 +169,6 @@ data.setADMs(ADMs = ADMs['ADM'], t=ADMs['time'].squeeze(), KQSLabels = ADMs['ADM
 data.data['ADM']['ADM']
 ```
 
-% PLOTTING - one liner with hvplot, or longer from http://jake:9966/lab/tree/code-share/stimpy-docker-local/MFPADs_recon_manuscript_dev_April_2022/MFrecon_manuscript_fig_generation_170422-Stimpy_MAIN-oldPkgs.ipynb
-
-% ISN'T THIS NOW WRAPPED....????????
-
-% YES, but backend=hv currently not working for ADM plot defaults.
-
 ```{code-cell} ipython3
 # Manual plot with hvplot for full control and interactive plot
 # NOTE: HTML version only.
@@ -177,67 +179,6 @@ data.data[key][dataType].unstack().real.hvplot.line(x='t').overlay(['K','Q','S']
 
 ```{code-cell} ipython3
 # A basic self.ADMplot routine is also available
-%matplotlib inline
-data.ADMplot(keys = 'ADM')
-```
-
-+++ {"tags": ["remove-cell"]}
-
-% **ADDITIONAL PLOTTING TESTS BELOW (HIDDEN IN OUTPUT)**
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-from epsproc.plot import hvPlotters  # Additional plotting code
-from holoviews import opts, dim
-
-# key = 'subset'
-# dataType='ADM'
-
-# daPlot = ep.matEleSelector(data.data[key][dataType], thres=1e-2, dims = 't', sq = True).squeeze()
-# daPlot = ep.plotTypeSelector(daPlot, pType = 'r')
-
-# from holoviews import opts, dim
-
-# # Plot with widgets to handle dims - note this may require .unstack() for multindex objects
-# # (subset.real.rename(str(key)))  # Convert to hv.Dataset, may need to rename too.
-# # hvObj = hvPlotters.curvePlot(daPlot.rename(str(key)).unstack(), kdims='t', renderPlot=False)
-# hvObj = hvPlotters.curvePlot(daPlot.rename(r'$\beta_{LM}$').unstack(), kdims='t', renderPlot=False).opts(line_dash='dashed') 
-# # .opts(opts.Points(color='k', marker='+', size=10))  #.opts(line_dash='dashed',opts.Points(color='k', marker='+', size=10))  #, marker = 'x')
-# # hvObj.overlay(['K','Q','S'])
-# # hvObjMarkers = points.opts(color='k', marker='+', size=10)
-# hvObjP = hvObj * daPlot.rename(r'$\beta_{LM}$').unstack().hvplot.scatter(x='t', marker = 'x', size = 100)  # Add points
-
-
-
-key = 'ADM'
-dataType='ADM'
-
-daPlot = ep.matEleSelector(data.data[key][dataType], thres=1e-2, dims = 't', sq = True).squeeze()
-daPlot = ep.plotTypeSelector(daPlot, pType = 'r')
-
-# Plot with widgets to handle dims - note this may require .unstack() for multindex objects
-# (subset.real.rename(str(key)))  # Convert to hv.Dataset, may need to rename too.
-# hvObj = hvPlotters.curvePlot(daPlot.rename(str(key)).unstack(), kdims='t', renderPlot=False)
-hvObj2 = hvPlotters.curvePlot(daPlot.rename(r'$\beta_{LM}$').unstack(), kdims='t', renderPlot=False)
-
-# # (hvObj * hvObj2).overlay(['K','Q','S'])
-# hvADMPlot = (hvObjP * hvObj2).overlay(['K','Q','S'])
-# # hvObj
-# hvADMPlot
-
-hvObj2.overlay(['K','Q','S'])
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-data.data[key][dataType]
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
 %matplotlib inline
 data.ADMplot(keys = 'ADM')
 ```
@@ -559,75 +500,4 @@ for n in np.arange(0,100,batchSize):
     # Checkpoint - dump data to file
     data.writeFitData(outStem=outStem)
     
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-# Batch fit with data weighting example
-batchSize = 50
-
-data.data['weights'] = {}  # Use to log ref weights, will be overwritten otherwise
-
-for n in np.arange(0,100,batchSize):
-    print(f'Running batch [{n},{n+batchSize-1}]')
-
-    # Reset weights
-    data.setWeights(wConfig = 'poission', keyExpt='sim')
-    data.setSubset('sim','weights')   # Set to 'subset' to use for fitting.
-
-    data.data['weights'][n] = data.data['sim']['weights'].copy()
-    
-    # Run fit batch
-    data.multiFit(nRange = [n,n+batchSize-1], num_workers=20)
-    
-    # Checkpoint - dump data to file
-    data.writeFitData(outStem=outStem)
-    
-```
-
-+++ {"tags": ["remove-cell"]}
-
-# SCRATCH
-
-Plot testing below mainly.
-
-Outputs hidden, but note these STILL EXECUTE at build.
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-from epsproc.sphFuncs.sphConv import checkSphDims
-checkSphDims(data.data[key][dataType])
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-data.data[key][dataType].attrs['harmonics'] = {'stackDim':'ADM'}
-
-# Standard case:
-# {'dtype': 'Complex harmonics', 'kind': 'complex', 'normType': 'ortho', 'csPhase': True, 'keyDims': {'LM': ['l', 'm']}, 'LMStackFlag': True, 'stackDim': 'LM', 'dimList': ['l', 'm'], 'lDim': 'l', 'mDim': 'm'}
-
-# The ADMplot routine will show a basic line plot, note it needs keys = 'ADM' in the current implementation (otherwise will loop over all keys)
-data.ADMplot(keys = 'ADM', backend = 'hv')  #, returnPlot=True, renderPlot=False)
-
-# THIS CURRENTLY FAILS
-# hvDS = hvPlotters.hv.Dataset(xrDS.unstack(xrDS.attrs['harmonics']['stackDim']))
-# NEED TO SET stackDims correctly for ADMs!
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-# SAME ISSUES AS ABOVE WITH SPH DEFINITIONS
-# Expand ADMs to P(theta)
-data.data['ADM']['ADM'].attrs['jobLabel'] = 'ADMs'
-
-# Old version
-# ADMdistFull = data.padPlot(keys = 'ADM', dataType='ADM', Etype = 't', pType='r', pStyle='grid', reducePhi='sum', returnFlag = True, sumDims = {})
-
-# Updated 23/04/22
-data.padPlot(keys = 'ADM', dataType='ADM', Etype = 't', pType='r', pStyle='grid', reducePhi='sum', returnFlag = True, sumDims = {})
-ADMdistFull = data.data['ADM']['plots']['ADM']['pData']
 ```
