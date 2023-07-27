@@ -9,6 +9,20 @@ print('*** Setting up notebook with standard Quantum Metrology Vol. 3 imports...
 print('For more details see https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basic_demo_030621-full.html')
 print('To use local source code, pass the parent path to this script at run time, e.g. "setup_fit_demo ~/github"')
 
+# Hide warnings?
+import warnings
+# warnings.filterwarnings('ignore')  # ALL WARNINGS
+warnings.filterwarnings('ignore', category=DeprecationWarning)
+warnings.filterwarnings('ignore', category=FutureWarning)
+
+# Suppress "OMP: Info #276: omp_set_nested routine deprecated, please use omp_set_max_active_levels instead"
+# Triggered by some Numba versions loading OpenMP.
+# Solution from https://stackoverflow.com/questions/56085015/suppress-openmp-debug-messages-when-running-tensorflow-on-cpu
+import os
+os.environ["KMP_WARNINGS"] = "FALSE" 
+
+
+# General imports
 from datetime import datetime as dt
 timeString = dt.now()
 print(f"\n*** Running: {timeString.strftime('%Y-%m-%d %H:%M:%S')}")
@@ -41,8 +55,8 @@ if imgWidth is None:
     
 imgHeight=os.getenv('IMGHEIGHT')
 if imgHeight is None:
-    # imgHeight = None    # Leave as None for default (should maintain aspect?)
-    imgHeight = 800
+    imgHeight = None    # Leave as None for default (should maintain aspect?)
+    # imgHeight = 800  # Builds 27/07/23, trying None again.
     # pass
 
 imgSize = [imgWidth, imgHeight]
@@ -163,7 +177,9 @@ def glueDecorator(func):
                 # return func(name, pn.pane.Plotly(fig.update_layout(height=imgHeight, width=imgWidth), **kwargs), display=displayFig)
                 # FOR HTML FIX SIZE to match JBook template?
                 # NOTE USING 1200x800 - slighly wider then template, but good for 3 col PAD figures.
-                return func(name, pn.pane.Plotly(fig.update_layout(height=1200, width=800), **kwargs), display=displayFig)
+                # UPDATE 27/07/23: NOW TESTING 1400x600, current PAD plots poor.
+                # Has something changed in template? Or just new build issues?
+                return func(name, pn.pane.Plotly(fig.update_layout(height=800, width=1200), **kwargs), display=displayFig)
             
             else:
                 return func(name, fig, display=displayFig)  # For non-PDF builds, use regular glue()
