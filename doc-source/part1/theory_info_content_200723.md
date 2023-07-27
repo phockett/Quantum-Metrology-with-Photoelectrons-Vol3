@@ -25,6 +25,7 @@ May ditch this unless it can be extended usefully? Should recon section be befor
     - NOT WORKING IN CURRENT BUILDS... getting null values for all BLMs?  Change in defaults/assumptions somewhere to fix.
     - Added thres=None, but doesn't seem to fix.
     - Results in fitting notebook (file:///mnt/jakeSSHFS/home/paul/buildTmp/2023-07-19_15-19-50/html-build/part2/sym-fitting-intro_220423.html) seem OK, so maybe issue with subselection or sym choice here? Could also be phase cons... TBC...
+    - 27/07/23: Now debugged. Issue was missing labels in (old-style) conversion to matrix elements. Now updated with full symmetry selection routines in 'scripts/setup_symmetry_basis_tensors.py'.
 
 +++
 

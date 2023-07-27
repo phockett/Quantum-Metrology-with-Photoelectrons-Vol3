@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -399,8 +399,6 @@ From the numerical density matrix, a range of other standard properties can be c
 ### Convert numerical arrays to QuTiP objects
 
 ```{code-cell} ipython3
-:tags: [hide-cell]
-
 # Import QuTip
 from qutip import *
 
@@ -412,7 +410,9 @@ pb = Qobj(daOut_noise.sum('Sym').data)  # Noisy case
 # QuTip objects have data as Numpy arrays, and render as typeset matrices in a notebook
 # DEBUG NOTE 22/04/23 - QuTip matrix latex output currently causing PDF build errors, so set hide output for testing.
 # See https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/8
-pa
+if buildEnv != 'pdf':
+    display(pa)
+    # print(pa)
 ```
 
 ### Fidelity metric
