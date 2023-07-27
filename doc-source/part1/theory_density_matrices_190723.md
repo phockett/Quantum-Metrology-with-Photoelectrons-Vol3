@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.7
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -94,7 +94,7 @@ For all pairs of basis states $(i,j)$. This defines the density matrix in the $\
 % 30/01/23 extended with notes from MF recon article.
 % 10/02/23 added general intro & tidying up
 
-(sec:density-mat-intro)=
+(sec:density-mat-intro:continuum)=
 ## Continuum density matrices
 
 % May want to move to Sect. 3.2 and add some more details?

@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -351,7 +351,7 @@ Note that:
 - Min and max values are defined, by default the ranges are $1e^{-4}<$mag$<5$, $-\pi<$phase$<\pi$.
 - Relationships between the parameters are set by default, but can be set manually, or pass `paramsCons=None` to skip.
 
-For further details, including modification of parameter settings, see {numref}`%Sect. %s <sec:basis-sets:remapping-to-fittingParams>` and the {{ PEMtk_docs }}.
+For further details, including modification of parameter settings, see {numref}`Sect. %s <sec:basis-sets:remapping-to-fittingParams>` and the {{ PEMtk_docs }}.
 
 +++
 
@@ -451,6 +451,8 @@ data.data.keys()
 A basic parallel fitting routine is implemented via the `self.multiFit()` method. This currently uses the [`xyzpy` library](https://xyzpy.readthedocs.io/en/latest/) {cite}`XyzpyDocumentation` for quick parallelization, although there is some additional setup overhead in the currently implementation due to class init per fit batch. The default settings aims to set ~90% CPU usage, based on core-count.
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 # Multifit wrapper with range of fits specified
 # Set 'num_workers' to override the default (~90% of available cores).
 data.multiFit(nRange = [0,10], num_workers=20)
@@ -472,8 +474,6 @@ outStem = 'dataDump_N2'  # Set for file save later
 # Set dataPath if desired, otherwise will use working dir
 data.writeFitData(dataPath = dataPath, outStem=outStem)  
 ```
-
-+++ {"tags": ["remove-cell"]}
 
 ### Batch fit with sampling options
 

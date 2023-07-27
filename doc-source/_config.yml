@@ -22,8 +22,8 @@ only_build_toc_files        : true  # Skip processing all other files, e.g. back
 execute:
   # 27/04/23 - added arb timeout in s here, some fitting notebooks not completing?
   timeout: 1000
-  # execute_notebooks: 'force'
-  execute_notebooks: 'cache'
+  execute_notebooks: 'force'
+  # execute_notebooks: 'cache'
   
 # exclude_patterns: [part1/*.md]   # This also doesn't work for skipping .md versions.
 
