@@ -239,6 +239,12 @@ import pandas as pd
 # May break other default fig options?
 from matplotlib import pyplot as plt
 
+# Added 
+# Force inline graphics output from script (if called from a notebook)
+# Solution from https://stackoverflow.com/a/58057468
+# Should also mean `%matplotlib inline` not required in general in calling notebook.
+get_ipython().magic('matplotlib inline')
+
 #*** Pandas display options
 pd.set_option("display.precision", 3)
 
