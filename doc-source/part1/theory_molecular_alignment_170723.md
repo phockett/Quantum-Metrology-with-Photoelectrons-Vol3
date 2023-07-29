@@ -73,7 +73,7 @@ In the examples given in {numref}`Sect. %s <sec:tensor-formulation>`, some arbit
 
 ## Numerical setup
 
-For illustrative purposes, the {{ ADMs }} used for the $OCS$ fitting example are here loaded and used to compute $P(\Omega,t)$.
+For illustrative purposes, the {{ ADMs }} used for the $N_2$ fitting example are here loaded and used to compute $P(\Omega,t)$. (Note these {{ ADMs }} are for a 2-pulse alignment scheme, as outlined in Ref. {cite}`marceau2017MolecularFrameReconstruction`.) 
 
 ```{code-cell} ipython3
 :tags: [hide-output, hide-cell]
@@ -95,6 +95,7 @@ For illustrative purposes, the {{ ADMs }} used for the $OCS$ fitting example are
 # %run {dataPath/"setup_fit_demo_OCS.py"} -d {dataPath} -a {dataPath} -c "OCS"
 
 # 29/07/23 - updated scripts
+# For sample ADMs, set 'N2', 'OCS' or 'C2H4' - see case study chapters for details.
 fitSystem='N2'
 dataName = 'n2fitting'
 dataPath = Path(Path.cwd().parent,'part2',dataName)
@@ -117,7 +118,7 @@ print(data.data['subset']['ADM'].t)
 ```
 
 ```{code-cell} ipython3
-:tags: [remove-cell]
+:tags: [hide-output]
 
 # Quick plot for subselected ADMs (setup in the script), 
 # using basic plotter
@@ -129,9 +130,22 @@ data.ADMplot(keys = data.subKey)
 # data.data['subset']['ADM'].unstack().squeeze().real.hvplot.line(x='t').overlay('K')
 
 # As above, but plot K>0 terms only, and keep 'Q','S' indexes (here all =0)
-data.data['subset']['ADM'].unstack().where(data.data['subset']['ADM'].unstack().K>0) \
+figObj = data.data['subset']['ADM'].unstack().where(data.data['subset']['ADM'].unstack().K>0) \
         .real.hvplot.line(x='t').overlay(['K','Q','S']).opts(width=700)
+
+# Glue plot for later
+glue("fitSystem", fitSystem, display=False)
+glue("ADMdemoPlot", figObj)
 ```
+
+```{glue:figure} ADMdemoPlot
+---
+name: "fig-ADMdemoPlot"
+---
+Example {{ ADMs }} for {glue:text}`fitSystem`.
+```
+
++++
 
 ## Compute $P(\theta,\Phi,t)$ distributions
 
@@ -144,13 +158,75 @@ For 1D and 2D cases, the full axis distributions can be expanded in spherical ha
 # Note the plotting function automatically expands the ADMs in spherical harmonics
 dataKey = 'subset'
 data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pStyle='grid', reducePhi='sum', returnFlag = True)
-
-# And GLUE for display later with caption
-# Object return not working here? Try plt.gca() instead.
-glue("PthetaGrid", plt.gca())
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-cell]
+
+# Demo hv plot version from plot data - for normalised and interactive plot
+norm = data.data[dataKey]['plots']['ADM']['pData'].max()
+(data.data[dataKey]['plots']['ADM']['pData']/norm).hvplot(y='Theta', x='t', cmap='vlag')
+```
+
+```{code-cell} ipython3
+# Plot full axis distributions at selected time-steps
+# tPlot = [39.402, 40.791, 42.18]  # Manual setting for baseline case, and at max and min K=2 times. OCS
+tPlot = [4.018, 4.254, 4.49] # N2
+
+# Alternatively, plot at selected times by index slice
+# Note that selDims below requires labels (not index inds)
+# tPlot = data.data[dataKey]['ADM'].t[::5]  # OCS
+# tPlot = data.data[dataKey]['ADM'].t[0:7:3] # N2
+
+# Plot
+ep.plot.hvPlotters.setPlotters(width=1200, height=600)   # Force plot dims for HTML render (avoids subplot clipping issues)
+data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pType='a', 
+             returnFlag = True, selDims={'t':tPlot}, backend='pl')
+
+# And GLUE for display later with caption
+figObj = data.data[dataKey]['plots']['ADM']['polar'][0]
+glue("axisDistDemo", figObj)
+```
+
+```{glue:figure} axisDistDemo
+---
+name: "fig-axisDistDemo"
+---
+Molecular axis distributions $P(\theta,\phi)$ at selected times. In this demo case the alignment is "1D", and cylindrically symmetric.
+```
+
++++ {"tags": ["remove-cell"]}
+
+## Alignment metrics
+
++++ {"tags": ["remove-cell"]}
+
+## SCRATCH
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+# NOTE - need this in some builds if Matplotlib has call-back errors.
+%matplotlib inline  
+# Plot P(theta,t) with summation over phi dimension
+# Note the plotting function automatically expands the ADMs in spherical harmonics
+dataKey = 'subset'
+data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pStyle='grid', reducePhi='sum', returnFlag = True)
+
+# And GLUE for display later with caption
+# Object return not working here? Try plt.gca() instead.
+# glue("PthetaGrid", plt.gca())
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+# glue("PthetaGrid", pObj)
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
 # GLUE TESTING ONLY
 
 # # Glue figure for display
@@ -174,33 +250,7 @@ norm = data.data[dataKey]['plots']['ADM']['pData'].max()
 ```
 
 ```{code-cell} ipython3
-# glue("PthetaGrid", pObj)
+:tags: [remove-cell]
+
+
 ```
-
-```{code-cell} ipython3
-data.data[dataKey]['ADM'].t
-```
-
-```{code-cell} ipython3
-tPlot
-```
-
-```{code-cell} ipython3
-# Plot full axis distributions at selected time-steps
-# tPlot = [39.402, 40.791, 42.18]  # Manual setting for baseline case, and at max and min K=2 times. OCS
-tPlot = [4.018, 4.254, 4.49] # N2
-
-# Alternatively, plot at selected times by index slice
-# Note that selDims below requires labels (not index inds)
-# tPlot = data.data[dataKey]['ADM'].t[::5]  # OCS
-# tPlot = data.data[dataKey]['ADM'].t[0:7:3] # N2
-
-# Plot
-ep.plot.hvPlotters.setPlotters(width=1200, height=600)   # Force plot dims for HTML render (avoids subplot clipping issues)
-data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pType='a', 
-             returnFlag = True, selDims={'t':tPlot}, backend='pl')
-```
-
-+++ {"tags": ["remove-cell"]}
-
-## Alignment metrics
