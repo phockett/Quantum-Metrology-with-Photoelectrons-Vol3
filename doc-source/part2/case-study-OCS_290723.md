@@ -100,7 +100,7 @@ fDictADM, fAllADM = getFilesFromGithub(subpath='data/alignment/OCS_ADMs_28K_VM_0
 dataPath = Path(Path.cwd(),dataName)
 
 # Run general config script with dataPath set above
-%run "../scripts/setup_fit_case-studies_270723.py" -d {dataPath} -a {dataPath} -c {fitSystem} -n {addNoise} --sigma {sigma}
+%run "../scripts/setup_fit_case-studies_270723.py" -d {dataPath} -a {dataPath} -c {fitSystem} -n {addNoise} --sigma {sigma} -a3D 'y'
 ```
 
 ## Load existing fit data or run fits
@@ -146,8 +146,12 @@ else:
 
 ```{code-cell} ipython3
 # Check ADMs
-data.data['subset']['ADM'].unstack().where(data.data['subset']['ADM'].unstack().K>0) \
-    .real.hvplot.line(x='t').overlay(['K','Q','S'])
+# Holoviews
+# data.data['subset']['ADM'].unstack().where(data.data['subset']['ADM'].unstack().K>0) \
+#     .real.hvplot.line(x='t').overlay(['K','Q','S'])
+
+# Basic plotter
+data.ADMplot(keys = 'subset')
 ```
 
 ```{code-cell} ipython3
