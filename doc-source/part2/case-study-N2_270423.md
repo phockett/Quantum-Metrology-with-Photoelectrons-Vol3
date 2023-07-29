@@ -14,6 +14,7 @@ kernelspec:
 
 - 27/07/23: v1 from existing demo cases plus new dataset.
 - 28/07/23: complete analysis in place up to MF PAD plotting, this needs some additional work (subselection issues). Tested only with minimal N2 dataset so far.
+    - UPDATE: Density mat and MF PADs now working.
 
 +++
 
@@ -35,7 +36,7 @@ Additionally, the routines will either run fits, or load existing data if availa
 ````{margin}
 ```{admonition} General note on fitting
 
-Computational outputs in this chapter are significantly truncated in the PDF, see source notebooks or HTML version for full details.
+Computational outputs in this chapter are significantly truncated in the PDF, and some simplified plots are used; see source notebooks (via {{ book_repo }}) or {{ book_HTML }} for full details.
 
 ```
 ````
@@ -59,7 +60,7 @@ nMax = 10
 ```
 
 ```{code-cell} ipython3
-:tags: [hide-output]
+:tags: [hide-output, hide-cell]
 
 # Run default config - may need to set full path here
 
@@ -135,6 +136,12 @@ else:
     
     data.BLMfitPlot(keys=['subset','sim'])
     
+```
+
+```{code-cell} ipython3
+# Check ADMs
+data.data['subset']['ADM'].unstack().where(data.data['subset']['ADM'].unstack().K>0) \
+    .real.hvplot.line(x='t').overlay(['K','Q','S'])
 ```
 
 ```{code-cell} ipython3
@@ -559,7 +566,6 @@ for item in aList:
     # Push singleton Eke value to dim for plotter
     dataTest.data[item][dataType] = dataTest.data[item][dataType].expand_dims('Eke')
     
-
 ```
 
 ```{code-cell} ipython3
@@ -571,10 +577,10 @@ aList
 
 # Set polarization geoms from Euler angles
 
-import numpy as np
-import epsproc as ep
+# import numpy as np
+# import epsproc as ep
 
-# Set Euler angs to include diagonal
+# Set Euler angs to include diagonal pol case
 pRot = [0, 0, np.pi/2, 0]
 tRot = [0, np.pi/2, np.pi/2, np.pi/4]
 cRot = [0, 0, 0, 0]
@@ -583,26 +589,44 @@ eulerAngs = np.array([labels, pRot, tRot, cRot]).T   # List form to use later, r
 
 
 # Should also use MFBLM function below instead of numeric version?
+# Numeric version is handy for direct surface and difference case.
 R = ep.setPolGeoms(eulerAngs = eulerAngs)
 # R
 
 # Basic version - working, but get separate plots per set.
 # UPDATE: use this to generate all raw figures, then restack plotly objects below
 
-Erange=[1,2,1]
+Erange=[1,2,1]  # Set for a single E-point
 
 # Comparison and diff
-pKey = [i for i in dataIn.data_vars]  # List of arrays
-dataTest.mfpadNumeric(keys=pKey, R = R)   # Compute MFPADs for each set of matrix elements
-ep.mfpad
-# dataTest.data['diff'] = {'TX': dataTest.data['subset']['TX']-dataTest.data['compC']['TX']}
+pKey = [i for i in dataIn.data_vars if i!='comp']  # List of arrays
+dataTest.mfpadNumeric(keys=pKey, R = R)   # Compute MFPADs for each set of matrix elements using numerical routine
+# ep.mfpad
+
 dataTest.data['diff'] = {'TX': dataTest.data['subset']['TX'].sum('Sym')-dataTest.data['compC']['TX'].sum('Sym')}  # Add sum over sym to force matching dims
 pKey.extend(['diff'])
 
+# Plot
+print(f"\n*** Plotting for keys = {pKey}, one per row ***\n")  # Note plot labels could do with some work!
 dataTest.padPlot(keys=pKey, Erange=Erange, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
 ```
 
 ```{code-cell} ipython3
+# Check max differences (abs values)
+maxDiff = dataTest.data['diff']['plots']['TX']['pData'].sum(['Theta','Phi']).max(dim='Eke')
+maxDiff.to_pandas()
+```
+
+```{code-cell} ipython3
+# Check case without phase correction too - this should indicate poor agreement in general
+pKey = 'comp'
+dataTest.mfpadNumeric(keys=pKey, R = R) 
+dataTest.padPlot(keys=pKey, Erange=Erange, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
 # SKIP THIS - output very slow!
 # TODO: fix plot labelling above.
 
@@ -707,16 +731,13 @@ if saveFigs:
 ```
 
 ```{code-cell} ipython3
+:tags: [remove-cell]
+
 # Optional plot in notebook
 # fig.show()   # Interactive plot - maybe quite slow
 
 # Show image
 Image(f'{fName}.png')
-```
-
-```{code-cell} ipython3
-dataTest.data[pKey[rInd-1]]['plots']['TX']['polar'][0].data
-# dataTest.data[pKey[rInd-1]]['plots']['TX']['polar'][0].data[cInd-1]
 ```
 
 +++ {"tags": ["remove-cell"]}
