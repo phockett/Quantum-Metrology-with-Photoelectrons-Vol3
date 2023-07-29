@@ -34,6 +34,7 @@ TO DO:
       - Working in current build after `pip install matplotlib==3.5`, although still getting inconsistent behaviour with Mol Plot (which seems to be the source of the issues). Go with this for now.
       - 22/07/23, working v3.5.3 BUT ONLY with `%matplotlib inline` included at beginning of ADM plotting cell, otherwise get callback errors again. Weird. UPDATE: looks like Arrow3D issue, see note to fix https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/11
       - 22/07/23, added some extra plot tests and GLUE tests (to finish).
+      - 29/07/23, switched to N2 case, more interesting for plots. STILL NEEDS A TIDY.
 
 +++
 
@@ -88,10 +89,18 @@ For illustrative purposes, the {{ ADMs }} used for the $OCS$ fitting example are
 # Run OCS setup script - may need to set full path here
 # ADMfile = 'ADMs_8TW_120fs_5K.mat'
 # dataPath = Path('../part2/OCSfitting')
-dataPath = Path('/home/jovyan/QM3/doc-source/part2/OCSfitting')
+# dataPath = Path('/home/jovyan/QM3/doc-source/part2/OCSfitting')
 
 # Run general config script with dataPath set above
-%run {dataPath/"setup_fit_demo_OCS.py"} -d {dataPath} -a {dataPath} -c "OCS"
+# %run {dataPath/"setup_fit_demo_OCS.py"} -d {dataPath} -a {dataPath} -c "OCS"
+
+# 29/07/23 - updated scripts
+fitSystem='N2'
+dataName = 'n2fitting'
+dataPath = Path(Path.cwd().parent,'part2',dataName)
+
+# Run general config script with dataPath set above
+%run "../scripts/setup_fit_case-studies_270723.py" -d {dataPath} -c {fitSystem}
 ```
 
 ```{code-cell} ipython3
@@ -110,13 +119,9 @@ print(data.data['subset']['ADM'].t)
 ```{code-cell} ipython3
 :tags: [remove-cell]
 
-# TODO: fix ADM plot!
-# Wrapper currently fails for Matplotlib with mulitple indexes, and HV with dim names issues.
-# data.ADMplot(keys=data.subKey, backend='hv')
-```
-
-```{code-cell} ipython3
-imgHeight
+# Quick plot for subselected ADMs (setup in the script), 
+# using basic plotter
+data.ADMplot(keys = data.subKey)
 ```
 
 ```{code-cell} ipython3
@@ -173,12 +178,22 @@ norm = data.data[dataKey]['plots']['ADM']['pData'].max()
 ```
 
 ```{code-cell} ipython3
+data.data[dataKey]['ADM'].t
+```
+
+```{code-cell} ipython3
+tPlot
+```
+
+```{code-cell} ipython3
 # Plot full axis distributions at selected time-steps
-tPlot = [39.402, 40.791, 42.18]  # Manual setting for baseline case, and at max and min K=2 times.
+# tPlot = [39.402, 40.791, 42.18]  # Manual setting for baseline case, and at max and min K=2 times. OCS
+tPlot = [4.018, 4.254, 4.49] # N2
 
 # Alternatively, plot at selected times by index slice
 # Note that selDims below requires labels (not index inds)
-# tPlot = data.data[dataKey]['ADM'].t[::5]
+# tPlot = data.data[dataKey]['ADM'].t[::5]  # OCS
+# tPlot = data.data[dataKey]['ADM'].t[0:7:3] # N2
 
 # Plot
 ep.plot.hvPlotters.setPlotters(width=1200, height=600)   # Force plot dims for HTML render (avoids subplot clipping issues)
