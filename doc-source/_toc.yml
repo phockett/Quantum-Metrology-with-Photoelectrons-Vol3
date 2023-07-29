@@ -57,8 +57,10 @@ parts:
     - file: part2/basic_fitting_numerics_intro_260723
     - file: part2/case-study-N2_270423
     # - file: part2/case-study-OCS_270423  # Skip for now - has lots of fitting embeded
-    - file: part2/case-study-OCS_270423-headerOnly
-    - file: part2/case-study-C2H4_270423
+    # - file: part2/case-study-OCS_270423-headerOnly
+    - file: part2/case-study-OCS_290723
+    # - file: part2/case-study-C2H4_270423
+    - file: part2/case-study-C2H4_290723   # Working except MFPADs
     - file: part2/case-study-summaries_240723
     - file: part2/conclusions_240723
     
