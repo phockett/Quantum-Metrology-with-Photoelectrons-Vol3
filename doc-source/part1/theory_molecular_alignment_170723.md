@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -33,7 +33,7 @@ TO DO:
       - BUT only on a rerun of the notebook, seems related to when %matplotlib inline is called, and what is in the buffer...?
       - Working in current build after `pip install matplotlib==3.5`, although still getting inconsistent behaviour with Mol Plot (which seems to be the source of the issues). Go with this for now.
       - 22/07/23, working v3.5.3 BUT ONLY with `%matplotlib inline` included at beginning of ADM plotting cell, otherwise get callback errors again. Weird. UPDATE: looks like Arrow3D issue, see note to fix https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/11
-      - 22/07/23, added some extra plot tests and GLUE tests (to finish). 
+      - 22/07/23, added some extra plot tests and GLUE tests (to finish).
 
 +++
 
@@ -77,7 +77,11 @@ For illustrative purposes, the {{ ADMs }} used for the $OCS$ fitting example are
 ```{code-cell} ipython3
 :tags: [hide-output, hide-cell]
 
-%matplotlib inline
+# %matplotlib inline
+
+# Pass custom img config for notebook
+# import os
+# os.environ['IMGWIDTH']='750'
 # Run default config - may need to set full path here
 %run '../scripts/setup_notebook.py'
 
@@ -112,12 +116,16 @@ print(data.data['subset']['ADM'].t)
 ```
 
 ```{code-cell} ipython3
+imgHeight
+```
+
+```{code-cell} ipython3
 # Quick plot for subselected ADMs (setup in the script), using hvplot
 # data.data['subset']['ADM'].unstack().squeeze().real.hvplot.line(x='t').overlay('K')
 
 # As above, but plot K>0 terms only, and keep 'Q','S' indexes (here all =0)
 data.data['subset']['ADM'].unstack().where(data.data['subset']['ADM'].unstack().K>0) \
-        .real.hvplot.line(x='t').overlay(['K','Q','S'])
+        .real.hvplot.line(x='t').overlay(['K','Q','S']).opts(width=700)
 ```
 
 ## Compute $P(\theta,\Phi,t)$ distributions
@@ -172,6 +180,8 @@ tPlot = [39.402, 40.791, 42.18]  # Manual setting for baseline case, and at max 
 # Note that selDims below requires labels (not index inds)
 # tPlot = data.data[dataKey]['ADM'].t[::5]
 
+# Plot
+ep.plot.hvPlotters.setPlotters(width=1200, height=600)   # Force plot dims for HTML render (avoids subplot clipping issues)
 data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pType='a', 
              returnFlag = True, selDims={'t':tPlot}, backend='pl')
 ```
