@@ -11,7 +11,7 @@ print('To use local source code, pass the parent path to this script at run time
 
 # Hide warnings?
 import warnings
-# warnings.filterwarnings('ignore')  # ALL WARNINGS
+warnings.filterwarnings('ignore')  # ALL WARNINGS
 warnings.filterwarnings('ignore', category=DeprecationWarning)
 warnings.filterwarnings('ignore', category=FutureWarning)
 
@@ -50,13 +50,15 @@ if imgFormat is None:
 # 23/03/23: Ugly - set default static render size (passed to modified Glue and setPlotters())
 # May want to add override options for this later.
 imgWidth=os.getenv('IMGWIDTH')
+print(imgWidth)
 if imgWidth is None:
     imgWidth = 1200
     
 imgHeight=os.getenv('IMGHEIGHT')
 if imgHeight is None:
-    imgHeight = None    # Leave as None for default (should maintain aspect?)
-    # imgHeight = 800  # Builds 27/07/23, trying None again.
+    # imgHeight = None    # Leave as None for default (should maintain aspect?)
+    imgHeight = 800  # Builds 27/07/23, trying None again.
+                     # Builds 29/07/23 reinstated - PAD plots in PDF very small.
     # pass
 
 imgSize = [imgWidth, imgHeight]
