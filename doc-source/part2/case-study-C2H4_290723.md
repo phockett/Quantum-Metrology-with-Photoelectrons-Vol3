@@ -12,6 +12,8 @@ kernelspec:
   name: python3
 ---
 
++++ {"tags": ["remove-cell"]}
+
 - 27/07/23: v1 from existing demo cases plus new dataset.
 - 28/07/23: complete analysis in place up to MF PAD plotting, this needs some additional work (subselection issues). Tested only with minimal N2 dataset so far.
     - UPDATE: Density mat and MF PADs now working.
