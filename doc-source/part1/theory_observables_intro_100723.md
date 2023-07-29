@@ -476,6 +476,84 @@ print(f"Max difference complex-lg: {((Isph - Ilg)**2).max()}")
 # Ilg = ep.sphCalc(Lmax = 2, res = 50, fnType='lg')
 ```
 
+## Time-resolved datasets
+
+In general, the datasets from a time-resolved measurement can be expressed as some form of {{ betas }}, as outlined above. In a similar manner to the {{ ADMs }} detailed in {numref}`Sect. %s <sect:theory:alignment>`, the {{ BLMt }} can be plotted directly, or expanded as distributions. A brief demonstration is given below, making use of the $N_2$ dataset explored in the case study in {numref}`Chpt. %s <chpt:n2-case-study>`, for further details of the computational and plotting tools see {{ PARTII }}, and the {{ ePSproc_docs }} and {{  PEMtk_docs }}.
+
+```{code-cell} ipython3
+:tags: [hide-output]
+
+# Configure settings for case study
+# %run '../scripts/setup_notebook.py'
+
+# Fitting setup including data generation and parameter creation
+# NOTE this assumes relevant data is available in ../part2/n2fitting.
+# See Part 2 for more details and data sources
+fitSystem = 'N2'
+dataName = 'n2fitting'
+
+# Set datapath, 
+dataPath = Path(Path.cwd().parent,'part2',dataName)
+
+# Run general config script with dataPath set above
+%run "../scripts/setup_fit_case-studies_270723.py" -d {dataPath} -c {fitSystem}
+```
+
+```{code-cell} ipython3
+# Compute AFBLMs for all matrix elements (energies) for selected orbital
+# (Note the main fitting script only computes for a single E-point.)
+# Use ADMs from fitting subset
+orbKey = 'orb5'
+data.AFBLM(keys = orbKey, AKQS = data.data['subset']['ADM'],
+           selDims = {'Type':'L'}, thres=1e-2)
+```
+
+```{code-cell} ipython3
+# Default plot with Holoviews/Bokeh
+# Will plot BLM(E,t) data with selectors & sliders for other dimensions
+data.BLMplot(keys=orbKey, backend='hv')
+```
+
+```{code-cell} ipython3
+# For a full BLM(E,t) surface, the output Holoviews dataset can be used.
+# See the Holoviews (https://holoviews.org) and HVplot (https://hvplot.holoviz.org) docs for more details
+
+# Set opts to match sizes - should be able to link plots or set gridspace to handle this?
+ep.plot.hvPlotters.setPlotDefaults(fSize = [750,300], imgSize = 600)
+
+# Plot heatmap for l=2 vs. Eke and add ADM plot to layout with hvplot
+(data.plots['BLMplot']['hvDS'].select(l=[2]).to(hv.HeatMap, kdims=['t','Eke']).opts(cmap='coolwarm')  + 
+    data.data['subset']['ADM'].unstack().sel({'K':[2,4]}).squeeze().real.hvplot.line(x='t').overlay('K')).cols(1)
+```
+
+```{code-cell} ipython3
+# Similarly, AFPADs can be plotted.
+# Plot I(theta,t) for a single E
+# %matplotlib inline
+dataKey = 'subset'  # Use subset data set for fitting
+data.padPlot(keys = dataKey, dataType='AFBLM', selDims={'Labels':'A'}, 
+             Etype = 't', pStyle='grid', reducePhi='sum', 
+             returnFlag = True)
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+# CASES FOR Eke subplots - need debugging
+# dataKey = 'subset'  # Use subset data set for fitting
+# data.padPlot(keys = orbKey, dataType='AFBLM', selDims={'Labels':'A','Eke':[1.1, 5.1, 10.1]}, facetDims=['Eke'],
+#              Etype = 't', pStyle='grid', reducePhi='sum', returnFlag = True)
+
+# data.padPlot(keys = orbKey, dataType='AFBLM', selDims={'Labels':'A'}, facetDims=['Eke'],
+#              Etype = 't', pStyle='grid', reducePhi='sum', returnFlag = True)
+```
+
+```{code-cell} ipython3
+# Plot I(theta,phi) at selected t
+data.padPlot(keys = dataKey, dataType='AFBLM', selDims={'Labels':'A'}, 
+             Erange=[4,5,5], Etype = 't', returnFlag = True, backend='pl')
+```
+
 ```{code-cell} ipython3
 :tags: [remove-cell]
 
