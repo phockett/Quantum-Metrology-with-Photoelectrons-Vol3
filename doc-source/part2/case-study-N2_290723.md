@@ -79,6 +79,8 @@ else:
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 # Pull data from web (N2 case)
 
 from epsproc.util.io import getFilesFromGithub
@@ -108,8 +110,18 @@ dataPath = Path(Path.cwd(),dataName)
 Note that running fits may be quite time-consuming and computationally intensive, depending on the size of the size of the problem. The default case here will run a small batch for testing if there is no existing data found on the `dataPath`, otherwise the data is loaded for analysis.
 
 ```{code-cell} ipython3
-# Look for existing Pickle files on path
-dataFiles = list(dataPath.expanduser().glob('*.pickle'))
+# Debug paths - having issues with N2 data?
+list(dataPath.expanduser().glob('*.pickle'))
+```
+
+```{code-cell} ipython3
+list(dataPath.expanduser().glob('*'))
+```
+
+```{code-cell} ipython3
+# Look for existing Pickle files on path?
+# dataFiles = list(dataPath.expanduser().glob('*.pickle'))
+dataFiles = [Path(dataPath.expanduser(), 'N2_1199_fit_withNoise_orb5_280723_11-39-26.pickle')]   # Set reference dataset(s)
 
 if not dataFiles:
     print("No data found, executing minimal fitting run...")
@@ -184,11 +196,23 @@ data.processedToHDF5(dataPath = dataPath, outStem = dataFileIn.name, timeStamp=F
 # This may be quite slow for large datasets, setting limited ranges may help
 
 # Use default auto binning
-data.fitHist()
+# data.fitHist()
 
 # Example with range set
-# data.fitHist(thres=4.3e-4, bins=100)
+data.fitHist(thres=1.5e-3, bins=100)
+
+# Glue plot for later
+glue("N2-fitHist",data.data['plots']['fitHistPlot'])
 ```
+
+```{glue:figure} N2-fitHist
+---
+name: "fig-N2-fitHist"
+---
+Fit overview plot - $\chi^2$ vs. fit index. Here bands indicate groupings (local minima) are consistently found.
+```
+
++++
 
 Here bands in the $\chi^2$ dimension can indicate groupings (local minima) are consistently found. Assuming each grouping is a viable fit candidate parameter set, these can then be explored in further detail.
 
@@ -507,7 +531,21 @@ daLayout.opts(ep.plot.hvPlotters.opts.HeatMap(width=300, frame_width=300, aspect
 # daPlot2.opts(show_title=False).layout('pType').opts(show_title=True).relabel('Recon')  Turns off titles per plot, then titles layout
 #
 # .redim() to modify individual plot group label (from dimension name) 
+
+
+# Glue figure for later - real part only in this case
+# Also clean up axis labels from default state labels ('LM' and 'LM_p' in this case).
+glue("N2-densityComp", daLayout)
 ```
+
+```{glue:figure} N2-densityComp
+---
+name: "fig-N2-densityComp"
+---
+Density matrix comparison - rows show (a) reference case (with signs of phases removed), (b) reconstructed case, (c) differences. Columns are (left) imaginary component, (right) real component. If the reconstruction is good, the differences (fidelity) should be on the order of the experimental noise level/reconstruction uncertainty, around 10% in the case studies herein.
+```
+
++++
 
 If the reconstruction is good, the differences (fidelity) should be on the order of the experimental noise level/reconstruction uncertainty, around 10% in the case studies herein.
 
@@ -518,37 +556,11 @@ If the reconstruction is good, the differences (fidelity) should be on the order
 Routines as per https://pemtk.readthedocs.io/en/latest/topical_review_case_study/MFPAD_replotting_from_file_190722-dist.html - currently not working. Seems to be some difference in dim stacking/assignment now...? Might be Python/Xarray version change, or PEMtk/ePSproc implementation.
 
 ```{code-cell} ipython3
-:tags: [hide-output]
-
 dataIn = data.data['agg']['matE'].copy()
 
-# # Restack for MFPAD plotter
-# from epsproc.util.listFuncs import dataTypesList
+# Restack for MFPAD calculation and plotter
+# Single Eke dim case
 
-# refDims = dataTypesList()
-# refDims = refDims['matE']['def']
-# dataStacked = dataIn.stack(refDims(sType='sDict'))
-# dataStacked
-
-# # Style 1: if full ref dataset included (with Eke dim)
-# # Create empty ePSbase class instance, and set data
-# # Can then use existing  padPlot() routine for all data
-# from epsproc.classes.base import ePSbase
-# dataTest = ePSbase(verbose = 1)
-
-# aList = [i for i in dataIn.data_vars]  # List of arrays
-
-# # Loop version & propagate attrs
-# dataType = 'matE'
-# for item in aList:
-#     if item.startswith('orb'):
-#         selType='L'
-#     else:
-#         selType = item
-        
-#     dataTest.data[item] = {dataType : dataIn[item].sel({'Type':selType})}
-
-# Style 2: single Eke dim case
 # Create empty ePSbase class instance, and set data
 # Can then use existing  padPlot() routine for all data
 from epsproc.classes.base import ePSbase
@@ -567,20 +579,188 @@ for item in aList:
         
     # Push singleton Eke value to dim for plotter
     dataTest.data[item][dataType] = dataTest.data[item][dataType].expand_dims('Eke')
-    
-```
-
-```{code-cell} ipython3
-aList
 ```
 
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-# Set polarization geoms from Euler angles
+# Compute MFPADs for a range of cases
 
-# import numpy as np
-# import epsproc as ep
+# Set Euler angs to include diagonal pol case
+pRot = [0, 0, np.pi/2, 0]
+tRot = [0, np.pi/2, np.pi/2, np.pi/4]
+cRot = [0, 0, 0, 0]
+labels = ['z','x','y', 'd']
+eulerAngs = np.array([labels, pRot, tRot, cRot]).T   # List form to use later, rows per set of angles
+
+# Should also use MFBLM function below instead of numeric version?
+# Numeric version is handy for direct surface and difference case.
+R = ep.setPolGeoms(eulerAngs = eulerAngs)
+
+# Comparison and diff
+pKey = [i for i in dataIn.data_vars if i!='comp']  # List of arrays
+dataTest.mfpadNumeric(keys=pKey, R = R)   # Compute MFPADs for each set of matrix elements using numerical routine
+
+dataTest.data['diff'] = {'TX': dataTest.data['subset']['TX'].sum('Sym')-dataTest.data['compC']['TX'].sum('Sym')}  # Add sum over sym to force matching dims
+pKey.extend(['diff'])
+
+# Plot - all cases
+# Now run in separate cells below for more stable output
+# Erange=[1,2,1]  # Set for a range of Ekes
+# Eplot = {'Eke':data.selOpts['matE']['inds']['Eke']}  # Plot for selected Eke (as used for fitting)
+# print(f"\n*** Plotting for keys = {pKey}, one per row ***\n")  # Note plot labels could do with some work!
+# dataTest.padPlot(keys=pKey, Erange=Erange, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+```
+
+```{code-cell} ipython3
+# Plot results from reconstructed matE
+pKey = 'compC'
+print(f"\n*** Plotting for keys = {pKey} ***\n")  # Note plot labels could do with some work!
+# dataTest.padPlot(keys=pKey, Erange=Erange, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+Eplot = {'Eke':data.selOpts['matE']['inds']['Eke']}  # Plot for selected Eke (as used for fitting)
+dataTest.padPlot(keys=pKey, selDims=Eplot, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+
+# And GLUE for display later with caption
+figObj = dataTest.data[pKey]['plots']['TX']['polar'][0]
+glue("N2-compC", figObj)
+```
+
+```{glue:figure} N2-compC
+---
+name: "fig-N2-compC"
+---
+{{ MF }}-{{ PADs }} computed from retrieved matrix elements for $(x,y,z,d)$ polarization geometries, where $d$ is the "diagonal" case with the polarization axis as 45 degrees to the $z$-axis.
+```
+
+```{code-cell} ipython3
+# Plot results from reference matE
+pKey = 'subset'
+print(f"\n*** Plotting for keys = {pKey} ***\n")  # Note plot labels could do with some work!
+# dataTest.padPlot(keys=pKey, Erange=Erange, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+Eplot = {'Eke':data.selOpts['matE']['inds']['Eke']}  # Plot for selected Eke (as used for fitting)
+dataTest.padPlot(keys=pKey, selDims=Eplot, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+
+# And GLUE for display later with caption
+figObj = dataTest.data[pKey]['plots']['TX']['polar'][0]
+glue("N2-ref", figObj)
+```
+
+```{glue:figure} N2-ref
+---
+name: "fig-N2-ref"
+---
+{{ MF }}-{{ PADs }} computed from reference _ab initio_ matrix elements for $(x,y,z,d)$ polarization geometries, where $d$ is the "diagonal" case with the polarization axis as 45 degrees to the $z$-axis.
+```
+
+```{code-cell} ipython3
+# Plot normalised differences
+pKey = 'diff'
+print(f"\n*** Plotting for keys = {pKey} ***\n")  # Note plot labels could do with some work!
+# dataTest.padPlot(keys=pKey, Erange=Erange, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+Eplot = {'Eke':data.selOpts['matE']['inds']['Eke']}  # Plot for selected Eke (as used for fitting)
+dataTest.padPlot(keys=pKey, selDims=Eplot, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+
+# And GLUE for display later with caption
+figObj = dataTest.data[pKey]['plots']['TX']['polar'][0]
+glue("N2-diff", figObj)
+```
+
+```{glue:figure} N2-diff
+---
+name: "fig-N2-diff"
+---
+{{ MF }}-{{ PADs }} differences between retrieved and reference cases for $(x,y,z,d)$ polarization geometries, where $d$ is the "diagonal" case with the polarization axis as 45 degrees to the $z$-axis. Note diffs are normalised to emphasize the shape, but not mangnitudes, of the differences - see the density matrix comparisons for a more rigourous fidelity analysis.
+```
+
+```{code-cell} ipython3
+# Check max differences (abs values)
+maxDiff = dataTest.data['diff']['plots']['TX']['pData'].sum(['Theta','Phi']).max(dim='Eke')
+maxDiff.to_pandas()
+```
+
+```{code-cell} ipython3
+# Check case without phase correction too - this should indicate poor agreement in general
+pKey = 'comp'
+dataTest.mfpadNumeric(keys=pKey, R = R) 
+dataTest.padPlot(keys=pKey, selDims=Eplot, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+```
+
++++ {"tags": ["remove-cell"]}
+
+# SCRATCH
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+data.selOpts
+{k:v for k,v in data.selOpts['matE']['inds'].items() if k=='Eke'}
+Epoint = {k:v for k,v in data.selOpts['matE']['inds'].items() if k=='Eke'}
+# {k:v for k,v in data.selOpts['matE']['inds'].items()}
+```
+
+```{code-cell} ipython3
+:tags: [hide-output, remove-cell]
+
+# dataIn = data.data['agg']['matE'].copy()
+
+# # # Restack for MFPAD plotter
+# # from epsproc.util.listFuncs import dataTypesList
+
+# # refDims = dataTypesList()
+# # refDims = refDims['matE']['def']
+# # dataStacked = dataIn.stack(refDims(sType='sDict'))
+# # dataStacked
+
+# # # Style 1: if full ref dataset included (with Eke dim)
+# # # Create empty ePSbase class instance, and set data
+# # # Can then use existing  padPlot() routine for all data
+# # from epsproc.classes.base import ePSbase
+# # dataTest = ePSbase(verbose = 1)
+
+# # aList = [i for i in dataIn.data_vars]  # List of arrays
+
+# # # Loop version & propagate attrs
+# # dataType = 'matE'
+# # for item in aList:
+# #     if item.startswith('orb'):
+# #         selType='L'
+# #     else:
+# #         selType = item
+        
+# #     dataTest.data[item] = {dataType : dataIn[item].sel({'Type':selType})}
+
+# # Style 2: single Eke dim case
+# # Create empty ePSbase class instance, and set data
+# # Can then use existing  padPlot() routine for all data
+# from epsproc.classes.base import ePSbase
+# dataTest = ePSbase(verbose = 1)
+
+# aList = [i for i in dataIn.data_vars]  # List of arrays
+
+# # Loop version & propagate attrs
+# dataType = 'matE'
+# for item in aList:
+#     if item.startswith('sub'):
+#         dataTest.data[item] = {dataType : dataIn[item]}
+#     else:
+#         selType = item
+#         dataTest.data[item] = {dataType : dataIn[item].sel({'Type':selType})}
+        
+#     # Push singleton Eke value to dim for plotter
+#     dataTest.data[item][dataType] = dataTest.data[item][dataType].expand_dims('Eke')
+    
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+aList
+```
+
+```{code-cell} ipython3
+:tags: [hide-output, remove-cell]
+
+# Compute MFPADs for a range of cases
 
 # Set Euler angs to include diagonal pol case
 pRot = [0, 0, np.pi/2, 0]
@@ -608,22 +788,22 @@ dataTest.mfpadNumeric(keys=pKey, R = R)   # Compute MFPADs for each set of matri
 dataTest.data['diff'] = {'TX': dataTest.data['subset']['TX'].sum('Sym')-dataTest.data['compC']['TX'].sum('Sym')}  # Add sum over sym to force matching dims
 pKey.extend(['diff'])
 
-# Plot
-print(f"\n*** Plotting for keys = {pKey}, one per row ***\n")  # Note plot labels could do with some work!
-dataTest.padPlot(keys=pKey, Erange=Erange, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+# Plot - all cases
+# Now run in separate cells below for more stable output
+# print(f"\n*** Plotting for keys = {pKey}, one per row ***\n")  # Note plot labels could do with some work!
+# dataTest.padPlot(keys=pKey, Erange=Erange, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
 ```
 
 ```{code-cell} ipython3
-# Check max differences (abs values)
-maxDiff = dataTest.data['diff']['plots']['TX']['pData'].sum(['Theta','Phi']).max(dim='Eke')
-maxDiff.to_pandas()
+:tags: [remove-cell]
+
+dataTest
 ```
 
 ```{code-cell} ipython3
-# Check case without phase correction too - this should indicate poor agreement in general
-pKey = 'comp'
-dataTest.mfpadNumeric(keys=pKey, R = R) 
-dataTest.padPlot(keys=pKey, Erange=Erange, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+:tags: [remove-cell]
+
+# Plot fit restults
 ```
 
 ```{code-cell} ipython3

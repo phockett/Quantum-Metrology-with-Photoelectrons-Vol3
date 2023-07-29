@@ -55,7 +55,8 @@ parts:
     - file: part2/extracting_matrix_elements_overview_270423
     - file: part2/sym-fitting-intro_240723
     - file: part2/basic_fitting_numerics_intro_260723
-    - file: part2/case-study-N2_270423
+    # - file: part2/case-study-N2_270423  # v1 with analysis
+    - file: part2/case-study-N2_290723   # Tidier version with glue()
     # - file: part2/case-study-OCS_270423  # Skip for now - has lots of fitting embeded
     # - file: part2/case-study-OCS_270423-headerOnly
     - file: part2/case-study-OCS_290723
