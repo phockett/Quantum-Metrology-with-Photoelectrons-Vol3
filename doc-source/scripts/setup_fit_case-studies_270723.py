@@ -14,6 +14,9 @@
 # 27/07/23: general case study case.
 #           Note individual case studies have settings in a few places (by config type).
 #           Quite messy!
+#
+#           NOTE: should update to use self.AFBLM for basic calcs, already wraps core function & return.
+#
 
 print('*** Setting up demo fitting workspace and main `data` class object...')
 print('Script: QM3 case studies')
@@ -44,7 +47,7 @@ caseStudy = args.case if args.case else None
 add3DtestADMs = args.add3DADMs if args.add3DADMs else None
 
 # Add noise?  And set params.
-addNoise = True if args.addNoise else False
+addNoise = True if (args.addNoise == 'y') else False
 sigma = args.sigma if args.sigma else 0.05
 mu = 0
 # print(f"Using input module path {modPath}, data path {dataPath}.")
@@ -146,7 +149,7 @@ if epDemoDataFlag:
 print(f'\n* Loading demo matrix element data from {dataPath}')
 
 # TODO: add in some path error checking here or in scanFiles() - currently errors if no files found.
-data = pemtkFit(fileBase = dataPath, verbose = 0)
+data = pemtkFit(fileBase = dataPath, verbose = 1)
 
 # Read data files
 # OCSorb = None
@@ -672,7 +675,10 @@ if addNoise:
 
 print('\n\n*** Setup demo fitting workspace OK.')
 
-display(data.BLMfitPlot())
+# Plot data
+from matplotlib import pyplot as plt
+data.BLMfitPlot(keys=['subset','sim'])
+plt.title(f'{caseStudy}: Simulated data, and subset for fitting.')
 
 # This sets `self.params` from the matrix elements, which are a set of (real) parameters for lmfit, as [a Parameters object](https://lmfit.github.io/lmfit-py/parameters.html).
 #

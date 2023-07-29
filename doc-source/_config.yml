@@ -143,7 +143,8 @@ sphinx:
     nb_merge_streams: True
     
     #*** Mathjax config, see https://jupyterbook.org/en/stable/advanced/sphinx.html#defining-tex-macros
-    mathjax_config:
+    # For Sphinx >= 4.0 set as "mathjax3_config" (was "mathjax_config"), updated 28/07/23
+    mathjax3_config:
       tex:
         macros:
             # Fix for \bm, see https://github.com/mathjax/MathJax/issues/1219#issuecomment-341059843
@@ -221,6 +222,7 @@ parse:
     # Maths shorthand
     # BLM: "$\beta_{L,M}$"  # This fails, seems to cut eqn, maybe drops first $?
     BLM: "$\\beta_{L,M}$"   # This works, note esc for \ IN MATHS seems required.
+    BLMt: "$\\beta_{L,M}(t)$"
     ADMsymbol: "$A_{Q,S}^{K}(t)$"
     
     # Additional links/cross-refs
