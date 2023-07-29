@@ -28,6 +28,9 @@ Theory section on observables
    - Added real/complex and Legendre parts, plus some normalisation stuff.
    - MISSING: Lg eqns. General SHtools wrapper? Thought I'd done this...? CHECK SOURCE! Hmmm, see https://github.com/phockett/ePSproc/blob/1c0b8fd409648f07c85f4f20628b5ea7627e0c4e/epsproc/util/conversion.py#L304 - on the todo list.
    - Code may still need a tidy-up, but running (with figures) OK in QM3-jupyterlab-3d-120723 container.
+- 28/07/23
+    - Added final section on time-resolved obsevables. Plotters still a bit messy!
+    - Bit more general tidy, and add some more intro material.
 
 TODO
 
@@ -41,7 +44,7 @@ TODO
 (sect:theory:observables)=
 # Observables: photoelectron flux in the LF and MF
 
-The observables of interest herein - the photoelectron flux as a function of energy, ejection angle, and time (see {numref}`fig-bootstrap-concept-outline`) - can be written quite generally as expansions in radial and angular basis functions. Various types and definitions are given in this section, including worked numerical examples.
+The observables of interest herein - the photoelectron flux as a function of energy, ejection angle, and time (see {numref}`fig-bootstrap-concept-outline`) - can be written quite generally as expansions in radial and angular basis functions. Various types and definitions are given in this section, including worked numerical examples. The final section, {numref}`Sect. %s <sect:theory:time-resolved-data>`, illustrates typical data from a time-resolved measurement, resulting in time and energy dependant observables - this is the type of data required for the {{ BOOTSTRAP }}.
 
 (sec:theory:sph-harm-intro)=
 ## Spherical harmonics
@@ -85,6 +88,9 @@ BLM = setBLMs([[0,0,1,1,1,1,1,1],
 
 # Output a quick tabulation of the values with Pandas
 BLM.to_pandas()
+
+# Glue for later use
+glue("blm-tab", BLM.to_pandas())
 ```
 
 ```{code-cell} ipython3
@@ -136,12 +142,12 @@ Examples of angular distributions (expansions in spherical harmonics $Y_{L,M}$),
 # Example using data class (see setup in init script)
 data = pemtkFit()
 
-BLM = setBLMs([[0,0,1,1,1,1],[1,0,0,0.5,0.8,1],[2,0,1,0.5,0,0],
+BLMset2 = setBLMs([[0,0,1,1,1,1],[1,0,0,0.5,0.8,1],[2,0,1,0.5,0,0],
                [4,2,0,0,0,0.5],[4,-2,0,0,0,0.5]])
 
-data.setData('BLMtest', BLM)
-# data.padPlot(keys = 'BLMtest', dataType='AFBLM', Etype='t', facetDims=['t'], backend=plotBackend, plotFlag=False, returnFlag=True)  # Working
-data.padPlot(keys = 'BLMtest', dataType='AFBLM', Etype='t', backend=plotBackend)  # OK July 2023 builds.
+# Set data in class, and plot PADs
+data.setData('BLMtest', BLMset2)
+data.padPlot(keys = 'BLMtest', dataType='AFBLM', Etype='t', backend=plotBackend)  
 
 # And GLUE for display later with caption
 # figObj = data.data['BLMtest']['plots']['AFBLM']['polar'][0]
@@ -149,7 +155,7 @@ data.padPlot(keys = 'BLMtest', dataType='AFBLM', Etype='t', backend=plotBackend)
 ```
 
 ```{code-cell} ipython3
-:tags: [hide-cell]
+:tags: [hide-cell, remove-cell]
 
 # Some methods for tabulating the values for display
 
@@ -162,10 +168,10 @@ data.padPlot(keys = 'BLMtest', dataType='AFBLM', Etype='t', backend=plotBackend)
 # dataPD, _ = multiDimXrToPD(BLM, colDims='t')
 
 # *** Use Xarray "to_pandas()" class method, for 1D or 2D arrays only
-dataPD = BLM.to_pandas()
+# dataPD = BLM.to_pandas()
 
 # Glue for later use
-glue("blm-tab", BLM.to_pandas())
+# glue("blm-tab", BLM.to_pandas())
 ```
 
 ```{glue:figure} blm-tab
@@ -476,9 +482,10 @@ print(f"Max difference complex-lg: {((Isph - Ilg)**2).max()}")
 # Ilg = ep.sphCalc(Lmax = 2, res = 50, fnType='lg')
 ```
 
-## Time-resolved datasets
+(sect:theory:time-resolved-data)=
+## Time-resolved data
 
-In general, the datasets from a time-resolved measurement can be expressed as some form of {{ betas }}, as outlined above. In a similar manner to the {{ ADMs }} detailed in {numref}`Sect. %s <sect:theory:alignment>`, the {{ BLMt }} can be plotted directly, or expanded as distributions. A brief demonstration is given below, making use of the $N_2$ dataset explored in the case study in {numref}`Chpt. %s <chpt:n2-case-study>`, for further details of the computational and plotting tools see {{ PARTII }}, and the {{ ePSproc_docs }} and {{  PEMtk_docs }}.
+In general, the datasets from a time-resolved measurement can be expressed as some form of {{ betas }}, as outlined above. In a similar manner to the {{ ADMs }} detailed in {numref}`Sect. %s <sect:theory:alignment>`, the {{ BLMt }} can be plotted directly, or expanded as distributions $I(\epsilon,t,\theta,\phi...)$. A brief demonstration is given below, making use of the $N_2$ dataset explored in the case study in {numref}`Chpt. %s <chpt:n2-case-study>`, for further details of the computational and plotting tools see {{ PARTII }}, and the {{ ePSproc_docs }} and {{  PEMtk_docs }}.
 
 ```{code-cell} ipython3
 :tags: [hide-output]
@@ -507,6 +514,8 @@ orbKey = 'orb5'
 data.AFBLM(keys = orbKey, AKQS = data.data['subset']['ADM'],
            selDims = {'Type':'L'}, thres=1e-2)
 ```
+
+In this case, making use of _ab initio_ {{ RADMATE }}, a full set of $\beta_{L,M}(\epsilon,t)$ are computed, for the ionizing channel(s) defined (in this case as labelled by the `orbKey` parameter). These can be plotted vs. energy or time as line-plots or colourmaps. The {{ PEMtk_repo }} currently has some basic routines for some specific cases, or low-level functionality from the base libraries can be used for more control.
 
 ```{code-cell} ipython3
 # Default plot with Holoviews/Bokeh
