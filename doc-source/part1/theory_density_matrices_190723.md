@@ -34,6 +34,7 @@ Subsection for density matrix stuff
 - Issue with sym setup script? Throwing some errors.
   - Now tidied in script (not required here), but should debug.
 - Text OK and tidied up a bit, still some debug stuff to remove.
+- Spit to full and noQutip versions for build testing.
 
 TODO:
 
