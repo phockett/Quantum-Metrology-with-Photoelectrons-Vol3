@@ -57,9 +57,10 @@ if imgWidth is None:
 imgHeight=os.getenv('IMGHEIGHT')
 if imgHeight is None:
     # imgHeight = None    # Leave as None for default (should maintain aspect?)
-    imgHeight = 500  # Builds 27/07/23, trying None again.
+    imgHeight = 350  # Builds 27/07/23, trying None again.
                      # Builds 29/07/23 reinstated - PAD plots in PDF very small.
                      # Case studies builds 30/07/23 testing for 1 row PADs layout...
+                     # 1000x500 still has clipping
     # pass
 
 imgSize = [imgWidth, imgHeight]
