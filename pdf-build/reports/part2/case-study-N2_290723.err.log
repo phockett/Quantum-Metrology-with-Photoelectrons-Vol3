@@ -1,0 +1,135 @@
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/conda/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# SKIP THIS - output very slow!
+# TODO: fix plot labelling above.
+
+# Version for unified plotting - stack individual plots to grid
+# See https://plotly.com/python/subplots
+# And https://plot.ly/python/3d-subplots
+
+saveFigs = True
+from datetime import datetime as dt
+timeString = dt.now()
+
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+#*** Set gridding
+# rc = [int(np.ceil(rc[0])), int(np.ceil(rc[1]))]
+rc=[4,4]  # All data
+# rc=[2,2]  # Test set
+showscale = False
+
+#*** Set data norms
+# norm = None #
+norm = 'global'
+
+Rmax = 1.1
+padding = 0.1
+aRanges = dict(range=[-(Rmax + padding), Rmax+padding])
+aspect = 'cube' # 'auto' # 'cube'   # 'auto' with no ranges is pretty good, or set ranges & use cube (otherwise get distorted shapes)
+
+#*** Set camera
+# Camera settings, https://plotly.com/python/3d-camera-controls/
+# camera = dict(eye=dict(x=2, y=2, z=0.1))
+
+# Defaults
+# Default parameters which are used when `layout.scene.camera` is not provided
+# camera = dict(
+#     up=dict(x=0, y=0, z=1),
+#     center=dict(x=0, y=0, z=0),
+#     eye=dict(x=1.25, y=1.25, z=1.25)
+# )
+
+# Slightly lower... plus x-rotation
+camera = dict(
+    up=dict(x=0, y=0, z=1),
+    center=dict(x=0, y=0, z=0),
+    # eye=dict(x=0.8, y=1.25, z=0.8)  # Not bad... bit close?
+    eye=dict(x=0.8, y=1.5, z=0.8)
+)
+
+
+#*** Set subplots
+pType = {'type':'surface'}
+specs = [[pType] * rc[1] for i in range(rc[0])]  # Set specs as 2D list of dicts.
+
+# titles = [f"{facetDim}: {item.item()}" for item in dataPlot[facetDim]]
+titles = []
+colTitles =  [f'Pol({item.upper()})' for item in dataTest.data['subset']['TX'].Labels.values[0:rc[1]].tolist()]
+# rowTitles = ['Mean', 'Mean phase-corrected', 'Ref', 'Diff(Ref - PC)']
+rowTitles = ['Ref', 'Mean phase-corrected', 'Diff(Ref - PC)', 'Mean']
+
+# pKey = [pKey[2], pKey[0:1], pKey[3]]  # ['comp', 'compC', 'orb5', 'diff']
+pKey = ['subset', 'compC', 'diff', 'comp']   # Row ordering
+
+fig = make_subplots(rows=rc[0], cols=rc[1], specs=specs, subplot_titles=titles, 
+                    column_titles = colTitles, row_titles = rowTitles,
+                    vertical_spacing = 0.05) # Note basic row/whitespace control here
+fig.update_layout(height=1200, width=1200)
+
+# Loop & grid from existing objects
+n=0
+for rInd in range(1,rc[0]+1):
+    for cInd in range(1,rc[1]+1):
+        
+        # print(f'{rInd},{cInd}')
+        trace = dataTest.data[pKey[rInd-1]]['plots']['TX']['polar'][0].data[cInd-1]
+        
+        fig.add_trace(go.Surface(x=trace['x'], y=trace['y'], z=trace['z'], colorscale='Viridis', showscale=showscale),
+                    row=rInd, col=cInd)
+        
+        # Set string for "scene" (axis) object to update - will be labelled scene1, scene2... by Plotly.
+        n=n+1
+        sceneN = f'scene{n}'
+        if norm == 'global':
+            # Try looping... OK with dict unpacking... huzzah!
+            # NOTE Scene indexing starts at 1, so do this after n increments
+            # options = dict(xaxis = aRanges, yaxis = aRanges, zaxis = aRanges, aspectmode='cube')
+            options = dict(xaxis = aRanges, yaxis = aRanges, zaxis = aRanges, aspectmode=aspect, camera=camera)
+
+        else:
+            # options = dict(aspectmode='cube')
+            # options = dict(aspectmode='auto')  # Better for scaling up details?
+            options = dict(aspectmode=aspect, camera=camera)
+
+        fig.update_layout(**{sceneN:options})  # No effect of aspect here? auto/cube/data/manual
+
+
+# fig.show()   # fig.show() quite slow for multiple surface plots - export & viewing seems better!
+if saveFigs:
+    fName = f'dataDump_1000fitTests_multiFit_noise_051021_MFPADs_{timeString.strftime("%d%m%y")}'
+    fig.write_html(f'{fName}.html')
+    fig.write_image(f'{fName}.png')
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+Cell [0;32mIn[47], line 75[0m
+[1;32m     71[0m [38;5;28;01mfor[39;00m rInd [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;241m1[39m,rc[[38;5;241m0[39m][38;5;241m+[39m[38;5;241m1[39m):
+[1;32m     72[0m     [38;5;28;01mfor[39;00m cInd [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;241m1[39m,rc[[38;5;241m1[39m][38;5;241m+[39m[38;5;241m1[39m):
+[1;32m     73[0m         
+[1;32m     74[0m         [38;5;66;03m# print(f'{rInd},{cInd}')[39;00m
+[0;32m---> 75[0m         trace [38;5;241m=[39m [43mdataTest[49m[38;5;241;43m.[39;49m[43mdata[49m[43m[[49m[43mpKey[49m[43m[[49m[43mrInd[49m[38;5;241;43m-[39;49m[38;5;241;43m1[39;49m[43m][49m[43m][49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mplots[39;49m[38;5;124;43m'[39;49m[43m][49m[[38;5;124m'[39m[38;5;124mTX[39m[38;5;124m'[39m][[38;5;124m'[39m[38;5;124mpolar[39m[38;5;124m'[39m][[38;5;241m0[39m][38;5;241m.[39mdata[cInd[38;5;241m-[39m[38;5;241m1[39m]
+[1;32m     77[0m         fig[38;5;241m.[39madd_trace(go[38;5;241m.[39mSurface(x[38;5;241m=[39mtrace[[38;5;124m'[39m[38;5;124mx[39m[38;5;124m'[39m], y[38;5;241m=[39mtrace[[38;5;124m'[39m[38;5;124my[39m[38;5;124m'[39m], z[38;5;241m=[39mtrace[[38;5;124m'[39m[38;5;124mz[39m[38;5;124m'[39m], colorscale[38;5;241m=[39m[38;5;124m'[39m[38;5;124mViridis[39m[38;5;124m'[39m, showscale[38;5;241m=[39mshowscale),
+[1;32m     78[0m                     row[38;5;241m=[39mrInd, col[38;5;241m=[39mcInd)
+[1;32m     80[0m         [38;5;66;03m# Set string for "scene" (axis) object to update - will be labelled scene1, scene2... by Plotly.[39;00m
+
+[0;31mKeyError[0m: 'plots'
+

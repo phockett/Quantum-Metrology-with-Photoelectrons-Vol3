@@ -94,7 +94,7 @@ For all pairs of basis states $(i,j)$. This defines the density matrix in the $\
 % 30/01/23 extended with notes from MF recon article.
 % 10/02/23 added general intro & tidying up
 
-(sec:density-mat-intro)=
+(sec:density-mat-intro:continuum)=
 ## Continuum density matrices
 
 % May want to move to Sect. 3.2 and add some more details?
@@ -399,8 +399,6 @@ From the numerical density matrix, a range of other standard properties can be c
 ### Convert numerical arrays to QuTiP objects
 
 ```{code-cell} ipython3
-:tags: [hide-cell]
-
 # Import QuTip
 from qutip import *
 
@@ -412,7 +410,9 @@ pb = Qobj(daOut_noise.sum('Sym').data)  # Noisy case
 # QuTip objects have data as Numpy arrays, and render as typeset matrices in a notebook
 # DEBUG NOTE 22/04/23 - QuTip matrix latex output currently causing PDF build errors, so set hide output for testing.
 # See https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/8
-pa
+if buildEnv != 'pdf':
+    display(pa)
+    # print(pa)
 ```
 
 ### Fidelity metric

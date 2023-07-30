@@ -12,6 +12,7 @@ kernelspec:
   name: python3
 ---
 
+(chpt:book-versions)=
 # A note on book versions, formats and conventions
 
 ## Versions

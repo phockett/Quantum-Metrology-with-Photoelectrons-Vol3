@@ -172,10 +172,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../part1/theory_photoionization_dynamics_140723.html">3.1. Photoionization dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part1/theory_symmetry_140723.html">3.2. Symmetry in photoionization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part1/theory_tensor_formalism_160723.html">3.3. Tensor formulation of photoionization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part1/theory_density_matrices_190723.html">3.4. Density matrix representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_density_matrices_190723-noQutip.html">3.4. Density matrix representation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part1/theory_molecular_alignment_170723.html">3.5. Molecular alignment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part1/theory_observables_intro_100723.html">3.6. Observables: photoelectron flux in the LF and MF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part1/theory_info_content_221122.html">3.7. Information content &amp; sensitivity</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../part1/numerics_070723.html">4. Numerical methodologies for extracting matrix elements</a></li>
@@ -183,11 +182,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II - Extracting matrix elements - numerical methods &amp; case studies</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../part2/extracting_matrix_elements_overview_270423.html">5. Extracting matrix elements overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part2/sym-fitting-intro_220423.html">6. Basis sets for fitting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part2/basic_fitting_numerics_intro_260423.html">7. Basic fit setup and numerics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-N2_270423.html">8. Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, <span class="math notranslate nohighlight">\(N_2~(D_{\infty h})\)</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-OCS_270423-headerOnly.html">9. Case study: Generalised bootstrapping for a linear heteronuclear scattering system, <span class="math notranslate nohighlight">\(OCS~(C_{\infty v})\)</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-C2H4_270423.html">10. Case study: Generalised bootstrapping for a general asymmetric top scattering system, <span class="math notranslate nohighlight">\(C_2H_4~(D_{2h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/sym-fitting-intro_240723.html">6. Basis sets for fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/basic_fitting_numerics_intro_260723.html">7. General fit setup and numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-N2_290723.html">8. Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, <span class="math notranslate nohighlight">\(N_2~(D_{\infty h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-OCS_290723.html">9. Case study: Generalised bootstrapping for a linear heteronuclear scattering system, <span class="math notranslate nohighlight">\(OCS~(C_{\infty v})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-C2H4_290723.html">10. Case study: Generalised bootstrapping for a general asymmetric top scattering system, <span class="math notranslate nohighlight">\(C_2H_4~(D_{2h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-summaries_240723.html">11. Case studies: summaries, conclusions and outlook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/conclusions_240723.html">12. Conclusions and outlook</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
@@ -395,7 +396,14 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="about-the-authors">
 <h1>About the authors<a class="headerlink" href="#about-the-authors" title="Permalink to this heading">#</a></h1>
 <p>Paul Hockett and Varun Makhija’s interests span a gamut of topics in atomic, molecular and optical (AMO) and quantum physics, at the intersection of spectroscopy, photoionization, (ultrafast) optics, molecular control and dynamics, and metrology. Paul’s recent work has focussed on photoelectron metrology, with the main aims of matrix element retrieval, as outlined in this series (<em>Quantum metrology with photoelectron</em>) of books. Varun’s work has focussed primarily on rotational wavepacket methodologies and reconstruction, and application of these techniques to molecular systems, including full excited state density matrix reconstruction and applications in photoelectron metrology.</p>
-<p>Paul is a research scientist at the National Research Council of Canada, Ottawa, Canada. Varun is a faculty member at the University of Mary Washington, Virginia, USA.</p>
+<p>Paul is a research scientist at the National Research Council of Canada, Ottawa, Canada, <a href="https://orcid.org/0000-0001-9561-8433">
+<img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" />
+https://orcid.org/0000-0001-9561-8433
+</a></p>
+<p>Varun is a faculty member at the University of Mary Washington, Virginia, USA, <a href="0000-0002-4975-4888">
+<img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" />
+https://orcid.org/0000-0002-4975-4888
+</a></p>
 </section>
 
     <script type="text/x-thebe-config">

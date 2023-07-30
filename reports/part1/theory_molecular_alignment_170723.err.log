@@ -15,16 +15,14 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-%matplotlib inline  # NOTE - need this in some builds if Matplotlib has call-back errors.
-# Plot P(theta,t) with summation over phi dimension
-# Note the plotting function automatically expands the ADMs in spherical harmonics
-dataKey = 'subset'
-data.padPlot(keys = dataKey, dataType='ADM', Etype = 't', pStyle='grid', reducePhi='sum', returnFlag = True)
-------------------
-
------ stderr -----
-UsageError: unrecognized arguments: # NOTE - need this in some builds if Matplotlib has call-back errors.
+tPlot
 ------------------
 
 
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[9], line 1[0m
+[0;32m----> 1[0m [43mtPlot[49m
+
+[0;31mNameError[0m: name 'tPlot' is not defined
 

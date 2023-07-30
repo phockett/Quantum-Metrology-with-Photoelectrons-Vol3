@@ -169,10 +169,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="part1/theory_photoionization_dynamics_140723.html">3.1. Photoionization dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="part1/theory_symmetry_140723.html">3.2. Symmetry in photoionization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="part1/theory_tensor_formalism_160723.html">3.3. Tensor formulation of photoionization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="part1/theory_density_matrices_190723.html">3.4. Density matrix representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="part1/theory_density_matrices_190723-noQutip.html">3.4. Density matrix representation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="part1/theory_molecular_alignment_170723.html">3.5. Molecular alignment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="part1/theory_observables_intro_100723.html">3.6. Observables: photoelectron flux in the LF and MF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="part1/theory_info_content_221122.html">3.7. Information content &amp; sensitivity</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="part1/numerics_070723.html">4. Numerical methodologies for extracting matrix elements</a></li>
@@ -180,11 +179,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II - Extracting matrix elements - numerical methods &amp; case studies</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="part2/extracting_matrix_elements_overview_270423.html">5. Extracting matrix elements overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="part2/sym-fitting-intro_220423.html">6. Basis sets for fitting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="part2/basic_fitting_numerics_intro_260423.html">7. Basic fit setup and numerics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="part2/case-study-N2_270423.html">8. Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, <span class="math notranslate nohighlight">\(N_2~(D_{\infty h})\)</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="part2/case-study-OCS_270423-headerOnly.html">9. Case study: Generalised bootstrapping for a linear heteronuclear scattering system, <span class="math notranslate nohighlight">\(OCS~(C_{\infty v})\)</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="part2/case-study-C2H4_270423.html">10. Case study: Generalised bootstrapping for a general asymmetric top scattering system, <span class="math notranslate nohighlight">\(C_2H_4~(D_{2h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="part2/sym-fitting-intro_240723.html">6. Basis sets for fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part2/basic_fitting_numerics_intro_260723.html">7. General fit setup and numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part2/case-study-N2_290723.html">8. Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, <span class="math notranslate nohighlight">\(N_2~(D_{\infty h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="part2/case-study-OCS_290723.html">9. Case study: Generalised bootstrapping for a linear heteronuclear scattering system, <span class="math notranslate nohighlight">\(OCS~(C_{\infty v})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="part2/case-study-C2H4_290723.html">10. Case study: Generalised bootstrapping for a general asymmetric top scattering system, <span class="math notranslate nohighlight">\(C_2H_4~(D_{2h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="part2/case-study-summaries_240723.html">11. Case studies: summaries, conclusions and outlook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part2/conclusions_240723.html">12. Conclusions and outlook</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
@@ -346,6 +347,7 @@ document.write(`
 
 <div class="genindex-jumpbox">
  <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#E"><strong>E</strong></a>
  | <a href="#F"><strong>F</strong></a>
@@ -372,6 +374,14 @@ document.write(`
       <li><a href="backmatter/glossary.html#term-anisotropy-paramters"><strong>anisotropy paramters</strong></a>
 </li>
       <li><a href="backmatter/glossary.html#term-axis-distribution-moments"><strong>axis distribution moments</strong></a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="backmatter/glossary.html#term-bootstrap-retrieval-protocol"><strong>bootstrap retrieval protocol</strong></a>
 </li>
   </ul></td>
 </tr></table>

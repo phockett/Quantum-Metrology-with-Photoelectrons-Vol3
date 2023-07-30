@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -17,6 +17,8 @@ kernelspec:
 +++
 
 ```{glossary}
+
+
 
 MF
   Molecular frame (MF) - coordinate system referenced to the molecule, usually with the z-axis corresponding to the highest symmetry axis. See {numref}`Sect. %s <sec:frame-definitions>` for further details.
@@ -35,7 +37,7 @@ PADs
 
 
 anisotropy paramters
-  Expansion parameters {{ BLM }} for an expansion in spherical harmonics (or similar basis sets of angular momentum functions in polar coordinates), e.g. Eq. {eq}`eq:AF-PAD-general`. Often referred to simply as "beta parameters", and may be dependent on various properties, e.g. $\beta_{L,M}(\epsilon,t...)$. Herein upper-case $L,M$ usually refer to observables or the general case, whilst lower-case $(l,m)$ usually refer specifically to the photoelectron wavefunction partial waves (see {term}`partial wave expansion`), and $(l,\lambda)$ usually denote these terms referenced specifically to the molecular frame.
+  Expansion parameters {{ BLM }} for an expansion in spherical harmonics (or similar basis sets of angular momentum functions in polar coordinates), e.g. Eq. {eq}`eq:AF-PAD-general`. Often referred to simply as "beta parameters", and may be dependent on various properties, e.g. $\beta_{L,M}(\epsilon,t...)$. Herein upper-case $L,M$ usually refer to observables or the general case, whilst lower-case $(l,m)$ usually refer specifically to the photoelectron wavefunction partial waves (see {term}`partial-wave expansion`), and $(l,\lambda)$ usually denote these terms referenced specifically to the molecular frame.
 
 
 ADMs
@@ -52,15 +54,15 @@ MS
 
 PG
   Point group. Symmetry group classification of a molecule, strictly only applicable to rigid systems. See {{ MS }} for more general case.
-  
-  
+
+
 HOMO
   Highest occupied molecular orbital. Short-hand for the outermost (highest energy) valence orbital, also often used in the form HOMO-n to number lower-lying orbitals in reverse energetic order, e.g. HOMO-1 for the penultimate valence orbital.
-  
+
 
 VMI
   Velocity-map imaging. Experimental technique for measuring energy and angle-resolved photoelectron "images".
-  
+
 
 RWP
   Rotational wavepacket. A purely rotational wavepacket (superposition of rotational eigenstates) in a molecular system, typically created via cascaded Raman interaction with a (relatively) strong IR pulse ($>10^{12}$~Wcm$^{-2}$). The resulting time-dependent molecular axis distribution can be described by a set of {{ ADMs }}.
@@ -92,18 +94,24 @@ symmetrized harmonics
 
 frame rotation
   General term for the rotation of one frame of reference (corresponding to a set of $x,y,z$ axes), e.g. as defined by an electric field vector in the laboratory, to another, e.g. as defined by a molecular axis. Usually specified herein in terms of a set of Euler angles $R_{\hat{n}}=\{\chi,\Theta,\Phi\}$, and can also be schematically denoted as, e.g., $(x,y,z)\leftarrow(x',y',z')$.
-  
+
 
 Euler angles
-  A set of angles $R_{\hat{n}}=\{\chi,\Theta,\Phi\}$ defining a frame rotation. For discussion see Wikipedia](https://en.wikipedia.org/wiki/Euler_angles){cite}`wikiEulerAngles` and Zare, Chpt. 3 {cite}`zareAngMom`.
+  A set of angles $R_{\hat{n}}=\{\chi,\Theta,\Phi\}$ defining a frame rotation. For [discussion see Wikipedia](https://en.wikipedia.org/wiki/Euler_angles){cite}`wikiEulerAngles` and Zare, Chpt. 3 {cite}`zareAngMom`.
 
 
 Wigner rotation matrix elements
-  A function defining a basis set for rotations in three-dimensions ($SO(3)$). Also known as "Wigner D-matrix elements". For discussion see Wikipedia](https://en.wikipedia.org/wiki/Wigner_D-matrix){cite}`wikiWignerDmatrix` and Zare, Chpt. 3 {cite}`zareAngMom`.
+  A function defining a basis set for rotations in three-dimensions ($SO(3)$). Also known as "Wigner D-matrix elements". For [discussion see Wikipedia](https://en.wikipedia.org/wiki/Wigner_D-matrix){cite}`wikiWignerDmatrix` and Zare, Chpt. 3 {cite}`zareAngMom`.
 
 
 molecular alignment
   General term for describing the case where molecules have some alignment in the {{ LF }}, as compared to an isotropic distribution. Defined herein terms of molecular {term}`axis distribution moments` and associated parameters {{ ADMsymbol }}. See {numref}`Sect. %s <sect:theory:alignment>` for details.
+
+
+bootstrap retrieval protocol
+  General term of a retrieval method which determines successively more complex properties of a system in multiple steps, each of which builds on the previous step and adds complexity. Herein, used for the "generalised bootstrapping" method for {{ RADMATE }} retrieval from photoionzation data. For general useage, [see wikipedia's *Bootstrapping* page](https://en.wikipedia.org/wiki/Bootstrapping).
+
+
 
 ```
 

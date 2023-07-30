@@ -171,10 +171,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../part1/theory_photoionization_dynamics_140723.html">3.1. Photoionization dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part1/theory_symmetry_140723.html">3.2. Symmetry in photoionization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part1/theory_tensor_formalism_160723.html">3.3. Tensor formulation of photoionization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part1/theory_density_matrices_190723.html">3.4. Density matrix representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_density_matrices_190723-noQutip.html">3.4. Density matrix representation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part1/theory_molecular_alignment_170723.html">3.5. Molecular alignment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part1/theory_observables_intro_100723.html">3.6. Observables: photoelectron flux in the LF and MF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part1/theory_info_content_221122.html">3.7. Information content &amp; sensitivity</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../part1/numerics_070723.html">4. Numerical methodologies for extracting matrix elements</a></li>
@@ -182,11 +181,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II - Extracting matrix elements - numerical methods &amp; case studies</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../part2/extracting_matrix_elements_overview_270423.html">5. Extracting matrix elements overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part2/sym-fitting-intro_220423.html">6. Basis sets for fitting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part2/basic_fitting_numerics_intro_260423.html">7. Basic fit setup and numerics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-N2_270423.html">8. Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, <span class="math notranslate nohighlight">\(N_2~(D_{\infty h})\)</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-OCS_270423-headerOnly.html">9. Case study: Generalised bootstrapping for a linear heteronuclear scattering system, <span class="math notranslate nohighlight">\(OCS~(C_{\infty v})\)</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-C2H4_270423.html">10. Case study: Generalised bootstrapping for a general asymmetric top scattering system, <span class="math notranslate nohighlight">\(C_2H_4~(D_{2h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/sym-fitting-intro_240723.html">6. Basis sets for fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/basic_fitting_numerics_intro_260723.html">7. General fit setup and numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-N2_290723.html">8. Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, <span class="math notranslate nohighlight">\(N_2~(D_{\infty h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-OCS_290723.html">9. Case study: Generalised bootstrapping for a linear heteronuclear scattering system, <span class="math notranslate nohighlight">\(OCS~(C_{\infty v})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-C2H4_290723.html">10. Case study: Generalised bootstrapping for a general asymmetric top scattering system, <span class="math notranslate nohighlight">\(C_2H_4~(D_{2h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-summaries_240723.html">11. Case studies: summaries, conclusions and outlook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/conclusions_240723.html">12. Conclusions and outlook</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul class="nav bd-sidenav">
@@ -1485,7 +1486,7 @@ if (window.Jupyter !== undefined) {
 }
 </style></div><div class="output text_html"><table style='border: 1.5px solid;'>
   <tr>
-     <td style='text-align: center; font-weight: bold; font-size: 1.2em; border: 1px solid;' colspan='8'>Sat Jul 22 13:47:51 2023 EDT</td>
+     <td style='text-align: center; font-weight: bold; font-size: 1.2em; border: 1px solid;' colspan='8'>Sun Jul 30 18:17:26 2023 EDT</td>
   </tr>
   <tr>
     <td style='text-align: right; border: 1px solid;'>OS</td>
@@ -1522,7 +1523,7 @@ if (window.Jupyter !== undefined) {
     <td style='text-align: right; border: 1px solid;'>scipy</td>
     <td style='text-align: left; border: 1px solid;'>1.10.1</td>
     <td style='text-align: right; border: 1px solid;'>matplotlib</td>
-    <td style='text-align: left; border: 1px solid;'>3.5.3</td>
+    <td style='text-align: left; border: 1px solid;'>3.7.2</td>
     <td style='text-align: right; border: 1px solid;'>jupyterlab</td>
     <td style='text-align: left; border: 1px solid;'>3.6.3</td>
     <td style='text-align: right; border: 1px solid;'>plotly</td>
@@ -1602,7 +1603,7 @@ traitlets        : 5.9.0
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  gh-pages
   main
 * <span class=" -Color -Color-Green">reviewJuly2023</span>
-661a657a9ca8031ebab3a1f267273c95c073222a
+acd58480c053a4536546049d9ed618d057c2a6d2
 </pre></div>
 </div>
 </div>
@@ -1615,9 +1616,9 @@ traitlets        : 5.9.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5fd6ba727637a5e727ae414a38fd5344c8740d93	refs/heads/gh-pages
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f9f53854c70db32ef067fc2c1fd9214e1aff22cf	refs/heads/gh-pages
 c0fcec831b5683882b15ac1473fc6d732310da48	refs/heads/main
-59edb777677b25f06f137421339d5bf4e971f366	refs/heads/reviewJuly2023
+acd58480c053a4536546049d9ed618d057c2a6d2	refs/heads/reviewJuly2023
 </pre></div>
 </div>
 </div>
@@ -1652,7 +1653,7 @@ c0fcec831b5683882b15ac1473fc6d732310da48	refs/heads/main
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>* <span class=" -Color -Color-Green">3d-AFPAD-dev</span>
-80e15ac8e83e07bb8a52b5fb89a915c3ff4f52bb
+c1eedf10631cb17fe33421427c195a2391369c37
 </pre></div>
 </div>
 </div>
@@ -1665,7 +1666,7 @@ c0fcec831b5683882b15ac1473fc6d732310da48	refs/heads/main
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>80e15ac8e83e07bb8a52b5fb89a915c3ff4f52bb	refs/heads/3d-AFPAD-dev
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c1eedf10631cb17fe33421427c195a2391369c37	refs/heads/3d-AFPAD-dev
 897d73392a7b32ffba4ca6b6b4755c61e7c1c8d7	refs/heads/dependabot/pip/notes/envs/envs-versioned/certifi-2022.12.7
 457f8cd85d89bd6474296b6c01e5165a4a7ce7fc	refs/heads/dependabot/pip/notes/envs/envs-versioned/cryptography-39.0.1
 2855573d0f088b45d19acf2fd9a71eeb7af0a29b	refs/heads/dependabot/pip/notes/envs/envs-versioned/ipython-8.10.0
@@ -1692,7 +1693,7 @@ baf0be0c962e8ab3c3df57c8f70f0e939f99cbd7	refs/heads/testDev
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d3693888600a5eb4d0e2281c4bb24e4fce221230	refs/heads/master
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>465c161ca9d2c2f453a58f16c8f334f5e2c07eaa	refs/heads/master
 3f4686dffdbb310f15692f978ba36d6a3d15e8d3	refs/heads/mfFittingDev
 </pre></div>
 </div>
@@ -1765,12 +1766,12 @@ brunsli                   0.1                  h9c3ff4c_0    conda-forge
 bzip2                     1.0.8                h7f98852_4    conda-forge
 c-ares                    1.18.1               h7f98852_0    conda-forge
 c-blosc2                  2.8.0                hf91038e_1    conda-forge
-ca-certificates           2023.5.7             hbcca054_0    conda-forge
+ca-certificates           2023.7.22            hbcca054_0    conda-forge
 cached-property           1.5.2                hd8ed1ab_1    conda-forge
 cached_property           1.5.2              pyha770c72_1    conda-forge
 cairo                     1.16.0            h35add3b_1015    conda-forge
 cartopy                   0.21.1          py310h7eb24ba_1    conda-forge
-certifi                   2023.5.7           pyhd8ed1ab_0    conda-forge
+certifi                   2023.7.22          pyhd8ed1ab_0    conda-forge
 certipy                   0.1.3                      py_0    conda-forge
 cffi                      1.15.1          py310h255011f_3    conda-forge
 cfitsio                   4.2.0                hd9d235c_0    conda-forge
@@ -1982,6 +1983,7 @@ markdown-it-py            2.2.0                    pypi_0    pypi
 markupsafe                2.1.2           py310h1fa729e_0    conda-forge
 mathjax                   2.7.7                ha770c72_3    conda-forge
 matplotlib                3.5.3                    pypi_0    pypi
+matplotlib-base           3.7.2           py310hf38f957_0    conda-forge
 matplotlib-inline         0.1.6              pyhd8ed1ab_0    conda-forge
 mdit-py-plugins           0.3.5                    pypi_0    pypi
 mdurl                     0.1.0              pyhd8ed1ab_0    conda-forge
