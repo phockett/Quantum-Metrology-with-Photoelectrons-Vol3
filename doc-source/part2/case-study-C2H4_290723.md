@@ -22,6 +22,7 @@ kernelspec:
     - NO MODS, but may want to add same again for 1D case?
 - 29/07/23: C2H4 from N2 draft case, still a bit messy.
     - Issues with mat E remapping?  OK until MFPADs, which have some data but fail to plot?
+- 30/07/23: Updated to match updated N2 case with better MFPAD outputs and glue().
 
 +++
 
