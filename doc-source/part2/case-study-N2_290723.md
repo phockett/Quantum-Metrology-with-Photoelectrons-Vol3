@@ -66,7 +66,8 @@ nMax = 10
 
 # Run default config - may need to set full path here
 
-%run '../scripts/setup_notebook.py'
+%run '../scripts/setup_notebook_caseStudies_Mod-300723.py'   # Test version with different figure options.
+# %run '../scripts/setup_notebook.py'
 
 # Set outputs for notebook or PDF (skips Holoviews plots unless glued)
 # Note this is set to default 'pl' in script above
@@ -108,15 +109,6 @@ dataPath = Path(Path.cwd(),dataName)
 ## Load existing fit data or run fits
 
 Note that running fits may be quite time-consuming and computationally intensive, depending on the size of the size of the problem. The default case here will run a small batch for testing if there is no existing data found on the `dataPath`, otherwise the data is loaded for analysis.
-
-```{code-cell} ipython3
-# Debug paths - having issues with N2 data?
-list(dataPath.expanduser().glob('*.pickle'))
-```
-
-```{code-cell} ipython3
-list(dataPath.expanduser().glob('*'))
-```
 
 ```{code-cell} ipython3
 # Look for existing Pickle files on path?
@@ -177,11 +169,23 @@ data.analyseFits()
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 # The BLMsetPlot routine will output aggregate fit results.
 # Here the spread can be taken as a general indication of the uncertainty of 
 # the fitting, and indicate whether the fit is well-characterised/the information 
 # content of the data is sufficient.
 data.BLMsetPlot(xDim = 't', thres=1e-6)  # With xDim and thres set, for more control over outputs
+
+# Glue plot for later
+glue("N2-fitResultsBLM",data.data['plots']['BLMsetPlot'])
+```
+
+```{glue:figure} N2-fitResultsBLM
+---
+name: "fig-N2-fitResultsBLM"
+---
+Fit overview plot - {{  BLMt }}. Here dashed lines with '+' markers indicates the input data, and bands indicate the mean fit results, where the width is the standard deviation in the fit model results. (See the {{ PEMtk_docs }} for details, particularly the [analysis routines page](https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_multiproc_class_analysis_141121-tidy.html#Fit-set-plotters).)
 ```
 
 ```{code-cell} ipython3
@@ -708,6 +712,19 @@ dataTest.padPlot(keys=pKey, selDims=Eplot, backend='pl',returnFlag=True, plotFla
 +++ {"tags": ["remove-cell"]}
 
 # SCRATCH
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+# Debug paths - having issues with N2 data?
+list(dataPath.expanduser().glob('*.pickle'))
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+list(dataPath.expanduser().glob('*'))
+```
 
 ```{code-cell} ipython3
 :tags: [remove-cell]

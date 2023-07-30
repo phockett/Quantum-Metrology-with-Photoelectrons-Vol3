@@ -38,6 +38,10 @@ Subsection for density matrix stuff
 
 29/07/23 debugging (noQutip version only so far)
 
+- Still having issues with figures...
+- Fixed issue with missing cross-ref (glue) item.
+- Fixed build chain issues with Holoviews export... may fix image issues in PDF builds...?
+
 TODO:
 
 - More on irreducible tensors vs. density mat? See Blum Chpt. 4 and Zare, also previous notes. SHould be able to add some theory and numerics here, maybe a subsection for this? Feels like there might be some interesting relations here...

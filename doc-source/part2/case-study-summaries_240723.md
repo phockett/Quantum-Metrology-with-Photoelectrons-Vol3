@@ -22,3 +22,5 @@ kernelspec:
 
 (chpt:case-study-summaries)=
 # Case studies: summaries, conclusions and outlook
+
+In the
