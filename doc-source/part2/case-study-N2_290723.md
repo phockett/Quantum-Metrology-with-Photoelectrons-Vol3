@@ -192,6 +192,8 @@ data.processedToHDF5(dataPath = dataPath, outStem = dataFileIn.name, timeStamp=F
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 # Histogram fit results (reduced chi^2 vs. fit index)
 # This may be quite slow for large datasets, setting limited ranges may help
 
@@ -372,10 +374,14 @@ pDict = 'dfWideTest'
 # Try using existing function with extra index set...
 data._setWide(indexDims = ['Fit','Type','chisqrGroup','redchiGroup','batch', 'vary'], dataWide='dfWideTest')
 
-# plotData = data.paramPlot(dataDict = pDict, selectors={'vary':True, 'Type':'m', 'redchiGroup':selGroup}, hue = 'chisqr', backend='hv', hvType='violin', returnFlag = True, plotScatter=True, remap = 'lmMap', hRound = 12) 
-# NO REMAP CASE
+# WITH lmMAP remap - good if (l,m) are unique labels
 plotData = data.paramPlot(dataDict = pDict, selectors={'vary':True, 'Type':paramType, 'redchiGroup':selGroup}, hue = 'chisqr', 
-                          backend='hv', hvType='violin', returnFlag = True, plotScatter=True, hRound=hRound)  #, remap='lmMap') 
+                          backend='hv', hvType='violin', returnFlag = True, plotScatter=True, hRound=hRound, remap='lmMap') 
+
+# NO REMAP CASE
+# plotData = data.paramPlot(dataDict = pDict, selectors={'vary':True, 'Type':paramType, 'redchiGroup':selGroup}, hue = 'chisqr', 
+#                           backend='hv', hvType='violin', returnFlag = True, plotScatter=True, hRound=hRound)  #, remap='lmMap') 
+
 p1 = data.data['plots']['paramPlot']
 # p2 = dataTestSub.hvplot.scatter(x='Param',y='value', marker='o', size=200, color='green')
 
@@ -422,11 +428,12 @@ data.data['agg']['matE']
 
 ### Density matrices
 
-New (experimental) code for density matrix plots and comparison. See {numref}`Sect. %s <sec:density-mat-basicsec:density-mat-basic>` for discussion. Code adapted from the {{ PEMtk_docs }} [MF reconstruction page](https://pemtk.readthedocs.io/en/latest/topical_review_case_study/matrix_element_extraction_MFrecon_PEMtk_180722-dist.html#Density-matrix-plottinghttps://pemtk.readthedocs.io/en/latest/topical_review_case_study/matrix_element_extraction_MFrecon_PEMtk_180722-dist.html#Density-matrix-plotting), original analysis for Ref. {cite}`hockett2023TopicalReviewExtracting`, illustrating the $N_2$ case.
+New (experimental) code for density matrix plots and comparison. See {numref}`Sect. %s <sec:density-mat-basic>` for discussion. Code adapted from the {{ PEMtk_docs }} [MF reconstruction page](https://pemtk.readthedocs.io/en/latest/topical_review_case_study/matrix_element_extraction_MFrecon_PEMtk_180722-dist.html#Density-matrix-plottinghttps://pemtk.readthedocs.io/en/latest/topical_review_case_study/matrix_element_extraction_MFrecon_PEMtk_180722-dist.html#Density-matrix-plotting), original analysis for Ref. {cite}`hockett2023TopicalReviewExtracting`, illustrating the $N_2$ case. If the reconstruction is good, the differences (fidelity) should be on the order of the experimental noise level/reconstruction uncertainty, around 10% in the case studies herein; in general the values and patterns of the matrices can also indicate aspects of the retrieval that worked well, or areas where values are poorly defined/recovered from the given dataset.
 
 ```{code-cell} ipython3
-# import numpy as np
+:tags: [hide-cell]
 
+# Define phase function to test unsigned phases only
 def unsignedPhase(da):
     """Convert to unsigned phases."""
     # Set mag, phase
@@ -445,12 +452,14 @@ def unsignedPhase(da):
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-cell]
+
+# Compute density matrices for retrieved and reference cases, and compare
 # v2 - as v1, but differences for unsigned phase case & fix labels
 # 26/07/22: messy but working. Some labelling tricks to push back into matPlot() routine
 
 # Import routines
 from epsproc.calc import density
-
 
 # Compose density matrix
 
@@ -545,10 +554,6 @@ name: "fig-N2-densityComp"
 Density matrix comparison - rows show (a) reference case (with signs of phases removed), (b) reconstructed case, (c) differences. Columns are (left) imaginary component, (right) real component. If the reconstruction is good, the differences (fidelity) should be on the order of the experimental noise level/reconstruction uncertainty, around 10% in the case studies herein.
 ```
 
-+++
-
-If the reconstruction is good, the differences (fidelity) should be on the order of the experimental noise level/reconstruction uncertainty, around 10% in the case studies herein.
-
 +++ {"tags": ["hide-output"]}
 
 ### Plot MF PADs
@@ -556,6 +561,8 @@ If the reconstruction is good, the differences (fidelity) should be on the order
 Routines as per https://pemtk.readthedocs.io/en/latest/topical_review_case_study/MFPAD_replotting_from_file_190722-dist.html - currently not working. Seems to be some difference in dim stacking/assignment now...? Might be Python/Xarray version change, or PEMtk/ePSproc implementation.
 
 ```{code-cell} ipython3
+:tags: [hide-cell]
+
 dataIn = data.data['agg']['matE'].copy()
 
 # Restack for MFPAD calculation and plotter
@@ -610,9 +617,14 @@ pKey.extend(['diff'])
 # Eplot = {'Eke':data.selOpts['matE']['inds']['Eke']}  # Plot for selected Eke (as used for fitting)
 # print(f"\n*** Plotting for keys = {pKey}, one per row ***\n")  # Note plot labels could do with some work!
 # dataTest.padPlot(keys=pKey, Erange=Erange, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+
+# Change default plotting config, and then plot in separate cells below
+ep.plot.hvPlotters.setPlotters(width=1000, height=500)
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 # Plot results from reconstructed matE
 pKey = 'compC'
 print(f"\n*** Plotting for keys = {pKey} ***\n")  # Note plot labels could do with some work!
@@ -633,6 +645,8 @@ name: "fig-N2-compC"
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 # Plot results from reference matE
 pKey = 'subset'
 print(f"\n*** Plotting for keys = {pKey} ***\n")  # Note plot labels could do with some work!
@@ -653,6 +667,8 @@ name: "fig-N2-ref"
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 # Plot normalised differences
 pKey = 'diff'
 print(f"\n*** Plotting for keys = {pKey} ***\n")  # Note plot labels could do with some work!
@@ -673,12 +689,16 @@ name: "fig-N2-diff"
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-cell]
+
 # Check max differences (abs values)
-maxDiff = dataTest.data['diff']['plots']['TX']['pData'].sum(['Theta','Phi']).max(dim='Eke')
+maxDiff = dataTest.data['diff']['plots']['TX']['pData'].max(dim=['Theta','Phi'])   #.sum(['Theta','Phi']).max()   #.max(dim='Eke')
 maxDiff.to_pandas()
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-cell]
+
 # Check case without phase correction too - this should indicate poor agreement in general
 pKey = 'comp'
 dataTest.mfpadNumeric(keys=pKey, R = R) 
