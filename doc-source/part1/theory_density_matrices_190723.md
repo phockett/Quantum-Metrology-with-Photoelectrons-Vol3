@@ -36,6 +36,14 @@ Subsection for density matrix stuff
 - Text OK and tidied up a bit, still some debug stuff to remove.
 - Spit to full and noQutip versions for build testing.
 
+29/07/23 debugging (noQutip version only so far)
+
+- Still having issues with figures...
+- Fixed issue with missing cross-ref (glue) item.
+- Fixed build chain issues with Holoviews export... may fix image issues in PDF builds...?
+- CHECK, builds 30/07/23 OK inc. density mat figures.
+- Now reinstating QuTip...
+
 TODO:
 
 - More on irreducible tensors vs. density mat? See Blum Chpt. 4 and Zare, also previous notes. SHould be able to add some theory and numerics here, maybe a subsection for this? Feels like there might be some interesting relations here...
@@ -160,76 +168,6 @@ This follows the setup in {numref}`Sect. %s <sec:tensor-formulation>` {ref}`sec:
 %run '../scripts/setup_symmetry_basis_tensors.py'
 ```
 
-```{code-cell} ipython3
-# 19/07/23 - this needs debugging, but skipped for now!
-# Not sure what has changed - might be issue with dim names?
-# ep.geomFunc.afblmXprod(data.data[data.subKey]['matE'], basisReturn = 'Full', selDims={}, sqThres=False)
-```
-
-```{code-cell} ipython3
-# Now run in script above
-
-# # Setup symmetry-defined matrix elements using PEMtk
-
-# # Import class
-# from pemtk.sym.symHarm import symHarm
-
-# # Compute hamronics for Td, lmax=4
-# sym = 'D2h'
-# lmax=4
-
-# lmaxPlot = 2  # Set lmaxPlot for subselection on plots later.
-
-# # TODO: consider different labelling here, can set at init e.g. dims = ['C', 'h', 'muX', 'l', 'm'] - 25/11/22 code currently fails for mu mapping, remap below instead
-# symObj = symHarm(sym,lmax)
-# # symObj = symHarm(sym,lmax,dims = ['Cont', 'h', 'muX', 'l', 'm'])
-
-# # To plot using ePSproc/PEMtk class, these values can be converted to ePSproc BLM data type...
-
-# # Run conversion - the default is to set the coeffs to the 'BLM' data type
-# dimMap = {'C':'Cont','mu':'muX'}
-# symObj.toePSproc(dimMap=dimMap)
-
-# # Run conversion with a different dimMap & dataType
-# dataType = 'matE'
-# # symObj.toePSproc(dimMap = {'C':'Cont','h':'it', 'mu':'muX'}, dataType=dataType)
-# symObj.toePSproc(dimMap = dimMap, dataType=dataType)
-# # symObj.toePSproc(dimMap = {'C':'Cont','h':'it'}, dataType=dataType)   # Drop mu > muX mapping for now
-# # symObj.coeffs[dataType]
-
-# # Example using data class (setup in init script)
-# data = pemtkFit()
-
-# # Set to new key in data class
-# dataKey = sym
-# data.data[dataKey] = {}
-
-# for dataType in ['matE','BLM']:
-#     data.data[dataKey][dataType] = symObj.coeffs[dataType]['b (comp)'].sum(['h','muX'])  # Select expansion in complex harmonics, and sum redundant dims
-#     data.data[dataKey][dataType].attrs = symObj.coeffs[dataType].attrs
-```
-
-```{code-cell} ipython3
-# # Compute basis functions for given matrix elements
-
-# # Set data
-# data.subKey = dataKey
-
-# # Using PEMtk - this only returns the product basis set as used for fitting
-# BetaNormX, basisProduct = data.afblmMatEfit(selDims={}, sqThres=False)
-
-# # Using ePSproc directly - this includes full basis return if specified
-# BetaNormX2, basisFull = ep.geomFunc.afblmXprod(data.data[data.subKey]['matE'], basisReturn = 'Full', selDims={}, sqThres=False)  #, BLMRenorm = BLMRenorm, **kwargs)
-
-# # The basis dictionary contains various numerical parameters, these are investigated below.
-# # See also the ePSproc docs at https://epsproc.readthedocs.io/en/latest/methods/geometric_method_dev_260220_090420_tidy.html
-# print(f"Product basis elements: {basisProduct.keys()}")
-# print(f"Full basis elements: {basisFull.keys()}")
-
-# # Use full basis for following sections
-# basis = basisFull
-```
-
 ## Compute a density matrix
 
 A basic density matrix computation routine is implemented in the {{ ePSproc_full }}. This makes use of input tensor arrays, and computes the density matrix as an outer-product of the defined dimension(s). The numerics essentially compute the outer product from the specified dimensions, which can be written generally as per Eqs. {eq}`eqn:density-mat-outer-prod`, {eq}`eqn:density-mat-generic`, where $a_{i}^{(n)}a_{j}^{(n)*}$ are the values along the specified dimensions/state vector/representation. These dimensions must be in input arrays, but will be restacked as necessary to define the effective basis space, and all coherent pairs will be computed. 
@@ -297,6 +235,7 @@ daPlot = density.matPlot(daOut.sum('Sym'), pTypes=pTypes)
 # Glue figure for later - real part only in this case
 # Also clean up axis labels from default state labels ('LM' and 'LM_p' in this case).
 glue("denMatD2hRealOnly", daPlot.select(pType='Real').opts(xlabel='L,M', ylabel="L',M'"))
+glue("symHarmPG", sym, display=False)
 ```
 
 ```{glue:figure} denMatD2hRealOnly
