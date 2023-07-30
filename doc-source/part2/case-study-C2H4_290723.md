@@ -67,11 +67,12 @@ nMax = 10
 ```
 
 ```{code-cell} ipython3
-:tags: [hide-output]
+:tags: [hide-output, hide-cell]
 
 # Run default config - may need to set full path here
 
-%run '../scripts/setup_notebook.py'
+%run '../scripts/setup_notebook_caseStudies_Mod-300723.py'   # Test version with different figure options.
+# %run '../scripts/setup_notebook.py'
 
 # Set outputs for notebook or PDF (skips Holoviews plots unless glued)
 # Note this is set to default 'pl' in script above
@@ -152,12 +153,17 @@ else:
 
 ```{code-cell} ipython3
 # Check ADMs
-# Holoviews
-# data.data['subset']['ADM'].unstack().where(data.data['subset']['ADM'].unstack().K>0) \
-#     .real.hvplot.line(x='t').overlay(['K','Q','S'])
-
 # Basic plotter
 data.ADMplot(keys = 'subset')
+```
+
+```{code-cell} ipython3
+:tags: [hide-cell]
+
+# Check ADMs
+# Holoviews
+data.data['subset']['ADM'].unstack().where(data.data['subset']['ADM'].unstack().K>0) \
+    .real.hvplot.line(x='t').overlay(['K','Q','S'])
 ```
 
 ```{code-cell} ipython3
@@ -169,7 +175,7 @@ data.data.keys()
 
 ## Post-processing and data overview
 
-Post-processing involves aggregation of all the fit run results into a single data structure. This can then be analysed statistically and examined for for best-fit results. In the statistical sense, this is essentailly a search for candidate {{ RADMATE }}, based on the assumption that some of the minima found in the $chi^2$ hyperspace will be the true results. Even if a clear global minima does not exist, searching for candidate {{ RADMATE }} sets based on clustering of results and multiple local minima is still expected to lead to viable candidates provided that the information content of the dataset is sufficient. However, as discussed elsewhere (see {numref}`Sect. %s <sect:numerics:fitting-strategies>`), in some cases this may not be the case, and other limitations may apply (e.g. certain parameters may be undefined), or additional data required for unique determination of the {{ RADMATE }}.
+Post-processing involves aggregation of all the fit run results into a single data structure. This can then be analysed statistically and examined for for best-fit results. In the statistical sense, this is essentailly a search for candidate {{ RADMATE }}, based on the assumption that some of the minima found in the $\chi^2$ hyperspace will be the true results. Even if a clear global minima does not exist, searching for candidate {{ RADMATE }} sets based on clustering of results and multiple local minima is still expected to lead to viable candidates provided that the information content of the dataset is sufficient. However, as discussed elsewhere (see {numref}`Sect. %s <sect:numerics:fitting-strategies>`), in some cases this may not be the case, and other limitations may apply (e.g. certain parameters may be undefined), or additional data required for unique determination of the {{ RADMATE }}.
 
 For more details on the analysis routines, see the {{ PEMtk_docs }}, particularly the [fit fidelity and analysis page](https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_analysis_demo_150621-tidy.html), and [molecular frame analysis data processing page](https://pemtk.readthedocs.io/en/latest/topical_review_case_study/matrix_element_extraction_MFrecon_PEMtk_180722-dist.html) (full analysis for Ref. {cite}`hockett2023TopicalReviewExtracting`, illustrating the $N_2$ case).
 
@@ -179,11 +185,23 @@ data.analyseFits()
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 # The BLMsetPlot routine will output aggregate fit results.
 # Here the spread can be taken as a general indication of the uncertainty of 
 # the fitting, and indicate whether the fit is well-characterised/the information 
 # content of the data is sufficient.
 data.BLMsetPlot(xDim = 't', thres=1e-6)  # With xDim and thres set, for more control over outputs
+
+# Glue plot for later
+glue("C2H4-fitResultsBLM",data.data['plots']['BLMsetPlot'])
+```
+
+```{glue:figure} C2H4-fitResultsBLM
+---
+name: "fig-C2H4-fitResultsBLM"
+---
+Fit overview plot - {{  BLMt }}. Here dashed lines with '+' markers indicates the input data, and bands indicate the mean fit results, where the width is the standard deviation in the fit model results. (See the {{ PEMtk_docs }} for details, particularly the [analysis routines page](https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_multiproc_class_analysis_141121-tidy.html#Fit-set-plotters).)
 ```
 
 ```{code-cell} ipython3
@@ -201,8 +219,20 @@ data.processedToHDF5(dataPath = dataPath, outStem = dataFileIn.name, timeStamp=F
 # data.fitHist()
 
 # Example with range set
-data.fitHist(thres=1.11e-4, bins=100)
+data.fitHist(thres=3e-7, bins=100)
+
+# Glue plot for later
+glue("C2H4-fitHist",data.data['plots']['fitHistPlot'])
 ```
+
+```{glue:figure} C2H4-fitHist
+---
+name: "fig-C2H4-fitHist"
+---
+Fit overview plot - $\chi^2$ vs. fit index. Here bands indicate groupings (local minima) are consistently found.
+```
+
++++
 
 Here bands in the $\chi^2$ dimension can indicate groupings (local minima) are consistently found. Assuming each grouping is a viable fit candidate parameter set, these can then be explored in further detail.
 
@@ -412,11 +442,12 @@ data.data['agg']['matE']
 
 ### Density matrices
 
-New (experimental) code for density matrix plots and comparison. See {numref}`Sect. %s <sec:density-mat-basicsec:density-mat-basic>` for discussion. Code adapted from the {{ PEMtk_docs }} [MF reconstruction page](https://pemtk.readthedocs.io/en/latest/topical_review_case_study/matrix_element_extraction_MFrecon_PEMtk_180722-dist.html#Density-matrix-plottinghttps://pemtk.readthedocs.io/en/latest/topical_review_case_study/matrix_element_extraction_MFrecon_PEMtk_180722-dist.html#Density-matrix-plotting), original analysis for Ref. {cite}`hockett2023TopicalReviewExtracting`, illustrating the $N_2$ case.
+New (experimental) code for density matrix plots and comparison. See {numref}`Sect. %s <sec:density-mat-basic>` for discussion. Code adapted from the {{ PEMtk_docs }} [MF reconstruction page](https://pemtk.readthedocs.io/en/latest/topical_review_case_study/matrix_element_extraction_MFrecon_PEMtk_180722-dist.html#Density-matrix-plottinghttps://pemtk.readthedocs.io/en/latest/topical_review_case_study/matrix_element_extraction_MFrecon_PEMtk_180722-dist.html#Density-matrix-plotting), original analysis for Ref. {cite}`hockett2023TopicalReviewExtracting`, illustrating the $N_2$ case. If the reconstruction is good, the differences (fidelity) should be on the order of the experimental noise level/reconstruction uncertainty, around 10% in the case studies herein; in general the values and patterns of the matrices can also indicate aspects of the retrieval that worked well, or areas where values are poorly defined/recovered from the given dataset.
 
 ```{code-cell} ipython3
-# import numpy as np
+:tags: [hide-cell]
 
+# Define phase function to test unsigned phases only
 def unsignedPhase(da):
     """Convert to unsigned phases."""
     # Set mag, phase
@@ -435,12 +466,14 @@ def unsignedPhase(da):
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-cell]
+
+# Compute density matrices for retrieved and reference cases, and compare
 # v2 - as v1, but differences for unsigned phase case & fix labels
 # 26/07/22: messy but working. Some labelling tricks to push back into matPlot() routine
 
 # Import routines
 from epsproc.calc import density
-
 
 # Compose density matrix
 
@@ -521,9 +554,19 @@ daLayout.opts(ep.plot.hvPlotters.opts.HeatMap(width=300, frame_width=300, aspect
 # daPlot2.opts(show_title=False).layout('pType').opts(show_title=True).relabel('Recon')  Turns off titles per plot, then titles layout
 #
 # .redim() to modify individual plot group label (from dimension name) 
+
+
+# Glue figure for later - real part only in this case
+# Also clean up axis labels from default state labels ('LM' and 'LM_p' in this case).
+glue("C2H4-densityComp", daLayout)
 ```
 
-If the reconstruction is good, the differences (fidelity) should be on the order of the experimental noise level/reconstruction uncertainty, around 10% in the case studies herein.
+```{glue:figure} C2H4-densityComp
+---
+name: "fig-C2H4-densityComp"
+---
+Density matrix comparison - rows show (a) reference case (with signs of phases removed), (b) reconstructed case, (c) differences. Columns are (left) imaginary component, (right) real component. If the reconstruction is good, the differences (fidelity) should be on the order of the experimental noise level/reconstruction uncertainty, around 10% in the case studies herein.
+```
 
 +++ {"tags": ["hide-output"]}
 
@@ -532,37 +575,13 @@ If the reconstruction is good, the differences (fidelity) should be on the order
 Routines as per https://pemtk.readthedocs.io/en/latest/topical_review_case_study/MFPAD_replotting_from_file_190722-dist.html - currently not working. Seems to be some difference in dim stacking/assignment now...? Might be Python/Xarray version change, or PEMtk/ePSproc implementation.
 
 ```{code-cell} ipython3
-:tags: [hide-output]
+:tags: [hide-cell]
 
 dataIn = data.data['agg']['matE'].copy()
 
-# # Restack for MFPAD plotter
-# from epsproc.util.listFuncs import dataTypesList
+# Restack for MFPAD calculation and plotter
+# Single Eke dim case
 
-# refDims = dataTypesList()
-# refDims = refDims['matE']['def']
-# dataStacked = dataIn.stack(refDims(sType='sDict'))
-# dataStacked
-
-# # Style 1: if full ref dataset included (with Eke dim)
-# # Create empty ePSbase class instance, and set data
-# # Can then use existing  padPlot() routine for all data
-# from epsproc.classes.base import ePSbase
-# dataTest = ePSbase(verbose = 1)
-
-# aList = [i for i in dataIn.data_vars]  # List of arrays
-
-# # Loop version & propagate attrs
-# dataType = 'matE'
-# for item in aList:
-#     if item.startswith('orb'):
-#         selType='L'
-#     else:
-#         selType = item
-        
-#     dataTest.data[item] = {dataType : dataIn[item].sel({'Type':selType})}
-
-# Style 2: single Eke dim case
 # Create empty ePSbase class instance, and set data
 # Can then use existing  padPlot() routine for all data
 from epsproc.classes.base import ePSbase
@@ -581,26 +600,12 @@ for item in aList:
         
     # Push singleton Eke value to dim for plotter
     dataTest.data[item][dataType] = dataTest.data[item][dataType].expand_dims('Eke')
-    
-```
-
-```{code-cell} ipython3
-aList
-```
-
-```{code-cell} ipython3
-item='compC'
-dataType='matE'
-dataTest.data[item][dataType].sum('Sym')  #.Eke
 ```
 
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-# Set polarization geoms from Euler angles
-
-# import numpy as np
-# import epsproc as ep
+# Compute MFPADs for a range of cases
 
 # Set Euler angs to include diagonal pol case
 pRot = [0, 0, np.pi/2, 0]
@@ -609,157 +614,109 @@ cRot = [0, 0, 0, 0]
 labels = ['z','x','y', 'd']
 eulerAngs = np.array([labels, pRot, tRot, cRot]).T   # List form to use later, rows per set of angles
 
-
 # Should also use MFBLM function below instead of numeric version?
 # Numeric version is handy for direct surface and difference case.
 R = ep.setPolGeoms(eulerAngs = eulerAngs)
-# R
-
-# Basic version - working, but get separate plots per set.
-# UPDATE: use this to generate all raw figures, then restack plotly objects below
-
-Erange=[5.5,7,1]  # Set for a single E-point
 
 # Comparison and diff
 pKey = [i for i in dataIn.data_vars if i!='comp']  # List of arrays
 dataTest.mfpadNumeric(keys=pKey, R = R)   # Compute MFPADs for each set of matrix elements using numerical routine
-# ep.mfpad
 
 dataTest.data['diff'] = {'TX': dataTest.data['subset']['TX'].sum('Sym')-dataTest.data['compC']['TX'].sum('Sym')}  # Add sum over sym to force matching dims
 pKey.extend(['diff'])
 
-# Plot
-print(f"\n*** Plotting for keys = {pKey}, one per row ***\n")  # Note plot labels could do with some work!
-dataTest.padPlot(keys=pKey, Erange=Erange, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+# Plot - all cases
+# Now run in separate cells below for more stable output
+# Erange=[1,2,1]  # Set for a range of Ekes
+# Eplot = {'Eke':data.selOpts['matE']['inds']['Eke']}  # Plot for selected Eke (as used for fitting)
+# print(f"\n*** Plotting for keys = {pKey}, one per row ***\n")  # Note plot labels could do with some work!
+# dataTest.padPlot(keys=pKey, Erange=Erange, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+
+# Change default plotting config, and then plot in separate cells below
+ep.plot.hvPlotters.setPlotters(width=1000, height=500)
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
+# Plot results from reconstructed matE
+pKey = 'compC'
+print(f"\n*** Plotting for keys = {pKey} ***\n")  # Note plot labels could do with some work!
+# dataTest.padPlot(keys=pKey, Erange=Erange, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+Eplot = {'Eke':data.selOpts['matE']['inds']['Eke']}  # Plot for selected Eke (as used for fitting)
+dataTest.padPlot(keys=pKey, selDims=Eplot, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+
+# And GLUE for display later with caption
+figObj = dataTest.data[pKey]['plots']['TX']['polar'][0]
+glue("C2H4-compC", figObj)
+```
+
+```{glue:figure} C2H4-compC
+---
+name: "fig-C2H4-compC"
+---
+{{ MF }}-{{ PADs }} computed from retrieved matrix elements for $(x,y,z,d)$ polarization geometries, where $d$ is the "diagonal" case with the polarization axis as 45 degrees to the $z$-axis.
+```
+
+```{code-cell} ipython3
+:tags: [hide-output]
+
+# Plot results from reference matE
+pKey = 'subset'
+print(f"\n*** Plotting for keys = {pKey} ***\n")  # Note plot labels could do with some work!
+# dataTest.padPlot(keys=pKey, Erange=Erange, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+Eplot = {'Eke':data.selOpts['matE']['inds']['Eke']}  # Plot for selected Eke (as used for fitting)
+dataTest.padPlot(keys=pKey, selDims=Eplot, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+
+# And GLUE for display later with caption
+figObj = dataTest.data[pKey]['plots']['TX']['polar'][0]
+glue("C2H4-ref", figObj)
+```
+
+```{glue:figure} C2H4-ref
+---
+name: "fig-C2H4-ref"
+---
+{{ MF }}-{{ PADs }} computed from reference _ab initio_ matrix elements for $(x,y,z,d)$ polarization geometries, where $d$ is the "diagonal" case with the polarization axis as 45 degrees to the $z$-axis.
+```
+
+```{code-cell} ipython3
+:tags: [hide-output]
+
+# Plot normalised differences
+pKey = 'diff'
+print(f"\n*** Plotting for keys = {pKey} ***\n")  # Note plot labels could do with some work!
+# dataTest.padPlot(keys=pKey, Erange=Erange, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+Eplot = {'Eke':data.selOpts['matE']['inds']['Eke']}  # Plot for selected Eke (as used for fitting)
+dataTest.padPlot(keys=pKey, selDims=Eplot, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
+
+# And GLUE for display later with caption
+figObj = dataTest.data[pKey]['plots']['TX']['polar'][0]
+glue("C2H4-diff", figObj)
+```
+
+```{glue:figure} C2H4-diff
+---
+name: "fig-C2H4-diff"
+---
+{{ MF }}-{{ PADs }} differences between retrieved and reference cases for $(x,y,z,d)$ polarization geometries, where $d$ is the "diagonal" case with the polarization axis as 45 degrees to the $z$-axis. Note diffs are normalised to emphasize the shape, but not mangnitudes, of the differences - see the density matrix comparisons for a more rigourous fidelity analysis.
+```
+
+```{code-cell} ipython3
+:tags: [hide-cell]
+
 # Check max differences (abs values)
-maxDiff = dataTest.data['diff']['plots']['TX']['pData'].sum(['Theta','Phi']).max(dim='Eke')
+maxDiff = dataTest.data['diff']['plots']['TX']['pData'].max(dim=['Theta','Phi'])   #.sum(['Theta','Phi']).max()   #.max(dim='Eke')
 maxDiff.to_pandas()
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-cell]
+
 # Check case without phase correction too - this should indicate poor agreement in general
 pKey = 'comp'
 dataTest.mfpadNumeric(keys=pKey, R = R) 
-dataTest.padPlot(keys=pKey, Erange=Erange, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-# SKIP THIS - output very slow!
-# TODO: fix plot labelling above.
-
-# Version for unified plotting - stack individual plots to grid
-# See https://plotly.com/python/subplots
-# And https://plot.ly/python/3d-subplots
-
-saveFigs = True
-from datetime import datetime as dt
-timeString = dt.now()
-
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-
-#*** Set gridding
-# rc = [int(np.ceil(rc[0])), int(np.ceil(rc[1]))]
-rc=[4,4]  # All data
-# rc=[2,2]  # Test set
-showscale = False
-
-#*** Set data norms
-# norm = None #
-norm = 'global'
-
-Rmax = 1.1
-padding = 0.1
-aRanges = dict(range=[-(Rmax + padding), Rmax+padding])
-aspect = 'cube' # 'auto' # 'cube'   # 'auto' with no ranges is pretty good, or set ranges & use cube (otherwise get distorted shapes)
-
-#*** Set camera
-# Camera settings, https://plotly.com/python/3d-camera-controls/
-# camera = dict(eye=dict(x=2, y=2, z=0.1))
-
-# Defaults
-# Default parameters which are used when `layout.scene.camera` is not provided
-# camera = dict(
-#     up=dict(x=0, y=0, z=1),
-#     center=dict(x=0, y=0, z=0),
-#     eye=dict(x=1.25, y=1.25, z=1.25)
-# )
-
-# Slightly lower... plus x-rotation
-camera = dict(
-    up=dict(x=0, y=0, z=1),
-    center=dict(x=0, y=0, z=0),
-    # eye=dict(x=0.8, y=1.25, z=0.8)  # Not bad... bit close?
-    eye=dict(x=0.8, y=1.5, z=0.8)
-)
-
-
-#*** Set subplots
-pType = {'type':'surface'}
-specs = [[pType] * rc[1] for i in range(rc[0])]  # Set specs as 2D list of dicts.
-
-# titles = [f"{facetDim}: {item.item()}" for item in dataPlot[facetDim]]
-titles = []
-colTitles =  [f'Pol({item.upper()})' for item in dataTest.data['subset']['TX'].Labels.values[0:rc[1]].tolist()]
-# rowTitles = ['Mean', 'Mean phase-corrected', 'Ref', 'Diff(Ref - PC)']
-rowTitles = ['Ref', 'Mean phase-corrected', 'Diff(Ref - PC)', 'Mean']
-
-# pKey = [pKey[2], pKey[0:1], pKey[3]]  # ['comp', 'compC', 'orb5', 'diff']
-pKey = ['subset', 'compC', 'diff', 'comp']   # Row ordering
-
-fig = make_subplots(rows=rc[0], cols=rc[1], specs=specs, subplot_titles=titles, 
-                    column_titles = colTitles, row_titles = rowTitles,
-                    vertical_spacing = 0.05) # Note basic row/whitespace control here
-fig.update_layout(height=1200, width=1200)
-
-# Loop & grid from existing objects
-n=0
-for rInd in range(1,rc[0]+1):
-    for cInd in range(1,rc[1]+1):
-        
-        # print(f'{rInd},{cInd}')
-        trace = dataTest.data[pKey[rInd-1]]['plots']['TX']['polar'][0].data[cInd-1]
-        
-        fig.add_trace(go.Surface(x=trace['x'], y=trace['y'], z=trace['z'], colorscale='Viridis', showscale=showscale),
-                    row=rInd, col=cInd)
-        
-        # Set string for "scene" (axis) object to update - will be labelled scene1, scene2... by Plotly.
-        n=n+1
-        sceneN = f'scene{n}'
-        if norm == 'global':
-            # Try looping... OK with dict unpacking... huzzah!
-            # NOTE Scene indexing starts at 1, so do this after n increments
-            # options = dict(xaxis = aRanges, yaxis = aRanges, zaxis = aRanges, aspectmode='cube')
-            options = dict(xaxis = aRanges, yaxis = aRanges, zaxis = aRanges, aspectmode=aspect, camera=camera)
-
-        else:
-            # options = dict(aspectmode='cube')
-            # options = dict(aspectmode='auto')  # Better for scaling up details?
-            options = dict(aspectmode=aspect, camera=camera)
-
-        fig.update_layout(**{sceneN:options})  # No effect of aspect here? auto/cube/data/manual
-
-
-# fig.show()   # fig.show() quite slow for multiple surface plots - export & viewing seems better!
-if saveFigs:
-    fName = f'dataDump_1000fitTests_multiFit_noise_051021_MFPADs_{timeString.strftime("%d%m%y")}'
-    fig.write_html(f'{fName}.html')
-    fig.write_image(f'{fName}.png')
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-# Optional plot in notebook
-# fig.show()   # Interactive plot - maybe quite slow
-
-# Show image
-Image(f'{fName}.png')
+dataTest.padPlot(keys=pKey, selDims=Eplot, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
 ```
 
 +++ {"tags": ["remove-cell"]}
