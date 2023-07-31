@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -186,7 +186,7 @@ In simple cases, the frame definition for the {{ AF }} is identical to that of t
 
 +++
 
-```{figure} ../images/axes_QNs_inc_rotations_QM1.pdf
+```{figure} ../images/axes_QNs_inc_rotations_QM1.png
 ---
 name: fig-frame-defns
 ---
