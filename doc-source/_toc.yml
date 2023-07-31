@@ -35,7 +35,7 @@ parts:
       # - file: part1/theory_density_matrices_190723-noQutip
       - file: part1/theory_molecular_alignment_170723
       - file: part1/theory_observables_intro_100723
-      - file: part1/theory_info_content_221122
+      - file: part1/theory_info_content_200723
       # Note numerics section currently breaks PDF builds (27/03/23), needs debugging - might just be notes section not removed?
     # - file: part1/numerics_231122
     - file: part1/numerics_070723

@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.7
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -213,27 +213,13 @@ In this case the analysis suggests that $t=4,5$ contain minimal, and redundant, 
 For a more detailed analysis, other standard analysis tools can be deployed. For instance, the covariance matrix can be investigated, given by $K_{i,j}=\textrm{cov}[X_{i},X_{j}]=\langle(X_{i}-\langle X_{i}\rangle)(X_{j}-\langle X_{j}\rangle)\rangle$. For the linear ramp case this analysis is not particularly useful, but will become more informative for more complicated cases.
 
 ```{code-cell} ipython3
-# import pandas as pd
-# import holoviews as hv
-# import hvplot.pandas
-# hv.extension('bokeh')
-
 # Compute covariance matrix with Pandas
 # Note this is the pairwise covariance of the columns, 
 # see https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.cov.html
 covMat = BetaNormLinearADMsPD.cov()
-# covMat.name = "Covariance"
+
 # Plot with holoviews
-# hv.HeatMap(covMat, kdims='t')
-# import hvplot.pandas
 figObj = covMat.hvplot.heatmap(cmap='viridis')
-
-# hvds = hv.Dataset(daPlot)
-# hvmap = hvds.to(hv.HeatMap, kdims=kdims)
-
-# Import routines for density calculation and plotting - FAILS, needs da with specific props
-# from epsproc.calc import density
-# density.matPlot(covMat)
 ```
 
 ```{code-cell} ipython3
