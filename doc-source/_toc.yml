@@ -63,7 +63,7 @@ parts:
     # - file: part2/case-study-C2H4_270423
     - file: part2/case-study-C2H4_290723   # Working except MFPADs
     - file: part2/case-study-summaries_240723
-    - file: part2/conclusions_240723
+    # - file: part2/conclusions_240723
     
 
   - caption: Backmatter

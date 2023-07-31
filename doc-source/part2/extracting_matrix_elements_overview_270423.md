@@ -38,9 +38,7 @@ The layout for this part is as follows:
    - {numref}`Chapter %s: <chpt:ocs-case-study>` {ref}`chpt:ocs-case-study`: A more complicated example. In this case, $C_{\infty v}$, up-down symmetry is broken in the molecular frame. Fitting for various cases is explored, looking at 1D and 3D alignment.
    - {numref}`Chapter %s: <chpt:c2h4-case-study>` {ref}`chpt:c2h4-case-study`: The most general example of an asymmetric top system, in this case $C_2H_4$ (ethylene), $C_{2h}$. Again various cases and limitations are examined, for 1D and 3D alignment.
    
-- Summary, conclusions and outlook
-   - {numref}`Chapter %s: <chpt:case-study-summaries>` {ref}`chpt:case-study-summaries`: general overview of the case study results and conclusions.
-   - {numref}`Chapter %s: <chpt:conclusions>` {ref}`chpt:conclusions`: General conclusions and outlook.
+- Summary, discussion, conclusions and outlook: {numref}`Chapter %s <chpt:case-study-summaries>` presents a general overview of the case study results - particularly the density matrix and {{ MF }}-{{ PADs }} - and conclusions.
 
 +++
 
