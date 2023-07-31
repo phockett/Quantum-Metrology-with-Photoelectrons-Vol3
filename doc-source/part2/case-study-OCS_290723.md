@@ -379,6 +379,8 @@ data.paramsSummaryComp.rename(columns=data.lmmu['lmMap'])
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-output, hide-cell]
+
 # Plot values vs. reference cases
 # NOTE - experimental code, not yet consolidated and wrapped in PEMtk
 
@@ -389,12 +391,15 @@ pDict = 'dfWideTest'
 # Try using existing function with extra index set...
 data._setWide(indexDims = ['Fit','Type','chisqrGroup','redchiGroup','batch', 'vary'], dataWide='dfWideTest')
 
-# plotData = data.paramPlot(dataDict = pDict, selectors={'vary':True, 'Type':'m', 'redchiGroup':selGroup}, hue = 'chisqr', backend='hv', hvType='violin', returnFlag = True, plotScatter=True, remap = 'lmMap', hRound = 12) 
-# NO REMAP CASE
+# WITH lmMAP remap - good if (l,m) are unique labels
 plotData = data.paramPlot(dataDict = pDict, selectors={'vary':True, 'Type':paramType, 'redchiGroup':selGroup}, hue = 'chisqr', 
-                          backend='hv', hvType='violin', returnFlag = True, plotScatter=True, hRound=hRound)  #, remap='lmMap') 
+                          backend='hv', hvType='violin', returnFlag = True, plotScatter=True, hRound=hRound, remap='lmMap') 
+
+# NO REMAP CASE
+# plotData = data.paramPlot(dataDict = pDict, selectors={'vary':True, 'Type':paramType, 'redchiGroup':selGroup}, hue = 'chisqr', 
+#                           backend='hv', hvType='violin', returnFlag = True, plotScatter=True, hRound=hRound)  #, remap='lmMap') 
+
 p1 = data.data['plots']['paramPlot']
-# p2 = dataTestSub.hvplot.scatter(x='Param',y='value', marker='o', size=200, color='green')
 
 # Plot ref params... CURRENTLY NOT IN paraPlot(), and that also expects fit data so can't reuse directly here.
 
@@ -408,7 +413,6 @@ dataTest = data.data['fits']['dfRef'].copy()
 dataTestSub = data._subsetFromXS(selectors = {'Type':paramType}, data = dataTest)  
 p2 = dataTestSub.hvplot.scatter(x='Param',y='value', marker='dash', size=500, color='red')
 
-# p1+p2   # Overlays fail with "NotImplementedError: Iteration on Elements is not supported." Issue with plot types? FIXED - issues was non-plot return from paramPlot()!
 p1*p2
 ```
 
@@ -434,6 +438,8 @@ data.aggToXR(refKey = 'subset', returnType = 'ds', conformDims=True)   # Subsele
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-cell]
+
 data.data['agg']['matE']
 ```
 
