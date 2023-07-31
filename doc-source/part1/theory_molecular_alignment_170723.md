@@ -170,6 +170,8 @@ norm = data.data[dataKey]['plots']['ADM']['pData'].max()
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-output]
+
 # Plot full axis distributions at selected time-steps
 # tPlot = [39.402, 40.791, 42.18]  # Manual setting for baseline case, and at max and min K=2 times. OCS
 tPlot = [4.018, 4.254, 4.49] # N2
