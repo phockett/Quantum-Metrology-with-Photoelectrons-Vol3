@@ -719,34 +719,3 @@ pKey = 'comp'
 dataTest.mfpadNumeric(keys=pKey, R = R) 
 dataTest.padPlot(keys=pKey, selDims=Eplot, backend='pl',returnFlag=True, plotFlag=True) # Generate plotly polar surf plots for each dataset
 ```
-
-+++ {"tags": ["remove-cell"]}
-
-# SCRATCH
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-data.lmmu  #['lmMap']
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-data.paramsSummaryComp.columns
-```
-
-```{code-cell} ipython3
-remap = 'lmMap'
-data.paramsSummaryComp.replace({'Param':data.lmmu[remap]}, inplace=False)
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-data.paramFidelity()
-```
-
-```{code-cell} ipython3
-
-```
