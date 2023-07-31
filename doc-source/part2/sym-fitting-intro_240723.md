@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -730,44 +730,3 @@ In general, the current mappings should be suitable for simulation and reconstru
 1. Add degeneracy factors if required (otherwise will be subsumed into matrix element values).
 
 % TODO: address some of these points in this notebook.
-
-+++ {"tags": ["remove-cell"]}
-
-## Format scratch
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-# R example from https://discourse.jupyter.org/t/jupyter-to-latex-how-to-render-tables/14968/2
-function RawBlock (raw)
-  if raw.format:match 'html' then
-    return pandoc.read(raw.text, 'html').blocks
-  end
-end
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-import pandoc
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-!pandoc --help
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-# Full case for table comparison
-# # df1 = symBasis.coeffs['symAllowed']['PD'].droplevel('h').droplevel('Type').sort_index().fillna('')   # .sort_index(level='it', sort_remaining=False)
-# df1 = symBasis.coeffs['symAllowed']['PD'].droplevel('Type').sort_index().fillna('')   # .sort_index(level='it', sort_remaining=False)
-# df2 = matEPD.fillna('').sort_index().sort_index(level='Total', ascending=[False]).sort_index(axis=1, ascending=False)  # Swap sym label ordering to match symmetry case. Note ascenting=[False] for multindex case single level only.
-
-# df1_styler = df1.style.set_table_attributes("style='display:inline'").set_caption('<b>Symmetry basis</b>')
-# df2_styler = df2.style.set_table_attributes("style='display:inline'").set_caption('<b>ePS basis</b>')
-
-# display_html(df1_styler._repr_html_()+df2_styler._repr_html_(), raw=True)
-```
