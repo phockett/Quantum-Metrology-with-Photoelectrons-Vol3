@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -66,7 +66,7 @@ Basis set size = 76 params. Fitting with 14 magnitudes and 25 phases floated.
 
 +++
 
-| System   | Symmetry    | Energy (eV) | Complex matrix elements | Fitting params | Floated (magnitude, phase) | $t$-points |
+| System   | Symmetry    | Energy (eV) | Complex matrix elements | Fitting params | Floated params (magnitude, phase) | $t$-points |
 | :--- | ---: | ---: | ---: | ---: | ---: |  ---: |
 | $N_2$    | $D_{\infty h}$ | 1  | 6 | 12 | 4,3 | 13 |
 | $OCS$    | $C_{\infty v}$ | 10  | 22 | 44 | 15,14 | 51 |
@@ -84,7 +84,7 @@ For the $OCS$ case, the {{ RWP }} is as per obtained in recent ultrafast experim
 
 For the $C_2H_4$ case, the {{ RWP }} is a realistic case, as used in Ref. {cite}`gregory2021MolecularFramePhotoelectron`, which includes $S\neq0$ terms and even-$K$ even-$S$ terms (see figures in {numref}`Chpt. %s <chpt:c2h4-case-study>` for full details). Interestingly, this case was sufficient for retrieval of {{ MF }}-{{ PADs }} using the matrix-inversion method, so is expected to be successful with the {{ BOOTSTRAP }} provided enough data-points are incorporated and the fitting is well-constrained. Note that the temporal axis in this case is in arbitrary units.
 
-[^benchmarksFootnote] Running on 20 (logical) cores of an AMD Threadripper 2950X based workstation, this required 5 GB of RAM and took on the order of 2 hours, although note that the time per fit cycle had large variance, since convergence time depends on the start parameters. Further benchmarks for the current codebase can be found in the {{ PEMtk_docs }}.
+[^benchmarksFootnote]: Running on 20 (logical) cores of an AMD Threadripper 2950X based workstation, this required 5 GB of RAM and took on the order of 2 hours, although note that the time per fit cycle had large variance, since convergence time depends on the start parameters. Further benchmarks for the current codebase can be found in the {{ PEMtk_docs }}.
 
 +++ {"jp-MarkdownHeadingCollapsed": true}
 
