@@ -531,8 +531,22 @@ data.BLMplot(keys=orbKey, backend='hv')
 ep.plot.hvPlotters.setPlotDefaults(fSize = [750,300], imgSize = 600)
 
 # Plot heatmap for l=2 vs. Eke and add ADM plot to layout with hvplot
-(data.plots['BLMplot']['hvDS'].select(l=[2]).to(hv.HeatMap, kdims=['t','Eke']).opts(cmap='coolwarm')  + 
+daLayout = (data.plots['BLMplot']['hvDS'].select(l=[2]).to(hv.HeatMap, kdims=['t','Eke']).opts(cmap='coolwarm')  + 
     data.data['subset']['ADM'].unstack().sel({'K':[2,4]}).squeeze().real.hvplot.line(x='t').overlay('K')).cols(1)
+```
+
+```{code-cell} ipython3
+:tags: [hide-output, hide-cell]
+
+# Glue figure for later
+glue("N2BLMtDemo", daLayout)
+```
+
+```{glue:figure} N2BLMtDemo
+---
+name: "fig-N2BLMtDemo"
+---
+Example $\beta_{L,M}(\epsilon,t)$ data, computed for $N_2$ (upper panel), and the {{ ADMs }} used in the calculation.
 ```
 
 ```{code-cell} ipython3
@@ -558,9 +572,22 @@ data.padPlot(keys = dataKey, dataType='AFBLM', selDims={'Labels':'A'},
 ```
 
 ```{code-cell} ipython3
-# Plot I(theta,phi) at selected t
+:tags: [hide-output]
+
+# Plot I(theta,phi) at selected (E,t)
 data.padPlot(keys = dataKey, dataType='AFBLM', selDims={'Labels':'A'}, 
              Erange=[4,5,5], Etype = 't', returnFlag = True, backend='pl')
+
+# And GLUE for display later with caption
+figObj = data.data[dataKey]['plots']['AFBLM']['polar'][0]
+glue("N2AFPADsdemo", figObj)
+```
+
+```{glue:figure} N2AFPADsdemo
+---
+name: "fig-N2AFPADsdemo"
+---
+{{ AF }}-{{ PADs }} example for $N_2$ at selected $(\epsilon,t)$. In this demo case the alignment and {{ PADs }} are "1D", and cylindrically symmetric.
 ```
 
 ```{code-cell} ipython3
