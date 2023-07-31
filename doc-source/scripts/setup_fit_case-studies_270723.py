@@ -479,6 +479,7 @@ else:
 # ### Compute AF-$\beta_{LM}$s
 
 print(f'\n* Calculating AF-BLMs...')
+print(f"\nRunning for {data.data[data.subKey]['ADM'].t.size} t-points")  # Update 31/07/23, main subselect routine only prints total array size.
 
 #************** FOR 3D ADMs case
 # Testing fixed case - in setPhaseConventions() some of these are correlated, and set from `phaseCons['genMatEcons']['negm']` - does it matter here?
@@ -655,7 +656,22 @@ if caseStudy=="C2H4":
     for item in data.params:
         if item.startswith('m_'):
             data.params[item].max = 2.0
+            
+# Report parameter sizes (currently not in main routines)
+magCount = 0
+phaseCount = 0
 
+for item in data.params:
+    if data.params[item].vary:
+        if item.startswith('m_'):
+            magCount += 1
+        else:
+            phaseCount +=1
+    
+print(f"Basis set size = {len(data.params)} params. Fitting with {magCount} magnitudes and {phaseCount} phases floated.")
+
+
+# Add noise
 if addNoise:
     print(f'\n*** Adding Gaussian noise, mu={mu}, sigma={sigma}')
 #     mu, sigma = 0, 0.05  # Up to approx 10% noise (+/- 0.05)
