@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -26,6 +26,7 @@ May ditch this unless it can be extended usefully? Should recon section be befor
     - Added thres=None, but doesn't seem to fix.
     - Results in fitting notebook (file:///mnt/jakeSSHFS/home/paul/buildTmp/2023-07-19_15-19-50/html-build/part2/sym-fitting-intro_220423.html) seem OK, so maybe issue with subselection or sym choice here? Could also be phase cons... TBC...
     - 27/07/23: Now debugged. Issue was missing labels in (old-style) conversion to matrix elements. Now updated with full symmetry selection routines in 'scripts/setup_symmetry_basis_tensors.py'.
+    - 31/07/23: Tidied up.
 
 +++
 
@@ -109,7 +110,8 @@ From a set of numerical results, it is relatively trivial to investigate some of
 % These make use of the demo cases (defined by symmetry) as previously defined.
 
 ```{code-cell} ipython3
-# For the basic case, the data (Xarray object) can be queried, and relevant dimensions investigated
+# For the basic case, the data (Xarray object) can be queried, 
+# and relevant dimensions investigated
 
 print(f"Available dimensions: {BetaNorm.dims}")
 
@@ -118,14 +120,20 @@ display(BetaNorm.BLM)
 ```
 
 ```{code-cell} ipython3
-# Note, however, that the indexes may not always be physical, depending on how the data has been composed and cleaned up.
+# Note, however, that the indexes may not always be physical, 
+# depending on how the data has been composed and cleaned up.
 # For example, the above has l=0, m=+/-1 cases, which are non-physical.
 
 # Clean array to remove terms |m|>l, and display
+cleanBLMs(BetaNorm).BLM
+```
+
+```{code-cell} ipython3
+:tags: [hide-cell]
+
+# Clean array to remove terms |m|>l, and display - Xarray native version
 # BetaNorm.BLM.where(np.abs(BetaNorm.BLM.m)<=BetaNorm.BLM.l,drop=True)
 # BetaNorm.where(np.abs(BetaNorm.m)<=BetaNorm.l,drop=True)
-
-cleanBLMs(BetaNorm).BLM
 ```
 
 ```{code-cell} ipython3
@@ -140,9 +148,9 @@ ep.matEleSelector(BetaNorm, thres=1e-4).BLM
 thres=1e-4
 
 print(f"Original array M={BetaNorm.BLM.indexes['BLM'].nunique()}")
-# print(f"Cleaned array M={BetaNorm.BLM.where(np.abs(BetaNorm.BLM.m)<=BetaNorm.BLM.l,drop=True).size}")
 print(f"Cleaned array M={cleanBLMs(BetaNorm).BLM.size}")
-print(f"Thresholded array (thres={thres}), M={ep.matEleSelector(BetaNorm, thres=thres).BLM.indexes['BLM'].nunique()}")
+print(f"Thresholded array (thres={thres}), \
+      M={ep.matEleSelector(BetaNorm, thres=thres).BLM.indexes['BLM'].nunique()}")
 ```
 
 ```{code-cell} ipython3
@@ -164,26 +172,34 @@ BetaNormPD.describe().to_frame()
 For more complicated cases, with $u>1$, e.g. time-dependent measurements, interrogating the statistics of the observables may also be an interesting avenue to explore. The examples below investigate this for the example "linear ramp" {{ ADMs }} case. Here the statistical analysis is, potentially, a measure of the useful/non-redundant information content, for instance the range or variance in a particular observable can be analysed, as can the number of unique values and so forth.
 
 ```{code-cell} ipython3
+:tags: [hide-cell, hide-output]
+
 BetaNorm
 ```
 
 ```{code-cell} ipython3
-BetaNormLinearADMs, basisProductLinearADMs = data.afblmMatEfit(selDims={}, sqThres=False, phaseCons='S')
-BetaNormLinearADMs.max()
+:tags: [remove-cell]
+
+# Compute AFBLMs - now in setup script
+# Note choice of phaseCons may affect results.
+# BetaNormLinearADMs, basisProductLinearADMs = data.afblmMatEfit(selDims={}, sqThres=False, phaseCons='S')
 ```
 
 ```{code-cell} ipython3
 # Convert to PD and tabulate with epsproc functionality
 # Note restack along 't' dimension
-BetaNormLinearADMsPD, _ = ep.util.multiDimXrToPD(BetaNormLinearADMs.squeeze().real, thres=1e-4, colDims='t')
+BetaNormLinearADMsPD, _ = ep.util.multiDimXrToPD(BetaNormLinearADMs.squeeze().real, 
+                                                 thres=1e-4, colDims='t')
 
-# Basic describe with Pandas, see https://pandas.pydata.org/docs/user_guide/basics.html#summarizing-data-describe
+# Basic describe with Pandas, 
+# see https://pandas.pydata.org/docs/user_guide/basics.html#summarizing-data-describe
 # This will give properties per t
-BetaNormLinearADMsPD.describe()   #([pd.unique])   #(['nunique'])
+BetaNormLinearADMsPD.describe()
 ```
 
 ```{code-cell} ipython3
-# Basic describe with Pandas, see https://pandas.pydata.org/docs/user_guide/basics.html#summarizing-data-describe
+# Basic describe with Pandas, 
+# see https://pandas.pydata.org/docs/user_guide/basics.html#summarizing-data-describe
 # By transposing the input array, this will give properties per BLM
 BetaNormLinearADMsPD.T.describe()
 ```
@@ -191,8 +207,9 @@ BetaNormLinearADMsPD.T.describe()
 For further insight and control, specific aggregation functions and criteria can be specified. For instance, it may be interesting to look at the number of unique values to a certain precision (e.g. depending on experimental uncertainties), or consider deviation of values from the mean.
 
 ```{code-cell} ipython3
-# Round values to 1 d.p., then apply statistical methods
-BetaNormLinearADMsPD.round(1).agg(['min','max','var','count','nunique'])
+# Round values to 2 d.p., then apply statistical methods
+ndp = 2
+BetaNormLinearADMsPD.round(ndp).agg(['min','max','var','count','nunique']).round(3)
 ```
 
 ```{code-cell} ipython3
@@ -200,15 +217,16 @@ BetaNormLinearADMsPD.round(1).agg(['min','max','var','count','nunique'])
 demean = lambda x: x - x.mean()
 
 # Compute differences from mean
-BetaNormLinearADMsPD.transform(demean,axis='columns')  #.round(1).agg(['min','max','var','count','nunique'])   # OK, matches above case.
+BetaNormLinearADMsPD.transform(demean,axis='columns')
 ```
 
 ```{code-cell} ipython3
 # Apply statistical functions to differences from mean.
-BetaNormLinearADMsPD.transform(demean,axis='columns').round(1).agg(['min','max','var','count','nunique'])
+BetaNormLinearADMsPD.transform(demean,axis='columns'). \
+        round(ndp).agg(['min','max','var','count','nunique']).round(3)
 ```
 
-In this case the analysis suggests that $t=4,5$ contain minimal, and redundant, information, whilst $t=0,3,6$ are also of low total information content. However, this analysis is not necessarily absolutely definitive, since some nuances may be lost in this basic statistical analysis, particularly for weaker channels.
+In this case the analysis suggests that $t=2 - 5$ contain minimal information (low variance), and $t=4,5$ potentially redundant information (low nunique), whilst $t=1,7 - 9$ show a greater total information content and number of unique values. However, this analysis is not necessarily absolutely definitive, since some nuances may be lost in this basic statistical analysis, particularly for weaker channels.
 
 For a more detailed analysis, other standard analysis tools can be deployed. For instance, the covariance matrix can be investigated, given by $K_{i,j}=\textrm{cov}[X_{i},X_{j}]=\langle(X_{i}-\langle X_{i}\rangle)(X_{j}-\langle X_{j}\rangle)\rangle$. For the linear ramp case this analysis is not particularly useful, but will become more informative for more complicated cases.
 
@@ -233,7 +251,7 @@ glue("covMatBLMExample", figObj)   #covMat.hvplot.heatmap(cmap='viridis'))
 ---
 name: "fig-covMatBLMExample"
 ---
-Example $\beta_\{L,M\}(t)$ covariance matrix, see text for details.
+Example $\beta_{L,M}(t)$ covariance matrix, see text for details.
 ```
 
 ```{code-cell} ipython3
@@ -242,112 +260,6 @@ Example $\beta_\{L,M\}(t)$ covariance matrix, see text for details.
 # Seaborn also has nice cluster plotting routines, which include sorting by similarity
 import seaborn as sns
 sns.clustermap(covMat)
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-covMat
-```
-
-+++ {"tags": ["remove-cell"]}
-
-**Following are as above but for (L,M) dimension)**
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-import seaborn as sns
-sns.clustermap(BetaNormLinearADMsPD.T.cov().fillna(0))
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-BetaNormLinearADMsPD.transform(demean,axis='columns').round(1).T.agg(['min','max','var','count','nunique'])
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-BetaNormLinearADMsPD
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-BetaNormLinearADMsPD.mean(axis='columns')
-```
-
-+++ {"tags": ["remove-cell"]}
-
-**BELOW VERY ROUGH - check old dev notebook for better...**
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-# Examine unique values at a given level of difference/rounding
-# pd.cut(BetaNormLinearADMsPD, 10)
-
-# Use cut - not very useful here, maybe better with agg?
-testCut = BetaNormLinearADMsPD.apply(pd.cut, args=[10])
-testCut
-# testCut.agg('count')
-# testCut.agg('unique')
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-BetaNormLinearADMsPD
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-# BetaNormLinearADMs
-
-# Convert/tabulate - NOTE SQUEEZE NOT WORKING for multiDimXrToPD here...?
-# testBasisPD, testBasisRS = ep.util.multiDimXrToPD(BetaNormLinearADMs, thres=1e-4, colDims='t', squeeze=True)
-testBasisPD, testBasisRS = ep.util.multiDimXrToPD(BetaNormLinearADMs.squeeze().real, thres=1e-4, colDims='t', squeeze=True)
-
-# Basic describe - see pemtk functionality? Only set for fit results?
-# testBasisPD.T.agg('count')
-testBasisPD.T.describe()   #([pd.unique])   #(['nunique'])
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-testBasisPD.round(1).agg(['min','max','var','count','nunique'])
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-testBasisPD.T.nunique()
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-# BetaNormX.BLM.indexes['BLM']  #.unqiue()
-# pd.unique(BetaNormX.BLM.indexes['BLM'])
-# dir(BetaNormX.BLM.indexes['BLM'])   #.agg('count')
-
-BetaNorm = BetaNormX
-
-# 
-BetaNorm.BLM
-
-# A basic 
-BetaNorm.BLM.indexes['BLM'].nunique()
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-BetaNormX
 ```
 
 ## Information content from channel functions
@@ -398,27 +310,12 @@ Full tabulations of the parameters available in HTML or notebook formats only.
 
 # Convert to PD and tabulate with epsproc functionality
 # Note restack along 't' dimension
-channelFuncsSubsetPD, _ = ep.util.multiDimXrToPD(channelFuncsSubset.squeeze().real, thres=1e-4, colDims='t')
-
-# Basic describe with Pandas, see https://pandas.pydata.org/docs/user_guide/basics.html#summarizing-data-describe
-# This will give properties per t
-# channelFuncsSubsetPD.describe()   #([pd.unique])   #(['nunique'])
+channelFuncsSubsetPD, _ = ep.util.multiDimXrToPD(channelFuncsSubset.squeeze().real, 
+                                                 thres=1e-4, colDims='t')
 
 # Round values to 1 d.p., then apply statistical methods
-# channelFuncsSubsetPD.round(1).agg(['min','max','var','count','nunique'])  # Compute per t
-
-channelFuncsSubsetPD.T.round(2).agg(['min','max','var','count','nunique']).T  #[0:100]  # Compute per basis index and display
-
-
-# Plotting tests with hvplot wrapper - interesting, but lacking fine control so far...
-# channelFuncsSubsetPD.T.round(1).agg(['min','max','var','count','nunique']).T.hvplot.hist('nunique', by=['L','M'], subplots=True).cols(1)
-# channelFuncsSubsetPD.T.round(3).agg(['min','max','var','count','nunique']).T.hvplot.hist('nunique', by=['l','lp'])
-# channelFuncsSubsetPD.T.round(3).agg(['min','max','var','count','nunique']).T.hvplot.hist('nunique', by=['l','lp'], subplots=True).cols(2)
-# channelFuncsSubsetPD.T.round(2).agg(['min','max','var','count','nunique']).T.hvplot.hist('nunique', by=['L','l','lp'], subplots=True)
-# channelFuncsSubsetPD.T.round(2).agg(['min','max','var','count','nunique']).T.hvplot.heatmap(x='nunique',y='L', by=['L','l','lp'], subplots=True)
-
-# Holomap version - not working in notebook currently? Gives controls, but plot not responding...
-# channelFuncsSubsetPD.T.round(2).agg(['min','max','var','count','nunique']).T.hvplot.hist('nunique', by=['L','l','lp'], groupby=['L','l','lp'])
+# Compute per basis index and display
+channelFuncsSubsetPD.T.round(2).agg(['min','max','var','count','nunique']).T  
 ```
 
 For the higher-dimensional case, it is useful to plot terms relative to all quantum numbers. For example, in a similar manner to the basis set explorations of {numref}`Sect. %s <sec:theory:tensor-products>`, related properties such as the distance from the mean can be examined with `lmPlot()`. And, as previously demonstrated, other properties, such as the covariance, may be examined and plotted.
@@ -438,8 +335,13 @@ daPlot, daPlotpd, legendList, gFig =  ep.lmPlot(channelFuncsDemean.to_xarray().t
 
 ```{code-cell} ipython3
 # Full covariance mapping along all dims
-sns.clustermap(channelFuncsSubsetPD.T.cov().fillna(0))
+%matplotlib inline
+sns.clustermap(channelFuncsSubsetPD.T.cov().fillna(0))  #.round(3))
 ```
+
++++ {"tags": ["remove-cell"]}
+
+## SCRATCH
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -453,8 +355,12 @@ channelFuncsSubsetPD
 channelFuncsSubsetPD.transform(demean,axis='columns').to_xarray().to_array('t')
 ```
 
++++ {"tags": ["remove-cell"]}
+
 ## Information content from density matrices
 
 ```{code-cell} ipython3
+:tags: [remove-cell]
+
 
 ```
