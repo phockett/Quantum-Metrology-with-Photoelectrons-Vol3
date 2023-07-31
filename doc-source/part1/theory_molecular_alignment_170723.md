@@ -73,7 +73,7 @@ In the examples given in {numref}`Sect. %s <sec:tensor-formulation>`, some arbit
 
 ## Numerical setup
 
-For illustrative purposes, the {{ ADMs }} used for the $N_2$ fitting example are here loaded and used to compute $P(\Omega,t)$. (Note these {{ ADMs }} are for a 2-pulse alignment scheme, as outlined in Ref. {cite}`marceau2017MolecularFrameReconstruction`.) 
+For illustrative purposes, the {{ ADMs }} used for the $N_2$ fitting example are here loaded and used to compute $P(\Omega,t)$. (Note these {{ ADMs }} are for a 2-pulse alignment scheme, as outlined in Ref. {cite}`marceau2017MolecularFrameReconstruction`.)
 
 ```{code-cell} ipython3
 :tags: [hide-output, hide-cell]
@@ -84,7 +84,8 @@ For illustrative purposes, the {{ ADMs }} used for the $N_2$ fitting example are
 # import os
 # os.environ['IMGWIDTH']='750'
 # Run default config - may need to set full path here
-%run '../scripts/setup_notebook.py'
+# %run '../scripts/setup_notebook.py'
+%run '../scripts/setup_notebook_caseStudies_Mod-300723.py'   # Test version with different figure options.
 
 # Run OCS setup script - may need to set full path here
 # ADMfile = 'ADMs_8TW_120fs_5K.mat'
