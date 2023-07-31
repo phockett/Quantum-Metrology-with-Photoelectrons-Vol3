@@ -1,0 +1,556 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Glossary &#8212; Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'backmatter/glossary';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Build versions and config tests" href="../tests/build_versions_checks.html" />
+    <link rel="prev" title="Bibliography" href="bibliography.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/ePSproc_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/ePSproc_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    About the book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Frontmatter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/about_the_authors.html">About the authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/book_versions_note.html">A note on book versions, formats and conventions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I - Theory &amp; software</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part1/main_intro_060723.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part1/platform_intro_070723.html">2. Quantum metrology software platform/ecosystem overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part1/theory_100723.html">3. Theory</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_photoionization_dynamics_140723.html">3.1. Photoionization dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_symmetry_140723.html">3.2. Symmetry in photoionization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_tensor_formalism_160723.html">3.3. Tensor formulation of photoionization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_density_matrices_190723.html">3.4. Density matrix representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_molecular_alignment_170723.html">3.5. Molecular alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_observables_intro_100723.html">3.6. Observables: photoelectron flux in the LF and MF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_info_content_200723.html">3.7. Information content &amp; sensitivity</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../part1/numerics_070723.html">4. Numerical methodologies for extracting matrix elements</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II - Extracting matrix elements - numerical methods &amp; case studies</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part2/extracting_matrix_elements_overview_270423.html">5. Extracting matrix elements overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/sym-fitting-intro_240723.html">6. Basis sets for fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/basic_fitting_numerics_intro_260723.html">7. General fit setup and numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-N2_290723.html">8. Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, <span class="math notranslate nohighlight">\(N_2~(D_{\infty h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-OCS_290723.html">9. Case study: Generalised bootstrapping for a linear heteronuclear scattering system, <span class="math notranslate nohighlight">\(OCS~(C_{\infty v})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-C2H4_290723.html">10. Case study: Generalised bootstrapping for a general asymmetric top scattering system, <span class="math notranslate nohighlight">\(C_2H_4~(D_{2h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-summaries_240723.html">11. Case studies: summaries, conclusions and outlook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Glossary</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Test pages</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tests/build_versions_checks.html">Build versions and config tests</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/new?title=Issue%20on%20page%20%2Fbackmatter/glossary.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/backmatter/glossary.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Glossary</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="glossary">
+<h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">#</a></h1>
+<dl class="simple glossary">
+<dt id="term-MF">MF<a class="headerlink" href="#term-MF" title="Permalink to this term">#</a></dt><dd><p>Molecular frame (MF) - coordinate system referenced to the molecule, usually with the z-axis corresponding to the highest symmetry axis. See <a class="reference internal" href="../part1/theory_tensor_formalism_160723.html#sec-frame-definitions"><span class="std std-numref">Sect. 3.3.3</span></a> for further details.</p>
+</dd>
+<dt id="term-LF">LF<a class="headerlink" href="#term-LF" title="Permalink to this term">#</a></dt><dd><p>Laboratory or lab frame (LF) - coordinate system referenced to the laboratory frame, usually with the z-axis corresponding to the laser field polarization. For circularly or elliptically polarized light the propagation direction is conventionally used for the z-axis. In some cases a different z-axis may be chosen, e.g. as defined by a detector. See <a class="reference internal" href="../part1/theory_tensor_formalism_160723.html#sec-frame-definitions"><span class="std std-numref">Sect. 3.3.3</span></a> for further details.</p>
+</dd>
+<dt id="term-AF">AF<a class="headerlink" href="#term-AF" title="Permalink to this term">#</a></dt><dd><p>Aligned frame (AF) - coordinate system referenced to molecular alignment axis or axes. For 1D alignment, the z-axis usually corresponds to the alignment field polarization, and hence may be identical to the standard <a class="reference internal" href="#term-LF"><span class="xref std std-term">LF</span></a> definition, although is usually reserved for use in cases where there is some molecular alignment. For the limiting case of an isotropic distribution, the <a class="reference internal" href="#term-AF"><span class="xref std std-term">AF</span></a> and (traditional) <a class="reference internal" href="#term-LF"><span class="xref std std-term">LF</span></a> are identical. For high degrees of (3D) alignment the AF may approach the <a class="reference internal" href="#term-MF"><span class="xref std std-term">MF</span></a> in the ideal case, although will usually be limited by the symmetry of the system. See <a class="reference internal" href="../part1/theory_tensor_formalism_160723.html#sec-frame-definitions"><span class="std std-numref">Sect. 3.3.3</span></a> for further details.</p>
+</dd>
+<dt id="term-PADs">PADs<a class="headerlink" href="#term-PADs" title="Permalink to this term">#</a></dt><dd><p>Photoelectron angular distributions (PADs), often with a prefix denoting the reference frame, e.g. LFPADs, MFPADs (sometimes also hypenated, e.g. LF-PADs). Usage is often synonymous with the associated <a class="reference internal" href="#term-anisotropy-paramters"><span class="xref std std-term">anisotropy paramters</span></a> (or “betas”).</p>
+</dd>
+<dt id="term-anisotropy-paramters">anisotropy paramters<a class="headerlink" href="#term-anisotropy-paramters" title="Permalink to this term">#</a></dt><dd><p>Expansion parameters <span class="math notranslate nohighlight">\(\beta_{L,M}\)</span> for an expansion in spherical harmonics (or similar basis sets of angular momentum functions in polar coordinates), e.g. Eq. <a class="reference internal" href="../part1/theory_observables_intro_100723.html#equation-eq-af-pad-general">(3.37)</a>. Often referred to simply as “beta parameters”, and may be dependent on various properties, e.g. <span class="math notranslate nohighlight">\(\beta_{L,M}(\epsilon,t...)\)</span>. Herein upper-case <span class="math notranslate nohighlight">\(L,M\)</span> usually refer to observables or the general case, whilst lower-case <span class="math notranslate nohighlight">\((l,m)\)</span> usually refer specifically to the photoelectron wavefunction partial waves (see <a class="reference internal" href="#term-partial-wave-expansion"><span class="xref std std-term">partial-wave expansion</span></a>), and <span class="math notranslate nohighlight">\((l,\lambda)\)</span> usually denote these terms referenced specifically to the molecular frame.</p>
+</dd>
+<dt id="term-ADMs">ADMs<a class="headerlink" href="#term-ADMs" title="Permalink to this term">#</a></dt><dd><p>Expansion parameters <span class="math notranslate nohighlight">\(A_{Q,S}^{K}(t)\)</span> for describing a molecular ensemble alignment described as a set of axis distribution moments, usually expanded as Wigner rotation matrix element, spherical harmonics or Legendre polynomial functions. See <a class="reference internal" href="../part1/theory_molecular_alignment_170723.html#sect-theory-alignment"><span class="std std-numref">Sect. 3.5</span></a> for details.</p>
+</dd>
+<dt id="term-axis-distribution-moments">axis distribution moments<a class="headerlink" href="#term-axis-distribution-moments" title="Permalink to this term">#</a></dt><dd><p>See <a class="reference internal" href="#term-ADMs"><span class="xref std std-term">ADMs</span></a>.</p>
+</dd>
+<dt id="term-MS">MS<a class="headerlink" href="#term-MS" title="Permalink to this term">#</a></dt><dd><p>Molecular symmetry group. Symmetry group classification of a molecule, isomorphic to the point group in rigid molecules. See Bunker and Jensen <span id="id1">[<a class="reference internal" href="bibliography.html#id547" title="P R Bunker and P Jensen. Molecular Symmetry and Spectroscopy. NRC Research Press, Ottawa, 2nd edition, 1998.">89</a>]</span> for discussion.</p>
+</dd>
+<dt id="term-PG">PG<a class="headerlink" href="#term-PG" title="Permalink to this term">#</a></dt><dd><p>Point group. Symmetry group classification of a molecule, strictly only applicable to rigid systems. See <a class="reference internal" href="#term-MS"><span class="xref std std-term">MS</span></a> for more general case.</p>
+</dd>
+<dt id="term-HOMO">HOMO<a class="headerlink" href="#term-HOMO" title="Permalink to this term">#</a></dt><dd><p>Highest occupied molecular orbital. Short-hand for the outermost (highest energy) valence orbital, also often used in the form HOMO-n to number lower-lying orbitals in reverse energetic order, e.g. HOMO-1 for the penultimate valence orbital.</p>
+</dd>
+<dt id="term-VMI">VMI<a class="headerlink" href="#term-VMI" title="Permalink to this term">#</a></dt><dd><p>Velocity-map imaging. Experimental technique for measuring energy and angle-resolved photoelectron “images”.</p>
+</dd>
+<dt id="term-RWP">RWP<a class="headerlink" href="#term-RWP" title="Permalink to this term">#</a></dt><dd><p>Rotational wavepacket. A purely rotational wavepacket (superposition of rotational eigenstates) in a molecular system, typically created via cascaded Raman interaction with a (relatively) strong IR pulse (<span class="math notranslate nohighlight">\(&gt;10^{12}\)</span>~Wcm<span class="math notranslate nohighlight">\(^{-2}\)</span>). The resulting time-dependent molecular axis distribution can be described by a set of <a class="reference internal" href="#term-ADMs"><span class="xref std std-term">ADMs</span></a>.</p>
+</dd>
+<dt id="term-partial-wave-expansion">partial-wave expansion<a class="headerlink" href="#term-partial-wave-expansion" title="Permalink to this term">#</a></dt><dd><p>General term for an expansion of a wavefunction in a spherical-wave basis in scattering theory, typically spherical harmonics <span class="math notranslate nohighlight">\(Y_{l,m}\)</span>, where the spherical harmonics are the partial wave basis set, and specific <span class="math notranslate nohighlight">\(\psi_{l,m}\)</span> terms can be referred to as partial waves - see for example Refs. <span id="id2">[<a class="reference internal" href="bibliography.html#id739" title="L D Landau and E M Lifshitz. Quantum Mechanics (Non-relativistic Theory). Pergamon Press, 3 edition, 1977.">145</a>, <a class="reference internal" href="bibliography.html#id788" title="Albert Messiah. Quantum Mechanics Volume I. North-Holland Publishing Company, 1970.">146</a>, <a class="reference internal" href="bibliography.html#id866" title="Jun John Sakurai. Modern Quantum Mechanics. Addison-Wesley, Reading, MA, revised edition edition, 1994. URL: https://cds.cern.ch/record/1167961.">147</a>]</span>. Note conventional use of lower-case <span class="math notranslate nohighlight">\(l,m\)</span> for these components, whilst upper-case <span class="math notranslate nohighlight">\(L,M\)</span> are usually used for labelling harmonics pertaining to observable quantities (see <a class="reference internal" href="#term-anisotropy-paramters"><span class="xref std std-term">anisotropy paramters</span></a>).</p>
+</dd>
+<dt id="term-partial-waves">partial-waves<a class="headerlink" href="#term-partial-waves" title="Permalink to this term">#</a></dt><dd><p>See <a class="reference internal" href="#term-partial-wave-expansion"><span class="xref std std-term">partial-wave expansion</span></a>.</p>
+</dd>
+<dt id="term-channel-functions">channel functions<a class="headerlink" href="#term-channel-functions" title="Permalink to this term">#</a></dt><dd><p>Geometric (angular-momentum) coupling parameters in the tensor formulation of photoionzation, denoted by <span class="math notranslate nohighlight">\(\varUpsilon_{L,M}^{u,\zeta\zeta'}\)</span> herein. See Eq. <a class="reference internal" href="../part1/theory_tensor_formalism_160723.html#equation-eqn-channel-fns">(3.13)</a>. These can be regarded as an alternative form of the more traditional geometric coupling parameters (Eq. <a class="reference internal" href="../part1/theory_photoionization_dynamics_140723.html#equation-eq-i-reduced-lf-2-45-vol1">(3.9)</a>). See also <a class="reference internal" href="#term-geometric-coupling-parameters"><span class="xref std std-term">geometric coupling parameters</span></a>.</p>
+</dd>
+<dt id="term-geometric-coupling-parameters">geometric coupling parameters<a class="headerlink" href="#term-geometric-coupling-parameters" title="Permalink to this term">#</a></dt><dd><p>Geometric (angular-momentum) coupling parameters in photoionization, comprising all angular-momentum coupling terms. Denoted <span class="math notranslate nohighlight">\(\gamma_{l,m}\)</span> herein (Eq. <a class="reference internal" href="../part1/theory_photoionization_dynamics_140723.html#equation-eq-r-kllam">(3.6)</a>), and <span class="math notranslate nohighlight">\(\gamma_{\alpha\alpha_{+}l\lambda ml'\lambda'm'}\)</span> for the coherent square of these terms (Eq. <a class="reference internal" href="../part1/theory_photoionization_dynamics_140723.html#equation-eq-i-reduced-lf-2-45-vol1">(3.9)</a>). See also <a class="reference internal" href="#term-channel-functions"><span class="xref std std-term">channel functions</span></a>.</p>
+</dd>
+<dt id="term-radial-matrix-elements">radial matrix elements<a class="headerlink" href="#term-radial-matrix-elements" title="Permalink to this term">#</a></dt><dd><p>General term for the radial part of the ionization matrix elements, after separation into radial and angular parts. Although this type of separation may be applied in many cases, herein this term always refers specifically to the radial (or reduced) <em>photoionization dipole matrix elements</em>. These are denoted herein as <span class="math notranslate nohighlight">\(\mathbf{r}_{k,l,m}\)</span> (see Eqs. <a class="reference internal" href="../part1/theory_photoionization_dynamics_140723.html#equation-eq-r-kllam">(3.6)</a>, <a class="reference internal" href="../part1/theory_photoionization_dynamics_140723.html#equation-eq-r-kllam-integral">(3.7)</a>), and also appear as <span class="math notranslate nohighlight">\(\mathbb{I}^{\zeta\zeta'}\)</span> for the coherent square of these terms in the <a class="reference internal" href="#term-channel-functions"><span class="xref std std-term">channel functions</span></a> (tensor) form, see Eq. <a class="reference internal" href="../part1/theory_tensor_formalism_160723.html#equation-eqn-channel-fns">(3.13)</a>. These complex matrix elements are the unknowns to be determined in quantum metrology with photoelectons fitting or reconstruction problems.</p>
+</dd>
+<dt id="term-symmetrized-harmonics">symmetrized harmonics<a class="headerlink" href="#term-symmetrized-harmonics" title="Permalink to this term">#</a></dt><dd><p>A basis set of spherical harmonics expanded/defined for a given point-group symmetry. See <a class="reference internal" href="../part1/theory_observables_intro_100723.html#sec-theory-sym-harm-into"><span class="std std-numref">Sect. 3.6.2</span></a>, particularly Eq. <a class="reference internal" href="../part1/theory_observables_intro_100723.html#equation-eq-symharm-defn">(3.38)</a>, for details. Other symmetrized functions may assume such a basis set, or explicitly incorporate symmetry parameters/weightings directly, as is the case for symmetrized <a class="reference internal" href="#term-radial-matrix-elements"><span class="xref std std-term">radial matrix elements</span></a> which incorporate symmetry parameters <span class="math notranslate nohighlight">\(b_{hl\lambda}^{\Gamma\mu}\)</span> into the value of the matrix elements.</p>
+</dd>
+<dt id="term-frame-rotation">frame rotation<a class="headerlink" href="#term-frame-rotation" title="Permalink to this term">#</a></dt><dd><p>General term for the rotation of one frame of reference (corresponding to a set of <span class="math notranslate nohighlight">\(x,y,z\)</span> axes), e.g. as defined by an electric field vector in the laboratory, to another, e.g. as defined by a molecular axis. Usually specified herein in terms of a set of Euler angles <span class="math notranslate nohighlight">\(R_{\hat{n}}=\{\chi,\Theta,\Phi\}\)</span>, and can also be schematically denoted as, e.g., <span class="math notranslate nohighlight">\((x,y,z)\leftarrow(x',y',z')\)</span>.</p>
+</dd>
+<dt id="term-Euler-angles">Euler angles<a class="headerlink" href="#term-Euler-angles" title="Permalink to this term">#</a></dt><dd><p>A set of angles <span class="math notranslate nohighlight">\(R_{\hat{n}}=\{\chi,\Theta,\Phi\}\)</span> defining a frame rotation. For <a class="reference external" href="https://en.wikipedia.org/wiki/Euler_angles">discussion see Wikipedia</a><span id="id3">[<a class="reference internal" href="bibliography.html#id958" title="\\Euler angles\\. Euler angles. Wikipedia, June 2023. URL: https://en.wikipedia.org/w/index.php?title=Euler_angles&amp;oldid=1160186404 (visited on 2023-07-17).">148</a>]</span> and Zare, Chpt. 3 <span id="id4">[<a class="reference internal" href="bibliography.html#id988" title="Richard N Zare. Angular Momentum: Understanding Spatial Aspects in Chemistry and Physics. John Wiley &amp; Sons, 1988.">83</a>]</span>.</p>
+</dd>
+<dt id="term-Wigner-rotation-matrix-elements">Wigner rotation matrix elements<a class="headerlink" href="#term-Wigner-rotation-matrix-elements" title="Permalink to this term">#</a></dt><dd><p>A function defining a basis set for rotations in three-dimensions (<span class="math notranslate nohighlight">\(SO(3)\)</span>). Also known as “Wigner D-matrix elements”. For <a class="reference external" href="https://en.wikipedia.org/wiki/Wigner_D-matrix">discussion see Wikipedia</a><span id="id5">[<a class="reference internal" href="bibliography.html#id962" title="\\Wigner D-matrix\\. Wigner D-matrix. Wikipedia, June 2023. URL: https://en.wikipedia.org/w/index.php?title=Wigner_D-matrix&amp;oldid=1160193091 (visited on 2023-07-17).">149</a>]</span> and Zare, Chpt. 3 <span id="id6">[<a class="reference internal" href="bibliography.html#id988" title="Richard N Zare. Angular Momentum: Understanding Spatial Aspects in Chemistry and Physics. John Wiley &amp; Sons, 1988.">83</a>]</span>.</p>
+</dd>
+<dt id="term-molecular-alignment">molecular alignment<a class="headerlink" href="#term-molecular-alignment" title="Permalink to this term">#</a></dt><dd><p>General term for describing the case where molecules have some alignment in the <a class="reference internal" href="#term-LF"><span class="xref std std-term">LF</span></a>, as compared to an isotropic distribution. Defined herein terms of molecular <a class="reference internal" href="#term-axis-distribution-moments"><span class="xref std std-term">axis distribution moments</span></a> and associated parameters <span class="math notranslate nohighlight">\(A_{Q,S}^{K}(t)\)</span>. See <a class="reference internal" href="../part1/theory_molecular_alignment_170723.html#sect-theory-alignment"><span class="std std-numref">Sect. 3.5</span></a> for details.</p>
+</dd>
+<dt id="term-bootstrap-retrieval-protocol">bootstrap retrieval protocol<a class="headerlink" href="#term-bootstrap-retrieval-protocol" title="Permalink to this term">#</a></dt><dd><p>General term of a retrieval method which determines successively more complex properties of a system in multiple steps, each of which builds on the previous step and adds complexity. Herein, used for the “generalised bootstrapping” method for <a class="reference internal" href="#term-radial-matrix-elements"><span class="xref std std-term">radial matrix elements</span></a> retrieval from photoionzation data. For general useage, <a class="reference external" href="https://en.wikipedia.org/wiki/Bootstrapping">see wikipedia’s <em>Bootstrapping</em> page</a>.</p>
+</dd>
+</dl>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./backmatter"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="bibliography.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Bibliography</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../tests/build_versions_checks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Build versions and config tests</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Paul Hockett with Varun Makhija
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

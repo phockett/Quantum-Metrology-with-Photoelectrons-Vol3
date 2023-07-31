@@ -1,0 +1,565 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>5. Extracting matrix elements overview &#8212; Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part2/extracting_matrix_elements_overview_270423';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. Basis sets for fitting" href="sym-fitting-intro_240723.html" />
+    <link rel="prev" title="4. Numerical methodologies for extracting matrix elements" href="../part1/numerics_070723.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/ePSproc_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/ePSproc_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    About the book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Frontmatter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/about_the_authors.html">About the authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/book_versions_note.html">A note on book versions, formats and conventions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I - Theory &amp; software</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part1/main_intro_060723.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part1/platform_intro_070723.html">2. Quantum metrology software platform/ecosystem overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part1/theory_100723.html">3. Theory</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_photoionization_dynamics_140723.html">3.1. Photoionization dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_symmetry_140723.html">3.2. Symmetry in photoionization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_tensor_formalism_160723.html">3.3. Tensor formulation of photoionization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_density_matrices_190723.html">3.4. Density matrix representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_molecular_alignment_170723.html">3.5. Molecular alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_observables_intro_100723.html">3.6. Observables: photoelectron flux in the LF and MF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_info_content_200723.html">3.7. Information content &amp; sensitivity</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../part1/numerics_070723.html">4. Numerical methodologies for extracting matrix elements</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II - Extracting matrix elements - numerical methods &amp; case studies</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Extracting matrix elements overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sym-fitting-intro_240723.html">6. Basis sets for fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_fitting_numerics_intro_260723.html">7. General fit setup and numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case-study-N2_290723.html">8. Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, <span class="math notranslate nohighlight">\(N_2~(D_{\infty h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="case-study-OCS_290723.html">9. Case study: Generalised bootstrapping for a linear heteronuclear scattering system, <span class="math notranslate nohighlight">\(OCS~(C_{\infty v})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="case-study-C2H4_290723.html">10. Case study: Generalised bootstrapping for a general asymmetric top scattering system, <span class="math notranslate nohighlight">\(C_2H_4~(D_{2h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="case-study-summaries_240723.html">11. Case studies: summaries, conclusions and outlook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../backmatter/bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backmatter/glossary.html">Glossary</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Test pages</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tests/build_versions_checks.html">Build versions and config tests</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/new?title=Issue%20on%20page%20%2Fpart2/extracting_matrix_elements_overview_270423.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part2/extracting_matrix_elements_overview_270423.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Extracting matrix elements overview</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-notes-on-the-case-studies">5.1. General notes on the case studies</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="extracting-matrix-elements-overview">
+<span id="chpt-extracting-matrix-elements-overview"></span><h1><span class="section-number">5. </span>Extracting matrix elements overview<a class="headerlink" href="#extracting-matrix-elements-overview" title="Permalink to this heading">#</a></h1>
+<p>In this part, various case studies are presented. To provide context, and ensure that the examples are transparent and can be run directly from the source notebooks, there are also chapters covering the general setup and configuration for the fitting routines. These are, unavoidably, rather technical and code-heavy, so readers only interested in the results should skip these sections. Additionally, these sections may be rather truncated in hard-copy (or PDF) versions of the text, but are available in full in the <a class="reference external" href="https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/part1/main_intro_051122.html"><em>Quantum Metrology</em> Vol. 3 (HTML version)</a> and source notebooks for readers that wish to perform their own calculations.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As <a class="reference internal" href="../frontmatter/book_versions_note.html#sec-numerics-disclaimer"><span class="std std-ref">noted elsewhere</span></a>, many components of the toolkit are still in active development, and some numerical details may change. This is particularly true for 3D alignment examples, which are here presented as new, and provisional, results.</p>
+</div>
+</aside>
+<p>The layout for this part is as follows:</p>
+<ul class="simple">
+<li><p>Technical introductions</p>
+<ul>
+<li><p><a class="reference internal" href="sym-fitting-intro_240723.html#sect-basis-sets-fitting-intro"><span class="std std-numref">Chapter 6:</span></a> <a class="reference internal" href="sym-fitting-intro_240723.html#sect-basis-sets-fitting-intro"><span class="std std-ref">Basis sets for fitting</span></a>: introduces methods for setting the basis set used for fitting, defined in terms of symmetrized harmonics.</p></li>
+<li><p><a class="reference internal" href="basic_fitting_numerics_intro_260723.html#sect-basic-fit-setup"><span class="std std-numref">Chapter 7:</span></a> <a class="reference internal" href="basic_fitting_numerics_intro_260723.html#sect-basic-fit-setup"><span class="std std-ref">General fit setup and numerics</span></a>: introduces methods for setting up the data to fit, and running fits in various ways.</p></li>
+</ul>
+</li>
+<li><p>Case studies</p>
+<ul>
+<li><p><a class="reference internal" href="case-study-N2_290723.html#chpt-n2-case-study"><span class="std std-numref">Chapter 8:</span></a> <a class="reference internal" href="case-study-N2_290723.html#chpt-n2-case-study"><span class="std std-ref">Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, N_2~(D_{\infty h})</span></a>: A “simple” 1D case, here the <span class="math notranslate nohighlight">\(D_{\infty h}\)</span> molecular symmetry matches the rotational wavepacket and detection symmetry.</p></li>
+<li><p><a class="reference internal" href="case-study-OCS_290723.html#chpt-ocs-case-study"><span class="std std-numref">Chapter 9:</span></a> <a class="reference internal" href="case-study-OCS_290723.html#chpt-ocs-case-study"><span class="std std-ref">Case study: Generalised bootstrapping for a linear heteronuclear scattering system, OCS~(C_{\infty v})</span></a>: A more complicated example. In this case, <span class="math notranslate nohighlight">\(C_{\infty v}\)</span>, up-down symmetry is broken in the molecular frame. Fitting for various cases is explored, looking at 1D and 3D alignment.</p></li>
+<li><p><a class="reference internal" href="case-study-C2H4_290723.html#chpt-c2h4-case-study"><span class="std std-numref">Chapter 10:</span></a> <a class="reference internal" href="case-study-C2H4_290723.html#chpt-c2h4-case-study"><span class="std std-ref">Case study: Generalised bootstrapping for a general asymmetric top scattering system, C_2H_4~(D_{2h})</span></a>: The most general example of an asymmetric top system, in this case <span class="math notranslate nohighlight">\(C_2H_4\)</span> (ethylene), <span class="math notranslate nohighlight">\(C_{2h}\)</span>. Again various cases and limitations are examined, for 1D and 3D alignment.</p></li>
+</ul>
+</li>
+<li><p>Summary, discussion, conclusions and outlook: <a class="reference internal" href="case-study-summaries_240723.html#chpt-case-study-summaries"><span class="std std-numref">Chapter 11</span></a> presents a general overview of the case study results - particularly the density matrix and <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a>-<a class="reference internal" href="../backmatter/glossary.html#term-PADs"><span class="xref std std-term">PADs</span></a> - and conclusions.</p></li>
+</ul>
+<section id="general-notes-on-the-case-studies">
+<h2><span class="section-number">5.1. </span>General notes on the case studies<a class="headerlink" href="#general-notes-on-the-case-studies" title="Permalink to this heading">#</a></h2>
+<p>The case studies presented herein represent various different types (classes or degrees-of-difficulty) of fitting problem. They are intended both to indicate ways to proceed in general, and also aim to address what is, and isn’t, possible in these given cases. The simplest case, <span class="math notranslate nohighlight">\(N_2\)</span>, has been well-studied, and reconstruction of <a class="reference internal" href="../backmatter/glossary.html#term-radial-matrix-elements"><span class="xref std std-term">radial matrix elements</span></a> via the <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a> has proved successful in a range of valence ionization cases - see Ref. <span id="id1">[<a class="reference internal" href="../backmatter/bibliography.html#id775" title="Claude Marceau, Varun Makhija, Dominique Platzer, A. \relax Yu. Naumov, P. B. Corkum, Albert Stolow, D. M. Villeneuve, and Paul Hockett. Molecular Frame Reconstruction Using Time-Domain Photoionization Interferometry. Physical Review Letters, 119(8):083401, August 2017. URL: https://link.aps.org/doi/10.1103/PhysRevLett.119.083401.">1</a>]</span> for the initial experimental demonstration, and updated analysis using the <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id2">[<a class="reference internal" href="../backmatter/bibliography.html#id681" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">5</a>]</span> in Ref. <span id="id3">[<a class="reference internal" href="../backmatter/bibliography.html#id685" title="Paul Hockett and Varun Makhija. Topical Review: Extracting molecular frame photoionization dynamics from experimental data. Journal of Physics B: Atomic, Molecular and Optical Physics, 56(11):112001, May 2023. URL: https://dx.doi.org/10.1088/1361-6455/acd03e (visited on 2023-05-12), arXiv:2209.04301.">3</a>]</span>, as well as <a class="reference internal" href="case-study-N2_290723.html#chpt-n2-case-study"><span class="std std-numref">Chapter 8</span></a> herein.</p>
+<p>The more complex cases, involving 3D alignment, are new, and very much work-in-progress. The current state-of-the-art is presented herein, but it is of note that these results are provisional, and work is ongoing. In particular, there are a large range of fitting configuration options and parameters which have yet to be explored in these cases, which may significantly improve on the current results in terms of computational effort required, reliability of the fitting protocol, and size of the required dataset. Nonetheless, these new results are interesting and present a stepping-stone for studies on <a class="reference internal" href="../backmatter/glossary.html#term-radial-matrix-elements"><span class="xref std std-term">radial matrix elements</span></a> retrieval in complex systems, and a launching point for similar studies.</p>
+<p><em>Each case study has a setup script and associated data, which was used to create sample data and configure the <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a> in each case (the general procedure is outlined in <a class="reference internal" href="basic_fitting_numerics_intro_260723.html#sect-basic-fit-setup"><span class="std std-numref">Chapter 7</span></a>). However, since the fitting is computationally demanding, code execution for large fitting cases is not run upon building the book. Rather the code illustrates the general procedure (for a small batch), and existing fit data files are used if present. Each case study therefore contains an initial setup stage which can be used to run fits, or load existing data, prior to analysis.</em></p>
+<p>In each case study, <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a> results sets are analysed at length; for a quick overview of results and fidelities in each case readers may consult the final subsection in each chapter, which provide visual summaries of the results as both density matrices and <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a>-<a class="reference internal" href="../backmatter/glossary.html#term-PADs"><span class="xref std std-term">PADs</span></a>, and comparison with the reference case. These results form the basis for the summary and discussion in <a class="reference internal" href="case-study-summaries_240723.html#chpt-case-study-summaries"><span class="std std-numref">Chapter 11</span></a>, readers not interested in the full technical details may skip directly to that chapter for general discussion, conclusions and outlook.</p>
+<p>Finally, it is of note that - as discussed in the <a class="reference internal" href="../frontmatter/book_versions_note.html#chpt-book-versions"><span class="std std-ref">preamble on book versions</span></a> - output may be significantly truncated in some cases. Readers wishing to obtain all computational details should pull the source notebooks from <a class="reference external" href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3"><em>Quantum Metrology</em> Vol. 3 (Github repo)</a>, or consult the online HTML version at <a class="reference external" href="https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/part1/main_intro_051122.html"><em>Quantum Metrology</em> Vol. 3 (HTML version)</a>. Each case study notebook is configured to pull the required data files to setup and run fits from the <a class="reference external" href="https://github.com/phockett/ePSproc">ePSproc</a> <span id="id4">[<a class="reference internal" href="../backmatter/bibliography.html#id607" title="Paul Hockett. ePSproc: Post-processing for ePolyScat (Github repository). Github, 2016. URL: https://github.com/phockett/ePSproc.">34</a>]</span> Github repo; data files for the specific example fit results examined in the chapters as published can be obtained separately from the <a class="reference external" href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3"><em>Quantum Metrology</em> Vol. 3 (Github repo)</a>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../part1/numerics_070723.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Numerical methodologies for extracting matrix elements</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sym-fitting-intro_240723.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Basis sets for fitting</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-notes-on-the-case-studies">5.1. General notes on the case studies</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Paul Hockett with Varun Makhija
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

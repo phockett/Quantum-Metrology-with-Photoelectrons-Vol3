@@ -1,0 +1,632 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>11. Case studies: summaries, conclusions and outlook &#8212; Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part2/case-study-summaries_240723';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bibliography" href="../backmatter/bibliography.html" />
+    <link rel="prev" title="10. Case study: Generalised bootstrapping for a general asymmetric top scattering system, \(C_2H_4~(D_{2h})\)" href="case-study-C2H4_290723.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/ePSproc_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/ePSproc_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    About the book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Frontmatter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/about_the_authors.html">About the authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/book_versions_note.html">A note on book versions, formats and conventions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I - Theory &amp; software</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part1/main_intro_060723.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part1/platform_intro_070723.html">2. Quantum metrology software platform/ecosystem overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part1/theory_100723.html">3. Theory</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_photoionization_dynamics_140723.html">3.1. Photoionization dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_symmetry_140723.html">3.2. Symmetry in photoionization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_tensor_formalism_160723.html">3.3. Tensor formulation of photoionization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_density_matrices_190723.html">3.4. Density matrix representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_molecular_alignment_170723.html">3.5. Molecular alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_observables_intro_100723.html">3.6. Observables: photoelectron flux in the LF and MF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_info_content_200723.html">3.7. Information content &amp; sensitivity</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../part1/numerics_070723.html">4. Numerical methodologies for extracting matrix elements</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II - Extracting matrix elements - numerical methods &amp; case studies</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="extracting_matrix_elements_overview_270423.html">5. Extracting matrix elements overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sym-fitting-intro_240723.html">6. Basis sets for fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_fitting_numerics_intro_260723.html">7. General fit setup and numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="case-study-N2_290723.html">8. Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, <span class="math notranslate nohighlight">\(N_2~(D_{\infty h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="case-study-OCS_290723.html">9. Case study: Generalised bootstrapping for a linear heteronuclear scattering system, <span class="math notranslate nohighlight">\(OCS~(C_{\infty v})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="case-study-C2H4_290723.html">10. Case study: Generalised bootstrapping for a general asymmetric top scattering system, <span class="math notranslate nohighlight">\(C_2H_4~(D_{2h})\)</span></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Case studies: summaries, conclusions and outlook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../backmatter/bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backmatter/glossary.html">Glossary</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Test pages</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tests/build_versions_checks.html">Build versions and config tests</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/new?title=Issue%20on%20page%20%2Fpart2/case-study-summaries_240723.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part2/case-study-summaries_240723.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Case studies: summaries, conclusions and outlook</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-notes-on-fitting-methodologies-for-the-case-studies">11.1. General notes on fitting methodologies for the case studies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieval-fidelity">11.2. Retrieval fidelity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mf-pad-retrieval">11.3. MF-PAD retrieval</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions-and-outlook">11.4. Conclusions and outlook</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="case-studies-summaries-conclusions-and-outlook">
+<span id="chpt-case-study-summaries"></span><h1><span class="section-number">11. </span>Case studies: summaries, conclusions and outlook<a class="headerlink" href="#case-studies-summaries-conclusions-and-outlook" title="Permalink to this heading">#</a></h1>
+<p>In the preceding chapters, three case studies were demonstrated. As already noted elsewhere (<a class="reference internal" href="extracting_matrix_elements_overview_270423.html#chpt-extracting-matrix-elements-overview"><span class="std std-numref">Chpt. 5</span></a>), the <span class="math notranslate nohighlight">\(N_2\)</span> case has already been demonstrated to be successful for a range of energies and ionization channels (orbitals), see Refs. <span id="id1">[<a class="reference internal" href="../backmatter/bibliography.html#id775" title="Claude Marceau, Varun Makhija, Dominique Platzer, A. \relax Yu. Naumov, P. B. Corkum, Albert Stolow, D. M. Villeneuve, and Paul Hockett. Molecular Frame Reconstruction Using Time-Domain Photoionization Interferometry. Physical Review Letters, 119(8):083401, August 2017. URL: https://link.aps.org/doi/10.1103/PhysRevLett.119.083401.">1</a>, <a class="reference internal" href="../backmatter/bibliography.html#id685" title="Paul Hockett and Varun Makhija. Topical Review: Extracting molecular frame photoionization dynamics from experimental data. Journal of Physics B: Atomic, Molecular and Optical Physics, 56(11):112001, May 2023. URL: https://dx.doi.org/10.1088/1361-6455/acd03e (visited on 2023-05-12), arXiv:2209.04301.">3</a>]</span> for further details. However, it is included here as a benchmark case, useful for testing the methodology, computational routines and limitations and so forth. In particular, it represents a case of a reasonable level of complexity for method development, without an excessive number of <a class="reference internal" href="../backmatter/glossary.html#term-radial-matrix-elements"><span class="xref std std-term">radial matrix elements</span></a>/fitting parameters to deal with.</p>
+<p>The other two case studies (<a class="reference internal" href="case-study-OCS_290723.html#chpt-ocs-case-study"><span class="std std-numref">Chpt. 9</span></a> &amp; <a class="reference internal" href="case-study-C2H4_290723.html#chpt-c2h4-case-study"><span class="std std-numref">Chpt. 10</span></a>) are presented in a more experimental/preliminary capacity. In both cases, a much larger number of <a class="reference internal" href="../backmatter/glossary.html#term-radial-matrix-elements"><span class="xref std std-term">radial matrix elements</span></a> are required, and a higher-information content dataset with 3D alignment (as tested) and/or multiple polarization geometries, is expected to be required for a high-fidelity <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a> to be successful. In the current cases as presented, some progress towards this has been achieved, although further work remains to improve on the current results. Nonetheless, as stated previously, these new results are interesting and present a stepping-stone for studies on <a class="reference internal" href="../backmatter/glossary.html#term-radial-matrix-elements"><span class="xref std std-term">radial matrix elements</span></a> retrieval in complex systems, and a launching point for similar studies.</p>
+<section id="general-notes-on-fitting-methodologies-for-the-case-studies">
+<h2><span class="section-number">11.1. </span>General notes on fitting methodologies for the case studies<a class="headerlink" href="#general-notes-on-fitting-methodologies-for-the-case-studies" title="Permalink to this heading">#</a></h2>
+<p>As discussed elsewhere, the general <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a> is quite flexible. In the case studies, much of this flexibility is yet to be explored! This is, primarily, a question of the time and effort available: for the <span class="math notranslate nohighlight">\(N_2\)</span> case obtaining a set of 1000 fit results takes approximately 2 hours on a workstation.<a class="footnote-reference brackets" href="#benchmarksfootnote" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> However, scaling up to more complex cases is significantly more costly, with <span class="math notranslate nohighlight">\(OCS\)</span> and <span class="math notranslate nohighlight">\(C_2H_4\)</span> results requiring approximately 1-2 orders of magnitude more computational time - on the order of days per few hundred fits. Work towards speeding up fitting, e.g. using GPU-based routines and/or lower-level code for speed, is ongoing. Deployment to high-performance computing (HPC) resources, e.g. clusters, is also ongoing. The results herein, therefore, represent only the preliminary stages of testing and tuning the <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a> for these more complex cases, but already appear quite promising.</p>
+<p>In each case, as detailed in <a class="reference internal" href="sym-fitting-intro_240723.html#sect-basis-sets-fitting-intro"><span class="std std-numref">Chpt. 6</span></a> &amp; <a class="reference internal" href="basic_fitting_numerics_intro_260723.html#sect-basic-fit-setup"><span class="std std-numref">Chpt. 7</span></a>, the fitting basis sets were created based on <em>ab initio</em> results, with all <a class="reference internal" href="../backmatter/glossary.html#term-radial-matrix-elements"><span class="xref std std-term">radial matrix elements</span></a> greater than a threshold value of 0.01 used for both simulated data generation and fitting, and automatic parameter constraints applied to reduce the effective number of “free” or “floated” terms in the fitting. Fitting was only tested for single energy-points. The overall size of the problems as run in this manner were:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>System</p></th>
+<th class="head text-right"><p>Symmetry</p></th>
+<th class="head text-right"><p>Energy (eV)</p></th>
+<th class="head text-right"><p>Complex matrix elements</p></th>
+<th class="head text-right"><p>Fitting params</p></th>
+<th class="head text-right"><p>Floated params (magnitude, phase)</p></th>
+<th class="head text-right"><p><span class="math notranslate nohighlight">\(t\)</span>-points</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(N_2\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(D_{\infty h}\)</span></p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-right"><p>6</p></td>
+<td class="text-right"><p>12</p></td>
+<td class="text-right"><p>4,3</p></td>
+<td class="text-right"><p>13</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(OCS\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(C_{\infty v}\)</span></p></td>
+<td class="text-right"><p>10</p></td>
+<td class="text-right"><p>22</p></td>
+<td class="text-right"><p>44</p></td>
+<td class="text-right"><p>15,14</p></td>
+<td class="text-right"><p>51</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(C_2H_4\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(C_{2h}\)</span></p></td>
+<td class="text-right"><p>6</p></td>
+<td class="text-right"><p>38</p></td>
+<td class="text-right"><p>76</p></td>
+<td class="text-right"><p>14,25</p></td>
+<td class="text-right"><p>73</p></td>
+</tr>
+</tbody>
+</table>
+<p>In both of the more complex cases, the computational testing involved starting with the protocol as used for the <span class="math notranslate nohighlight">\(N_2\)</span> reference case, then adding data points until clustering was observed in the <span class="math notranslate nohighlight">\(\chi^2\)</span> histograms, indicating that multiple minima were successfully located. This is a necessary first step in testing, and signifies that the methodology is working as expected; however, this is not sufficient to guarantee that the information content of the dataset was adequate for complete <a class="reference internal" href="../backmatter/glossary.html#term-radial-matrix-elements"><span class="xref std std-term">radial matrix elements</span></a> retrieval, nor to guarantee a high-fidelity retrieval (herein “complete” is used to indicate that a unique set of fit parameterse may be found, whilst the “fidelity” is the more stringent test of the veracity of these parameters). In fitting, automatic parameter relations were set, which fixed equivalent parameters (see <a class="reference internal" href="sym-fitting-intro_240723.html#sect-basis-sets-fitting-intro"><span class="std std-numref">Chpt. 6</span></a> &amp; <a class="reference internal" href="basic_fitting_numerics_intro_260723.html#sect-basic-fit-setup"><span class="std std-numref">Chpt 7</span></a> for details). For <span class="math notranslate nohighlight">\(N_2\)</span> and <span class="math notranslate nohighlight">\(OCS\)</span> no additional constraints were imposed; for <span class="math notranslate nohighlight">\(C_2H_4\)</span> some additional magnitude-only constraints were set for parameters with identical magnitudes which were not set by the automated routine, although corresponding phase relations were <em>not</em> set (see tabulations in <a class="reference internal" href="case-study-OCS_290723.html#chpt-ocs-case-study"><span class="std std-numref">Chpt. 9</span></a> for full details) - this case is therefore an interesting test of whether the correlated phase relations will be correctly recovered by the <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a>. It is, however, anticipated that for high-fidelity retrieval, additional constraints may be required on a case-by-case basis, and particularly for large problems, e.g. by fixing additional symmetry relations, making use of additional data and so forth - this is discussed further below.</p>
+<p>In each case, the lowest <span class="math notranslate nohighlight">\(\chi^2\)</span> cluster was assumed to be the “best” result, i.e. the true set of <a class="reference internal" href="../backmatter/glossary.html#term-radial-matrix-elements"><span class="xref std std-term">radial matrix elements</span></a>, and further tested for spread and veracity, as compared with the known inputs. This is an easy methodology to implement computationally although, in general, one may wish to inspect several sets of candidate fit parameters in cases with noise and/or large solution spaces, since the lowest <span class="math notranslate nohighlight">\(\chi^2\)</span> may not, in fact, be the best, and a true global minima may not exist. Similarly, the presence of multiple equivalent minima is possible in cases where some quantities are undefined, which may lead to issues with phase retrieval in particular (see <em>Quantum Metrology</em> Vols. 1 &amp; 2 <span id="id3">[<a class="reference internal" href="../backmatter/bibliography.html#id676" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5.">4</a>, <a class="reference internal" href="../backmatter/bibliography.html#id677" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3.">9</a>]</span> for further discussion) - with the current codebase this can be probed by changing the binning of candidate fit results, and examining the spread of parameters for a given choice of binning, as outlined in the case studies. (In the case studies, the retrieved matrix elements are taken as an average over the best cluster of fits, hence large spread in a given parameter for the chosen cluster indicates a case where the given parameter is not well defined - this is likely to appear as a clear deficiency in the corresponding density matrix and/or <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a>-<a class="reference internal" href="../backmatter/glossary.html#term-PADs"><span class="xref std std-term">PADs</span></a> when assessing the fidelity of the retrieval.) The likelihood of a good fit result will also depend on the number of data-points used in fitting, as well as the underlying alignment and molecular symmetry properties - generally the form of the <a class="reference internal" href="../backmatter/glossary.html#term-channel-functions"><span class="xref std std-term">channel functions</span></a> as discussed in <a class="reference internal" href="../part1/theory_tensor_formalism_160723.html#sec-tensor-formulation"><span class="std std-numref">Sect. 3.3</span></a> - which have not been carefully investigated in these cases as yet.</p>
+<p>For the <span class="math notranslate nohighlight">\(N_2\)</span> case, the <a class="reference internal" href="../backmatter/glossary.html#term-RWP"><span class="xref std std-term">RWP</span></a> is as detailed in Refs. <span id="id4">[<a class="reference internal" href="../backmatter/bibliography.html#id775" title="Claude Marceau, Varun Makhija, Dominique Platzer, A. \relax Yu. Naumov, P. B. Corkum, Albert Stolow, D. M. Villeneuve, and Paul Hockett. Molecular Frame Reconstruction Using Time-Domain Photoionization Interferometry. Physical Review Letters, 119(8):083401, August 2017. URL: https://link.aps.org/doi/10.1103/PhysRevLett.119.083401.">1</a>, <a class="reference internal" href="../backmatter/bibliography.html#id685" title="Paul Hockett and Varun Makhija. Topical Review: Extracting molecular frame photoionization dynamics from experimental data. Journal of Physics B: Atomic, Molecular and Optical Physics, 56(11):112001, May 2023. URL: https://dx.doi.org/10.1088/1361-6455/acd03e (visited on 2023-05-12), arXiv:2209.04301.">3</a>]</span>, which made use of a two-pulse alignment scheme. Data-points over the <a class="reference internal" href="../backmatter/glossary.html#term-RWP"><span class="xref std std-term">RWP</span></a> half-revival feature were chosen initially to approximately match the previously published cases (13 <span class="math notranslate nohighlight">\(t\)</span>-points in the current case, vs. 11 in the original study, although that study also made use of larger datasets up to 89 <span class="math notranslate nohighlight">\(t\)</span>-points for higher-fidelity <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a>, see Ref. <span id="id5">[<a class="reference internal" href="../backmatter/bibliography.html#id775" title="Claude Marceau, Varun Makhija, Dominique Platzer, A. \relax Yu. Naumov, P. B. Corkum, Albert Stolow, D. M. Villeneuve, and Paul Hockett. Molecular Frame Reconstruction Using Time-Domain Photoionization Interferometry. Physical Review Letters, 119(8):083401, August 2017. URL: https://link.aps.org/doi/10.1103/PhysRevLett.119.083401.">1</a>]</span> supplementary materials for further details).</p>
+<p>For the <span class="math notranslate nohighlight">\(OCS\)</span> case, the <a class="reference internal" href="../backmatter/glossary.html#term-RWP"><span class="xref std std-term">RWP</span></a> is as per obtained in recent ultrafast experiments <span id="id6">[<a class="reference internal" href="../backmatter/bibliography.html#id970" title="Jo Woodhose. OCS experimental work (personal communication, manuscript in preparation). 2022.">144</a>]</span>, which made use of a single-pulse alignment scheme to prepare a 1D molecular alignment (no orientation). For testing purposes, an (arbitrary) number of low-order terms <span class="math notranslate nohighlight">\(Q\neq0\)</span> and <span class="math notranslate nohighlight">\(S\neq0\)</span> were added for the work herein (with a linear ramp in <span class="math notranslate nohighlight">\(t\)</span>), including <span class="math notranslate nohighlight">\(K=1\)</span> terms for orientation (see figures in <a class="reference internal" href="case-study-OCS_290723.html#chpt-ocs-case-study"><span class="std std-numref">Chpt. 9</span></a> for full details). Although these are not expected to be physically realistic, they will be indicative of the terms present in a true 3D alignment case. Note that the temporal data used in this case is discontinuous, with <span class="math notranslate nohighlight">\(t\)</span>-points over both the 1/4 and 1/2 <a class="reference internal" href="../backmatter/glossary.html#term-RWP"><span class="xref std std-term">RWP</span></a> revival features selected.</p>
+<p>For the <span class="math notranslate nohighlight">\(C_2H_4\)</span> case, the <a class="reference internal" href="../backmatter/glossary.html#term-RWP"><span class="xref std std-term">RWP</span></a> is a realistic case, as used in Ref. <span id="id7">[<a class="reference internal" href="../backmatter/bibliography.html#id635" title="Margaret Gregory, Paul Hockett, Albert Stolow, and Varun Makhija. Towards molecular frame photoelectron angular distributions in polyatomic molecules from lab frame coherent rotational wavepacket evolution. Journal of Physics B: Atomic, Molecular and Optical Physics, 54(14):145601, July 2021. URL: https://doi.org/10.1088/1361-6455/ac135f (visited on 2021-08-17), arXiv:2012.04561.">98</a>]</span>, which includes <span class="math notranslate nohighlight">\(S\neq0\)</span> terms and even-<span class="math notranslate nohighlight">\(K\)</span> even-<span class="math notranslate nohighlight">\(S\)</span> terms (see figures in <a class="reference internal" href="case-study-C2H4_290723.html#chpt-c2h4-case-study"><span class="std std-numref">Chpt. 10</span></a> for full details). Interestingly, this case was sufficient for retrieval of <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a>-<a class="reference internal" href="../backmatter/glossary.html#term-PADs"><span class="xref std std-term">PADs</span></a> using the matrix-inversion method, so is expected to be successful with the <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a> provided enough data-points are incorporated and the fitting is well-constrained. Note that the temporal axis in this case is in arbitrary units.</p>
+</section>
+<section id="retrieval-fidelity">
+<h2><span class="section-number">11.2. </span>Retrieval fidelity<a class="headerlink" href="#retrieval-fidelity" title="Permalink to this heading">#</a></h2>
+<p>The continuum density matrices provide a way to quickly assess the <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a> fidelity in these test cases, without the necessity of consulting rather complex tabulations of <a class="reference internal" href="../backmatter/glossary.html#term-radial-matrix-elements"><span class="xref std std-term">radial matrix elements</span></a>/fitting parameters and the associated statistics. In general, it is expected that the <em>differences</em> between the true and reconstructed density matrices will be on the order of the experimental noise in a high-fidelity case. For each case study, such a comparison is given - see <a class="reference internal" href="case-study-N2_290723.html#fig-n2-densitycomp"><span class="std std-numref">Fig. 8.3</span></a> (<span class="math notranslate nohighlight">\(N_2\)</span> case), <a class="reference internal" href="case-study-OCS_290723.html#fig-ocs-densitycomp"><span class="std std-numref">Fig. 9.3</span></a> (<span class="math notranslate nohighlight">\(OCS\)</span> case), and <a class="reference internal" href="case-study-C2H4_290723.html#fig-c2h4-densitycomp"><span class="std std-numref">Fig. 10.3</span></a> (<span class="math notranslate nohighlight">\(C_2H_4\)</span> case) (see <a class="reference external" href="https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/part1/main_intro_051122.html"><em>Quantum Metrology</em> Vol. 3 (HTML version)</a> for interactive plots). Note that in the comparisons herein the sign of the phases is assumed to be undefined, so phases are remapped to positive values only (i.e. assumed to be in the <span class="math notranslate nohighlight">\(0:\pi\)</span> range). Depending on the symmetry of the problem (hence the form of the <a class="reference internal" href="../backmatter/glossary.html#term-channel-functions"><span class="xref std std-term">channel functions</span></a>), this may or may not be the case in practice - in particular cases with multiple polarisation geometries and/or 3D alignment may break this assumption.</p>
+<p>For <span class="math notranslate nohighlight">\(N_2\)</span>, the recovered and density matrices are in good agreement, and differences in both the real and imaginary components are on the order of the noise-floor in the simulated dataset (<span class="math notranslate nohighlight">\(\approx\pm10\%\)</span>). This indicates a high-fidelity retrieval from only a small number of data-points (13 in the example case), and also indicates that improvements may be found here by incorporating additional data into the fitting procedure.</p>
+<p>For <span class="math notranslate nohighlight">\(OCS\)</span> (<a class="reference internal" href="case-study-OCS_290723.html#fig-ocs-densitycomp"><span class="std std-numref">Fig. 9.3</span></a>) and <span class="math notranslate nohighlight">\(C_2H_4\)</span> (<a class="reference internal" href="case-study-C2H4_290723.html#fig-c2h4-densitycomp"><span class="std std-numref">Fig. 10.3</span></a>) cases, a number of general comments may be made. Firstly, the overall patterns of values observed in the reconstructed density matrices are in good agreement with the reference case, however the agreement in the absolute values (hence fidelity) are quite variable. For <span class="math notranslate nohighlight">\(OCS\)</span> differences as large as 0.4 are observed, whilst for <span class="math notranslate nohighlight">\(C_2H_4\)</span> differences as large as 1 are observed. Secondly, some patterns are inverted in the retrieved cases, indicating issues with the signs of the retrieved quantities. This is likely indicative of missing phase relations in the data (i.e. <a class="reference internal" href="../backmatter/glossary.html#term-channel-functions"><span class="xref std std-term">channel functions</span></a>), or indicates that multiple minima exist in the <span class="math notranslate nohighlight">\(\chi^2\)</span> hypersurface with differences in the phases. Thirdly, the retrieved <a class="reference internal" href="../backmatter/glossary.html#term-radial-matrix-elements"><span class="xref std std-term">radial matrix elements</span></a> tend to have, in general, larger values in both real and imaginary components for the higher-order terms (larger <span class="math notranslate nohighlight">\(l\)</span>) than the reference values: this can be seen in the fading (vignetting) of the colourmaps to higher-order in the reference cases, which is not present in the retrieved maps.</p>
+<p>In general, these issues all suggest that the <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a> is partially working for these cases, but may not yet be complete. A number of avenues remain to be explored here, in particular:</p>
+<ul class="simple">
+<li><p>The analysis of other candidate parameter sets to check for uniqueness/equivalence.</p>
+<ul>
+<li><p>This may required deeper analysis of the existing results with finer <span class="math notranslate nohighlight">\(\chi^2\)</span> binning than the current cases, which indicate significant spreading in some parameters (see the <em>Raw results</em> and <em>Phases</em> subsections in each case study chapter, particularly the paramter plots which indicate the spread in results).</p></li>
+<li><p>This analysis is not yet automated, but this may be possible by setting preferences on spreading of results to determine optimum grouping of results.</p></li>
+</ul>
+</li>
+<li><p>Further boostrapping with larger datasets and/or using the existing best fit parameters as seed values to further probe the local <span class="math notranslate nohighlight">\(\chi^2\)</span> surface.</p></li>
+<li><p>Fitting with reduced parameter sets. These were set based on the reference matrix elements with a threshold for inclusion of 0.01 (see <a class="reference internal" href="basic_fitting_numerics_intro_260723.html#sect-basic-fit-setup"><span class="std std-numref">Chpt. 7</span></a>), but lowering this to 0.1 would remove many of the higher-order terms from the fitting, which may result in higher-fidelity retrieval of the lower-order terms which then remain.</p></li>
+<li><p>Fitting with more constraints, e.g.</p>
+<ul>
+<li><p>Setting lower limits on higher-order terms. Although, in practice, this may not be known <em>a priori</em> for a given case, as a general rule-of-thumb it should be applicable (as indicated by the <em>ab initio</em> results for the cases herein).</p></li>
+<li><p>Enforcing orthogonality on different continua, as per the symmetrized harmonics defining each case. For the <span class="math notranslate nohighlight">\(C_2H_4\)</span> case in particular, this would add additional phase restrictions which were missing in the current study.</p></li>
+</ul>
+</li>
+<li><p>Further testing with simulated data with both more and less noise present to evaluate the effect of the noise-floor in different cases.</p></li>
+<li><p>Finally, it is of note (and also noted elsewhere) that there may still be bugs or numerical issues with the preliminary results presented herein, since they represent the first trials of the <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id8">[<a class="reference internal" href="../backmatter/bibliography.html#id681" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">5</a>]</span> and <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a> for complex cases. However, given that the same routines are used to generate the simulated data, any issues should, at least, be self-consistent for these test cases. Eagle-eyed readers may notice that in the <span class="math notranslate nohighlight">\(C_2H_4\)</span> test case, the <span class="math notranslate nohighlight">\(\beta_{0,0}(t)\)</span> parameters are negative, which is unphysical; this indicates a phase error in the calculation and has since been fixed, but does <em>not</em> affect the fitting protocol thanks to the self-consistent nature of the numerics.</p></li>
+</ul>
+</section>
+<section id="mf-pad-retrieval">
+<h2><span class="section-number">11.3. </span>MF-PAD retrieval<a class="headerlink" href="#mf-pad-retrieval" title="Permalink to this heading">#</a></h2>
+<p>The <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a>-<a class="reference internal" href="../backmatter/glossary.html#term-PADs"><span class="xref std std-term">PADs</span></a> also provide an interesting observable to test from the retrieved <a class="reference internal" href="../backmatter/glossary.html#term-radial-matrix-elements"><span class="xref std std-term">radial matrix elements</span></a> - they provide less detail than the density matrices, but do give a better indication of the sensitivity of the observables to the retrieved parameters (via the <a class="reference internal" href="../backmatter/glossary.html#term-channel-functions"><span class="xref std std-term">channel functions</span></a>) in a given case. For example, some phase relations may not be important for <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a> retrieval, or only appear under certain polarization geometries. For both the <span class="math notranslate nohighlight">\(N_2\)</span> and <span class="math notranslate nohighlight">\(C_2H_4\)</span> cases the work in Ref. <span id="id9">[<a class="reference internal" href="../backmatter/bibliography.html#id635" title="Margaret Gregory, Paul Hockett, Albert Stolow, and Varun Makhija. Towards molecular frame photoelectron angular distributions in polyatomic molecules from lab frame coherent rotational wavepacket evolution. Journal of Physics B: Atomic, Molecular and Optical Physics, 54(14):145601, July 2021. URL: https://doi.org/10.1088/1361-6455/ac135f (visited on 2021-08-17), arXiv:2012.04561.">98</a>]</span> provides an interesting perspective here, since it outlines a direct <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a> reconstruction method which bypasses the difficulty of phase-retrieval and fitting via a matrix-inversion protocol. This is found to work well for both these cases, although in a similar manner to a fitting approach will be fundamentally limited in any given case by the symmetry of the problem.</p>
+<p>For the case studies, the reconstructed <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a>-<a class="reference internal" href="../backmatter/glossary.html#term-PADs"><span class="xref std std-term">PADs</span></a> are somewhat variable, as may be expected from the preceding discussion on fidelity. For <span class="math notranslate nohighlight">\(N_2\)</span> (<a class="reference internal" href="case-study-N2_290723.html#fig-n2-compc"><span class="std std-numref">Fig. 8.4</span></a> - <a class="reference internal" href="case-study-N2_290723.html#fig-n2-diff"><span class="std std-numref">Fig. 8.6</span></a>), the results are excellent - as expected from the previous studies in this case. In particular, the good agreement for the diagonally-polarized case indicates that the relative phase <em>between</em> the two continua is defined in this type of data, and successfully retrieved. The normalised difference plots in <a class="reference internal" href="case-study-N2_290723.html#fig-n2-diff"><span class="std std-numref">Fig. 8.6</span></a> indicate that the main differences between the retrieved and reference cases can be observed in some of the smaller lobes, indicating that the fidelity is high, but not perfect. As discussed in the previous section, adding data and analysing the effect of noise on the <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a> may improve on the retrieval fidelity, and this was previously explored for <span class="math notranslate nohighlight">\(N_2\)</span> in Ref. <span id="id10">[<a class="reference internal" href="../backmatter/bibliography.html#id775" title="Claude Marceau, Varun Makhija, Dominique Platzer, A. \relax Yu. Naumov, P. B. Corkum, Albert Stolow, D. M. Villeneuve, and Paul Hockett. Molecular Frame Reconstruction Using Time-Domain Photoionization Interferometry. Physical Review Letters, 119(8):083401, August 2017. URL: https://link.aps.org/doi/10.1103/PhysRevLett.119.083401.">1</a>]</span>.</p>
+<p>For the more complex cases, the fidelity is lower, and the results generally suggest that, although the dominant continuum is fairly well recovered, the loss of phase information and/or generally lower information content of the data is an issue. For <span class="math notranslate nohighlight">\(OCS\)</span> (<a class="reference internal" href="case-study-OCS_290723.html#fig-ocs-compc"><span class="std std-numref">Fig. 9.4</span></a> - <a class="reference internal" href="case-study-OCS_290723.html#fig-ocs-diff"><span class="std std-numref">Fig. 9.6</span></a>), the <span class="math notranslate nohighlight">\((x,y)\)</span> <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a>-<a class="reference internal" href="../backmatter/glossary.html#term-PADs"><span class="xref std std-term">PADs</span></a> are close to the reference case, although the lobes are significantly sharper. The <span class="math notranslate nohighlight">\(z\)</span> case, however, is very different, with the main lobe in the <span class="math notranslate nohighlight">\(-z\)</span> direction, as opposed to <span class="math notranslate nohighlight">\(+z\)</span> in the reference case. This indicates that the terms related to breaking up-down symmetry are not well reproduced in this case, and is most likely an issue with the associated phases; as noted above this may be due to issues with the analysis and binning of the fit results, or a more fundamental limitation due to the dataset and/or symmetry of the problem - potentially with the choice of additional terms added to the <a class="reference internal" href="../backmatter/glossary.html#term-ADMs"><span class="xref std std-term">ADMs</span></a> - and more work is required here to ascertain this.</p>
+<p>For <span class="math notranslate nohighlight">\(C_2H_4\)</span> (<a class="reference internal" href="case-study-C2H4_290723.html#fig-c2h4-compc"><span class="std std-numref">Fig. 10.4</span></a> - <a class="reference internal" href="case-study-C2H4_290723.html#fig-c2h4-diff"><span class="std std-numref">Fig. 10.6</span></a>), the opposite is true: the <span class="math notranslate nohighlight">\(z\)</span> case is fairly well reproduced, although rotated, whilst the <span class="math notranslate nohighlight">\((x,y)\)</span> cases are in poor agreement with the reference results. Again it is the dominant continuum which is best reproduced; however, in this case the discrepancies in all polarization geometries appear as additional symmetry breaking, which would not be present in the correctly symmetrized (orthogonal continua) case - as seen in the reference results (<a class="reference internal" href="case-study-C2H4_290723.html#fig-c2h4-ref"><span class="std std-numref">Fig. 10.5</span></a>). This indicates that the respective continua are not well-separated in the recovered <a class="reference internal" href="../backmatter/glossary.html#term-radial-matrix-elements"><span class="xref std std-term">radial matrix elements</span></a>, i.e. the phase relations are such that additional symmetry breaking is seen. As for the <span class="math notranslate nohighlight">\(OCS\)</span> case, this may be due to averaging over multiple minima in the fitting phase space, and/or may relate to a lack of information in the test dataset. In this case, given the results of Ref. <span id="id11">[<a class="reference internal" href="../backmatter/bibliography.html#id635" title="Margaret Gregory, Paul Hockett, Albert Stolow, and Varun Makhija. Towards molecular frame photoelectron angular distributions in polyatomic molecules from lab frame coherent rotational wavepacket evolution. Journal of Physics B: Atomic, Molecular and Optical Physics, 54(14):145601, July 2021. URL: https://doi.org/10.1088/1361-6455/ac135f (visited on 2021-08-17), arXiv:2012.04561.">98</a>]</span>, it is anticipated that the dataset is sufficient, and that most issues arise from the complexity of the <span class="math notranslate nohighlight">\(\chi^2\)</span> hypersurface and the configuration of the <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a>, and/or post-processing of the results. As discussed above, in the current test case some phase relationships between paramters were not constrained, and this is likely the main source of the discrepancy; ideally the fitting should recover these relations in general, but this will, again, depend on the form of the <a class="reference internal" href="../backmatter/glossary.html#term-channel-functions"><span class="xref std std-term">channel functions</span></a> and the dataset used, which will ultimately determine which phase relations are defined and therefore recoverable. Probing this behaviour in general, and in this case, in more depth is currently underway. One way to probe this type of issue further is to define specific orthogonality relations in the fitting procedure via symmetrized matrix elements. This would provide a means to enforce the distinction between the continua without the necessity of <em>ab initio</em> <a class="reference internal" href="../backmatter/glossary.html#term-radial-matrix-elements"><span class="xref std std-term">radial matrix elements</span></a> (this is possible with the current codebase, but has not been explored for this case as yet). This would also be consistent with the success of the approach in  Ref. <span id="id12">[<a class="reference internal" href="../backmatter/bibliography.html#id635" title="Margaret Gregory, Paul Hockett, Albert Stolow, and Varun Makhija. Towards molecular frame photoelectron angular distributions in polyatomic molecules from lab frame coherent rotational wavepacket evolution. Journal of Physics B: Atomic, Molecular and Optical Physics, 54(14):145601, July 2021. URL: https://doi.org/10.1088/1361-6455/ac135f (visited on 2021-08-17), arXiv:2012.04561.">98</a>]</span>, since symmetry is rigorously enforced in the mathematics in the matrix-inversion method.</p>
+<p>In all cases, the “diagonal” polarization case is another good test of the phase relations, since this is also sensitive to the phase relations between the <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\((x,y)\)</span> continua. For <span class="math notranslate nohighlight">\(N_2\)</span> the good agreement of the results with the reference case is, again, indicative of the generally good fidelity of the reconstruction in this case. Similarly, the differences in the more complex <span class="math notranslate nohighlight">\(OCS\)</span> and <span class="math notranslate nohighlight">\(C_2H_4\)</span> cases are consistent with the previous discussion: the main difference between these cases is the additional symmetry breaking in the lower-symmetry <span class="math notranslate nohighlight">\(C_2H_4\)</span> case, leading to the appearance of an overall rotation and additional lobes, particularly directed out of the <span class="math notranslate nohighlight">\((x,z)\)</span> plane, relative to the reference case. Again, this is indicative of continua mixing, arising from incorrect/undefined/low-fidelity phase terms.</p>
+</section>
+<section id="conclusions-and-outlook">
+<h2><span class="section-number">11.4. </span>Conclusions and outlook<a class="headerlink" href="#conclusions-and-outlook" title="Permalink to this heading">#</a></h2>
+<p>Overall, the case studies provide interesting material for a number of reasons. First and foremost, they indicate that the <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a> method is applicable to larger problems (38 <a class="reference internal" href="../backmatter/glossary.html#term-radial-matrix-elements"><span class="xref std std-term">radial matrix elements</span></a> in the largest case), at least in principle. Secondly, they indicate the issues in these cases, which still remain exceedingly complicated retrieval problems, despite the generality and automation of the <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a> implemented in the <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id13">[<a class="reference internal" href="../backmatter/bibliography.html#id681" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">5</a>]</span>. In these specific cases the route to complete and/or higher-fidelity <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a> is clear, but significant efforts are still required to conclusive demonstrate this, and develop more efficient and effective fitting strategies for large solution hyperspaces. Nonetheless, this is an interesting and notable step towards a general method for these problems, and (equivalently) density matrix retrieval and general quantum tomography on larger systems (e.g. 38x38 density matrix retrieval in the <span class="math notranslate nohighlight">\(C_2H_4\)</span> case).</p>
+<p>Future work is planned to look at these specific problems in more detail, including different energy regions and ionization channels, and other small molecules. As part of this effort, HPC resources will be used to allow for scaling up of the computational effort available, and development of the <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id14">[<a class="reference internal" href="../backmatter/bibliography.html#id681" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">5</a>]</span> and <a class="reference external" href="https://epsproc.readthedocs.io">ePSproc codebase</a> <span id="id15">[<a class="reference internal" href="../backmatter/bibliography.html#id665" title="Paul Hockett. ePSproc: Post-processing suite for ePolyScat electron-molecule scattering calculations. Authorea, 2016. URL: https://www.authorea.com/users/71114/articles/122402/_show_article.">33</a>, <a class="reference internal" href="../backmatter/bibliography.html#id607" title="Paul Hockett. ePSproc: Post-processing for ePolyScat (Github repository). Github, 2016. URL: https://github.com/phockett/ePSproc.">34</a>, <a class="reference internal" href="../backmatter/bibliography.html#id605" title="Paul Hockett. ePSproc: Post-processing for ePolyScat documentation. 2020. URL: https://epsproc.readthedocs.io (visited on 2022-02-18).">35</a>]</span> will continue in tandem with these efforts. Fitting strategies, algorithms and methodologies also remain as a large area to be explored, in particular cross-fertilization from other fields dealing with large computational hyperspaces and complex phase-retrieval problems is expected to (continue) to prove fruitful (see <em>Quantum Metrology</em> Vols. 1 &amp; 2 <span id="id16">[<a class="reference internal" href="../backmatter/bibliography.html#id676" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5.">4</a>, <a class="reference internal" href="../backmatter/bibliography.html#id677" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3.">9</a>]</span> and Ref. <span id="id17">[<a class="reference internal" href="../backmatter/bibliography.html#id685" title="Paul Hockett and Varun Makhija. Topical Review: Extracting molecular frame photoionization dynamics from experimental data. Journal of Physics B: Atomic, Molecular and Optical Physics, 56(11):112001, May 2023. URL: https://dx.doi.org/10.1088/1361-6455/acd03e (visited on 2023-05-12), arXiv:2209.04301.">3</a>]</span> for futher discussion along these lines).</p>
+<p>As discussed in <a class="reference internal" href="../part1/platform_intro_070723.html#sect-platform-analysis"><span class="std std-numref">Chpt. 2.1</span></a>, it is also hoped that the efforts on the code-development side of the problem, including the case studies presented herein, the open-source nature of the work, and the easy deployment of the full software stack via Docker, will all encourage other researchers to make use of these tools, and make further developments to the methodology and platform. Given the complex nature of both the core physics, data processing, simulation and phase retrieval problems, there are still many avenues to explore, but hopefully the barrier to entry is now significantly lowered.</p>
+<hr class="footnotes docutils" />
+<aside class="footnote brackets" id="benchmarksfootnote" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>Running on 20 (logical) cores of an AMD Threadripper 2950X based workstation, this required 5 GB of RAM and took on the order of 2 hours, although note that the time per fit cycle had large variance, since convergence time depends on the start parameters. Further benchmarks for the current codebase can be found in the <a class="reference external" href="https://pemtk.readthedocs.io">PEMtk documentation</a> <span id="id18">[<a class="reference internal" href="../backmatter/bibliography.html#id680" title="Paul Hockett. PEMtk - the Photoelectron Metrology Toolkit - documentation. 2021. URL: https://pemtk.readthedocs.io (visited on 2022-02-18).">20</a>]</span>.</p>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="case-study-C2H4_290723.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Case study: Generalised bootstrapping for a general asymmetric top scattering system, <span class="math notranslate nohighlight">\(C_2H_4~(D_{2h})\)</span></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../backmatter/bibliography.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bibliography</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-notes-on-fitting-methodologies-for-the-case-studies">11.1. General notes on fitting methodologies for the case studies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieval-fidelity">11.2. Retrieval fidelity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mf-pad-retrieval">11.3. MF-PAD retrieval</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions-and-outlook">11.4. Conclusions and outlook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Paul Hockett with Varun Makhija
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

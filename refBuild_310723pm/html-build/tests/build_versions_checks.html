@@ -1,0 +1,2336 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Build versions and config tests &#8212; Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tests/build_versions_checks';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Glossary" href="../backmatter/glossary.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/ePSproc_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/ePSproc_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    About the book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Frontmatter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/about_the_authors.html">About the authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frontmatter/book_versions_note.html">A note on book versions, formats and conventions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I - Theory &amp; software</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part1/main_intro_060723.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part1/platform_intro_070723.html">2. Quantum metrology software platform/ecosystem overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part1/theory_100723.html">3. Theory</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_photoionization_dynamics_140723.html">3.1. Photoionization dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_symmetry_140723.html">3.2. Symmetry in photoionization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_tensor_formalism_160723.html">3.3. Tensor formulation of photoionization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_density_matrices_190723.html">3.4. Density matrix representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_molecular_alignment_170723.html">3.5. Molecular alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_observables_intro_100723.html">3.6. Observables: photoelectron flux in the LF and MF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/theory_info_content_200723.html">3.7. Information content &amp; sensitivity</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../part1/numerics_070723.html">4. Numerical methodologies for extracting matrix elements</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II - Extracting matrix elements - numerical methods &amp; case studies</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part2/extracting_matrix_elements_overview_270423.html">5. Extracting matrix elements overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/sym-fitting-intro_240723.html">6. Basis sets for fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/basic_fitting_numerics_intro_260723.html">7. General fit setup and numerics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-N2_290723.html">8. Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, <span class="math notranslate nohighlight">\(N_2~(D_{\infty h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-OCS_290723.html">9. Case study: Generalised bootstrapping for a linear heteronuclear scattering system, <span class="math notranslate nohighlight">\(OCS~(C_{\infty v})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-C2H4_290723.html">10. Case study: Generalised bootstrapping for a general asymmetric top scattering system, <span class="math notranslate nohighlight">\(C_2H_4~(D_{2h})\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2/case-study-summaries_240723.html">11. Case studies: summaries, conclusions and outlook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../backmatter/bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backmatter/glossary.html">Glossary</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Test pages</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Build versions and config tests</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/issues/new?title=Issue%20on%20page%20%2Ftests/build_versions_checks.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/tests/build_versions_checks.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Build versions and config tests</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#versions">Versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-build-env">Docker build env</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#book-versions">Book versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-pkg-versions">Github pkg versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-conda-env">Full conda env</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="build-versions-and-config-tests">
+<h1>Build versions and config tests<a class="headerlink" href="#build-versions-and-config-tests" title="Permalink to this heading">#</a></h1>
+<section id="versions">
+<h2>Versions<a class="headerlink" href="#versions" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scooby</span>
+<span class="n">scooby</span><span class="o">.</span><span class="n">Report</span><span class="p">(</span><span class="n">additional</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pemtk&#39;</span><span class="p">,</span><span class="s1">&#39;epsproc&#39;</span><span class="p">,</span><span class="s1">&#39;xarray&#39;</span><span class="p">,</span> <span class="s1">&#39;pandas&#39;</span><span class="p">,</span> <span class="s1">&#39;scipy&#39;</span><span class="p">,</span> <span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span><span class="s1">&#39;jupyterlab&#39;</span><span class="p">,</span><span class="s1">&#39;plotly&#39;</span><span class="p">,</span><span class="s1">&#39;holoviews&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>* sparse not found, sparse matrix forms not available. 
+* natsort not found, some sorting functions not available. 
+* Setting plotter defaults with epsproc.basicPlotters.setPlotters(). Run directly to modify, or change options in local env.
+* Set Holoviews with bokeh.
+* pyevtk not found, VTK export not available. 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OMP: Info #276: omp_set_nested routine deprecated, please use omp_set_max_active_levels instead.
+</pre></div>
+</div>
+<script type="application/javascript">(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+  var py_version = '3.1.1'.replace('rc', '-rc.').replace('.dev', '-dev.');
+  var is_dev = py_version.indexOf("+") !== -1 || py_version.indexOf("-") !== -1;
+  var reloading = false;
+  var Bokeh = root.Bokeh;
+  var bokeh_loaded = Bokeh != null && (Bokeh.version === py_version || (Bokeh.versions !== undefined && Bokeh.versions.has(py_version)));
+
+  if (typeof (root._bokeh_timeout) === "undefined" || force) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks;
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, js_modules, js_exports, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+    if (js_modules == null) js_modules = [];
+    if (js_exports == null) js_exports = {};
+
+    root._bokeh_onload_callbacks.push(callback);
+
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls.length === 0 && js_modules.length === 0 && Object.keys(js_exports).length === 0) {
+      run_callbacks();
+      return null;
+    }
+    if (!reloading) {
+      console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    }
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+    window._bokeh_on_load = on_load
+
+    function on_error() {
+      console.error("failed to load " + url);
+    }
+
+    var skip = [];
+    if (window.requirejs) {
+      window.requirejs.config({'packages': {}, 'paths': {'jspanel': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/jspanel', 'jspanel-modal': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/modal/jspanel.modal', 'jspanel-tooltip': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/tooltip/jspanel.tooltip', 'jspanel-hint': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/hint/jspanel.hint', 'jspanel-layout': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/layout/jspanel.layout', 'jspanel-contextmenu': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/contextmenu/jspanel.contextmenu', 'jspanel-dock': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/dock/jspanel.dock', 'gridstack': 'https://cdn.jsdelivr.net/npm/gridstack@7.2.3/dist/gridstack-all', 'notyf': 'https://cdn.jsdelivr.net/npm/notyf@3/notyf.min'}, 'shim': {'jspanel': {'exports': 'jsPanel'}, 'gridstack': {'exports': 'GridStack'}}});
+      require(["jspanel"], function(jsPanel) {
+	window.jsPanel = jsPanel
+	on_load()
+      })
+      require(["jspanel-modal"], function() {
+	on_load()
+      })
+      require(["jspanel-tooltip"], function() {
+	on_load()
+      })
+      require(["jspanel-hint"], function() {
+	on_load()
+      })
+      require(["jspanel-layout"], function() {
+	on_load()
+      })
+      require(["jspanel-contextmenu"], function() {
+	on_load()
+      })
+      require(["jspanel-dock"], function() {
+	on_load()
+      })
+      require(["gridstack"], function(GridStack) {
+	window.GridStack = GridStack
+	on_load()
+      })
+      require(["notyf"], function() {
+	on_load()
+      })
+      root._bokeh_is_loading = css_urls.length + 9;
+    } else {
+      root._bokeh_is_loading = css_urls.length + js_urls.length + js_modules.length + Object.keys(js_exports).length;
+    }
+
+    var existing_stylesheets = []
+    var links = document.getElementsByTagName('link')
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i]
+      if (link.href != null) {
+	existing_stylesheets.push(link.href)
+      }
+    }
+    for (var i = 0; i < css_urls.length; i++) {
+      var url = css_urls[i];
+      if (existing_stylesheets.indexOf(url) !== -1) {
+	on_load()
+	continue;
+      }
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }    if (((window['jsPanel'] !== undefined) && (!(window['jsPanel'] instanceof HTMLElement))) || window.requirejs) {
+      var urls = ['https://cdn.holoviz.org/panel/1.2.0/dist/bundled/floatpanel/jspanel4@4.12.0/dist/jspanel.js', 'https://cdn.holoviz.org/panel/1.2.0/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/modal/jspanel.modal.js', 'https://cdn.holoviz.org/panel/1.2.0/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/tooltip/jspanel.tooltip.js', 'https://cdn.holoviz.org/panel/1.2.0/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/hint/jspanel.hint.js', 'https://cdn.holoviz.org/panel/1.2.0/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/layout/jspanel.layout.js', 'https://cdn.holoviz.org/panel/1.2.0/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/contextmenu/jspanel.contextmenu.js', 'https://cdn.holoviz.org/panel/1.2.0/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/dock/jspanel.dock.js'];
+      for (var i = 0; i < urls.length; i++) {
+        skip.push(urls[i])
+      }
+    }    if (((window['GridStack'] !== undefined) && (!(window['GridStack'] instanceof HTMLElement))) || window.requirejs) {
+      var urls = ['https://cdn.holoviz.org/panel/1.2.0/dist/bundled/gridstack/gridstack@7.2.3/dist/gridstack-all.js'];
+      for (var i = 0; i < urls.length; i++) {
+        skip.push(urls[i])
+      }
+    }    if (((window['Notyf'] !== undefined) && (!(window['Notyf'] instanceof HTMLElement))) || window.requirejs) {
+      var urls = ['https://cdn.holoviz.org/panel/1.2.0/dist/bundled/notificationarea/notyf@3/notyf.min.js'];
+      for (var i = 0; i < urls.length; i++) {
+        skip.push(urls[i])
+      }
+    }    var existing_scripts = []
+    var scripts = document.getElementsByTagName('script')
+    for (var i = 0; i < scripts.length; i++) {
+      var script = scripts[i]
+      if (script.src != null) {
+	existing_scripts.push(script.src)
+      }
+    }
+    for (var i = 0; i < js_urls.length; i++) {
+      var url = js_urls[i];
+      if (skip.indexOf(url) !== -1 || existing_scripts.indexOf(url) !== -1) {
+	if (!window.requirejs) {
+	  on_load();
+	}
+	continue;
+      }
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+    for (var i = 0; i < js_modules.length; i++) {
+      var url = js_modules[i];
+      if (skip.indexOf(url) !== -1 || existing_scripts.indexOf(url) !== -1) {
+	if (!window.requirejs) {
+	  on_load();
+	}
+	continue;
+      }
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      element.type = "module";
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+    for (const name in js_exports) {
+      var url = js_exports[name];
+      if (skip.indexOf(url) >= 0 || root[name] != null) {
+	if (!window.requirejs) {
+	  on_load();
+	}
+	continue;
+      }
+      var element = document.createElement('script');
+      element.onerror = on_error;
+      element.async = false;
+      element.type = "module";
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      element.textContent = `
+      import ${name} from "${url}"
+      window.${name} = ${name}
+      window._bokeh_on_load()
+      `
+      document.head.appendChild(element);
+    }
+    if (!js_urls.length && !js_modules.length) {
+      on_load()
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-3.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.1.1.min.js", "https://cdn.holoviz.org/panel/1.2.0/dist/panel.min.js"];
+  var js_modules = [];
+  var js_exports = {};
+  var css_urls = [];
+  var inline_js = [    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+function(Bokeh) {} // ensure no trailing comma for IE
+  ];
+
+  function run_inline_js() {
+    if ((root.Bokeh !== undefined) || (force === true)) {
+      for (var i = 0; i < inline_js.length; i++) {
+        inline_js[i].call(root, root.Bokeh);
+      }
+      // Cache old bokeh versions
+      if (Bokeh != undefined && !reloading) {
+	var NewBokeh = root.Bokeh;
+	if (Bokeh.versions === undefined) {
+	  Bokeh.versions = new Map();
+	}
+	if (NewBokeh.version !== Bokeh.version) {
+	  Bokeh.versions.set(NewBokeh.version, NewBokeh)
+	}
+	root.Bokeh = Bokeh;
+      }} else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    }
+    root._bokeh_is_initializing = false
+  }
+
+  function load_or_wait() {
+    // Implement a backoff loop that tries to ensure we do not load multiple
+    // versions of Bokeh and its dependencies at the same time.
+    // In recent versions we use the root._bokeh_is_initializing flag
+    // to determine whether there is an ongoing attempt to initialize
+    // bokeh, however for backward compatibility we also try to ensure
+    // that we do not start loading a newer (Panel>=1.0 and Bokeh>3) version
+    // before older versions are fully initialized.
+    if (root._bokeh_is_initializing && Date.now() > root._bokeh_timeout) {
+      root._bokeh_is_initializing = false;
+      root._bokeh_onload_callbacks = undefined;
+      console.log("Bokeh: BokehJS was loaded multiple times but one version failed to initialize.");
+      load_or_wait();
+    } else if (root._bokeh_is_initializing || (typeof root._bokeh_is_initializing === "undefined" && root._bokeh_onload_callbacks !== undefined)) {
+      setTimeout(load_or_wait, 100);
+    } else {
+      Bokeh = root.Bokeh;
+      bokeh_loaded = Bokeh != null && (Bokeh.version === py_version || (Bokeh.versions !== undefined && Bokeh.versions.has(py_version)));
+      root._bokeh_is_initializing = true
+      root._bokeh_onload_callbacks = []
+      if (!reloading && (!bokeh_loaded || is_dev)) {
+	root.Bokeh = undefined;
+      }
+      load_libs(css_urls, js_urls, js_modules, js_exports, function() {
+	console.debug("Bokeh: BokehJS plotting callback run at", now());
+	run_inline_js();
+      });
+    }
+  }
+  // Give older versions of the autoload script a head-start to ensure
+  // they initialize before we start loading newer version.
+  setTimeout(load_or_wait, 100)
+}(window));</script><script type="application/javascript">
+if ((window.PyViz === undefined) || (window.PyViz instanceof HTMLElement)) {
+  window.PyViz = {comms: {}, comm_status:{}, kernels:{}, receivers: {}, plot_index: []}
+}
+
+
+    function JupyterCommManager() {
+    }
+
+    JupyterCommManager.prototype.register_target = function(plot_id, comm_id, msg_handler) {
+      if (window.comm_manager || ((window.Jupyter !== undefined) && (Jupyter.notebook.kernel != null))) {
+        var comm_manager = window.comm_manager || Jupyter.notebook.kernel.comm_manager;
+        comm_manager.register_target(comm_id, function(comm) {
+          comm.on_msg(msg_handler);
+        });
+      } else if ((plot_id in window.PyViz.kernels) && (window.PyViz.kernels[plot_id])) {
+        window.PyViz.kernels[plot_id].registerCommTarget(comm_id, function(comm) {
+          comm.onMsg = msg_handler;
+        });
+      } else if (typeof google != 'undefined' && google.colab.kernel != null) {
+        google.colab.kernel.comms.registerTarget(comm_id, (comm) => {
+          var messages = comm.messages[Symbol.asyncIterator]();
+          function processIteratorResult(result) {
+            var message = result.value;
+            console.log(message)
+            var content = {data: message.data, comm_id};
+            var buffers = []
+            for (var buffer of message.buffers || []) {
+              buffers.push(new DataView(buffer))
+            }
+            var metadata = message.metadata || {};
+            var msg = {content, buffers, metadata}
+            msg_handler(msg);
+            return messages.next().then(processIteratorResult);
+          }
+          return messages.next().then(processIteratorResult);
+        })
+      }
+    }
+
+    JupyterCommManager.prototype.get_client_comm = function(plot_id, comm_id, msg_handler) {
+      if (comm_id in window.PyViz.comms) {
+        return window.PyViz.comms[comm_id];
+      } else if (window.comm_manager || ((window.Jupyter !== undefined) && (Jupyter.notebook.kernel != null))) {
+        var comm_manager = window.comm_manager || Jupyter.notebook.kernel.comm_manager;
+        var comm = comm_manager.new_comm(comm_id, {}, {}, {}, comm_id);
+        if (msg_handler) {
+          comm.on_msg(msg_handler);
+        }
+      } else if ((plot_id in window.PyViz.kernels) && (window.PyViz.kernels[plot_id])) {
+        var comm = window.PyViz.kernels[plot_id].connectToComm(comm_id);
+        comm.open();
+        if (msg_handler) {
+          comm.onMsg = msg_handler;
+        }
+      } else if (typeof google != 'undefined' && google.colab.kernel != null) {
+        var comm_promise = google.colab.kernel.comms.open(comm_id)
+        comm_promise.then((comm) => {
+          window.PyViz.comms[comm_id] = comm;
+          if (msg_handler) {
+            var messages = comm.messages[Symbol.asyncIterator]();
+            function processIteratorResult(result) {
+              var message = result.value;
+              var content = {data: message.data};
+              var metadata = message.metadata || {comm_id};
+              var msg = {content, metadata}
+              msg_handler(msg);
+              return messages.next().then(processIteratorResult);
+            }
+            return messages.next().then(processIteratorResult);
+          }
+        }) 
+        var sendClosure = (data, metadata, buffers, disposeOnDone) => {
+          return comm_promise.then((comm) => {
+            comm.send(data, metadata, buffers, disposeOnDone);
+          });
+        };
+        var comm = {
+          send: sendClosure
+        };
+      }
+      window.PyViz.comms[comm_id] = comm;
+      return comm;
+    }
+    window.PyViz.comm_manager = new JupyterCommManager();
+    
+
+
+var JS_MIME_TYPE = 'application/javascript';
+var HTML_MIME_TYPE = 'text/html';
+var EXEC_MIME_TYPE = 'application/vnd.holoviews_exec.v0+json';
+var CLASS_NAME = 'output';
+
+/**
+ * Render data to the DOM node
+ */
+function render(props, node) {
+  var div = document.createElement("div");
+  var script = document.createElement("script");
+  node.appendChild(div);
+  node.appendChild(script);
+}
+
+/**
+ * Handle when a new output is added
+ */
+function handle_add_output(event, handle) {
+  var output_area = handle.output_area;
+  var output = handle.output;
+  if ((output.data == undefined) || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {
+    return
+  }
+  var id = output.metadata[EXEC_MIME_TYPE]["id"];
+  var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+  if (id !== undefined) {
+    var nchildren = toinsert.length;
+    var html_node = toinsert[nchildren-1].children[0];
+    html_node.innerHTML = output.data[HTML_MIME_TYPE];
+    var scripts = [];
+    var nodelist = html_node.querySelectorAll("script");
+    for (var i in nodelist) {
+      if (nodelist.hasOwnProperty(i)) {
+        scripts.push(nodelist[i])
+      }
+    }
+
+    scripts.forEach( function (oldScript) {
+      var newScript = document.createElement("script");
+      var attrs = [];
+      var nodemap = oldScript.attributes;
+      for (var j in nodemap) {
+        if (nodemap.hasOwnProperty(j)) {
+          attrs.push(nodemap[j])
+        }
+      }
+      attrs.forEach(function(attr) { newScript.setAttribute(attr.name, attr.value) });
+      newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+      oldScript.parentNode.replaceChild(newScript, oldScript);
+    });
+    if (JS_MIME_TYPE in output.data) {
+      toinsert[nchildren-1].children[1].textContent = output.data[JS_MIME_TYPE];
+    }
+    output_area._hv_plot_id = id;
+    if ((window.Bokeh !== undefined) && (id in Bokeh.index)) {
+      window.PyViz.plot_index[id] = Bokeh.index[id];
+    } else {
+      window.PyViz.plot_index[id] = null;
+    }
+  } else if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+    var bk_div = document.createElement("div");
+    bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+    var script_attrs = bk_div.children[0].attributes;
+    for (var i = 0; i < script_attrs.length; i++) {
+      toinsert[toinsert.length - 1].childNodes[1].setAttribute(script_attrs[i].name, script_attrs[i].value);
+    }
+    // store reference to server id on output_area
+    output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+  }
+}
+
+/**
+ * Handle when an output is cleared or removed
+ */
+function handle_clear_output(event, handle) {
+  var id = handle.cell.output_area._hv_plot_id;
+  var server_id = handle.cell.output_area._bokeh_server_id;
+  if (((id === undefined) || !(id in PyViz.plot_index)) && (server_id !== undefined)) { return; }
+  var comm = window.PyViz.comm_manager.get_client_comm("hv-extension-comm", "hv-extension-comm", function () {});
+  if (server_id !== null) {
+    comm.send({event_type: 'server_delete', 'id': server_id});
+    return;
+  } else if (comm !== null) {
+    comm.send({event_type: 'delete', 'id': id});
+  }
+  delete PyViz.plot_index[id];
+  if ((window.Bokeh !== undefined) & (id in window.Bokeh.index)) {
+    var doc = window.Bokeh.index[id].model.document
+    doc.clear();
+    const i = window.Bokeh.documents.indexOf(doc);
+    if (i > -1) {
+      window.Bokeh.documents.splice(i, 1);
+    }
+  }
+}
+
+/**
+ * Handle kernel restart event
+ */
+function handle_kernel_cleanup(event, handle) {
+  delete PyViz.comms["hv-extension-comm"];
+  window.PyViz.plot_index = {}
+}
+
+/**
+ * Handle update_display_data messages
+ */
+function handle_update_output(event, handle) {
+  handle_clear_output(event, {cell: {output_area: handle.output_area}})
+  handle_add_output(event, handle)
+}
+
+function register_renderer(events, OutputArea) {
+  function append_mime(data, metadata, element) {
+    // create a DOM node to render to
+    var toinsert = this.create_output_subarea(
+    metadata,
+    CLASS_NAME,
+    EXEC_MIME_TYPE
+    );
+    this.keyboard_manager.register_events(toinsert);
+    // Render to node
+    var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+    render(props, toinsert[0]);
+    element.append(toinsert);
+    return toinsert
+  }
+
+  events.on('output_added.OutputArea', handle_add_output);
+  events.on('output_updated.OutputArea', handle_update_output);
+  events.on('clear_output.CodeCell', handle_clear_output);
+  events.on('delete.Cell', handle_clear_output);
+  events.on('kernel_ready.Kernel', handle_kernel_cleanup);
+
+  OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+    safe: true,
+    index: 0
+  });
+}
+
+if (window.Jupyter !== undefined) {
+  try {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  } catch(err) {
+  }
+}
+</script><div class="output text_html"><style>*[data-root-id],
+*[data-root-id] > * {
+  box-sizing: border-box;
+  font-family: var(--jp-ui-font-family);
+  font-size: var(--jp-ui-font-size1);
+  color: var(--vscode-editor-foreground, var(--jp-ui-font-color1));
+}
+
+/* Override VSCode background color */
+.cell-output-ipywidget-background:has(
+    > .cell-output-ipywidget-background > .lm-Widget > *[data-root-id]
+  ),
+.cell-output-ipywidget-background:has(> .lm-Widget > *[data-root-id]) {
+  background-color: transparent !important;
+}
+</style></div><script type="application/javascript">(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+  var py_version = '3.1.1'.replace('rc', '-rc.').replace('.dev', '-dev.');
+  var is_dev = py_version.indexOf("+") !== -1 || py_version.indexOf("-") !== -1;
+  var reloading = true;
+  var Bokeh = root.Bokeh;
+  var bokeh_loaded = Bokeh != null && (Bokeh.version === py_version || (Bokeh.versions !== undefined && Bokeh.versions.has(py_version)));
+
+  if (typeof (root._bokeh_timeout) === "undefined" || force) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks;
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, js_modules, js_exports, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+    if (js_modules == null) js_modules = [];
+    if (js_exports == null) js_exports = {};
+
+    root._bokeh_onload_callbacks.push(callback);
+
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls.length === 0 && js_modules.length === 0 && Object.keys(js_exports).length === 0) {
+      run_callbacks();
+      return null;
+    }
+    if (!reloading) {
+      console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    }
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+    window._bokeh_on_load = on_load
+
+    function on_error() {
+      console.error("failed to load " + url);
+    }
+
+    var skip = [];
+    if (window.requirejs) {
+      window.requirejs.config({'packages': {}, 'paths': {'jspanel': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/jspanel', 'jspanel-modal': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/modal/jspanel.modal', 'jspanel-tooltip': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/tooltip/jspanel.tooltip', 'jspanel-hint': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/hint/jspanel.hint', 'jspanel-layout': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/layout/jspanel.layout', 'jspanel-contextmenu': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/contextmenu/jspanel.contextmenu', 'jspanel-dock': 'https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/dock/jspanel.dock', 'gridstack': 'https://cdn.jsdelivr.net/npm/gridstack@7.2.3/dist/gridstack-all', 'notyf': 'https://cdn.jsdelivr.net/npm/notyf@3/notyf.min'}, 'shim': {'jspanel': {'exports': 'jsPanel'}, 'gridstack': {'exports': 'GridStack'}}});
+      require(["jspanel"], function(jsPanel) {
+	window.jsPanel = jsPanel
+	on_load()
+      })
+      require(["jspanel-modal"], function() {
+	on_load()
+      })
+      require(["jspanel-tooltip"], function() {
+	on_load()
+      })
+      require(["jspanel-hint"], function() {
+	on_load()
+      })
+      require(["jspanel-layout"], function() {
+	on_load()
+      })
+      require(["jspanel-contextmenu"], function() {
+	on_load()
+      })
+      require(["jspanel-dock"], function() {
+	on_load()
+      })
+      require(["gridstack"], function(GridStack) {
+	window.GridStack = GridStack
+	on_load()
+      })
+      require(["notyf"], function() {
+	on_load()
+      })
+      root._bokeh_is_loading = css_urls.length + 9;
+    } else {
+      root._bokeh_is_loading = css_urls.length + js_urls.length + js_modules.length + Object.keys(js_exports).length;
+    }
+
+    var existing_stylesheets = []
+    var links = document.getElementsByTagName('link')
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i]
+      if (link.href != null) {
+	existing_stylesheets.push(link.href)
+      }
+    }
+    for (var i = 0; i < css_urls.length; i++) {
+      var url = css_urls[i];
+      if (existing_stylesheets.indexOf(url) !== -1) {
+	on_load()
+	continue;
+      }
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }    if (((window['jsPanel'] !== undefined) && (!(window['jsPanel'] instanceof HTMLElement))) || window.requirejs) {
+      var urls = ['https://cdn.holoviz.org/panel/1.2.0/dist/bundled/floatpanel/jspanel4@4.12.0/dist/jspanel.js', 'https://cdn.holoviz.org/panel/1.2.0/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/modal/jspanel.modal.js', 'https://cdn.holoviz.org/panel/1.2.0/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/tooltip/jspanel.tooltip.js', 'https://cdn.holoviz.org/panel/1.2.0/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/hint/jspanel.hint.js', 'https://cdn.holoviz.org/panel/1.2.0/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/layout/jspanel.layout.js', 'https://cdn.holoviz.org/panel/1.2.0/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/contextmenu/jspanel.contextmenu.js', 'https://cdn.holoviz.org/panel/1.2.0/dist/bundled/floatpanel/jspanel4@4.12.0/dist/extensions/dock/jspanel.dock.js'];
+      for (var i = 0; i < urls.length; i++) {
+        skip.push(urls[i])
+      }
+    }    if (((window['GridStack'] !== undefined) && (!(window['GridStack'] instanceof HTMLElement))) || window.requirejs) {
+      var urls = ['https://cdn.holoviz.org/panel/1.2.0/dist/bundled/gridstack/gridstack@7.2.3/dist/gridstack-all.js'];
+      for (var i = 0; i < urls.length; i++) {
+        skip.push(urls[i])
+      }
+    }    if (((window['Notyf'] !== undefined) && (!(window['Notyf'] instanceof HTMLElement))) || window.requirejs) {
+      var urls = ['https://cdn.holoviz.org/panel/1.2.0/dist/bundled/notificationarea/notyf@3/notyf.min.js'];
+      for (var i = 0; i < urls.length; i++) {
+        skip.push(urls[i])
+      }
+    }    var existing_scripts = []
+    var scripts = document.getElementsByTagName('script')
+    for (var i = 0; i < scripts.length; i++) {
+      var script = scripts[i]
+      if (script.src != null) {
+	existing_scripts.push(script.src)
+      }
+    }
+    for (var i = 0; i < js_urls.length; i++) {
+      var url = js_urls[i];
+      if (skip.indexOf(url) !== -1 || existing_scripts.indexOf(url) !== -1) {
+	if (!window.requirejs) {
+	  on_load();
+	}
+	continue;
+      }
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+    for (var i = 0; i < js_modules.length; i++) {
+      var url = js_modules[i];
+      if (skip.indexOf(url) !== -1 || existing_scripts.indexOf(url) !== -1) {
+	if (!window.requirejs) {
+	  on_load();
+	}
+	continue;
+      }
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      element.type = "module";
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+    for (const name in js_exports) {
+      var url = js_exports[name];
+      if (skip.indexOf(url) >= 0 || root[name] != null) {
+	if (!window.requirejs) {
+	  on_load();
+	}
+	continue;
+      }
+      var element = document.createElement('script');
+      element.onerror = on_error;
+      element.async = false;
+      element.type = "module";
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      element.textContent = `
+      import ${name} from "${url}"
+      window.${name} = ${name}
+      window._bokeh_on_load()
+      `
+      document.head.appendChild(element);
+    }
+    if (!js_urls.length && !js_modules.length) {
+      on_load()
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  var js_urls = [];
+  var js_modules = [];
+  var js_exports = {};
+  var css_urls = [];
+  var inline_js = [    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+function(Bokeh) {} // ensure no trailing comma for IE
+  ];
+
+  function run_inline_js() {
+    if ((root.Bokeh !== undefined) || (force === true)) {
+      for (var i = 0; i < inline_js.length; i++) {
+        inline_js[i].call(root, root.Bokeh);
+      }
+      // Cache old bokeh versions
+      if (Bokeh != undefined && !reloading) {
+	var NewBokeh = root.Bokeh;
+	if (Bokeh.versions === undefined) {
+	  Bokeh.versions = new Map();
+	}
+	if (NewBokeh.version !== Bokeh.version) {
+	  Bokeh.versions.set(NewBokeh.version, NewBokeh)
+	}
+	root.Bokeh = Bokeh;
+      }} else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    }
+    root._bokeh_is_initializing = false
+  }
+
+  function load_or_wait() {
+    // Implement a backoff loop that tries to ensure we do not load multiple
+    // versions of Bokeh and its dependencies at the same time.
+    // In recent versions we use the root._bokeh_is_initializing flag
+    // to determine whether there is an ongoing attempt to initialize
+    // bokeh, however for backward compatibility we also try to ensure
+    // that we do not start loading a newer (Panel>=1.0 and Bokeh>3) version
+    // before older versions are fully initialized.
+    if (root._bokeh_is_initializing && Date.now() > root._bokeh_timeout) {
+      root._bokeh_is_initializing = false;
+      root._bokeh_onload_callbacks = undefined;
+      console.log("Bokeh: BokehJS was loaded multiple times but one version failed to initialize.");
+      load_or_wait();
+    } else if (root._bokeh_is_initializing || (typeof root._bokeh_is_initializing === "undefined" && root._bokeh_onload_callbacks !== undefined)) {
+      setTimeout(load_or_wait, 100);
+    } else {
+      Bokeh = root.Bokeh;
+      bokeh_loaded = Bokeh != null && (Bokeh.version === py_version || (Bokeh.versions !== undefined && Bokeh.versions.has(py_version)));
+      root._bokeh_is_initializing = true
+      root._bokeh_onload_callbacks = []
+      if (!reloading && (!bokeh_loaded || is_dev)) {
+	root.Bokeh = undefined;
+      }
+      load_libs(css_urls, js_urls, js_modules, js_exports, function() {
+	console.debug("Bokeh: BokehJS plotting callback run at", now());
+	run_inline_js();
+      });
+    }
+  }
+  // Give older versions of the autoload script a head-start to ensure
+  // they initialize before we start loading newer version.
+  setTimeout(load_or_wait, 100)
+}(window));</script><script type="application/javascript">
+if ((window.PyViz === undefined) || (window.PyViz instanceof HTMLElement)) {
+  window.PyViz = {comms: {}, comm_status:{}, kernels:{}, receivers: {}, plot_index: []}
+}
+
+
+    function JupyterCommManager() {
+    }
+
+    JupyterCommManager.prototype.register_target = function(plot_id, comm_id, msg_handler) {
+      if (window.comm_manager || ((window.Jupyter !== undefined) && (Jupyter.notebook.kernel != null))) {
+        var comm_manager = window.comm_manager || Jupyter.notebook.kernel.comm_manager;
+        comm_manager.register_target(comm_id, function(comm) {
+          comm.on_msg(msg_handler);
+        });
+      } else if ((plot_id in window.PyViz.kernels) && (window.PyViz.kernels[plot_id])) {
+        window.PyViz.kernels[plot_id].registerCommTarget(comm_id, function(comm) {
+          comm.onMsg = msg_handler;
+        });
+      } else if (typeof google != 'undefined' && google.colab.kernel != null) {
+        google.colab.kernel.comms.registerTarget(comm_id, (comm) => {
+          var messages = comm.messages[Symbol.asyncIterator]();
+          function processIteratorResult(result) {
+            var message = result.value;
+            console.log(message)
+            var content = {data: message.data, comm_id};
+            var buffers = []
+            for (var buffer of message.buffers || []) {
+              buffers.push(new DataView(buffer))
+            }
+            var metadata = message.metadata || {};
+            var msg = {content, buffers, metadata}
+            msg_handler(msg);
+            return messages.next().then(processIteratorResult);
+          }
+          return messages.next().then(processIteratorResult);
+        })
+      }
+    }
+
+    JupyterCommManager.prototype.get_client_comm = function(plot_id, comm_id, msg_handler) {
+      if (comm_id in window.PyViz.comms) {
+        return window.PyViz.comms[comm_id];
+      } else if (window.comm_manager || ((window.Jupyter !== undefined) && (Jupyter.notebook.kernel != null))) {
+        var comm_manager = window.comm_manager || Jupyter.notebook.kernel.comm_manager;
+        var comm = comm_manager.new_comm(comm_id, {}, {}, {}, comm_id);
+        if (msg_handler) {
+          comm.on_msg(msg_handler);
+        }
+      } else if ((plot_id in window.PyViz.kernels) && (window.PyViz.kernels[plot_id])) {
+        var comm = window.PyViz.kernels[plot_id].connectToComm(comm_id);
+        comm.open();
+        if (msg_handler) {
+          comm.onMsg = msg_handler;
+        }
+      } else if (typeof google != 'undefined' && google.colab.kernel != null) {
+        var comm_promise = google.colab.kernel.comms.open(comm_id)
+        comm_promise.then((comm) => {
+          window.PyViz.comms[comm_id] = comm;
+          if (msg_handler) {
+            var messages = comm.messages[Symbol.asyncIterator]();
+            function processIteratorResult(result) {
+              var message = result.value;
+              var content = {data: message.data};
+              var metadata = message.metadata || {comm_id};
+              var msg = {content, metadata}
+              msg_handler(msg);
+              return messages.next().then(processIteratorResult);
+            }
+            return messages.next().then(processIteratorResult);
+          }
+        }) 
+        var sendClosure = (data, metadata, buffers, disposeOnDone) => {
+          return comm_promise.then((comm) => {
+            comm.send(data, metadata, buffers, disposeOnDone);
+          });
+        };
+        var comm = {
+          send: sendClosure
+        };
+      }
+      window.PyViz.comms[comm_id] = comm;
+      return comm;
+    }
+    window.PyViz.comm_manager = new JupyterCommManager();
+    
+
+
+var JS_MIME_TYPE = 'application/javascript';
+var HTML_MIME_TYPE = 'text/html';
+var EXEC_MIME_TYPE = 'application/vnd.holoviews_exec.v0+json';
+var CLASS_NAME = 'output';
+
+/**
+ * Render data to the DOM node
+ */
+function render(props, node) {
+  var div = document.createElement("div");
+  var script = document.createElement("script");
+  node.appendChild(div);
+  node.appendChild(script);
+}
+
+/**
+ * Handle when a new output is added
+ */
+function handle_add_output(event, handle) {
+  var output_area = handle.output_area;
+  var output = handle.output;
+  if ((output.data == undefined) || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {
+    return
+  }
+  var id = output.metadata[EXEC_MIME_TYPE]["id"];
+  var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+  if (id !== undefined) {
+    var nchildren = toinsert.length;
+    var html_node = toinsert[nchildren-1].children[0];
+    html_node.innerHTML = output.data[HTML_MIME_TYPE];
+    var scripts = [];
+    var nodelist = html_node.querySelectorAll("script");
+    for (var i in nodelist) {
+      if (nodelist.hasOwnProperty(i)) {
+        scripts.push(nodelist[i])
+      }
+    }
+
+    scripts.forEach( function (oldScript) {
+      var newScript = document.createElement("script");
+      var attrs = [];
+      var nodemap = oldScript.attributes;
+      for (var j in nodemap) {
+        if (nodemap.hasOwnProperty(j)) {
+          attrs.push(nodemap[j])
+        }
+      }
+      attrs.forEach(function(attr) { newScript.setAttribute(attr.name, attr.value) });
+      newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+      oldScript.parentNode.replaceChild(newScript, oldScript);
+    });
+    if (JS_MIME_TYPE in output.data) {
+      toinsert[nchildren-1].children[1].textContent = output.data[JS_MIME_TYPE];
+    }
+    output_area._hv_plot_id = id;
+    if ((window.Bokeh !== undefined) && (id in Bokeh.index)) {
+      window.PyViz.plot_index[id] = Bokeh.index[id];
+    } else {
+      window.PyViz.plot_index[id] = null;
+    }
+  } else if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+    var bk_div = document.createElement("div");
+    bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+    var script_attrs = bk_div.children[0].attributes;
+    for (var i = 0; i < script_attrs.length; i++) {
+      toinsert[toinsert.length - 1].childNodes[1].setAttribute(script_attrs[i].name, script_attrs[i].value);
+    }
+    // store reference to server id on output_area
+    output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+  }
+}
+
+/**
+ * Handle when an output is cleared or removed
+ */
+function handle_clear_output(event, handle) {
+  var id = handle.cell.output_area._hv_plot_id;
+  var server_id = handle.cell.output_area._bokeh_server_id;
+  if (((id === undefined) || !(id in PyViz.plot_index)) && (server_id !== undefined)) { return; }
+  var comm = window.PyViz.comm_manager.get_client_comm("hv-extension-comm", "hv-extension-comm", function () {});
+  if (server_id !== null) {
+    comm.send({event_type: 'server_delete', 'id': server_id});
+    return;
+  } else if (comm !== null) {
+    comm.send({event_type: 'delete', 'id': id});
+  }
+  delete PyViz.plot_index[id];
+  if ((window.Bokeh !== undefined) & (id in window.Bokeh.index)) {
+    var doc = window.Bokeh.index[id].model.document
+    doc.clear();
+    const i = window.Bokeh.documents.indexOf(doc);
+    if (i > -1) {
+      window.Bokeh.documents.splice(i, 1);
+    }
+  }
+}
+
+/**
+ * Handle kernel restart event
+ */
+function handle_kernel_cleanup(event, handle) {
+  delete PyViz.comms["hv-extension-comm"];
+  window.PyViz.plot_index = {}
+}
+
+/**
+ * Handle update_display_data messages
+ */
+function handle_update_output(event, handle) {
+  handle_clear_output(event, {cell: {output_area: handle.output_area}})
+  handle_add_output(event, handle)
+}
+
+function register_renderer(events, OutputArea) {
+  function append_mime(data, metadata, element) {
+    // create a DOM node to render to
+    var toinsert = this.create_output_subarea(
+    metadata,
+    CLASS_NAME,
+    EXEC_MIME_TYPE
+    );
+    this.keyboard_manager.register_events(toinsert);
+    // Render to node
+    var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+    render(props, toinsert[0]);
+    element.append(toinsert);
+    return toinsert
+  }
+
+  events.on('output_added.OutputArea', handle_add_output);
+  events.on('output_updated.OutputArea', handle_update_output);
+  events.on('clear_output.CodeCell', handle_clear_output);
+  events.on('delete.Cell', handle_clear_output);
+  events.on('kernel_ready.Kernel', handle_kernel_cleanup);
+
+  OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+    safe: true,
+    index: 0
+  });
+}
+
+if (window.Jupyter !== undefined) {
+  try {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  } catch(err) {
+  }
+}
+</script><div class="output text_html"><style>*[data-root-id],
+*[data-root-id] > * {
+  box-sizing: border-box;
+  font-family: var(--jp-ui-font-family);
+  font-size: var(--jp-ui-font-size1);
+  color: var(--vscode-editor-foreground, var(--jp-ui-font-color1));
+}
+
+/* Override VSCode background color */
+.cell-output-ipywidget-background:has(
+    > .cell-output-ipywidget-background > .lm-Widget > *[data-root-id]
+  ),
+.cell-output-ipywidget-background:has(> .lm-Widget > *[data-root-id]) {
+  background-color: transparent !important;
+}
+</style></div><div class="output text_html"><table style='border: 1.5px solid;'>
+  <tr>
+     <td style='text-align: center; font-weight: bold; font-size: 1.2em; border: 1px solid;' colspan='8'>Mon Jul 31 16:15:18 2023 EDT</td>
+  </tr>
+  <tr>
+    <td style='text-align: right; border: 1px solid;'>OS</td>
+    <td style='text-align: left; border: 1px solid;'>Linux</td>
+    <td style='text-align: right; border: 1px solid;'>CPU(s)</td>
+    <td style='text-align: left; border: 1px solid;'>64</td>
+    <td style='text-align: right; border: 1px solid;'>Machine</td>
+    <td style='text-align: left; border: 1px solid;'>x86_64</td>
+    <td style='text-align: right; border: 1px solid;'>Architecture</td>
+    <td style='text-align: left; border: 1px solid;'>64bit</td>
+  </tr>
+  <tr>
+    <td style='text-align: right; border: 1px solid;'>RAM</td>
+    <td style='text-align: left; border: 1px solid;'>62.8 GiB</td>
+    <td style='text-align: right; border: 1px solid;'>Environment</td>
+    <td style='text-align: left; border: 1px solid;'>Jupyter</td>
+    <td style='text-align: right; border: 1px solid;'>File system</td>
+    <td style='text-align: left; border: 1px solid;'>btrfs</td>
+  </tr>
+  <tr>
+     <td style='text-align: center; border: 1px solid;' colspan='8'>Python 3.10.11 | packaged by conda-forge | (main, May 10 2023, 18:58:44) [GCC 11.3.0]</td>
+  </tr>
+  <tr>
+    <td style='text-align: right; border: 1px solid;'>pemtk</td>
+    <td style='text-align: left; border: 1px solid;'>0.0.1</td>
+    <td style='text-align: right; border: 1px solid;'>epsproc</td>
+    <td style='text-align: left; border: 1px solid;'>1.3.2-dev</td>
+    <td style='text-align: right; border: 1px solid;'>xarray</td>
+    <td style='text-align: left; border: 1px solid;'>2022.3.0</td>
+    <td style='text-align: right; border: 1px solid;'>pandas</td>
+    <td style='text-align: left; border: 1px solid;'>1.5.3</td>
+  </tr>
+  <tr>
+    <td style='text-align: right; border: 1px solid;'>scipy</td>
+    <td style='text-align: left; border: 1px solid;'>1.10.1</td>
+    <td style='text-align: right; border: 1px solid;'>matplotlib</td>
+    <td style='text-align: left; border: 1px solid;'>3.5.3</td>
+    <td style='text-align: right; border: 1px solid;'>jupyterlab</td>
+    <td style='text-align: left; border: 1px solid;'>3.6.3</td>
+    <td style='text-align: right; border: 1px solid;'>plotly</td>
+    <td style='text-align: left; border: 1px solid;'>5.15.0</td>
+  </tr>
+  <tr>
+    <td style='text-align: right; border: 1px solid;'>holoviews</td>
+    <td style='text-align: left; border: 1px solid;'>1.16.2</td>
+    <td style='text-align: right; border: 1px solid;'>numpy</td>
+    <td style='text-align: left; border: 1px solid;'>1.23.5</td>
+    <td style='text-align: right; border: 1px solid;'>IPython</td>
+    <td style='text-align: left; border: 1px solid;'>8.13.2</td>
+    <td style='text-align: right; border: 1px solid;'>scooby</td>
+    <td style='text-align: left; border: 1px solid;'>0.7.2</td>
+  </tr>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter-book<span class="w"> </span>--version
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jupyter Book      : 0.15.1
+External ToC      : 0.3.1
+MyST-Parser       : 0.18.1
+MyST-NB           : 0.17.2
+Sphinx Book Theme : 1.0.1
+Jupyter-Cache     : 0.6.1
+NbClient          : 0.7.4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter<span class="w"> </span>--version
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Selected Jupyter core packages...
+IPython          : 8.13.2
+ipykernel        : 6.23.0
+ipywidgets       : 8.0.6
+jupyter_client   : 8.2.0
+jupyter_core     : 5.3.0
+jupyter_server   : 2.5.0
+jupyterlab       : 3.6.3
+nbclient         : 0.7.4
+nbconvert        : 7.4.0
+nbformat         : 5.8.0
+notebook         : 6.5.4
+qtconsole        : not installed
+traitlets        : 5.9.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="docker-build-env">
+<h2>Docker build env<a class="headerlink" href="#docker-build-env" title="Permalink to this heading">#</a></h2>
+<p>To do</p>
+</section>
+<section id="book-versions">
+<h2>Book versions<a class="headerlink" href="#book-versions" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">QMpath</span> <span class="o">=</span> <span class="s1">&#39;/home/jovyan/QM3&#39;</span>
+<span class="o">!</span>git<span class="w"> </span>-C<span class="w"> </span><span class="o">{</span>QMpath<span class="o">}</span><span class="w"> </span>branch
+<span class="o">!</span>git<span class="w"> </span>-C<span class="w"> </span><span class="o">{</span>QMpath<span class="o">}</span><span class="w"> </span>log<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%H&quot;</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  gh-pages
+  main
+* <span class=" -Color -Color-Green">reviewJuly2023</span>
+79974db00e28189453428261c0a9171cb0dba419
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check current remote commits</span>
+<span class="o">!</span>git<span class="w"> </span>ls-remote<span class="w"> </span>--heads<span class="w"> </span>https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>93ab730f6f302f269809d726b50dd39b5ea52130	refs/heads/gh-pages
+c0fcec831b5683882b15ac1473fc6d732310da48	refs/heads/main
+a9ebba80f671ea3784db4f5a0b28d895293ef035	refs/heads/reviewJuly2023
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="github-pkg-versions">
+<h2>Github pkg versions<a class="headerlink" href="#github-pkg-versions" title="Permalink to this heading">#</a></h2>
+<p>Note - can’t get versions for local pip installs from repo(?).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">epsproc</span> <span class="k">as</span> <span class="nn">ep</span>
+<span class="n">ep</span><span class="o">.</span><span class="vm">__file__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/jovyan/github/ePSproc/epsproc/__init__.py&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check current Git commit for local ePSproc version - NOTE THIS ONLY WORKS FOR INSTALLED FROM GIT CLONES</span>
+<span class="c1"># from pathlib import Path</span>
+<span class="c1"># import epsproc as ep</span>
+<span class="o">!</span>git<span class="w"> </span>-C<span class="w"> </span><span class="o">{</span>Path<span class="o">(</span>ep.__file__<span class="o">)</span>.parent<span class="o">}</span><span class="w"> </span>branch
+<span class="o">!</span>git<span class="w"> </span>-C<span class="w"> </span><span class="o">{</span>Path<span class="o">(</span>ep.__file__<span class="o">)</span>.parent<span class="o">}</span><span class="w"> </span>log<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%H&quot;</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>* <span class=" -Color -Color-Green">3d-AFPAD-dev</span>
+c1eedf10631cb17fe33421427c195a2391369c37
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check current remote commits</span>
+<span class="o">!</span>git<span class="w"> </span>ls-remote<span class="w"> </span>--heads<span class="w"> </span>https://github.com/phockett/ePSproc
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c1eedf10631cb17fe33421427c195a2391369c37	refs/heads/3d-AFPAD-dev
+897d73392a7b32ffba4ca6b6b4755c61e7c1c8d7	refs/heads/dependabot/pip/notes/envs/envs-versioned/certifi-2022.12.7
+457f8cd85d89bd6474296b6c01e5165a4a7ce7fc	refs/heads/dependabot/pip/notes/envs/envs-versioned/cryptography-39.0.1
+2855573d0f088b45d19acf2fd9a71eeb7af0a29b	refs/heads/dependabot/pip/notes/envs/envs-versioned/ipython-8.10.0
+92c661789a7d2927f2b53d7266f57de70b3834fa	refs/heads/dependabot/pip/notes/envs/envs-versioned/mistune-2.0.3
+fe1e9540c7b91fe571f60562acd31d8e489d491e	refs/heads/dependabot/pip/notes/envs/envs-versioned/nbconvert-6.5.1
+70b80a1e3a54de91c2bfe3b6be82d611fcfd5f43	refs/heads/dependabot/pip/notes/envs/envs-versioned/pillow-9.3.0
+92fc79b09aafedadcb645f88bb7ed771c96d5b52	refs/heads/dependabot/pip/notes/envs/envs-versioned/setuptools-65.5.1
+fa33ed8d63a5c4a4043cc4c261059cc09e4c2bf7	refs/heads/dependabot/pip/notes/envs/envs-versioned/wheel-0.38.1
+41cdfe43750e08c510f98b05e024a9c62da42771	refs/heads/dependabot/pip/setuptools-65.5.1
+7e4270370d66df44c334675ac487c87d702408da	refs/heads/dev
+1c0b8fd409648f07c85f4f20628b5ea7627e0c4e	refs/heads/master
+69cd89ce5bc0ad6d465a4bd8df6fba15d3fd1aee	refs/heads/numba-tests
+ea30878c842f09d525fbf39fa269fa2302a13b57	refs/heads/revert-9-master
+baf0be0c962e8ab3c3df57c8f70f0e939f99cbd7	refs/heads/testDev
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check current remote commits</span>
+<span class="o">!</span>git<span class="w"> </span>ls-remote<span class="w"> </span>--heads<span class="w"> </span>https://github.com/phockett/PEMtk
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>465c161ca9d2c2f453a58f16c8f334f5e2c07eaa	refs/heads/master
+3f4686dffdbb310f15692f978ba36d6a3d15e8d3	refs/heads/mfFittingDev
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="full-conda-env">
+<h2>Full conda env<a class="headerlink" href="#full-conda-env" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>conda<span class="w"> </span>list
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># packages in environment at /opt/conda:
+#
+# Name                    Version                   Build  Channel
+_libgcc_mutex             0.1                 conda_forge    conda-forge
+_openmp_mutex             4.5                  2_kmp_llvm    conda-forge
+accessible-pygments       0.0.4                    pypi_0    pypi
+aiofiles                  22.1.0             pyhd8ed1ab_0    conda-forge
+aiosqlite                 0.19.0             pyhd8ed1ab_0    conda-forge
+alabaster                 0.7.13                   pypi_0    pypi
+alembic                   1.10.4             pyhd8ed1ab_0    conda-forge
+altair                    5.0.0              pyhd8ed1ab_0    conda-forge
+ansi2html                 1.8.0           py310hff52083_1    conda-forge
+anyio                     3.6.2              pyhd8ed1ab_0    conda-forge
+aom                       3.5.0                h27087fc_0    conda-forge
+argon2-cffi               21.3.0             pyhd8ed1ab_0    conda-forge
+argon2-cffi-bindings      21.2.0          py310h5764c6d_3    conda-forge
+arrow                     1.2.3                    pypi_0    pypi
+arrow-cpp                 12.0.0           ha770c72_1_cpu    conda-forge
+asteval                   0.9.31             pyhd8ed1ab_0    conda-forge
+astropy                   5.3.1           py310h278f3c1_0    conda-forge
+asttokens                 2.2.1              pyhd8ed1ab_0    conda-forge
+async_generator           1.10                       py_0    conda-forge
+attrs                     23.1.0             pyh71513ae_1    conda-forge
+aws-c-auth                0.6.26               h2c7c9e7_6    conda-forge
+aws-c-cal                 0.5.26               h71eb795_0    conda-forge
+aws-c-common              0.8.17               hd590300_0    conda-forge
+aws-c-compression         0.2.16               h4f47f36_6    conda-forge
+aws-c-event-stream        0.2.20               h69ce273_6    conda-forge
+aws-c-http                0.7.7                h7b8353a_3    conda-forge
+aws-c-io                  0.13.21              h2c99d58_4    conda-forge
+aws-c-mqtt                0.8.6               h3a1964a_15    conda-forge
+aws-c-s3                  0.2.8                h0933b68_4    conda-forge
+aws-c-sdkutils            0.1.9                h4f47f36_1    conda-forge
+aws-checksums             0.1.14               h4f47f36_6    conda-forge
+aws-crt-cpp               0.19.9               h85076f6_5    conda-forge
+aws-sdk-cpp               1.10.57             hf40e4db_10    conda-forge
+babel                     2.12.1             pyhd8ed1ab_1    conda-forge
+backcall                  0.2.0              pyh9f0ad1d_0    conda-forge
+backports                 1.0                pyhd8ed1ab_3    conda-forge
+backports.functools_lru_cache 1.6.4              pyhd8ed1ab_0    conda-forge
+beautifulsoup4            4.12.2             pyha770c72_0    conda-forge
+blas                      2.116                  openblas    conda-forge
+blas-devel                3.9.0           16_linux64_openblas    conda-forge
+bleach                    6.0.0              pyhd8ed1ab_0    conda-forge
+blinker                   1.6.2              pyhd8ed1ab_0    conda-forge
+blosc                     1.21.3               hafa529b_0    conda-forge
+bokeh                     3.1.1              pyhd8ed1ab_0    conda-forge
+boltons                   23.0.0             pyhd8ed1ab_0    conda-forge
+boost-cpp                 1.78.0               h6582d0a_3    conda-forge
+bottleneck                1.3.7           py310h0a54255_0    conda-forge
+brotli                    1.0.9                h166bdaf_8    conda-forge
+brotli-bin                1.0.9                h166bdaf_8    conda-forge
+brotlipy                  0.7.0           py310h5764c6d_1005    conda-forge
+brunsli                   0.1                  h9c3ff4c_0    conda-forge
+bzip2                     1.0.8                h7f98852_4    conda-forge
+c-ares                    1.18.1               h7f98852_0    conda-forge
+c-blosc2                  2.8.0                hf91038e_1    conda-forge
+ca-certificates           2023.7.22            hbcca054_0    conda-forge
+cached-property           1.5.2                hd8ed1ab_1    conda-forge
+cached_property           1.5.2              pyha770c72_1    conda-forge
+cairo                     1.16.0            h35add3b_1015    conda-forge
+cartopy                   0.21.1          py310h7eb24ba_1    conda-forge
+certifi                   2023.7.22          pyhd8ed1ab_0    conda-forge
+certipy                   0.1.3                      py_0    conda-forge
+cffi                      1.15.1          py310h255011f_3    conda-forge
+cfitsio                   4.2.0                hd9d235c_0    conda-forge
+cftime                    1.6.2           py310hde88566_1    conda-forge
+charls                    2.4.1                hcb278e6_0    conda-forge
+charset-normalizer        3.1.0              pyhd8ed1ab_0    conda-forge
+click                     8.1.3           unix_pyhd8ed1ab_2    conda-forge
+cloudpickle               2.2.1              pyhd8ed1ab_0    conda-forge
+colorama                  0.4.6              pyhd8ed1ab_0    conda-forge
+colorcet                  3.0.1              pyhd8ed1ab_0    conda-forge
+comm                      0.1.3              pyhd8ed1ab_0    conda-forge
+conda                     23.3.1          py310hff52083_0    conda-forge
+conda-package-handling    2.0.2              pyh38be061_0    conda-forge
+conda-package-streaming   0.7.0              pyhd8ed1ab_1    conda-forge
+configurable-http-proxy   4.5.4                h3b247e2_2    conda-forge
+contourpy                 1.0.7           py310hdf3cbec_0    conda-forge
+cryptography              40.0.2          py310h34c0648_0    conda-forge
+curl                      8.0.1                h588be90_0    conda-forge
+cycler                    0.11.0             pyhd8ed1ab_0    conda-forge
+cython                    0.29.34         py310heca2aa9_0    conda-forge
+cytoolz                   0.12.0          py310h5764c6d_1    conda-forge
+dash                      2.11.1             pyhd8ed1ab_0    conda-forge
+dask                      2023.5.0           pyhd8ed1ab_0    conda-forge
+dask-core                 2023.5.0           pyhd8ed1ab_0    conda-forge
+dav1d                     1.0.0                h166bdaf_1    conda-forge
+dcw-gmt                   2.1.1                ha770c72_0    conda-forge
+debugpy                   1.6.7           py310heca2aa9_0    conda-forge
+decorator                 5.1.1              pyhd8ed1ab_0    conda-forge
+defusedxml                0.7.1              pyhd8ed1ab_0    conda-forge
+dill                      0.3.6              pyhd8ed1ab_1    conda-forge
+distributed               2023.5.0           pyhd8ed1ab_0    conda-forge
+docutils                  0.18.1                   pypi_0    pypi
+ducc0                     0.31.0          py310hc6cd4ac_0    conda-forge
+entrypoints               0.4                pyhd8ed1ab_0    conda-forge
+et_xmlfile                1.1.0              pyhd8ed1ab_0    conda-forge
+exceptiongroup            1.1.2              pyhd8ed1ab_0    conda-forge
+executing                 1.2.0              pyhd8ed1ab_0    conda-forge
+expat                     2.5.0                hcb278e6_1    conda-forge
+fftw                      3.3.10          nompi_hc118613_108    conda-forge
+firefox                   115.0                hd3aeb46_0    conda-forge
+flask                     2.3.2              pyhd8ed1ab_0    conda-forge
+flit-core                 3.9.0              pyhd8ed1ab_0    conda-forge
+fmt                       9.1.0                h924138e_0    conda-forge
+font-ttf-dejavu-sans-mono 2.37                 hab24e00_0    conda-forge
+font-ttf-inconsolata      3.000                h77eed37_0    conda-forge
+font-ttf-source-code-pro  2.038                h77eed37_0    conda-forge
+font-ttf-ubuntu           0.83                 hab24e00_0    conda-forge
+fontconfig                2.14.2               h14ed4e7_0    conda-forge
+fonts-conda-ecosystem     1                             0    conda-forge
+fonts-conda-forge         1                             0    conda-forge
+fonttools                 4.39.4          py310h2372a71_0    conda-forge
+fqdn                      1.5.1                    pypi_0    pypi
+freetype                  2.12.1               hca18f0e_1    conda-forge
+freexl                    1.0.6                h166bdaf_1    conda-forge
+fsspec                    2023.5.0           pyh1a96a4e_0    conda-forge
+future                    0.18.3             pyhd8ed1ab_0    conda-forge
+gdal                      3.6.4           py310hf0ca374_2    conda-forge
+geckodriver               0.33.0               hd2f7af9_0    conda-forge
+geos                      3.11.2               hcb278e6_0    conda-forge
+geotiff                   1.7.1                h480ec47_8    conda-forge
+gettext                   0.21.1               h27087fc_0    conda-forge
+gflags                    2.2.2             he1b5a44_1004    conda-forge
+ghostscript               9.54.0               h27087fc_2    conda-forge
+ghp-import                2.1.0                    pypi_0    pypi
+giflib                    5.2.1                h0b41bf4_3    conda-forge
+gitdb                     4.0.10             pyhd8ed1ab_0    conda-forge
+gitpython                 3.1.31             pyhd8ed1ab_0    conda-forge
+glog                      0.6.0                h6f12383_0    conda-forge
+gmp                       6.2.1                h58526e2_0    conda-forge
+gmpy2                     2.1.2           py310h3ec546c_1    conda-forge
+gmt                       6.4.0               h4733502_10    conda-forge
+greenlet                  2.0.2           py310hc6cd4ac_1    conda-forge
+gshhg-gmt                 2.3.7             ha770c72_1003    conda-forge
+h11                       0.14.0             pyhd8ed1ab_0    conda-forge
+h5netcdf                  1.2.0              pyhd8ed1ab_0    conda-forge
+h5py                      3.8.0           nompi_py310ha66b2ad_101    conda-forge
+hdf4                      4.2.15               h501b40f_6    conda-forge
+hdf5                      1.14.0          nompi_hb72d44e_103    conda-forge
+holoviews                 1.16.2             pyhd8ed1ab_0    conda-forge
+hvplot                    0.8.4                      py_0    pyviz
+icu                       72.1                 hcb278e6_0    conda-forge
+idna                      3.4                pyhd8ed1ab_0    conda-forge
+imagecodecs               2023.1.23       py310h241fb82_2    conda-forge
+imageio                   2.28.1             pyh24c5eb1_0    conda-forge
+imagesize                 1.4.1                    pypi_0    pypi
+importlib-metadata        6.6.0              pyha770c72_0    conda-forge
+importlib_metadata        6.6.0                hd8ed1ab_0    conda-forge
+importlib_resources       5.12.0             pyhd8ed1ab_0    conda-forge
+ipykernel                 6.23.0             pyh210e3f2_0    conda-forge
+ipympl                    0.9.3              pyhd8ed1ab_0    conda-forge
+ipython                   8.13.2             pyh41d4057_0    conda-forge
+ipython_genutils          0.2.0                      py_1    conda-forge
+ipywidgets                8.0.6              pyhd8ed1ab_0    conda-forge
+isoduration               20.11.0                  pypi_0    pypi
+itsdangerous              2.1.2              pyhd8ed1ab_0    conda-forge
+jedi                      0.18.2             pyhd8ed1ab_0    conda-forge
+jinja2                    3.1.2              pyhd8ed1ab_1    conda-forge
+joblib                    1.2.0              pyhd8ed1ab_0    conda-forge
+json-c                    0.16                 hc379101_0    conda-forge
+json5                     0.9.5              pyh9f0ad1d_0    conda-forge
+jsonpatch                 1.32               pyhd8ed1ab_0    conda-forge
+jsonpointer               2.0                        py_0    conda-forge
+jsonschema                4.17.3             pyhd8ed1ab_0    conda-forge
+jupyter-book              0.15.1                   pypi_0    pypi
+jupyter-cache             0.6.1                    pypi_0    pypi
+jupyter-dash              0.4.2              pyhd8ed1ab_1    conda-forge
+jupyter-server-mathjax    0.2.6              pyh5bfe37b_1    conda-forge
+jupyter_client            8.2.0              pyhd8ed1ab_0    conda-forge
+jupyter_core              5.3.0           py310hff52083_0    conda-forge
+jupyter_events            0.6.3              pyhd8ed1ab_0    conda-forge
+jupyter_server            2.5.0              pyhd8ed1ab_0    conda-forge
+jupyter_server_fileid     0.9.0              pyhd8ed1ab_0    conda-forge
+jupyter_server_terminals  0.4.4              pyhd8ed1ab_1    conda-forge
+jupyter_server_ydoc       0.8.0              pyhd8ed1ab_0    conda-forge
+jupyter_telemetry         0.1.0              pyhd8ed1ab_1    conda-forge
+jupyter_ydoc              0.2.3              pyhd8ed1ab_0    conda-forge
+jupyterhub                4.0.0              pyh2a2186d_0    conda-forge
+jupyterhub-base           4.0.0              pyh2a2186d_0    conda-forge
+jupyterlab                3.6.3              pyhd8ed1ab_0    conda-forge
+jupyterlab-git            0.41.0             pyhd8ed1ab_1    conda-forge
+jupyterlab-spellchecker   0.8.3                    pypi_0    pypi
+jupyterlab_pygments       0.2.2              pyhd8ed1ab_0    conda-forge
+jupyterlab_server         2.22.1             pyhd8ed1ab_0    conda-forge
+jupyterlab_widgets        3.0.7              pyhd8ed1ab_0    conda-forge
+jupytext                  1.14.7             pyh5da7574_0    conda-forge
+jxrlib                    1.1                  h7f98852_2    conda-forge
+kaleido-core              0.2.1                h3644ca4_0    conda-forge
+kealib                    1.5.1                h3845be2_3    conda-forge
+keyutils                  1.6.1                h166bdaf_0    conda-forge
+kiwisolver                1.4.4           py310hbf28c38_1    conda-forge
+krb5                      1.20.1               h81ceb04_0    conda-forge
+latexcodec                2.0.1                    pypi_0    pypi
+lazy_loader               0.2                pyhd8ed1ab_0    conda-forge
+lcms2                     2.15                 haa2dc70_1    conda-forge
+ld_impl_linux-64          2.40                 h41732ed_0    conda-forge
+lerc                      4.0.0                h27087fc_0    conda-forge
+libabseil                 20230125.0      cxx17_hcb278e6_1    conda-forge
+libaec                    1.0.6                hcb278e6_1    conda-forge
+libarchive                3.6.2                h3d51595_0    conda-forge
+libarrow                  12.0.0           h1cdf7b0_1_cpu    conda-forge
+libavif                   0.11.1               h5cdd6b5_0    conda-forge
+libblas                   3.9.0           16_linux64_openblas    conda-forge
+libbrotlicommon           1.0.9                h166bdaf_8    conda-forge
+libbrotlidec              1.0.9                h166bdaf_8    conda-forge
+libbrotlienc              1.0.9                h166bdaf_8    conda-forge
+libcblas                  3.9.0           16_linux64_openblas    conda-forge
+libcrc32c                 1.1.2                h9c3ff4c_0    conda-forge
+libcurl                   8.0.1                h588be90_0    conda-forge
+libdeflate                1.18                 h0b41bf4_0    conda-forge
+libedit                   3.1.20191231         he28a2e2_2    conda-forge
+libev                     4.33                 h516909a_1    conda-forge
+libevent                  2.1.12               h3358134_0    conda-forge
+libexpat                  2.5.0                hcb278e6_1    conda-forge
+libffi                    3.4.2                h7f98852_5    conda-forge
+libgcc-ng                 12.2.0              h65d4601_19    conda-forge
+libgdal                   3.6.4                hada8d5e_2    conda-forge
+libgfortran-ng            12.2.0              h69a702a_19    conda-forge
+libgfortran5              12.2.0              h337968e_19    conda-forge
+libglib                   2.76.4               hebfc3b9_0    conda-forge
+libgomp                   12.2.0              h65d4601_19    conda-forge
+libgoogle-cloud           2.10.0               hac9eb74_0    conda-forge
+libgrpc                   1.54.2               hcf146ea_0    conda-forge
+libiconv                  1.17                 h166bdaf_0    conda-forge
+libjpeg-turbo             2.1.5.1              h0b41bf4_0    conda-forge
+libkml                    1.3.0             h37653c0_1015    conda-forge
+liblapack                 3.9.0           16_linux64_openblas    conda-forge
+liblapacke                3.9.0           16_linux64_openblas    conda-forge
+libllvm11                 11.1.0               he0ac6c6_5    conda-forge
+libmamba                  1.4.2                hcea66bb_0    conda-forge
+libmambapy                1.4.2           py310h1428755_0    conda-forge
+libnetcdf                 4.9.2           nompi_hdf9a29f_104    conda-forge
+libnghttp2                1.52.0               h61bc06f_0    conda-forge
+libnsl                    2.0.0                h7f98852_0    conda-forge
+libnuma                   2.0.16               h0b41bf4_1    conda-forge
+libopenblas               0.3.21          pthreads_h78a6416_3    conda-forge
+libpng                    1.6.39               h753d276_0    conda-forge
+libpq                     15.3                 hbcd7760_0    conda-forge
+libprotobuf               3.21.12              h3eb15da_0    conda-forge
+librttopo                 1.1.0               h0d5128d_13    conda-forge
+libsodium                 1.0.18               h36c2ea0_1    conda-forge
+libsolv                   0.7.23               h3eb15da_0    conda-forge
+libspatialite             5.0.1               h7d1ca68_25    conda-forge
+libsqlite                 3.41.2               h2797004_1    conda-forge
+libssh2                   1.10.0               hf14f497_3    conda-forge
+libstdcxx-ng              12.2.0              h46fd767_19    conda-forge
+libthrift                 0.18.1               h8fd135c_1    conda-forge
+libtiff                   4.5.0                ha587672_6    conda-forge
+libutf8proc               2.8.0                h166bdaf_0    conda-forge
+libuuid                   2.38.1               h0b41bf4_0    conda-forge
+libuv                     1.44.2               h166bdaf_0    conda-forge
+libwebp-base              1.3.0                h0b41bf4_0    conda-forge
+libxcb                    1.13              h7f98852_1004    conda-forge
+libxml2                   2.10.4               hfdac1af_0    conda-forge
+libzip                    1.9.2                hc929e4a_1    conda-forge
+libzlib                   1.2.13               h166bdaf_4    conda-forge
+libzopfli                 1.0.3                h9c3ff4c_0    conda-forge
+linkify-it-py             2.0.0              pyhd8ed1ab_0    conda-forge
+llvm-openmp               16.0.3               h4dfa4b3_0    conda-forge
+llvmlite                  0.39.1          py310h58363a5_1    conda-forge
+lmfit                     1.2.2              pyhd8ed1ab_0    conda-forge
+locket                    1.0.0              pyhd8ed1ab_0    conda-forge
+lz4                       4.3.2           py310h0cfdcf0_0    conda-forge
+lz4-c                     1.9.4                hcb278e6_0    conda-forge
+lzo                       2.10              h516909a_1000    conda-forge
+mako                      1.2.4              pyhd8ed1ab_0    conda-forge
+mamba                     1.4.2           py310h51d5547_0    conda-forge
+markdown                  3.4.3              pyhd8ed1ab_0    conda-forge
+markdown-it-py            2.2.0                    pypi_0    pypi
+markupsafe                2.1.2           py310h1fa729e_0    conda-forge
+mathjax                   2.7.7                ha770c72_3    conda-forge
+matplotlib                3.5.3                    pypi_0    pypi
+matplotlib-inline         0.1.6              pyhd8ed1ab_0    conda-forge
+mdit-py-plugins           0.3.5                    pypi_0    pypi
+mdurl                     0.1.0              pyhd8ed1ab_0    conda-forge
+mistune                   2.0.5              pyhd8ed1ab_0    conda-forge
+mpc                       1.3.1                hfe3b2da_0    conda-forge
+mpfr                      4.2.0                hb012696_0    conda-forge
+mpmath                    1.3.0              pyhd8ed1ab_0    conda-forge
+msgpack-python            1.0.5           py310hdf3cbec_0    conda-forge
+munkres                   1.1.4              pyh9f0ad1d_0    conda-forge
+myst-nb                   0.17.2                   pypi_0    pypi
+myst-parser               0.18.1                   pypi_0    pypi
+nbclassic                 1.0.0              pyhb4ecaf3_1    conda-forge
+nbclient                  0.7.4              pyhd8ed1ab_0    conda-forge
+nbconvert                 7.4.0              pyhd8ed1ab_0    conda-forge
+nbconvert-core            7.4.0              pyhd8ed1ab_0    conda-forge
+nbconvert-pandoc          7.4.0              pyhd8ed1ab_0    conda-forge
+nbdime                    3.2.1              pyhd8ed1ab_0    conda-forge
+nbformat                  5.8.0              pyhd8ed1ab_0    conda-forge
+ncurses                   6.3                  h27087fc_1    conda-forge
+nest-asyncio              1.5.6              pyhd8ed1ab_0    conda-forge
+netcdf4                   1.6.4           nompi_py310hde23a83_100    conda-forge
+networkx                  3.1                pyhd8ed1ab_0    conda-forge
+nodejs                    16.19.0              h4abf6b9_1    conda-forge
+nomkl                     1.0                  h5ca1d4c_0    conda-forge
+notebook                  6.5.4              pyha770c72_0    conda-forge
+notebook-shim             0.2.3              pyhd8ed1ab_0    conda-forge
+nspr                      4.35                 h27087fc_0    conda-forge
+nss                       3.89                 he45b914_0    conda-forge
+numba                     0.56.4          py310h0e39c9b_1    conda-forge
+numexpr                   2.8.4           py310h690d005_100    conda-forge
+numpy                     1.23.5          py310h53a5b5f_0    conda-forge
+oauthlib                  3.2.2              pyhd8ed1ab_0    conda-forge
+openblas                  0.3.21          pthreads_h320a7e8_3    conda-forge
+openjpeg                  2.5.0                hfec8fc6_2    conda-forge
+openpyxl                  3.1.2           py310h2372a71_0    conda-forge
+openssl                   3.1.1                hd590300_1    conda-forge
+orc                       1.8.3                hfdbbad2_0    conda-forge
+outcome                   1.2.0              pyhd8ed1ab_0    conda-forge
+packaging                 23.1               pyhd8ed1ab_0    conda-forge
+pamela                    1.0.0                      py_0    conda-forge
+pandas                    1.5.3           py310h9b08913_1    conda-forge
+pandoc                    2.19.2               h32600fe_2    conda-forge
+pandocfilters             1.5.0              pyhd8ed1ab_0    conda-forge
+panel                     1.2.0              pyhd8ed1ab_0    conda-forge
+param                     1.13.0             pyh1a96a4e_0    conda-forge
+parquet-cpp               1.5.1                         2    conda-forge
+parso                     0.8.3              pyhd8ed1ab_0    conda-forge
+partd                     1.4.0              pyhd8ed1ab_0    conda-forge
+patsy                     0.5.3              pyhd8ed1ab_0    conda-forge
+pcre                      8.45                 h9c3ff4c_0    conda-forge
+pcre2                     10.40                hc3806b6_0    conda-forge
+pexpect                   4.8.0              pyh1a96a4e_2    conda-forge
+pickleshare               0.7.5                   py_1003    conda-forge
+pillow                    9.5.0           py310h065c6d2_0    conda-forge
+pip                       23.1.2             pyhd8ed1ab_0    conda-forge
+pixman                    0.40.0               h36c2ea0_0    conda-forge
+pkgutil-resolve-name      1.3.10             pyhd8ed1ab_0    conda-forge
+platformdirs              3.5.1              pyhd8ed1ab_0    conda-forge
+plotly                    5.15.0             pyhd8ed1ab_0    conda-forge
+pluggy                    1.0.0              pyhd8ed1ab_5    conda-forge
+pooch                     1.7.0              pyha770c72_3    conda-forge
+poppler                   23.05.0              hd18248d_1    conda-forge
+poppler-data              0.4.12               hd8ed1ab_0    conda-forge
+postgresql                15.3                 h814edd5_0    conda-forge
+proj                      9.2.0                h8ffa02c_0    conda-forge
+prometheus_client         0.16.0             pyhd8ed1ab_0    conda-forge
+prompt-toolkit            3.0.38             pyha770c72_0    conda-forge
+prompt_toolkit            3.0.38               hd8ed1ab_0    conda-forge
+protobuf                  4.21.12         py310heca2aa9_0    conda-forge
+psutil                    5.9.5           py310h1fa729e_0    conda-forge
+pthread-stubs             0.4               h36c2ea0_1001    conda-forge
+ptyprocess                0.7.0              pyhd3deb0d_0    conda-forge
+pure_eval                 0.2.2              pyhd8ed1ab_0    conda-forge
+py-cpuinfo                9.0.0              pyhd8ed1ab_0    conda-forge
+pyarrow                   12.0.0          py310he6bfd7f_1_cpu    conda-forge
+pybind11-abi              4                    hd8ed1ab_3    conda-forge
+pybtex                    0.24.0                   pypi_0    pypi
+pybtex-docutils           1.0.2                    pypi_0    pypi
+pycosat                   0.6.4           py310h5764c6d_1    conda-forge
+pycparser                 2.21               pyhd8ed1ab_0    conda-forge
+pyct                      0.4.6                      py_0    conda-forge
+pyct-core                 0.4.6                      py_0    conda-forge
+pycurl                    7.45.1          py310h60f9ec7_3    conda-forge
+pydata-sphinx-theme       0.13.3                   pypi_0    pypi
+pyerfa                    2.0.0.3         py310h0a54255_0    conda-forge
+pygments                  2.15.1             pyhd8ed1ab_0    conda-forge
+pygmt                     0.9.0              pyhd8ed1ab_0    conda-forge
+pyjwt                     2.7.0              pyhd8ed1ab_0    conda-forge
+pyopenssl                 23.1.1             pyhd8ed1ab_0    conda-forge
+pyparsing                 3.0.9              pyhd8ed1ab_0    conda-forge
+pyproj                    3.6.0           py310ha254fea_0    conda-forge
+pyrsistent                0.19.3          py310h1fa729e_0    conda-forge
+pyshp                     2.3.1              pyhd8ed1ab_0    conda-forge
+pyshtools                 4.10.3          py310h3e61171_0    conda-forge
+pysocks                   1.7.1              pyha2e5f31_6    conda-forge
+pytables                  3.8.0           py310hde6a235_1    conda-forge
+python                    3.10.11         he550d4f_0_cpython    conda-forge
+python-dateutil           2.8.2              pyhd8ed1ab_0    conda-forge
+python-fastjsonschema     2.16.3             pyhd8ed1ab_0    conda-forge
+python-json-logger        2.0.7              pyhd8ed1ab_0    conda-forge
+python-kaleido            0.2.1              pyhd8ed1ab_0    conda-forge
+python-tzdata             2023.3             pyhd8ed1ab_0    conda-forge
+python_abi                3.10                    3_cp310    conda-forge
+pytz                      2023.3             pyhd8ed1ab_0    conda-forge
+pyviz_comms               2.3.2              pyhd8ed1ab_0    conda-forge
+pywavelets                1.4.1           py310h0a54255_0    conda-forge
+pyyaml                    6.0             py310h5764c6d_5    conda-forge
+pyzmq                     25.0.2          py310h059b190_0    conda-forge
+quaternion                2022.4.3        py310h0a54255_0    conda-forge
+qutip                     4.7.2           py310hfb6f7a9_1    conda-forge
+re2                       2023.02.02           hcb278e6_0    conda-forge
+readline                  8.2                  h8228510_1    conda-forge
+reproc                    14.2.4               h0b41bf4_0    conda-forge
+reproc-cpp                14.2.4               hcb278e6_0    conda-forge
+requests                  2.29.0             pyhd8ed1ab_0    conda-forge
+retrying                  1.3.3                      py_2    conda-forge
+rfc3339-validator         0.1.4              pyhd8ed1ab_0    conda-forge
+rfc3986-validator         0.1.1              pyh9f0ad1d_0    conda-forge
+ruamel.yaml               0.17.26         py310h2372a71_0    conda-forge
+ruamel.yaml.clib          0.2.7           py310h1fa729e_1    conda-forge
+s2n                       1.3.44               h06160fa_0    conda-forge
+scikit-image              0.20.0          py310h9b08913_1    conda-forge
+scikit-learn              1.2.2           py310h41b6a48_1    conda-forge
+scipy                     1.10.1          py310ha4c1d20_3    conda-forge
+scooby                    0.7.2              pyhd8ed1ab_0    conda-forge
+seaborn                   0.9.0                      py_2    conda-forge
+seaborn-base              0.12.2             pyhd8ed1ab_0    conda-forge
+selenium                  4.10.0             pyhd8ed1ab_0    conda-forge
+send2trash                1.8.2              pyh41d4057_0    conda-forge
+setuptools                67.7.2             pyhd8ed1ab_0    conda-forge
+setuptools-scm            7.1.0              pyhd8ed1ab_0    conda-forge
+shapely                   2.0.1           py310h056c13c_1    conda-forge
+six                       1.16.0             pyh6c4a22f_0    conda-forge
+smmap                     3.0.5              pyh44b312d_0    conda-forge
+snappy                    1.1.10               h9fff704_0    conda-forge
+sniffio                   1.3.0              pyhd8ed1ab_0    conda-forge
+snowballstemmer           2.2.0                    pypi_0    pypi
+sortedcontainers          2.4.0              pyhd8ed1ab_0    conda-forge
+soupsieve                 2.3.2.post1        pyhd8ed1ab_0    conda-forge
+spherical_functions       2022.4.2           pyhd8ed1ab_0    conda-forge
+sphinx                    5.0.2                    pypi_0    pypi
+sphinx-book-theme         1.0.1                    pypi_0    pypi
+sphinx-comments           0.0.3                    pypi_0    pypi
+sphinx-copybutton         0.5.2                    pypi_0    pypi
+sphinx-design             0.3.0                    pypi_0    pypi
+sphinx-external-toc       0.3.1                    pypi_0    pypi
+sphinx-jupyterbook-latex  0.5.2                    pypi_0    pypi
+sphinx-multitoc-numbering 0.1.3                    pypi_0    pypi
+sphinx-thebe              0.2.1                    pypi_0    pypi
+sphinx-togglebutton       0.3.2                    pypi_0    pypi
+sphinxcontrib-applehelp   1.0.4                    pypi_0    pypi
+sphinxcontrib-bibtex      2.5.0                    pypi_0    pypi
+sphinxcontrib-devhelp     1.0.2                    pypi_0    pypi
+sphinxcontrib-htmlhelp    2.0.1                    pypi_0    pypi
+sphinxcontrib-jsmath      1.0.1                    pypi_0    pypi
+sphinxcontrib-qthelp      1.0.3                    pypi_0    pypi
+sphinxcontrib-serializinghtml 1.1.5                    pypi_0    pypi
+spinsfast                 2022.4.2        py310hc9031d1_0    conda-forge
+sqlalchemy                2.0.13          py310h2372a71_0    conda-forge
+sqlite                    3.41.2               h2c6b66d_1    conda-forge
+stack_data                0.6.2              pyhd8ed1ab_0    conda-forge
+statsmodels               0.14.0          py310h278f3c1_1    conda-forge
+sympy                     1.11.1          pypyh9d50eac_103    conda-forge
+tabulate                  0.9.0                    pypi_0    pypi
+tblib                     1.7.0              pyhd8ed1ab_0    conda-forge
+tenacity                  8.2.2              pyhd8ed1ab_0    conda-forge
+terminado                 0.17.1             pyh41d4057_0    conda-forge
+threadpoolctl             3.1.0              pyh8a188c0_0    conda-forge
+tifffile                  2023.4.12          pyhd8ed1ab_0    conda-forge
+tiledb                    2.13.2               hd532e3d_0    conda-forge
+tinycss2                  1.2.1              pyhd8ed1ab_0    conda-forge
+tk                        8.6.12               h27826a3_0    conda-forge
+toml                      0.10.2             pyhd8ed1ab_0    conda-forge
+tomli                     2.0.1              pyhd8ed1ab_0    conda-forge
+toolz                     0.12.0             pyhd8ed1ab_0    conda-forge
+tornado                   6.3             py310h1fa729e_0    conda-forge
+tqdm                      4.65.0             pyhd8ed1ab_1    conda-forge
+traitlets                 5.9.0              pyhd8ed1ab_0    conda-forge
+trio                      0.21.0          py310hff52083_0    conda-forge
+trio-websocket            0.10.3             pyhd8ed1ab_0    conda-forge
+typing-extensions         4.5.0                hd8ed1ab_0    conda-forge
+typing_extensions         4.5.0              pyha770c72_0    conda-forge
+tzcode                    2023c                h0b41bf4_0    conda-forge
+tzdata                    2023c                h71feb2d_0    conda-forge
+uc-micro-py               1.0.1              pyhd8ed1ab_0    conda-forge
+ucx                       1.14.0               h3484d09_2    conda-forge
+uncertainties             3.1.7              pyhd8ed1ab_0    conda-forge
+unicodedata2              15.0.0          py310h5764c6d_0    conda-forge
+uri-template              1.3.0                    pypi_0    pypi
+urllib3                   1.26.15            pyhd8ed1ab_0    conda-forge
+wcwidth                   0.2.6              pyhd8ed1ab_0    conda-forge
+webcolors                 1.13                     pypi_0    pypi
+webencodings              0.5.1                      py_1    conda-forge
+websocket-client          1.5.1              pyhd8ed1ab_0    conda-forge
+werkzeug                  2.3.6              pyhd8ed1ab_0    conda-forge
+wget                      3.2                      pypi_0    pypi
+wheel                     0.40.0             pyhd8ed1ab_0    conda-forge
+widgetsnbextension        4.0.7              pyhd8ed1ab_0    conda-forge
+wsproto                   1.2.0              pyhd8ed1ab_0    conda-forge
+xarray                    2022.3.0           pyhd8ed1ab_0    conda-forge
+xerces-c                  3.2.4                h8d71039_2    conda-forge
+xlrd                      2.0.1              pyhd8ed1ab_3    conda-forge
+xorg-kbproto              1.0.7             h7f98852_1002    conda-forge
+xorg-libice               1.1.1                hd590300_0    conda-forge
+xorg-libsm                1.2.4                h7391055_0    conda-forge
+xorg-libx11               1.8.4                h0b41bf4_0    conda-forge
+xorg-libxau               1.0.9                h7f98852_0    conda-forge
+xorg-libxdmcp             1.1.3                h7f98852_0    conda-forge
+xorg-libxext              1.3.4                h0b41bf4_2    conda-forge
+xorg-libxrender           0.9.10            h7f98852_1003    conda-forge
+xorg-renderproto          0.11.1            h7f98852_1002    conda-forge
+xorg-xextproto            7.3.0             h0b41bf4_1003    conda-forge
+xorg-xproto               7.0.31            h7f98852_1007    conda-forge
+xyzpy                     1.2.1              pyhd8ed1ab_0    conda-forge
+xyzservices               2023.2.0           pyhd8ed1ab_0    conda-forge
+xz                        5.2.6                h166bdaf_0    conda-forge
+y-py                      0.5.9           py310h4426083_0    conda-forge
+yaml                      0.2.5                h7f98852_2    conda-forge
+yaml-cpp                  0.7.0                h27087fc_2    conda-forge
+ypy-websocket             0.8.2              pyhd8ed1ab_0    conda-forge
+zeromq                    4.3.4                h9c3ff4c_1    conda-forge
+zfp                       1.0.0                h27087fc_3    conda-forge
+zict                      3.0.0              pyhd8ed1ab_0    conda-forge
+zipp                      3.15.0             pyhd8ed1ab_0    conda-forge
+zlib                      1.2.13               h166bdaf_4    conda-forge
+zlib-ng                   2.0.7                h0b41bf4_0    conda-forge
+zstandard                 0.19.0          py310hdeb6495_1    conda-forge
+zstd                      1.5.2                h3eb15da_6    conda-forge
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./tests"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../backmatter/glossary.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Glossary</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#versions">Versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-build-env">Docker build env</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#book-versions">Book versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-pkg-versions">Github pkg versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#full-conda-env">Full conda env</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Paul Hockett with Varun Makhija
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
