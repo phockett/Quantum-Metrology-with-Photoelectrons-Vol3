@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.7
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -130,7 +130,7 @@ data = pemtkFit(fileBase = dataPath, verbose = 1)
 data.scanFiles()
 ```
 
-#### Alignment distribution moments (ADMs)
+### Alignment distribution moments (ADMs)
 
 The class [wraps ep.setADMs()](https://epsproc.readthedocs.io/en/dev/modules/epsproc.sphCalc.html#epsproc.sphCalc.setADMs) to set {{ ADMs }} to the class data structure. This returns an isotropic distribution by default, or values can be set explicitly from a list. Note: if this is not set, the default value will be used, which is likely not very useful for the fit!
 

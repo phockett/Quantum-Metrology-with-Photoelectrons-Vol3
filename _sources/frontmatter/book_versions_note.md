@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -23,7 +23,7 @@ This book exists in multiple formats, which are not all equal:
 
 2. HTML pages. Compiled from the notebooks, include interactive figures and most computational outputs. The HTML version is available at {{ book_HTML }}.
 
-3. PDF and hard-copy. Standard static outputs, compiled from the notebooks. In this form some computational outputs are truncated or omitted for brevity and readability. Since some formats may not support hyperlinks, URLs to external references are also usually included in the bibliography - note that these may not always be the *full* URLs linked in the main text, and may only list the main index page of a given site in some cases.
+3. PDF and hard-copy. Standard static outputs, compiled from the notebooks. In this form some computational outputs are truncated or omitted for brevity and readability. Since some formats may not support hyperlinks, URLs to external references are also usually included in the bibliography - note that these may not always be the *full* URLs linked in the main text, and may only list the main index page of a given site in some cases. Some figures may also be omitted.
 
 ## Conventions
 
@@ -63,7 +63,7 @@ For more details on the aims, tools and build-chain, see {numref}`Sect. %s <sec:
 
 ## Formatting
 
-In some cases additional formatting is required for defining Jupter Notebook to HTML and PDF outputs (via the Jupyter Book build-chain, see {numref}`Sect. %s <sec:intro-technical-notes>`), in particular the `glue` command is used for formatting figure outputs with captions. In general use these are not required, but will transparently display figures when executed in the Jupyter Lab environment.
+In some cases additional formatting is required for defining Jupter Notebook to HTML and PDF outputs (via the Jupyter Book build-chain, see {numref}`Sect. %s <sec:intro-technical-notes>`), in particular [the `glue` command](https://jupyterbook.org/en/stable/content/executable/output-insert.html) is used for formatting figure outputs with captions. In general use these are not required, but will transparently display figures when executed in the Jupyter Lab environment. Note that glued tables from `Pandas` DataFrames are not nicely rendered in the HTML format, but interactive HTML output is usually include too, although this may be hidden in the cell above the glued table.
 
 (sec:numerics:disclaimer)=
 ## Numerics

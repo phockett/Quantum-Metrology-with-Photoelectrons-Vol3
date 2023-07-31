@@ -337,7 +337,7 @@ HTML pages. Compiled from the notebooks, include interactive figures and most co
 
 \item {} 
 \sphinxAtStartPar
-PDF and hard\sphinxhyphen{}copy. Standard static outputs, compiled from the notebooks. In this form some computational outputs are truncated or omitted for brevity and readability. Since some formats may not support hyperlinks, URLs to external references are also usually included in the bibliography \sphinxhyphen{} note that these may not always be the \sphinxstyleemphasis{full} URLs linked in the main text, and may only list the main index page of a given site in some cases.
+PDF and hard\sphinxhyphen{}copy. Standard static outputs, compiled from the notebooks. In this form some computational outputs are truncated or omitted for brevity and readability. Since some formats may not support hyperlinks, URLs to external references are also usually included in the bibliography \sphinxhyphen{} note that these may not always be the \sphinxstyleemphasis{full} URLs linked in the main text, and may only list the main index page of a given site in some cases. Some figures may also be omitted.
 
 \end{enumerate}
 
@@ -392,7 +392,7 @@ For more details on the aims, tools and build\sphinxhyphen{}chain, see \hyperref
 \section{Formatting}
 \label{\detokenize{frontmatter/book_versions_note:formatting}}
 \sphinxAtStartPar
-In some cases additional formatting is required for defining Jupter Notebook to HTML and PDF outputs (via the Jupyter Book build\sphinxhyphen{}chain, see \hyperref[\detokenize{part1/main_intro_060723:sec-intro-technical-notes}]{Sect.\@ \ref{\detokenize{part1/main_intro_060723:sec-intro-technical-notes}}}), in particular the \sphinxcode{\sphinxupquote{glue}} command is used for formatting figure outputs with captions. In general use these are not required, but will transparently display figures when executed in the Jupyter Lab environment.
+In some cases additional formatting is required for defining Jupter Notebook to HTML and PDF outputs (via the Jupyter Book build\sphinxhyphen{}chain, see \hyperref[\detokenize{part1/main_intro_060723:sec-intro-technical-notes}]{Sect.\@ \ref{\detokenize{part1/main_intro_060723:sec-intro-technical-notes}}}), in particular \sphinxhref{https://jupyterbook.org/en/stable/content/executable/output-insert.html}{the \sphinxcode{\sphinxupquote{glue}} command} is used for formatting figure outputs with captions. In general use these are not required, but will transparently display figures when executed in the Jupyter Lab environment. Note that glued tables from \sphinxcode{\sphinxupquote{Pandas}} DataFrames are not nicely rendered in the HTML format, but interactive HTML output is usually include too, although this may be hidden in the cell above the glued table.
 
 
 \section{Numerics}
@@ -1260,7 +1260,7 @@ Found dipole symmetries:
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}pandas.io.formats.style.Styler at 0x7fcd01f0a740\PYGZgt{}
+\PYGZlt{}pandas.io.formats.style.Styler at 0x7f2a001d7760\PYGZgt{}
 \end{sphinxVerbatim}
 \begin{equation*}
 \begin{split}\begin{tabular}{lllllll}
@@ -1472,7 +1472,7 @@ In simple cases, the frame definition for the {\hyperref[\detokenize{backmatter/
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{axes_QNs_inc_rotations_QM1}.pdf}
+\noindent\sphinxincludegraphics{{axes_QNs_inc_rotations_QM1}.png}
 \caption{Reference frame and angular momentum definitions for the Laboratory frame ({\hyperref[\detokenize{backmatter/glossary:term-LF}]{\sphinxtermref{\DUrole{xref,std,std-term}{LF}}}}) and Molecular frame ({\hyperref[\detokenize{backmatter/glossary:term-MF}]{\sphinxtermref{\DUrole{xref,std,std-term}{MF}}}}), using a general notation from molecular spectroscopy. In this case the {\hyperref[\detokenize{backmatter/glossary:term-LF}]{\sphinxtermref{\DUrole{xref,std,std-term}{LF}}}} shows an angular momentum vectors \(J\) and \(l\); \(J\) is usually used to define rotational (or sometimes total) angular momentum of the system, and \(l\) the electronic component. Projection terms onto the {\hyperref[\detokenize{backmatter/glossary:term-LF}]{\sphinxtermref{\DUrole{xref,std,std-term}{LF}}}} \(z\)\sphinxhyphen{}axis, \(M_J\) and \(m_l\) are also indicated. In the {\hyperref[\detokenize{backmatter/glossary:term-MF}]{\sphinxtermref{\DUrole{xref,std,std-term}{MF}}}} equivalent angular momentum terms are shown, with projections \(K\) and \(\lambda\) onto the molecular symmetry axis. The insert shows a {\hyperref[\detokenize{backmatter/glossary:term-frame-rotation}]{\sphinxtermref{\DUrole{xref,std,std-term}{frame rotation}}}} \((x,y,z)\leftarrow(x',y',z')\), defined by a set of {\hyperref[\detokenize{backmatter/glossary:term-Euler-angles}]{\sphinxtermref{\DUrole{xref,std,std-term}{Euler angles}}}} \(R_{\hat{n}}=\{\chi,\Theta,\Phi\}\), and illustrating the rotation of the \(z\)\sphinxhyphen{}axis (defined by the electric field vector \(E\)), and a spherical harmonic function in the \((x',y',z')\) frame. See also \hyperref[\detokenize{part1/main_intro_060723:fig-bootstrap-concept-outline}]{Fig.\@ \ref{\detokenize{part1/main_intro_060723:fig-bootstrap-concept-outline}}}. Figure reproduced from \sphinxstyleemphasis{Quantum Metrology} Vol. 1 {[}\hyperlink{cite.backmatter/bibliography:id676}{4}{]}, Fig. 2.3, and shows  \sphinxhyphen{} note that some alternative notations are used in this volume.}\label{\detokenize{part1/theory_tensor_formalism_160723:fig-frame-defns}}\end{figure}
 
 
@@ -1724,7 +1724,7 @@ M_{1} & M_{2} & M_{3}
 \end{equation*}
 \sphinxAtStartPar
 Note also some definitions use conjugate spherical harmonics, which can be converted as, e.g., Eq. C.21 in Blum {[}\hyperlink{cite.backmatter/bibliography:id534}{97}{]}:
-\label{equation:part1/theory_tensor_formalism_160723:0029986f-4bdb-4855-99c7-554e2d862da5}\begin{equation}
+\label{equation:part1/theory_tensor_formalism_160723:76804064-c4d2-4c55-8b0d-491024b2e4c1}\begin{equation}
 \beta_{L,M}^{\mu_{i},\mu_{f}}Y_{LM}^{*}(\theta_{\hat{k}},\phi_{\hat{k}})=\beta_{L,-M}^{\mu_{i},\mu_{f}}(-1)^{M}Y_{L,-M}(\theta_{\hat{k}},\phi_{\hat{k}})\label{eq:sph-conj-conv}
 \end{equation}
 \sphinxAtStartPar
@@ -1861,12 +1861,12 @@ Note this notation implicitly describes only the time\sphinxhyphen{}independent 
 
 \sphinxAtStartPar
 To derive this result, one can start from a general spherical tensor direct product, e.g., Eq. 5.36 in Zare {[}\hyperlink{cite.backmatter/bibliography:id988}{83}{]}; for two first\sphinxhyphen{}rank tensors (e.g. electric field vectors) this contraction is given explicitly by Eq. 5.40 in Zare {[}\hyperlink{cite.backmatter/bibliography:id988}{83}{]}:
-\label{equation:part1/theory_tensor_formalism_160723:5a701c21-9e66-418b-ab43-c3d59705054b}\begin{equation}
+\label{equation:part1/theory_tensor_formalism_160723:aa810e4a-085c-4395-875e-93e09a0c9ccd}\begin{equation}
 [A^{(1)}\otimes B^{(1)}]_{q}^{k}=\sum_{m}\langle1m,1q-m|kq\rangle A(1,m)B(1,q-m)
 \end{equation}
 \sphinxAtStartPar
 Convert to \(3j\) form:
-\label{equation:part1/theory_tensor_formalism_160723:ec008647-5e8b-4418-af74-91fdf7734f90}\begin{equation}
+\label{equation:part1/theory_tensor_formalism_160723:ebda3fec-1ff6-4ccf-bc2e-aec0e1184d55}\begin{equation}
 [A^{(1)}\otimes B^{(1)}]_{q}^{k}=\sum_{m}(-1)^{q}[k]^{1/2}\left(\begin{array}{ccc}
 1 & 1 & k\\
 m & q-m & -q
@@ -2386,7 +2386,7 @@ A basic density matrix computation routine is implemented in the \sphinxhref{htt
 For instance, considering the ionization matrix elements demonstrated herein, setting indexes (quantum numbers) as \sphinxcode{\sphinxupquote{{[}l,m{]}}} will select the \(|\zeta\rangle = |l,m\rangle\) basis, hence define the density operator as \(\hat{\rho} = |\zeta\rangle \langle\zeta'| = |l,m\rangle\langle l',m'|\) and the corresponding density matrix elements \(\rho^{\zeta,\zeta'}=\langle\zeta|\hat{\rho}|\zeta'\rangle=a_{l,m}a_{l',m'}^{*}\). Similarly, setting \sphinxcode{\sphinxupquote{{[}'l','m','mu'{]}}} will set the \(|\zeta\rangle = |l,m,\mu\rangle\) as the basis vector and so forth, where \(|\zeta\rangle\) is used as a generic state vector denoting all required quantum numbers. Additionally, other quantum numbers/dimensions can be kept, summed or selected from the input tensors prior to computation, thus density matrices can be readily computed as a function of other parameters, or averaged, according to the properties of interest, experimental parameters and observables.
 
 \sphinxAtStartPar
-Note, however, that this selection is purely based on the numerics, which compute the outer product along the defined dimensions \(|\zeta\rangle\langle\zeta'|\) to form the density matrix, hence does not guarantee a well\sphinxhyphen{}formed density matrix in the strictest sense (depending on the basis set), although will always present a basis state correlation matrix of sorts. A brief example, for the  defined matrix element is given below; for more examples see the \sphinxhref{https://epsproc.readthedocs.io}{ePSproc documentation} {[}\hyperlink{cite.backmatter/bibliography:id605}{35}{]}.
+Note, however, that this selection is purely based on the numerics, which compute the outer product along the defined dimensions \(|\zeta\rangle\langle\zeta'|\) to form the density matrix, hence does not guarantee a well\sphinxhyphen{}formed density matrix in the strictest sense (depending on the basis set), although will always present a basis state correlation matrix of sorts. A brief example, for the \DUrole{pasted-text}{D2h} defined matrix element is given below; for more examples see the \sphinxhref{https://epsproc.readthedocs.io}{ePSproc documentation} {[}\hyperlink{cite.backmatter/bibliography:id605}{35}{]}.
 
 \begin{sphinxuseclass}{cell}
 \begin{sphinxuseclass}{tag_hide-output}\begin{sphinxVerbatimInput}
@@ -2452,7 +2452,7 @@ Note, however, that this selection is purely based on the numerics, which comput
 \capstart
 
 \noindent\sphinxincludegraphics{{d9e887d4aaecc7ef08945679c1217e80c95a9cf833ce99acd1a048f9b46356b6}.png}
-\caption{Example density matrix, computed from matrix elements defined purely by  symmetry. Note in this case only the real part is non\sphinxhyphen{}zero. Axes labels give terms \(\{L,M\}\) and \(\{L',M'\}\).}\label{\detokenize{part1/theory_density_matrices_190723:fig-denmatd2hrealonly}}\end{figure}
+\caption{Example density matrix, computed from matrix elements defined purely by \DUrole{pasted-text}{D2h} symmetry. Note in this case only the real part is non\sphinxhyphen{}zero. Axes labels give terms \(\{L,M\}\) and \(\{L',M'\}\).}\label{\detokenize{part1/theory_density_matrices_190723:fig-denmatd2hrealonly}}\end{figure}
 
 
 \subsection{Visualising matrix element reconstruction fidelity with density matrices}
@@ -2519,8 +2519,8 @@ To demonstrate the use of the density matrix representation as a means to test s
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{d3765a154ac532c7f964a53732338015790d0e0dd9a25857f3408fda5b3f9a4c}.png}
-\caption{Example density matrices, computed from matrix elements defined purely by  symmetry. Here the panels show (a) the original density matrix, (b) density matrix computed with +/\sphinxhyphen{} 10\% random noise added to the original matrix elements, (c) the difference matrix, which indicates the fidelity of the noisy case relative to the original case. For normalised density matrices the 10\% noise case translates to a standard deviation \(\sigma\approx\)\DUrole{pasted-text}{0.2} on the differences; the maximum error in the test case as illustrated =\DUrole{pasted-text}{0.306}.}\label{\detokenize{part1/theory_density_matrices_190723:fig-denmatd2hcompexample}}\end{figure}
+\noindent\sphinxincludegraphics{{523797f4e802a594ec42433677393772b8a1b0e1c6f79fdb6f3ad312515c3b23}.png}
+\caption{Example density matrices, computed from matrix elements defined purely by \DUrole{pasted-text}{D2h} symmetry. Here the panels show (a) the original density matrix, (b) density matrix computed with +/\sphinxhyphen{} 10\% random noise added to the original matrix elements, (c) the difference matrix, which indicates the fidelity of the noisy case relative to the original case. For normalised density matrices the 10\% noise case translates to a standard deviation \(\sigma\approx\)\DUrole{pasted-text}{0.2} on the differences; the maximum error in the test case as illustrated =\DUrole{pasted-text}{0.193}.}\label{\detokenize{part1/theory_density_matrices_190723:fig-denmatd2hcompexample}}\end{figure}
 
 
 \subsection{Working with density matrices with QuTiP library functions}
@@ -2604,9 +2604,9 @@ Trace\PYGZhy{}normed fidelity = 1.0000000125329587
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-Fidelity (a,b) = 22.656417792316116
-Trace a = 25.0, Trace b = 20.608774961173992
-Trace\PYGZhy{}normed fidelity = 0.9981531782687628
+Fidelity (a,b) = 24.09520330700228
+Trace a = 25.0, Trace b = 23.289960248949274
+Trace\PYGZhy{}normed fidelity = 0.9985704465969232
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -2757,7 +2757,8 @@ Set plot to self.data[\PYGZsq{}subset\PYGZsq{}][\PYGZsq{}plots\PYGZsq{}][\PYGZsq
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-output}\begin{sphinxVerbatimInput}
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
@@ -2781,19 +2782,8 @@ Set plot to self.data[\PYGZsq{}subset\PYGZsq{}][\PYGZsq{}plots\PYGZsq{}][\PYGZsq
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
 
-\begin{sphinxuseclass}{cell_output}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-* Set Holoviews with bokeh.
-Using default sph betas.
-Summing over dims: set()
-Plotting from self.data[subset][ADM], facetDims=[\PYGZsq{}t\PYGZsq{}, None], pType=a with backend=pl.
-Set plot to self.data[\PYGZsq{}subset\PYGZsq{}][\PYGZsq{}plots\PYGZsq{}][\PYGZsq{}ADM\PYGZsq{}][\PYGZsq{}polar\PYGZsq{}]
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-
+\end{sphinxuseclass}
 \end{sphinxuseclass}
 \begin{figure}[htbp]
 \centering
@@ -3348,29 +3338,20 @@ True
 \PYG{n}{ep}\PYG{o}{.}\PYG{n}{plot}\PYG{o}{.}\PYG{n}{hvPlotters}\PYG{o}{.}\PYG{n}{setPlotDefaults}\PYG{p}{(}\PYG{n}{fSize} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{750}\PYG{p}{,}\PYG{l+m+mi}{300}\PYG{p}{]}\PYG{p}{,} \PYG{n}{imgSize} \PYG{o}{=} \PYG{l+m+mi}{600}\PYG{p}{)}
 
 \PYG{c+c1}{\PYGZsh{} Plot heatmap for l=2 vs. Eke and add ADM plot to layout with hvplot}
-\PYG{p}{(}\PYG{n}{data}\PYG{o}{.}\PYG{n}{plots}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{BLMplot}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{hvDS}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{select}\PYG{p}{(}\PYG{n}{l}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{to}\PYG{p}{(}\PYG{n}{hv}\PYG{o}{.}\PYG{n}{HeatMap}\PYG{p}{,} \PYG{n}{kdims}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Eke}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{opts}\PYG{p}{(}\PYG{n}{cmap}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{coolwarm}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}  \PYG{o}{+} 
+\PYG{n}{daLayout} \PYG{o}{=} \PYG{p}{(}\PYG{n}{data}\PYG{o}{.}\PYG{n}{plots}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{BLMplot}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{hvDS}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{select}\PYG{p}{(}\PYG{n}{l}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{to}\PYG{p}{(}\PYG{n}{hv}\PYG{o}{.}\PYG{n}{HeatMap}\PYG{p}{,} \PYG{n}{kdims}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Eke}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{opts}\PYG{p}{(}\PYG{n}{cmap}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{coolwarm}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}  \PYG{o}{+} 
     \PYG{n}{data}\PYG{o}{.}\PYG{n}{data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{subset}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ADM}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{unstack}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{sel}\PYG{p}{(}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{K}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{]}\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{squeeze}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{real}\PYG{o}{.}\PYG{n}{hvplot}\PYG{o}{.}\PYG{n}{line}\PYG{p}{(}\PYG{n}{x}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{overlay}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{K}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{o}{.}\PYG{n}{cols}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-WARNING:param.HeatMapPlot08282: Due to internal constraints, when aspect and width/height is set, the bokeh backend uses those values as frame\PYGZus{}width/frame\PYGZus{}height instead. This ensures the aspect is respected, but means that the plot might be slightly larger than anticipated. Set the frame\PYGZus{}width/frame\PYGZus{}height explicitly to suppress this warning.
-\end{sphinxVerbatim}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-:Layout
-   .HoloMap.I   :HoloMap   [Orb,l,m]
-      :HeatMap   [t,Eke]   (BLM)
-   .NdOverlay.I :NdOverlay   [K]
-      :Curve   [t]   (ADM)
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{68c953227ba43f23fd86e606d48b00628590e34e55a3c3ba4cf09d6a91f4364c}.png}
+\caption{Example \(\beta_{L,M}(\epsilon,t)\) data, computed for \(N_2\) (upper panel), and the {\hyperref[\detokenize{backmatter/glossary:term-ADMs}]{\sphinxtermref{\DUrole{xref,std,std-term}{ADMs}}}} used in the calculation.}\label{\detokenize{part1/theory_observables_intro_100723:fig-n2blmtdemo}}\end{figure}
+
 \begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
 
 \begin{sphinxuseclass}{cell_input}
@@ -3401,29 +3382,31 @@ Set plot to self.data[\PYGZsq{}subset\PYGZsq{}][\PYGZsq{}plots\PYGZsq{}][\PYGZsq
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-output}\begin{sphinxVerbatimInput}
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Plot I(theta,phi) at selected t}
+\PYG{c+c1}{\PYGZsh{} Plot I(theta,phi) at selected (E,t)}
 \PYG{n}{data}\PYG{o}{.}\PYG{n}{padPlot}\PYG{p}{(}\PYG{n}{keys} \PYG{o}{=} \PYG{n}{dataKey}\PYG{p}{,} \PYG{n}{dataType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{AFBLM}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{selDims}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Labels}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{A}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{\PYGZcb{}}\PYG{p}{,} 
              \PYG{n}{Erange}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{]}\PYG{p}{,} \PYG{n}{Etype} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{returnFlag} \PYG{o}{=} \PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{backend}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{pl}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} And GLUE for display later with caption}
+\PYG{n}{figObj} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{data}\PYG{p}{[}\PYG{n}{dataKey}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{plots}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{AFBLM}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{polar}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+\PYG{n}{glue}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{N2AFPADsdemo}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{figObj}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-Using default sph betas.
-Summing over dims: set()
-Plotting from self.data[subset][AFBLM], facetDims=[\PYGZsq{}t\PYGZsq{}, None], pType=a with backend=pl.
-Set plot to self.data[\PYGZsq{}subset\PYGZsq{}][\PYGZsq{}plots\PYGZsq{}][\PYGZsq{}AFBLM\PYGZsq{}][\PYGZsq{}polar\PYGZsq{}]
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
+\end{sphinxuseclass}
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{37ba3d1be5c7a7f940e60e1878f4e179fbbcbba2e80be06c883ce47e51679e0f}.png}
+\caption{{\hyperref[\detokenize{backmatter/glossary:term-AF}]{\sphinxtermref{\DUrole{xref,std,std-term}{AF}}}}\sphinxhyphen{}{\hyperref[\detokenize{backmatter/glossary:term-PADs}]{\sphinxtermref{\DUrole{xref,std,std-term}{PADs}}}} example for \(N_2\) at selected \((\epsilon,t)\). In this demo case the alignment and {\hyperref[\detokenize{backmatter/glossary:term-PADs}]{\sphinxtermref{\DUrole{xref,std,std-term}{PADs}}}} are “1D”, and cylindrically symmetric.}\label{\detokenize{part1/theory_observables_intro_100723:fig-n2afpadsdemo}}\end{figure}
+
 \sphinxstepscope
 
 
@@ -3490,7 +3473,8 @@ From a set of numerical results, it is relatively trivial to investigate some of
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} For the basic case, the data (Xarray object) can be queried, and relevant dimensions investigated}
+\PYG{c+c1}{\PYGZsh{} For the basic case, the data (Xarray object) can be queried, }
+\PYG{c+c1}{\PYGZsh{} and relevant dimensions investigated}
 
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Available dimensions: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{BetaNorm}\PYG{o}{.}\PYG{n}{dims}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
 
@@ -3523,13 +3507,11 @@ Coordinates:
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Note, however, that the indexes may not always be physical, depending on how the data has been composed and cleaned up.}
+\PYG{c+c1}{\PYGZsh{} Note, however, that the indexes may not always be physical, }
+\PYG{c+c1}{\PYGZsh{} depending on how the data has been composed and cleaned up.}
 \PYG{c+c1}{\PYGZsh{} For example, the above has l=0, m=+/\PYGZhy{}1 cases, which are non\PYGZhy{}physical.}
 
 \PYG{c+c1}{\PYGZsh{} Clean array to remove terms |m|\PYGZgt{}l, and display}
-\PYG{c+c1}{\PYGZsh{} BetaNorm.BLM.where(np.abs(BetaNorm.BLM.m)\PYGZlt{}=BetaNorm.BLM.l,drop=True)}
-\PYG{c+c1}{\PYGZsh{} BetaNorm.where(np.abs(BetaNorm.m)\PYGZlt{}=BetaNorm.l,drop=True)}
-
 \PYG{n}{cleanBLMs}\PYG{p}{(}\PYG{n}{BetaNorm}\PYG{p}{)}\PYG{o}{.}\PYG{n}{BLM}
 \end{sphinxVerbatim}
 
@@ -3583,9 +3565,9 @@ Coordinates:
 \PYG{n}{thres}\PYG{o}{=}\PYG{l+m+mf}{1e\PYGZhy{}4}
 
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Original array M=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{BetaNorm}\PYG{o}{.}\PYG{n}{BLM}\PYG{o}{.}\PYG{n}{indexes}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{BLM}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{nunique}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
-\PYG{c+c1}{\PYGZsh{} print(f\PYGZdq{}Cleaned array M=\PYGZob{}BetaNorm.BLM.where(np.abs(BetaNorm.BLM.m)\PYGZlt{}=BetaNorm.BLM.l,drop=True).size\PYGZcb{}\PYGZdq{})}
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Cleaned array M=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{cleanBLMs}\PYG{p}{(}\PYG{n}{BetaNorm}\PYG{p}{)}\PYG{o}{.}\PYG{n}{BLM}\PYG{o}{.}\PYG{n}{size}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
-\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Thresholded array (thres=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{thres}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{), M=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{ep}\PYG{o}{.}\PYG{n}{matEleSelector}\PYG{p}{(}\PYG{n}{BetaNorm}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{thres}\PYG{o}{=}\PYG{n}{thres}\PYG{p}{)}\PYG{o}{.}\PYG{n}{BLM}\PYG{o}{.}\PYG{n}{indexes}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{BLM}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{nunique}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Thresholded array (thres=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{thres}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{), }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{l+s+s2}{      M=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{ep}\PYG{o}{.}\PYG{n}{matEleSelector}\PYG{p}{(}\PYG{n}{BetaNorm}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{thres}\PYG{o}{=}\PYG{n}{thres}\PYG{p}{)}\PYG{o}{.}\PYG{n}{BLM}\PYG{o}{.}\PYG{n}{indexes}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{BLM}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{nunique}\PYG{p}{(}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -3595,7 +3577,7 @@ Coordinates:
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 Original array M=9
 Cleaned array M=7
-Thresholded array (thres=0.0001), M=2
+Thresholded array (thres=0.0001),       M=2
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -3608,132 +3590,15 @@ For more complicated cases, with \(u>1\), e.g. time\sphinxhyphen{}dependent meas
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{BetaNorm}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}xarray.DataArray (Labels: 1, t: 1, Type: 1, it: 1, Eke: 1, h: 6, muX: 1, BLM: 9)\PYGZgt{}
-array([[[[[[[[ 0.00000000e+00+0.j, \PYGZhy{}2.82094792e\PYGZhy{}01+0.j,
-               0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j,  6.93889390e\PYGZhy{}18+0.j,
-               0.00000000e+00+0.j]],
-
-            [[ 0.00000000e+00+0.j, \PYGZhy{}2.82094792e\PYGZhy{}01+0.j,
-               0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j,  4.48556893e\PYGZhy{}02+0.j,
-               0.00000000e+00+0.j]],
-
-            [[ 0.00000000e+00+0.j, \PYGZhy{}2.82094792e\PYGZhy{}01+0.j,
-               0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j, \PYGZhy{}4.48556893e\PYGZhy{}02+0.j,
-               0.00000000e+00+0.j]],
-
-            [[ 0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j]],
-
-            [[ 0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j]],
-
-            [[ 0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j,  0.00000000e+00+0.j,
-               0.00000000e+00+0.j]]]]]]]])
-Coordinates:
-    Euler       (Labels) object (0.0, 0.0, 0.0)
-  * Labels      (Labels) \PYGZlt{}U1 \PYGZsq{}A\PYGZsq{}
-  * t           (t) int64 0
-  * Type        (Type) \PYGZlt{}U1 \PYGZsq{}U\PYGZsq{}
-  * it          (it) float64 nan
-  * Eke         (Eke) int64 0
-  * h           (h) int64 0 1 2 3 4 5
-  * muX         (muX) int64 0
-    XSraw       (Labels, t, Type, it, Eke, h, muX) complex128 (\PYGZhy{}0.28209479177...
-    XSrescaled  (Labels, t, Type, it, Eke, h, muX) complex128 (\PYGZhy{}1.00000000000...
-    XSiso       (Type, it, Eke, h, muX) complex128 (1.6666666666666663+0j) .....
-  * BLM         (BLM) MultiIndex
-  \PYGZhy{} l           (BLM) int64 0 0 0 1 1 1 2 2 2
-  \PYGZhy{} m           (BLM) int64 \PYGZhy{}1 0 1 \PYGZhy{}1 0 1 \PYGZhy{}1 0 1
-Attributes:
-    QNs:              None
-    AKQS:             None
-    EPRX:             None
-    p:                [0]
-    BLMtable:         None
-    BLMtableResort:   None
-    lambdaTerm:       None
-    polProd:          None
-    AFterm:           None
-    thres:            None
-    thresDims:        Eke
-    selDims:          \PYGZob{}\PYGZcb{}
-    sqThres:          False
-    dropThres:        True
-    sumDims:          [\PYGZsq{}mu\PYGZsq{}, \PYGZsq{}mup\PYGZsq{}, \PYGZsq{}l\PYGZsq{}, \PYGZsq{}lp\PYGZsq{}, \PYGZsq{}m\PYGZsq{}, \PYGZsq{}mp\PYGZsq{}, \PYGZsq{}S\PYGZhy{}Rp\PYGZsq{}]
-    sumDimsPol:       [\PYGZsq{}P\PYGZsq{}, \PYGZsq{}R\PYGZsq{}, \PYGZsq{}Rp\PYGZsq{}, \PYGZsq{}p\PYGZsq{}]
-    symSum:           True
-    outputDims:       \PYGZob{}\PYGZsq{}LM\PYGZsq{}: [\PYGZsq{}L\PYGZsq{}, \PYGZsq{}M\PYGZsq{}]\PYGZcb{}
-    degenDrop:        True
-    SFflag:           False
-    SFflagRenorm:     False
-    BLMRenorm:        0
-    squeeze:          False
-    phaseConvention:  S
-    basisReturn:      ProductBasis
-    verbose:          0
-    kwargs:           \PYGZob{}\PYGZsq{}RX\PYGZsq{}: None\PYGZcb{}
-    matEleSelector:   \PYGZlt{}function matEleSelector at 0x7f1c22ced240\PYGZgt{}
-    degenDict:        \PYGZob{}\PYGZsq{}it\PYGZsq{}: \PYGZlt{}xarray.DataArray \PYGZsq{}it\PYGZsq{} (it: 1)\PYGZgt{}\PYGZbs{}narray([nan])\PYGZbs{}nC...
-    dataType:         BLM
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-
-\end{sphinxuseclass}
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{BetaNormLinearADMs}\PYG{p}{,} \PYG{n}{basisProductLinearADMs} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{afblmMatEfit}\PYG{p}{(}\PYG{n}{selDims}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{n}{sqThres}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{,} \PYG{n}{phaseCons}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{S}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
-\PYG{n}{BetaNormLinearADMs}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{p}{)}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}xarray.DataArray ()\PYGZgt{}
-array(0.22459236+0.j)
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-
-\end{sphinxuseclass}
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{c+c1}{\PYGZsh{} Convert to PD and tabulate with epsproc functionality}
 \PYG{c+c1}{\PYGZsh{} Note restack along \PYGZsq{}t\PYGZsq{} dimension}
-\PYG{n}{BetaNormLinearADMsPD}\PYG{p}{,} \PYG{n}{\PYGZus{}} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{util}\PYG{o}{.}\PYG{n}{multiDimXrToPD}\PYG{p}{(}\PYG{n}{BetaNormLinearADMs}\PYG{o}{.}\PYG{n}{squeeze}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{real}\PYG{p}{,} \PYG{n}{thres}\PYG{o}{=}\PYG{l+m+mf}{1e\PYGZhy{}4}\PYG{p}{,} \PYG{n}{colDims}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{BetaNormLinearADMsPD}\PYG{p}{,} \PYG{n}{\PYGZus{}} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{util}\PYG{o}{.}\PYG{n}{multiDimXrToPD}\PYG{p}{(}\PYG{n}{BetaNormLinearADMs}\PYG{o}{.}\PYG{n}{squeeze}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{real}\PYG{p}{,} 
+                                                 \PYG{n}{thres}\PYG{o}{=}\PYG{l+m+mf}{1e\PYGZhy{}4}\PYG{p}{,} \PYG{n}{colDims}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 
-\PYG{c+c1}{\PYGZsh{} Basic describe with Pandas, see https://pandas.pydata.org/docs/user\PYGZus{}guide/basics.html\PYGZsh{}summarizing\PYGZhy{}data\PYGZhy{}describe}
+\PYG{c+c1}{\PYGZsh{} Basic describe with Pandas, }
+\PYG{c+c1}{\PYGZsh{} see https://pandas.pydata.org/docs/user\PYGZus{}guide/basics.html\PYGZsh{}summarizing\PYGZhy{}data\PYGZhy{}describe}
 \PYG{c+c1}{\PYGZsh{} This will give properties per t}
-\PYG{n}{BetaNormLinearADMsPD}\PYG{o}{.}\PYG{n}{describe}\PYG{p}{(}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{}([pd.unique])   \PYGZsh{}([\PYGZsq{}nunique\PYGZsq{}])}
+\PYG{n}{BetaNormLinearADMsPD}\PYG{o}{.}\PYG{n}{describe}\PYG{p}{(}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -3744,14 +3609,14 @@ array(0.22459236+0.j)
 \toprule
 t &      0 &       1 &       2 &       3 &       4 &       5 &       6 &       7 &       8 &       9 \\
 \midrule
-count &  6.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.000 \\
-mean  &  0.090 &   0.057 &   0.061 &   0.064 &   0.068 &   0.071 &   0.074 &   0.078 &   0.081 &   0.085 \\
-std   &  0.081 &   0.078 &   0.079 &   0.081 &   0.083 &   0.085 &   0.088 &   0.091 &   0.094 &   0.097 \\
-min   & -0.049 &  -0.045 &  -0.042 &  -0.038 &  -0.035 &  -0.031 &  -0.030 &  -0.035 &  -0.040 &  -0.045 \\
-25\%   &  0.094 &   0.002 &   0.004 &   0.005 &   0.007 &   0.009 &   0.011 &   0.013 &   0.015 &   0.016 \\
-50\%   &  0.094 &   0.051 &   0.052 &   0.052 &   0.053 &   0.054 &   0.054 &   0.055 &   0.056 &   0.056 \\
-75\%   &  0.099 &   0.103 &   0.113 &   0.122 &   0.131 &   0.141 &   0.150 &   0.159 &   0.169 &   0.178 \\
-max   &  0.206 &   0.208 &   0.210 &   0.212 &   0.214 &   0.216 &   0.218 &   0.220 &   0.223 &   0.225 \\
+count &  5.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.000 \\
+mean  & -0.169 &  -0.074 &  -0.063 &  -0.052 &  -0.041 &  -0.031 &  -0.020 &  -0.009 &   0.002 &   0.012 \\
+std   &  0.158 &   0.126 &   0.115 &   0.104 &   0.093 &   0.083 &   0.073 &   0.065 &   0.058 &   0.053 \\
+min   & -0.282 &  -0.254 &  -0.226 &  -0.198 &  -0.170 &  -0.142 &  -0.114 &  -0.086 &  -0.058 &  -0.038 \\
+25\%   & -0.282 &  -0.201 &  -0.179 &  -0.157 &  -0.135 &  -0.113 &  -0.092 &  -0.072 &  -0.052 &  -0.030 \\
+50\%   & -0.282 &  -0.002 &  -0.004 &  -0.006 &  -0.008 &  -0.010 &  -0.011 &  -0.009 &  -0.007 &  -0.005 \\
+75\%   & -0.045 &   0.004 &   0.008 &   0.011 &   0.015 &   0.019 &   0.023 &   0.027 &   0.031 &   0.034 \\
+max   &  0.045 &   0.050 &   0.054 &   0.059 &   0.064 &   0.069 &   0.075 &   0.088 &   0.100 &   0.113 \\
 \bottomrule
 \end{tabular}\end{split}
 \end{equation*}
@@ -3762,7 +3627,8 @@ max   &  0.206 &   0.208 &   0.210 &   0.212 &   0.214 &   0.216 &   0.218 &   0
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Basic describe with Pandas, see https://pandas.pydata.org/docs/user\PYGZus{}guide/basics.html\PYGZsh{}summarizing\PYGZhy{}data\PYGZhy{}describe}
+\PYG{c+c1}{\PYGZsh{} Basic describe with Pandas, }
+\PYG{c+c1}{\PYGZsh{} see https://pandas.pydata.org/docs/user\PYGZus{}guide/basics.html\PYGZsh{}summarizing\PYGZhy{}data\PYGZhy{}describe}
 \PYG{c+c1}{\PYGZsh{} By transposing the input array, this will give properties per BLM}
 \PYG{n}{BetaNormLinearADMsPD}\PYG{o}{.}\PYG{n}{T}\PYG{o}{.}\PYG{n}{describe}\PYG{p}{(}\PYG{p}{)}
 \end{sphinxVerbatim}
@@ -3774,17 +3640,17 @@ max   &  0.206 &   0.208 &   0.210 &   0.212 &   0.214 &   0.216 &   0.218 &   0
 \begin{split}\begin{tabular}{lrrrrrrrrrr}
 \toprule
 h & \multicolumn{2}{l}{0} & \multicolumn{4}{l}{1} & \multicolumn{4}{l}{2} \\
-l &       0 &       2 &       0 &       2 &      4 &      6 &       0 &       2 &      4 &      6 \\
-m &       0 &       0 &       0 &       0 &      0 &      0 &       0 &       0 &      0 &      0 \\
+l &       0 &      2 &       0 &       2 &      4 &      6 &       0 &       2 &      4 &          6 \\
+m &       0 &      0 &       0 &       0 &      0 &      0 &       0 &       0 &      0 &          0 \\
 \midrule
-count &  10.000 &  10.000 &  10.000 &  10.000 &  9.000 &  9.000 &  10.000 &  10.000 &  9.000 &  9.000 \\
-mean  &   0.136 &   0.215 &   0.136 &   0.090 &  0.019 &  0.012 &   0.136 &  -0.033 & -0.025 &  0.008 \\
-std   &   0.028 &   0.006 &   0.028 &   0.008 &  0.010 &  0.007 &   0.028 &   0.011 &  0.014 &  0.004 \\
-min   &   0.094 &   0.206 &   0.094 &   0.078 &  0.004 &  0.002 &   0.094 &  -0.049 & -0.045 &  0.002 \\
-25\%   &   0.115 &   0.211 &   0.115 &   0.084 &  0.011 &  0.007 &   0.115 &  -0.041 & -0.035 &  0.005 \\
-50\%   &   0.136 &   0.215 &   0.136 &   0.090 &  0.019 &  0.012 &   0.136 &  -0.033 & -0.025 &  0.008 \\
-75\%   &   0.157 &   0.220 &   0.157 &   0.095 &  0.027 &  0.017 &   0.157 &  -0.025 & -0.015 &  0.011 \\
-max   &   0.178 &   0.225 &   0.178 &   0.101 &  0.034 &  0.022 &   0.178 &  -0.017 & -0.005 &  0.015 \\
+count &  10.000 &  9.000 &  10.000 &  10.000 &  9.000 &  9.000 &  10.000 &  10.000 &  9.000 &  9.000e+00 \\
+mean  &  -0.156 &  0.063 &  -0.156 &   0.066 &  0.021 &  0.012 &  -0.156 &  -0.029 & -0.021 &  1.669e-03 \\
+std   &   0.085 &  0.034 &   0.085 &   0.014 &  0.012 &  0.007 &   0.085 &   0.011 &  0.011 &  9.140e-04 \\
+min   &  -0.282 &  0.013 &  -0.282 &   0.045 &  0.004 &  0.002 &  -0.282 &  -0.045 & -0.038 &  3.337e-04 \\
+25\%   &  -0.219 &  0.038 &  -0.219 &   0.056 &  0.013 &  0.007 &  -0.219 &  -0.037 & -0.029 &  1.001e-03 \\
+50\%   &  -0.156 &  0.063 &  -0.156 &   0.066 &  0.021 &  0.012 &  -0.156 &  -0.029 & -0.021 &  1.669e-03 \\
+75\%   &  -0.093 &  0.088 &  -0.093 &   0.077 &  0.030 &  0.017 &  -0.093 &  -0.021 & -0.013 &  2.336e-03 \\
+max   &  -0.030 &  0.113 &  -0.030 &   0.088 &  0.038 &  0.022 &  -0.030 &  -0.013 & -0.004 &  3.004e-03 \\
 \bottomrule
 \end{tabular}\end{split}
 \end{equation*}
@@ -3798,8 +3664,9 @@ For further insight and control, specific aggregation functions and criteria can
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Round values to 1 d.p., then apply statistical methods}
-\PYG{n}{BetaNormLinearADMsPD}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{.}\PYG{n}{agg}\PYG{p}{(}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{min}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{max}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{var}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{count}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{nunique}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Round values to 2 d.p., then apply statistical methods}
+\PYG{n}{ndp} \PYG{o}{=} \PYG{l+m+mi}{2}
+\PYG{n}{BetaNormLinearADMsPD}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{n}{ndp}\PYG{p}{)}\PYG{o}{.}\PYG{n}{agg}\PYG{p}{(}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{min}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{max}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{var}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{count}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{nunique}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -3808,13 +3675,13 @@ For further insight and control, specific aggregation functions and criteria can
 \begin{sphinxuseclass}{cell_output}\begin{equation*}
 \begin{split}\begin{tabular}{lrrrrrrrrrr}
 \toprule
-t &      0 &       1 &       2 &       3 &       4 &       5 &      6 &      7 &      8 &      9 \\
+t &      0 &       1 &       2 &       3 &       4 &       5 &       6 &       7 &       8 &       9 \\
 \midrule
-min     & -0.000 &   0.000 &   0.000 &   0.000 &   0.000 &   0.000 &   0.00 &   0.00 &   0.00 &   0.00 \\
-max     &  0.200 &   0.200 &   0.200 &   0.200 &   0.200 &   0.200 &   0.20 &   0.20 &   0.20 &   0.20 \\
-var     &  0.004 &   0.005 &   0.005 &   0.005 &   0.005 &   0.005 &   0.01 &   0.01 &   0.01 &   0.01 \\
-count   &  6.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.00 &  10.00 &  10.00 &  10.00 \\
-nunique &  3.000 &   3.000 &   3.000 &   3.000 &   3.000 &   3.000 &   3.00 &   3.00 &   3.00 &   3.00 \\
+min     & -0.280 &  -0.250 &  -0.230 &  -0.200 &  -0.170 &  -0.140 &  -0.110 &  -0.090 &  -0.060 &  -0.040 \\
+max     &  0.040 &   0.050 &   0.050 &   0.060 &   0.060 &   0.070 &   0.080 &   0.090 &   0.100 &   0.110 \\
+var     &  0.024 &   0.015 &   0.014 &   0.011 &   0.009 &   0.007 &   0.005 &   0.004 &   0.003 &   0.003 \\
+count   &  5.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.000 &  10.000 \\
+nunique &  3.000 &   5.000 &   7.000 &   7.000 &   8.000 &   8.000 &   8.000 &   8.000 &   8.000 &   8.000 \\
 \bottomrule
 \end{tabular}\end{split}
 \end{equation*}
@@ -3829,7 +3696,7 @@ nunique &  3.000 &   3.000 &   3.000 &   3.000 &   3.000 &   3.000 &   3.00 &   
 \PYG{n}{demean} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{x}\PYG{p}{:} \PYG{n}{x} \PYG{o}{\PYGZhy{}} \PYG{n}{x}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{p}{)}
 
 \PYG{c+c1}{\PYGZsh{} Compute differences from mean}
-\PYG{n}{BetaNormLinearADMsPD}\PYG{o}{.}\PYG{n}{transform}\PYG{p}{(}\PYG{n}{demean}\PYG{p}{,}\PYG{n}{axis}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{columns}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{}.round(1).agg([\PYGZsq{}min\PYGZsq{},\PYGZsq{}max\PYGZsq{},\PYGZsq{}var\PYGZsq{},\PYGZsq{}count\PYGZsq{},\PYGZsq{}nunique\PYGZsq{}])   \PYGZsh{} OK, matches above case.}
+\PYG{n}{BetaNormLinearADMsPD}\PYG{o}{.}\PYG{n}{transform}\PYG{p}{(}\PYG{n}{demean}\PYG{p}{,}\PYG{n}{axis}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{columns}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -3838,19 +3705,19 @@ nunique &  3.000 &   3.000 &   3.000 &   3.000 &   3.000 &   3.000 &   3.00 &   
 \begin{sphinxuseclass}{cell_output}\begin{equation*}
 \begin{split}\begin{tabular}{lllrrrrrrrrrr}
 \toprule
-  &   & t &      0 &      1 &      2 &      3 &      4 &          5 &      6 &      7 &      8 &      9 \\
-h & l & m &        &        &        &        &        &            &        &        &        &        \\
+  &   & t &      0 &      1 &      2 &          3 &          4 &          5 &          6 &          7 &      8 &      9 \\
+h & l & m &        &        &        &            &            &            &            &            &        &        \\
 \midrule
-0 & 0 & 0 & -0.042 & -0.033 & -0.023 & -0.014 & -0.005 &  4.672e-03 &  0.014 &  0.023 &  0.033 &  0.042 \\
-  & 2 & 0 & -0.009 & -0.007 & -0.005 & -0.003 & -0.001 &  1.037e-03 &  0.003 &  0.005 &  0.007 &  0.009 \\
-1 & 0 & 0 & -0.042 & -0.033 & -0.023 & -0.014 & -0.005 &  4.672e-03 &  0.014 &  0.023 &  0.033 &  0.042 \\
-  & 2 & 0 &  0.011 &  0.009 &  0.006 &  0.004 &  0.001 & -1.250e-03 & -0.004 & -0.006 & -0.009 & -0.011 \\
-  & 4 & 0 &    NaN & -0.015 & -0.011 & -0.008 & -0.004 &  3.469e-18 &  0.004 &  0.008 &  0.011 &  0.015 \\
-  & 6 & 0 &    NaN & -0.010 & -0.007 & -0.005 & -0.002 & -3.469e-18 &  0.002 &  0.005 &  0.007 &  0.010 \\
-2 & 0 & 0 & -0.042 & -0.033 & -0.023 & -0.014 & -0.005 &  4.672e-03 &  0.014 &  0.023 &  0.033 &  0.042 \\
-  & 2 & 0 & -0.016 & -0.012 & -0.009 & -0.005 & -0.002 &  1.781e-03 &  0.005 &  0.009 &  0.012 &  0.016 \\
-  & 4 & 0 &    NaN &  0.020 &  0.015 &  0.010 &  0.005 &  6.939e-18 & -0.005 & -0.010 & -0.015 & -0.020 \\
-  & 6 & 0 &    NaN & -0.006 & -0.005 & -0.003 & -0.002 &  1.735e-18 &  0.002 &  0.003 &  0.005 &  0.006 \\
+0 & 0 & 0 & -0.126 & -0.098 & -0.070 & -4.205e-02 & -1.402e-02 &  1.402e-02 &  4.205e-02 &  7.009e-02 &  0.098 &  0.126 \\
+  & 2 & 0 &    NaN & -0.050 & -0.038 & -2.508e-02 & -1.254e-02 &  0.000e+00 &  1.254e-02 &  2.508e-02 &  0.038 &  0.050 \\
+1 & 0 & 0 & -0.126 & -0.098 & -0.070 & -4.205e-02 & -1.402e-02 &  1.402e-02 &  4.205e-02 &  7.009e-02 &  0.098 &  0.126 \\
+  & 2 & 0 & -0.022 & -0.017 & -0.012 & -7.172e-03 & -2.391e-03 &  2.391e-03 &  7.172e-03 &  1.195e-02 &  0.017 &  0.022 \\
+  & 4 & 0 &    NaN & -0.017 & -0.013 & -8.537e-03 & -4.269e-03 &  3.469e-18 &  4.269e-03 &  8.537e-03 &  0.013 &  0.017 \\
+  & 6 & 0 &    NaN & -0.010 & -0.007 & -4.912e-03 & -2.456e-03 & -3.469e-18 &  2.456e-03 &  4.912e-03 &  0.007 &  0.010 \\
+2 & 0 & 0 & -0.126 & -0.098 & -0.070 & -4.205e-02 & -1.402e-02 &  1.402e-02 &  4.205e-02 &  7.009e-02 &  0.098 &  0.126 \\
+  & 2 & 0 & -0.016 & -0.013 & -0.009 & -5.366e-03 & -1.789e-03 &  1.789e-03 &  5.366e-03 &  8.943e-03 &  0.013 &  0.016 \\
+  & 4 & 0 &    NaN &  0.017 &  0.013 &  8.364e-03 &  4.182e-03 &  0.000e+00 & -4.182e-03 & -8.364e-03 & -0.013 & -0.017 \\
+  & 6 & 0 &    NaN & -0.001 & -0.001 & -6.675e-04 & -3.337e-04 & -1.735e-18 &  3.337e-04 &  6.675e-04 &  0.001 &  0.001 \\
 \bottomrule
 \end{tabular}\end{split}
 \end{equation*}
@@ -3862,7 +3729,8 @@ h & l & m &        &        &        &        &        &            &        &  
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{c+c1}{\PYGZsh{} Apply statistical functions to differences from mean.}
-\PYG{n}{BetaNormLinearADMsPD}\PYG{o}{.}\PYG{n}{transform}\PYG{p}{(}\PYG{n}{demean}\PYG{p}{,}\PYG{n}{axis}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{columns}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{.}\PYG{n}{agg}\PYG{p}{(}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{min}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{max}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{var}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{count}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{nunique}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{BetaNormLinearADMsPD}\PYG{o}{.}\PYG{n}{transform}\PYG{p}{(}\PYG{n}{demean}\PYG{p}{,}\PYG{n}{axis}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{columns}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.} \PYGZbs{}
+        \PYG{n+nb}{round}\PYG{p}{(}\PYG{n}{ndp}\PYG{p}{)}\PYG{o}{.}\PYG{n}{agg}\PYG{p}{(}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{min}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{max}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{var}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{count}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{nunique}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -3871,13 +3739,13 @@ h & l & m &        &        &        &        &        &            &        &  
 \begin{sphinxuseclass}{cell_output}\begin{equation*}
 \begin{split}\begin{tabular}{lrrrrrrrrrr}
 \toprule
-t &    0 &     1 &     2 &     3 &     4 &     5 &     6 &     7 &     8 &     9 \\
+t &      0 &       1 &       2 &      3 &      4 &      5 &      6 &       7 &       8 &       9 \\
 \midrule
-min     & -0.0 &  -0.0 &  -0.0 &  -0.0 &  -0.0 &   0.0 &   0.0 &   0.0 &   0.0 &   0.0 \\
-max     & -0.0 &  -0.0 &  -0.0 &  -0.0 &  -0.0 &   0.0 &   0.0 &   0.0 &   0.0 &   0.0 \\
-var     &  0.0 &   0.0 &   0.0 &   0.0 &   0.0 &   0.0 &   0.0 &   0.0 &   0.0 &   0.0 \\
-count   &  6.0 &  10.0 &  10.0 &  10.0 &  10.0 &  10.0 &  10.0 &  10.0 &  10.0 &  10.0 \\
-nunique &  1.0 &   1.0 &   1.0 &   1.0 &   1.0 &   1.0 &   1.0 &   1.0 &   1.0 &   1.0 \\
+min     & -0.130 &  -0.100 &  -0.070 &  -0.04 &  -0.01 &  -0.00 &   0.00 &  -0.010 &  -0.010 &  -0.020 \\
+max     & -0.020 &   0.020 &   0.010 &   0.01 &  -0.00 &   0.01 &   0.04 &   0.070 &   0.100 &   0.130 \\
+var     &  0.004 &   0.002 &   0.001 &   0.00 &   0.00 &   0.00 &   0.00 &   0.001 &   0.002 &   0.003 \\
+count   &  5.000 &  10.000 &  10.000 &  10.00 &  10.00 &  10.00 &  10.00 &  10.000 &  10.000 &  10.000 \\
+nunique &  2.000 &   6.000 &   5.000 &   5.00 &   2.00 &   2.00 &   3.00 &   5.000 &   6.000 &   6.000 \\
 \bottomrule
 \end{tabular}\end{split}
 \end{equation*}
@@ -3885,7 +3753,7 @@ nunique &  1.0 &   1.0 &   1.0 &   1.0 &   1.0 &   1.0 &   1.0 &   1.0 &   1.0 &
 
 \end{sphinxuseclass}
 \sphinxAtStartPar
-In this case the analysis suggests that \(t=4,5\) contain minimal, and redundant, information, whilst \(t=0,3,6\) are also of low total information content. However, this analysis is not necessarily absolutely definitive, since some nuances may be lost in this basic statistical analysis, particularly for weaker channels.
+In this case the analysis suggests that \(t=2 - 5\) contain minimal information (low variance), and \(t=4,5\) potentially redundant information (low nunique), whilst \(t=1,7 - 9\) show a greater total information content and number of unique values. However, this analysis is not necessarily absolutely definitive, since some nuances may be lost in this basic statistical analysis, particularly for weaker channels.
 
 \sphinxAtStartPar
 For a more detailed analysis, other standard analysis tools can be deployed. For instance, the covariance matrix can be investigated, given by \(K_{i,j}=\textrm{cov}[X_{i},X_{j}]=\langle(X_{i}-\langle X_{i}\rangle)(X_{j}-\langle X_{j}\rangle)\rangle\). For the linear ramp case this analysis is not particularly useful, but will become more informative for more complicated cases.
@@ -3910,8 +3778,8 @@ For a more detailed analysis, other standard analysis tools can be deployed. For
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{9cad4151dab7c0a4e3af7b3e5af414351c2e8b8df3392ab8c29c4b82cc7e6a14}.png}
-\caption{Example \(\beta_\{L,M\}(t)\) covariance matrix, see text for details.}\label{\detokenize{part1/theory_info_content_200723:fig-covmatblmexample}}\end{figure}
+\noindent\sphinxincludegraphics{{9ce65efb90f1c5f6c6d0b8609c48b451408758a2e27c308cc9fc4d313f423313}.png}
+\caption{Example \(\beta_{L,M}(t)\) covariance matrix, see text for details.}\label{\detokenize{part1/theory_info_content_200723:fig-covmatblmexample}}\end{figure}
 
 
 \subsection{Information content from channel functions}
@@ -3984,27 +3852,12 @@ Full tabulations of the parameters available in HTML or notebook formats only.
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{c+c1}{\PYGZsh{} Convert to PD and tabulate with epsproc functionality}
 \PYG{c+c1}{\PYGZsh{} Note restack along \PYGZsq{}t\PYGZsq{} dimension}
-\PYG{n}{channelFuncsSubsetPD}\PYG{p}{,} \PYG{n}{\PYGZus{}} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{util}\PYG{o}{.}\PYG{n}{multiDimXrToPD}\PYG{p}{(}\PYG{n}{channelFuncsSubset}\PYG{o}{.}\PYG{n}{squeeze}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{real}\PYG{p}{,} \PYG{n}{thres}\PYG{o}{=}\PYG{l+m+mf}{1e\PYGZhy{}4}\PYG{p}{,} \PYG{n}{colDims}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
-
-\PYG{c+c1}{\PYGZsh{} Basic describe with Pandas, see https://pandas.pydata.org/docs/user\PYGZus{}guide/basics.html\PYGZsh{}summarizing\PYGZhy{}data\PYGZhy{}describe}
-\PYG{c+c1}{\PYGZsh{} This will give properties per t}
-\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.describe()   \PYGZsh{}([pd.unique])   \PYGZsh{}([\PYGZsq{}nunique\PYGZsq{}])}
+\PYG{n}{channelFuncsSubsetPD}\PYG{p}{,} \PYG{n}{\PYGZus{}} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{util}\PYG{o}{.}\PYG{n}{multiDimXrToPD}\PYG{p}{(}\PYG{n}{channelFuncsSubset}\PYG{o}{.}\PYG{n}{squeeze}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{real}\PYG{p}{,} 
+                                                 \PYG{n}{thres}\PYG{o}{=}\PYG{l+m+mf}{1e\PYGZhy{}4}\PYG{p}{,} \PYG{n}{colDims}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 
 \PYG{c+c1}{\PYGZsh{} Round values to 1 d.p., then apply statistical methods}
-\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.round(1).agg([\PYGZsq{}min\PYGZsq{},\PYGZsq{}max\PYGZsq{},\PYGZsq{}var\PYGZsq{},\PYGZsq{}count\PYGZsq{},\PYGZsq{}nunique\PYGZsq{}])  \PYGZsh{} Compute per t}
-
-\PYG{n}{channelFuncsSubsetPD}\PYG{o}{.}\PYG{n}{T}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{.}\PYG{n}{agg}\PYG{p}{(}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{min}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{max}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{var}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{count}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{nunique}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{T}  \PYG{c+c1}{\PYGZsh{}[0:100]  \PYGZsh{} Compute per basis index and display}
-
-
-\PYG{c+c1}{\PYGZsh{} Plotting tests with hvplot wrapper \PYGZhy{} interesting, but lacking fine control so far...}
-\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.T.round(1).agg([\PYGZsq{}min\PYGZsq{},\PYGZsq{}max\PYGZsq{},\PYGZsq{}var\PYGZsq{},\PYGZsq{}count\PYGZsq{},\PYGZsq{}nunique\PYGZsq{}]).T.hvplot.hist(\PYGZsq{}nunique\PYGZsq{}, by=[\PYGZsq{}L\PYGZsq{},\PYGZsq{}M\PYGZsq{}], subplots=True).cols(1)}
-\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.T.round(3).agg([\PYGZsq{}min\PYGZsq{},\PYGZsq{}max\PYGZsq{},\PYGZsq{}var\PYGZsq{},\PYGZsq{}count\PYGZsq{},\PYGZsq{}nunique\PYGZsq{}]).T.hvplot.hist(\PYGZsq{}nunique\PYGZsq{}, by=[\PYGZsq{}l\PYGZsq{},\PYGZsq{}lp\PYGZsq{}])}
-\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.T.round(3).agg([\PYGZsq{}min\PYGZsq{},\PYGZsq{}max\PYGZsq{},\PYGZsq{}var\PYGZsq{},\PYGZsq{}count\PYGZsq{},\PYGZsq{}nunique\PYGZsq{}]).T.hvplot.hist(\PYGZsq{}nunique\PYGZsq{}, by=[\PYGZsq{}l\PYGZsq{},\PYGZsq{}lp\PYGZsq{}], subplots=True).cols(2)}
-\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.T.round(2).agg([\PYGZsq{}min\PYGZsq{},\PYGZsq{}max\PYGZsq{},\PYGZsq{}var\PYGZsq{},\PYGZsq{}count\PYGZsq{},\PYGZsq{}nunique\PYGZsq{}]).T.hvplot.hist(\PYGZsq{}nunique\PYGZsq{}, by=[\PYGZsq{}L\PYGZsq{},\PYGZsq{}l\PYGZsq{},\PYGZsq{}lp\PYGZsq{}], subplots=True)}
-\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.T.round(2).agg([\PYGZsq{}min\PYGZsq{},\PYGZsq{}max\PYGZsq{},\PYGZsq{}var\PYGZsq{},\PYGZsq{}count\PYGZsq{},\PYGZsq{}nunique\PYGZsq{}]).T.hvplot.heatmap(x=\PYGZsq{}nunique\PYGZsq{},y=\PYGZsq{}L\PYGZsq{}, by=[\PYGZsq{}L\PYGZsq{},\PYGZsq{}l\PYGZsq{},\PYGZsq{}lp\PYGZsq{}], subplots=True)}
-
-\PYG{c+c1}{\PYGZsh{} Holomap version \PYGZhy{} not working in notebook currently? Gives controls, but plot not responding...}
-\PYG{c+c1}{\PYGZsh{} channelFuncsSubsetPD.T.round(2).agg([\PYGZsq{}min\PYGZsq{},\PYGZsq{}max\PYGZsq{},\PYGZsq{}var\PYGZsq{},\PYGZsq{}count\PYGZsq{},\PYGZsq{}nunique\PYGZsq{}]).T.hvplot.hist(\PYGZsq{}nunique\PYGZsq{}, by=[\PYGZsq{}L\PYGZsq{},\PYGZsq{}l\PYGZsq{},\PYGZsq{}lp\PYGZsq{}], groupby=[\PYGZsq{}L\PYGZsq{},\PYGZsq{}l\PYGZsq{},\PYGZsq{}lp\PYGZsq{}])}
+\PYG{c+c1}{\PYGZsh{} Compute per basis index and display}
+\PYG{n}{channelFuncsSubsetPD}\PYG{o}{.}\PYG{n}{T}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{.}\PYG{n}{agg}\PYG{p}{(}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{min}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{max}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{var}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{count}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{nunique}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{T}  
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -4043,7 +3896,7 @@ Plotting data (No filename), pType=a, thres=0.01, with Seaborn
 No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{4bc130558fc299a662f92bf90cddd094b36e28eeaa82b9751c518e1bf68ac5d9}.png}
+\noindent\sphinxincludegraphics{{661d9ffe62733296e63e6540d6d731a8c85195cf5b01cc51fd7587a3dbcbdfb4}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -4053,7 +3906,8 @@ No artists with labels found to put in legend.  Note that artists whose label st
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{c+c1}{\PYGZsh{} Full covariance mapping along all dims}
-\PYG{n}{sns}\PYG{o}{.}\PYG{n}{clustermap}\PYG{p}{(}\PYG{n}{channelFuncsSubsetPD}\PYG{o}{.}\PYG{n}{T}\PYG{o}{.}\PYG{n}{cov}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{fillna}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{)}
+\PYG{o}{\PYGZpc{}}\PYG{k}{matplotlib} inline
+\PYG{n}{sns}\PYG{o}{.}\PYG{n}{clustermap}\PYG{p}{(}\PYG{n}{channelFuncsSubsetPD}\PYG{o}{.}\PYG{n}{T}\PYG{o}{.}\PYG{n}{cov}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{fillna}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{}.round(3))}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -4061,15 +3915,14 @@ No artists with labels found to put in legend.  Note that artists whose label st
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.matrix.ClusterGrid at 0x7f1c191914b0\PYGZgt{}
+\PYGZlt{}seaborn.matrix.ClusterGrid at 0x7ff1512359c0\PYGZgt{}
 \end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{c93bee27e3000827498aa9bcc9863cbf991423e807b91f1f9e4647f1a607e4c0}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
-
-\subsection{Information content from density matrices}
-\label{\detokenize{part1/theory_info_content_200723:information-content-from-density-matrices}}
 \sphinxstepscope
 
 
@@ -4304,7 +4157,7 @@ Case studies
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
-\hyperref[\detokenize{part2/case-study-N2_290723:chpt-n2-case-study}]{Chapter \ref{\detokenize{part2/case-study-N2_290723:chpt-n2-case-study}}:} {\hyperref[\detokenize{part2/case-study-N2_290723:chpt-n2-case-study}]{\sphinxcrossref{\DUrole{std,std-ref}{Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, N\_2\textasciitilde{}(D\_\{\textbackslash{}infty h\})}}}}: A “simple” 1D case, here the \(D_{\infty h}\) molecular symmetry matches the rotational wavepacket and detection symmetry. (
+\hyperref[\detokenize{part2/case-study-N2_290723:chpt-n2-case-study}]{Chapter \ref{\detokenize{part2/case-study-N2_290723:chpt-n2-case-study}}:} {\hyperref[\detokenize{part2/case-study-N2_290723:chpt-n2-case-study}]{\sphinxcrossref{\DUrole{std,std-ref}{Case study: Generalised bootstrapping for a homonuclear diatomic scattering system, N\_2\textasciitilde{}(D\_\{\textbackslash{}infty h\})}}}}: A “simple” 1D case, here the \(D_{\infty h}\) molecular symmetry matches the rotational wavepacket and detection symmetry.
 
 \item {} 
 \sphinxAtStartPar
@@ -4332,13 +4185,13 @@ The case studies presented herein represent various different types (classes or 
 The more complex cases, involving 3D alignment, are new, and very much work\sphinxhyphen{}in\sphinxhyphen{}progress. The current state\sphinxhyphen{}of\sphinxhyphen{}the\sphinxhyphen{}art is presented herein, but it is of note that these results are provisional, and work is ongoing. In particular, there are a large range of fitting configuration options and parameters which have yet to be explored in these cases, which may significantly improve on the current results in terms of computational effort required, reliability of the fitting protocol, and size of the required dataset. Nonetheless, these new results are interesting and present a stepping\sphinxhyphen{}stone for studies on {\hyperref[\detokenize{backmatter/glossary:term-radial-matrix-elements}]{\sphinxtermref{\DUrole{xref,std,std-term}{radial matrix elements}}}} retrieval in complex systems, and a launching point for similar studies.
 
 \sphinxAtStartPar
-\sphinxstyleemphasis{Each case study has a setup script and associated data, which was used to create sample data and configure the {\hyperref[\detokenize{backmatter/glossary:term-bootstrap-retrieval-protocol}]{\sphinxtermref{\DUrole{xref,std,std-term}{bootstrap retrieval protocol}}}} in each case (the general procedure is outlined in \hyperref[\detokenize{part2/basic_fitting_numerics_intro_260723:sect-basic-fit-setup}]{Chapter \ref{\detokenize{part2/basic_fitting_numerics_intro_260723:sect-basic-fit-setup}}}). However, since the fitting is computationally demanding, code execution for this is not run upon building the book \sphinxhyphen{} rather data files are used. Each case study therefore contains an initial setup stage which can be used to run fits, or load existing data, prior to analysis.}
+\sphinxstyleemphasis{Each case study has a setup script and associated data, which was used to create sample data and configure the {\hyperref[\detokenize{backmatter/glossary:term-bootstrap-retrieval-protocol}]{\sphinxtermref{\DUrole{xref,std,std-term}{bootstrap retrieval protocol}}}} in each case (the general procedure is outlined in \hyperref[\detokenize{part2/basic_fitting_numerics_intro_260723:sect-basic-fit-setup}]{Chapter \ref{\detokenize{part2/basic_fitting_numerics_intro_260723:sect-basic-fit-setup}}}). However, since the fitting is computationally demanding, code execution for large fitting cases is not run upon building the book. Rather the code illustrates the general procedure (for a small batch), and existing fit data files are used if present. Each case study therefore contains an initial setup stage which can be used to run fits, or load existing data, prior to analysis.}
 
 \sphinxAtStartPar
 In each case study, {\hyperref[\detokenize{backmatter/glossary:term-bootstrap-retrieval-protocol}]{\sphinxtermref{\DUrole{xref,std,std-term}{bootstrap retrieval protocol}}}} results sets are analysed at length; for a quick overview of results and fidelities in each case readers may consult the final subsection in each chapter, which provide visual summaries of the results as both density matrices and {\hyperref[\detokenize{backmatter/glossary:term-MF}]{\sphinxtermref{\DUrole{xref,std,std-term}{MF}}}}\sphinxhyphen{}{\hyperref[\detokenize{backmatter/glossary:term-PADs}]{\sphinxtermref{\DUrole{xref,std,std-term}{PADs}}}}, and comparison with the reference case. These results form the basis for the summary and discussion in \hyperref[\detokenize{part2/case-study-summaries_240723:chpt-case-study-summaries}]{Chapter \ref{\detokenize{part2/case-study-summaries_240723:chpt-case-study-summaries}}}, readers not interested in the full technical details may skip directly to that chapter for general discussion, conclusions and outlook.
 
 \sphinxAtStartPar
-Finally, it is of note that \sphinxhyphen{} as discussed in the {\hyperref[\detokenize{frontmatter/book_versions_note:chpt-book-versions}]{\sphinxcrossref{\DUrole{std,std-ref}{preamble on book versions}}}} \sphinxhyphen{} output may be significantly truncated in some cases. Readers wishing to obtain all computational details should pull the source notebooks from \sphinxhref{https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3}{\sphinxstyleemphasis{Quantum Metrology} Vol. 3 (Github repo)}, or consult the online HTML version at \sphinxhref{https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/part1/main\_intro\_051122.html}{\sphinxstyleemphasis{Quantum Metrology} Vol. 3 (HTML version)}.
+Finally, it is of note that \sphinxhyphen{} as discussed in the {\hyperref[\detokenize{frontmatter/book_versions_note:chpt-book-versions}]{\sphinxcrossref{\DUrole{std,std-ref}{preamble on book versions}}}} \sphinxhyphen{} output may be significantly truncated in some cases. Readers wishing to obtain all computational details should pull the source notebooks from \sphinxhref{https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3}{\sphinxstyleemphasis{Quantum Metrology} Vol. 3 (Github repo)}, or consult the online HTML version at \sphinxhref{https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/part1/main\_intro\_051122.html}{\sphinxstyleemphasis{Quantum Metrology} Vol. 3 (HTML version)}. Each case study notebook is configured to pull the required data files to setup and run fits from the \sphinxhref{https://github.com/phockett/ePSproc}{ePSproc} {[}\hyperlink{cite.backmatter/bibliography:id607}{34}{]} Github repo; data files for the specific example fit results examined in the chapters as published can be obtained separately from the \sphinxhref{https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3}{\sphinxstyleemphasis{Quantum Metrology} Vol. 3 (Github repo)}.
 
 \sphinxstepscope
 
@@ -4404,7 +4257,7 @@ The dipole symmetries correspond to the Cartesian axes/translations given in the
 
 \sphinxAtStartPar
 Following Eq. \eqref{equation:part1/theory_symmetry_140723:eq:ionization-symm-electronic}, the allowed components (irreducible representations) can be determined by hand making use of character and direct product tables, and substituting in for the terms defined above:
-\label{equation:part2/sym-fitting-intro_240723:26948980-6161-4f58-942b-3fde9bb2a378}\begin{eqnarray}
+\label{equation:part2/sym-fitting-intro_240723:07794fa8-52d9-408f-9e2d-c4c9f1f68fe3}\begin{eqnarray}
 \Gamma^{+}\otimes\Gamma^{e}\otimes\Gamma_{\mathrm{dipole}}\otimes\Gamma^{i} & \supseteq & \Sigma_{g}^{+}\\
 \Sigma_{g}^{+}\otimes\Gamma^{e}\otimes\begin{array}{c}
 \Pi_{u}~(x,y)\\
@@ -4427,7 +4280,7 @@ Character tables, direct product tables and related information can be found at 
 
 \sphinxAtStartPar
 Hence the allowed continuum components are given by:
-\label{equation:part2/sym-fitting-intro_240723:cad7ed76-9348-4f5b-b865-c90e08aa9d2a}\begin{equation}
+\label{equation:part2/sym-fitting-intro_240723:55fec603-e1c5-44e8-91e5-c1e65c663148}\begin{equation}
 \Gamma^{e}=\begin{array}{c}
 \Pi_{u}~(x,y)\\
 \Sigma_{u}^{+}~(z)
@@ -4438,7 +4291,7 @@ As indicated above, this case is split by symmetry into a “parallel” and “
 
 \sphinxAtStartPar
 The total scattering state symmetry is often also used to label continuum states, and is given by \(\Gamma_{\mathrm{scat}}=\Gamma^{+}\otimes\Gamma^{e}\):
-\label{equation:part2/sym-fitting-intro_240723:3ada3e15-6867-4c6b-a99e-b8de269984b6}\begin{equation}
+\label{equation:part2/sym-fitting-intro_240723:7f45a28b-12b2-4e6f-bc82-8a3aaa221b5a}\begin{equation}
 \Gamma_{\mathrm{scat}}=\Sigma_{g}^{+}\otimes\begin{array}{c}
 \Pi_{u}~(x,y)\\
 \Sigma_{u}^{+}~(z)
@@ -4458,7 +4311,7 @@ For more complicated cases, multiple symmetry components may be found. For examp
 
 \sphinxAtStartPar
 In this case, \(\Gamma^{+} = \Pi_u\), and \sphinxhyphen{} working through the direct products as above \sphinxhyphen{} yields the allowed continuum components:
-\label{equation:part2/sym-fitting-intro_240723:e964c9b0-de26-4184-99dd-603be7ef8ddf}\begin{equation}
+\label{equation:part2/sym-fitting-intro_240723:a91d5d7a-ccd2-4530-a7de-809feed07790}\begin{equation}
 \Gamma^{e}=\begin{array}{c}
 \Sigma_{g}^{+} + \Delta_{g}~(x,y)\\
 \Pi_{g}~(z)
@@ -4466,7 +4319,7 @@ In this case, \(\Gamma^{+} = \Pi_u\), and \sphinxhyphen{} working through the di
 \end{equation}
 \sphinxAtStartPar
 And total scattering state symmetries:
-\label{equation:part2/sym-fitting-intro_240723:4878315b-c4c4-468e-b44d-d3441db5babe}\begin{equation}
+\label{equation:part2/sym-fitting-intro_240723:364335ec-0546-42c3-92ce-a2900df9b057}\begin{equation}
 \Gamma_{\mathrm{scat}}=\Pi_{u}\otimes\begin{array}{c}
 \Sigma_{g}^{+} + \Delta_{g}~(x,y)\\
 \Pi_{g}~(z)
@@ -4871,7 +4724,7 @@ Eke & Targ & Total & Type & h & it & l & m & mu &         &                     
 \subsubsection{Mapping to fitting parameters (and reduction)}
 \label{\detokenize{part2/sym-fitting-intro_240723:mapping-to-fitting-parameters-and-reduction}}\label{\detokenize{part2/sym-fitting-intro_240723:sec-basis-sets-remapping-to-fittingparams}}
 \sphinxAtStartPar
-Finally, the basis set of matrix elements can be set to a set of fitting parameters. In this case, as per Eq. \eqref{equation:part1/theory_tensor_formalism_160723:eqn:I-zeta-mag-phase}, the parameters are mapped to magnitude\sphinxhyphen{}phase form; additionally, the fitting routine allows for the definition of relationships between the parameters. This provides a way to reduce the effective size of the basis set to only the unique values, with other terms defined purely by their symmetry relations. Consequently, degenerate cases, as detailed above, as well as cases with defined phase relations, can be efficiently reduced to a smaller basis set for fitting.
+Finally, the basis set of matrix elements can be set to a set of fitting parameters. In this case, as per Eq. \eqref{equation:part1/theory_tensor_formalism_160723:eqn:I-zeta-mag-phase}, the parameters are mapped to magnitude\sphinxhyphen{}phase form; additionally, the fitting routine allows for the definition of relationships between the parameters. This provides a way to reduce the effective size of the basis set to only the unique values, with other terms defined purely by their symmetry relations. Consequently, degenerate cases, as detailed above, as well as cases with defined phase relations, can be efficiently reduced to a smaller basis set for fitting. Note that the default routine labels parameters by the full set of quantum numbers, with an \sphinxcode{\sphinxupquote{m}} or \sphinxcode{\sphinxupquote{p}} prefix to denote the magnitude and phase terms corresponding to the partial\sphinxhyphen{}wave channel; this ensures a unique naming scheme, but is also rather unwieldy (as can be seen below). In cases where fewer quantum numbers are required these can be defined and the parameter names remapped, see the \sphinxhref{https://pemtk.readthedocs.io}{PEMtk documentation} {[}\hyperlink{cite.backmatter/bibliography:id680}{20}{]} for further details.
 
 \sphinxAtStartPar
 For quick setup, there is an automated routine to set relations if applicable. The automated routine currently checks for the following relationships: identity (equal complex values), magnitude and phase equality, complex rotations by \(\pm\pi\), where matrix elements are grouped by symmetry (specifically \sphinxcode{\sphinxupquote{Cont}}) and \sphinxcode{\sphinxupquote{l}} prior to pair\sphinxhyphen{}wise testing. For more control, additional functions can be passed. Alternatively, the automatic setting can be skipped and/or relationships redefined or set manually. This provides a way to test if the symmetry\sphinxhyphen{}definitions are manifest in experimental data, rather than imposing them during fitting, or to explore other possible correlations between fitted parameters. Note, however, that in some cases the number of unique parameters in an unsymmetrized case may be large, so care should also be taken to ensure that fit results are meaningful in such cases (e.g. by employing a sufficiently large dataset, and testing for reproducibility).
@@ -5915,7 +5768,7 @@ For a more realistic test of the {\hyperref[\detokenize{backmatter/glossary:term
 Dataset: subset, AFBLM
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{abcbfbe882121976026081657830d321308f3137a7ea4126e4ab06b94de73f35}.png}
+\noindent\sphinxincludegraphics{{f04cfb3cb7bd93f98a94d2df5a6754294d244b92daceefe720a96e98d52049f9}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -6119,7 +5972,7 @@ With \sphinxcode{\sphinxupquote{self.multiFit()}} method, although this is optim
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-1.0962807973225912
+4.699940152963003
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -6191,7 +6044,7 @@ Various options are available. The most complete is to use Pickle (default case)
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-PosixPath(\PYGZsq{}/home/jovyan/jake\PYGZhy{}home/buildTmp/\PYGZus{}latest\PYGZus{}build/pdf/doc\PYGZhy{}source/part2/n2fitting/dataDump\PYGZus{}N2\PYGZus{}310723\PYGZus{}08\PYGZhy{}07\PYGZhy{}18.pickle\PYGZsq{})
+PosixPath(\PYGZsq{}/home/jovyan/jake\PYGZhy{}home/buildTmp/\PYGZus{}latest\PYGZus{}build/pdf/doc\PYGZhy{}source/part2/n2fitting/dataDump\PYGZus{}N2\PYGZus{}310723\PYGZus{}16\PYGZhy{}52\PYGZhy{}15.pickle\PYGZsq{})
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -6700,10 +6553,10 @@ Plot spreads in magnitude and phase parameters. Statistical plots are available 
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fc4285962c0\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f520827eb90\PYGZgt{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{54946cde3dd1d33b8618e048d291fd58914850b51216a5e8319ba828043c1453}.png}
+\noindent\sphinxincludegraphics{{67fd6c2cdbda44256b2170e617e668ba9848a809bb8bf94eb3f1b48571a6ffd8}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -6726,10 +6579,10 @@ Plot spreads in magnitude and phase parameters. Statistical plots are available 
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fc428530520\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f520839a440\PYGZgt{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{a2e3136024df6a7cd53f28b7447da9e6ad21f88aae4f9d913d077e7c7278f588}.png}
+\noindent\sphinxincludegraphics{{05743068f094a2a298609bb57d469896ad7cac03cbffbc7ec1608fe84e0c6d0a}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -6778,7 +6631,7 @@ Examine new data types…
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fc42066e890\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f520810bf10\PYGZgt{}
 \end{sphinxVerbatim}
 
 \noindent\sphinxincludegraphics{{3b3e49e8f1ee8d2e2ed73386614df43aebe86c1f9138de888e5975896703887d}.png}
@@ -6805,7 +6658,7 @@ Examine new data types…
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fc4282dbcd0\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f52082e38e0\PYGZgt{}
 \end{sphinxVerbatim}
 
 \noindent\sphinxincludegraphics{{d23c0ca66682f1aef64986f2ac86abe192289a5eadf0385689aba2eb72552f10}.png}
@@ -6909,74 +6762,6 @@ pc & mean & num &  0.000e+00 &  0.000e+00 &  1.794e+00 &  1.794e+00 &  2.675e+00
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Plot values vs. reference cases}
-\PYG{c+c1}{\PYGZsh{} NOTE \PYGZhy{} experimental code, not yet consolidated and wrapped in PEMtk}
-
-\PYG{n}{paramType} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{m}\PYG{l+s+s1}{\PYGZsq{}}
-
-\PYG{c+c1}{\PYGZsh{} Set new DataFrame including \PYGZdq{}vary\PYGZdq{} info (missing in default case)}
-\PYG{n}{pDict} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{dfWideTest}\PYG{l+s+s1}{\PYGZsq{}}
-\PYG{c+c1}{\PYGZsh{} Try using existing function with extra index set...}
-\PYG{n}{data}\PYG{o}{.}\PYG{n}{\PYGZus{}setWide}\PYG{p}{(}\PYG{n}{indexDims} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Fit}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Type}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{chisqrGroup}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{redchiGroup}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{batch}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{vary}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{dataWide}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{dfWideTest}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
-
-\PYG{c+c1}{\PYGZsh{} WITH lmMAP remap \PYGZhy{} good if (l,m) are unique labels}
-\PYG{n}{plotData} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{paramPlot}\PYG{p}{(}\PYG{n}{dataDict} \PYG{o}{=} \PYG{n}{pDict}\PYG{p}{,} \PYG{n}{selectors}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{vary}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{k+kc}{True}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Type}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{paramType}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{redchiGroup}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{selGroup}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{n}{hue} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{chisqr}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} 
-                          \PYG{n}{backend}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{hv}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{hvType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{violin}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{returnFlag} \PYG{o}{=} \PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{plotScatter}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{hRound}\PYG{o}{=}\PYG{n}{hRound}\PYG{p}{,} \PYG{n}{remap}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{lmMap}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)} 
-
-\PYG{c+c1}{\PYGZsh{} NO REMAP CASE}
-\PYG{c+c1}{\PYGZsh{} plotData = data.paramPlot(dataDict = pDict, selectors=\PYGZob{}\PYGZsq{}vary\PYGZsq{}:True, \PYGZsq{}Type\PYGZsq{}:paramType, \PYGZsq{}redchiGroup\PYGZsq{}:selGroup\PYGZcb{}, hue = \PYGZsq{}chisqr\PYGZsq{}, }
-\PYG{c+c1}{\PYGZsh{}                           backend=\PYGZsq{}hv\PYGZsq{}, hvType=\PYGZsq{}violin\PYGZsq{}, returnFlag = True, plotScatter=True, hRound=hRound)  \PYGZsh{}, remap=\PYGZsq{}lmMap\PYGZsq{}) }
-
-\PYG{n}{p1} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{plots}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{paramPlot}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
-\PYG{c+c1}{\PYGZsh{} p2 = dataTestSub.hvplot.scatter(x=\PYGZsq{}Param\PYGZsq{},y=\PYGZsq{}value\PYGZsq{}, marker=\PYGZsq{}o\PYGZsq{}, size=200, color=\PYGZsq{}green\PYGZsq{})}
-
-\PYG{c+c1}{\PYGZsh{} Plot ref params... CURRENTLY NOT IN paraPlot(), and that also expects fit data so can\PYGZsq{}t reuse directly here.}
-
-\PYG{n}{dataTest} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{fits}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{dfRef}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
-\PYG{c+c1}{\PYGZsh{} data.paramPlot(dataDict = \PYGZsq{}dfRef\PYGZsq{})}
-
-\PYG{c+c1}{\PYGZsh{} Set axis remap}
-\PYG{c+c1}{\PYGZsh{} dataTest.replace(\PYGZob{}\PYGZsq{}Param\PYGZsq{}:data.lmmu[\PYGZsq{}lmMap\PYGZsq{}]\PYGZcb{}, inplace=True)}
-
-\PYG{c+c1}{\PYGZsh{} Subset}
-\PYG{n}{dataTestSub} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{\PYGZus{}subsetFromXS}\PYG{p}{(}\PYG{n}{selectors} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Type}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{paramType}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{n}{data} \PYG{o}{=} \PYG{n}{dataTest}\PYG{p}{)}  
-\PYG{n}{p2} \PYG{o}{=} \PYG{n}{dataTestSub}\PYG{o}{.}\PYG{n}{hvplot}\PYG{o}{.}\PYG{n}{scatter}\PYG{p}{(}\PYG{n}{x}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Param}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{n}{y}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{value}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{marker}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{dash}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{size}\PYG{o}{=}\PYG{l+m+mi}{500}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{red}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
-
-\PYG{c+c1}{\PYGZsh{} p1+p2   \PYGZsh{} Overlays fail with \PYGZdq{}NotImplementedError: Iteration on Elements is not supported.\PYGZdq{} Issue with plot types? FIXED \PYGZhy{} issues was non\PYGZhy{}plot return from paramPlot()!}
-\PYG{n}{p1}\PYG{o}{*}\PYG{n}{p2}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-*** Warning: found MultiIndex for DataFrame data.index \PYGZhy{} checkDims may have issues with Pandas MultiIndex, but will try anyway.
-*** Warning: found MultiIndex for DataFrame data.index \PYGZhy{} checkDims may have issues with Pandas MultiIndex, but will try anyway.
-*** Warning: found MultiIndex for DataFrame data.index \PYGZhy{} checkDims may have issues with Pandas MultiIndex, but will try anyway.
-*** Warning: found MultiIndex for DataFrame data.index \PYGZhy{} checkDims may have issues with Pandas MultiIndex, but will try anyway.
-\end{sphinxVerbatim}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-:Overlay
-   .Violin.I  :Violin   [Param]   (value)
-   .Scatter.I :Scatter   [Param]   (value,chisqr)
-\end{sphinxVerbatim}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-:Overlay
-   .Violin.I   :Violin   [Param]   (value)
-   .Scatter.I  :Scatter   [Param]   (value,chisqr)
-   .Scatter.II :Scatter   [Param]   (value)
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-
-\end{sphinxuseclass}
 
 \section{Using the reconstructed matrix elements}
 \label{\detokenize{part2/case-study-N2_290723:using-the-reconstructed-matrix-elements}}
@@ -7066,43 +6851,6 @@ Added dim Total
 Added dim Targ
 Added dim Total
 Set XR dataset for self.data[\PYGZsq{}agg\PYGZsq{}][\PYGZsq{}matE\PYGZsq{}]
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-
-\end{sphinxuseclass}
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{data}\PYG{o}{.}\PYG{n}{data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{agg}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{matE}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}xarray.Dataset\PYGZgt{}
-Dimensions:  (Type: 2, Sym: 4, mu: 3, LM: 6, it: 1)
-Coordinates:
-  * Type     (Type) object \PYGZsq{}comp\PYGZsq{} \PYGZsq{}compC\PYGZsq{}
-  * Sym      (Sym) MultiIndex
-  \PYGZhy{} Cont     (Sym) object \PYGZsq{}PU\PYGZsq{} \PYGZsq{}PU\PYGZsq{} \PYGZsq{}SU\PYGZsq{} \PYGZsq{}SU\PYGZsq{}
-  \PYGZhy{} Targ     (Sym) object \PYGZsq{}SG\PYGZsq{} \PYGZsq{}U\PYGZsq{} \PYGZsq{}SG\PYGZsq{} \PYGZsq{}U\PYGZsq{}
-  \PYGZhy{} Total    (Sym) object \PYGZsq{}PU\PYGZsq{} \PYGZsq{}U\PYGZsq{} \PYGZsq{}SU\PYGZsq{} \PYGZsq{}U\PYGZsq{}
-  * mu       (mu) int64 \PYGZhy{}1 0 1
-  * LM       (LM) MultiIndex
-  \PYGZhy{} l        (LM) int64 1 1 1 3 3 3
-  \PYGZhy{} m        (LM) int64 \PYGZhy{}1 0 1 \PYGZhy{}1 0 1
-  * it       (it) int64 1
-    Eke      float64 1.1
-    Ehv      float64 18.4
-    SF       complex128 (2.2237521+3.6277801j)
-Data variables:
-    comp     (Type, mu, LM, Sym) complex128 (nan+nanj) (nan+nanj) ... (nan+nanj)
-    compC    (Type, mu, LM, Sym) complex128 (nan+nanj) (nan+nanj) ... (nan+nanj)
-    subset   (LM, Sym, mu, it) complex128 (nan+nanj) (nan+nanj) ... (nan+nanj)
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -7251,17 +6999,6 @@ Routines as per \sphinxurl{https://pemtk.readthedocs.io/en/latest/topical\_revie
 \noindent\sphinxincludegraphics{{84106b0c45473f709407d62407c705279a6d8b0a9d6c356364f024c773fbd52e}.png}
 \caption{{\hyperref[\detokenize{backmatter/glossary:term-MF}]{\sphinxtermref{\DUrole{xref,std,std-term}{MF}}}}\sphinxhyphen{}{\hyperref[\detokenize{backmatter/glossary:term-PADs}]{\sphinxtermref{\DUrole{xref,std,std-term}{PADs}}}} differences between retrieved and reference cases for \((x,y,z,d)\) polarization geometries, where \(d\) is the “diagonal” case with the polarization axis as 45 degrees to the \(z\)\sphinxhyphen{}axis. Note diffs are normalised to emphasize the shape, but not mangnitudes, of the differences \sphinxhyphen{} see the density matrix comparisons for a more rigourous fidelity analysis.}\label{\detokenize{part2/case-study-N2_290723:fig-n2-diff}}\end{figure}
 
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{remap} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{lmMap}\PYG{l+s+s1}{\PYGZsq{}}
-\PYG{n}{data}\PYG{o}{.}\PYG{n}{paramsSummaryComp}\PYG{o}{.}\PYG{n}{replace}\PYG{p}{(}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Param}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{data}\PYG{o}{.}\PYG{n}{lmmu}\PYG{p}{[}\PYG{n}{remap}\PYG{p}{]}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{n}{inplace}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-
-\end{sphinxuseclass}
 \sphinxstepscope
 
 
@@ -7767,10 +7504,10 @@ Plot spreads in magnitude and phase parameters. Statistical plots are available 
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f06e970a860\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f4704640d30\PYGZgt{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{5d9a50331c33335ae7eef6011113493684e9350aa2624da59d1728e2e93d48f5}.png}
+\noindent\sphinxincludegraphics{{60c27a0e670b58b46de0ce2aa96d583cef0b51c08e4f170a53571cbbd0806304}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -7793,10 +7530,10 @@ Plot spreads in magnitude and phase parameters. Statistical plots are available 
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f06e94db430\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f47042acf40\PYGZgt{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{b6fa51616aa695d602f40901461c65f4f139f384d61e3f1d96d94931ba77bd22}.png}
+\noindent\sphinxincludegraphics{{3a16390b39f2ad8be331abdd794dd21df5b50ed1cdbd8001aa9a06829756e570}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -7845,7 +7582,7 @@ Examine new data types…
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f06e97a5630\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f4704721a80\PYGZgt{}
 \end{sphinxVerbatim}
 
 \noindent\sphinxincludegraphics{{260689f9945007745f5ff260e2621267c60eeb1ae95ec05528c8f9eb174ec167}.png}
@@ -7872,7 +7609,7 @@ Examine new data types…
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f06e92ee350\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f47045dae60\PYGZgt{}
 \end{sphinxVerbatim}
 
 \noindent\sphinxincludegraphics{{c8a1b94c008baa9dc631d1b18728c4d4969389647b63deea3bd985734a7660ca}.png}
@@ -7973,70 +7710,6 @@ pc & mean & num &    0.000 &    0.000 &     1.796 &     1.796 &     0.888 &     
 \bottomrule
 \end{tabular}\end{split}
 \end{equation*}
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-
-\end{sphinxuseclass}
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Plot values vs. reference cases}
-\PYG{c+c1}{\PYGZsh{} NOTE \PYGZhy{} experimental code, not yet consolidated and wrapped in PEMtk}
-
-\PYG{n}{paramType} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{m}\PYG{l+s+s1}{\PYGZsq{}}
-
-\PYG{c+c1}{\PYGZsh{} Set new DataFrame including \PYGZdq{}vary\PYGZdq{} info (missing in default case)}
-\PYG{n}{pDict} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{dfWideTest}\PYG{l+s+s1}{\PYGZsq{}}
-\PYG{c+c1}{\PYGZsh{} Try using existing function with extra index set...}
-\PYG{n}{data}\PYG{o}{.}\PYG{n}{\PYGZus{}setWide}\PYG{p}{(}\PYG{n}{indexDims} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Fit}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Type}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{chisqrGroup}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{redchiGroup}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{batch}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{vary}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{dataWide}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{dfWideTest}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
-
-\PYG{c+c1}{\PYGZsh{} plotData = data.paramPlot(dataDict = pDict, selectors=\PYGZob{}\PYGZsq{}vary\PYGZsq{}:True, \PYGZsq{}Type\PYGZsq{}:\PYGZsq{}m\PYGZsq{}, \PYGZsq{}redchiGroup\PYGZsq{}:selGroup\PYGZcb{}, hue = \PYGZsq{}chisqr\PYGZsq{}, backend=\PYGZsq{}hv\PYGZsq{}, hvType=\PYGZsq{}violin\PYGZsq{}, returnFlag = True, plotScatter=True, remap = \PYGZsq{}lmMap\PYGZsq{}, hRound = 12) }
-\PYG{c+c1}{\PYGZsh{} NO REMAP CASE}
-\PYG{n}{plotData} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{paramPlot}\PYG{p}{(}\PYG{n}{dataDict} \PYG{o}{=} \PYG{n}{pDict}\PYG{p}{,} \PYG{n}{selectors}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{vary}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{k+kc}{True}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Type}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{paramType}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{redchiGroup}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{selGroup}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{n}{hue} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{chisqr}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} 
-                          \PYG{n}{backend}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{hv}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{hvType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{violin}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{returnFlag} \PYG{o}{=} \PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{plotScatter}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{hRound}\PYG{o}{=}\PYG{n}{hRound}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{}, remap=\PYGZsq{}lmMap\PYGZsq{}) }
-\PYG{n}{p1} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{plots}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{paramPlot}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
-\PYG{c+c1}{\PYGZsh{} p2 = dataTestSub.hvplot.scatter(x=\PYGZsq{}Param\PYGZsq{},y=\PYGZsq{}value\PYGZsq{}, marker=\PYGZsq{}o\PYGZsq{}, size=200, color=\PYGZsq{}green\PYGZsq{})}
-
-\PYG{c+c1}{\PYGZsh{} Plot ref params... CURRENTLY NOT IN paraPlot(), and that also expects fit data so can\PYGZsq{}t reuse directly here.}
-
-\PYG{n}{dataTest} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{fits}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{dfRef}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
-\PYG{c+c1}{\PYGZsh{} data.paramPlot(dataDict = \PYGZsq{}dfRef\PYGZsq{})}
-
-\PYG{c+c1}{\PYGZsh{} Set axis remap}
-\PYG{c+c1}{\PYGZsh{} dataTest.replace(\PYGZob{}\PYGZsq{}Param\PYGZsq{}:data.lmmu[\PYGZsq{}lmMap\PYGZsq{}]\PYGZcb{}, inplace=True)}
-
-\PYG{c+c1}{\PYGZsh{} Subset}
-\PYG{n}{dataTestSub} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{\PYGZus{}subsetFromXS}\PYG{p}{(}\PYG{n}{selectors} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Type}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{paramType}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{n}{data} \PYG{o}{=} \PYG{n}{dataTest}\PYG{p}{)}  
-\PYG{n}{p2} \PYG{o}{=} \PYG{n}{dataTestSub}\PYG{o}{.}\PYG{n}{hvplot}\PYG{o}{.}\PYG{n}{scatter}\PYG{p}{(}\PYG{n}{x}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Param}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{n}{y}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{value}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{marker}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{dash}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{size}\PYG{o}{=}\PYG{l+m+mi}{500}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{red}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
-
-\PYG{c+c1}{\PYGZsh{} p1+p2   \PYGZsh{} Overlays fail with \PYGZdq{}NotImplementedError: Iteration on Elements is not supported.\PYGZdq{} Issue with plot types? FIXED \PYGZhy{} issues was non\PYGZhy{}plot return from paramPlot()!}
-\PYG{n}{p1}\PYG{o}{*}\PYG{n}{p2}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-*** Warning: found MultiIndex for DataFrame data.index \PYGZhy{} checkDims may have issues with Pandas MultiIndex, but will try anyway.
-*** Warning: found MultiIndex for DataFrame data.index \PYGZhy{} checkDims may have issues with Pandas MultiIndex, but will try anyway.
-*** Warning: found MultiIndex for DataFrame data.index \PYGZhy{} checkDims may have issues with Pandas MultiIndex, but will try anyway.
-*** Warning: found MultiIndex for DataFrame data.index \PYGZhy{} checkDims may have issues with Pandas MultiIndex, but will try anyway.
-\end{sphinxVerbatim}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-:Overlay
-   .Violin.I  :Violin   [Param]   (value)
-   .Scatter.I :Scatter   [Param]   (value,chisqr)
-\end{sphinxVerbatim}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-:Overlay
-   .Violin.I   :Violin   [Param]   (value)
-   .Scatter.I  :Scatter   [Param]   (value,chisqr)
-   .Scatter.II :Scatter   [Param]   (value)
-\end{sphinxVerbatim}
-
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
@@ -8145,43 +7818,6 @@ Added dim Targ
 Added dim Total
 Added dim Targ
 Set XR dataset for self.data[\PYGZsq{}agg\PYGZsq{}][\PYGZsq{}matE\PYGZsq{}]
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-
-\end{sphinxuseclass}
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{data}\PYG{o}{.}\PYG{n}{data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{agg}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{matE}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}xarray.Dataset\PYGZgt{}
-Dimensions:  (Type: 2, Sym: 4, LM: 24, mu: 3, it: 1)
-Coordinates:
-  * Type     (Type) object \PYGZsq{}comp\PYGZsq{} \PYGZsq{}compC\PYGZsq{}
-  * Sym      (Sym) MultiIndex
-  \PYGZhy{} Cont     (Sym) object \PYGZsq{}P\PYGZsq{} \PYGZsq{}P\PYGZsq{} \PYGZsq{}S\PYGZsq{} \PYGZsq{}S\PYGZsq{}
-  \PYGZhy{} Targ     (Sym) object \PYGZsq{}S\PYGZsq{} \PYGZsq{}U\PYGZsq{} \PYGZsq{}S\PYGZsq{} \PYGZsq{}U\PYGZsq{}
-  \PYGZhy{} Total    (Sym) object \PYGZsq{}P\PYGZsq{} \PYGZsq{}U\PYGZsq{} \PYGZsq{}S\PYGZsq{} \PYGZsq{}U\PYGZsq{}
-  * LM       (LM) MultiIndex
-  \PYGZhy{} l        (LM) int64 0 0 0 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5 6 6 6 7 7 7
-  \PYGZhy{} m        (LM) int64 \PYGZhy{}1 0 1 \PYGZhy{}1 0 1 \PYGZhy{}1 0 1 \PYGZhy{}1 0 1 \PYGZhy{}1 0 1 \PYGZhy{}1 0 1 \PYGZhy{}1 0 1 \PYGZhy{}1 0 1
-  * mu       (mu) int64 \PYGZhy{}1 0 1
-  * it       (it) int64 1
-    Eke      float64 10.1
-    Ehv      float64 27.4
-    SF       complex128 (2.8514231+2.8292131j)
-Data variables:
-    comp     (Type, mu, Sym, LM) complex128 (nan+nanj) (nan+nanj) ... (nan+nanj)
-    compC    (Type, mu, Sym, LM) complex128 (nan+nanj) (nan+nanj) ... (nan+nanj)
-    subset   (LM, Sym, mu, it) complex128 (nan+nanj) (nan+nanj) ... (nan+nanj)
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -8330,57 +7966,6 @@ Routines as per \sphinxurl{https://pemtk.readthedocs.io/en/latest/topical\_revie
 \noindent\sphinxincludegraphics{{0301529d9b8bc7d083c7b3e3cc459a63cfc789cdff0034c1c3dfb38b15bf5a96}.png}
 \caption{{\hyperref[\detokenize{backmatter/glossary:term-MF}]{\sphinxtermref{\DUrole{xref,std,std-term}{MF}}}}\sphinxhyphen{}{\hyperref[\detokenize{backmatter/glossary:term-PADs}]{\sphinxtermref{\DUrole{xref,std,std-term}{PADs}}}} differences between retrieved and reference cases for \((x,y,z,d)\) polarization geometries, where \(d\) is the “diagonal” case with the polarization axis as 45 degrees to the \(z\)\sphinxhyphen{}axis. Note diffs are normalised to emphasize the shape, but not mangnitudes, of the differences \sphinxhyphen{} see the density matrix comparisons for a more rigourous fidelity analysis.}\label{\detokenize{part2/case-study-OCS_290723:fig-ocs-diff}}\end{figure}
 
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{remap} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{lmMap}\PYG{l+s+s1}{\PYGZsq{}}
-\PYG{n}{data}\PYG{o}{.}\PYG{n}{paramsSummaryComp}\PYG{o}{.}\PYG{n}{replace}\PYG{p}{(}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Param}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{data}\PYG{o}{.}\PYG{n}{lmmu}\PYG{p}{[}\PYG{n}{remap}\PYG{p}{]}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{n}{inplace}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}\begin{equation*}
-\begin{split}\begin{tabular}{lllrrrrrrrrrrrrrrrrrrrrrr}
-\toprule
-   &          & Param &  P\_S\_P\_1\_1\_n1\_1 &  P\_S\_P\_1\_n1\_1\_1 &  P\_S\_P\_2\_1\_n1\_1 &  P\_S\_P\_2\_n1\_1\_1 &  P\_S\_P\_3\_1\_n1\_1 &  P\_S\_P\_3\_n1\_1\_1 &  P\_S\_P\_4\_1\_n1\_1 &  P\_S\_P\_4\_n1\_1\_1 &  P\_S\_P\_5\_1\_n1\_1 &  P\_S\_P\_5\_n1\_1\_1 &  P\_S\_P\_6\_1\_n1\_1 &  P\_S\_P\_6\_n1\_1\_1 &  P\_S\_P\_7\_1\_n1\_1 &  P\_S\_P\_7\_n1\_1\_1 &  S\_S\_S\_0\_0\_0\_1 &  S\_S\_S\_1\_0\_0\_1 &  S\_S\_S\_2\_0\_0\_1 &  S\_S\_S\_3\_0\_0\_1 &  S\_S\_S\_4\_0\_0\_1 &  S\_S\_S\_5\_0\_0\_1 &  S\_S\_S\_6\_0\_0\_1 &  S\_S\_S\_7\_0\_0\_1 \\
-Type & Source & dType &                 &                 &                 &                 &                 &                 &                 &                 &                 &                 &                 &                 &                 &                 &                &                &                &                &                &                &                &                \\
-\midrule
-m & mean & num &           0.395 &           0.395 &           0.384 &           0.384 &           1.041 &           1.041 &           0.378 &           0.378 &           0.239 &           0.239 &           0.439 &           0.439 &           0.853 &           0.853 &          0.752 &          0.305 &          0.860 &          0.954 &          0.615 &          0.402 &          0.455 &          1.098 \\
-   & ref & num &           0.299 &           0.299 &           0.735 &           0.735 &           0.966 &           0.966 &           0.875 &           0.875 &           0.541 &           0.541 &           0.108 &           0.108 &           0.036 &           0.036 &          0.607 &          0.855 &          0.967 &          1.204 &          0.563 &          0.535 &          0.147 &          0.026 \\
-   & diff & \% &          24.383 &          24.383 &          91.513 &          91.513 &           7.275 &           7.275 &         131.508 &         131.508 &         126.743 &         126.743 &          75.476 &          75.476 &          95.786 &          95.786 &         19.306 &        180.049 &         12.502 &         26.162 &          8.467 &         33.241 &         67.712 &         97.652 \\
-   &          & num &           0.096 &           0.096 &          -0.351 &          -0.351 &           0.076 &           0.076 &          -0.497 &          -0.497 &          -0.302 &          -0.302 &           0.331 &           0.331 &           0.817 &           0.817 &          0.145 &         -0.549 &         -0.108 &         -0.250 &          0.052 &         -0.134 &          0.308 &          1.072 \\
-   & std & \% &          19.952 &          19.952 &          35.782 &          35.782 &           3.929 &           3.929 &           9.266 &           9.266 &          17.524 &          17.524 &          16.566 &          16.566 &           0.862 &           0.862 &         14.208 &         19.475 &          5.556 &          6.039 &          9.625 &         10.877 &         18.151 &          0.574 \\
-   &          & num &           0.079 &           0.079 &           0.137 &           0.137 &           0.041 &           0.041 &           0.035 &           0.035 &           0.042 &           0.042 &           0.073 &           0.073 &           0.007 &           0.007 &          0.107 &          0.059 &          0.048 &          0.058 &          0.059 &          0.044 &          0.083 &          0.006 \\
-   & diff/std & \% &         122.212 &         122.212 &         255.754 &         255.754 &         185.143 &         185.143 &        1419.210 &        1419.210 &         723.234 &         723.234 &         455.606 &         455.606 &       11115.642 &       11115.642 &        135.881 &        924.509 &        225.018 &        433.192 &         87.969 &        305.597 &        373.043 &      17012.358 \\
-n & mean & num &           0.129 &           0.129 &           0.125 &           0.125 &           0.340 &           0.340 &           0.123 &           0.123 &           0.078 &           0.078 &           0.143 &           0.143 &           0.278 &           0.278 &          0.246 &          0.100 &          0.281 &          0.312 &          0.201 &          0.131 &          0.149 &          0.359 \\
-   & ref & num &           0.097 &           0.097 &           0.240 &           0.240 &           0.315 &           0.315 &           0.286 &           0.286 &           0.177 &           0.177 &           0.035 &           0.035 &           0.012 &           0.012 &          0.198 &          0.279 &          0.316 &          0.393 &          0.184 &          0.175 &          0.048 &          0.008 \\
-   & diff & \% &          24.386 &          24.386 &          91.506 &          91.506 &           7.278 &           7.278 &         131.499 &         131.499 &         126.734 &         126.734 &          75.477 &          75.477 &          95.786 &          95.786 &         19.309 &        180.038 &         12.498 &         26.158 &          8.470 &         33.236 &         67.713 &         97.652 \\
-   &          & num &           0.031 &           0.031 &          -0.115 &          -0.115 &           0.025 &           0.025 &          -0.162 &          -0.162 &          -0.099 &          -0.099 &           0.108 &           0.108 &           0.267 &           0.267 &          0.047 &         -0.179 &         -0.035 &         -0.082 &          0.017 &         -0.044 &          0.101 &          0.350 \\
-   & std & \% &          19.952 &          19.952 &          35.782 &          35.782 &           3.929 &           3.929 &           9.266 &           9.266 &          17.524 &          17.524 &          16.566 &          16.566 &           0.862 &           0.862 &         14.208 &         19.475 &          5.556 &          6.039 &          9.625 &         10.877 &         18.151 &          0.574 \\
-   &          & num &           0.026 &           0.026 &           0.045 &           0.045 &           0.013 &           0.013 &           0.011 &           0.011 &           0.014 &           0.014 &           0.024 &           0.024 &           0.002 &           0.002 &          0.035 &          0.019 &          0.016 &          0.019 &          0.019 &          0.014 &          0.027 &          0.002 \\
-   & diff/std & \% &         122.226 &         122.226 &         255.734 &         255.734 &         185.231 &         185.231 &        1419.117 &        1419.117 &         723.186 &         723.186 &         455.611 &         455.611 &       11115.592 &       11115.592 &        135.902 &        924.455 &        224.942 &        433.115 &         88.005 &        305.551 &        373.049 &      17012.501 \\
-p & mean & num &          -2.200 &          -2.200 &           0.091 &           0.091 &          -0.054 &          -0.054 &          -0.139 &          -0.139 &           0.979 &           0.979 &           0.515 &           0.515 &           0.490 &           0.490 &          0.161 &          0.966 &          0.177 &          0.380 &          0.095 &          1.237 &          0.763 &          0.494 \\
-   & ref & num &          -2.200 &          -2.200 &          -1.410 &          -1.410 &          -2.100 &          -2.100 &          -0.800 &          -0.800 &           0.131 &           0.131 &           1.218 &           1.218 &           2.855 &           2.855 &         -2.003 &          0.983 &          2.679 &         -0.535 &          0.343 &          2.065 &          2.594 &         -1.519 \\
-   & diff & \% &           0.000 &           0.000 &        1646.083 &        1646.083 &        3757.652 &        3757.652 &         475.859 &         475.859 &          86.591 &          86.591 &         136.728 &         136.728 &         483.135 &         483.135 &       1341.919 &          1.698 &       1417.730 &        240.975 &        261.343 &         67.010 &        239.854 &        407.175 \\
-   &          & num &           0.000 &           0.000 &           1.501 &           1.501 &           2.046 &           2.046 &           0.661 &           0.661 &           0.848 &           0.848 &          -0.704 &          -0.704 &          -2.366 &          -2.366 &          2.164 &         -0.016 &         -2.503 &          0.915 &         -0.248 &         -0.829 &         -1.830 &          2.013 \\
-   & std & \% &           0.000 &           0.000 &        1572.473 &        1572.473 &        4976.382 &        4976.382 &        1110.494 &        1110.494 &          19.054 &          19.054 &         462.998 &         462.998 &         191.036 &         191.036 &        986.064 &         21.018 &       1332.830 &        307.217 &       1581.735 &        125.579 &        300.904 &        183.068 \\
-   &          & num &           0.000 &           0.000 &           1.434 &           1.434 &           2.709 &           2.709 &           1.542 &           1.542 &           0.187 &           0.187 &           2.383 &           2.383 &           0.935 &           0.935 &          1.590 &          0.203 &          2.353 &          1.166 &          1.500 &          1.553 &          2.296 &          0.905 \\
-   & diff/std & \% &             NaN &             NaN &         104.681 &         104.681 &          75.510 &          75.510 &          42.851 &          42.851 &         454.443 &         454.443 &          29.531 &          29.531 &         252.903 &         252.903 &        136.088 &          8.079 &        106.370 &         78.438 &         16.523 &         53.361 &         79.711 &        222.417 \\
-pc & mean & num &           0.000 &           0.000 &           1.796 &           1.796 &           0.888 &           0.888 &           1.816 &           1.816 &           2.979 &           2.979 &           1.374 &           1.374 &           2.125 &           2.125 &          1.826 &          2.965 &          1.348 &          1.875 &          1.810 &          1.739 &          1.402 &          2.156 \\
-   & ref & num &           0.000 &           0.000 &           0.790 &           0.790 &           0.100 &           0.100 &           1.401 &           1.401 &           2.332 &           2.332 &           2.865 &           2.865 &           1.228 &           1.228 &          0.197 &          3.100 &          1.404 &          1.665 &          2.543 &          2.018 &          1.489 &          0.682 \\
-   & diff & \% &             NaN &             NaN &          56.010 &          56.010 &          88.748 &          88.748 &          22.861 &          22.861 &          21.725 &          21.725 &         108.515 &         108.515 &          42.228 &          42.228 &         89.190 &          4.549 &          4.115 &         11.173 &         40.498 &         16.025 &          6.220 &         68.373 \\
-   &          & num &           0.000 &           0.000 &           1.006 &           1.006 &           0.788 &           0.788 &           0.415 &           0.415 &           0.647 &           0.647 &          -1.491 &          -1.491 &           0.897 &           0.897 &          1.629 &         -0.135 &         -0.055 &          0.209 &         -0.733 &         -0.279 &         -0.087 &          1.474 \\
-   & std & \% &             NaN &             NaN &          46.193 &          46.193 &          17.279 &          17.279 &          36.044 &          36.044 &           3.214 &           3.214 &          49.061 &          49.061 &           7.845 &           7.845 &         37.182 &          3.392 &         47.113 &         10.955 &         35.471 &         13.679 &         48.485 &          7.998 \\
-   &          & num &           0.000 &           0.000 &           0.830 &           0.830 &           0.153 &           0.153 &           0.654 &           0.654 &           0.096 &           0.096 &           0.674 &           0.674 &           0.167 &           0.167 &          0.679 &          0.101 &          0.635 &          0.205 &          0.642 &          0.238 &          0.680 &          0.172 \\
-   & diff/std & \% &             NaN &             NaN &         121.253 &         121.253 &         513.612 &         513.612 &          63.425 &          63.425 &         676.042 &         676.042 &         221.181 &         221.181 &         538.275 &         538.275 &        239.873 &        134.102 &          8.735 &        101.990 &        114.173 &        117.152 &         12.828 &        854.857 \\
-\bottomrule
-\end{tabular}\end{split}
-\end{equation*}
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-
-\end{sphinxuseclass}
 \sphinxstepscope
 
 
@@ -8881,10 +8466,10 @@ Plot spreads in magnitude and phase parameters. Statistical plots are available 
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fd0d85c3970\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f884465c640\PYGZgt{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{0796f4ccc0f82c153f48d06e5052622886c0523d5e99aea7baae0ab3871079bc}.png}
+\noindent\sphinxincludegraphics{{09fc8ed7a88c7cde84a7fb7c6f491fcb607df6b00a33d10b3c943d27fee6991e}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -8907,10 +8492,10 @@ Plot spreads in magnitude and phase parameters. Statistical plots are available 
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fd0d8438a00\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f884951ed70\PYGZgt{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{b326fd2bf22b8461b983a8a4c170303ebc9e8481f3b365f921cf1e5a38c5139e}.png}
+\noindent\sphinxincludegraphics{{c607f7d6cf11460fe66a39761383d5b25be6d98f2c76825bad2240dbd79adf1f}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -8959,7 +8544,7 @@ Examine new data types…
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fd0d82880a0\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f884465c640\PYGZgt{}
 \end{sphinxVerbatim}
 
 \noindent\sphinxincludegraphics{{0dd81e21bbfc51b88933f6970a9ab635aec846e2911b4bc17cfca7385317a5d9}.png}
@@ -8986,7 +8571,7 @@ Examine new data types…
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fd0d851cc40\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f884440d930\PYGZgt{}
 \end{sphinxVerbatim}
 
 \noindent\sphinxincludegraphics{{e6f57d7946ffde2d3c75ce3ff29ae4f2a63501ce5eafccef1e7e86073cee7704}.png}
@@ -9087,70 +8672,6 @@ pc & mean & num &    0.000 &    1.483 &    2.132 &    0.747 &    1.267 &    1.68
 \bottomrule
 \end{tabular}\end{split}
 \end{equation*}
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-
-\end{sphinxuseclass}
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Plot values vs. reference cases}
-\PYG{c+c1}{\PYGZsh{} NOTE \PYGZhy{} experimental code, not yet consolidated and wrapped in PEMtk}
-
-\PYG{n}{paramType} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{m}\PYG{l+s+s1}{\PYGZsq{}}
-
-\PYG{c+c1}{\PYGZsh{} Set new DataFrame including \PYGZdq{}vary\PYGZdq{} info (missing in default case)}
-\PYG{n}{pDict} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{dfWideTest}\PYG{l+s+s1}{\PYGZsq{}}
-\PYG{c+c1}{\PYGZsh{} Try using existing function with extra index set...}
-\PYG{n}{data}\PYG{o}{.}\PYG{n}{\PYGZus{}setWide}\PYG{p}{(}\PYG{n}{indexDims} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Fit}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Type}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{chisqrGroup}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{redchiGroup}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{batch}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{vary}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{dataWide}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{dfWideTest}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
-
-\PYG{c+c1}{\PYGZsh{} plotData = data.paramPlot(dataDict = pDict, selectors=\PYGZob{}\PYGZsq{}vary\PYGZsq{}:True, \PYGZsq{}Type\PYGZsq{}:\PYGZsq{}m\PYGZsq{}, \PYGZsq{}redchiGroup\PYGZsq{}:selGroup\PYGZcb{}, hue = \PYGZsq{}chisqr\PYGZsq{}, backend=\PYGZsq{}hv\PYGZsq{}, hvType=\PYGZsq{}violin\PYGZsq{}, returnFlag = True, plotScatter=True, remap = \PYGZsq{}lmMap\PYGZsq{}, hRound = 12) }
-\PYG{c+c1}{\PYGZsh{} NO REMAP CASE}
-\PYG{n}{plotData} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{paramPlot}\PYG{p}{(}\PYG{n}{dataDict} \PYG{o}{=} \PYG{n}{pDict}\PYG{p}{,} \PYG{n}{selectors}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{vary}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{k+kc}{True}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Type}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{paramType}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{redchiGroup}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{selGroup}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{n}{hue} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{chisqr}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} 
-                          \PYG{n}{backend}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{hv}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{hvType}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{violin}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{returnFlag} \PYG{o}{=} \PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{plotScatter}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{hRound}\PYG{o}{=}\PYG{n}{hRound}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{}, remap=\PYGZsq{}lmMap\PYGZsq{}) }
-\PYG{n}{p1} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{plots}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{paramPlot}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
-\PYG{c+c1}{\PYGZsh{} p2 = dataTestSub.hvplot.scatter(x=\PYGZsq{}Param\PYGZsq{},y=\PYGZsq{}value\PYGZsq{}, marker=\PYGZsq{}o\PYGZsq{}, size=200, color=\PYGZsq{}green\PYGZsq{})}
-
-\PYG{c+c1}{\PYGZsh{} Plot ref params... CURRENTLY NOT IN paraPlot(), and that also expects fit data so can\PYGZsq{}t reuse directly here.}
-
-\PYG{n}{dataTest} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{fits}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{dfRef}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
-\PYG{c+c1}{\PYGZsh{} data.paramPlot(dataDict = \PYGZsq{}dfRef\PYGZsq{})}
-
-\PYG{c+c1}{\PYGZsh{} Set axis remap}
-\PYG{c+c1}{\PYGZsh{} dataTest.replace(\PYGZob{}\PYGZsq{}Param\PYGZsq{}:data.lmmu[\PYGZsq{}lmMap\PYGZsq{}]\PYGZcb{}, inplace=True)}
-
-\PYG{c+c1}{\PYGZsh{} Subset}
-\PYG{n}{dataTestSub} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{\PYGZus{}subsetFromXS}\PYG{p}{(}\PYG{n}{selectors} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Type}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{paramType}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{n}{data} \PYG{o}{=} \PYG{n}{dataTest}\PYG{p}{)}  
-\PYG{n}{p2} \PYG{o}{=} \PYG{n}{dataTestSub}\PYG{o}{.}\PYG{n}{hvplot}\PYG{o}{.}\PYG{n}{scatter}\PYG{p}{(}\PYG{n}{x}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Param}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{n}{y}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{value}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{marker}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{dash}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{size}\PYG{o}{=}\PYG{l+m+mi}{500}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{red}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
-
-\PYG{c+c1}{\PYGZsh{} p1+p2   \PYGZsh{} Overlays fail with \PYGZdq{}NotImplementedError: Iteration on Elements is not supported.\PYGZdq{} Issue with plot types? FIXED \PYGZhy{} issues was non\PYGZhy{}plot return from paramPlot()!}
-\PYG{n}{p1}\PYG{o}{*}\PYG{n}{p2}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-*** Warning: found MultiIndex for DataFrame data.index \PYGZhy{} checkDims may have issues with Pandas MultiIndex, but will try anyway.
-*** Warning: found MultiIndex for DataFrame data.index \PYGZhy{} checkDims may have issues with Pandas MultiIndex, but will try anyway.
-*** Warning: found MultiIndex for DataFrame data.index \PYGZhy{} checkDims may have issues with Pandas MultiIndex, but will try anyway.
-*** Warning: found MultiIndex for DataFrame data.index \PYGZhy{} checkDims may have issues with Pandas MultiIndex, but will try anyway.
-\end{sphinxVerbatim}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-:Overlay
-   .Violin.I  :Violin   [Param]   (value)
-   .Scatter.I :Scatter   [Param]   (value,chisqr)
-\end{sphinxVerbatim}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-:Overlay
-   .Violin.I   :Violin   [Param]   (value)
-   .Scatter.I  :Scatter   [Param]   (value,chisqr)
-   .Scatter.II :Scatter   [Param]   (value)
-\end{sphinxVerbatim}
-
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
@@ -9270,48 +8791,11 @@ B2G & 2 & -1 &  0 &  0.788 &  0.128 &  0.187 &  1.193 &  0.774+0.147j &  0.047+0
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-Added dim Targ
 Added dim Total
 Added dim Targ
 Added dim Total
+Added dim Targ
 Set XR dataset for self.data[\PYGZsq{}agg\PYGZsq{}][\PYGZsq{}matE\PYGZsq{}]
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-
-\end{sphinxuseclass}
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{data}\PYG{o}{.}\PYG{n}{data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{agg}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{matE}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}xarray.Dataset\PYGZgt{}
-Dimensions:  (Type: 2, Sym: 6, LM: 36, mu: 3, it: 1)
-Coordinates:
-  * Type     (Type) object \PYGZsq{}comp\PYGZsq{} \PYGZsq{}compC\PYGZsq{}
-  * Sym      (Sym) MultiIndex
-  \PYGZhy{} Cont     (Sym) object \PYGZsq{}AG\PYGZsq{} \PYGZsq{}AG\PYGZsq{} \PYGZsq{}B1G\PYGZsq{} \PYGZsq{}B1G\PYGZsq{} \PYGZsq{}B2G\PYGZsq{} \PYGZsq{}B2G\PYGZsq{}
-  \PYGZhy{} Targ     (Sym) object \PYGZsq{}B3U\PYGZsq{} \PYGZsq{}U\PYGZsq{} \PYGZsq{}B3U\PYGZsq{} \PYGZsq{}U\PYGZsq{} \PYGZsq{}B3U\PYGZsq{} \PYGZsq{}U\PYGZsq{}
-  \PYGZhy{} Total    (Sym) object \PYGZsq{}B3U\PYGZsq{} \PYGZsq{}U\PYGZsq{} \PYGZsq{}B2U\PYGZsq{} \PYGZsq{}U\PYGZsq{} \PYGZsq{}B1U\PYGZsq{} \PYGZsq{}U\PYGZsq{}
-  * LM       (LM) MultiIndex
-  \PYGZhy{} l        (LM) int64 0 0 0 0 0 0 0 0 0 2 2 2 2 ... 4 4 4 4 6 6 6 6 6 6 6 6 6
-  \PYGZhy{} m        (LM) int64 \PYGZhy{}4 \PYGZhy{}3 \PYGZhy{}2 \PYGZhy{}1 0 1 2 3 4 \PYGZhy{}4 \PYGZhy{}3 ... 4 \PYGZhy{}4 \PYGZhy{}3 \PYGZhy{}2 \PYGZhy{}1 0 1 2 3 4
-  * mu       (mu) int64 \PYGZhy{}1 0 1
-  * it       (it) int64 1
-    Eke      float64 6.0
-    Ehv      float64 16.3
-    SF       complex128 (2.212391+3.6464095j)
-Data variables:
-    comp     (Type, mu, Sym, LM) complex128 (nan+nanj) (nan+nanj) ... (nan+nanj)
-    compC    (Type, mu, Sym, LM) complex128 (nan+nanj) (nan+nanj) ... (nan+nanj)
-    subset   (LM, Sym, mu, it) complex128 (nan+nanj) (nan+nanj) ... (nan+nanj)
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -9460,57 +8944,6 @@ Routines as per \sphinxurl{https://pemtk.readthedocs.io/en/latest/topical\_revie
 \noindent\sphinxincludegraphics{{9420008f5a9dd5416a51dfba8fea03ff3245f897f534505ccf7141a51f29d54a}.png}
 \caption{{\hyperref[\detokenize{backmatter/glossary:term-MF}]{\sphinxtermref{\DUrole{xref,std,std-term}{MF}}}}\sphinxhyphen{}{\hyperref[\detokenize{backmatter/glossary:term-PADs}]{\sphinxtermref{\DUrole{xref,std,std-term}{PADs}}}} differences between retrieved and reference cases for \((x,y,z,d)\) polarization geometries, where \(d\) is the “diagonal” case with the polarization axis as 45 degrees to the \(z\)\sphinxhyphen{}axis. Note diffs are normalised to emphasize the shape, but not mangnitudes, of the differences \sphinxhyphen{} see the density matrix comparisons for a more rigourous fidelity analysis.}\label{\detokenize{part2/case-study-C2H4_290723:fig-c2h4-diff}}\end{figure}
 
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{remap} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{lmMap}\PYG{l+s+s1}{\PYGZsq{}}
-\PYG{n}{data}\PYG{o}{.}\PYG{n}{paramsSummaryComp}\PYG{o}{.}\PYG{n}{replace}\PYG{p}{(}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Param}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{n}{data}\PYG{o}{.}\PYG{n}{lmmu}\PYG{p}{[}\PYG{n}{remap}\PYG{p}{]}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{n}{inplace}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}\begin{equation*}
-\begin{split}\begin{tabular}{lllrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr}
-\toprule
-   &          & Param &  AG\_B3U\_B3U\_0\_0\_1\_1 &  AG\_B3U\_B3U\_0\_0\_n1\_1 &  AG\_B3U\_B3U\_2\_0\_1\_1 &  AG\_B3U\_B3U\_2\_0\_n1\_1 &  AG\_B3U\_B3U\_2\_2\_1\_1 &  AG\_B3U\_B3U\_2\_2\_n1\_1 &  AG\_B3U\_B3U\_2\_n2\_1\_1 &  AG\_B3U\_B3U\_2\_n2\_n1\_1 &  AG\_B3U\_B3U\_4\_0\_1\_1 &  AG\_B3U\_B3U\_4\_0\_n1\_1 &  AG\_B3U\_B3U\_4\_2\_1\_1 &  AG\_B3U\_B3U\_4\_2\_n1\_1 &  AG\_B3U\_B3U\_4\_4\_1\_1 &  AG\_B3U\_B3U\_4\_4\_n1\_1 &  AG\_B3U\_B3U\_4\_n2\_1\_1 &  AG\_B3U\_B3U\_4\_n2\_n1\_1 &  AG\_B3U\_B3U\_4\_n4\_1\_1 &  AG\_B3U\_B3U\_4\_n4\_n1\_1 &  AG\_B3U\_B3U\_6\_0\_1\_1 &  AG\_B3U\_B3U\_6\_0\_n1\_1 &  B1G\_B3U\_B2U\_2\_2\_1\_1 &  B1G\_B3U\_B2U\_2\_2\_n1\_1 &  B1G\_B3U\_B2U\_2\_n2\_1\_1 &  B1G\_B3U\_B2U\_2\_n2\_n1\_1 &  B1G\_B3U\_B2U\_4\_2\_1\_1 &  B1G\_B3U\_B2U\_4\_2\_n1\_1 &  B1G\_B3U\_B2U\_4\_4\_1\_1 &  B1G\_B3U\_B2U\_4\_4\_n1\_1 &  B1G\_B3U\_B2U\_4\_n2\_1\_1 &  B1G\_B3U\_B2U\_4\_n2\_n1\_1 &  B1G\_B3U\_B2U\_4\_n4\_1\_1 &  B1G\_B3U\_B2U\_4\_n4\_n1\_1 &  B2G\_B3U\_B1U\_2\_1\_0\_1 &  B2G\_B3U\_B1U\_2\_n1\_0\_1 &  B2G\_B3U\_B1U\_4\_1\_0\_1 &  B2G\_B3U\_B1U\_4\_3\_0\_1 &  B2G\_B3U\_B1U\_4\_n1\_0\_1 &  B2G\_B3U\_B1U\_4\_n3\_0\_1 \\
-Type & Source & dType &                     &                      &                     &                      &                     &                      &                      &                       &                     &                      &                     &                      &                     &                      &                      &                       &                      &                       &                     &                      &                      &                       &                       &                        &                      &                       &                      &                       &                       &                        &                       &                        &                      &                       &                      &                      &                       &                       \\
-\midrule
-m & mean & num &               1.179 &                1.179 &               0.859 &                0.859 &               1.635 &                1.635 &                1.635 &                 1.635 &               0.756 &                0.756 &               0.539 &                0.539 &               0.765 &                0.765 &                0.539 &                 0.539 &                0.765 &                 0.765 &               1.127 &                1.127 &                0.993 &                 0.993 &                 0.993 &                  0.993 &                0.127 &                 0.127 &                0.326 &                 1.295 &                 0.127 &                  0.127 &                 0.326 &                  0.326 &                0.788 &                 0.788 &                0.457 &                0.837 &                 0.457 &                 0.837 \\
-   & ref & num &               1.366 &                1.366 &               1.299 &                1.299 &               1.386 &                1.386 &                1.386 &                 1.386 &               0.400 &                0.400 &               0.300 &                0.300 &               0.050 &                0.050 &                0.300 &                 0.300 &                0.050 &                 0.050 &               0.013 &                0.013 &                1.563 &                 1.563 &                 1.563 &                  1.563 &                0.154 &                 0.154 &                0.035 &                 0.035 &                 0.154 &                  0.154 &                 0.035 &                  0.035 &                0.521 &                 0.521 &                0.162 &                0.074 &                 0.162 &                 0.074 \\
-   & diff & \% &              15.900 &               15.900 &              51.143 &               51.143 &              15.198 &               15.198 &               15.198 &                15.198 &              47.063 &               47.063 &              44.338 &               44.338 &              93.490 &               93.490 &               44.338 &                44.338 &               93.490 &                93.490 &              98.811 &               98.811 &               57.489 &                57.489 &                57.489 &                 57.489 &               20.847 &                20.847 &               89.145 &                97.270 &                20.847 &                 20.847 &                89.145 &                 89.145 &               33.939 &                33.939 &               64.476 &               91.112 &                64.476 &                91.112 \\
-   &          & num &              -0.187 &               -0.187 &              -0.439 &               -0.439 &               0.248 &                0.248 &                0.248 &                 0.248 &               0.356 &                0.356 &               0.239 &                0.239 &               0.716 &                0.716 &                0.239 &                 0.239 &                0.716 &                 0.716 &               1.114 &                1.114 &               -0.571 &                -0.571 &                -0.571 &                 -0.571 &               -0.027 &                -0.027 &                0.290 &                 1.260 &                -0.027 &                 -0.027 &                 0.290 &                  0.290 &                0.267 &                 0.267 &                0.295 &                0.762 &                 0.295 &                 0.762 \\
-   & std & \% &              85.738 &               85.738 &              79.694 &               79.694 &              10.684 &               10.684 &               10.684 &                10.684 &              76.209 &               76.209 &             129.566 &              129.566 &             106.113 &              106.113 &              129.566 &               129.566 &              106.113 &               106.113 &              53.719 &               53.719 &               88.014 &                88.014 &                88.014 &                 88.014 &              175.285 &               175.285 &              124.290 &                63.182 &               175.285 &                175.285 &               124.290 &                124.290 &               62.750 &                62.750 &               67.565 &               84.633 &                67.565 &                84.633 \\
-   &          & num &               1.011 &                1.011 &               0.685 &                0.685 &               0.175 &                0.175 &                0.175 &                 0.175 &               0.576 &                0.576 &               0.698 &                0.698 &               0.812 &                0.812 &                0.698 &                 0.698 &                0.812 &                 0.812 &               0.605 &                0.605 &                0.874 &                 0.874 &                 0.874 &                  0.874 &                0.223 &                 0.223 &                0.405 &                 0.818 &                 0.223 &                  0.223 &                 0.405 &                  0.405 &                0.494 &                 0.494 &                0.309 &                0.708 &                 0.309 &                 0.708 \\
-   & diff/std & \% &              18.545 &               18.545 &              64.173 &               64.173 &             142.256 &              142.256 &              142.256 &               142.256 &              61.755 &               61.755 &              34.220 &               34.220 &              88.104 &               88.104 &               34.220 &                34.220 &               88.104 &                88.104 &             183.942 &              183.942 &               65.319 &                65.319 &                65.319 &                 65.319 &               11.893 &                11.893 &               71.723 &               153.953 &                11.893 &                 11.893 &                71.723 &                 71.723 &               54.086 &                54.086 &               95.429 &              107.655 &                95.429 &               107.655 \\
-n & mean & num &               0.187 &                0.187 &               0.130 &                0.130 &               0.254 &                0.254 &                0.254 &                 0.254 &               0.124 &                0.124 &               0.075 &                0.075 &               0.124 &                0.124 &                0.075 &                 0.075 &                0.124 &                 0.124 &               0.166 &                0.166 &                0.139 &                 0.139 &                 0.139 &                  0.139 &                0.022 &                 0.022 &                0.048 &                 0.198 &                 0.022 &                  0.022 &                 0.048 &                  0.048 &                0.128 &                 0.128 &                0.067 &                0.121 &                 0.067 &                 0.121 \\
-   & ref & num &               0.268 &                0.268 &               0.255 &                0.255 &               0.272 &                0.272 &                0.272 &                 0.272 &               0.079 &                0.079 &               0.059 &                0.059 &               0.010 &                0.010 &                0.059 &                 0.059 &                0.010 &                 0.010 &               0.003 &                0.003 &                0.307 &                 0.307 &                 0.307 &                  0.307 &                0.030 &                 0.030 &                0.007 &                 0.007 &                 0.030 &                  0.030 &                 0.007 &                  0.007 &                0.102 &                 0.102 &                0.032 &                0.015 &                 0.032 &                 0.015 \\
-   & diff & \% &              43.240 &               43.240 &              95.963 &               95.963 &               6.979 &                6.979 &                6.979 &                 6.979 &              36.651 &               36.651 &              21.732 &               21.732 &              92.098 &               92.098 &               21.732 &                21.732 &               92.098 &                92.098 &              98.419 &               98.419 &              120.398 &               120.398 &               120.398 &                120.398 &               34.531 &                34.531 &               85.449 &                96.489 &                34.531 &                 34.531 &                85.449 &                 85.449 &               19.929 &                19.929 &               52.096 &               87.952 &                52.096 &                87.952 \\
-   &          & num &              -0.081 &               -0.081 &              -0.125 &               -0.125 &              -0.018 &               -0.018 &               -0.018 &                -0.018 &               0.045 &                0.045 &               0.016 &                0.016 &               0.114 &                0.114 &                0.016 &                 0.016 &                0.114 &                 0.114 &               0.164 &                0.164 &               -0.168 &                -0.168 &                -0.168 &                 -0.168 &               -0.008 &                -0.008 &                0.041 &                 0.191 &                -0.008 &                 -0.008 &                 0.041 &                  0.041 &                0.025 &                 0.025 &                0.035 &                0.107 &                 0.035 &                 0.107 \\
-   & std & \% &              88.166 &               88.166 &              76.703 &               76.703 &              18.057 &               18.057 &               18.057 &                18.057 &              78.802 &               78.802 &             121.307 &              121.307 &             111.570 &              111.570 &              121.307 &               121.307 &              111.570 &               111.570 &              40.666 &               40.666 &               80.492 &                80.492 &                80.492 &                 80.492 &              179.484 &               179.484 &              113.665 &                63.960 &               179.484 &                179.484 &               113.665 &                113.665 &               71.017 &                71.017 &               54.975 &               78.110 &                54.975 &                78.110 \\
-   &          & num &               0.165 &                0.165 &               0.100 &                0.100 &               0.046 &                0.046 &                0.046 &                 0.046 &               0.098 &                0.098 &               0.091 &                0.091 &               0.138 &                0.138 &                0.091 &                 0.091 &                0.138 &                 0.138 &               0.068 &                0.068 &                0.112 &                 0.112 &                 0.112 &                  0.112 &                0.040 &                 0.040 &                0.054 &                 0.126 &                 0.040 &                  0.040 &                 0.054 &                  0.054 &                0.091 &                 0.091 &                0.037 &                0.095 &                 0.037 &                 0.095 \\
-   & diff/std & \% &              49.044 &               49.044 &             125.111 &              125.111 &              38.647 &               38.647 &               38.647 &                38.647 &              46.511 &               46.511 &              17.915 &               17.915 &              82.547 &               82.547 &               17.915 &                17.915 &               82.547 &                82.547 &             242.015 &              242.015 &              149.579 &               149.579 &               149.579 &                149.579 &               19.239 &                19.239 &               75.176 &               150.859 &                19.239 &                 19.239 &                75.176 &                 75.176 &               28.062 &                28.062 &               94.763 &              112.600 &                94.763 &               112.600 \\
-p & mean & num &               1.357 &               -2.978 &               1.648 &               -1.497 &              -0.357 &                0.413 &               -0.357 &                 0.413 &               0.792 &                1.156 &               0.366 &                0.552 &              -0.060 &                1.382 &                0.366 &                 0.552 &               -0.060 &                 1.382 &               0.196 &                0.708 &                0.453 &                 0.453 &                 0.574 &                  0.574 &               -1.190 &                -1.190 &               -0.260 &                -0.260 &                 0.618 &                  0.618 &                 0.082 &                  0.082 &                0.187 &                 0.778 &               -0.706 &                0.273 &                -1.739 &                -0.442 \\
-   & ref & num &               0.163 &               -2.978 &              -2.385 &                0.756 &               0.802 &               -2.340 &                0.802 &                -2.340 &               2.494 &               -0.647 &              -2.930 &                0.212 &              -0.102 &                3.040 &               -2.930 &                 0.212 &               -0.102 &                 3.040 &              -0.062 &                3.080 &               -2.149 &                -2.149 &                 0.993 &                  0.993 &                1.117 &                 1.117 &               -3.104 &                -3.104 &                -2.025 &                 -2.025 &                 0.037 &                  0.037 &               -0.646 &                 2.495 &               -1.079 &               -1.168 &                 2.063 &                 1.974 \\
-   & diff & \% &              87.971 &                0.000 &             244.712 &              150.525 &             324.612 &              666.272 &              324.612 &               666.272 &             214.888 &              156.011 &             900.498 &               61.663 &              69.605 &              119.952 &              900.498 &                61.663 &               69.605 &               119.952 &             131.377 &              334.739 &              574.256 &               574.256 &                72.786 &                 72.786 &              193.803 &               193.803 &             1093.407 &              1093.407 &               427.780 &                427.780 &                54.802 &                 54.802 &              445.431 &               220.565 &               52.709 &              528.291 &               218.631 &               546.921 \\
-   &          & num &               1.194 &                0.000 &               4.033 &               -2.253 &              -1.159 &                2.753 &               -1.159 &                 2.753 &              -1.702 &                1.803 &               3.296 &                0.341 &               0.042 &               -1.658 &                3.296 &                 0.341 &                0.042 &                -1.658 &               0.258 &               -2.372 &                2.602 &                 2.602 &                -0.418 &                 -0.418 &               -2.307 &                -2.307 &                2.844 &                 2.844 &                 2.643 &                  2.643 &                 0.045 &                  0.045 &                0.833 &                -1.717 &                0.372 &                1.441 &                -3.802 &                -2.415 \\
-   & std & \% &             131.140 &                0.000 &              71.415 &              104.662 &             599.642 &              567.657 &              599.642 &               567.657 &             219.427 &              201.629 &             707.323 &              518.118 &            4536.492 &              105.037 &              707.323 &               518.118 &             4536.492 &               105.037 &            1338.858 &              299.192 &              384.006 &               384.006 &               399.792 &                399.792 &              181.782 &               181.782 &             1031.989 &              1031.989 &               392.707 &                392.707 &              2745.660 &               2745.660 &              882.005 &               278.258 &              197.085 &              941.927 &                76.940 &               409.308 \\
-   &          & num &               1.780 &                0.000 &               1.177 &                1.567 &               2.140 &                2.346 &                2.140 &                 2.346 &               1.738 &                2.331 &               2.589 &                2.862 &               2.724 &                1.452 &                2.589 &                 2.862 &                2.724 &                 1.452 &               2.625 &                2.120 &                1.740 &                 1.740 &                 2.297 &                  2.297 &                2.164 &                 2.164 &                2.684 &                 2.684 &                 2.426 &                  2.426 &                 2.260 &                  2.260 &                1.650 &                 2.166 &                1.392 &                2.569 &                 1.338 &                 1.808 \\
-   & diff/std & \% &              67.082 &                  NaN &             342.663 &              143.820 &              54.134 &              117.372 &               54.134 &               117.372 &              97.931 &               77.375 &             127.311 &               11.901 &               1.534 &              114.200 &              127.311 &                11.901 &                1.534 &               114.200 &               9.813 &              111.881 &              149.544 &               149.544 &                18.206 &                 18.206 &              106.613 &               106.613 &              105.951 &               105.951 &               108.931 &                108.931 &                 1.996 &                  1.996 &               50.502 &                79.266 &               26.744 &               56.086 &               284.156 &               133.621 \\
-pc & mean & num &               0.000 &                1.483 &               2.132 &                0.747 &               1.267 &                1.682 &                1.267 &                 1.682 &               0.727 &                1.762 &               1.662 &                1.378 &               2.062 &                1.406 &                1.662 &                 1.378 &                2.062 &                 1.406 &               1.431 &                2.133 &                2.561 &                 2.561 &                 0.910 &                  0.910 &                1.015 &                 1.015 &                1.241 &                 1.241 &                 1.354 &                  1.354 &                 0.960 &                  0.960 &                1.193 &                 2.093 &                1.496 &                2.341 &                 1.719 &                 1.473 \\
-   & ref & num &               0.000 &                3.142 &               2.548 &                0.593 &               0.639 &                2.503 &                0.639 &                 2.503 &               2.331 &                0.811 &               3.093 &                0.049 &               0.265 &                2.877 &                3.093 &                 0.049 &                0.265 &                 2.877 &               0.225 &                2.917 &                2.312 &                 2.312 &                 0.829 &                  0.829 &                0.953 &                 0.953 &                3.016 &                 3.016 &                 2.188 &                  2.188 &                 0.126 &                  0.126 &                0.810 &                 2.332 &                1.242 &                1.331 &                 1.900 &                 1.810 \\
-   & diff & \% &                 NaN &              111.866 &              19.526 &               20.602 &              49.590 &               48.847 &               49.590 &                48.847 &             220.734 &               53.987 &              86.077 &               96.477 &              87.142 &              104.562 &               86.077 &                96.477 &               87.142 &               104.562 &              84.295 &               36.754 &                9.726 &                 9.726 &                 8.841 &                  8.841 &                6.014 &                 6.014 &              142.986 &               142.986 &                61.648 &                 61.648 &                86.869 &                 86.869 &               32.142 &                11.431 &               16.986 &               43.135 &                10.477 &                22.948 \\
-   &          & num &               0.000 &               -1.659 &              -0.416 &                0.154 &               0.628 &               -0.821 &                0.628 &                -0.821 &              -1.604 &                0.951 &              -1.431 &                1.330 &               1.796 &               -1.470 &               -1.431 &                 1.330 &                1.796 &                -1.470 &               1.206 &               -0.784 &                0.249 &                 0.249 &                 0.080 &                  0.080 &                0.061 &                 0.061 &               -1.775 &                -1.775 &                -0.834 &                 -0.834 &                 0.834 &                  0.834 &                0.383 &                -0.239 &                0.254 &                1.010 &                -0.180 &                -0.338 \\
-   & std & \% &                 NaN &               82.832 &              34.350 &               80.295 &              70.160 &               60.024 &               70.160 &                60.024 &             106.441 &               62.469 &              48.294 &               98.847 &              61.086 &               64.292 &               48.294 &                98.847 &               61.086 &                64.292 &             106.173 &               36.913 &               18.593 &                18.593 &               119.282 &                119.282 &               86.950 &                86.950 &               80.164 &                80.164 &                48.116 &                 48.116 &                93.246 &                 93.246 &               68.031 &                26.168 &               55.780 &               40.939 &                68.636 &                86.683 \\
-   &          & num &               0.000 &                1.228 &               0.732 &                0.600 &               0.889 &                1.009 &                0.889 &                 1.009 &               0.774 &                1.101 &               0.803 &                1.362 &               1.259 &                0.904 &                0.803 &                 1.362 &                1.259 &                 0.904 &               1.519 &                0.787 &                0.476 &                 0.476 &                 1.085 &                  1.085 &                0.882 &                 0.882 &                0.995 &                 0.995 &                 0.651 &                  0.651 &                 0.895 &                  0.895 &                0.812 &                 0.548 &                0.835 &                0.958 &                 1.180 &                 1.276 \\
-   & diff/std & \% &                 NaN &              135.051 &              56.845 &               25.658 &              70.681 &               81.378 &               70.681 &                81.378 &             207.378 &               86.422 &             178.234 &               97.602 &             142.656 &              162.635 &              178.234 &                97.602 &              142.656 &               162.635 &              79.394 &               99.569 &               52.308 &                52.308 &                 7.412 &                  7.412 &                6.917 &                 6.917 &              178.367 &               178.367 &               128.125 &                128.125 &                93.161 &                 93.161 &               47.247 &                43.683 &               30.453 &              105.364 &                15.264 &                26.474 \\
-\bottomrule
-\end{tabular}\end{split}
-\end{equation*}
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-
-\end{sphinxuseclass}
 \sphinxstepscope
 
 
@@ -9526,7 +8959,11 @@ The other two case studies (\hyperref[\detokenize{part2/case-study-OCS_290723:ch
 \section{General notes on fitting methodologies for the case studies}
 \label{\detokenize{part2/case-study-summaries_240723:general-notes-on-fitting-methodologies-for-the-case-studies}}
 \sphinxAtStartPar
-As discussed elsewhere, the general {\hyperref[\detokenize{backmatter/glossary:term-bootstrap-retrieval-protocol}]{\sphinxtermref{\DUrole{xref,std,std-term}{bootstrap retrieval protocol}}}} is quite flexible. In the case studies, much of this flexibility is yet to be explored! This is, primarily, a question of the time and effort available: for the \(N_2\) case obtaining a set of 1000 fit results takes approximately 2 hours on a workstation.{[}\textasciicircum{}benchmarksFootnote{]} However, scaling up to more complex cases is significantly more costly, with \(OCS\) and \(C_2H_4\) results requiring approximately 1\sphinxhyphen{}2 orders of magnitude more computational time \sphinxhyphen{} on the order of days per few hundred fits. Work towards speeding up fitting, e.g. using GPU\sphinxhyphen{}based routines and/or lower\sphinxhyphen{}level code for speed, is ongoing. Deployment to high\sphinxhyphen{}performance computing (HPC) resources, e.g. clusters, is also ongoing. The results herein, therefore, represent only the preliminary stages of testing and tuning the {\hyperref[\detokenize{backmatter/glossary:term-bootstrap-retrieval-protocol}]{\sphinxtermref{\DUrole{xref,std,std-term}{bootstrap retrieval protocol}}}} for these more complex cases, but already appear quite promising.
+As discussed elsewhere, the general {\hyperref[\detokenize{backmatter/glossary:term-bootstrap-retrieval-protocol}]{\sphinxtermref{\DUrole{xref,std,std-term}{bootstrap retrieval protocol}}}} is quite flexible. In the case studies, much of this flexibility is yet to be explored! This is, primarily, a question of the time and effort available: for the \(N_2\) case obtaining a set of 1000 fit results takes approximately 2 hours on a workstation.%
+\begin{footnote}[1]\sphinxAtStartFootnote
+Running on 20 (logical) cores of an AMD Threadripper 2950X based workstation, this required 5 GB of RAM and took on the order of 2 hours, although note that the time per fit cycle had large variance, since convergence time depends on the start parameters. Further benchmarks for the current codebase can be found in the \sphinxhref{https://pemtk.readthedocs.io}{PEMtk documentation} {[}\hyperlink{cite.backmatter/bibliography:id680}{20}{]}.
+%
+\end{footnote} However, scaling up to more complex cases is significantly more costly, with \(OCS\) and \(C_2H_4\) results requiring approximately 1\sphinxhyphen{}2 orders of magnitude more computational time \sphinxhyphen{} on the order of days per few hundred fits. Work towards speeding up fitting, e.g. using GPU\sphinxhyphen{}based routines and/or lower\sphinxhyphen{}level code for speed, is ongoing. Deployment to high\sphinxhyphen{}performance computing (HPC) resources, e.g. clusters, is also ongoing. The results herein, therefore, represent only the preliminary stages of testing and tuning the {\hyperref[\detokenize{backmatter/glossary:term-bootstrap-retrieval-protocol}]{\sphinxtermref{\DUrole{xref,std,std-term}{bootstrap retrieval protocol}}}} for these more complex cases, but already appear quite promising.
 
 \sphinxAtStartPar
 In each case, as detailed in \hyperref[\detokenize{part2/sym-fitting-intro_240723:sect-basis-sets-fitting-intro}]{Chpt.\@ \ref{\detokenize{part2/sym-fitting-intro_240723:sect-basis-sets-fitting-intro}}} \& \hyperref[\detokenize{part2/basic_fitting_numerics_intro_260723:sect-basic-fit-setup}]{Chpt.\@ \ref{\detokenize{part2/basic_fitting_numerics_intro_260723:sect-basic-fit-setup}}}, the fitting basis sets were created based on \sphinxstyleemphasis{ab initio} results, with all {\hyperref[\detokenize{backmatter/glossary:term-radial-matrix-elements}]{\sphinxtermref{\DUrole{xref,std,std-term}{radial matrix elements}}}} greater than a threshold value of 0.01 used for both simulated data generation and fitting, and automatic parameter constraints applied to reduce the effective number of “free” or “floated” terms in the fitting. Fitting was only tested for single energy\sphinxhyphen{}points. The overall size of the problems as run in this manner were:
@@ -9553,7 +8990,7 @@ Complex matrix elements
 Fitting params
 &\sphinxstyletheadfamily 
 \sphinxAtStartPar
-Floated (magnitude, phase)
+Floated params (magnitude, phase)
 &\sphinxstyletheadfamily 
 \sphinxAtStartPar
 \(t\)\sphinxhyphen{}points
@@ -9644,9 +9081,6 @@ For the \(OCS\) case, the {\hyperref[\detokenize{backmatter/glossary:term-RWP}]{
 \sphinxAtStartPar
 For the \(C_2H_4\) case, the {\hyperref[\detokenize{backmatter/glossary:term-RWP}]{\sphinxtermref{\DUrole{xref,std,std-term}{RWP}}}} is a realistic case, as used in Ref. {[}\hyperlink{cite.backmatter/bibliography:id635}{98}{]}, which includes \(S\neq0\) terms and even\sphinxhyphen{}\(K\) even\sphinxhyphen{}\(S\) terms (see figures in \hyperref[\detokenize{part2/case-study-C2H4_290723:chpt-c2h4-case-study}]{Chpt.\@ \ref{\detokenize{part2/case-study-C2H4_290723:chpt-c2h4-case-study}}} for full details). Interestingly, this case was sufficient for retrieval of {\hyperref[\detokenize{backmatter/glossary:term-MF}]{\sphinxtermref{\DUrole{xref,std,std-term}{MF}}}}\sphinxhyphen{}{\hyperref[\detokenize{backmatter/glossary:term-PADs}]{\sphinxtermref{\DUrole{xref,std,std-term}{PADs}}}} using the matrix\sphinxhyphen{}inversion method, so is expected to be successful with the {\hyperref[\detokenize{backmatter/glossary:term-bootstrap-retrieval-protocol}]{\sphinxtermref{\DUrole{xref,std,std-term}{bootstrap retrieval protocol}}}} provided enough data\sphinxhyphen{}points are incorporated and the fitting is well\sphinxhyphen{}constrained. Note that the temporal axis in this case is in arbitrary units.
 
-\sphinxAtStartPar
-{[}\textasciicircum{}benchmarksFootnote{]} Running on 20 (logical) cores of an AMD Threadripper 2950X based workstation, this required 5 GB of RAM and took on the order of 2 hours, although note that the time per fit cycle had large variance, since convergence time depends on the start parameters. Further benchmarks for the current codebase can be found in the \sphinxhref{https://pemtk.readthedocs.io}{PEMtk documentation} {[}\hyperlink{cite.backmatter/bibliography:id680}{20}{]}.
-
 
 \section{Retrieval fidelity}
 \label{\detokenize{part2/case-study-summaries_240723:retrieval-fidelity}}
@@ -9704,7 +9138,7 @@ Further testing with simulated data with both more and less noise present to eva
 
 \item {} 
 \sphinxAtStartPar
-Finally, it is of note (and also noted elsewhere) that there may still be bugs or numerical issues with the preliminary results presented herein, since they represent the first trials of the \sphinxhref{https://github.com/phockett/PEMtk}{Photoelectron Metrology Toolkit} {[}\hyperlink{cite.backmatter/bibliography:id681}{5}{]} and {\hyperref[\detokenize{backmatter/glossary:term-bootstrap-retrieval-protocol}]{\sphinxtermref{\DUrole{xref,std,std-term}{bootstrap retrieval protocol}}}} for complex cases. However, given that the same routines are used to generate the simulated data, any issues should, at least, be self\sphinxhyphen{}consistent for these test cases.
+Finally, it is of note (and also noted elsewhere) that there may still be bugs or numerical issues with the preliminary results presented herein, since they represent the first trials of the \sphinxhref{https://github.com/phockett/PEMtk}{Photoelectron Metrology Toolkit} {[}\hyperlink{cite.backmatter/bibliography:id681}{5}{]} and {\hyperref[\detokenize{backmatter/glossary:term-bootstrap-retrieval-protocol}]{\sphinxtermref{\DUrole{xref,std,std-term}{bootstrap retrieval protocol}}}} for complex cases. However, given that the same routines are used to generate the simulated data, any issues should, at least, be self\sphinxhyphen{}consistent for these test cases. Eagle\sphinxhyphen{}eyed readers may notice that in the \(C_2H_4\) test case, the \(\beta_{0,0}(t)\) parameters are negative, which is unphysical; this indicates a phase error in the calculation and has since been fixed, but does \sphinxstyleemphasis{not} affect the fitting protocol thanks to the self\sphinxhyphen{}consistent nature of the numerics.
 
 \end{itemize}
 
@@ -9737,6 +9171,10 @@ Future work is planned to look at these specific problems in more detail, includ
 
 \sphinxAtStartPar
 As discussed in \hyperref[\detokenize{part1/platform_intro_070723:sect-platform-analysis}]{Chpt.\@ \ref{\detokenize{part1/platform_intro_070723:sect-platform-analysis}}}, it is also hoped that the efforts on the code\sphinxhyphen{}development side of the problem, including the case studies presented herein, the open\sphinxhyphen{}source nature of the work, and the easy deployment of the full software stack via Docker, will all encourage other researchers to make use of these tools, and make further developments to the methodology and platform. Given the complex nature of both the core physics, data processing, simulation and phase retrieval problems, there are still many avenues to explore, but hopefully the barrier to entry is now significantly lowered.
+
+
+\bigskip\hrule\bigskip
+
 
 \sphinxstepscope
 
@@ -9886,7 +9324,7 @@ OMP: Info \PYGZsh{}276: omp\PYGZus{}set\PYGZus{}nested routine deprecated, pleas
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
-  Date: Mon Jul 31 08:11:15 2023 EDT
+  Date: Mon Jul 31 16:56:07 2023 EDT
 
                 OS : Linux
             CPU(s) : 64
@@ -9998,7 +9436,7 @@ To do
   gh\PYGZhy{}pages
   main
 * \PYG{Color+ColorGreen}{reviewJuly2023}
-3182bd7e773929b01a349230c9d96bf892f0c642
+79974db00e28189453428261c0a9171cb0dba419
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -10017,9 +9455,9 @@ To do
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-0815b0c497db93e79c3cfd5997c61d095538b34f	refs/heads/gh\PYGZhy{}pages
+93ab730f6f302f269809d726b50dd39b5ea52130	refs/heads/gh\PYGZhy{}pages
 c0fcec831b5683882b15ac1473fc6d732310da48	refs/heads/main
-acd58480c053a4536546049d9ed618d057c2a6d2	refs/heads/reviewJuly2023
+a9ebba80f671ea3784db4f5a0b28d895293ef035	refs/heads/reviewJuly2023
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -10415,7 +9853,7 @@ markdown                  3.4.3              pyhd8ed1ab\PYGZus{}0    conda\PYGZh
 markdown\PYGZhy{}it\PYGZhy{}py            2.2.0                    pypi\PYGZus{}0    pypi
 markupsafe                2.1.2           py310h1fa729e\PYGZus{}0    conda\PYGZhy{}forge
 mathjax                   2.7.7                ha770c72\PYGZus{}3    conda\PYGZhy{}forge
-matplotlib                3.5.2                    pypi\PYGZus{}0    pypi
+matplotlib                3.5.3                    pypi\PYGZus{}0    pypi
 matplotlib\PYGZhy{}inline         0.1.6              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
 mdit\PYGZhy{}py\PYGZhy{}plugins           0.3.5                    pypi\PYGZus{}0    pypi
 mdurl                     0.1.0              pyhd8ed1ab\PYGZus{}0    conda\PYGZhy{}forge
@@ -10673,13 +10111,13 @@ Paul Hockett. Phase\sphinxhyphen{}sensitive Photoelectron Metrology (DAMOP 2017)
 Paul Hockett. Bootstrapping (Ultrafast) Photoionization Dynamics. January 2018. URL: \sphinxurl{https://vimeo.com/252040672} (visited on 2023\sphinxhyphen{}07\sphinxhyphen{}06).
 \bibitem[8]{backmatter/bibliography:id669}
 \sphinxAtStartPar
-\sphinxstylestrong{missing journal in hockett2016PresentationsArchiveUltrafast}
+Paul Hockett. Presentations archive: ultrafast light\sphinxhyphen{}matter interactions. \sphinxstyleemphasis{Figshare}, 2016. URL: \sphinxurl{https://figshare.com/collections/Presentations/3312291} (visited on 2022\sphinxhyphen{}02\sphinxhyphen{}16).
 \bibitem[9]{backmatter/bibliography:id677}
 \sphinxAtStartPar
 Paul Hockett. \sphinxstyleemphasis{Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances}. IOP Publishing, 2018. ISBN 978\sphinxhyphen{}1\sphinxhyphen{}68174\sphinxhyphen{}688\sphinxhyphen{}3. URL: \sphinxurl{http://iopscience.iop.org/book/978-1-6817-4688-3}.
 \bibitem[10]{backmatter/bibliography:id772}
 \sphinxAtStartPar
-\sphinxstylestrong{missing journal in Makhija2016a}
+Varun Makhija, Xiaoming Ren, Drue Gockel, Ahn\sphinxhyphen{}Thu Le, and Vinod Kumarappan. Orientation Resolution through Rotational Coherence Spectroscopy. \sphinxstyleemphasis{arXiv}, pages 1–6, 2016. URL: \sphinxurl{http://arxiv.org/abs/1611.06476}, \sphinxhref{https://arxiv.org/abs/1611.06476}{arXiv:1611.06476}.
 \bibitem[11]{backmatter/bibliography:id773}
 \sphinxAtStartPar
 Varun Makhija, Kevin Veyrinas, Andrey E. Boguslavskiy, Ruaridh Forbes, Iain Wilkinson, Rune Lausten, Simon P. Neville, Stephen T. Pratt, Michael S. Schuurman, and Albert Stolow. Ultrafast molecular frame electronic coherences from lab frame scattering anisotropies. \sphinxstyleemphasis{Journal of Physics B: Atomic, Molecular and Optical Physics}, 53(11):114001, May 2020. URL: \sphinxurl{https://dx.doi.org/10.1088/1361-6455/ab7a84} (visited on 2023\sphinxhyphen{}06\sphinxhyphen{}14).
@@ -10727,7 +10165,7 @@ Marcia McNutt. Taking up TOP. \sphinxstyleemphasis{Science}, 2016. URL: \sphinxu
 B. A. Nosek, G. Alter, G. C. Banks, D. Borsboom, S. D. Bowman, S. J. Breckler, S. Buck, C. D. Chambers, G. Chin, G. Christensen, M. Contestabile, A. Dafoe, E. Eich, J. Freese, R. Glennerster, D. Goroff, D. P. Green, B. Hesse, M. Humphreys, J. Ishiyama, D. Karlan, A. Kraut, A. Lupia, P. Mabry, T. Madon, N. Malhotra, E. Mayo\sphinxhyphen{}Wilson, M. McNutt, E. Miguel, E. Levy Paluck, U. Simonsohn, C. Soderberg, B. A. Spellman, J. Turitto, G. VandenBos, S. Vazire, E. J. Wagenmakers, R. Wilson, and T. Yarkoni. Promoting an open research culture. \sphinxstyleemphasis{Science}, 348(6242):1422–1425, June 2015. URL: \sphinxurl{http://science.sciencemag.org.proxy.bib.uottawa.ca/content/348/6242/1422.full} (visited on 2017\sphinxhyphen{}04\sphinxhyphen{}04).
 \bibitem[26]{backmatter/bibliography:id902}
 \sphinxAtStartPar
-\sphinxstylestrong{missing author in StateOpenData2016}
+Jon Treadway, Mark Hahnel, Sabina Leonelli, Dan Penny, David Groenewegen, Nobuko Miyairi, Kazuhiro Hayashi, Daniel O'Donnell, Digital Science, and Daniel Hook. The State of Open Data Report. Report, Digital Science, October 2016. URL: \sphinxurl{https://figshare.com/articles/report/The\_State\_of\_Open\_Data\_Report/4036398/1} (visited on 2023\sphinxhyphen{}07\sphinxhyphen{}31).
 \bibitem[27]{backmatter/bibliography:id904}
 \sphinxAtStartPar
 Victoria Stodden and Sheila Miguez. Best Practices for Computational Science: Software Infrastructure and Environments for Reproducible and Extensible Research. \sphinxstyleemphasis{Journal of Open Research Software}, 2(1):e21, July 2014. URL: \sphinxurl{http://openresearchsoftware.metajnl.com/articles/10.5334/jors.ay/} (visited on 2016\sphinxhyphen{}03\sphinxhyphen{}17).
@@ -10739,7 +10177,7 @@ Robert R. Downs, W. Christopher Lenhardt, Erin Robinson, Ethan Davis, and Nich
 James Howison, Ewa Deelman, Michael J. McLennan, Rafael Ferreira da Silva, and James D. Herbsleb. Understanding the scientific software ecosystem and its impact: Current and future measures. \sphinxstyleemphasis{Research Evaluation}, 24(4):454–470, October 2015. URL: \sphinxurl{https://doi.org/10.1093/reseval/rvv014} (visited on 2022\sphinxhyphen{}03\sphinxhyphen{}12).
 \bibitem[30]{backmatter/bibliography:id959}
 \sphinxAtStartPar
-\sphinxstylestrong{missing author in wikipeadiaOpenScience}
+\textbackslash{}\textbackslash{}Open science\textbackslash{}\textbackslash{}. Open science. \sphinxstyleemphasis{Wikipedia}, May 2023. URL: \sphinxurl{https://en.wikipedia.org/w/index.php?title=Open\_science\&oldid=1155039330} (visited on 2023\sphinxhyphen{}07\sphinxhyphen{}07).
 \bibitem[31]{backmatter/bibliography:id725}
 \sphinxAtStartPar
 Thomas Kluyver, Benjamin Ragan\sphinxhyphen{}Kelley, P\&\#233, Fernando Rez, Brian Granger, Matthias Bussonnier, Jonathan Frederic, Kyle Kelley, Jessica Hamrick, Jason Grout, Sylvain Corlay, Paul Ivanov, Dami\&\#225 Avila, n, Safia Abdalla, Carol Willing, and Jupyter Development Team. Jupyter Notebooks – a publishing format for reproducible computational workflows. \sphinxstyleemphasis{Positioning and Power in Academic Publishing: Players, Agents and Agendas}, pages 87–90, 2016. URL: \sphinxurl{https://ebooks.iospress.nl/doi/10.3233/978-1-61499-649-1-87} (visited on 2023\sphinxhyphen{}01\sphinxhyphen{}16).
@@ -10928,7 +10366,7 @@ Uwe Becker. Complete photoionisation experiments. \sphinxstyleemphasis{Journal o
 Katharine L Reid. Photoelectron angular distributions. \sphinxstyleemphasis{Annual review of physical chemistry}, 54(19):397–424, January 2003. URL: \sphinxurl{http://dx.doi.org/10.1146/annurev.physchem.54.011002.103814} (visited on 2012\sphinxhyphen{}07\sphinxhyphen{}17).
 \bibitem[93]{backmatter/bibliography:id723}
 \sphinxAtStartPar
-\sphinxstylestrong{missing booktitle in Kleinpoppen2005}
+H. Kleinpoppen, B. Lohmann, A. Grum\sphinxhyphen{}Grzhimailo, and U. Becker. Approaches to Perfect/Complete Scattering Experiments in Atomic and Molecular Physics. In H. H. Stroke, editor, \sphinxstyleemphasis{Advances In Atomic, Molecular, and Optical Physics}, volume 51, pages 471–534. Academic Press, January 2005. URL: \sphinxurl{https://www.sciencedirect.com/science/article/pii/S1049250X05510243} (visited on 2023\sphinxhyphen{}07\sphinxhyphen{}31).
 \bibitem[94]{backmatter/bibliography:id724}
 \sphinxAtStartPar
 Hans Kleinpoppen, Bernd Lohmann, and Alexei N Grum\sphinxhyphen{}Grzhimailo. \sphinxstyleemphasis{Perfect/Complete Scattering Experiments}. Volume 75. Springer Berlin Heidelberg, Berlin, Heidelberg, 2013. ISBN 978\sphinxhyphen{}3\sphinxhyphen{}642\sphinxhyphen{}40513\sphinxhyphen{}6. URL: \sphinxurl{https://books.google.ca/books?id=Cia4BAAAQBAJ}.
@@ -11015,7 +10453,7 @@ N Chandra. Photoelectron spectroscopic studies of polyatomic molecules. I. Theo
 Katharine L. Reid and Ivan Powis. Symmetry considerations in molecular photoionization: Fixed molecule photoelectron angular distributions in C3v molecules as observed in photoelectron–photoion coincidence experiments. \sphinxstyleemphasis{The Journal of Chemical Physics}, 100(2):1066, 1994. URL: \sphinxurl{http://scitation.aip.org/content/aip/journal/jcp/100/2/10.1063/1.466638}.
 \bibitem[122]{backmatter/bibliography:id961}
 \sphinxAtStartPar
-\sphinxstylestrong{missing author in wikiSphericalHarmonics}
+\textbackslash{}\textbackslash{}Spherical harmonics\textbackslash{}\textbackslash{}. Spherical harmonics. \sphinxstyleemphasis{Wikipedia}, June 2023. URL: \sphinxurl{https://en.wikipedia.org/w/index.php?title=Spherical\_harmonics\&oldid=1159615082} (visited on 2023\sphinxhyphen{}07\sphinxhyphen{}13).
 \bibitem[123]{backmatter/bibliography:id868}
 \sphinxAtStartPar
 B Schmidtke, M Drescher, N a Cherepkov, and U Heinzmann. On the impossibility to perform a complete valence\sphinxhyphen{}shell photoionization experiment with closed\sphinxhyphen{}shell atoms. \sphinxstyleemphasis{Journal of Physics B: Atomic, Molecular and Optical Physics}, 33(13):2451–2465, July 2000. URL: \sphinxurl{http://stacks.iop.org/0953-4075/33/i=13/a=306?key=crossref.ec62c50a4abb6a8ccb8209c7b3c89478}.
@@ -11078,7 +10516,7 @@ Achim Gelessus. Character tables for chemically important point groups. URL: \sp
 Gernot Katzer. Character Tables for Point Groups Cn, Cnv, Cnh, Dn, Dnh, Dnd, S2n etc. URL: \sphinxurl{http://www.gernot-katzers-spice-pages.com/character\_tables/index.html} (visited on 2023\sphinxhyphen{}04\sphinxhyphen{}23).
 \bibitem[143]{backmatter/bibliography:id672}
 \sphinxAtStartPar
-\sphinxstylestrong{missing journal in hockett2017BootstrappingDataFigshare}
+Paul Hockett. Molecular Frame Reconstruction using Time\sphinxhyphen{}domain Photoionization Interferometry (Figshare). \sphinxstyleemphasis{Figshare}, May 2017. URL: \sphinxurl{https://figshare.com/articles/journal\_contribution/Bootstrapping\_to\_the\_Molecular\_Frame\_with\_Time-domain\_Photoionization\_Interferometry/4480349/10} (visited on 2023\sphinxhyphen{}07\sphinxhyphen{}27).
 \bibitem[144]{backmatter/bibliography:id970}
 \sphinxAtStartPar
 Jo Woodhose. OCS experimental work (personal communication, manuscript in preparation). 2022.
@@ -11093,10 +10531,10 @@ Albert Messiah. \sphinxstyleemphasis{Quantum Mechanics Volume I}. North\sphinxhy
 Jun John Sakurai. \sphinxstyleemphasis{Modern Quantum Mechanics}. Addison\sphinxhyphen{}Wesley, Reading, MA, revised edition edition, 1994. URL: \sphinxurl{https://cds.cern.ch/record/1167961}.
 \bibitem[148]{backmatter/bibliography:id958}
 \sphinxAtStartPar
-\sphinxstylestrong{missing author in wikiEulerAngles}
+\textbackslash{}\textbackslash{}Euler angles\textbackslash{}\textbackslash{}. Euler angles. \sphinxstyleemphasis{Wikipedia}, June 2023. URL: \sphinxurl{https://en.wikipedia.org/w/index.php?title=Euler\_angles\&oldid=1160186404} (visited on 2023\sphinxhyphen{}07\sphinxhyphen{}17).
 \bibitem[149]{backmatter/bibliography:id962}
 \sphinxAtStartPar
-\sphinxstylestrong{missing author in wikiWignerDmatrix}
+\textbackslash{}\textbackslash{}Wigner D\sphinxhyphen{}matrix\textbackslash{}\textbackslash{}. Wigner D\sphinxhyphen{}matrix. \sphinxstyleemphasis{Wikipedia}, June 2023. URL: \sphinxurl{https://en.wikipedia.org/w/index.php?title=Wigner\_D-matrix\&oldid=1160193091} (visited on 2023\sphinxhyphen{}07\sphinxhyphen{}17).
 \end{sphinxthebibliography}
 
 

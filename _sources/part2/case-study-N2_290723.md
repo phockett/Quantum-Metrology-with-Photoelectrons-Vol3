@@ -377,6 +377,8 @@ data.paramsSummaryComp.rename(columns=data.lmmu['lmMap'])
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-output, hide-cell]
+
 # Plot values vs. reference cases
 # NOTE - experimental code, not yet consolidated and wrapped in PEMtk
 
@@ -396,7 +398,6 @@ plotData = data.paramPlot(dataDict = pDict, selectors={'vary':True, 'Type':param
 #                           backend='hv', hvType='violin', returnFlag = True, plotScatter=True, hRound=hRound)  #, remap='lmMap') 
 
 p1 = data.data['plots']['paramPlot']
-# p2 = dataTestSub.hvplot.scatter(x='Param',y='value', marker='o', size=200, color='green')
 
 # Plot ref params... CURRENTLY NOT IN paraPlot(), and that also expects fit data so can't reuse directly here.
 
@@ -410,7 +411,6 @@ dataTest = data.data['fits']['dfRef'].copy()
 dataTestSub = data._subsetFromXS(selectors = {'Type':paramType}, data = dataTest)  
 p2 = dataTestSub.hvplot.scatter(x='Param',y='value', marker='dash', size=500, color='red')
 
-# p1+p2   # Overlays fail with "NotImplementedError: Iteration on Elements is not supported." Issue with plot types? FIXED - issues was non-plot return from paramPlot()!
 p1*p2
 ```
 
@@ -436,6 +436,8 @@ data.aggToXR(refKey = 'subset', returnType = 'ds', conformDims=True)   # Subsele
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-cell]
+
 data.data['agg']['matE']
 ```
 
@@ -966,35 +968,4 @@ if saveFigs:
 
 # Show image
 Image(f'{fName}.png')
-```
-
-+++ {"tags": ["remove-cell"]}
-
-# SCRATCH
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-data.lmmu  #['lmMap']
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-data.paramsSummaryComp.columns
-```
-
-```{code-cell} ipython3
-remap = 'lmMap'
-data.paramsSummaryComp.replace({'Param':data.lmmu[remap]}, inplace=False)
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-data.paramFidelity()
-```
-
-```{code-cell} ipython3
-
 ```

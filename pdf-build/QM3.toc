@@ -61,10 +61,9 @@
 \contentsline {subsection}{\numberline {6.6.3}Legendre polynomials}{75}{subsection.6.6.3}%
 \contentsline {subsection}{\numberline {6.6.4}Time\sphinxhyphen {}resolved data}{75}{subsection.6.6.4}%
 \contentsline {section}{\numberline {6.7}Information content \& sensitivity}{78}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}Numerical setup}{78}{subsection.6.7.1}%
-\contentsline {subsection}{\numberline {6.7.2}Experimental information content}{78}{subsection.6.7.2}%
+\contentsline {subsection}{\numberline {6.7.1}Numerical setup}{80}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}Experimental information content}{80}{subsection.6.7.2}%
 \contentsline {subsection}{\numberline {6.7.3}Information content from channel functions}{85}{subsection.6.7.3}%
-\contentsline {subsection}{\numberline {6.7.4}Information content from density matrices}{87}{subsection.6.7.4}%
 \contentsline {chapter}{\numberline {7}Numerical methodologies for extracting matrix elements}{89}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Fitting methodologies}{92}{section.7.1}%
 \contentsline {subsection}{\numberline {7.1.1}Computation and linear fitting for alignment characterisation}{92}{subsection.7.1.1}%
@@ -115,53 +114,53 @@
 \contentsline {subsection}{\numberline {11.6.2}Phases, phase shifts \& corrections}{141}{subsection.11.6.2}%
 \contentsline {section}{\numberline {11.7}Parameter estimation \& fidelity}{143}{section.11.7}%
 \contentsline {subsection}{\numberline {11.7.1}Best values and statistics}{143}{subsection.11.7.1}%
-\contentsline {section}{\numberline {11.8}Using the reconstructed matrix elements}{146}{section.11.8}%
-\contentsline {subsection}{\numberline {11.8.1}Density matrices}{147}{subsection.11.8.1}%
-\contentsline {subsection}{\numberline {11.8.2}Plot MF PADs}{147}{subsection.11.8.2}%
-\contentsline {chapter}{\numberline {12}Case study: Generalised bootstrapping for a linear heteronuclear scattering system, \(OCS\nobreakspace {}(C_{\infty v})\)}{153}{chapter.12}%
-\contentsline {section}{\numberline {12.1}General setup}{153}{section.12.1}%
-\contentsline {section}{\numberline {12.2}Load existing fit data or run fits}{154}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Post\sphinxhyphen {}processing and data overview}{157}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Data exploration}{160}{section.12.4}%
-\contentsline {subsection}{\numberline {12.4.1}View results}{160}{subsection.12.4.1}%
-\contentsline {section}{\numberline {12.5}Classify candidate sets}{160}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Explore candidate result sets}{162}{section.12.6}%
-\contentsline {subsection}{\numberline {12.6.1}Raw results}{162}{subsection.12.6.1}%
-\contentsline {subsection}{\numberline {12.6.2}Phases, phase shifts \& corrections}{167}{subsection.12.6.2}%
-\contentsline {section}{\numberline {12.7}Parameter estimation \& fidelity}{171}{section.12.7}%
-\contentsline {subsection}{\numberline {12.7.1}Best values and statistics}{171}{subsection.12.7.1}%
-\contentsline {section}{\numberline {12.8}Using the reconstructed matrix elements}{173}{section.12.8}%
-\contentsline {subsection}{\numberline {12.8.1}Density matrices}{175}{subsection.12.8.1}%
-\contentsline {subsection}{\numberline {12.8.2}Plot MF PADs}{175}{subsection.12.8.2}%
-\contentsline {chapter}{\numberline {13}Case study: Generalised bootstrapping for a general asymmetric top scattering system, \(C_2H_4\nobreakspace {}(D_{2h})\)}{181}{chapter.13}%
-\contentsline {section}{\numberline {13.1}General setup}{181}{section.13.1}%
-\contentsline {section}{\numberline {13.2}Load existing fit data or run fits}{182}{section.13.2}%
-\contentsline {section}{\numberline {13.3}Post\sphinxhyphen {}processing and data overview}{185}{section.13.3}%
-\contentsline {section}{\numberline {13.4}Data exploration}{188}{section.13.4}%
-\contentsline {subsection}{\numberline {13.4.1}View results}{188}{subsection.13.4.1}%
-\contentsline {section}{\numberline {13.5}Classify candidate sets}{189}{section.13.5}%
-\contentsline {section}{\numberline {13.6}Explore candidate result sets}{190}{section.13.6}%
-\contentsline {subsection}{\numberline {13.6.1}Raw results}{190}{subsection.13.6.1}%
-\contentsline {subsection}{\numberline {13.6.2}Phases, phase shifts \& corrections}{192}{subsection.13.6.2}%
-\contentsline {section}{\numberline {13.7}Parameter estimation \& fidelity}{194}{section.13.7}%
-\contentsline {subsection}{\numberline {13.7.1}Best values and statistics}{194}{subsection.13.7.1}%
-\contentsline {section}{\numberline {13.8}Using the reconstructed matrix elements}{197}{section.13.8}%
-\contentsline {subsection}{\numberline {13.8.1}Density matrices}{199}{subsection.13.8.1}%
-\contentsline {subsection}{\numberline {13.8.2}Plot MF PADs}{199}{subsection.13.8.2}%
-\contentsline {chapter}{\numberline {14}Case studies: summaries, conclusions and outlook}{205}{chapter.14}%
-\contentsline {section}{\numberline {14.1}General notes on fitting methodologies for the case studies}{205}{section.14.1}%
-\contentsline {section}{\numberline {14.2}Retrieval fidelity}{207}{section.14.2}%
-\contentsline {section}{\numberline {14.3}MF\sphinxhyphen {}PAD retrieval}{208}{section.14.3}%
-\contentsline {section}{\numberline {14.4}Conclusions and outlook}{209}{section.14.4}%
-\contentsline {part}{IV\hspace {1em}Backmatter}{211}{part.4}%
-\contentsline {chapter}{\numberline {15}Bibliography}{213}{chapter.15}%
-\contentsline {chapter}{\numberline {16}Glossary}{215}{chapter.16}%
-\contentsline {part}{V\hspace {1em}Test pages}{219}{part.5}%
-\contentsline {chapter}{\numberline {17}Build versions and config tests}{221}{chapter.17}%
-\contentsline {section}{\numberline {17.1}Versions}{221}{section.17.1}%
-\contentsline {section}{\numberline {17.2}Docker build env}{222}{section.17.2}%
-\contentsline {section}{\numberline {17.3}Book versions}{222}{section.17.3}%
-\contentsline {section}{\numberline {17.4}Github pkg versions}{223}{section.17.4}%
-\contentsline {section}{\numberline {17.5}Full conda env}{224}{section.17.5}%
-\contentsline {chapter}{Bibliography}{235}{chapter*.40}%
-\contentsline {chapter}{Index}{245}{section*.41}%
+\contentsline {section}{\numberline {11.8}Using the reconstructed matrix elements}{145}{section.11.8}%
+\contentsline {subsection}{\numberline {11.8.1}Density matrices}{146}{subsection.11.8.1}%
+\contentsline {subsection}{\numberline {11.8.2}Plot MF PADs}{146}{subsection.11.8.2}%
+\contentsline {chapter}{\numberline {12}Case study: Generalised bootstrapping for a linear heteronuclear scattering system, \(OCS\nobreakspace {}(C_{\infty v})\)}{151}{chapter.12}%
+\contentsline {section}{\numberline {12.1}General setup}{151}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Load existing fit data or run fits}{152}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Post\sphinxhyphen {}processing and data overview}{155}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Data exploration}{158}{section.12.4}%
+\contentsline {subsection}{\numberline {12.4.1}View results}{158}{subsection.12.4.1}%
+\contentsline {section}{\numberline {12.5}Classify candidate sets}{158}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Explore candidate result sets}{160}{section.12.6}%
+\contentsline {subsection}{\numberline {12.6.1}Raw results}{160}{subsection.12.6.1}%
+\contentsline {subsection}{\numberline {12.6.2}Phases, phase shifts \& corrections}{165}{subsection.12.6.2}%
+\contentsline {section}{\numberline {12.7}Parameter estimation \& fidelity}{169}{section.12.7}%
+\contentsline {subsection}{\numberline {12.7.1}Best values and statistics}{169}{subsection.12.7.1}%
+\contentsline {section}{\numberline {12.8}Using the reconstructed matrix elements}{170}{section.12.8}%
+\contentsline {subsection}{\numberline {12.8.1}Density matrices}{172}{subsection.12.8.1}%
+\contentsline {subsection}{\numberline {12.8.2}Plot MF PADs}{172}{subsection.12.8.2}%
+\contentsline {chapter}{\numberline {13}Case study: Generalised bootstrapping for a general asymmetric top scattering system, \(C_2H_4\nobreakspace {}(D_{2h})\)}{177}{chapter.13}%
+\contentsline {section}{\numberline {13.1}General setup}{177}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Load existing fit data or run fits}{178}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Post\sphinxhyphen {}processing and data overview}{181}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Data exploration}{184}{section.13.4}%
+\contentsline {subsection}{\numberline {13.4.1}View results}{184}{subsection.13.4.1}%
+\contentsline {section}{\numberline {13.5}Classify candidate sets}{185}{section.13.5}%
+\contentsline {section}{\numberline {13.6}Explore candidate result sets}{186}{section.13.6}%
+\contentsline {subsection}{\numberline {13.6.1}Raw results}{186}{subsection.13.6.1}%
+\contentsline {subsection}{\numberline {13.6.2}Phases, phase shifts \& corrections}{188}{subsection.13.6.2}%
+\contentsline {section}{\numberline {13.7}Parameter estimation \& fidelity}{190}{section.13.7}%
+\contentsline {subsection}{\numberline {13.7.1}Best values and statistics}{190}{subsection.13.7.1}%
+\contentsline {section}{\numberline {13.8}Using the reconstructed matrix elements}{192}{section.13.8}%
+\contentsline {subsection}{\numberline {13.8.1}Density matrices}{194}{subsection.13.8.1}%
+\contentsline {subsection}{\numberline {13.8.2}Plot MF PADs}{194}{subsection.13.8.2}%
+\contentsline {chapter}{\numberline {14}Case studies: summaries, conclusions and outlook}{199}{chapter.14}%
+\contentsline {section}{\numberline {14.1}General notes on fitting methodologies for the case studies}{199}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Retrieval fidelity}{201}{section.14.2}%
+\contentsline {section}{\numberline {14.3}MF\sphinxhyphen {}PAD retrieval}{202}{section.14.3}%
+\contentsline {section}{\numberline {14.4}Conclusions and outlook}{203}{section.14.4}%
+\contentsline {part}{IV\hspace {1em}Backmatter}{205}{part.4}%
+\contentsline {chapter}{\numberline {15}Bibliography}{207}{chapter.15}%
+\contentsline {chapter}{\numberline {16}Glossary}{209}{chapter.16}%
+\contentsline {part}{V\hspace {1em}Test pages}{213}{part.5}%
+\contentsline {chapter}{\numberline {17}Build versions and config tests}{215}{chapter.17}%
+\contentsline {section}{\numberline {17.1}Versions}{215}{section.17.1}%
+\contentsline {section}{\numberline {17.2}Docker build env}{216}{section.17.2}%
+\contentsline {section}{\numberline {17.3}Book versions}{216}{section.17.3}%
+\contentsline {section}{\numberline {17.4}Github pkg versions}{217}{section.17.4}%
+\contentsline {section}{\numberline {17.5}Full conda env}{218}{section.17.5}%
+\contentsline {chapter}{Bibliography}{229}{chapter*.41}%
+\contentsline {chapter}{Index}{239}{section*.42}%

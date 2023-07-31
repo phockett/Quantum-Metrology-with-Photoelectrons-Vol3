@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2023.5.15)  31 JUL 2023 08:11
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2023.5.15)  31 JUL 2023 16:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1772,8 +1772,8 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
 [29
 
 ] [30] [31] [32] [33] [34] [35]
-File: axes_QNs_inc_rotations_QM1.pdf Graphic file (type pdf)
-<use axes_QNs_inc_rotations_QM1.pdf>
+File: axes_QNs_inc_rotations_QM1.png Graphic file (type bmp)
+<axes_QNs_inc_rotations_QM1.png>
  [36] [37] [38] [39]
 Underfull \vbox (badness 10000) detected at line 1649
  []
@@ -1860,9 +1860,9 @@ File: d9e887d4aaecc7ef08945679c1217e80c95a9cf833ce99acd1a048f9b46356b6.png Grap
 hic file (type bmp)
 <d9e887d4aaecc7ef08945679c1217e80c95a9cf833ce99acd1a048f9b46356b6.png>
  [59] [60]
-File: d3765a154ac532c7f964a53732338015790d0e0dd9a25857f3408fda5b3f9a4c.png Grap
+File: 523797f4e802a594ec42433677393772b8a1b0e1c6f79fdb6f3ad312515c3b23.png Grap
 hic file (type bmp)
-<d3765a154ac532c7f964a53732338015790d0e0dd9a25857f3408fda5b3f9a4c.png>
+<523797f4e802a594ec42433677393772b8a1b0e1c6f79fdb6f3ad312515c3b23.png>
  [61]
 [62] [63] [64]
 File: 438832e2818d3412fd75e9b9cb1f4758a28e24b6d690f8ffd5a1575006fc901c.png Grap
@@ -1892,7 +1892,7 @@ hic file (type bmp)
 ! Undefined control sequence.
 <argument> ...l }^{-m}\right )&{\text {if}}\ m\lt 
                                                   0 \\Y_{\ell }^{0}&{\text {...
-l.3148 \end{split}
+l.3138 \end{split}
                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1903,7 +1903,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ... }^{|m|}\right )&{\text {if}}\ m\lt 
                                                   0 \\Y_{\ell }^{0}&{\text {...
-l.3148 \end{split}
+l.3138 \end{split}
                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1914,7 +1914,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ..._{\ell }^{|m|}}]&{\text {if}}\ m\lt 
                                                   0 \\Y_{\ell }^{0}&{\text {...
-l.3148 \end{split}
+l.3138 \end{split}
                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1925,7 +1925,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ...l }^{-m}\right )&{\text {if}}\ m\lt 
                                                   0 \\Y_{\ell }^{0}&{\text {...
-l.3148 \end{split}
+l.3138 \end{split}
                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1936,7 +1936,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ... }^{|m|}\right )&{\text {if}}\ m\lt 
                                                   0 \\Y_{\ell }^{0}&{\text {...
-l.3148 \end{split}
+l.3138 \end{split}
                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1947,7 +1947,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ..._{\ell }^{|m|}}]&{\text {if}}\ m\lt 
                                                   0 \\Y_{\ell }^{0}&{\text {...
-l.3148 \end{split}
+l.3138 \end{split}
                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1955,37 +1955,57 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[74] [75] [76]
+[74] [75]
+File: 68c953227ba43f23fd86e606d48b00628590e34e55a3c3ba4cf09d6a91f4364c.png Grap
+hic file (type bmp)
+<68c953227ba43f23fd86e606d48b00628590e34e55a3c3ba4cf09d6a91f4364c.png>
+
+Overfull \vbox (6.57785pt too high) detected at line 3378
+ []
+
+[76] [77]
 File: f675e6197a39e464377251278227d84c5880bedcd00046d65eba340f4d842504.png Grap
 hic file (type bmp)
 <f675e6197a39e464377251278227d84c5880bedcd00046d65eba340f4d842504.png>
- [77] [78] [79] [80] [81] [82]
-Overfull \hbox (20.0pt too wide) detected at line 3856
+File: 37ba3d1be5c7a7f940e60e1878f4e179fbbcbba2e80be06c883ce47e51679e0f.png Grap
+hic file (type bmp)
+<37ba3d1be5c7a7f940e60e1878f4e179fbbcbba2e80be06c883ce47e51679e0f.png>
+ [78] [79] [80] [81] [82]
+Overfull \hbox (71.18501pt too wide) detected at line 3723
+[]
+ []
+
+
+Overfull \hbox (20.0pt too wide) detected at line 3723
 []
  []
 
 [83]
-File: 9cad4151dab7c0a4e3af7b3e5af414351c2e8b8df3392ab8c29c4b82cc7e6a14.png Grap
+File: 9ce65efb90f1c5f6c6d0b8609c48b451408758a2e27c308cc9fc4d313f423313.png Grap
 hic file (type bmp)
-<9cad4151dab7c0a4e3af7b3e5af414351c2e8b8df3392ab8c29c4b82cc7e6a14.png>
+<9ce65efb90f1c5f6c6d0b8609c48b451408758a2e27c308cc9fc4d313f423313.png>
  [84] [85]
-File: 4bc130558fc299a662f92bf90cddd094b36e28eeaa82b9751c518e1bf68ac5d9.png Grap
+File: 661d9ffe62733296e63e6540d6d731a8c85195cf5b01cc51fd7587a3dbcbdfb4.png Grap
 hic file (type bmp)
-<4bc130558fc299a662f92bf90cddd094b36e28eeaa82b9751c518e1bf68ac5d9.png>
- [86] [87] [88
-
-]
+<661d9ffe62733296e63e6540d6d731a8c85195cf5b01cc51fd7587a3dbcbdfb4.png>
+ [86]
+File: c93bee27e3000827498aa9bcc9863cbf991423e807b91f1f9e4647f1a607e4c0.png Grap
+hic file (type bmp)
+<c93bee27e3000827498aa9bcc9863cbf991423e807b91f1f9e4647f1a607e4c0.png>
+ [87] [88]
 Chapter 7.
 Missing character: There is no 𝜌 (U+1D70C) in font [FreeSerifBold.otf]/OT:scrip
 t=latn;language=dflt;!
 File: bootstrap_flowchart_290822.gv.png Graphic file (type bmp)
 <bootstrap_flowchart_290822.gv.png>
 
-LaTeX Warning: Float too large for page by 60.16998pt on input line 4099.
+LaTeX Warning: Float too large for page by 60.16998pt on input line 3952.
 
 File: all_protocol_flowchart_290822.gv.png Graphic file (type bmp)
 <all_protocol_flowchart_290822.gv.png>
-[89] [90] [91] [92] [93] [94] [95] [96
+[89
+
+] [90] [91] [92] [93] [94] [95] [96
 
 ] [97] [98]
 Chapter 8.
@@ -1998,43 +2018,43 @@ Chapter 9.
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 4390.
+(hyperref)                removing `math shift' on input line 4243.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 4390.
+(hyperref)                removing `subscript' on input line 4243.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 4390.
+(hyperref)                removing `subscript' on input line 4243.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 4390.
+(hyperref)                removing `superscript' on input line 4243.
 
 [102]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 4454.
+(hyperref)                removing `math shift' on input line 4307.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 4454.
+(hyperref)                removing `subscript' on input line 4307.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 4454.
+(hyperref)                removing `subscript' on input line 4307.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 4454.
+(hyperref)                removing `superscript' on input line 4307.
 
 [103]
-Overfull \vbox (1.19412pt too high) detected at line 4637
+Overfull \vbox (1.19412pt too high) detected at line 4490
  []
 
 [104]
-Overfull \hbox (93.70499pt too wide) detected at line 4674
+Overfull \hbox (93.70499pt too wide) detected at line 4527
 []
  []
 
@@ -2043,11 +2063,11 @@ File: 8896575d1a3ed143693e38b575aa962f59770d2327eeb5043f112986f894ae0b.png Grap
 hic file (type bmp)
 <8896575d1a3ed143693e38b575aa962f59770d2327eeb5043f112986f894ae0b.png>
  [108] [109]
-Underfull \vbox (badness 2875) detected at line 4963
+Overfull \vbox (0.77792pt too high) detected at line 4816
  []
 
 [110]
-Overfull \hbox (171.52498pt too wide) detected at line 5037
+Overfull \hbox (171.52498pt too wide) detected at line 4890
 []
  []
 
@@ -2056,7 +2076,7 @@ Overfull \hbox (171.52498pt too wide) detected at line 5037
 ]
 Chapter 10.
 
-Overfull \vbox (9.38806pt too high) detected at line 5396
+Overfull \vbox (9.38806pt too high) detected at line 5249
  []
 
 [117] [118] [119] [120]
@@ -2069,47 +2089,47 @@ hic file (type bmp)
 <d7a2e6bd08640ec12fa58dd5e897f2a4aab107b84356d5f61306d9d1545b81ac.png>
  [122]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.40152pt on input line 5754.
+(Font)              scaled to size 14.40152pt on input line 5607.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 14.39845pt on input line 5754.
+(Font)              scaled to size 14.39845pt on input line 5607.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 5754.
+(hyperref)                removing `math shift' on input line 5607.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 5754.
+(hyperref)                removing `subscript' on input line 5607.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 5766.
+(hyperref)                removing `math shift' on input line 5619.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 5766.
+(hyperref)                removing `subscript' on input line 5619.
 
 [123]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 5781.
+(hyperref)                removing `math shift' on input line 5634.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 5781.
+(hyperref)                removing `subscript' on input line 5634.
 
 File: f5946ab49b65ef5ec508d361685e7531e118a477980b81f2ff714eb3534ebaa0.png Grap
 hic file (type bmp)
 <f5946ab49b65ef5ec508d361685e7531e118a477980b81f2ff714eb3534ebaa0.png>
 [124]
-Underfull \hbox (badness 10000) in paragraph at lines 5834--5836
+Underfull \hbox (badness 10000) in paragraph at lines 5687--5689
 \TU/FreeSerif(0)/m/n/10 To use the values calculated above as the test data, it
  currently needs to be set as \TU/FreeMono(0)/m/n/10 self.
  []
 
-File: abcbfbe882121976026081657830d321308f3137a7ea4126e4ab06b94de73f35.png Grap
+File: f04cfb3cb7bd93f98a94d2df5a6754294d244b92daceefe720a96e98d52049f9.png Grap
 hic file (type bmp)
-<abcbfbe882121976026081657830d321308f3137a7ea4126e4ab06b94de73f35.png>
+<f04cfb3cb7bd93f98a94d2df5a6754294d244b92daceefe720a96e98d52049f9.png>
 [125] [126]
 File: 2f50806e785381a4a8af09df066ba2a57b0a678fb9d9d1d0e081e601db90fe1f.png Grap
 hic file (type bmp)
@@ -2118,15 +2138,15 @@ hic file (type bmp)
 Chapter 11.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 6232.
+(hyperref)                removing `math shift' on input line 6085.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 6232.
+(hyperref)                removing `subscript' on input line 6085.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 6232.
+(hyperref)                removing `subscript' on input line 6085.
 
 [131
 
@@ -2138,7 +2158,7 @@ File: d896ff576d79aedb00cc3f9c4f77d8aa6dbef051edcd606d2cdf27ce49ab23d3.png Grap
 hic file (type bmp)
 <d896ff576d79aedb00cc3f9c4f77d8aa6dbef051edcd606d2cdf27ce49ab23d3.png>
  [133]
-Overfull \vbox (1.8005pt too high) detected at line 6454
+Overfull \vbox (1.8005pt too high) detected at line 6307
  []
 
 [134]
@@ -2150,12 +2170,12 @@ File: 30bc0e1b3616e288660a1f43ea7f80b32e544b89185d50e64d353571a26433e7.png Grap
 hic file (type bmp)
 <30bc0e1b3616e288660a1f43ea7f80b32e544b89185d50e64d353571a26433e7.png>
  [136]
-Overfull \hbox (30.015pt too wide) detected at line 6643
+Overfull \hbox (30.015pt too wide) detected at line 6496
 []
  []
 
 
-Overfull \hbox (20.0pt too wide) detected at line 6643
+Overfull \hbox (20.0pt too wide) detected at line 6496
 []
  []
 
@@ -2164,12 +2184,12 @@ File: ac118835318d4c409273a59269c8d65aab3973d0864b41ede148121bb41fb6e7.png Grap
 hic file (type bmp)
 <ac118835318d4c409273a59269c8d65aab3973d0864b41ede148121bb41fb6e7.png>
  [138] [139]
-File: 54946cde3dd1d33b8618e048d291fd58914850b51216a5e8319ba828043c1453.png Grap
+File: 67fd6c2cdbda44256b2170e617e668ba9848a809bb8bf94eb3f1b48571a6ffd8.png Grap
 hic file (type bmp)
-<54946cde3dd1d33b8618e048d291fd58914850b51216a5e8319ba828043c1453.png>
-File: a2e3136024df6a7cd53f28b7447da9e6ad21f88aae4f9d913d077e7c7278f588.png Grap
+<67fd6c2cdbda44256b2170e617e668ba9848a809bb8bf94eb3f1b48571a6ffd8.png>
+File: 05743068f094a2a298609bb57d469896ad7cac03cbffbc7ec1608fe84e0c6d0a.png Grap
 hic file (type bmp)
-<a2e3136024df6a7cd53f28b7447da9e6ad21f88aae4f9d913d077e7c7278f588.png>
+<05743068f094a2a298609bb57d469896ad7cac03cbffbc7ec1608fe84e0c6d0a.png>
  [140] [141]
 File: 3b3e49e8f1ee8d2e2ed73386614df43aebe86c1f9138de888e5975896703887d.png Grap
 hic file (type bmp)
@@ -2177,86 +2197,86 @@ hic file (type bmp)
 File: d23c0ca66682f1aef64986f2ac86abe192289a5eadf0385689aba2eb72552f10.png Grap
 hic file (type bmp)
 <d23c0ca66682f1aef64986f2ac86abe192289a5eadf0385689aba2eb72552f10.png>
- [142] [143]
-Overfull \vbox (2.12788pt too high) detected at line 6951
- []
-
-[144] [145]
-Overfull \hbox (208.12498pt too wide) detected at line 7012
+ [142] [143] [144]
+Overfull \hbox (208.12498pt too wide) detected at line 6797
 []
  []
 
 
-Overfull \hbox (20.0pt too wide) detected at line 7012
+Overfull \hbox (20.0pt too wide) detected at line 6797
 []
  []
 
-[146]
+[145]
 File: 531e98bd434c75dc61483e0a5b20b7dd0f23256a6029e2884d276272260eb887.png Grap
 hic file (type bmp)
 <531e98bd434c75dc61483e0a5b20b7dd0f23256a6029e2884d276272260eb887.png>
 
 
-LaTeX Warning: Float too large for page by 28.27855pt on input line 7122.
+LaTeX Warning: Float too large for page by 28.27855pt on input line 6870.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7127--7129
+Underfull \hbox (badness 10000) in paragraph at lines 6875--6877
 \TU/FreeSerif(0)/m/n/10 Routines as per [][]$[][][][][] [] [] [] [][][][][] [] 
 [][][][][][][][][][][] [] [][] [] [][] [] [][][][][][] [] [][][][][][][] [] [][
 ][][][][] [] [][][][] [] [][][][][] [] [][][][][] [] [][][][][][][][][][] [] []
 [][][] [] [][][][] []
  []
 
-[147] [148]
+
+Overfull \vbox (11.18298pt too high) detected at line 6933
+ []
+
+[146] [147]
 File: 2f9fabf9e65f03df71bd269a59ef53e826bfa78539a24bb063b3ff2235abb208.png Grap
 hic file (type bmp)
 <2f9fabf9e65f03df71bd269a59ef53e826bfa78539a24bb063b3ff2235abb208.png>
- [149]
 File: 0fbcd3ca976c1f3d160757acb2b1a137fd804cd882e3d237198565b78f473bb2.png Grap
 hic file (type bmp)
 <0fbcd3ca976c1f3d160757acb2b1a137fd804cd882e3d237198565b78f473bb2.png>
+ [148]
 File: 84106b0c45473f709407d62407c705279a6d8b0a9d6c356364f024c773fbd52e.png Grap
 hic file (type bmp)
 <84106b0c45473f709407d62407c705279a6d8b0a9d6c356364f024c773fbd52e.png>
- [150] [151] [152
+ [149] [150
 
 ]
 Chapter 12.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 7268.
+(hyperref)                removing `math shift' on input line 7005.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 7268.
+(hyperref)                removing `subscript' on input line 7005.
 
-[153] [154]
+[151] [152]
 File: 46a81ce37ff372ec048d090a0fd63634a441e75dfa992b4e043b02722b9597da.png Grap
 hic file (type bmp)
 <46a81ce37ff372ec048d090a0fd63634a441e75dfa992b4e043b02722b9597da.png>
- [155]
+ [153]
 File: f535bb88d4225dcd57b58af0f1eb3407102cf1b7c47fcbd171975d898401463d.png Grap
 hic file (type bmp)
 <f535bb88d4225dcd57b58af0f1eb3407102cf1b7c47fcbd171975d898401463d.png>
- [156]
-Overfull \vbox (1.8005pt too high) detected at line 7508
+ [154]
+Overfull \vbox (1.8005pt too high) detected at line 7245
  []
 
-[157]
+[155]
 File: 74b649717675a0ca5d235d7dbacd8fd1f630294c18711c102ccaa1b91c0454fa.png Grap
 hic file (type bmp)
 <74b649717675a0ca5d235d7dbacd8fd1f630294c18711c102ccaa1b91c0454fa.png>
- [158]
+ [156]
 File: 6ae531dd2e7143f9e4eb00315898499abdf7c40177c4706ce9e1ae62c85e5136.png Grap
 hic file (type bmp)
 <6ae531dd2e7143f9e4eb00315898499abdf7c40177c4706ce9e1ae62c85e5136.png>
- [159]
-Overfull \hbox (30.015pt too wide) detected at line 7710
+ [157]
+Overfull \hbox (30.015pt too wide) detected at line 7447
 []
  []
 
 
-Overfull \hbox (20.0pt too wide) detected at line 7710
+Overfull \hbox (20.0pt too wide) detected at line 7447
 []
  []
 
@@ -2264,379 +2284,346 @@ Overfull \hbox (20.0pt too wide) detected at line 7710
 Overfull \vbox (162.65274pt too high) has occurred while \output is active []
 
 
-[160]
+[158]
 File: 433498643557ad70cc8ad28008fd103fc9633d838c9bc114f9ff5cb775810caa.png Grap
 hic file (type bmp)
 <433498643557ad70cc8ad28008fd103fc9633d838c9bc114f9ff5cb775810caa.png>
+ [159] [160]
+File: 60c27a0e670b58b46de0ce2aa96d583cef0b51c08e4f170a53571cbbd0806304.png Grap
+hic file (type bmp)
+<60c27a0e670b58b46de0ce2aa96d583cef0b51c08e4f170a53571cbbd0806304.png>
  [161] [162]
-File: 5d9a50331c33335ae7eef6011113493684e9350aa2624da59d1728e2e93d48f5.png Grap
+File: 3a16390b39f2ad8be331abdd794dd21df5b50ed1cdbd8001aa9a06829756e570.png Grap
 hic file (type bmp)
-<5d9a50331c33335ae7eef6011113493684e9350aa2624da59d1728e2e93d48f5.png>
+<3a16390b39f2ad8be331abdd794dd21df5b50ed1cdbd8001aa9a06829756e570.png>
  [163] [164]
-File: b6fa51616aa695d602f40901461c65f4f139f384d61e3f1d96d94931ba77bd22.png Grap
-hic file (type bmp)
-<b6fa51616aa695d602f40901461c65f4f139f384d61e3f1d96d94931ba77bd22.png>
- [165] [166]
 File: 260689f9945007745f5ff260e2621267c60eeb1ae95ec05528c8f9eb174ec167.png Grap
 hic file (type bmp)
 <260689f9945007745f5ff260e2621267c60eeb1ae95ec05528c8f9eb174ec167.png>
- [167] [168]
+ [165] [166]
 File: c8a1b94c008baa9dc631d1b18728c4d4969389647b63deea3bd985734a7660ca.png Grap
 hic file (type bmp)
 <c8a1b94c008baa9dc631d1b18728c4d4969389647b63deea3bd985734a7660ca.png>
- [169] [170]
-Overfull \hbox (714.36499pt too wide) detected at line 7975
+ [167] [168]
+Overfull \hbox (714.36499pt too wide) detected at line 7712
 []
  []
 
 
-Overfull \hbox (20.0pt too wide) detected at line 7975
+Overfull \hbox (20.0pt too wide) detected at line 7712
 []
  []
 
-[171]
-Overfull \vbox (1.3279pt too high) detected at line 8014
- []
-
-[172]
-Overfull \hbox (1382.50502pt too wide) detected at line 8075
+[169]
+Overfull \hbox (1382.50502pt too wide) detected at line 7748
 []
  []
 
 
-Overfull \hbox (20.0pt too wide) detected at line 8075
+Overfull \hbox (20.0pt too wide) detected at line 7748
 []
  []
 
-[173] [174]
+[170] [171]
 File: 3d2333ab161f2f4815c9ec09d01f773dc6fd1ad0fb1c785aba7f9282b25de8f3.png Grap
 hic file (type bmp)
 <3d2333ab161f2f4815c9ec09d01f773dc6fd1ad0fb1c785aba7f9282b25de8f3.png>
 
 
-LaTeX Warning: Float too large for page by 36.665pt on input line 8201.
+LaTeX Warning: Float too large for page by 36.665pt on input line 7837.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8206--8208
+Underfull \hbox (badness 10000) in paragraph at lines 7842--7844
 \TU/FreeSerif(0)/m/n/10 Routines as per [][]$[][][][][] [] [] [] [][][][][] [] 
 [][][][][][][][][][][] [] [][] [] [][] [] [][][][][][] [] [][][][][][][] [] [][
 ][][][][] [] [][][][] [] [][][][][] [] [][][][][] [] [][][][][][][][][][] [] []
 [][][] [] [][][][] []
  []
 
-
-Overfull \vbox (2.88797pt too high) detected at line 8243
- []
-
-[175] [176]
+[172] [173]
 File: 74f35eb34e8860b9113a4afb773246ef1491e113d89fb94750cfb6c808c0205d.png Grap
 hic file (type bmp)
 <74f35eb34e8860b9113a4afb773246ef1491e113d89fb94750cfb6c808c0205d.png>
-
-Overfull \vbox (0.78593pt too high) detected at line 8292
- []
-
-[177]
 File: 81f46e104b594deb8a9622e6ef1151b5411037015a3f180aea45cca12cdf2f44.png Grap
 hic file (type bmp)
 <81f46e104b594deb8a9622e6ef1151b5411037015a3f180aea45cca12cdf2f44.png>
+
+Underfull \vbox (badness 1454) detected at line 7956
+ []
+
+[174]
 File: 0301529d9b8bc7d083c7b3e3cc459a63cfc789cdff0034c1c3dfb38b15bf5a96.png Grap
 hic file (type bmp)
 <0301529d9b8bc7d083c7b3e3cc459a63cfc789cdff0034c1c3dfb38b15bf5a96.png>
- [178]
-Overfull \hbox (1455.12503pt too wide) detected at line 8380
-[]
- []
+ [175] [176
 
-
-Overfull \hbox (20.0pt too wide) detected at line 8380
-[]
- []
-
-[179] [180]
+]
 Chapter 13.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 8387.
+(hyperref)                removing `math shift' on input line 7972.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 8387.
+(hyperref)                removing `subscript' on input line 7972.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 8387.
+(hyperref)                removing `subscript' on input line 7972.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 8387.
+(hyperref)                removing `subscript' on input line 7972.
 
-[181
-
-] [182]
+[177] [178]
 File: 43a348ebd8201a0ba85d4235fd1f3db089e5b94e280f4a84f10331df5e881c4e.png Grap
 hic file (type bmp)
 <43a348ebd8201a0ba85d4235fd1f3db089e5b94e280f4a84f10331df5e881c4e.png>
- [183]
+ [179]
 File: 86d22f01cff16e5cbd69f2fe3bc4daa813f801c1c999e228c440b6f4e1906e3a.png Grap
 hic file (type bmp)
 <86d22f01cff16e5cbd69f2fe3bc4daa813f801c1c999e228c440b6f4e1906e3a.png>
- [184] [185]
+ [180] [181]
 File: efdd5a1dce75ba279f67639ce1e490463cc5fce5bc9fd0f2ec02123a8feeefb8.png Grap
 hic file (type bmp)
 <efdd5a1dce75ba279f67639ce1e490463cc5fce5bc9fd0f2ec02123a8feeefb8.png>
 
-Overfull \vbox (12.77791pt too high) detected at line 8672
+Overfull \vbox (12.77791pt too high) detected at line 8257
  []
 
-[186]
+[182]
 File: 4fc302d849399a85bd82ecbaadfba121f304a9c8fcbec0606abef8df757be498.png Grap
 hic file (type bmp)
 <4fc302d849399a85bd82ecbaadfba121f304a9c8fcbec0606abef8df757be498.png>
- [187] [188]
-Overfull \hbox (13.86502pt too wide) detected at line 8824
+ [183] [184]
+Overfull \hbox (13.86502pt too wide) detected at line 8409
 []
  []
 
 
-Overfull \hbox (20.0pt too wide) detected at line 8824
+Overfull \hbox (20.0pt too wide) detected at line 8409
 []
  []
 
 File: d459d538ceb286e85ffb5819f4863634bf6aa92c76eb0a98c3d51a9b03493ad2.png Grap
 hic file (type bmp)
 <d459d538ceb286e85ffb5819f4863634bf6aa92c76eb0a98c3d51a9b03493ad2.png>
-[189] [190]
-File: 0796f4ccc0f82c153f48d06e5052622886c0523d5e99aea7baae0ab3871079bc.png Grap
+[185] [186]
+File: 09fc8ed7a88c7cde84a7fb7c6f491fcb607df6b00a33d10b3c943d27fee6991e.png Grap
 hic file (type bmp)
-<0796f4ccc0f82c153f48d06e5052622886c0523d5e99aea7baae0ab3871079bc.png>
-File: b326fd2bf22b8461b983a8a4c170303ebc9e8481f3b365f921cf1e5a38c5139e.png Grap
+<09fc8ed7a88c7cde84a7fb7c6f491fcb607df6b00a33d10b3c943d27fee6991e.png>
+File: c607f7d6cf11460fe66a39761383d5b25be6d98f2c76825bad2240dbd79adf1f.png Grap
 hic file (type bmp)
-<b326fd2bf22b8461b983a8a4c170303ebc9e8481f3b365f921cf1e5a38c5139e.png>
- [191] [192]
+<c607f7d6cf11460fe66a39761383d5b25be6d98f2c76825bad2240dbd79adf1f.png>
+ [187] [188]
 File: 0dd81e21bbfc51b88933f6970a9ab635aec846e2911b4bc17cfca7385317a5d9.png Grap
 hic file (type bmp)
 <0dd81e21bbfc51b88933f6970a9ab635aec846e2911b4bc17cfca7385317a5d9.png>
 File: e6f57d7946ffde2d3c75ce3ff29ae4f2a63501ce5eafccef1e7e86073cee7704.png Grap
 hic file (type bmp)
 <e6f57d7946ffde2d3c75ce3ff29ae4f2a63501ce5eafccef1e7e86073cee7704.png>
- [193] [194]
-Overfull \hbox (1386.36499pt too wide) detected at line 9089
+ [189] [190]
+Overfull \hbox (1386.36499pt too wide) detected at line 8674
 []
  []
 
 
-Overfull \hbox (20.0pt too wide) detected at line 9089
+Overfull \hbox (20.0pt too wide) detected at line 8674
+[]
+ []
+
+[191]
+Overfull \hbox (4124.99512pt too wide) detected at line 8710
 []
  []
 
 
-Overfull \vbox (2.12788pt too high) detected at line 9128
- []
-
-[195] [196]
-Overfull \hbox (4124.99512pt too wide) detected at line 9189
+Overfull \hbox (20.0pt too wide) detected at line 8710
 []
  []
 
-
-Overfull \hbox (20.0pt too wide) detected at line 9189
-[]
- []
-
-[197] [198]
+[192] [193]
 File: 26053d4d7f77d52e4326cb288bdc93286956ecf44bc5f6b383151aba129eeb3c.png Grap
 hic file (type bmp)
 <26053d4d7f77d52e4326cb288bdc93286956ecf44bc5f6b383151aba129eeb3c.png>
 
 
-LaTeX Warning: Float too large for page by 32.44366pt on input line 9331.
+LaTeX Warning: Float too large for page by 32.44366pt on input line 8815.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9336--9338
+Underfull \hbox (badness 10000) in paragraph at lines 8820--8822
 \TU/FreeSerif(0)/m/n/10 Routines as per [][]$[][][][][] [] [] [] [][][][][] [] 
 [][][][][][][][][][][] [] [][] [] [][] [] [][][][][][] [] [][][][][][][] [] [][
 ][][][][] [] [][][][] [] [][][][][] [] [][][][][] [] [][][][][][][][][][] [] []
 [][][] [] [][][][] []
  []
 
-[199] [200]
+[194] [195]
 File: 48ca57c7b50c98d080989dbd2feb380c87c919274c43d9b2370076bb01a3f948.png Grap
 hic file (type bmp)
 <48ca57c7b50c98d080989dbd2feb380c87c919274c43d9b2370076bb01a3f948.png>
 File: f90bb1c80a48c6f8fba1b31453b6bd01c0db398fb34def215d60495af4d8da97.png Grap
 hic file (type bmp)
 <f90bb1c80a48c6f8fba1b31453b6bd01c0db398fb34def215d60495af4d8da97.png>
- [201] [202]
+
+Underfull \vbox (badness 1817) detected at line 8934
+ []
+
+[196]
 File: 9420008f5a9dd5416a51dfba8fea03ff3245f897f534505ccf7141a51f29d54a.png Grap
 hic file (type bmp)
 <9420008f5a9dd5416a51dfba8fea03ff3245f897f534505ccf7141a51f29d54a.png>
+ [197] [198
 
-Overfull \hbox (4197.61513pt too wide) detected at line 9510
-[]
- []
-
-
-Overfull \hbox (20.0pt too wide) detected at line 9510
-[]
- []
-
-[203] [204]
+]
 Chapter 14.
 
-Underfull \hbox (badness 10000) in paragraph at lines 9628--9628
+Underfull \hbox (badness 10000) in paragraph at lines 9065--9065
 []\TU/FreeSans(0)/m/n/10 Sys-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9628--9628
-[]\TU/FreeSans(0)/m/n/10 Symme-
+Underfull \hbox (badness 10000) in paragraph at lines 9065--9065
+[]\TU/FreeSans(0)/m/n/10 Sym-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9628--9628
+Underfull \hbox (badness 10000) in paragraph at lines 9065--9065
 []\TU/FreeSans(0)/m/n/10 Energy
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9628--9628
+Underfull \hbox (badness 10000) in paragraph at lines 9065--9065
 []\TU/FreeSans(0)/m/n/10 Fitting
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9628--9628
-[]\TU/FreeSans(0)/m/n/10 Floated (magnitude,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9628--9628
+Underfull \hbox (badness 10000) in paragraph at lines 9065--9065
 []$[]$\TU/FreeSans(0)/m/n/10 -
  []
 
-[205
+[199] [200] [201] [202] [203] [204
 
-] [206] [207] [208] [209] [210
-
-] [211] [212]
+] [205] [206]
 Chapter 15.
-[213
+[207
 
-] [214
+] [208
 
 ]
 Chapter 16.
-[215] [216] [217] [218
+[209] [210] [211] [212
 
-] [219] [220]
+] [213] [214]
 Chapter 17.
-[221
+[215
 
-] [222]
-Overfull \vbox (2.18796pt too high) detected at line 10105
+] [216]
+Overfull \vbox (2.18796pt too high) detected at line 9543
  []
 
-[223] [224]
-Underfull \vbox (badness 10000) detected at line 10647
+[217] [218]
+Underfull \vbox (badness 10000) detected at line 10085
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10647
+Underfull \vbox (badness 10000) detected at line 10085
+ []
+
+[219]
+Underfull \vbox (badness 10000) detected at line 10085
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 10085
+ []
+
+[220]
+Underfull \vbox (badness 10000) detected at line 10085
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 10085
+ []
+
+[221]
+Underfull \vbox (badness 10000) detected at line 10085
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 10085
+ []
+
+[222]
+Underfull \vbox (badness 10000) detected at line 10085
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 10085
+ []
+
+[223]
+Underfull \vbox (badness 10000) detected at line 10085
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 10085
+ []
+
+[224]
+Underfull \vbox (badness 10000) detected at line 10085
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 10085
  []
 
 [225]
-Underfull \vbox (badness 10000) detected at line 10647
+Underfull \vbox (badness 10000) detected at line 10085
  []
 
 
-Underfull \vbox (badness 10000) detected at line 10647
+Underfull \vbox (badness 10000) detected at line 10085
  []
 
-[226]
-Underfull \vbox (badness 10000) detected at line 10647
- []
+[226] [227] [228
 
-
-Underfull \vbox (badness 10000) detected at line 10647
- []
-
-[227]
-Underfull \vbox (badness 10000) detected at line 10647
- []
-
-
-Underfull \vbox (badness 10000) detected at line 10647
- []
-
-[228]
-Underfull \vbox (badness 10000) detected at line 10647
- []
-
-
-Underfull \vbox (badness 10000) detected at line 10647
- []
-
-[229]
-Underfull \vbox (badness 10000) detected at line 10647
- []
-
-
-Underfull \vbox (badness 10000) detected at line 10647
- []
-
-[230]
-Underfull \vbox (badness 10000) detected at line 10647
- []
-
-
-Underfull \vbox (badness 10000) detected at line 10647
- []
-
-[231]
-Underfull \vbox (badness 10000) detected at line 10647
- []
-
-
-Underfull \vbox (badness 10000) detected at line 10647
- []
-
-[232] [233] [234
-
-] [235
+] [229
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 10708--10710
+Underfull \hbox (badness 10000) in paragraph at lines 10146--10148
 []\TU/FreeSerif(0)/m/n/10 Paul Hockett. Open Photoionization Docker Stacks. URL
 : [][]$[][][][][] [] [] [] [][][][][][] [] [][][] [] [][][][][][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10717--10719
+Underfull \hbox (badness 10000) in paragraph at lines 10155--10157
 []\TU/FreeSerif(0)/m/n/10 Jake VanderPlas. Python Data Science Handbook. July 2
 023. URL: [][]$[][][][][] [] [] [] [][][][][][] [] [][][] [] [][][][][][][] []
  []
 
-[236] [237] [238] [239]
-Underfull \hbox (badness 10000) in paragraph at lines 10972--10974
+[230] [231] [232] [233] [234]
+Underfull \hbox (badness 10000) in paragraph at lines 10410--10412
 []\TU/FreeSerif(0)/m/n/10 Michael A. Nielsen and Isaac L. Chuang. \TU/FreeSerif
 (0)/m/it/10 Quantum Computation and Quantum Information:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10972--10974
+Underfull \hbox (badness 10000) in paragraph at lines 10410--10412
 \TU/FreeSerif(0)/m/it/10 10th Anniversary Edition\TU/FreeSerif(0)/m/n/10 . Camb
 ridge University Press, 2010. ISBN 978-0-511-97666-7. URL:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10972--10974
+Underfull \hbox (badness 10000) in paragraph at lines 10410--10412
 [][]$[][][][][] [] [] [] [][][] [] [][][][][][][][][] [] [][][] [] [][][][][][]
 [][][][][][][][][] [] [][][][][] [] [][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][] []
  []
 
-[240] [241] [242] (./QM3.ind [243] [244
+[235] [236] (./QM3.ind [237] [238
 
-] [245
+] [239
 
 ])
 The property list \polyglossia@langsetup contains the pairs (without outer
@@ -2682,15 +2669,15 @@ LaTeX Info: Redefining \ttfamily on input line 19.
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package rerunfilecheck Info: File `QM3.out' has not changed.
-(rerunfilecheck)             Checksum: EB13D98E2EAB9415BBEE048B54C0CF60;16565.
+(rerunfilecheck)             Checksum: 0092EC28E707531D1933DDB34D508234;16457.
  ) 
 Here is how much of TeX's memory you used:
- 44432 strings out of 478214
- 1065064 string characters out of 5855576
- 3069653 words of memory out of 5000000
- 64098 multiletter control sequences out of 15000+600000
+ 44461 strings out of 478214
+ 1067080 string characters out of 5855576
+ 3063137 words of memory out of 5000000
+ 64124 multiletter control sequences out of 15000+600000
  480595 words of font info for 152 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
  99i,32n,115p,3852b,2295s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on QM3.pdf (251 pages).
+Output written on QM3.pdf (245 pages).

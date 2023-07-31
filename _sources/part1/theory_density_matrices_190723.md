@@ -235,7 +235,7 @@ daPlot = density.matPlot(daOut.sum('Sym'), pTypes=pTypes)
 # Glue figure for later - real part only in this case
 # Also clean up axis labels from default state labels ('LM' and 'LM_p' in this case).
 glue("denMatD2hRealOnly", daPlot.select(pType='Real').opts(xlabel='L,M', ylabel="L',M'"))
-glue("symHarmPG", sym, display=False)
+glue("symHarmPGmatE", sym, display=False)
 ```
 
 ```{glue:figure} denMatD2hRealOnly
