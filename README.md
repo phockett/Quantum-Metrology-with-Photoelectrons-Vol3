@@ -3,7 +3,7 @@
 By Paul Hockett with Varun Makhija
 
 Quantum Metrology with Photoelectrons Volume 3: *Analysis
-methodologies*, an open source executable book. This repository contains the source documents (mainly Jupyter Notebooks in Python) and notes for the book, as of Jan 2022 writing is in progress, and the [current HTML build can be found online](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/). The book is due to be finished in 2023, and will be published by IOP Press - see below for more details.
+methodologies*, an open source executable book. This repository contains the source documents (mainly Jupyter Notebooks in Python) and notes for the book, as of July 2023 the first draft is complete, and the [current HTML build can be found online](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/). The book is due to be published in late 2023, and by IOP Press - see below for more details.
 
 [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/)
 
@@ -18,9 +18,11 @@ Photoionization is an interferometric process, in which multiple paths can contr
 
 Additional online resources for Vols. I & II can be found on [OSF](https://osf.io/q2v3g/wiki/home/) and [Github](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons).
 
+![QMbooks](http://femtolab.ca/wordpress/wp-content/uploads/2017/08/mock_covers_2vol_020318.png)
+
 - Volume III in the series will continue this exploration, with a focus on numerical analysis techniques, forging a closer link between experimental and theoretical results, and making the methodologies discussed directly accessible via new software. The book is due for publication by IOP due in 2023; this volume is also open-source, with a live HTML version at https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/ and source available at https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3.
 
-![QMbooks](http://femtolab.ca/wordpress/wp-content/uploads/2017/08/mock_covers_2vol_020318.png)
+![QM3](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/blob/postSubmissionUpdates/notes/cover_art/quantum_met_cover_mock_vol3_070823.png?raw=true)
 
 
 ## Technical details
@@ -35,17 +37,24 @@ The project has been setup to use the [Jupyter Book](https://jupyterbook.org/) b
 
 The work *within* the book will make use of the [Photoelectron Metrology Toolkit](https://pemtk.readthedocs.io/en/latest/about.html) platform for working with experimental & theoretical data.
 
+For further technical details, [see Chpt. 2 in the book](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/part1/platform_intro_070723.html).
+
 ![Photoelectron metrology platform diagram](https://raw.githubusercontent.com/phockett/PEMtk/4eec9217203bfd1aee13bd8b64952dc1ac5fef89/docs/doc-source/figs/QM_unified_schema_wrapped_280820.gv.png)
 
 
 ### Running code examples
 
-Each Jupyter notebook (`*.ipynb`) can be treated as a stand-alone computational document. These can be run/used/modified independently with an appropriately setup python environment (details to follow).
+Each Jupyter notebook (`*.ipynb`) can be treated as a stand-alone computational document. These can be run/used/modified independently with an appropriately setup python environment, for details [see Chpt. 2 in the book](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/part1/platform_intro_070723.html#installation-and-environment-set-up).
 
+### Docker builds
+
+Docker images, including the full book source and all required packages, are [available from Docker hub](https://hub.docker.com/r/epsproc/quantum-met-vol3), simply run `docker pull epsproc/quantum-met-vol3` to pull a copy.
+
+(Full Docker source files to follow.)
 
 ### Building the book
 
-The full book can also be built from source:
+The full book can also be built from source in a suitably configured environment ([see Chpt. 2 in the book](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/part1/platform_intro_070723.html#installation-and-environment-set-up)):
 
 1. Clone this repository
 2. Run `pip install -r requirements.txt` (it is recommended you do this within a virtual environment)
