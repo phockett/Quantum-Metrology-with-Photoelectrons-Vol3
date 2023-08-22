@@ -22,8 +22,8 @@ only_build_toc_files        : true  # Skip processing all other files, e.g. back
 execute:
   # 27/04/23 - added arb timeout in s here, some fitting notebooks not completing?
   timeout: 1000
-  # execute_notebooks: 'force'
-  execute_notebooks: 'cache'
+  execute_notebooks: 'force'
+  # execute_notebooks: 'cache'
   
 # exclude_patterns: [part1/*.md]   # This also doesn't work for skipping .md versions.
 
@@ -48,6 +48,7 @@ bibtex_bibfiles:
   # 23/04/23 - auto-updating from Zotero on Stimpy.
   - bibs/MF_recon_manuscript_June2020_bbt_bibtex_ongoing.bib
   # 27/04/23 added for rot wavepacket refs.
+  # NOTE - this is NOT in Zotero!
   - bibs/new_refs_jpbreview_VM_020323.bib
   # - bibs/QM3_ongoing.bib
 #  - references.bib  # Sample file
@@ -142,7 +143,8 @@ sphinx:
     nb_merge_streams: True
     
     #*** Mathjax config, see https://jupyterbook.org/en/stable/advanced/sphinx.html#defining-tex-macros
-    mathjax_config:
+    # For Sphinx >= 4.0 set as "mathjax3_config" (was "mathjax_config"), updated 28/07/23
+    mathjax3_config:
       tex:
         macros:
             # Fix for \bm, see https://github.com/mathjax/MathJax/issues/1219#issuecomment-341059843
@@ -187,11 +189,13 @@ parse:
     open_photo_stacks_repo: "[Open Photoionization Docker Stacks](https://github.com/phockett/open-photoionization-docker-stacks) {cite}`hockettOpenPhotoionizationDocker`"
     ePS_manual: "[ePolyScat website and manual](https://epolyscat.droppages.com/) {cite}`luccheseEPolyScatUserManual`"
     ePS_full: "[ePolyScat (ePS)](https://epolyscat.droppages.com/) {cite}`Lucchese1986,Gianturco1994,Natalense1999,luccheseEPolyScatUserManual`"
-    libmsym: "[libmsym](https://github.com/mcodev31/libmsym) {cite}`johansson2017AutomaticProcedureGeneratinga,johansson2022LibmsymGithub`"
-    lmfit: "[lmfit library](https://lmfit.github.io/lmfit-py/intro.html) {cite}`LMFITDocumentation, newville2014LMFITNonLinearLeastSquare`"
-    shtools: "[pySHtools](https://shtools.oca.eu) {cite}`SHtoolsGithub, wieczorek2018SHToolsToolsWorking`"
-    qutipFull: "[the QuTiP (_Quantum Toolkbox in Python_) library](https://qutip.org/) {cite}` johansson2012QuTiPOpensourcePython, johansson2013QuTiPPythonFramework, QuTiPQuantumToolboxWebsite`"
+    libmsym: "[`libmsym`](https://github.com/mcodev31/libmsym) {cite}`johansson2017AutomaticProcedureGeneratinga,johansson2022LibmsymGithub`"
+    lmfit: "[`lmfit` library](https://lmfit.github.io/lmfit-py/intro.html) {cite}`LMFITDocumentation, newville2014LMFITNonLinearLeastSquare`"
+    shtools: "[`pySHtools`](https://shtools.oca.eu) {cite}`SHtoolsGithub, wieczorek2018SHToolsToolsWorking,wieczorek2019SHTOOLSSHTOOLSVersion, wieczorek2022SHtoolsDocs`"
+    qutipFull: "[the `QuTiP` (_Quantum Toolkbox in Python_) library](https://qutip.org/) {cite}` johansson2012QuTiPOpensourcePython, johansson2013QuTiPPythonFramework, QuTiPQuantumToolboxWebsite`"
     qutipDocs: "[the QuTiP documentation](https://qutip.org/) {cite}`QuTiPQuantumToolboxWebsite`"
+    xarray:  "[`Xarray`](https://docs.xarray.dev) {cite}`hoyer2017XarrayNDLabeled,XarrayDocumentation`"
+    scipy: "[`Scipy`](https://scipy.org/) {cite}`SciPy`"
     
     # Glossary terms
     MF: "{term}`MF`"
@@ -203,11 +207,26 @@ parse:
     MS: "{term}`MS`"
     PG: "{term}`PG`"
     HOMO: "{term}`HOMO`"
+    RWP: "{term}`RWP`"
+    GAMMACHANNEL: "{term}`channel functions`"
+    RADMATE: "{term}`radial matrix elements`"
+    SYMHARM: "{term}`symmetrized harmonics`"
+    GEOMPARAMS: "{term}`geometric coupling parameters`"
+    PARTIALWAVES: "{term}`partial-waves`"
+    PARTIALWAVEEXP: "{term}`partial-wave expansion`"
+    FRAMEROT: "{term}`frame rotation`"
+    EULER: "{term}`Euler angles`"
+    WIGNERD: "{term}`Wigner rotation matrix elements`"
+    BOOTSTRAP: "{term}`bootstrap retrieval protocol`"
     
     # Maths shorthand
     # BLM: "$\beta_{L,M}$"  # This fails, seems to cut eqn, maybe drops first $?
     BLM: "$\\beta_{L,M}$"   # This works, note esc for \ IN MATHS seems required.
+    BLMt: "$\\beta_{L,M}(t)$"
     ADMsymbol: "$A_{Q,S}^{K}(t)$"
+    
+    # Additional links/cross-refs
+    PARTII: "{ref}`Part II <chpt:extracting-matrix-elements-overview>`"
     
     
 # Global substitutions, see https://jupyterbook.org/en/stable/content/content-blocks.html?highlight=substitutions#define-substitutions-for-your-whole-book

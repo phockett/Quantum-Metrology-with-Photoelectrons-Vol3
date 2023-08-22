@@ -9,6 +9,20 @@ print('*** Setting up notebook with standard Quantum Metrology Vol. 3 imports...
 print('For more details see https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basic_demo_030621-full.html')
 print('To use local source code, pass the parent path to this script at run time, e.g. "setup_fit_demo ~/github"')
 
+# Hide warnings?
+import warnings
+warnings.filterwarnings('ignore')  # ALL WARNINGS
+warnings.filterwarnings('ignore', category=DeprecationWarning)
+warnings.filterwarnings('ignore', category=FutureWarning)
+
+# Suppress "OMP: Info #276: omp_set_nested routine deprecated, please use omp_set_max_active_levels instead"
+# Triggered by some Numba versions loading OpenMP.
+# Solution from https://stackoverflow.com/questions/56085015/suppress-openmp-debug-messages-when-running-tensorflow-on-cpu
+import os
+os.environ["KMP_WARNINGS"] = "FALSE" 
+
+
+# General imports
 from datetime import datetime as dt
 timeString = dt.now()
 print(f"\n*** Running: {timeString.strftime('%Y-%m-%d %H:%M:%S')}")
@@ -36,13 +50,15 @@ if imgFormat is None:
 # 23/03/23: Ugly - set default static render size (passed to modified Glue and setPlotters())
 # May want to add override options for this later.
 imgWidth=os.getenv('IMGWIDTH')
+print(imgWidth)
 if imgWidth is None:
     imgWidth = 1200
     
 imgHeight=os.getenv('IMGHEIGHT')
 if imgHeight is None:
     # imgHeight = None    # Leave as None for default (should maintain aspect?)
-    imgHeight = 800
+    imgHeight = 800  # Builds 27/07/23, trying None again.
+                     # Builds 29/07/23 reinstated - PAD plots in PDF very small.
     # pass
 
 imgSize = [imgWidth, imgHeight]
@@ -162,7 +178,10 @@ def glueDecorator(func):
                 # With explict size set for Plotly object
                 # return func(name, pn.pane.Plotly(fig.update_layout(height=imgHeight, width=imgWidth), **kwargs), display=displayFig)
                 # FOR HTML FIX SIZE to match JBook template?
-                return func(name, pn.pane.Plotly(fig.update_layout(height=800, width=1000), **kwargs), display=displayFig)
+                # NOTE USING 1200x800 - slighly wider then template, but good for 3 col PAD figures.
+                # UPDATE 27/07/23: NOW TESTING 1400x600, current PAD plots poor.
+                # Has something changed in template? Or just new build issues?
+                return func(name, pn.pane.Plotly(fig.update_layout(height=800, width=1200), **kwargs), display=displayFig)
             
             else:
                 return func(name, fig, display=displayFig)  # For non-PDF builds, use regular glue()
@@ -217,6 +236,16 @@ from pathlib import Path
 import numpy as np
 import xarray as xr
 import pandas as pd
+
+# Added 22/07/23 for plt.plot() for glue
+# May break other default fig options?
+from matplotlib import pyplot as plt
+
+# Added 
+# Force inline graphics output from script (if called from a notebook)
+# Solution from https://stackoverflow.com/a/58057468
+# Should also mean `%matplotlib inline` not required in general in calling notebook.
+get_ipython().magic('matplotlib inline')
 
 #*** Pandas display options
 pd.set_option("display.precision", 3)
@@ -485,3 +514,34 @@ def cleanBLMs(daIn, refDims = 'defaults'):
     daOut = da.where(np.abs(da.coords[dimCheck['refDims'][1]])<=da.coords[dimCheck['refDims'][0]],drop=True)
     
     return daOut
+
+
+
+# Quick decorator example from https://www.geeksforgeeks.org/function-wrappers-in-python/
+
+import time
+
+
+def timeis(func):
+	'''Decorator that reports the execution time.'''
+
+	def wrap(*args, **kwargs):
+		start = time.time()
+		result = func(*args, **kwargs)
+		end = time.time()
+		
+		print(func.__name__, end-start)
+		return result
+	return wrap
+
+# Wrapper for lmfit parameters > Pandas dataframe
+# From https://github.com/lmfit/lmfit-py/discussions/827#discussioncomment-4219101
+def params_to_dataframe(params):
+    "convert parametes to a dataframe"
+    par_attrs = ('name', 'value', 'stderr', 'vary', 'expr', 'init_value',
+                 'min', 'max', 'brute_step', 'correl')
+    dat = {attr: [] for attr  in par_attrs}
+    for par in params.values():
+        for attr in par_attrs:
+            dat[attr].append(getattr(par, attr, None))
+    return pd.DataFrame(dat, columns=par_attrs)
