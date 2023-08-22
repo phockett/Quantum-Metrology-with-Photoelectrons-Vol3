@@ -22,8 +22,7 @@ Additional online resources for Vols. I & II can be found on [OSF](https://osf.i
 
 - Volume III in the series will continue this exploration, with a focus on numerical analysis techniques, forging a closer link between experimental and theoretical results, and making the methodologies discussed directly accessible via new software. The book is due for publication by IOP due in 2023; this volume is also open-source, with a live HTML version at https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/ and source available at https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3.
 
-![QM3](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/blob/postSubmissionUpdates/notes/cover_art/quantum_met_cover_mock_vol3_070823.png?raw=true)
-
+<img src="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/blob/postSubmissionUpdates/notes/cover_art/quantum_met_cover_mock_vol3_070823.png?raw=true" alt="drawing" width="400"/>
 
 ## Technical details
 
