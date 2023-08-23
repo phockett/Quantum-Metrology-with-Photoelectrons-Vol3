@@ -12,17 +12,16 @@ methodologies*, an open source executable book. This repository contains the sou
 
 Photoionization is an interferometric process, in which multiple paths can contribute to the final continuum photoelectron wavefunction. At the simplest level, interferences between different final angular momentum states are manifest in the energy and angle resolved photoelectron spectra: metrology schemes making use of these interferograms are thus phase-sensitive, and provide a powerful route to detailed understanding of photoionization. In these cases, the continuum wavefunction (and underlying scattering dynamics) can be characterised. At a more complex level, such measurements can also provide a powerful probe for other processes of interest, leading to a more general class of quantum metrology built on phase-sensitive photoelectron imaging.  Since the turn of the century, the increasing availability of photoelectron imaging experiments, along with the increasing sophistication of experimental techniques, and the availability of computational resources for analysis and numerics, has allowed for significant developments in such photoelectron metrology.
 
+![QMbooks](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/blob/postSubmissionUpdates/notes/cover_art/mock_covers_3vol_230823.png?raw=true)
+
 - Volume I covers the core physics of photoionization, including a range of computational examples. The material is presented as both reference and tutorial, and should appeal to readers of all levels. ISBN 978-1-6817-4684-5, http://iopscience.iop.org/book/978-1-6817-4684-5 (IOP Press, 2018)
 
 - Volume II explores applications, and the development of quantum metrology schemes based on photoelectron measurements. The material is more technical, and will appeal more to the specialist reader. ISBN 978-1-6817-4688-3, http://iopscience.iop.org/book/978-1-6817-4688-3 (IOP Press, 2018)
 
 Additional online resources for Vols. I & II can be found on [OSF](https://osf.io/q2v3g/wiki/home/) and [Github](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons).
 
-![QMbooks](http://femtolab.ca/wordpress/wp-content/uploads/2017/08/mock_covers_2vol_020318.png)
-
 - Volume III in the series will continue this exploration, with a focus on numerical analysis techniques, forging a closer link between experimental and theoretical results, and making the methodologies discussed directly accessible via new software. The book is due for publication by IOP due in 2023; this volume is also open-source, with a live HTML version at https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/ and source available at https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3.
 
-<img src="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/blob/postSubmissionUpdates/notes/cover_art/quantum_met_cover_mock_vol3_070823.png?raw=true" alt="drawing" width="400"/>
 
 ## Technical details
 
@@ -47,7 +46,9 @@ Each Jupyter notebook (`*.ipynb`) can be treated as a stand-alone computational 
 
 ### Docker builds
 
-Docker images, including the full book source and all required packages, are [available from Docker hub](https://hub.docker.com/r/epsproc/quantum-met-vol3), simply run `docker pull epsproc/quantum-met-vol3` to pull a copy.
+Docker images, including the full book source and all required packages, are [available from Docker hub](https://hub.docker.com/r/epsproc/quantum-met-vol3), simply run `docker pull epsproc/quantum-met-vol3` to pull a copy, then `docker run epsproc/quantum-met-vol3` to run with default settings (which uses port 8888 for JupyterLab). The Jupyter Lab interface will be available at http://localhost:8888, with default password `qm3`. (To specify a port at run time, add `-p <newPort>:8888` to the run command, e.g. `docker run -p 9999:8888 epsproc/quantum-met-vol3` to set port to 9999.) 
+
+The Docker images contain the book source, along with all required packages and Jupyter Lab (based on the [Jupyter Docker Stacks Scipy image](https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html)). Book source files are available in the container at `github/Quantum-Metrology-with-Photoelectrons-Vol3/`. For more details on the Jupyter Lab base container, see the [Jupyter Docker Stacks website](https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html).
 
 (Full Docker source files to follow.)
 
