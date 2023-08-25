@@ -1,0 +1,151 @@
+# Jupyterlab with ePSproc + PEMtk install.
+#
+# 30/07/23 For Holoviews/Bokeh figure export, add `sudo apt-get install --yes libgtk-3-0 libdbus-glib-1-2`
+#
+# 19/07/23 Base only build, can then install latest PEMtk + ePSproc locally or in new layer.
+#             Build as `docker build . -f Dockerfile-qm3-base-pkgs -t quantum-met-vol3-base`
+#
+# 12/07/23 3D AFBLM test branch build.
+#	   Also set `FROM jupyter/scipy-notebook:2023-05-15`, since `latest` (as of today) has updated JupyterLab with weird access/login issues.
+#
+# 24/03/23 Added qutip (via Conda-forge) for extended density matrix routines.
+#
+# 12/03/23 Added h5netcdf (via Conda) for HDF5 IO.
+#
+# 07/02/23 Added Conda pkgs selenium, firefox and geckodriver for Holoviews/Bokeh figure export.
+#
+# 28/10/22 Consolidated scripts & added Jupyter Lab defaults.
+#
+# 25/10/22 -latest version
+# Use only latest pkg versions, plus ePSproc & PEMtk from Github, aside from Xarray and Seaborn versions.
+# Note pip Github pkg installs with --no-deps for faster build, but does assume all deps covered by base notebook & manual prereqs.
+# TODO: consolidate scripts
+#
+# 27/03/22 -noinstall version
+# Use this for container for testing local dev code.
+#
+# 25/03/22 -PEMtk version
+# Quick hack from existing ePSproc build.
+# May want to do as a multi-part build (mainly for libmsy): https://docs.docker.com/develop/develop-images/multistage-build/
+#
+# 11/08/21  v1
+# Based on OpenDreamKit JupyterHub distro, https://github.com/defeo/jupyterhub-docker/
+# Uses Jupyter Stacks scipy notebook as base container, https://github.com/jupyter/docker-stacks/tree/master/scipy-notebook
+#
+
+FROM jupyter/scipy-notebook:2023-05-15
+
+#*** Set any versions here
+ARG CMAKE_VERSION=3.21.0
+ARG XARRAY_VERSION=2022.3.0   # Currently have IO issues for newer versions, see https://github.com/phockett/ePSproc/issues/64
+ARG SEABORN_VERSION=0.9       # Required for lmplot routine, see https://github.com/phockett/ePSproc/issues/23
+
+# USER $NB_UID
+
+# RUN whoami
+# Set user to root for installers below.
+USER root
+
+#*** Scripts
+COPY ./scripts ./scripts/
+
+# Add conda env hook
+COPY ./scripts/conda-activate.sh /usr/local/bin/before-notebook.d/
+# COPY ./libmsym_build.sh .
+
+#*** Libmsym build (for symmetrized harmonics)
+
+# Build essentials & make - may or may not be included in base image, so force here.
+RUN apt-get update \
+    && apt-get install -y build-essential make
+
+# Install Cmake, solution from https://hub.docker.com/r/rikorose/gcc-cmake/dockerfile
+# ARG CMAKE_VERSION=3.21.0
+
+RUN wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh \
+      -q -O /tmp/cmake-install.sh \
+      && chmod u+x /tmp/cmake-install.sh \
+      && mkdir /usr/bin/cmake \
+      && /tmp/cmake-install.sh --skip-license --prefix=/usr/bin/cmake \
+      && rm /tmp/cmake-install.sh
+
+ENV PATH="/usr/bin/cmake/bin:${PATH}"
+
+RUN ./scripts/libmsym_build.sh
+
+
+#*** Conda & pip installs
+
+# USER $NB_UID  # Set to notebook user.
+
+#*** Add ePSproc + dependencies
+# Note some may become/are optional, see also requirements.txt
+# RUN conda install --quiet --yes -c conda-forge spherical_functions
+# RUN conda install --quiet --yes xarray
+# RUN conda install --quiet --yes seaborn=0.9
+# RUN conda install --quiet --yes holoviews selenium
+# RUN conda install --quiet --yes -c conda-forge firefox geckodriver
+
+# Scooby for reporting
+# RUN conda install --quiet --yes -c conda-forge scooby
+
+# Jupytext
+# RUN conda install --quiet --yes -c conda-forge jupytext
+
+# Test consolidated installs - faster?
+# 25/10/22 - fixed Xarray version, see https://github.com/phockett/ePSproc/issues/64
+# 14/07/23 - swapped ordering here, hopefully speeds up Conda install. May want to try pip-only for speed?
+RUN conda install --quiet --yes xarray=${XARRAY_VERSION} holoviews seaborn=${SEABORN_VERSION} selenium h5netcdf
+RUN conda install --quiet --yes -c conda-forge spherical_functions scooby jupytext pyshtools lmfit firefox geckodriver qutip xyzpy
+RUN conda install --quiet --yes -c pyviz hvplot
+
+
+
+# Note optional @branch here
+# RUN pip with --no-deps to avoid lengthy pkg version checks - should already be covered above.
+# RUN pip install --no-deps git+https://github.com/phockett/ePSproc@3d-AFPAD-dev
+
+
+#*** Add PEMtk + dependencies
+# RUN conda install --quiet --yes -c conda-forge pyshtools
+# RUN pip install --no-deps git+https://github.com/phockett/PEMtk
+
+
+#*** Jupyterlab Plotly support
+# COPY ./plotlyinstall.sh .
+RUN ./scripts/plotlyinstall.sh
+
+#*** Jupyterlab set configs & update some default network options
+RUN ./scripts/jupyterSettings.sh
+
+#*** Add Jupyter-book if required, and wget for demo file downloader
+RUN pip install jupyter-book ghp-import wget jupyterlab-spellchecker
+
+# Additional TeX build tools (for PDF builds)
+RUN  apt-get install -y texlive-latex-extra \
+                     texlive-fonts-extra \
+                     texlive-xetex latexmk \
+                     xindy
+
+# Set time-zone if desired.
+# RUN timedatectl set-timezone America/New_York
+RUN  rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
+
+# 30/07/23 - for Holoviews/Bokeh export via firefox/geckodriver
+# See https://github.com/bokeh/bokeh/issues/10108 for this and alternative
+# This worked today in manual testing.
+RUN apt-get install --yes libgtk-3-0 libdbus-glib-1-2
+
+# 08/02/23 - added for root user build case, currently NOT activating conda for jovyan user (but this didn't used to be an issue).
+# RUN su jovyan && ~/scripts/activate-conda.sh   # THIS FAILS - no such location?
+# RUN su jovyan && source /home/jovyan/scripts/activate-conda.sh   # Testing 23/03/23 - also fails with missing script?
+
+# 01/04/23 try redoing this part for Conda...
+# Conda for jovyan user
+USER jovyan
+
+#*** Scripts
+COPY ./scripts ./scripts/
+# Add conda env hook
+COPY ./scripts/conda-activate.sh /usr/local/bin/before-notebook.d/
+# RUN ./scripts/conda-activate.sh
