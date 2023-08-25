@@ -3,7 +3,7 @@
 #
 # 19//07/23
 #
-# Build as `docker build . -f Dockerfile-qm3-base-pkgs -t quantum-met-vol3-base`
+# Build as `docker build . -f Dockerfile-qm3-base-pkgs -t quantum-met-vol3`
 
 # Start from local build of base pkgs
 # FROM jupyterlab_qm3_base:190723

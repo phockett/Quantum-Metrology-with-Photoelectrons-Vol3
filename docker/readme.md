@@ -10,11 +10,11 @@ The Docker images contain the book source, along with all required packages and 
 
 Dockerfiles for a full environment build, including ePSproc, PEMtk, JupyterLab and JupyterBook, are in `/docker`.
 
-There are two files, one for the base environment, and a second which adds ePSproc, PEMtk and QM3 files to this. They can be used to build an image as follows:
+There are two files, one for the base environment, and a second which adds ePSproc, PEMtk and QM3 files to this (via pull from Github and pip install). They can be used to build an image as follows:
 
 ```bash
 docker build . -f Dockerfile-qm3-base-pkgs -t quantum-met-vol3-base
-docker build . -f Dockerfile-qm3-base-pkgs -t quantum-met-vol3
+docker build . -f Dockerfile-qm3 -t quantum-met-vol3
 ```
 
 These match the images on DockerHub, with the caveat that one can modify the build chain - note, in particular, the choice of Github branches to pull ePSproc and QM3 source.
