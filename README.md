@@ -50,7 +50,7 @@ Docker images, including the full book source and all required packages, are [av
 
 The Docker images contain the book source, along with all required packages and Jupyter Lab (based on the [Jupyter Docker Stacks Scipy image](https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html)). Book source files are available in the container at `github/Quantum-Metrology-with-Photoelectrons-Vol3/`. For more details on the Jupyter Lab base container, see the [Jupyter Docker Stacks website](https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html).
 
-For the source Dockerfiles and additional notes, [see `/docker` in the QM3 github repository](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/tree/postSubmissionUpdates/docker).
+For the source Dockerfiles and additional notes, [see `/docker` in the QM3 github repository](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/tree/main/docker).
 
 ### Building the book
 
