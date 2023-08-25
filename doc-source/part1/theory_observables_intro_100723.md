@@ -546,7 +546,7 @@ glue("N2BLMtDemo", daLayout)
 ---
 name: "fig-N2BLMtDemo"
 ---
-Example $\beta_{L,M}(\epsilon,t)$ data, computed for $N_2$ (upper panel), and the {{ ADMs }} used in the calculation.
+Example $I(\epsilon,t)$ data, computed for $N_2$ (upper panel), and the {{ ADMs }} used in the calculation (lower panel).
 ```
 
 ```{code-cell} ipython3
@@ -587,7 +587,7 @@ glue("N2AFPADsdemo", figObj)
 ---
 name: "fig-N2AFPADsdemo"
 ---
-{{ AF }}-{{ PADs }} example for $N_2$ at selected $(\epsilon,t)$. In this demo case the alignment and {{ PADs }} are "1D", and cylindrically symmetric.
+{{ AF }}-{{ PADs }} ($I(\theta,\phi;\epsilon,t)$) example for $N_2$ at selected $(\epsilon,t)$. In this demo case the alignment and {{ PADs }} are "1D", and cylindrically symmetric.
 ```
 
 ```{code-cell} ipython3

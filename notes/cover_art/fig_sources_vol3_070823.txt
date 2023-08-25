@@ -1,0 +1,7 @@
+Old figs: \\FEMTOFAST\Backup2\MrG_Aug2018\work\book - IOP april 2017\manuscript\covers
+
+New figs:
+
+- http://jake:9988/doc/tree/QM3/doc-source/part2/case-study-OCS_290723-figExport.ipynb for OCS data matrix.
+- SCRATCH: D:\temp\QM3-cover-scratch_070823\covers-QM12
+- FINAL: S:\github-share\Quantum-Metrology-with-Photoelectrons-Vol3\notes\cover_art

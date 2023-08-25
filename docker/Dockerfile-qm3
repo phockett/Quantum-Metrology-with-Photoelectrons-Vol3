@@ -1,0 +1,37 @@
+# ePSproc + PEMtk layer from JupyterLab base
+# Pulls source from GH to contianer and installs with pip
+#
+# 19//07/23
+#
+# Build as `docker build . -f Dockerfile-qm3-base-pkgs -t quantum-met-vol3`
+
+# Start from local build of base pkgs
+# FROM jupyterlab_qm3_base:190723
+FROM quantum-met-vol3-base
+
+# Set branches
+ARG EPSPROCBRANCH=3d-AFPAD-dev
+ARG QM3BRANCH=v310723pm
+
+
+# Set path for clone/install
+ARG BASEPATH="/home/jovyan/github"
+
+# Pull latest source
+USER jovyan
+RUN mkdir ${BASEPATH} && cd ${BASEPATH} \
+    && git clone --branch ${EPSPROCBRANCH} https://github.com/phockett/ePSproc.git \
+    && git clone https://github.com/phockett/PEMtk.git
+    
+# Install
+RUN cd ${BASEPATH} \
+    && pip install -e ePSproc --user \
+    && pip install -e PEMtk --user
+
+# Fix Matplotlib version - currently getting some weird issues with 3.6, 3.7 in alignment notebook.
+RUN pip install matplotlib==3.5.3
+
+# QM3 book source
+RUN cd ${BASEPATH} \
+    && git clone --branch ${QM3BRANCH} https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3.git
+    
