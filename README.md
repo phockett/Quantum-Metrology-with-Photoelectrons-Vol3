@@ -6,6 +6,7 @@ Quantum Metrology with Photoelectrons Volume 3: *Analysis
 methodologies*, an open source executable book. This repository contains the source documents (mainly Jupyter Notebooks in Python) and notes for the book, as of July 2023 the first draft is complete, and the [current HTML build can be found online](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/). The book is due to be published in late 2023, and by IOP Press - see below for more details.
 
 [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/)
+[![DOI](https://zenodo.org/badge/449878450.svg)](https://zenodo.org/badge/latestdoi/449878450)
 
 
 ## About the books
@@ -46,11 +47,13 @@ Each Jupyter notebook (`*.ipynb`) can be treated as a stand-alone computational 
 
 ### Docker builds
 
-Docker images, including the full book source and all required packages, are [available from Docker hub](https://hub.docker.com/r/epsproc/quantum-met-vol3), simply run `docker pull epsproc/quantum-met-vol3` to pull a copy, then `docker run epsproc/quantum-met-vol3` to run with default settings (which uses port 8888 for JupyterLab). The Jupyter Lab interface will be available at http://localhost:8888, with default password `qm3`. (To specify a port at run time, add `-p <newPort>:8888` to the run command, e.g. `docker run -p 9999:8888 epsproc/quantum-met-vol3` to set port to 9999.) 
+Docker images, including the full book source and all required packages, are [available from Docker hub](https://hub.docker.com/r/epsproc/quantum-met-vol3), simply run `docker pull epsproc/quantum-met-vol3` to pull a copy, then `docker run epsproc/quantum-met-vol3` to run with default settings (which uses port 8888 for JupyterLab). The Jupyter Lab interface will be available at http://localhost:8888, with default password `qm3`. (To specify a port at run time, add `-p <newPort>:8888` to the run command, e.g. `docker run -p 9999:8888 epsproc/quantum-met-vol3` to set port to 9999.)
 
 The Docker images contain the book source, along with all required packages and Jupyter Lab (based on the [Jupyter Docker Stacks Scipy image](https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html)). Book source files are available in the container at `github/Quantum-Metrology-with-Photoelectrons-Vol3/`. For more details on the Jupyter Lab base container, see the [Jupyter Docker Stacks website](https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html).
 
-For the source Dockerfiles and additional notes, [see `/docker` in the QM3 github repository](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/tree/postSubmissionUpdates/docker).
+For the source Dockerfiles and additional notes, [see `/docker` in the QM3 github repository](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/tree/main/docker).
+
+Archived versions can also be found on Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8286020.svg)](https://doi.org/10.5281/zenodo.8286020)
 
 ### Building the book
 
