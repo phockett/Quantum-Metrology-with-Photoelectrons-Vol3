@@ -77,7 +77,7 @@ With bm package also issues with $\boldsymbol{\mathbf{E}}$, gives `! Improper al
 (sec:theory:symmetry-intro)=
 # Symmetry in photoionization
 
-Symmetry in photoionization has briefly been suggested by the introduction of symmetrized harmonics ({numref}`Sect. %s <sec:theory:sym-harm-into>`), and is discussed in detail in {{ QM1 }} (Sect. 2.2.3.3). Herein a brief review is given, with a focus on using symmetry in matrix element retrieval problems. For further details, see {{ QM1 }}; for a more general discussion of symmetry in molecular spectroscopy see the textbook by  Bunker and Jensen {cite}`bunkerMolSymm`, and the specific case of photoionization is expanded on in the work of Signorell and Merkt {cite}`Signorell1997`.
+Symmetry in photoionization is discussed in detail in {{ QM1 }} (Sect. 2.2.3.3). Herein a brief review is given, with a focus on using symmetry in matrix element retrieval problems. For further details, see {{ QM1 }}; for a more general discussion of symmetry in molecular spectroscopy see the textbook by  Bunker and Jensen {cite}`bunkerMolSymm`, and the specific case of photoionization is expanded on in the work of Signorell and Merkt {cite}`Signorell1997`. (For application to symmetrized harmonics see {numref}`Sect. %s <sec:theory:sym-harm-into>`.)
 
 +++
 
