@@ -146,7 +146,7 @@ $$ (eq:r-kllam)
 Provided that the {{ GEOMPARAMS }} (the geometric part of the matrix elements) $\gamma_{l,m}$ -
 which includes the geometric rotations into the {{ LF }} arising from the dot
 product in Eq. {eq}`eq:r-kllam` and other angular-momentum coupling terms - are
-know, knowledge of the so-called {{ RADMATE }} 
+known, knowledge of the so-called {{ RADMATE }} 
 elements, at a given $k$ thus equates to a full description of the
 system dynamics (and, hence, the observables). Determination of these {{ RADMATE }} - which are complex quantities with magnitudes and phases - is the aim of the reconstruction methodologies discussed herein (see {numref}`Sect. %s <chpt:numerical-details>`).
 
@@ -196,7 +196,7 @@ Comparison of Eq. {eq}`eq:I-reduced-LF-2_45-vol1` with Eq. {eq}`eq:AF-PAD-genera
 in Eq. {eq}`eq:r-kllam` also determine the observable {{ betas }} $\beta_{L,M}(\epsilon,t)$ (Eq.
 {eq}`eq:AF-PAD-general`), which basically collect all the terms in Eq. {eq}`eq:I-reduced-LF-2_45-vol1` and the product over spherical harmonics, into a resultant set of $(L,M)$ parameters which describe the observable {{ PADs }}. (Note that the photoelectron energy
 $\epsilon$ and momentum $k$ are used somewhat interchangeably herein,
-with the former usually preferred in reference to observables.) Further discussion of the observables, including computation and form of these observables, can be found in {numref}`Sect. %s: <sect:theory:observables>`
+with the former usually preferred in reference to observables.) Further discussion of the observables, including computation and form of these observables, can be found in {numref}`Sect. %s <sect:theory:observables>`.
 
 The radial matrix elements - hence observables - are
 a sensitive function of molecular geometry and electronic configuration
