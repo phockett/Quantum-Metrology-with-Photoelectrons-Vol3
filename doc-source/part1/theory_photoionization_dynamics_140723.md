@@ -147,8 +147,8 @@ Provided that the {{ GEOMPARAMS }} (the geometric part of the matrix elements) $
 which includes the geometric rotations into the {{ LF }} arising from the dot
 product in Eq. {eq}`eq:r-kllam` and other angular-momentum coupling terms - are
 known, knowledge of the so-called {{ RADMATE }} 
-elements, at a given $k$ thus equates to a full description of the
-system dynamics (and, hence, the observables). Determination of these {{ RADMATE }} - which are complex quantities with magnitudes and phases - is the aim of the reconstruction methodologies discussed herein (see {numref}`Sect. %s <chpt:numerical-details>`).
+elements, at a given $k$, thus equates to a full description of the
+system dynamics (and, hence, the observables). Determination of these {{ RADMATE }} - which are complex quantities with magnitudes and phases - is the aim of the reconstruction methodologies discussed herein (see {numref}`Chpt. %s <chpt:numerical-details>`).
 
 For the simplest treatment, the radial matrix element can be
 approximated as a 1-electron integral involving the initial electronic
