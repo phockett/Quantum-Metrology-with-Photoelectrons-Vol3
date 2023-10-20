@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.7
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -82,7 +82,7 @@ form:
 
 $$I^{\zeta}(\epsilon)\equiv\mathbf{r}_{\zeta}\equiv r_{\zeta}e^{i\phi_{\zeta}}$$(eqn:I-zeta-mag-phase)
 
-This tensorial form is numerically implemented in the {{ ePSproc_repo }} codebase, and is in contradistinction to standard numerical routines in which the requisite terms are usually computed from vectorial and/or nested summations. The {{ PEMtk_repo }} codebase implements {{ RADMATE }} retrieval based on the tensor formalism, with pre-computation of all the geometric tensor components ({{ GAMMACHANNEL }}) prior to a fitting protocol for matrix element analysis, essentially a fit to Eqn. {eq}`eqn:channel-fns`, with terms $I^{\zeta}(\epsilon)$ as the unknowns (in magnitude, phase form per {eq}`eqn:I-zeta-mag-phase`). The main computational cost of a tensor-based approach is that more RAM is required to store the full set of tensor variables; however, the method is computationally efficient since it is inherently parallel (as compared to a traditional, serial loop-based solution), hence may lead to significantly faster evaluation of observables. Furthermore, the method allows for the computational routines to match the formalism quite closely, and for the investigation of the properties of the {{ GAMMACHANNEL }} for a given problem in general terms, as well as for specific experimental cases including examination of specific couplings/effects. (Again, this is in contrast to standard nested-loop routines, which can be somewhat opaque to detailed interpretation, and typically implement the full computation of the observables in one monolithic computational routine; they do, however, have significantly lower RAM requirements since the full multi-dimensional basis tensors are not required to be stored.) {numref}`Sect. %s <sec:full-tensor-expansion>` provides details of the tensor components of the {{ GAMMACHANNEL }}, and the remainder of this section breaks these down further, including numerical examples, and discussion of their significance for fitting problems in specific cases.
+This tensorial form is numerically implemented in the {{ ePSproc_repo }} codebase, and is in contradistinction to standard numerical routines in which the requisite terms are usually computed from vectorial and/or nested summations. The {{ PEMtk_repo }} codebase implements {{ RADMATE }} retrieval based on the tensor formalism, with pre-computation of all the geometric tensor components ({{ GAMMACHANNEL }}) prior to a fitting protocol for matrix element analysis, essentially a fit to Eqn. {eq}`eqn:channel-fns`, with terms $I^{\zeta}(\epsilon)$ as the unknowns (in magnitude, phase form per Eqn. {eq}`eqn:I-zeta-mag-phase`). The main computational cost of a tensor-based approach is that more RAM is required to store the full set of tensor variables; however, the method is computationally efficient since it is inherently parallel (as compared to a traditional, serial loop-based solution), hence may lead to significantly faster evaluation of observables. Furthermore, the method allows for the computational routines to match the formalism quite closely, and for the investigation of the properties of the {{ GAMMACHANNEL }} for a given problem in general terms, as well as for specific experimental cases including examination of specific couplings/effects. (Again, this is in contrast to standard nested-loop routines, which can be somewhat opaque to detailed interpretation, and typically implement the full computation of the observables in one monolithic computational routine; they do, however, have significantly lower RAM requirements since the full multi-dimensional basis tensors are not required to be stored.) {numref}`Sect. %s <sec:full-tensor-expansion>` provides details of the tensor components of the {{ GAMMACHANNEL }}, and the remainder of this section breaks these down further, including numerical examples, and discussion of their significance for fitting problems in specific cases.
 
 [^eqFootnote]: Cf. the general form of Eq. {eq}`eq:I-reduced-LF-2_45-vol1`. See also {{ QM2 }} Chpt. 12 for early discussion and motivation for this formalism.
 
@@ -110,9 +110,9 @@ $$\begin{aligned}
  & \times &\sum_{l,m,\mu}\sum_{l',m',\mu'}(-1)^{(\mu'-\mu_{0})}{\bar{\Lambda}_{R'}(\mu,P,R')B_{L,S-R'}(l,l',m,m')}\\
  & \times &I_{l,m,\mu}^{p_{i}\mu_{i},p_{f}\mu_{f}}(\epsilon)I_{l',m',\mu'}^{p_{i}\mu_{i},p_{f}\mu_{f}*}(\epsilon)\sum_{K,Q,S}\Delta_{L,M}(K,Q,S)A_{Q,S}^{K}(t)\end{aligned}$$ (eq:BLM-tensor-AF)
 
-In both cases a set of geometric tensor terms are required, 
+In both cases a set of geometric tensor terms are required, these terms provide details of:
 % which are fully defined in Appendix [\[appendix:formalism\]](#appendix:formalism){reference-type="ref" reference="appendix:formalism"}; 
-these terms provide details of:
+
 
 -   ${E_{P-R}(\hat{e};\mu_{0})}$: polarization geometry & coupling with
     the electric field.
@@ -127,8 +127,8 @@ these terms provide details of:
 
 - Square-brackets are short-hand for degeneracy terms, e.g. $[P]^{\frac{1}{2}} = (2P+1)^{\frac{1}{2}}$.
 
-And $I_{l,m,\mu}^{p_{i}\mu_{i},p_{f}\mu_{f}}(\epsilon)$ are the {{ RADMATE }}, as a function of energy $\epsilon$.
-As noteed above, these {{ RADMATE }} are essentially identical to the simplified forms
+Finally, $I_{l,m,\mu}^{p_{i}\mu_{i},p_{f}\mu_{f}}(\epsilon)$ are the {{ RADMATE }}, as a function of energy $\epsilon$.
+As noted above, these {{ RADMATE }} are essentially identical to the simplified forms
 $r_{k,l,m}$ defined in Eqn. {eq}`eq:r-kllam`, except now with additional indices to label
 symmetry and polarization components defined by a set of {{ PARTIALWAVES }}
 $\{l,m\}$, for polarization component $\mu$ (denoting the photon angular
@@ -192,7 +192,7 @@ name: fig-frame-defns
 ---
 
 
-Reference frame and angular momentum definitions for the Laboratory frame ({{ LF }}) and Molecular frame ({{ MF }}), using a general notation from molecular spectroscopy. In this case the {{ LF }} shows an angular momentum vectors $J$ and $l$; $J$ is usually used to define rotational (or sometimes total) angular momentum of the system, and $l$ the electronic component. Projection terms onto the {{ LF }} $z$-axis, $M_J$ and $m_l$ are also indicated. In the {{ MF }} equivalent angular momentum terms are shown, with projections $K$ and $\lambda$ onto the molecular symmetry axis. The insert shows a {{ FRAMEROT }} $(x,y,z)\leftarrow(x',y',z')$, defined by a set of {{ EULER }} $R_{\hat{n}}=\{\chi,\Theta,\Phi\}$, and illustrating the rotation of the $z$-axis (defined by the electric field vector $E$), and a spherical harmonic function in the $(x',y',z')$ frame. See also {numref}`fig-bootstrap-concept-outline`. Figure reproduced from {{ QM1 }}, Fig. 2.3, and shows  - note that some alternative notations are used in this volume.
+Reference frame and angular momentum definitions for the Laboratory frame ({{ LF }}) and Molecular frame ({{ MF }}), using a general notation from molecular spectroscopy. In this case the {{ LF }} shows an angular momentum vectors $J$ and $l$; $J$ is usually used to define rotational (or sometimes total) angular momentum of the system, and $l$ the electronic component. Projection terms onto the {{ LF }} $z$-axis, $M_J$ and $m_l$ are also indicated. In the {{ MF }} equivalent angular momentum terms are shown, with projections $K$ and $\lambda$ onto the molecular symmetry axis. The insert shows a {{ FRAMEROT }} $(x,y,z)\leftarrow(x',y',z')$, defined by a set of {{ EULER }} $R_{\hat{n}}=\{\chi,\Theta,\Phi\}$, and illustrating the rotation of the $z$-axis (defined by the electric field vector $E$), and a spherical harmonic function in the $(x',y',z')$ frame. See also {numref}`fig-bootstrap-concept-outline`. Figure reproduced from {{ QM1 }}, Fig. 2.3 - note that some alternative notations are used in this volume.
 
 
 ```
