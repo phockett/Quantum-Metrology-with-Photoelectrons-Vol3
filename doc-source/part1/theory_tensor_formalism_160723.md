@@ -205,7 +205,7 @@ Reference frame and angular momentum definitions for the Laboratory frame ({{ LF
 
 In the following sub-sections, each component is defined in detail, including numerical examples. For illustration purposes, the numerical example uses a minimal set of assumptions, and is defined initially purely by symmetry, although further terms may be required for computation of some of the geometric terms and are discussed where required. A fuller discussion of symmetry considerations in photoionization can be found in {numref}`Sect. %s <sec:theory:symmetry-intro>`, and discussion of {{ SYMHARM }} in {numref}`Sect. %s <sec:theory:sym-harm-into>`.
 
-For this example, the $D_{2h}$ point group is used, representing a fairly general case of a planar asymmetric top system, e.g. ethylene ($C_2H_4$). Note that, in this case, the symmetrization coefficients ($b_{hl\lambda}^{\Gamma\mu}$, see {eq}`eq:symHarm-defn`) have the property that $\mu=0$ only, and the $h$ index is redundant, since it maps uniquely to $l$ - see {numref}`tab-D2hXlm` - so these indexes can be dropped. Note, also, the unfortunate convention that the label $\mu$ is used for multiple indexes; to avoid ambiguity this term is remapped to $\mu_X$ in the numerics below. However, in this case, since $\mu$ can be dropped from the symmetrization coefficients, there is actually no ambiguity in later usage.
+For this example, the $D_{2h}$ point group is used, representing a fairly general case of a planar asymmetric top system, e.g. ethylene ($C_2H_4$). Note that, in this case, the symmetrization coefficients ($b_{hl\lambda}^{\Gamma\mu}$, see Eqn. {eq}`eq:symHarm-defn`) have the property that $\mu=0$ only, and the $h$ index is redundant, since it maps uniquely to $l$ - see {numref}`tab-D2hXlm` - so these indexes can be dropped. Note, also, the unfortunate convention that the label $\mu$ is used for multiple indexes; to avoid ambiguity this term is remapped to $\mu_X$ in the numerics below. However, in this case, since $\mu$ can be dropped from the symmetrization coefficients, there is actually no ambiguity in later usage.
 
 
 
@@ -295,7 +295,7 @@ Symmetrized harmonics coefficients ($b_{hl\lambda}^{\Gamma\mu}$, see {eq}`eq:sym
 ---
 name: "tab-D2hXlm"
 ---
-Symmetrized harmonics coefficients ($b_{hl\lambda}^{\Gamma\mu}$, see {eq}`eq:symHarm-defn`) for {glue:text}`symHarmPGmatE` symmetry ($l_{max}=${glue:text}`symHarmLmaxmatE`) generated with the {{ PEMtk_repo }} wrapper for {{ libmsym }}. Note that, in this case, the coeffcients have the property that $\mu=0$ only, and the $h$ index is redundant (maps uniquely to $l$).
+Symmetrized harmonics coefficients ($b_{hl\lambda}^{\Gamma\mu}$, see Eqn. {eq}`eq:symHarm-defn`) for {glue:text}`symHarmPGmatE` symmetry ($l_{max}=${glue:text}`symHarmLmaxmatE`) generated with the {{ PEMtk_repo }} wrapper for {{ libmsym }}. Note that, in this case, the coeffcients have the property that $\mu=0$ only, and the $h$ index is redundant (maps uniquely to $l$).
 
 ```
 
@@ -501,7 +501,7 @@ glue("lmPlot_BLM_basis_D2h", gFig.fig, display=False)
 ---
 name: "fig-BLM-basis-D2h"
 ---
-Example $B_{L,M}$ basis functions for {glue:text}`symHarmPGmatE` symmetry. Note figure is truncated to $l_{max}=l'_{max}=${glue:text}`symHarmBasislmaxPlot` for clarity.
+Example $B_{L,M}$ basis functions for {glue:text}`symHarmPGmatE` symmetry. Note figure is truncated to $l_{max}=l'_{max}=${glue:text}`symHarmBasislmaxPlot` for clarity. The colour-map (top left) shows the (real) values of the allowed terms shown in the main panel of the figure. The key (middle left) indicates categorical colour-mapping for the $(l,l',m,m')$ terms corresponding to the left-hand side-panel of the main plot, which illustrates the quantum numbers for each row.
 ```
 
 +++
@@ -525,7 +525,7 @@ Where:
 - in the literature {{ LF }}/{{ AF }} field projection terms are usually denoted $p$ (as above) or $\mu_0$ (used as a more general angular-momentum projection notation). For the {{ MF }} case photon projection terms are usually denoted by $q$ or $\mu$.
 - The polarization vector or propagation direction is usually chosen to define the {{ LF }}/{{ AF }} z-axis for linear or non-linearly polarized light respectively (see {numref}`fig-bootstrap-concept-outline` for the linear example), or defined relative to the molecular symmetry axis in the {{ MF }}. (See {numref}`Sect. %s <sec:frame-definitions>` for further details.)
 - For a given case the polarization geometry may define a single projection term, or there may be multiple terms allowed. For instance, linearly polarized light is defined by $\mu_0=0$ only, resulting in non-zero values for just the $P=0,2$ terms in Eq. {eq}`eq:EPR-defn-1`, i.e. product terms $E_{0,0}, E_{2,0}$ are allowed. Non-linearly polarized light may contain all allowed components ($\mu_0=-1,0,1$). For the {{ MF }} case, allowed components may be defined directly in the {{ MF }} or determined via a frame transformation from the {{ LF }} - see {numref}`Sect. %s <sec:theory:lambda-term>`.
-- Note this notation implicitly describes only the time-independent photon angular momentum coupling, but time-dependent/shaped laser fields can be readily incorporated by allowing for time-dependent fields $e_{p}(t)$ (see, for instance, Ref. \cite{hockett2015CompletePhotoionizationExperiments}). (Support for this is planned in {{ ePSproc_repo }}, as of v1.3.2 this is in the development and testing phase.)
+- Note this notation implicitly describes only the time-independent photon angular momentum coupling, but time-dependent/shaped laser fields can be readily incorporated by allowing for time-dependent fields $e_{p}(t)$ (see, for instance, Ref. {cite}`hockett2015CompletePhotoionizationExperiments`). (Support for this is planned in {{ ePSproc_repo }}, as of v1.3.2 this is in the development and testing phase.)
 
 
 To derive this result, one can start from a general spherical tensor direct product, e.g., Eq. 5.36 in Zare {cite}`zareAngMom`; for two first-rank tensors (e.g. electric field vectors) this contraction is given explicitly by Eq. 5.40 in Zare {cite}`zareAngMom`:
@@ -534,7 +534,7 @@ To derive this result, one can start from a general spherical tensor direct prod
 [A^{(1)}\otimes B^{(1)}]_{q}^{k}=\sum_{m}\langle1m,1q-m|kq\rangle A(1,m)B(1,q-m)
 \end{equation}
 
-Convert to $3j$ form:
+This can be converted to $3j$ form:
 
 \begin{equation}
 [A^{(1)}\otimes B^{(1)}]_{q}^{k}=\sum_{m}(-1)^{q}[k]^{1/2}\left(\begin{array}{ccc}
@@ -543,9 +543,9 @@ m & q-m & -q
 \end{array}\right)A(1,m)B(1,q-m)
 \end{equation}
 
-And substitute in appropriate terms.
+And the appropriate E-field terms substituted in to arrive at equation Eq. {eq}`eq:EPR-defn-1`.
 
-As before, we can visualise these values with the {{ PEMtk_repo }}.
+As before, we can visualise these values with the {{ PEMtk_repo }}, as illustrated in the following code block, and corresponding output {numref}`fig-EPR-basis`.
 
 ```{code-cell} ipython3
 :tags: [hide-output]
@@ -574,7 +574,7 @@ glue("lmPlot_EPR_basis", gFig.fig)
 ---
 name: "fig-EPR-basis"
 ---
-Example $E_{P,R}$ basis functions. Note that for linearly polarised light $p=R-p=0$ only, hence only the terms $E_{0,0}$ and $E_{2,0}$ are non-zero in this case. For non-linearly polarised cases many other terms are allowed.
+Example $E_{P,R}$ basis functions. Note that for linearly polarised light $p=R-p=0$ only, hence only the terms $E_{0,0}$ and $E_{2,0}$ are non-zero in this case. For non-linearly polarised cases many other terms are allowed. The colour-map (top left) shows the (real) values of the allowed terms shown in the main panel of the figure. The first key (middle left) indicates categorical colour-mapping for the $(l,l')$ terms (and $l=l'=1$ only in this case), and the second ("Categories") key indicates the colour-mapping for the remaining terms. The keys correspond to the left-hand side-panel of the main plot, which indicates the quantum numbers for each row.
 ```
 
 +++
