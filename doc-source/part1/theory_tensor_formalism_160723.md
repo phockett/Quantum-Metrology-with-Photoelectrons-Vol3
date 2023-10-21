@@ -755,7 +755,7 @@ Example of $\tilde{\Delta}_{L,M}(t)$ basis values for various choices of alignme
 
 For cases with aligned molecular ensembles, additional terms can similarly appear depending on the alignment as well as the properties of the ionizing radiation. Again, the types of terms follow some typical patterns dependent on the symmetry of the ensemble, as well as the order of the terms allowed. For instance, $L_{max}=P_{max}+K_{max}=2+K_{max}$, and $K_{max}$ represents the overall degree of alignment of the ensemble; hence an aligned ensemble may be signified by higher-order terms in the observable (if allowed by other terms in the overall expansion) or, equivalently, aligning an ensemble prior to ionization can be used as a way to control which terms contribute to the alignment tensor.
 
-Since this is a coherent averaging, additional interferences can also appear in the {{ AF }} - or be restricted in the {{ AF }} - depending on these geometric parameters and the contributing matrix elements. Additionally, any effects modulating these terms, for instance a time-dependent alignment (rotational wavepacket), vibronic dynamics (vibrational and/or electronic wavepacket), time-dependent laser field (control field) may be anticipted to lead to both changes in these terms and, potentially, interesting effects in the observable. Such effects have been discussed in more detail in {{ QM2 }}, and in the current case the focus is purely on rotational wavepackets.
+Since this is a coherent averaging, additional interferences can also appear in the {{ AF }} - or be restricted in the {{ AF }} - depending on these geometric parameters and the contributing matrix elements. Additionally, any effects modulating these terms, for instance a time-dependent alignment (rotational wavepacket), vibronic dynamics (vibrational and/or electronic wavepacket), time-dependent laser field (control field) may be anticipated to lead to both changes in these terms and, potentially, interesting effects in the observable. Such effects have been discussed in more detail in {{ QM2 }}, and in the current case the focus is purely on rotational wavepackets.
 
 {numref}`fig-AFterm-linearRamp` shows $\tilde{\Delta}_{L,M}(t)$ for various choices of alignment (as per the {{ ADMs }} shown in {numref}`fig-ADMs-linearRamp`), and illustrates some of the general features discussed. Note, for example:
 
@@ -768,7 +768,7 @@ Since this is a coherent averaging, additional interferences can also appear in 
 (sec:theory:AF-alignment-term-3D)=
 ### 3D alignments and symmetry breaking
 
-As discussed above, for the case where $Q\neq0$ and/or $S\neq0$ additional symmetry breaking can occur. It is simple to examine these effects numerically via changing the trial {{ ADMs }} used to determine $\tilde{\Delta}_{L,M}(t)$ (Eq. {eq}`eq:basis-aligmentTerm-defn`). (Realistic cases can be found in the case-studies presented in {{ PARTII }}.)
+As discussed above, for the case where $Q\neq0$ and/or $S\neq0$ additional symmetry breaking can occur. It is simple to examine these effects numerically via changing the trial {{ ADMs }} used to determine $\tilde{\Delta}_{L,M}(t)$ (Eq. {eq}`eq:basis-aligmentTerm-defn`), as illustrated in the following code block. (Realistic cases can be found in the case-studies presented in {{ PARTII }}.)
 
 % TODO: is calculation below correct...? Have M!=0 terms OK, not sure otherwise!
 % TODO: revise calcs, should R' be treated directly/propagated elsewhere, or will be set manually?
@@ -777,7 +777,9 @@ As discussed above, for the case where $Q\neq0$ and/or $S\neq0$ additional symme
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-#*** Neater version
+#*** Set range of ADMs for test as time-dependent values (linear ramps), 
+#    including some trial "3D" alignment terms
+
 # Set ADMs for increasing alignment...
 # Here add some (arb) terms for Q,S non-zero (indexed as [K,Q,S, ADMs(t)])
 tPoints = 10
@@ -827,14 +829,15 @@ For illustration purposes, {numref}`fig-ADMs-3DlinearRamp` shows a subselection 
 % TODO: manual composition of tensor product terms OR recalc from full basis as per above with alignment terms.
 % See main afblmGeom routine for details.
 
-Following the above, further resultant terms can also be examined, up to and including the full channel functions $\varUpsilon_{L,M}^{u,\zeta\zeta'}$ (see {eq}`eqn:channel-fns`) for a given case. Numerically these are all implemented in the main {{ ePSproc_full }}, and can be returned by these functions for inspection - the full basis set already defined includes some of these products. Custom tensor product terms are also readily computed with the codebase, with tensor multiplications handled natively by the {{ xarray }} data objects (for more details of the data structures used, see the {{ ePSproc_docs }}, specifically the [data structures page](https://epsproc.readthedocs.io/en/latest/dataStructures/ePSproc_dataStructures_demo_070622.html)).
+Following the above, further resultant terms can also be examined, up to and including the full channel functions $\varUpsilon_{L,M}^{u,\zeta\zeta'}$ (see Eqn. {eq}`eqn:channel-fns`) for a given case. Numerically these are all implemented in the main {{ ePSproc_full }}, and can be returned by these functions for inspection - the full basis set already defined includes some of these products. Custom tensor product terms are also readily computed with the codebase, with tensor multiplications handled natively by the {{ xarray }} data objects (for more details of the data structures used, see the {{ ePSproc_docs }}, specifically the [data structures page](https://epsproc.readthedocs.io/en/latest/dataStructures/ePSproc_dataStructures_demo_070622.html)).
 
 % These terms are defined as follows:
 
 % TODO: formal definitions to match code (already done somewhere...?) PolProd etc.
 % SEE MF RECON MANUSCRIPT NOTEBOOKS for this, and Sect 4.1.7 therein (Figs 14 & 15). Don't recall where source code is off-hand... TRY TRELLO, also D:\temp\docker_stimpy_builds\notebooks\pemtk_fitting_runs_April2022\analysis_dev probably (`stimpy-docker-local` in shared dirs).  AH: http://jake/jupyter/user/paul/lab/workspaces/MFreconBasisSets AND https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basis-set_demo_050621-full.html
 
-Polarisation & ADM product term: the main product basis returned, labelled `polProd` in the output dictionary, contains the tensor product $\Lambda_{R}\otimes E_{PR}(\hat{e})\otimes \Delta_{L,M}(K,Q,S)\otimes A^{K}_{Q,S}(t)$, expanded over all quantum numbers (see [full definition here](https://epsproc.readthedocs.io/en/dev/methods/geometric_method_dev_pt3_AFBLM_090620_010920_dev_bk100920.html#\beta_{L,M}^{AF}-rewrite)). This term, therefore, incorporates all of the dependence (or response) of the AF-$\beta_{LM}$s on the polarisation state, and the axis distribution. Example results, making use of the linear-ramp {{ ADMs }} of {numref}`Sect. %s <sec:theory:AF-alignment-term-basic>` are illustrated in {numref}`fig-polProd-linearRamp`.
+% Polarisation & ADM product term: 
+The main product basis returned, labelled `polProd` in the output dictionary, contains the tensor product of the polarisation and alignment terms, $\Lambda_{R}\otimes E_{PR}(\hat{e})\otimes \Delta_{L,M}(K,Q,S)\otimes A^{K}_{Q,S}(t)$, expanded over all quantum numbers (see [full definition here](https://epsproc.readthedocs.io/en/dev/methods/geometric_method_dev_pt3_AFBLM_090620_010920_dev_bk100920.html#\beta_{L,M}^{AF}-rewrite)). This term, therefore, incorporates all of the dependence (or response) of the AF-$\beta_{LM}$s on the polarisation state, and the axis distribution. Example results, making use of the linear-ramp {{ ADMs }} of {numref}`Sect. %s <sec:theory:AF-alignment-term-basic>` are illustrated in {numref}`fig-polProd-linearRamp`.
 
 The full channel (response) functions $\varUpsilon_{L,M}^{u,\zeta\zeta'}$ as defined in {eq}`eq:channelFunc-MF-defn` and {eq}`eq:channelFunc-AF-defn` can be determined by the product of this term with the $B_{L,M}$ tensor. This is essentially the complete geometric basis set, hence equivalent to the {{ AF }}-$\beta_{LM}$ if the ionization matrix elements were set to unity. This illustrates not only the coupling of the geometric terms into the observable $L,M$, but also how the partial wave $|l,m\rangle$ terms map to the observables, and hence the sensitivity of the observables to given partial wave properties. Example results, making use of the linear-ramp {{ ADMs }} of {numref}`Sect. %s <sec:theory:AF-alignment-term-basic>` are illustrated in {numref}`fig-channelFunc-linearRamp`.
 
