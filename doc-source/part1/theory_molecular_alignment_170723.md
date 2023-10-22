@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.7
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -67,7 +67,9 @@ $$
 P(\theta,\phi,t) = \sum_{K,Q} A^K_{Q,0}(t)D^K_{Q,0}(\Omega) = \sum_{K,Q} A^K_{Q}(t)Y_{K,Q}(\Omega)
 $$ (eqn:P-omega-t-2D)
 
-In the examples given in {numref}`Sect. %s <sec:tensor-formulation>`, some arbitrary choices of $A^K_{Q,S}(t)$ were demonstrated to investigate their effects on the tensor basis sets; in the case-studies presented in {{ PARTII }} realistic {{ ADMs }} are used for specific fitting problems. In practice this equates to (accurately) simulating rotational wavepackets, hence obtaining the corresponding $A_{Q,S}^{K}(t)$ parameters (expectation values), as a function of laser fluence and rotational temperature. (Given experimental data, a 2D uncertainty (or error) surface in these two fundamental quantities can then be obtained from a linear regression for each set of $A_{Q,S}^{K}(t)$, see Ref. {cite}`hockett2023TopicalReviewExtracting` for further introductory discussion on this point.) Note that, as discussed in {numref}`Sect. %s <sect:platform:general>`, computation of molecular alignment is not yet implemented in the {{ PEMtk_repo }}, so values must be obtained from other codes. {{ ADMs }} used herein were all computed with codes developed by V. Makhija {cite}`Makhija2014`, and are available from the {{ ePSproc_repo }} repo on Github.
+In the examples given in {numref}`Sect. %s <sec:tensor-formulation>`, some arbitrary choices of $A^K_{Q,S}(t)$ were demonstrated to investigate their effects on the tensor basis sets; in the case-studies presented in {{ PARTII }} realistic {{ ADMs }} are used for specific fitting problems. In practice this equates to (accurately) simulating rotational wavepackets, hence obtaining the corresponding $A_{Q,S}^{K}(t)$ parameters (expectation values), as a function of laser fluence and rotational temperature. (Given experimental data, a 2D uncertainty (or error) surface in these two fundamental quantities can then be obtained from a linear regression for each set of $A_{Q,S}^{K}(t)$, see Ref. {cite}`hockett2023TopicalReviewExtracting` for further introductory discussion on this point.) Note that, as discussed in {numref}`Sect. %s <sect:platform:general>`, computation of molecular alignment is not yet implemented in the {{ PEMtk_repo }}, so values must be obtained from other codes. {{ ADMs }} used herein were all computed with codes developed by V. Makhija {cite}`Makhija2014`, and are available from the {{ book_repo }}.
+
+% {{ ePSproc_repo }} repo on Github.
 
 +++
 
