@@ -146,6 +146,13 @@ This should also install the required dependencies, although not all of the opti
 
 For more details and other installation options, see the [ePSproc extended installation notes online](https://epsproc.readthedocs.io/en/latest/etc/installation_notes_051120.html), which includes directions for virtual environments (Anaconda, Venv).
 
+To obtain the book source, including all example notebooks, simply use Git:
+
+```
+git clone https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3.git
+```
+
+Alternatively, the files can be browsed and download via the web from the {{ book_repo }}, which also includes additional setup notes.
 
 
 (sect:platform:docker)=
