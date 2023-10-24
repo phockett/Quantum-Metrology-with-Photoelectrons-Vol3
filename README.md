@@ -21,7 +21,7 @@ Photoionization is an interferometric process, in which multiple paths can contr
 
 Additional online resources for Vols. I & II can be found on [OSF](https://osf.io/q2v3g/wiki/home/) and [Github](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons).
 
-- Volume III in the series will continue this exploration, with a focus on numerical analysis techniques, forging a closer link between experimental and theoretical results, and making the methodologies discussed directly accessible via new software. The book is due for publication by IOP due in 2023; this volume is also open-source, with a live HTML version at https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/ and source available at https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3.
+- Volume III in the series continues this exploration, with a focus on numerical analysis techniques, forging a closer link between experimental and theoretical results, and making the methodologies discussed directly accessible via new software. The book is due for publication by IOP in 2023; this volume is also open-source, with a live HTML version at https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/ and source available at https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3.
 
 
 ## Technical details
