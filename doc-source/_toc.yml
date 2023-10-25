@@ -7,6 +7,7 @@
 #       test Latex content. Ah, try See https://jupyterbook.org/advanced/pdf.html#customize-latex-via-sphinx
 
 format: jb-book
+# Note intro.md used in all builds, but switch between web and pdf versions in build script.
 root: intro
 parts:
   - caption: Frontmatter

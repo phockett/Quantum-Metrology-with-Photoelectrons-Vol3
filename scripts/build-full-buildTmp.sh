@@ -11,6 +11,8 @@
 #
 # TODO: may want to add ghpages push here (for git config see https://gist.github.com/qin-yu/bc26a2d280ee2e93b2d7860a1bfbd0c5)
 # OR: set Git for output upload only & GH actions for deploy - probably cleaner. ("_latest_build" in .gitignore for now)
+# 
+#           IF FAILING, try `conda activate` in current terminal
 #
 
 # Set default path, or pass at CLI
@@ -46,6 +48,10 @@ rm -r $BUILDDIR/$SOURCE/_build   # Ensure clean build, having issues otherwise..
 echo "*** Cleaning $BUILDDIR"
 jupyter-book clean $BUILDDIR/$SOURCE/
 
+# 24/10/23 - added set intro pages here
+echo "*** Setting intro to intro_web.md"
+ln -s $BUILDDIR/$SOURCE/intro_web.md $BUILDDIR/$SOURCE/intro.md
+
 echo "*** Building $BUILDENV"
 jupyter-book build $BUILDDIR/$SOURCE/
 
@@ -77,6 +83,10 @@ rm -r $BUILDDIR/$SOURCE/_build   # Ensure clean build, having issues otherwise..
 # Clean - should set as option
 echo "*** Cleaning $BUILDDIR"
 jupyter-book clean $BUILDDIR/$SOURCE/
+
+# 24/10/23 - added set intro pages here
+echo "*** Setting intro to intro_pdf.md"
+ln -s $BUILDDIR/$SOURCE/intro_pdf.md $BUILDDIR/$SOURCE/intro.md
 
 echo "*** Building $BUILDENV"
 # jupyter-book build $BUILDDIR/$SOURCE/
