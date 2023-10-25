@@ -1,7 +1,3 @@
-<!-- Manually inject MathJax to ensure side-bar formatting OK. Code copied from working pages (which include maths) -->
-<script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-<script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
 # Abstract
 
 The overall aim of Quantum Metrology with Photoelectrons Vol. 3 is to expand, explore, and illustrate, new computational developments in quantum metrology with photoelectrons: specifically, the application of new python-based tools to tackle problems in photoionization matrix element retrieval. Part I details the topic, theory and computational methods; Part II provides further numerical details and case-studies.

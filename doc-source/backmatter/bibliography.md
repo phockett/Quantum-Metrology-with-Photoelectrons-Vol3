@@ -5,12 +5,14 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.0
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
+
++++ {"tags": []}
 
 # Bibliography
 
@@ -29,12 +31,6 @@ kernelspec:
 :filter: docname in docnames
 :style: unsrt
 ```
-
-+++
-
-<!-- Manually inject MathJax to ensure side-bar formatting OK. Code copied from working pages (which include maths) -->
-<script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-<script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 +++
 
