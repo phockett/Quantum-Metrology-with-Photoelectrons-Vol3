@@ -3,7 +3,7 @@
 By Paul Hockett with Varun Makhija
 
 Quantum Metrology with Photoelectrons Volume 3: *Analysis
-methodologies*, an open source executable book. This repository contains the source documents (mainly Jupyter Notebooks in Python) and notes for the book, as of July 2023 the first draft is complete, and the [current HTML build can be found online](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/). The book is due to be published in late 2023, and by IOP Press - see below for more details.
+methodologies*, an open source executable book. This repository contains the source documents (mainly Jupyter Notebooks in Python) and notes for the book, as of July 2023 the first draft is complete, and the [current HTML build can be found online](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/), which includes all code and interactive figures; a [PDF version (with abridged code) is also available](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/pdf/QM3.pdf). The book is due to be published in late 2023, and by IOP Press - see below for more details.
 
 [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/)
 [![DOI](https://zenodo.org/badge/449878450.svg)](https://zenodo.org/badge/latestdoi/449878450)
