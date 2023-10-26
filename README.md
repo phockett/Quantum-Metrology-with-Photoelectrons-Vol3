@@ -72,4 +72,4 @@ A fully-rendered HTML version of the book will be built in `doc-source/_build/ht
 
 This project is created using the open source [Jupyter Book project](https://jupyterbook.org/) and the [executablebooks/cookiecutter-jupyter-book template](https://github.com/executablebooks/cookiecutter-jupyter-book).
 
-To add: build env & main software packages (see automation for this...)
+For a full build environment listing, see [Build versions](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/tests/build_versions_checks.html).
