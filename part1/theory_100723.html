@@ -153,7 +153,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    About the book
+                    Quantum Metrology with Photoelectrons Vol. 3: Analysis methodologies
                 </a>
             </li>
         </ul>
@@ -194,7 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../backmatter/bibliography.html">Bibliography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../backmatter/glossary.html">Glossary</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Test pages</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Builds and versions</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../tests/build_versions_checks.html">Build versions and config tests</a></li>
 </ul>
@@ -394,9 +394,11 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="theory">
 <span id="chpt-theory"></span><h1><span class="section-number">3. </span>Theory<a class="headerlink" href="#theory" title="Permalink to this heading">#</a></h1>
-<p>In this chapter a number of fundamentals are outlined. Only a brief introduction to the necessary physics (which already has a rich literature) is presented, and the emphasis is instead on code and numerical examples. These are intended both to give readers an insight into the physics, and also illustrate aspects of the <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id1">[<a class="reference internal" href="../backmatter/bibliography.html#id681" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">5</a>]</span> and <a class="reference external" href="https://epsproc.readthedocs.io">ePSproc codebase</a> <span id="id2">[<a class="reference internal" href="../backmatter/bibliography.html#id665" title="Paul Hockett. ePSproc: Post-processing suite for ePolyScat electron-molecule scattering calculations. Authorea, 2016. URL: https://www.authorea.com/users/71114/articles/122402/_show_article.">33</a>, <a class="reference internal" href="../backmatter/bibliography.html#id607" title="Paul Hockett. ePSproc: Post-processing for ePolyScat (Github repository). Github, 2016. URL: https://github.com/phockett/ePSproc.">34</a>, <a class="reference internal" href="../backmatter/bibliography.html#id605" title="Paul Hockett. ePSproc: Post-processing for ePolyScat documentation. 2020. URL: https://epsproc.readthedocs.io (visited on 2022-02-18).">35</a>]</span> that can be used for these problems. These methods will form the basis for the numerical reconstruction work presented in <a class="reference internal" href="../part2/extracting_matrix_elements_overview_270423.html#chpt-extracting-matrix-elements-overview"><span class="std std-ref">Part II</span></a>.</p>
+<p>In this chapter a number of fundamentals are outlined. Only a brief introduction to the necessary physics (which already has a rich literature) is presented, and the emphasis is instead on code and numerical examples. These are intended both to give readers an insight into the physics, and also illustrate aspects of the <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id1">[<a class="reference internal" href="../backmatter/bibliography.html#id682" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">5</a>]</span> and <a class="reference external" href="https://epsproc.readthedocs.io">ePSproc codebase</a> <span id="id2">[<a class="reference internal" href="../backmatter/bibliography.html#id666" title="Paul Hockett. ePSproc: Post-processing suite for ePolyScat electron-molecule scattering calculations. Authorea, 2016. URL: https://www.authorea.com/users/71114/articles/122402/_show_article, doi:10.6084/m9.figshare.3545639.">33</a>, <a class="reference internal" href="../backmatter/bibliography.html#id608" title="Paul Hockett. ePSproc: Post-processing for ePolyScat (Github repository). Github, 2016. URL: https://github.com/phockett/ePSproc, doi:10.6084/m9.figshare.3545639.">34</a>, <a class="reference internal" href="../backmatter/bibliography.html#id606" title="Paul Hockett. ePSproc: Post-processing for ePolyScat documentation. 2020. URL: https://epsproc.readthedocs.io (visited on 2022-02-18).">35</a>]</span> that can be used for these problems. These methods will form the basis for the numerical reconstruction work presented in <a class="reference internal" href="../part2/extracting_matrix_elements_overview_270423.html#chpt-extracting-matrix-elements-overview"><span class="std std-ref">Part II</span></a>.</p>
 <p>Readers only interested in fitting problems from an experimental perspective may wish to skip most of this section; <a class="reference internal" href="theory_observables_intro_100723.html#sect-theory-observables"><span class="std std-numref">Sect. 3.6:</span></a> and <a class="reference internal" href="theory_info_content_200723.html#sec-info-content"><span class="std std-numref">Sect. 3.7:</span></a> should provide sufficient background for pure reconstruction problems.</p>
-<div class="toctree-wrapper compound">
+<!-- Manually inject MathJax to ensure side-bar formatting OK. Code copied from working pages (which include maths) -->
+<script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+<script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><div class="toctree-wrapper compound">
 </div>
 </section>
 

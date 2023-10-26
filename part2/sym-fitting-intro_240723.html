@@ -155,7 +155,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    About the book
+                    Quantum Metrology with Photoelectrons Vol. 3: Analysis methodologies
                 </a>
             </li>
         </ul>
@@ -196,7 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../backmatter/bibliography.html">Bibliography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../backmatter/glossary.html">Glossary</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Test pages</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Builds and versions</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../tests/build_versions_checks.html">Build versions and config tests</a></li>
 </ul>
@@ -423,31 +423,31 @@ document.write(`
 <p>Numerically, there are two main methods to do this demonstrated herein:</p>
 <ol class="arabic simple">
 <li><p>The use of symmetry to define the basis set, in terms of symmetry-allowed components.</p></li>
-<li><p>The use of <em>ab initio</em> calculations to define the basis functions. In the work presented here, it is specifically <a class="reference external" href="https://epolyscat.droppages.com/">ePolyScat (ePS)</a> <span id="id1">[<a class="reference internal" href="../backmatter/bibliography.html#id763" title="Robert R. Lucchese, Kazuo Takatsuka, and Vincent McKoy. Applications of the Schwinger variational principle to electron-molecule collisions and molecular photoionization. Physics Reports, 131(3):147–221, January 1986. URL: http://www.sciencedirect.com/science/article/pii/037015738690147X (visited on 2012-07-18).">36</a>, <a class="reference internal" href="../backmatter/bibliography.html#id627" title="F. A. Gianturco, R. R. Lucchese, and N. Sanna. Calculation of low-energy elastic cross sections for electron-CF4 scattering. The Journal of Chemical Physics, 100(9):6464, May 1994. URL: http://scitation.aip.org/content/aip/journal/jcp/100/9/10.1063/1.467237 (visited on 2015-08-13).">37</a>, <a class="reference internal" href="../backmatter/bibliography.html#id804" title="Alexandra P P Natalense and Robert R Lucchese. Cross section and asymmetry parameter calculation for sulfur 1s photoionization of SF[sub 6]. The Journal of Chemical Physics, 111(12):5344, 1999. URL: http://link.aip.org/link/JCPSA6/v111/i12/p5344/s1&amp;Agg=doi (visited on 2012-07-18).">38</a>, <a class="reference internal" href="../backmatter/bibliography.html#id766" title="R R Lucchese. ePolyScat User's Manual. URL: https://epolyscat.droppages.com/ (visited on 2022-04-26).">39</a>]</span> matrix elements that are used, since these are also used to generate the synthetic data used to test the <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a>.</p></li>
+<li><p>The use of <em>ab initio</em> calculations to define the basis functions. In the work presented here, it is specifically <a class="reference external" href="https://epolyscat.droppages.com/">ePolyScat (ePS)</a> <span id="id1">[<a class="reference internal" href="../backmatter/bibliography.html#id764" title="Robert R. Lucchese, Kazuo Takatsuka, and Vincent McKoy. Applications of the Schwinger variational principle to electron-molecule collisions and molecular photoionization. Physics Reports, 131(3):147–221, January 1986. URL: http://www.sciencedirect.com/science/article/pii/037015738690147X (visited on 2012-07-18), doi:10.1016/0370-1573(86)90147-X.">36</a>, <a class="reference internal" href="../backmatter/bibliography.html#id628" title="F. A. Gianturco, R. R. Lucchese, and N. Sanna. Calculation of low-energy elastic cross sections for electron-CF4 scattering. The Journal of Chemical Physics, 100(9):6464, May 1994. URL: http://scitation.aip.org/content/aip/journal/jcp/100/9/10.1063/1.467237 (visited on 2015-08-13), doi:10.1063/1.467237.">37</a>, <a class="reference internal" href="../backmatter/bibliography.html#id805" title="Alexandra P P Natalense and Robert R Lucchese. Cross section and asymmetry parameter calculation for sulfur 1s photoionization of SF[sub 6]. The Journal of Chemical Physics, 111(12):5344, 1999. URL: http://link.aip.org/link/JCPSA6/v111/i12/p5344/s1&amp;Agg=doi (visited on 2012-07-18), doi:10.1063/1.479794.">38</a>, <a class="reference internal" href="../backmatter/bibliography.html#id767" title="R R Lucchese. ePolyScat User's Manual. URL: https://epolyscat.droppages.com/ (visited on 2022-04-26).">39</a>]</span> matrix elements that are used, since these are also used to generate the synthetic data used to test the <a class="reference internal" href="../backmatter/glossary.html#term-bootstrap-retrieval-protocol"><span class="xref std std-term">bootstrap retrieval protocol</span></a>.</p></li>
 </ol>
 <p>Manual creation of basis sets is also possible, and may be useful in some cases, particularly when exploring limiting cases.</p>
 <section id="symmetry-defined-basis-sets">
 <h2><span class="section-number">6.1. </span>Symmetry-defined basis sets<a class="headerlink" href="#symmetry-defined-basis-sets" title="Permalink to this heading">#</a></h2>
 <p>As illustrated in <a class="reference internal" href="../part1/theory_symmetry_140723.html#sec-theory-symmetry-intro"><span class="std std-numref">Sect. 3.2</span></a>, a set of symmetry-allowed continuum functions can be determined, corresponding to a given ionizing transition and specific dipole symmetries. Such a basis set defines the allowed matrix elements in terms of a set of symmetrized harmonics, and these can be used as a basis for fitting with only minimal knowledge of the system required.</p>
-<p>The main advantage of a purely symmetry-defined approach is that no additional <em>ab initio</em> computations are required, and that the resulting basis set is general. As discussed and illustrated in <a class="reference internal" href="../part1/theory_tensor_formalism_160723.html#sec-tensor-formulation"><span class="std std-numref">Sect. 3.3</span></a>, the resulting <a class="reference internal" href="../backmatter/glossary.html#term-channel-functions"><span class="xref std std-term">channel functions</span></a> can also be used to guide analysis (and experiment if available prior to experimental work). The main disadvantage of such a blind approach is that initial data analysis may require significantly more effort than working from a computationally-defined basis, in particular the initial fitting space may be larger than required (leading to computationally more-demanding fitting runs), and testing for contributing/non-negligible terms by, e.g. using varying <span class="math notranslate nohighlight">\(l_{max}\)</span>, may be required in initial fitting runs. For further discussion, see <em>Quantum Metrology</em> Vols. 1 &amp; 2 <span id="id2">[<a class="reference internal" href="../backmatter/bibliography.html#id676" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5.">4</a>, <a class="reference internal" href="../backmatter/bibliography.html#id677" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3.">9</a>]</span>.</p>
+<p>The main advantage of a purely symmetry-defined approach is that no additional <em>ab initio</em> computations are required, and that the resulting basis set is general. As discussed and illustrated in <a class="reference internal" href="../part1/theory_tensor_formalism_160723.html#sec-tensor-formulation"><span class="std std-numref">Sect. 3.3</span></a>, the resulting <a class="reference internal" href="../backmatter/glossary.html#term-channel-functions"><span class="xref std std-term">channel functions</span></a> can also be used to guide analysis (and experiment if available prior to experimental work). The main disadvantage of such a blind approach is that initial data analysis may require significantly more effort than working from a computationally-defined basis, in particular the initial fitting space may be larger than required (leading to computationally more-demanding fitting runs), and testing for contributing/non-negligible terms by, e.g. using varying <span class="math notranslate nohighlight">\(l_{max}\)</span>, may be required in initial fitting runs. For further discussion, see <em>Quantum Metrology</em> Vols. 1 &amp; 2 <span id="id2">[<a class="reference internal" href="../backmatter/bibliography.html#id677" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 1: Foundations. IOP Publishing, 2018. ISBN 978-1-68174-684-5. URL: http://iopscience.iop.org/book/978-1-6817-4684-5, doi:10.1088/978-1-6817-4684-5.">4</a>, <a class="reference internal" href="../backmatter/bibliography.html#id678" title="Paul Hockett. Quantum Metrology with Photoelectrons, Volume 2: Applications and Advances. IOP Publishing, 2018. ISBN 978-1-68174-688-3. URL: http://iopscience.iop.org/book/978-1-6817-4688-3, doi:10.1088/978-1-6817-4688-3.">9</a>]</span>.</p>
 </section>
 <section id="computationally-defined-basis-sets">
 <h2><span class="section-number">6.2. </span>Computationally-defined basis sets<a class="headerlink" href="#computationally-defined-basis-sets" title="Permalink to this heading">#</a></h2>
-<p>In cases where photoionization calculations are available, the results can also be used to determine allowed basis components. Use of <em>ab initio</em> computational results is, of course, useful for simulation as well as direct analysis, and may lead to a reduced basis set relative to the symmetry-defined case, since some components may be small and can be ignored. However, it does also require that substantial calculations are performed (or results are available, e.g. from <a class="reference external" href="https://phockett.github.io/ePSdata/about.html">ePSdata</a> <span id="id3">[<a class="reference internal" href="../backmatter/bibliography.html#id678" title="Paul Hockett. ePS data: Photoionization calculations archive. 2019. URL: https://phockett.github.io/ePSdata/ (visited on 2022-02-16).">48</a>]</span>), and - potentially - may bias the matrix element analysis/retrieval in cases where the experimental results and computational results are significantly different.</p>
+<p>In cases where photoionization calculations are available, the results can also be used to determine allowed basis components. Use of <em>ab initio</em> computational results is, of course, useful for simulation as well as direct analysis, and may lead to a reduced basis set relative to the symmetry-defined case, since some components may be small and can be ignored. However, it does also require that substantial calculations are performed (or results are available, e.g. from <a class="reference external" href="https://phockett.github.io/ePSdata/about.html">ePSdata</a> <span id="id3">[<a class="reference internal" href="../backmatter/bibliography.html#id679" title="Paul Hockett. ePS data: Photoionization calculations archive. 2019. URL: https://phockett.github.io/ePSdata/ (visited on 2022-02-16).">48</a>]</span>), and - potentially - may bias the matrix element analysis/retrieval in cases where the experimental results and computational results are significantly different.</p>
 </section>
 <section id="basis-creation-worked-examples">
 <h2><span class="section-number">6.3. </span>Basis creation worked examples<a class="headerlink" href="#basis-creation-worked-examples" title="Permalink to this heading">#</a></h2>
-<p>In the following chapters basis functions are created for each case at hand, typically starting from <em>ab initio</em> computational results (since these are required to simulate the sample data). Here a more detailed worked example is given to illustrate the basic methodology behind the assignments, the differences between the approaches, and highlight some issues of convention which may arise.</p>
+<p>In the case study chapters, basis functions are created for each case at hand, typically starting from <em>ab initio</em> computational results (since these are required to simulate the sample data). Here a more detailed worked example is given to illustrate the basic methodology behind the assignments, the differences between the approaches, and highlight some issues of convention which may arise.</p>
 <section id="simple-case-n-2-3-sigma-g-1-ionization">
 <h3><span class="section-number">6.3.1. </span>Simple case: <span class="math notranslate nohighlight">\(N_2~3\sigma_g^{-1}\)</span> ionization<a class="headerlink" href="#simple-case-n-2-3-sigma-g-1-ionization" title="Permalink to this heading">#</a></h3>
-<p>As a simple example, consider the case of a homonuclear diatomic (<span class="math notranslate nohighlight">\(D_{\infty h}\)</span> <a class="reference internal" href="../backmatter/glossary.html#term-PG"><span class="xref std std-term">PG</span></a>, cylindrically symmetric), and a totally symmetric case, e.g. the ionization of the <span class="math notranslate nohighlight">\(\Sigma_{g}^{+}\)</span> <a class="reference internal" href="../backmatter/glossary.html#term-HOMO"><span class="xref std std-term">HOMO</span></a> of <span class="math notranslate nohighlight">\(N_2\)</span>. For this example,</p>
+<p>As a simple example, consider the case of a homonuclear diatomic (<span class="math notranslate nohighlight">\(D_{\infty h}\)</span> <a class="reference internal" href="../backmatter/glossary.html#term-PG"><span class="xref std std-term">PG</span></a>, cylindrically symmetric), and a totally symmetric ionizing orbital, e.g. the ionization of the <span class="math notranslate nohighlight">\(\Sigma_{g}^{+}\)</span> <a class="reference internal" href="../backmatter/glossary.html#term-HOMO"><span class="xref std std-term">HOMO</span></a> of <span class="math notranslate nohighlight">\(N_2\)</span>. For this example,</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\Gamma^{i} = \Gamma^{+} = \Gamma^{s} = \Sigma_{g}^{+}\)</span>. Note that, for single-electron ionization from a fully-occupied valence orbitals, the ion symmetry will correspond to the hole symmetry, hence the symmetry of the ionized orbital. This simple picture may break down for more complicated cases, e.g. if multi-electron effects or substantial nuclear motions are involved; for radical systems the overall symmetry of all partially-occupied orbitals must be accounted for.</p></li>
 <li><p>The dipole symmetries correspond to the Cartesian axes/translations given in the character tables, hence <span class="math notranslate nohighlight">\(\Sigma_{u}^{+} = (z)\)</span> and <span class="math notranslate nohighlight">\(\Pi_{u} = (x,y)\)</span> for <span class="math notranslate nohighlight">\(D_{\infty h}\)</span>. Note that, in this cylindrically symmetric case, the Cartesian <span class="math notranslate nohighlight">\((x,y)\)</span> components are spanned by the doubly-degenerate <span class="math notranslate nohighlight">\(\Pi_{u}\)</span> irreducible representation - physically this corresponds to the arbitrary orientation of these axes in the <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a> (i.e. no preferred direction is defined).</p></li>
 </ul>
 <p>Following Eq. <a class="reference internal" href="../part1/theory_symmetry_140723.html#equation-eq-ionization-symm-electronic">(3.12)</a>, the allowed components (irreducible representations) can be determined by hand making use of character and direct product tables, and substituting in for the terms defined above:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2f569c33-9340-42fe-acb3-d5ae0306e465">
-<span class="eqno">(6.1)<a class="headerlink" href="#equation-2f569c33-9340-42fe-acb3-d5ae0306e465" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-5628db5d-c522-4dbd-a566-f365f0d2636b">
+<span class="eqno">(6.1)<a class="headerlink" href="#equation-5628db5d-c522-4dbd-a566-f365f0d2636b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 \Gamma^{+}\otimes\Gamma^{e}\otimes\Gamma_{\mathrm{dipole}}\otimes\Gamma^{i} &amp; \supseteq &amp; \Sigma_{g}^{+}\\
 \Sigma_{g}^{+}\otimes\Gamma^{e}\otimes\begin{array}{c}
 \Pi_{u}~(x,y)\\
@@ -464,11 +464,11 @@ document.write(`
 \end{eqnarray}\]</div>
 <div class="admonition-group-theory-character-tables-and-related admonition">
 <p class="admonition-title">Group theory character tables and related</p>
-<p>Character tables, direct product tables and related information can be found at various sources online, or in textbooks, e.g. Refs. <span id="id4">[<a class="reference internal" href="../backmatter/bibliography.html#id514" title="By P W Atkins, M S Child, and C S G Phillips. Tables for Group Theory. Oxford University Press, 2006. URL: https://global.oup.com/uk/orc/chemistry/qchem2e/student/tables/.">140</a>, <a class="reference internal" href="../backmatter/bibliography.html#id624" title="Achim Gelessus. Character tables for chemically important point groups. URL: http://symmetry.jacobs-university.de/ (visited on 2023-04-23).">141</a>, <a class="reference internal" href="../backmatter/bibliography.html#id717" title="Gernot Katzer. Character Tables for Point Groups Cn, Cnv, Cnh, Dn, Dnh, Dnd, S2n etc. URL: http://www.gernot-katzers-spice-pages.com/character_tables/index.html (visited on 2023-04-23).">142</a>]</span>. For <span class="math notranslate nohighlight">\(D_{\infty h}\)</span> the pages at <a class="reference external" href="http://symmetry.jacobs-university.de/cgi-bin/group.cgi?group=1001&amp;option=4">symmetry.jacobs-university.de</a> provide a good quick reference; for extended tables <a class="reference external" href="http://www.gernot-katzers-spice-pages.com/character_tables/index.html">including spherical harmonic symmetries and direct products the pages from G. Katzers are useful</a>.</p>
+<p>Character tables, direct product tables and related information can be found at various sources online, or in textbooks, e.g. Refs. <span id="id4">[<a class="reference internal" href="../backmatter/bibliography.html#id515" title="By P W Atkins, M S Child, and C S G Phillips. Tables for Group Theory. Oxford University Press, 2006. URL: https://global.oup.com/uk/orc/chemistry/qchem2e/student/tables/.">140</a>, <a class="reference internal" href="../backmatter/bibliography.html#id625" title="Achim Gelessus. Character tables for chemically important point groups. URL: http://symmetry.jacobs-university.de/ (visited on 2023-04-23).">141</a>, <a class="reference internal" href="../backmatter/bibliography.html#id718" title="Gernot Katzer. Character Tables for Point Groups Cn, Cnv, Cnh, Dn, Dnh, Dnd, S2n etc. URL: http://www.gernot-katzers-spice-pages.com/character_tables/index.html (visited on 2023-04-23).">142</a>]</span>. For <span class="math notranslate nohighlight">\(D_{\infty h}\)</span> the pages at <a class="reference external" href="http://symmetry.jacobs-university.de/cgi-bin/group.cgi?group=1001&amp;option=4">symmetry.jacobs-university.de</a> provide a good quick reference; for extended tables <a class="reference external" href="http://www.gernot-katzers-spice-pages.com/character_tables/index.html">including spherical harmonic symmetries and direct products the pages from G. Katzers are useful</a>.</p>
 </div>
 <p>Hence the allowed continuum components are given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f862ae58-8c43-4135-a200-20860edaa924">
-<span class="eqno">(6.2)<a class="headerlink" href="#equation-f862ae58-8c43-4135-a200-20860edaa924" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f2fadeee-4a18-411b-af57-7da2dedd1b2b">
+<span class="eqno">(6.2)<a class="headerlink" href="#equation-f2fadeee-4a18-411b-af57-7da2dedd1b2b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Gamma^{e}=\begin{array}{c}
 \Pi_{u}~(x,y)\\
 \Sigma_{u}^{+}~(z)
@@ -476,8 +476,8 @@ document.write(`
 \end{equation}\]</div>
 <p>As indicated above, this case is split by symmetry into a “parallel” and “perpendicular” continua, accessed by the <span class="math notranslate nohighlight">\(z\)</span> or <span class="math notranslate nohighlight">\((x,y)\)</span> dipole components in the <a class="reference internal" href="../backmatter/glossary.html#term-MF"><span class="xref std std-term">MF</span></a> respectively; these are often denote generically by appending <span class="math notranslate nohighlight">\(\perp\)</span> and <span class="math notranslate nohighlight">\(\parallel\)</span> symbols to derived quantities, e.g. <span class="math notranslate nohighlight">\(\sigma_{\parallel}\)</span> for the corresponding cross-section. In the <a class="reference internal" href="../backmatter/glossary.html#term-LF"><span class="xref std std-term">LF</span></a> or <a class="reference internal" href="../backmatter/glossary.html#term-AF"><span class="xref std std-term">AF</span></a> these continua can be mixed according to the polarization state and geometry of the ionizing radiation, and the molecular alignment (<a class="reference internal" href="../backmatter/glossary.html#term-ADMs"><span class="xref std std-term">ADMs</span></a>).</p>
 <p>The total scattering state symmetry is often also used to label continuum states, and is given by <span class="math notranslate nohighlight">\(\Gamma_{\mathrm{scat}}=\Gamma^{+}\otimes\Gamma^{e}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7355ccb3-fa26-4fdc-b28c-d923381a2a41">
-<span class="eqno">(6.3)<a class="headerlink" href="#equation-7355ccb3-fa26-4fdc-b28c-d923381a2a41" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6abb858b-8ca0-438f-98e9-ab1cf6368caf">
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-6abb858b-8ca0-438f-98e9-ab1cf6368caf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Gamma_{\mathrm{scat}}=\Sigma_{g}^{+}\otimes\begin{array}{c}
 \Pi_{u}~(x,y)\\
 \Sigma_{u}^{+}~(z)
@@ -492,16 +492,16 @@ document.write(`
 <h3><span class="section-number">6.3.2. </span>Degenerate case example: <span class="math notranslate nohighlight">\(N_2~3\pi_u^{-1}\)</span> ionization<a class="headerlink" href="#degenerate-case-example-n-2-3-pi-u-1-ionization" title="Permalink to this heading">#</a></h3>
 <p>For more complicated cases, multiple symmetry components may be found. For example, the ionization from a <span class="math notranslate nohighlight">\(\Pi_u\)</span> orbital, e.g. <span class="math notranslate nohighlight">\(N_2\)</span> <a class="reference internal" href="../backmatter/glossary.html#term-HOMO"><span class="xref std std-term">HOMO</span></a>-1.</p>
 <p>In this case, <span class="math notranslate nohighlight">\(\Gamma^{+} = \Pi_u\)</span>, and - working through the direct products as above - yields the allowed continuum components:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8b27c51c-f0a0-4fbd-b723-635bdece7891">
-<span class="eqno">(6.4)<a class="headerlink" href="#equation-8b27c51c-f0a0-4fbd-b723-635bdece7891" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-10a86eef-13fe-4d22-89c9-e5ef0a5cd521">
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-10a86eef-13fe-4d22-89c9-e5ef0a5cd521" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Gamma^{e}=\begin{array}{c}
 \Sigma_{g}^{+} + \Delta_{g}~(x,y)\\
 \Pi_{g}~(z)
 \end{array}
 \end{equation}\]</div>
 <p>And total scattering state symmetries:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9cda9fd7-afbe-405d-b5d8-3af13cd99b4f">
-<span class="eqno">(6.5)<a class="headerlink" href="#equation-9cda9fd7-afbe-405d-b5d8-3af13cd99b4f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d8e39da0-e995-4b7e-8437-68f5b31bb9ee">
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-d8e39da0-e995-4b7e-8437-68f5b31bb9ee" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Gamma_{\mathrm{scat}}=\Pi_{u}\otimes\begin{array}{c}
 \Sigma_{g}^{+} + \Delta_{g}~(x,y)\\
 \Pi_{g}~(z)
@@ -514,7 +514,7 @@ document.write(`
 </section>
 <section id="defining-symmetrized-harmonics">
 <h3><span class="section-number">6.3.3. </span>Defining symmetrized harmonics<a class="headerlink" href="#defining-symmetrized-harmonics" title="Permalink to this heading">#</a></h3>
-<p>In the examples above, the allowed irreducible representations are defined by hand from direct product tables for illustrative purposes. But, in general, it is tedious to categorize/define the allow spherical harmonics and linear combinations. With the <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id5">[<a class="reference internal" href="../backmatter/bibliography.html#id681" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">5</a>]</span>, both the direct products illustrated above, and the determination of associated spherical harmonics, can be automated and the full basis set rapidly defined numerically. This was illustrated briefly in <a class="reference internal" href="../part1/theory_symmetry_140723.html#sec-theory-symmetry-intro"><span class="std std-numref">Sect. 3.2</span></a>, and is extended here for the example cases above.</p>
+<p>In the examples above, the allowed irreducible representations are defined by hand from direct product tables for illustrative purposes. But, in general, it is tedious to categorize/define the allowed spherical harmonics and linear combinations. With the <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id5">[<a class="reference internal" href="../backmatter/bibliography.html#id682" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">5</a>]</span>, both the direct products illustrated above, and the determination of associated spherical harmonics, can be automated and the full basis set rapidly defined numerically. This was illustrated briefly in <a class="reference internal" href="../part1/theory_symmetry_140723.html#sec-theory-symmetry-intro"><span class="std std-numref">Sect. 3.2</span></a>, and is extended here for the example cases above.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -543,7 +543,7 @@ document.write(`
 For more details see https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basic_demo_030621-full.html
 To use local source code, pass the parent path to this script at run time, e.g. &quot;setup_fit_demo ~/github&quot;
 
-*** Running: 2023-07-31 16:14:52
+*** Running: 2023-10-26 05:42:20
 Working dir: /home/jovyan/jake-home/buildTmp/_latest_build/html/doc-source/part2
 Build env: html
 None
@@ -1101,12 +1101,12 @@ if (window.Jupyter !== undefined) {
 .cell-output-ipywidget-background:has(> .lm-Widget > *[data-root-id]) {
   background-color: transparent !important;
 }
-</style></div><div class="output text_html"><div id='5ae53068-3394-4484-bcdc-4caced968c24'>
-  <div id="f324eb71-ff01-40ea-82ae-eca59931d7c9" data-root-id="5ae53068-3394-4484-bcdc-4caced968c24" style="display: contents;"></div>
+</style></div><div class="output text_html"><div id='c00c6651-be33-4e64-a425-955043d1a665'>
+  <div id="e1c5a478-6042-4a42-8ffb-45039d9659e4" data-root-id="c00c6651-be33-4e64-a425-955043d1a665" style="display: contents;"></div>
 </div>
 <script type="application/javascript">(function(root) {
-  var docs_json = {"15e53874-332c-4a58-8a92-f9852d661913":{"version":"3.1.1","title":"Bokeh Application","defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"mode","kind":"Any","default":"warn"},{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationAreaBase1","properties":[{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]}],"roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"5ae53068-3394-4484-bcdc-4caced968c24"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"2307d747-a168-4285-9f86-6a6e71b7bdea","attributes":{"plot_id":"5ae53068-3394-4484-bcdc-4caced968c24","comm_id":"cd14c3ce7e754f34a85ad9f389527809","client_comm_id":"2db75e043e2e4ba8961b7429817a0e12"}}],"callbacks":{"type":"map"}}};
-  var render_items = [{"docid":"15e53874-332c-4a58-8a92-f9852d661913","roots":{"5ae53068-3394-4484-bcdc-4caced968c24":"f324eb71-ff01-40ea-82ae-eca59931d7c9"},"root_ids":["5ae53068-3394-4484-bcdc-4caced968c24"]}];
+  var docs_json = {"6e61e9f4-412a-4bb6-b469-264deb322307":{"version":"3.1.1","title":"Bokeh Application","defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"mode","kind":"Any","default":"warn"},{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationAreaBase1","properties":[{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]}],"roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"c00c6651-be33-4e64-a425-955043d1a665"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"b2567e77-d494-4de6-ab1d-1b54c200796f","attributes":{"plot_id":"c00c6651-be33-4e64-a425-955043d1a665","comm_id":"1ea2957958ce4fb78f27ab10f6c076d0","client_comm_id":"0f8e848733314fe49da5249b7d50544c"}}],"callbacks":{"type":"map"}}};
+  var render_items = [{"docid":"6e61e9f4-412a-4bb6-b469-264deb322307","roots":{"c00c6651-be33-4e64-a425-955043d1a665":"e1c5a478-6042-4a42-8ffb-45039d9659e4"},"root_ids":["c00c6651-be33-4e64-a425-955043d1a665"]}];
   var docs = Object.values(docs_json)
   if (!docs) {
     return
@@ -3376,23 +3376,23 @@ Found dipole symmetries:
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_e3347_row0_col0, #T_e3347_row0_col1, #T_e3347_row0_col2, #T_e3347_row0_col3, #T_e3347_row0_col4, #T_e3347_row1_col0, #T_e3347_row1_col1, #T_e3347_row1_col2, #T_e3347_row1_col3, #T_e3347_row1_col4, #T_e3347_row2_col0, #T_e3347_row2_col1, #T_e3347_row2_col2, #T_e3347_row2_col3, #T_e3347_row2_col4, #T_e3347_row4_col0, #T_e3347_row4_col1, #T_e3347_row4_col2, #T_e3347_row4_col3, #T_e3347_row4_col4, #T_e3347_row5_col0, #T_e3347_row5_col1, #T_e3347_row5_col2, #T_e3347_row5_col3, #T_e3347_row5_col4, #T_e3347_row6_col0, #T_e3347_row6_col1, #T_e3347_row6_col2, #T_e3347_row6_col3, #T_e3347_row6_col4, #T_e3347_row7_col0, #T_e3347_row7_col1, #T_e3347_row7_col2, #T_e3347_row7_col3, #T_e3347_row7_col4, #T_e3347_row8_col0, #T_e3347_row8_col1, #T_e3347_row8_col2, #T_e3347_row8_col3, #T_e3347_row8_col4, #T_e3347_row9_col0, #T_e3347_row9_col1, #T_e3347_row9_col2, #T_e3347_row9_col3, #T_e3347_row9_col4, #T_e3347_row10_col0, #T_e3347_row10_col1, #T_e3347_row10_col2, #T_e3347_row10_col3, #T_e3347_row10_col4, #T_e3347_row11_col0, #T_e3347_row11_col1, #T_e3347_row11_col2, #T_e3347_row11_col3, #T_e3347_row11_col4, #T_e3347_row12_col0, #T_e3347_row12_col1, #T_e3347_row12_col2, #T_e3347_row12_col3, #T_e3347_row12_col4, #T_e3347_row13_col0, #T_e3347_row13_col1, #T_e3347_row13_col2, #T_e3347_row13_col3, #T_e3347_row13_col4, #T_e3347_row14_col0, #T_e3347_row14_col1, #T_e3347_row14_col2, #T_e3347_row14_col3, #T_e3347_row14_col4, #T_e3347_row15_col0, #T_e3347_row15_col1, #T_e3347_row15_col2, #T_e3347_row15_col3, #T_e3347_row15_col4, #T_e3347_row16_col0, #T_e3347_row16_col1, #T_e3347_row16_col2, #T_e3347_row16_col3, #T_e3347_row16_col4, #T_e3347_row17_col0, #T_e3347_row17_col1, #T_e3347_row17_col2, #T_e3347_row17_col3, #T_e3347_row17_col4, #T_e3347_row18_col0, #T_e3347_row18_col1, #T_e3347_row18_col2, #T_e3347_row18_col3, #T_e3347_row18_col4, #T_e3347_row19_col0, #T_e3347_row19_col1, #T_e3347_row19_col2, #T_e3347_row19_col3, #T_e3347_row19_col4, #T_e3347_row20_col0, #T_e3347_row20_col1, #T_e3347_row20_col2, #T_e3347_row20_col3, #T_e3347_row20_col4, #T_e3347_row21_col0, #T_e3347_row21_col1, #T_e3347_row21_col2, #T_e3347_row21_col3, #T_e3347_row21_col4, #T_e3347_row22_col0, #T_e3347_row22_col1, #T_e3347_row22_col2, #T_e3347_row22_col3, #T_e3347_row22_col4, #T_e3347_row23_col0, #T_e3347_row23_col1, #T_e3347_row23_col2, #T_e3347_row23_col3, #T_e3347_row23_col4, #T_e3347_row25_col0, #T_e3347_row25_col1, #T_e3347_row25_col2, #T_e3347_row25_col3, #T_e3347_row25_col4, #T_e3347_row26_col0, #T_e3347_row26_col1, #T_e3347_row26_col2, #T_e3347_row26_col3, #T_e3347_row26_col4, #T_e3347_row27_col0, #T_e3347_row27_col1, #T_e3347_row27_col2, #T_e3347_row27_col3, #T_e3347_row27_col4, #T_e3347_row28_col0, #T_e3347_row28_col1, #T_e3347_row28_col2, #T_e3347_row28_col3, #T_e3347_row28_col4, #T_e3347_row29_col0, #T_e3347_row29_col1, #T_e3347_row29_col2, #T_e3347_row29_col3, #T_e3347_row29_col4, #T_e3347_row30_col0, #T_e3347_row30_col1, #T_e3347_row30_col2, #T_e3347_row30_col3, #T_e3347_row30_col4, #T_e3347_row31_col0, #T_e3347_row31_col1, #T_e3347_row31_col2, #T_e3347_row31_col3, #T_e3347_row31_col4 {
+#T_c124e_row0_col0, #T_c124e_row0_col1, #T_c124e_row0_col2, #T_c124e_row0_col3, #T_c124e_row0_col4, #T_c124e_row1_col0, #T_c124e_row1_col1, #T_c124e_row1_col2, #T_c124e_row1_col3, #T_c124e_row1_col4, #T_c124e_row2_col0, #T_c124e_row2_col1, #T_c124e_row2_col2, #T_c124e_row2_col3, #T_c124e_row2_col4, #T_c124e_row4_col0, #T_c124e_row4_col1, #T_c124e_row4_col2, #T_c124e_row4_col3, #T_c124e_row4_col4, #T_c124e_row5_col0, #T_c124e_row5_col1, #T_c124e_row5_col2, #T_c124e_row5_col3, #T_c124e_row5_col4, #T_c124e_row6_col0, #T_c124e_row6_col1, #T_c124e_row6_col2, #T_c124e_row6_col3, #T_c124e_row6_col4, #T_c124e_row7_col0, #T_c124e_row7_col1, #T_c124e_row7_col2, #T_c124e_row7_col3, #T_c124e_row7_col4, #T_c124e_row8_col0, #T_c124e_row8_col1, #T_c124e_row8_col2, #T_c124e_row8_col3, #T_c124e_row8_col4, #T_c124e_row9_col0, #T_c124e_row9_col1, #T_c124e_row9_col2, #T_c124e_row9_col3, #T_c124e_row9_col4, #T_c124e_row10_col0, #T_c124e_row10_col1, #T_c124e_row10_col2, #T_c124e_row10_col3, #T_c124e_row10_col4, #T_c124e_row11_col0, #T_c124e_row11_col1, #T_c124e_row11_col2, #T_c124e_row11_col3, #T_c124e_row11_col4, #T_c124e_row12_col0, #T_c124e_row12_col1, #T_c124e_row12_col2, #T_c124e_row12_col3, #T_c124e_row12_col4, #T_c124e_row13_col0, #T_c124e_row13_col1, #T_c124e_row13_col2, #T_c124e_row13_col3, #T_c124e_row13_col4, #T_c124e_row14_col0, #T_c124e_row14_col1, #T_c124e_row14_col2, #T_c124e_row14_col3, #T_c124e_row14_col4, #T_c124e_row15_col0, #T_c124e_row15_col1, #T_c124e_row15_col2, #T_c124e_row15_col3, #T_c124e_row15_col4, #T_c124e_row16_col0, #T_c124e_row16_col1, #T_c124e_row16_col2, #T_c124e_row16_col3, #T_c124e_row16_col4, #T_c124e_row17_col0, #T_c124e_row17_col1, #T_c124e_row17_col2, #T_c124e_row17_col3, #T_c124e_row17_col4, #T_c124e_row18_col0, #T_c124e_row18_col1, #T_c124e_row18_col2, #T_c124e_row18_col3, #T_c124e_row18_col4, #T_c124e_row19_col0, #T_c124e_row19_col1, #T_c124e_row19_col2, #T_c124e_row19_col3, #T_c124e_row19_col4, #T_c124e_row20_col0, #T_c124e_row20_col1, #T_c124e_row20_col2, #T_c124e_row20_col3, #T_c124e_row20_col4, #T_c124e_row21_col0, #T_c124e_row21_col1, #T_c124e_row21_col2, #T_c124e_row21_col3, #T_c124e_row21_col4, #T_c124e_row22_col0, #T_c124e_row22_col1, #T_c124e_row22_col2, #T_c124e_row22_col3, #T_c124e_row22_col4, #T_c124e_row23_col0, #T_c124e_row23_col1, #T_c124e_row23_col2, #T_c124e_row23_col3, #T_c124e_row23_col4, #T_c124e_row25_col0, #T_c124e_row25_col1, #T_c124e_row25_col2, #T_c124e_row25_col3, #T_c124e_row25_col4, #T_c124e_row26_col0, #T_c124e_row26_col1, #T_c124e_row26_col2, #T_c124e_row26_col3, #T_c124e_row26_col4, #T_c124e_row27_col0, #T_c124e_row27_col1, #T_c124e_row27_col2, #T_c124e_row27_col3, #T_c124e_row27_col4, #T_c124e_row28_col0, #T_c124e_row28_col1, #T_c124e_row28_col2, #T_c124e_row28_col3, #T_c124e_row28_col4, #T_c124e_row29_col0, #T_c124e_row29_col1, #T_c124e_row29_col2, #T_c124e_row29_col3, #T_c124e_row29_col4, #T_c124e_row30_col0, #T_c124e_row30_col1, #T_c124e_row30_col2, #T_c124e_row30_col3, #T_c124e_row30_col4, #T_c124e_row31_col0, #T_c124e_row31_col1, #T_c124e_row31_col2, #T_c124e_row31_col3, #T_c124e_row31_col4 {
   background-color: lightgrey;
 }
-#T_e3347_row3_col0, #T_e3347_row3_col1, #T_e3347_row3_col2, #T_e3347_row3_col3, #T_e3347_row3_col4, #T_e3347_row24_col0, #T_e3347_row24_col1, #T_e3347_row24_col2, #T_e3347_row24_col3, #T_e3347_row24_col4 {
+#T_c124e_row3_col0, #T_c124e_row3_col1, #T_c124e_row3_col2, #T_c124e_row3_col3, #T_c124e_row3_col4, #T_c124e_row24_col0, #T_c124e_row24_col1, #T_c124e_row24_col2, #T_c124e_row24_col3, #T_c124e_row24_col4 {
   background-color: yellow;
 }
 </style>
-<table id="T_e3347">
+<table id="T_c124e">
   <thead>
     <tr>
       <th class="blank" >&nbsp;</th>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_e3347_level0_col0" class="col_heading level0 col0" >allowed</th>
-      <th id="T_e3347_level0_col1" class="col_heading level0 col1" >m</th>
-      <th id="T_e3347_level0_col2" class="col_heading level0 col2" >pol</th>
-      <th id="T_e3347_level0_col3" class="col_heading level0 col3" >result</th>
-      <th id="T_e3347_level0_col4" class="col_heading level0 col4" >terms</th>
+      <th id="T_c124e_level0_col0" class="col_heading level0 col0" >allowed</th>
+      <th id="T_c124e_level0_col1" class="col_heading level0 col1" >m</th>
+      <th id="T_c124e_level0_col2" class="col_heading level0 col2" >pol</th>
+      <th id="T_c124e_level0_col3" class="col_heading level0 col3" >result</th>
+      <th id="T_c124e_level0_col4" class="col_heading level0 col4" >terms</th>
     </tr>
     <tr>
       <th class="index_name level0" >Dipole</th>
@@ -3406,262 +3406,262 @@ Found dipole symmetries:
   </thead>
   <tbody>
     <tr>
-      <th id="T_e3347_level0_row0" class="row_heading level0 row0" rowspan="16">A2u</th>
-      <th id="T_e3347_level1_row0" class="row_heading level1 row0" >A1g</th>
-      <td id="T_e3347_row0_col0" class="data row0 col0" >False</td>
-      <td id="T_e3347_row0_col1" class="data row0 col1" >[0]</td>
-      <td id="T_e3347_row0_col2" class="data row0 col2" >['z']</td>
-      <td id="T_e3347_row0_col3" class="data row0 col3" >['A2u']</td>
-      <td id="T_e3347_row0_col4" class="data row0 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level0_row0" class="row_heading level0 row0" rowspan="16">A2u</th>
+      <th id="T_c124e_level1_row0" class="row_heading level1 row0" >A1g</th>
+      <td id="T_c124e_row0_col0" class="data row0 col0" >False</td>
+      <td id="T_c124e_row0_col1" class="data row0 col1" >[0]</td>
+      <td id="T_c124e_row0_col2" class="data row0 col2" >['z']</td>
+      <td id="T_c124e_row0_col3" class="data row0 col3" >['A2u']</td>
+      <td id="T_c124e_row0_col4" class="data row0 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row1" class="row_heading level1 row1" >A2g</th>
-      <td id="T_e3347_row1_col0" class="data row1 col0" >False</td>
-      <td id="T_e3347_row1_col1" class="data row1 col1" >[0]</td>
-      <td id="T_e3347_row1_col2" class="data row1 col2" >['z']</td>
-      <td id="T_e3347_row1_col3" class="data row1 col3" >['A1u']</td>
-      <td id="T_e3347_row1_col4" class="data row1 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row1" class="row_heading level1 row1" >A2g</th>
+      <td id="T_c124e_row1_col0" class="data row1 col0" >False</td>
+      <td id="T_c124e_row1_col1" class="data row1 col1" >[0]</td>
+      <td id="T_c124e_row1_col2" class="data row1 col2" >['z']</td>
+      <td id="T_c124e_row1_col3" class="data row1 col3" >['A1u']</td>
+      <td id="T_c124e_row1_col4" class="data row1 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row2" class="row_heading level1 row2" >A1u</th>
-      <td id="T_e3347_row2_col0" class="data row2 col0" >False</td>
-      <td id="T_e3347_row2_col1" class="data row2 col1" >[0]</td>
-      <td id="T_e3347_row2_col2" class="data row2 col2" >['z']</td>
-      <td id="T_e3347_row2_col3" class="data row2 col3" >['A2g']</td>
-      <td id="T_e3347_row2_col4" class="data row2 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row2" class="row_heading level1 row2" >A1u</th>
+      <td id="T_c124e_row2_col0" class="data row2 col0" >False</td>
+      <td id="T_c124e_row2_col1" class="data row2 col1" >[0]</td>
+      <td id="T_c124e_row2_col2" class="data row2 col2" >['z']</td>
+      <td id="T_c124e_row2_col3" class="data row2 col3" >['A2g']</td>
+      <td id="T_c124e_row2_col4" class="data row2 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row3" class="row_heading level1 row3" >A2u</th>
-      <td id="T_e3347_row3_col0" class="data row3 col0" >True</td>
-      <td id="T_e3347_row3_col1" class="data row3 col1" >[0]</td>
-      <td id="T_e3347_row3_col2" class="data row3 col2" >['z']</td>
-      <td id="T_e3347_row3_col3" class="data row3 col3" >['A1g']</td>
-      <td id="T_e3347_row3_col4" class="data row3 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row3" class="row_heading level1 row3" >A2u</th>
+      <td id="T_c124e_row3_col0" class="data row3 col0" >True</td>
+      <td id="T_c124e_row3_col1" class="data row3 col1" >[0]</td>
+      <td id="T_c124e_row3_col2" class="data row3 col2" >['z']</td>
+      <td id="T_c124e_row3_col3" class="data row3 col3" >['A1g']</td>
+      <td id="T_c124e_row3_col4" class="data row3 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row4" class="row_heading level1 row4" >B1g</th>
-      <td id="T_e3347_row4_col0" class="data row4 col0" >False</td>
-      <td id="T_e3347_row4_col1" class="data row4 col1" >[0]</td>
-      <td id="T_e3347_row4_col2" class="data row4 col2" >['z']</td>
-      <td id="T_e3347_row4_col3" class="data row4 col3" >['B2u']</td>
-      <td id="T_e3347_row4_col4" class="data row4 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row4" class="row_heading level1 row4" >B1g</th>
+      <td id="T_c124e_row4_col0" class="data row4 col0" >False</td>
+      <td id="T_c124e_row4_col1" class="data row4 col1" >[0]</td>
+      <td id="T_c124e_row4_col2" class="data row4 col2" >['z']</td>
+      <td id="T_c124e_row4_col3" class="data row4 col3" >['B2u']</td>
+      <td id="T_c124e_row4_col4" class="data row4 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row5" class="row_heading level1 row5" >B1u</th>
-      <td id="T_e3347_row5_col0" class="data row5 col0" >False</td>
-      <td id="T_e3347_row5_col1" class="data row5 col1" >[0]</td>
-      <td id="T_e3347_row5_col2" class="data row5 col2" >['z']</td>
-      <td id="T_e3347_row5_col3" class="data row5 col3" >['B2g']</td>
-      <td id="T_e3347_row5_col4" class="data row5 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row5" class="row_heading level1 row5" >B1u</th>
+      <td id="T_c124e_row5_col0" class="data row5 col0" >False</td>
+      <td id="T_c124e_row5_col1" class="data row5 col1" >[0]</td>
+      <td id="T_c124e_row5_col2" class="data row5 col2" >['z']</td>
+      <td id="T_c124e_row5_col3" class="data row5 col3" >['B2g']</td>
+      <td id="T_c124e_row5_col4" class="data row5 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row6" class="row_heading level1 row6" >B2g</th>
-      <td id="T_e3347_row6_col0" class="data row6 col0" >False</td>
-      <td id="T_e3347_row6_col1" class="data row6 col1" >[0]</td>
-      <td id="T_e3347_row6_col2" class="data row6 col2" >['z']</td>
-      <td id="T_e3347_row6_col3" class="data row6 col3" >['B1u']</td>
-      <td id="T_e3347_row6_col4" class="data row6 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row6" class="row_heading level1 row6" >B2g</th>
+      <td id="T_c124e_row6_col0" class="data row6 col0" >False</td>
+      <td id="T_c124e_row6_col1" class="data row6 col1" >[0]</td>
+      <td id="T_c124e_row6_col2" class="data row6 col2" >['z']</td>
+      <td id="T_c124e_row6_col3" class="data row6 col3" >['B1u']</td>
+      <td id="T_c124e_row6_col4" class="data row6 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row7" class="row_heading level1 row7" >B2u</th>
-      <td id="T_e3347_row7_col0" class="data row7 col0" >False</td>
-      <td id="T_e3347_row7_col1" class="data row7 col1" >[0]</td>
-      <td id="T_e3347_row7_col2" class="data row7 col2" >['z']</td>
-      <td id="T_e3347_row7_col3" class="data row7 col3" >['B1g']</td>
-      <td id="T_e3347_row7_col4" class="data row7 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row7" class="row_heading level1 row7" >B2u</th>
+      <td id="T_c124e_row7_col0" class="data row7 col0" >False</td>
+      <td id="T_c124e_row7_col1" class="data row7 col1" >[0]</td>
+      <td id="T_c124e_row7_col2" class="data row7 col2" >['z']</td>
+      <td id="T_c124e_row7_col3" class="data row7 col3" >['B1g']</td>
+      <td id="T_c124e_row7_col4" class="data row7 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row8" class="row_heading level1 row8" >E1u</th>
-      <td id="T_e3347_row8_col0" class="data row8 col0" >False</td>
-      <td id="T_e3347_row8_col1" class="data row8 col1" >[0]</td>
-      <td id="T_e3347_row8_col2" class="data row8 col2" >['z']</td>
-      <td id="T_e3347_row8_col3" class="data row8 col3" >['E1g']</td>
-      <td id="T_e3347_row8_col4" class="data row8 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row8" class="row_heading level1 row8" >E1u</th>
+      <td id="T_c124e_row8_col0" class="data row8 col0" >False</td>
+      <td id="T_c124e_row8_col1" class="data row8 col1" >[0]</td>
+      <td id="T_c124e_row8_col2" class="data row8 col2" >['z']</td>
+      <td id="T_c124e_row8_col3" class="data row8 col3" >['E1g']</td>
+      <td id="T_c124e_row8_col4" class="data row8 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row9" class="row_heading level1 row9" >E1g</th>
-      <td id="T_e3347_row9_col0" class="data row9 col0" >False</td>
-      <td id="T_e3347_row9_col1" class="data row9 col1" >[0]</td>
-      <td id="T_e3347_row9_col2" class="data row9 col2" >['z']</td>
-      <td id="T_e3347_row9_col3" class="data row9 col3" >['E1u']</td>
-      <td id="T_e3347_row9_col4" class="data row9 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row9" class="row_heading level1 row9" >E1g</th>
+      <td id="T_c124e_row9_col0" class="data row9 col0" >False</td>
+      <td id="T_c124e_row9_col1" class="data row9 col1" >[0]</td>
+      <td id="T_c124e_row9_col2" class="data row9 col2" >['z']</td>
+      <td id="T_c124e_row9_col3" class="data row9 col3" >['E1u']</td>
+      <td id="T_c124e_row9_col4" class="data row9 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row10" class="row_heading level1 row10" >E2g</th>
-      <td id="T_e3347_row10_col0" class="data row10 col0" >False</td>
-      <td id="T_e3347_row10_col1" class="data row10 col1" >[0]</td>
-      <td id="T_e3347_row10_col2" class="data row10 col2" >['z']</td>
-      <td id="T_e3347_row10_col3" class="data row10 col3" >['E2u']</td>
-      <td id="T_e3347_row10_col4" class="data row10 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row10" class="row_heading level1 row10" >E2g</th>
+      <td id="T_c124e_row10_col0" class="data row10 col0" >False</td>
+      <td id="T_c124e_row10_col1" class="data row10 col1" >[0]</td>
+      <td id="T_c124e_row10_col2" class="data row10 col2" >['z']</td>
+      <td id="T_c124e_row10_col3" class="data row10 col3" >['E2u']</td>
+      <td id="T_c124e_row10_col4" class="data row10 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row11" class="row_heading level1 row11" >E2u</th>
-      <td id="T_e3347_row11_col0" class="data row11 col0" >False</td>
-      <td id="T_e3347_row11_col1" class="data row11 col1" >[0]</td>
-      <td id="T_e3347_row11_col2" class="data row11 col2" >['z']</td>
-      <td id="T_e3347_row11_col3" class="data row11 col3" >['E2g']</td>
-      <td id="T_e3347_row11_col4" class="data row11 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row11" class="row_heading level1 row11" >E2u</th>
+      <td id="T_c124e_row11_col0" class="data row11 col0" >False</td>
+      <td id="T_c124e_row11_col1" class="data row11 col1" >[0]</td>
+      <td id="T_c124e_row11_col2" class="data row11 col2" >['z']</td>
+      <td id="T_c124e_row11_col3" class="data row11 col3" >['E2g']</td>
+      <td id="T_c124e_row11_col4" class="data row11 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row12" class="row_heading level1 row12" >E3u</th>
-      <td id="T_e3347_row12_col0" class="data row12 col0" >False</td>
-      <td id="T_e3347_row12_col1" class="data row12 col1" >[0]</td>
-      <td id="T_e3347_row12_col2" class="data row12 col2" >['z']</td>
-      <td id="T_e3347_row12_col3" class="data row12 col3" >['E3g']</td>
-      <td id="T_e3347_row12_col4" class="data row12 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row12" class="row_heading level1 row12" >E3u</th>
+      <td id="T_c124e_row12_col0" class="data row12 col0" >False</td>
+      <td id="T_c124e_row12_col1" class="data row12 col1" >[0]</td>
+      <td id="T_c124e_row12_col2" class="data row12 col2" >['z']</td>
+      <td id="T_c124e_row12_col3" class="data row12 col3" >['E3g']</td>
+      <td id="T_c124e_row12_col4" class="data row12 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row13" class="row_heading level1 row13" >E3g</th>
-      <td id="T_e3347_row13_col0" class="data row13 col0" >False</td>
-      <td id="T_e3347_row13_col1" class="data row13 col1" >[0]</td>
-      <td id="T_e3347_row13_col2" class="data row13 col2" >['z']</td>
-      <td id="T_e3347_row13_col3" class="data row13 col3" >['E3u']</td>
-      <td id="T_e3347_row13_col4" class="data row13 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row13" class="row_heading level1 row13" >E3g</th>
+      <td id="T_c124e_row13_col0" class="data row13 col0" >False</td>
+      <td id="T_c124e_row13_col1" class="data row13 col1" >[0]</td>
+      <td id="T_c124e_row13_col2" class="data row13 col2" >['z']</td>
+      <td id="T_c124e_row13_col3" class="data row13 col3" >['E3u']</td>
+      <td id="T_c124e_row13_col4" class="data row13 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row14" class="row_heading level1 row14" >E4g</th>
-      <td id="T_e3347_row14_col0" class="data row14 col0" >False</td>
-      <td id="T_e3347_row14_col1" class="data row14 col1" >[0]</td>
-      <td id="T_e3347_row14_col2" class="data row14 col2" >['z']</td>
-      <td id="T_e3347_row14_col3" class="data row14 col3" >['E4u']</td>
-      <td id="T_e3347_row14_col4" class="data row14 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row14" class="row_heading level1 row14" >E4g</th>
+      <td id="T_c124e_row14_col0" class="data row14 col0" >False</td>
+      <td id="T_c124e_row14_col1" class="data row14 col1" >[0]</td>
+      <td id="T_c124e_row14_col2" class="data row14 col2" >['z']</td>
+      <td id="T_c124e_row14_col3" class="data row14 col3" >['E4u']</td>
+      <td id="T_c124e_row14_col4" class="data row14 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row15" class="row_heading level1 row15" >E4u</th>
-      <td id="T_e3347_row15_col0" class="data row15 col0" >False</td>
-      <td id="T_e3347_row15_col1" class="data row15 col1" >[0]</td>
-      <td id="T_e3347_row15_col2" class="data row15 col2" >['z']</td>
-      <td id="T_e3347_row15_col3" class="data row15 col3" >['E4g']</td>
-      <td id="T_e3347_row15_col4" class="data row15 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row15" class="row_heading level1 row15" >E4u</th>
+      <td id="T_c124e_row15_col0" class="data row15 col0" >False</td>
+      <td id="T_c124e_row15_col1" class="data row15 col1" >[0]</td>
+      <td id="T_c124e_row15_col2" class="data row15 col2" >['z']</td>
+      <td id="T_c124e_row15_col3" class="data row15 col3" >['E4g']</td>
+      <td id="T_c124e_row15_col4" class="data row15 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level0_row16" class="row_heading level0 row16" rowspan="16">E1u</th>
-      <th id="T_e3347_level1_row16" class="row_heading level1 row16" >A1g</th>
-      <td id="T_e3347_row16_col0" class="data row16 col0" >False</td>
-      <td id="T_e3347_row16_col1" class="data row16 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_e3347_row16_col2" class="data row16 col2" >['x', 'y']</td>
-      <td id="T_e3347_row16_col3" class="data row16 col3" >['E1u']</td>
-      <td id="T_e3347_row16_col4" class="data row16 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level0_row16" class="row_heading level0 row16" rowspan="16">E1u</th>
+      <th id="T_c124e_level1_row16" class="row_heading level1 row16" >A1g</th>
+      <td id="T_c124e_row16_col0" class="data row16 col0" >False</td>
+      <td id="T_c124e_row16_col1" class="data row16 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_c124e_row16_col2" class="data row16 col2" >['x', 'y']</td>
+      <td id="T_c124e_row16_col3" class="data row16 col3" >['E1u']</td>
+      <td id="T_c124e_row16_col4" class="data row16 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row17" class="row_heading level1 row17" >A2g</th>
-      <td id="T_e3347_row17_col0" class="data row17 col0" >False</td>
-      <td id="T_e3347_row17_col1" class="data row17 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_e3347_row17_col2" class="data row17 col2" >['x', 'y']</td>
-      <td id="T_e3347_row17_col3" class="data row17 col3" >['E1u']</td>
-      <td id="T_e3347_row17_col4" class="data row17 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row17" class="row_heading level1 row17" >A2g</th>
+      <td id="T_c124e_row17_col0" class="data row17 col0" >False</td>
+      <td id="T_c124e_row17_col1" class="data row17 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_c124e_row17_col2" class="data row17 col2" >['x', 'y']</td>
+      <td id="T_c124e_row17_col3" class="data row17 col3" >['E1u']</td>
+      <td id="T_c124e_row17_col4" class="data row17 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row18" class="row_heading level1 row18" >A1u</th>
-      <td id="T_e3347_row18_col0" class="data row18 col0" >False</td>
-      <td id="T_e3347_row18_col1" class="data row18 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_e3347_row18_col2" class="data row18 col2" >['x', 'y']</td>
-      <td id="T_e3347_row18_col3" class="data row18 col3" >['E1g']</td>
-      <td id="T_e3347_row18_col4" class="data row18 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row18" class="row_heading level1 row18" >A1u</th>
+      <td id="T_c124e_row18_col0" class="data row18 col0" >False</td>
+      <td id="T_c124e_row18_col1" class="data row18 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_c124e_row18_col2" class="data row18 col2" >['x', 'y']</td>
+      <td id="T_c124e_row18_col3" class="data row18 col3" >['E1g']</td>
+      <td id="T_c124e_row18_col4" class="data row18 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row19" class="row_heading level1 row19" >A2u</th>
-      <td id="T_e3347_row19_col0" class="data row19 col0" >False</td>
-      <td id="T_e3347_row19_col1" class="data row19 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_e3347_row19_col2" class="data row19 col2" >['x', 'y']</td>
-      <td id="T_e3347_row19_col3" class="data row19 col3" >['E1g']</td>
-      <td id="T_e3347_row19_col4" class="data row19 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row19" class="row_heading level1 row19" >A2u</th>
+      <td id="T_c124e_row19_col0" class="data row19 col0" >False</td>
+      <td id="T_c124e_row19_col1" class="data row19 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_c124e_row19_col2" class="data row19 col2" >['x', 'y']</td>
+      <td id="T_c124e_row19_col3" class="data row19 col3" >['E1g']</td>
+      <td id="T_c124e_row19_col4" class="data row19 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row20" class="row_heading level1 row20" >B1g</th>
-      <td id="T_e3347_row20_col0" class="data row20 col0" >False</td>
-      <td id="T_e3347_row20_col1" class="data row20 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_e3347_row20_col2" class="data row20 col2" >['x', 'y']</td>
-      <td id="T_e3347_row20_col3" class="data row20 col3" >['E4u']</td>
-      <td id="T_e3347_row20_col4" class="data row20 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row20" class="row_heading level1 row20" >B1g</th>
+      <td id="T_c124e_row20_col0" class="data row20 col0" >False</td>
+      <td id="T_c124e_row20_col1" class="data row20 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_c124e_row20_col2" class="data row20 col2" >['x', 'y']</td>
+      <td id="T_c124e_row20_col3" class="data row20 col3" >['E4u']</td>
+      <td id="T_c124e_row20_col4" class="data row20 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row21" class="row_heading level1 row21" >B1u</th>
-      <td id="T_e3347_row21_col0" class="data row21 col0" >False</td>
-      <td id="T_e3347_row21_col1" class="data row21 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_e3347_row21_col2" class="data row21 col2" >['x', 'y']</td>
-      <td id="T_e3347_row21_col3" class="data row21 col3" >['E4g']</td>
-      <td id="T_e3347_row21_col4" class="data row21 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row21" class="row_heading level1 row21" >B1u</th>
+      <td id="T_c124e_row21_col0" class="data row21 col0" >False</td>
+      <td id="T_c124e_row21_col1" class="data row21 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_c124e_row21_col2" class="data row21 col2" >['x', 'y']</td>
+      <td id="T_c124e_row21_col3" class="data row21 col3" >['E4g']</td>
+      <td id="T_c124e_row21_col4" class="data row21 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row22" class="row_heading level1 row22" >B2g</th>
-      <td id="T_e3347_row22_col0" class="data row22 col0" >False</td>
-      <td id="T_e3347_row22_col1" class="data row22 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_e3347_row22_col2" class="data row22 col2" >['x', 'y']</td>
-      <td id="T_e3347_row22_col3" class="data row22 col3" >['E4u']</td>
-      <td id="T_e3347_row22_col4" class="data row22 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row22" class="row_heading level1 row22" >B2g</th>
+      <td id="T_c124e_row22_col0" class="data row22 col0" >False</td>
+      <td id="T_c124e_row22_col1" class="data row22 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_c124e_row22_col2" class="data row22 col2" >['x', 'y']</td>
+      <td id="T_c124e_row22_col3" class="data row22 col3" >['E4u']</td>
+      <td id="T_c124e_row22_col4" class="data row22 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row23" class="row_heading level1 row23" >B2u</th>
-      <td id="T_e3347_row23_col0" class="data row23 col0" >False</td>
-      <td id="T_e3347_row23_col1" class="data row23 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_e3347_row23_col2" class="data row23 col2" >['x', 'y']</td>
-      <td id="T_e3347_row23_col3" class="data row23 col3" >['E4g']</td>
-      <td id="T_e3347_row23_col4" class="data row23 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row23" class="row_heading level1 row23" >B2u</th>
+      <td id="T_c124e_row23_col0" class="data row23 col0" >False</td>
+      <td id="T_c124e_row23_col1" class="data row23 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_c124e_row23_col2" class="data row23 col2" >['x', 'y']</td>
+      <td id="T_c124e_row23_col3" class="data row23 col3" >['E4g']</td>
+      <td id="T_c124e_row23_col4" class="data row23 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row24" class="row_heading level1 row24" >E1u</th>
-      <td id="T_e3347_row24_col0" class="data row24 col0" >True</td>
-      <td id="T_e3347_row24_col1" class="data row24 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_e3347_row24_col2" class="data row24 col2" >['x', 'y']</td>
-      <td id="T_e3347_row24_col3" class="data row24 col3" >['A1g', 'A2g', 'E2g']</td>
-      <td id="T_e3347_row24_col4" class="data row24 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row24" class="row_heading level1 row24" >E1u</th>
+      <td id="T_c124e_row24_col0" class="data row24 col0" >True</td>
+      <td id="T_c124e_row24_col1" class="data row24 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_c124e_row24_col2" class="data row24 col2" >['x', 'y']</td>
+      <td id="T_c124e_row24_col3" class="data row24 col3" >['A1g', 'A2g', 'E2g']</td>
+      <td id="T_c124e_row24_col4" class="data row24 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row25" class="row_heading level1 row25" >E1g</th>
-      <td id="T_e3347_row25_col0" class="data row25 col0" >False</td>
-      <td id="T_e3347_row25_col1" class="data row25 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_e3347_row25_col2" class="data row25 col2" >['x', 'y']</td>
-      <td id="T_e3347_row25_col3" class="data row25 col3" >['A1u', 'A2u', 'E2u']</td>
-      <td id="T_e3347_row25_col4" class="data row25 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row25" class="row_heading level1 row25" >E1g</th>
+      <td id="T_c124e_row25_col0" class="data row25 col0" >False</td>
+      <td id="T_c124e_row25_col1" class="data row25 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_c124e_row25_col2" class="data row25 col2" >['x', 'y']</td>
+      <td id="T_c124e_row25_col3" class="data row25 col3" >['A1u', 'A2u', 'E2u']</td>
+      <td id="T_c124e_row25_col4" class="data row25 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row26" class="row_heading level1 row26" >E2g</th>
-      <td id="T_e3347_row26_col0" class="data row26 col0" >False</td>
-      <td id="T_e3347_row26_col1" class="data row26 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_e3347_row26_col2" class="data row26 col2" >['x', 'y']</td>
-      <td id="T_e3347_row26_col3" class="data row26 col3" >['E1u', 'E3u']</td>
-      <td id="T_e3347_row26_col4" class="data row26 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row26" class="row_heading level1 row26" >E2g</th>
+      <td id="T_c124e_row26_col0" class="data row26 col0" >False</td>
+      <td id="T_c124e_row26_col1" class="data row26 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_c124e_row26_col2" class="data row26 col2" >['x', 'y']</td>
+      <td id="T_c124e_row26_col3" class="data row26 col3" >['E1u', 'E3u']</td>
+      <td id="T_c124e_row26_col4" class="data row26 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row27" class="row_heading level1 row27" >E2u</th>
-      <td id="T_e3347_row27_col0" class="data row27 col0" >False</td>
-      <td id="T_e3347_row27_col1" class="data row27 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_e3347_row27_col2" class="data row27 col2" >['x', 'y']</td>
-      <td id="T_e3347_row27_col3" class="data row27 col3" >['E1g', 'E3g']</td>
-      <td id="T_e3347_row27_col4" class="data row27 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row27" class="row_heading level1 row27" >E2u</th>
+      <td id="T_c124e_row27_col0" class="data row27 col0" >False</td>
+      <td id="T_c124e_row27_col1" class="data row27 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_c124e_row27_col2" class="data row27 col2" >['x', 'y']</td>
+      <td id="T_c124e_row27_col3" class="data row27 col3" >['E1g', 'E3g']</td>
+      <td id="T_c124e_row27_col4" class="data row27 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row28" class="row_heading level1 row28" >E3u</th>
-      <td id="T_e3347_row28_col0" class="data row28 col0" >False</td>
-      <td id="T_e3347_row28_col1" class="data row28 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_e3347_row28_col2" class="data row28 col2" >['x', 'y']</td>
-      <td id="T_e3347_row28_col3" class="data row28 col3" >['E2g', 'E4g']</td>
-      <td id="T_e3347_row28_col4" class="data row28 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row28" class="row_heading level1 row28" >E3u</th>
+      <td id="T_c124e_row28_col0" class="data row28 col0" >False</td>
+      <td id="T_c124e_row28_col1" class="data row28 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_c124e_row28_col2" class="data row28 col2" >['x', 'y']</td>
+      <td id="T_c124e_row28_col3" class="data row28 col3" >['E2g', 'E4g']</td>
+      <td id="T_c124e_row28_col4" class="data row28 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row29" class="row_heading level1 row29" >E3g</th>
-      <td id="T_e3347_row29_col0" class="data row29 col0" >False</td>
-      <td id="T_e3347_row29_col1" class="data row29 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_e3347_row29_col2" class="data row29 col2" >['x', 'y']</td>
-      <td id="T_e3347_row29_col3" class="data row29 col3" >['E2u', 'E4u']</td>
-      <td id="T_e3347_row29_col4" class="data row29 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row29" class="row_heading level1 row29" >E3g</th>
+      <td id="T_c124e_row29_col0" class="data row29 col0" >False</td>
+      <td id="T_c124e_row29_col1" class="data row29 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_c124e_row29_col2" class="data row29 col2" >['x', 'y']</td>
+      <td id="T_c124e_row29_col3" class="data row29 col3" >['E2u', 'E4u']</td>
+      <td id="T_c124e_row29_col4" class="data row29 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row30" class="row_heading level1 row30" >E4g</th>
-      <td id="T_e3347_row30_col0" class="data row30 col0" >False</td>
-      <td id="T_e3347_row30_col1" class="data row30 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_e3347_row30_col2" class="data row30 col2" >['x', 'y']</td>
-      <td id="T_e3347_row30_col3" class="data row30 col3" >['B1u', 'B2u', 'E3u']</td>
-      <td id="T_e3347_row30_col4" class="data row30 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row30" class="row_heading level1 row30" >E4g</th>
+      <td id="T_c124e_row30_col0" class="data row30 col0" >False</td>
+      <td id="T_c124e_row30_col1" class="data row30 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_c124e_row30_col2" class="data row30 col2" >['x', 'y']</td>
+      <td id="T_c124e_row30_col3" class="data row30 col3" >['B1u', 'B2u', 'E3u']</td>
+      <td id="T_c124e_row30_col4" class="data row30 col4" >['A1g', 'A1g']</td>
     </tr>
     <tr>
-      <th id="T_e3347_level1_row31" class="row_heading level1 row31" >E4u</th>
-      <td id="T_e3347_row31_col0" class="data row31 col0" >False</td>
-      <td id="T_e3347_row31_col1" class="data row31 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_e3347_row31_col2" class="data row31 col2" >['x', 'y']</td>
-      <td id="T_e3347_row31_col3" class="data row31 col3" >['B1g', 'B2g', 'E3g']</td>
-      <td id="T_e3347_row31_col4" class="data row31 col4" >['A1g', 'A1g']</td>
+      <th id="T_c124e_level1_row31" class="row_heading level1 row31" >E4u</th>
+      <td id="T_c124e_row31_col0" class="data row31 col0" >False</td>
+      <td id="T_c124e_row31_col1" class="data row31 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_c124e_row31_col2" class="data row31 col2" >['x', 'y']</td>
+      <td id="T_c124e_row31_col3" class="data row31 col3" >['B1g', 'B2g', 'E3g']</td>
+      <td id="T_c124e_row31_col4" class="data row31 col4" >['A1g', 'A1g']</td>
     </tr>
   </tbody>
 </table>
@@ -3768,23 +3768,23 @@ Found dipole symmetries:
 </pre></div>
 </div>
 <div class="output text_html"><style type="text/css">
-#T_2ec71_row0_col0, #T_2ec71_row0_col1, #T_2ec71_row0_col2, #T_2ec71_row0_col3, #T_2ec71_row0_col4, #T_2ec71_row1_col0, #T_2ec71_row1_col1, #T_2ec71_row1_col2, #T_2ec71_row1_col3, #T_2ec71_row1_col4, #T_2ec71_row2_col0, #T_2ec71_row2_col1, #T_2ec71_row2_col2, #T_2ec71_row2_col3, #T_2ec71_row2_col4, #T_2ec71_row3_col0, #T_2ec71_row3_col1, #T_2ec71_row3_col2, #T_2ec71_row3_col3, #T_2ec71_row3_col4, #T_2ec71_row4_col0, #T_2ec71_row4_col1, #T_2ec71_row4_col2, #T_2ec71_row4_col3, #T_2ec71_row4_col4, #T_2ec71_row5_col0, #T_2ec71_row5_col1, #T_2ec71_row5_col2, #T_2ec71_row5_col3, #T_2ec71_row5_col4, #T_2ec71_row6_col0, #T_2ec71_row6_col1, #T_2ec71_row6_col2, #T_2ec71_row6_col3, #T_2ec71_row6_col4, #T_2ec71_row7_col0, #T_2ec71_row7_col1, #T_2ec71_row7_col2, #T_2ec71_row7_col3, #T_2ec71_row7_col4, #T_2ec71_row8_col0, #T_2ec71_row8_col1, #T_2ec71_row8_col2, #T_2ec71_row8_col3, #T_2ec71_row8_col4, #T_2ec71_row10_col0, #T_2ec71_row10_col1, #T_2ec71_row10_col2, #T_2ec71_row10_col3, #T_2ec71_row10_col4, #T_2ec71_row11_col0, #T_2ec71_row11_col1, #T_2ec71_row11_col2, #T_2ec71_row11_col3, #T_2ec71_row11_col4, #T_2ec71_row12_col0, #T_2ec71_row12_col1, #T_2ec71_row12_col2, #T_2ec71_row12_col3, #T_2ec71_row12_col4, #T_2ec71_row13_col0, #T_2ec71_row13_col1, #T_2ec71_row13_col2, #T_2ec71_row13_col3, #T_2ec71_row13_col4, #T_2ec71_row14_col0, #T_2ec71_row14_col1, #T_2ec71_row14_col2, #T_2ec71_row14_col3, #T_2ec71_row14_col4, #T_2ec71_row15_col0, #T_2ec71_row15_col1, #T_2ec71_row15_col2, #T_2ec71_row15_col3, #T_2ec71_row15_col4, #T_2ec71_row18_col0, #T_2ec71_row18_col1, #T_2ec71_row18_col2, #T_2ec71_row18_col3, #T_2ec71_row18_col4, #T_2ec71_row19_col0, #T_2ec71_row19_col1, #T_2ec71_row19_col2, #T_2ec71_row19_col3, #T_2ec71_row19_col4, #T_2ec71_row20_col0, #T_2ec71_row20_col1, #T_2ec71_row20_col2, #T_2ec71_row20_col3, #T_2ec71_row20_col4, #T_2ec71_row21_col0, #T_2ec71_row21_col1, #T_2ec71_row21_col2, #T_2ec71_row21_col3, #T_2ec71_row21_col4, #T_2ec71_row22_col0, #T_2ec71_row22_col1, #T_2ec71_row22_col2, #T_2ec71_row22_col3, #T_2ec71_row22_col4, #T_2ec71_row23_col0, #T_2ec71_row23_col1, #T_2ec71_row23_col2, #T_2ec71_row23_col3, #T_2ec71_row23_col4, #T_2ec71_row24_col0, #T_2ec71_row24_col1, #T_2ec71_row24_col2, #T_2ec71_row24_col3, #T_2ec71_row24_col4, #T_2ec71_row25_col0, #T_2ec71_row25_col1, #T_2ec71_row25_col2, #T_2ec71_row25_col3, #T_2ec71_row25_col4, #T_2ec71_row27_col0, #T_2ec71_row27_col1, #T_2ec71_row27_col2, #T_2ec71_row27_col3, #T_2ec71_row27_col4, #T_2ec71_row28_col0, #T_2ec71_row28_col1, #T_2ec71_row28_col2, #T_2ec71_row28_col3, #T_2ec71_row28_col4, #T_2ec71_row29_col0, #T_2ec71_row29_col1, #T_2ec71_row29_col2, #T_2ec71_row29_col3, #T_2ec71_row29_col4, #T_2ec71_row30_col0, #T_2ec71_row30_col1, #T_2ec71_row30_col2, #T_2ec71_row30_col3, #T_2ec71_row30_col4, #T_2ec71_row31_col0, #T_2ec71_row31_col1, #T_2ec71_row31_col2, #T_2ec71_row31_col3, #T_2ec71_row31_col4 {
+#T_e32b1_row0_col0, #T_e32b1_row0_col1, #T_e32b1_row0_col2, #T_e32b1_row0_col3, #T_e32b1_row0_col4, #T_e32b1_row1_col0, #T_e32b1_row1_col1, #T_e32b1_row1_col2, #T_e32b1_row1_col3, #T_e32b1_row1_col4, #T_e32b1_row2_col0, #T_e32b1_row2_col1, #T_e32b1_row2_col2, #T_e32b1_row2_col3, #T_e32b1_row2_col4, #T_e32b1_row3_col0, #T_e32b1_row3_col1, #T_e32b1_row3_col2, #T_e32b1_row3_col3, #T_e32b1_row3_col4, #T_e32b1_row4_col0, #T_e32b1_row4_col1, #T_e32b1_row4_col2, #T_e32b1_row4_col3, #T_e32b1_row4_col4, #T_e32b1_row5_col0, #T_e32b1_row5_col1, #T_e32b1_row5_col2, #T_e32b1_row5_col3, #T_e32b1_row5_col4, #T_e32b1_row6_col0, #T_e32b1_row6_col1, #T_e32b1_row6_col2, #T_e32b1_row6_col3, #T_e32b1_row6_col4, #T_e32b1_row7_col0, #T_e32b1_row7_col1, #T_e32b1_row7_col2, #T_e32b1_row7_col3, #T_e32b1_row7_col4, #T_e32b1_row8_col0, #T_e32b1_row8_col1, #T_e32b1_row8_col2, #T_e32b1_row8_col3, #T_e32b1_row8_col4, #T_e32b1_row10_col0, #T_e32b1_row10_col1, #T_e32b1_row10_col2, #T_e32b1_row10_col3, #T_e32b1_row10_col4, #T_e32b1_row11_col0, #T_e32b1_row11_col1, #T_e32b1_row11_col2, #T_e32b1_row11_col3, #T_e32b1_row11_col4, #T_e32b1_row12_col0, #T_e32b1_row12_col1, #T_e32b1_row12_col2, #T_e32b1_row12_col3, #T_e32b1_row12_col4, #T_e32b1_row13_col0, #T_e32b1_row13_col1, #T_e32b1_row13_col2, #T_e32b1_row13_col3, #T_e32b1_row13_col4, #T_e32b1_row14_col0, #T_e32b1_row14_col1, #T_e32b1_row14_col2, #T_e32b1_row14_col3, #T_e32b1_row14_col4, #T_e32b1_row15_col0, #T_e32b1_row15_col1, #T_e32b1_row15_col2, #T_e32b1_row15_col3, #T_e32b1_row15_col4, #T_e32b1_row18_col0, #T_e32b1_row18_col1, #T_e32b1_row18_col2, #T_e32b1_row18_col3, #T_e32b1_row18_col4, #T_e32b1_row19_col0, #T_e32b1_row19_col1, #T_e32b1_row19_col2, #T_e32b1_row19_col3, #T_e32b1_row19_col4, #T_e32b1_row20_col0, #T_e32b1_row20_col1, #T_e32b1_row20_col2, #T_e32b1_row20_col3, #T_e32b1_row20_col4, #T_e32b1_row21_col0, #T_e32b1_row21_col1, #T_e32b1_row21_col2, #T_e32b1_row21_col3, #T_e32b1_row21_col4, #T_e32b1_row22_col0, #T_e32b1_row22_col1, #T_e32b1_row22_col2, #T_e32b1_row22_col3, #T_e32b1_row22_col4, #T_e32b1_row23_col0, #T_e32b1_row23_col1, #T_e32b1_row23_col2, #T_e32b1_row23_col3, #T_e32b1_row23_col4, #T_e32b1_row24_col0, #T_e32b1_row24_col1, #T_e32b1_row24_col2, #T_e32b1_row24_col3, #T_e32b1_row24_col4, #T_e32b1_row25_col0, #T_e32b1_row25_col1, #T_e32b1_row25_col2, #T_e32b1_row25_col3, #T_e32b1_row25_col4, #T_e32b1_row27_col0, #T_e32b1_row27_col1, #T_e32b1_row27_col2, #T_e32b1_row27_col3, #T_e32b1_row27_col4, #T_e32b1_row28_col0, #T_e32b1_row28_col1, #T_e32b1_row28_col2, #T_e32b1_row28_col3, #T_e32b1_row28_col4, #T_e32b1_row29_col0, #T_e32b1_row29_col1, #T_e32b1_row29_col2, #T_e32b1_row29_col3, #T_e32b1_row29_col4, #T_e32b1_row30_col0, #T_e32b1_row30_col1, #T_e32b1_row30_col2, #T_e32b1_row30_col3, #T_e32b1_row30_col4, #T_e32b1_row31_col0, #T_e32b1_row31_col1, #T_e32b1_row31_col2, #T_e32b1_row31_col3, #T_e32b1_row31_col4 {
   background-color: lightgrey;
 }
-#T_2ec71_row9_col0, #T_2ec71_row9_col1, #T_2ec71_row9_col2, #T_2ec71_row9_col3, #T_2ec71_row9_col4, #T_2ec71_row16_col0, #T_2ec71_row16_col1, #T_2ec71_row16_col2, #T_2ec71_row16_col3, #T_2ec71_row16_col4, #T_2ec71_row17_col0, #T_2ec71_row17_col1, #T_2ec71_row17_col2, #T_2ec71_row17_col3, #T_2ec71_row17_col4, #T_2ec71_row26_col0, #T_2ec71_row26_col1, #T_2ec71_row26_col2, #T_2ec71_row26_col3, #T_2ec71_row26_col4 {
+#T_e32b1_row9_col0, #T_e32b1_row9_col1, #T_e32b1_row9_col2, #T_e32b1_row9_col3, #T_e32b1_row9_col4, #T_e32b1_row16_col0, #T_e32b1_row16_col1, #T_e32b1_row16_col2, #T_e32b1_row16_col3, #T_e32b1_row16_col4, #T_e32b1_row17_col0, #T_e32b1_row17_col1, #T_e32b1_row17_col2, #T_e32b1_row17_col3, #T_e32b1_row17_col4, #T_e32b1_row26_col0, #T_e32b1_row26_col1, #T_e32b1_row26_col2, #T_e32b1_row26_col3, #T_e32b1_row26_col4 {
   background-color: yellow;
 }
 </style>
-<table id="T_2ec71">
+<table id="T_e32b1">
   <thead>
     <tr>
       <th class="blank" >&nbsp;</th>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_2ec71_level0_col0" class="col_heading level0 col0" >allowed</th>
-      <th id="T_2ec71_level0_col1" class="col_heading level0 col1" >m</th>
-      <th id="T_2ec71_level0_col2" class="col_heading level0 col2" >pol</th>
-      <th id="T_2ec71_level0_col3" class="col_heading level0 col3" >result</th>
-      <th id="T_2ec71_level0_col4" class="col_heading level0 col4" >terms</th>
+      <th id="T_e32b1_level0_col0" class="col_heading level0 col0" >allowed</th>
+      <th id="T_e32b1_level0_col1" class="col_heading level0 col1" >m</th>
+      <th id="T_e32b1_level0_col2" class="col_heading level0 col2" >pol</th>
+      <th id="T_e32b1_level0_col3" class="col_heading level0 col3" >result</th>
+      <th id="T_e32b1_level0_col4" class="col_heading level0 col4" >terms</th>
     </tr>
     <tr>
       <th class="index_name level0" >Dipole</th>
@@ -3798,262 +3798,262 @@ Found dipole symmetries:
   </thead>
   <tbody>
     <tr>
-      <th id="T_2ec71_level0_row0" class="row_heading level0 row0" rowspan="16">A2u</th>
-      <th id="T_2ec71_level1_row0" class="row_heading level1 row0" >A1g</th>
-      <td id="T_2ec71_row0_col0" class="data row0 col0" >False</td>
-      <td id="T_2ec71_row0_col1" class="data row0 col1" >[0]</td>
-      <td id="T_2ec71_row0_col2" class="data row0 col2" >['z']</td>
-      <td id="T_2ec71_row0_col3" class="data row0 col3" >['E1g']</td>
-      <td id="T_2ec71_row0_col4" class="data row0 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level0_row0" class="row_heading level0 row0" rowspan="16">A2u</th>
+      <th id="T_e32b1_level1_row0" class="row_heading level1 row0" >A1g</th>
+      <td id="T_e32b1_row0_col0" class="data row0 col0" >False</td>
+      <td id="T_e32b1_row0_col1" class="data row0 col1" >[0]</td>
+      <td id="T_e32b1_row0_col2" class="data row0 col2" >['z']</td>
+      <td id="T_e32b1_row0_col3" class="data row0 col3" >['E1g']</td>
+      <td id="T_e32b1_row0_col4" class="data row0 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row1" class="row_heading level1 row1" >A2g</th>
-      <td id="T_2ec71_row1_col0" class="data row1 col0" >False</td>
-      <td id="T_2ec71_row1_col1" class="data row1 col1" >[0]</td>
-      <td id="T_2ec71_row1_col2" class="data row1 col2" >['z']</td>
-      <td id="T_2ec71_row1_col3" class="data row1 col3" >['E1g']</td>
-      <td id="T_2ec71_row1_col4" class="data row1 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row1" class="row_heading level1 row1" >A2g</th>
+      <td id="T_e32b1_row1_col0" class="data row1 col0" >False</td>
+      <td id="T_e32b1_row1_col1" class="data row1 col1" >[0]</td>
+      <td id="T_e32b1_row1_col2" class="data row1 col2" >['z']</td>
+      <td id="T_e32b1_row1_col3" class="data row1 col3" >['E1g']</td>
+      <td id="T_e32b1_row1_col4" class="data row1 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row2" class="row_heading level1 row2" >A1u</th>
-      <td id="T_2ec71_row2_col0" class="data row2 col0" >False</td>
-      <td id="T_2ec71_row2_col1" class="data row2 col1" >[0]</td>
-      <td id="T_2ec71_row2_col2" class="data row2 col2" >['z']</td>
-      <td id="T_2ec71_row2_col3" class="data row2 col3" >['E1u']</td>
-      <td id="T_2ec71_row2_col4" class="data row2 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row2" class="row_heading level1 row2" >A1u</th>
+      <td id="T_e32b1_row2_col0" class="data row2 col0" >False</td>
+      <td id="T_e32b1_row2_col1" class="data row2 col1" >[0]</td>
+      <td id="T_e32b1_row2_col2" class="data row2 col2" >['z']</td>
+      <td id="T_e32b1_row2_col3" class="data row2 col3" >['E1u']</td>
+      <td id="T_e32b1_row2_col4" class="data row2 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row3" class="row_heading level1 row3" >A2u</th>
-      <td id="T_2ec71_row3_col0" class="data row3 col0" >False</td>
-      <td id="T_2ec71_row3_col1" class="data row3 col1" >[0]</td>
-      <td id="T_2ec71_row3_col2" class="data row3 col2" >['z']</td>
-      <td id="T_2ec71_row3_col3" class="data row3 col3" >['E1u']</td>
-      <td id="T_2ec71_row3_col4" class="data row3 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row3" class="row_heading level1 row3" >A2u</th>
+      <td id="T_e32b1_row3_col0" class="data row3 col0" >False</td>
+      <td id="T_e32b1_row3_col1" class="data row3 col1" >[0]</td>
+      <td id="T_e32b1_row3_col2" class="data row3 col2" >['z']</td>
+      <td id="T_e32b1_row3_col3" class="data row3 col3" >['E1u']</td>
+      <td id="T_e32b1_row3_col4" class="data row3 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row4" class="row_heading level1 row4" >B1g</th>
-      <td id="T_2ec71_row4_col0" class="data row4 col0" >False</td>
-      <td id="T_2ec71_row4_col1" class="data row4 col1" >[0]</td>
-      <td id="T_2ec71_row4_col2" class="data row4 col2" >['z']</td>
-      <td id="T_2ec71_row4_col3" class="data row4 col3" >['E4g']</td>
-      <td id="T_2ec71_row4_col4" class="data row4 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row4" class="row_heading level1 row4" >B1g</th>
+      <td id="T_e32b1_row4_col0" class="data row4 col0" >False</td>
+      <td id="T_e32b1_row4_col1" class="data row4 col1" >[0]</td>
+      <td id="T_e32b1_row4_col2" class="data row4 col2" >['z']</td>
+      <td id="T_e32b1_row4_col3" class="data row4 col3" >['E4g']</td>
+      <td id="T_e32b1_row4_col4" class="data row4 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row5" class="row_heading level1 row5" >B1u</th>
-      <td id="T_2ec71_row5_col0" class="data row5 col0" >False</td>
-      <td id="T_2ec71_row5_col1" class="data row5 col1" >[0]</td>
-      <td id="T_2ec71_row5_col2" class="data row5 col2" >['z']</td>
-      <td id="T_2ec71_row5_col3" class="data row5 col3" >['E4u']</td>
-      <td id="T_2ec71_row5_col4" class="data row5 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row5" class="row_heading level1 row5" >B1u</th>
+      <td id="T_e32b1_row5_col0" class="data row5 col0" >False</td>
+      <td id="T_e32b1_row5_col1" class="data row5 col1" >[0]</td>
+      <td id="T_e32b1_row5_col2" class="data row5 col2" >['z']</td>
+      <td id="T_e32b1_row5_col3" class="data row5 col3" >['E4u']</td>
+      <td id="T_e32b1_row5_col4" class="data row5 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row6" class="row_heading level1 row6" >B2g</th>
-      <td id="T_2ec71_row6_col0" class="data row6 col0" >False</td>
-      <td id="T_2ec71_row6_col1" class="data row6 col1" >[0]</td>
-      <td id="T_2ec71_row6_col2" class="data row6 col2" >['z']</td>
-      <td id="T_2ec71_row6_col3" class="data row6 col3" >['E4g']</td>
-      <td id="T_2ec71_row6_col4" class="data row6 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row6" class="row_heading level1 row6" >B2g</th>
+      <td id="T_e32b1_row6_col0" class="data row6 col0" >False</td>
+      <td id="T_e32b1_row6_col1" class="data row6 col1" >[0]</td>
+      <td id="T_e32b1_row6_col2" class="data row6 col2" >['z']</td>
+      <td id="T_e32b1_row6_col3" class="data row6 col3" >['E4g']</td>
+      <td id="T_e32b1_row6_col4" class="data row6 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row7" class="row_heading level1 row7" >B2u</th>
-      <td id="T_2ec71_row7_col0" class="data row7 col0" >False</td>
-      <td id="T_2ec71_row7_col1" class="data row7 col1" >[0]</td>
-      <td id="T_2ec71_row7_col2" class="data row7 col2" >['z']</td>
-      <td id="T_2ec71_row7_col3" class="data row7 col3" >['E4u']</td>
-      <td id="T_2ec71_row7_col4" class="data row7 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row7" class="row_heading level1 row7" >B2u</th>
+      <td id="T_e32b1_row7_col0" class="data row7 col0" >False</td>
+      <td id="T_e32b1_row7_col1" class="data row7 col1" >[0]</td>
+      <td id="T_e32b1_row7_col2" class="data row7 col2" >['z']</td>
+      <td id="T_e32b1_row7_col3" class="data row7 col3" >['E4u']</td>
+      <td id="T_e32b1_row7_col4" class="data row7 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row8" class="row_heading level1 row8" >E1u</th>
-      <td id="T_2ec71_row8_col0" class="data row8 col0" >False</td>
-      <td id="T_2ec71_row8_col1" class="data row8 col1" >[0]</td>
-      <td id="T_2ec71_row8_col2" class="data row8 col2" >['z']</td>
-      <td id="T_2ec71_row8_col3" class="data row8 col3" >['A1u', 'A2u', 'E2u']</td>
-      <td id="T_2ec71_row8_col4" class="data row8 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row8" class="row_heading level1 row8" >E1u</th>
+      <td id="T_e32b1_row8_col0" class="data row8 col0" >False</td>
+      <td id="T_e32b1_row8_col1" class="data row8 col1" >[0]</td>
+      <td id="T_e32b1_row8_col2" class="data row8 col2" >['z']</td>
+      <td id="T_e32b1_row8_col3" class="data row8 col3" >['A1u', 'A2u', 'E2u']</td>
+      <td id="T_e32b1_row8_col4" class="data row8 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row9" class="row_heading level1 row9" >E1g</th>
-      <td id="T_2ec71_row9_col0" class="data row9 col0" >True</td>
-      <td id="T_2ec71_row9_col1" class="data row9 col1" >[0]</td>
-      <td id="T_2ec71_row9_col2" class="data row9 col2" >['z']</td>
-      <td id="T_2ec71_row9_col3" class="data row9 col3" >['A1g', 'A2g', 'E2g']</td>
-      <td id="T_2ec71_row9_col4" class="data row9 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row9" class="row_heading level1 row9" >E1g</th>
+      <td id="T_e32b1_row9_col0" class="data row9 col0" >True</td>
+      <td id="T_e32b1_row9_col1" class="data row9 col1" >[0]</td>
+      <td id="T_e32b1_row9_col2" class="data row9 col2" >['z']</td>
+      <td id="T_e32b1_row9_col3" class="data row9 col3" >['A1g', 'A2g', 'E2g']</td>
+      <td id="T_e32b1_row9_col4" class="data row9 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row10" class="row_heading level1 row10" >E2g</th>
-      <td id="T_2ec71_row10_col0" class="data row10 col0" >False</td>
-      <td id="T_2ec71_row10_col1" class="data row10 col1" >[0]</td>
-      <td id="T_2ec71_row10_col2" class="data row10 col2" >['z']</td>
-      <td id="T_2ec71_row10_col3" class="data row10 col3" >['E1g', 'E3g']</td>
-      <td id="T_2ec71_row10_col4" class="data row10 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row10" class="row_heading level1 row10" >E2g</th>
+      <td id="T_e32b1_row10_col0" class="data row10 col0" >False</td>
+      <td id="T_e32b1_row10_col1" class="data row10 col1" >[0]</td>
+      <td id="T_e32b1_row10_col2" class="data row10 col2" >['z']</td>
+      <td id="T_e32b1_row10_col3" class="data row10 col3" >['E1g', 'E3g']</td>
+      <td id="T_e32b1_row10_col4" class="data row10 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row11" class="row_heading level1 row11" >E2u</th>
-      <td id="T_2ec71_row11_col0" class="data row11 col0" >False</td>
-      <td id="T_2ec71_row11_col1" class="data row11 col1" >[0]</td>
-      <td id="T_2ec71_row11_col2" class="data row11 col2" >['z']</td>
-      <td id="T_2ec71_row11_col3" class="data row11 col3" >['E1u', 'E3u']</td>
-      <td id="T_2ec71_row11_col4" class="data row11 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row11" class="row_heading level1 row11" >E2u</th>
+      <td id="T_e32b1_row11_col0" class="data row11 col0" >False</td>
+      <td id="T_e32b1_row11_col1" class="data row11 col1" >[0]</td>
+      <td id="T_e32b1_row11_col2" class="data row11 col2" >['z']</td>
+      <td id="T_e32b1_row11_col3" class="data row11 col3" >['E1u', 'E3u']</td>
+      <td id="T_e32b1_row11_col4" class="data row11 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row12" class="row_heading level1 row12" >E3u</th>
-      <td id="T_2ec71_row12_col0" class="data row12 col0" >False</td>
-      <td id="T_2ec71_row12_col1" class="data row12 col1" >[0]</td>
-      <td id="T_2ec71_row12_col2" class="data row12 col2" >['z']</td>
-      <td id="T_2ec71_row12_col3" class="data row12 col3" >['E2u', 'E4u']</td>
-      <td id="T_2ec71_row12_col4" class="data row12 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row12" class="row_heading level1 row12" >E3u</th>
+      <td id="T_e32b1_row12_col0" class="data row12 col0" >False</td>
+      <td id="T_e32b1_row12_col1" class="data row12 col1" >[0]</td>
+      <td id="T_e32b1_row12_col2" class="data row12 col2" >['z']</td>
+      <td id="T_e32b1_row12_col3" class="data row12 col3" >['E2u', 'E4u']</td>
+      <td id="T_e32b1_row12_col4" class="data row12 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row13" class="row_heading level1 row13" >E3g</th>
-      <td id="T_2ec71_row13_col0" class="data row13 col0" >False</td>
-      <td id="T_2ec71_row13_col1" class="data row13 col1" >[0]</td>
-      <td id="T_2ec71_row13_col2" class="data row13 col2" >['z']</td>
-      <td id="T_2ec71_row13_col3" class="data row13 col3" >['E2g', 'E4g']</td>
-      <td id="T_2ec71_row13_col4" class="data row13 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row13" class="row_heading level1 row13" >E3g</th>
+      <td id="T_e32b1_row13_col0" class="data row13 col0" >False</td>
+      <td id="T_e32b1_row13_col1" class="data row13 col1" >[0]</td>
+      <td id="T_e32b1_row13_col2" class="data row13 col2" >['z']</td>
+      <td id="T_e32b1_row13_col3" class="data row13 col3" >['E2g', 'E4g']</td>
+      <td id="T_e32b1_row13_col4" class="data row13 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row14" class="row_heading level1 row14" >E4g</th>
-      <td id="T_2ec71_row14_col0" class="data row14 col0" >False</td>
-      <td id="T_2ec71_row14_col1" class="data row14 col1" >[0]</td>
-      <td id="T_2ec71_row14_col2" class="data row14 col2" >['z']</td>
-      <td id="T_2ec71_row14_col3" class="data row14 col3" >['B1g', 'B2g', 'E3g']</td>
-      <td id="T_2ec71_row14_col4" class="data row14 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row14" class="row_heading level1 row14" >E4g</th>
+      <td id="T_e32b1_row14_col0" class="data row14 col0" >False</td>
+      <td id="T_e32b1_row14_col1" class="data row14 col1" >[0]</td>
+      <td id="T_e32b1_row14_col2" class="data row14 col2" >['z']</td>
+      <td id="T_e32b1_row14_col3" class="data row14 col3" >['B1g', 'B2g', 'E3g']</td>
+      <td id="T_e32b1_row14_col4" class="data row14 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row15" class="row_heading level1 row15" >E4u</th>
-      <td id="T_2ec71_row15_col0" class="data row15 col0" >False</td>
-      <td id="T_2ec71_row15_col1" class="data row15 col1" >[0]</td>
-      <td id="T_2ec71_row15_col2" class="data row15 col2" >['z']</td>
-      <td id="T_2ec71_row15_col3" class="data row15 col3" >['B1u', 'B2u', 'E3u']</td>
-      <td id="T_2ec71_row15_col4" class="data row15 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row15" class="row_heading level1 row15" >E4u</th>
+      <td id="T_e32b1_row15_col0" class="data row15 col0" >False</td>
+      <td id="T_e32b1_row15_col1" class="data row15 col1" >[0]</td>
+      <td id="T_e32b1_row15_col2" class="data row15 col2" >['z']</td>
+      <td id="T_e32b1_row15_col3" class="data row15 col3" >['B1u', 'B2u', 'E3u']</td>
+      <td id="T_e32b1_row15_col4" class="data row15 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level0_row16" class="row_heading level0 row16" rowspan="16">E1u</th>
-      <th id="T_2ec71_level1_row16" class="row_heading level1 row16" >A1g</th>
-      <td id="T_2ec71_row16_col0" class="data row16 col0" >True</td>
-      <td id="T_2ec71_row16_col1" class="data row16 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_2ec71_row16_col2" class="data row16 col2" >['x', 'y']</td>
-      <td id="T_2ec71_row16_col3" class="data row16 col3" >['A1g', 'A2g', 'E2g']</td>
-      <td id="T_2ec71_row16_col4" class="data row16 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level0_row16" class="row_heading level0 row16" rowspan="16">E1u</th>
+      <th id="T_e32b1_level1_row16" class="row_heading level1 row16" >A1g</th>
+      <td id="T_e32b1_row16_col0" class="data row16 col0" >True</td>
+      <td id="T_e32b1_row16_col1" class="data row16 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_e32b1_row16_col2" class="data row16 col2" >['x', 'y']</td>
+      <td id="T_e32b1_row16_col3" class="data row16 col3" >['A1g', 'A2g', 'E2g']</td>
+      <td id="T_e32b1_row16_col4" class="data row16 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row17" class="row_heading level1 row17" >A2g</th>
-      <td id="T_2ec71_row17_col0" class="data row17 col0" >True</td>
-      <td id="T_2ec71_row17_col1" class="data row17 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_2ec71_row17_col2" class="data row17 col2" >['x', 'y']</td>
-      <td id="T_2ec71_row17_col3" class="data row17 col3" >['A1g', 'A2g', 'E2g']</td>
-      <td id="T_2ec71_row17_col4" class="data row17 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row17" class="row_heading level1 row17" >A2g</th>
+      <td id="T_e32b1_row17_col0" class="data row17 col0" >True</td>
+      <td id="T_e32b1_row17_col1" class="data row17 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_e32b1_row17_col2" class="data row17 col2" >['x', 'y']</td>
+      <td id="T_e32b1_row17_col3" class="data row17 col3" >['A1g', 'A2g', 'E2g']</td>
+      <td id="T_e32b1_row17_col4" class="data row17 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row18" class="row_heading level1 row18" >A1u</th>
-      <td id="T_2ec71_row18_col0" class="data row18 col0" >False</td>
-      <td id="T_2ec71_row18_col1" class="data row18 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_2ec71_row18_col2" class="data row18 col2" >['x', 'y']</td>
-      <td id="T_2ec71_row18_col3" class="data row18 col3" >['A1u', 'A2u', 'E2u']</td>
-      <td id="T_2ec71_row18_col4" class="data row18 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row18" class="row_heading level1 row18" >A1u</th>
+      <td id="T_e32b1_row18_col0" class="data row18 col0" >False</td>
+      <td id="T_e32b1_row18_col1" class="data row18 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_e32b1_row18_col2" class="data row18 col2" >['x', 'y']</td>
+      <td id="T_e32b1_row18_col3" class="data row18 col3" >['A1u', 'A2u', 'E2u']</td>
+      <td id="T_e32b1_row18_col4" class="data row18 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row19" class="row_heading level1 row19" >A2u</th>
-      <td id="T_2ec71_row19_col0" class="data row19 col0" >False</td>
-      <td id="T_2ec71_row19_col1" class="data row19 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_2ec71_row19_col2" class="data row19 col2" >['x', 'y']</td>
-      <td id="T_2ec71_row19_col3" class="data row19 col3" >['A1u', 'A2u', 'E2u']</td>
-      <td id="T_2ec71_row19_col4" class="data row19 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row19" class="row_heading level1 row19" >A2u</th>
+      <td id="T_e32b1_row19_col0" class="data row19 col0" >False</td>
+      <td id="T_e32b1_row19_col1" class="data row19 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_e32b1_row19_col2" class="data row19 col2" >['x', 'y']</td>
+      <td id="T_e32b1_row19_col3" class="data row19 col3" >['A1u', 'A2u', 'E2u']</td>
+      <td id="T_e32b1_row19_col4" class="data row19 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row20" class="row_heading level1 row20" >B1g</th>
-      <td id="T_2ec71_row20_col0" class="data row20 col0" >False</td>
-      <td id="T_2ec71_row20_col1" class="data row20 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_2ec71_row20_col2" class="data row20 col2" >['x', 'y']</td>
-      <td id="T_2ec71_row20_col3" class="data row20 col3" >['B1g', 'B2g', 'E3g']</td>
-      <td id="T_2ec71_row20_col4" class="data row20 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row20" class="row_heading level1 row20" >B1g</th>
+      <td id="T_e32b1_row20_col0" class="data row20 col0" >False</td>
+      <td id="T_e32b1_row20_col1" class="data row20 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_e32b1_row20_col2" class="data row20 col2" >['x', 'y']</td>
+      <td id="T_e32b1_row20_col3" class="data row20 col3" >['B1g', 'B2g', 'E3g']</td>
+      <td id="T_e32b1_row20_col4" class="data row20 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row21" class="row_heading level1 row21" >B1u</th>
-      <td id="T_2ec71_row21_col0" class="data row21 col0" >False</td>
-      <td id="T_2ec71_row21_col1" class="data row21 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_2ec71_row21_col2" class="data row21 col2" >['x', 'y']</td>
-      <td id="T_2ec71_row21_col3" class="data row21 col3" >['B1u', 'B2u', 'E3u']</td>
-      <td id="T_2ec71_row21_col4" class="data row21 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row21" class="row_heading level1 row21" >B1u</th>
+      <td id="T_e32b1_row21_col0" class="data row21 col0" >False</td>
+      <td id="T_e32b1_row21_col1" class="data row21 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_e32b1_row21_col2" class="data row21 col2" >['x', 'y']</td>
+      <td id="T_e32b1_row21_col3" class="data row21 col3" >['B1u', 'B2u', 'E3u']</td>
+      <td id="T_e32b1_row21_col4" class="data row21 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row22" class="row_heading level1 row22" >B2g</th>
-      <td id="T_2ec71_row22_col0" class="data row22 col0" >False</td>
-      <td id="T_2ec71_row22_col1" class="data row22 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_2ec71_row22_col2" class="data row22 col2" >['x', 'y']</td>
-      <td id="T_2ec71_row22_col3" class="data row22 col3" >['B1g', 'B2g', 'E3g']</td>
-      <td id="T_2ec71_row22_col4" class="data row22 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row22" class="row_heading level1 row22" >B2g</th>
+      <td id="T_e32b1_row22_col0" class="data row22 col0" >False</td>
+      <td id="T_e32b1_row22_col1" class="data row22 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_e32b1_row22_col2" class="data row22 col2" >['x', 'y']</td>
+      <td id="T_e32b1_row22_col3" class="data row22 col3" >['B1g', 'B2g', 'E3g']</td>
+      <td id="T_e32b1_row22_col4" class="data row22 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row23" class="row_heading level1 row23" >B2u</th>
-      <td id="T_2ec71_row23_col0" class="data row23 col0" >False</td>
-      <td id="T_2ec71_row23_col1" class="data row23 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_2ec71_row23_col2" class="data row23 col2" >['x', 'y']</td>
-      <td id="T_2ec71_row23_col3" class="data row23 col3" >['B1u', 'B2u', 'E3u']</td>
-      <td id="T_2ec71_row23_col4" class="data row23 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row23" class="row_heading level1 row23" >B2u</th>
+      <td id="T_e32b1_row23_col0" class="data row23 col0" >False</td>
+      <td id="T_e32b1_row23_col1" class="data row23 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_e32b1_row23_col2" class="data row23 col2" >['x', 'y']</td>
+      <td id="T_e32b1_row23_col3" class="data row23 col3" >['B1u', 'B2u', 'E3u']</td>
+      <td id="T_e32b1_row23_col4" class="data row23 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row24" class="row_heading level1 row24" >E1u</th>
-      <td id="T_2ec71_row24_col0" class="data row24 col0" >False</td>
-      <td id="T_2ec71_row24_col1" class="data row24 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_2ec71_row24_col2" class="data row24 col2" >['x', 'y']</td>
-      <td id="T_2ec71_row24_col3" class="data row24 col3" >['E1u', 'E3u']</td>
-      <td id="T_2ec71_row24_col4" class="data row24 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row24" class="row_heading level1 row24" >E1u</th>
+      <td id="T_e32b1_row24_col0" class="data row24 col0" >False</td>
+      <td id="T_e32b1_row24_col1" class="data row24 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_e32b1_row24_col2" class="data row24 col2" >['x', 'y']</td>
+      <td id="T_e32b1_row24_col3" class="data row24 col3" >['E1u', 'E3u']</td>
+      <td id="T_e32b1_row24_col4" class="data row24 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row25" class="row_heading level1 row25" >E1g</th>
-      <td id="T_2ec71_row25_col0" class="data row25 col0" >False</td>
-      <td id="T_2ec71_row25_col1" class="data row25 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_2ec71_row25_col2" class="data row25 col2" >['x', 'y']</td>
-      <td id="T_2ec71_row25_col3" class="data row25 col3" >['E1g', 'E3g']</td>
-      <td id="T_2ec71_row25_col4" class="data row25 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row25" class="row_heading level1 row25" >E1g</th>
+      <td id="T_e32b1_row25_col0" class="data row25 col0" >False</td>
+      <td id="T_e32b1_row25_col1" class="data row25 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_e32b1_row25_col2" class="data row25 col2" >['x', 'y']</td>
+      <td id="T_e32b1_row25_col3" class="data row25 col3" >['E1g', 'E3g']</td>
+      <td id="T_e32b1_row25_col4" class="data row25 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row26" class="row_heading level1 row26" >E2g</th>
-      <td id="T_2ec71_row26_col0" class="data row26 col0" >True</td>
-      <td id="T_2ec71_row26_col1" class="data row26 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_2ec71_row26_col2" class="data row26 col2" >['x', 'y']</td>
-      <td id="T_2ec71_row26_col3" class="data row26 col3" >['A1g', 'A2g', 'E2g', 'E4g']</td>
-      <td id="T_2ec71_row26_col4" class="data row26 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row26" class="row_heading level1 row26" >E2g</th>
+      <td id="T_e32b1_row26_col0" class="data row26 col0" >True</td>
+      <td id="T_e32b1_row26_col1" class="data row26 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_e32b1_row26_col2" class="data row26 col2" >['x', 'y']</td>
+      <td id="T_e32b1_row26_col3" class="data row26 col3" >['A1g', 'A2g', 'E2g', 'E4g']</td>
+      <td id="T_e32b1_row26_col4" class="data row26 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row27" class="row_heading level1 row27" >E2u</th>
-      <td id="T_2ec71_row27_col0" class="data row27 col0" >False</td>
-      <td id="T_2ec71_row27_col1" class="data row27 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_2ec71_row27_col2" class="data row27 col2" >['x', 'y']</td>
-      <td id="T_2ec71_row27_col3" class="data row27 col3" >['A1u', 'A2u', 'E2u', 'E4u']</td>
-      <td id="T_2ec71_row27_col4" class="data row27 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row27" class="row_heading level1 row27" >E2u</th>
+      <td id="T_e32b1_row27_col0" class="data row27 col0" >False</td>
+      <td id="T_e32b1_row27_col1" class="data row27 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_e32b1_row27_col2" class="data row27 col2" >['x', 'y']</td>
+      <td id="T_e32b1_row27_col3" class="data row27 col3" >['A1u', 'A2u', 'E2u', 'E4u']</td>
+      <td id="T_e32b1_row27_col4" class="data row27 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row28" class="row_heading level1 row28" >E3u</th>
-      <td id="T_2ec71_row28_col0" class="data row28 col0" >False</td>
-      <td id="T_2ec71_row28_col1" class="data row28 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_2ec71_row28_col2" class="data row28 col2" >['x', 'y']</td>
-      <td id="T_2ec71_row28_col3" class="data row28 col3" >['B1u', 'B2u', 'E1u', 'E3u']</td>
-      <td id="T_2ec71_row28_col4" class="data row28 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row28" class="row_heading level1 row28" >E3u</th>
+      <td id="T_e32b1_row28_col0" class="data row28 col0" >False</td>
+      <td id="T_e32b1_row28_col1" class="data row28 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_e32b1_row28_col2" class="data row28 col2" >['x', 'y']</td>
+      <td id="T_e32b1_row28_col3" class="data row28 col3" >['B1u', 'B2u', 'E1u', 'E3u']</td>
+      <td id="T_e32b1_row28_col4" class="data row28 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row29" class="row_heading level1 row29" >E3g</th>
-      <td id="T_2ec71_row29_col0" class="data row29 col0" >False</td>
-      <td id="T_2ec71_row29_col1" class="data row29 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_2ec71_row29_col2" class="data row29 col2" >['x', 'y']</td>
-      <td id="T_2ec71_row29_col3" class="data row29 col3" >['B1g', 'B2g', 'E1g', 'E3g']</td>
-      <td id="T_2ec71_row29_col4" class="data row29 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row29" class="row_heading level1 row29" >E3g</th>
+      <td id="T_e32b1_row29_col0" class="data row29 col0" >False</td>
+      <td id="T_e32b1_row29_col1" class="data row29 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_e32b1_row29_col2" class="data row29 col2" >['x', 'y']</td>
+      <td id="T_e32b1_row29_col3" class="data row29 col3" >['B1g', 'B2g', 'E1g', 'E3g']</td>
+      <td id="T_e32b1_row29_col4" class="data row29 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row30" class="row_heading level1 row30" >E4g</th>
-      <td id="T_2ec71_row30_col0" class="data row30 col0" >False</td>
-      <td id="T_2ec71_row30_col1" class="data row30 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_2ec71_row30_col2" class="data row30 col2" >['x', 'y']</td>
-      <td id="T_2ec71_row30_col3" class="data row30 col3" >['E2g', 'E4g']</td>
-      <td id="T_2ec71_row30_col4" class="data row30 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row30" class="row_heading level1 row30" >E4g</th>
+      <td id="T_e32b1_row30_col0" class="data row30 col0" >False</td>
+      <td id="T_e32b1_row30_col1" class="data row30 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_e32b1_row30_col2" class="data row30 col2" >['x', 'y']</td>
+      <td id="T_e32b1_row30_col3" class="data row30 col3" >['E2g', 'E4g']</td>
+      <td id="T_e32b1_row30_col4" class="data row30 col4" >['A1g', 'E1u']</td>
     </tr>
     <tr>
-      <th id="T_2ec71_level1_row31" class="row_heading level1 row31" >E4u</th>
-      <td id="T_2ec71_row31_col0" class="data row31 col0" >False</td>
-      <td id="T_2ec71_row31_col1" class="data row31 col1" >[-1, 1, -1, 1]</td>
-      <td id="T_2ec71_row31_col2" class="data row31 col2" >['x', 'y']</td>
-      <td id="T_2ec71_row31_col3" class="data row31 col3" >['E2u', 'E4u']</td>
-      <td id="T_2ec71_row31_col4" class="data row31 col4" >['A1g', 'E1u']</td>
+      <th id="T_e32b1_level1_row31" class="row_heading level1 row31" >E4u</th>
+      <td id="T_e32b1_row31_col0" class="data row31 col0" >False</td>
+      <td id="T_e32b1_row31_col1" class="data row31 col1" >[-1, 1, -1, 1]</td>
+      <td id="T_e32b1_row31_col2" class="data row31 col2" >['x', 'y']</td>
+      <td id="T_e32b1_row31_col3" class="data row31 col3" >['E2u', 'E4u']</td>
+      <td id="T_e32b1_row31_col4" class="data row31 col4" >['A1g', 'E1u']</td>
     </tr>
   </tbody>
 </table>
@@ -4619,15 +4619,15 @@ Found dipole symmetries:
 </section>
 <section id="mapping-symmetrized-harmonics-to-fit-parameters">
 <span id="sec-basis-sets-mapping-params"></span><h3><span class="section-number">6.3.4. </span>Mapping symmetrized harmonics to fit parameters<a class="headerlink" href="#mapping-symmetrized-harmonics-to-fit-parameters" title="Permalink to this heading">#</a></h3>
-<p>The final preparatory steps for tackling a specific retrieval problem is to map the allowed channels to photoionization matrix elements - including the assignment of any missing terms - and from these to fitting paramters. The matrix elements are currently defined in the <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id6">[<a class="reference internal" href="../backmatter/bibliography.html#id681" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">5</a>]</span> and the <a class="reference external" href="https://epsproc.readthedocs.io">ePSproc codebase</a> <span id="id7">[<a class="reference internal" href="../backmatter/bibliography.html#id665" title="Paul Hockett. ePSproc: Post-processing suite for ePolyScat electron-molecule scattering calculations. Authorea, 2016. URL: https://www.authorea.com/users/71114/articles/122402/_show_article.">33</a>, <a class="reference internal" href="../backmatter/bibliography.html#id607" title="Paul Hockett. ePSproc: Post-processing for ePolyScat (Github repository). Github, 2016. URL: https://github.com/phockett/ePSproc.">34</a>, <a class="reference internal" href="../backmatter/bibliography.html#id605" title="Paul Hockett. ePSproc: Post-processing for ePolyScat documentation. 2020. URL: https://epsproc.readthedocs.io (visited on 2022-02-18).">35</a>]</span> following the definitions in <a class="reference external" href="https://epolyscat.droppages.com/">ePolyScat (ePS)</a> <span id="id8">[<a class="reference internal" href="../backmatter/bibliography.html#id763" title="Robert R. Lucchese, Kazuo Takatsuka, and Vincent McKoy. Applications of the Schwinger variational principle to electron-molecule collisions and molecular photoionization. Physics Reports, 131(3):147–221, January 1986. URL: http://www.sciencedirect.com/science/article/pii/037015738690147X (visited on 2012-07-18).">36</a>, <a class="reference internal" href="../backmatter/bibliography.html#id627" title="F. A. Gianturco, R. R. Lucchese, and N. Sanna. Calculation of low-energy elastic cross sections for electron-CF4 scattering. The Journal of Chemical Physics, 100(9):6464, May 1994. URL: http://scitation.aip.org/content/aip/journal/jcp/100/9/10.1063/1.467237 (visited on 2015-08-13).">37</a>, <a class="reference internal" href="../backmatter/bibliography.html#id804" title="Alexandra P P Natalense and Robert R Lucchese. Cross section and asymmetry parameter calculation for sulfur 1s photoionization of SF[sub 6]. The Journal of Chemical Physics, 111(12):5344, 1999. URL: http://link.aip.org/link/JCPSA6/v111/i12/p5344/s1&amp;Agg=doi (visited on 2012-07-18).">38</a>, <a class="reference internal" href="../backmatter/bibliography.html#id766" title="R R Lucchese. ePolyScat User's Manual. URL: https://epolyscat.droppages.com/ (visited on 2022-04-26).">39</a>]</span>, and the symmetry-defined cases can be remapped to this format. (Further information can be found in the <a class="reference external" href="https://pemtk.readthedocs.io">PEMtk documentation</a> <span id="id9">[<a class="reference internal" href="../backmatter/bibliography.html#id680" title="Paul Hockett. PEMtk - the Photoelectron Metrology Toolkit - documentation. 2021. URL: https://pemtk.readthedocs.io (visited on 2022-02-18).">20</a>]</span>.) For a comparison with <em>ab initio</em> matrix elements, see <a class="reference internal" href="#sec-basis-sets-comparison-with-abinitio"><span class="std std-numref">Sect. 6.4</span></a>.</p>
+<p>The final preparatory steps for tackling a specific retrieval problem is to map the allowed channels to photoionization matrix elements - including the assignment of any missing terms - and from these to fitting paramters. The matrix elements are currently defined in the <a class="reference external" href="https://github.com/phockett/PEMtk">Photoelectron Metrology Toolkit</a> <span id="id6">[<a class="reference internal" href="../backmatter/bibliography.html#id682" title="Paul Hockett. Photoelectron Metrology Toolkit (PEMtk) Github repository. 2021. URL: https://github.com/phockett/PEMtk (visited on 2022-02-18).">5</a>]</span> and the <a class="reference external" href="https://epsproc.readthedocs.io">ePSproc codebase</a> <span id="id7">[<a class="reference internal" href="../backmatter/bibliography.html#id666" title="Paul Hockett. ePSproc: Post-processing suite for ePolyScat electron-molecule scattering calculations. Authorea, 2016. URL: https://www.authorea.com/users/71114/articles/122402/_show_article, doi:10.6084/m9.figshare.3545639.">33</a>, <a class="reference internal" href="../backmatter/bibliography.html#id608" title="Paul Hockett. ePSproc: Post-processing for ePolyScat (Github repository). Github, 2016. URL: https://github.com/phockett/ePSproc, doi:10.6084/m9.figshare.3545639.">34</a>, <a class="reference internal" href="../backmatter/bibliography.html#id606" title="Paul Hockett. ePSproc: Post-processing for ePolyScat documentation. 2020. URL: https://epsproc.readthedocs.io (visited on 2022-02-18).">35</a>]</span> following the definitions in <a class="reference external" href="https://epolyscat.droppages.com/">ePolyScat (ePS)</a> <span id="id8">[<a class="reference internal" href="../backmatter/bibliography.html#id764" title="Robert R. Lucchese, Kazuo Takatsuka, and Vincent McKoy. Applications of the Schwinger variational principle to electron-molecule collisions and molecular photoionization. Physics Reports, 131(3):147–221, January 1986. URL: http://www.sciencedirect.com/science/article/pii/037015738690147X (visited on 2012-07-18), doi:10.1016/0370-1573(86)90147-X.">36</a>, <a class="reference internal" href="../backmatter/bibliography.html#id628" title="F. A. Gianturco, R. R. Lucchese, and N. Sanna. Calculation of low-energy elastic cross sections for electron-CF4 scattering. The Journal of Chemical Physics, 100(9):6464, May 1994. URL: http://scitation.aip.org/content/aip/journal/jcp/100/9/10.1063/1.467237 (visited on 2015-08-13), doi:10.1063/1.467237.">37</a>, <a class="reference internal" href="../backmatter/bibliography.html#id805" title="Alexandra P P Natalense and Robert R Lucchese. Cross section and asymmetry parameter calculation for sulfur 1s photoionization of SF[sub 6]. The Journal of Chemical Physics, 111(12):5344, 1999. URL: http://link.aip.org/link/JCPSA6/v111/i12/p5344/s1&amp;Agg=doi (visited on 2012-07-18), doi:10.1063/1.479794.">38</a>, <a class="reference internal" href="../backmatter/bibliography.html#id767" title="R R Lucchese. ePolyScat User's Manual. URL: https://epolyscat.droppages.com/ (visited on 2022-04-26).">39</a>]</span>, and the symmetry-defined cases can be remapped to this format. (Further information can be found in the <a class="reference external" href="https://pemtk.readthedocs.io">PEMtk documentation</a> <span id="id9">[<a class="reference internal" href="../backmatter/bibliography.html#id681" title="Paul Hockett. PEMtk - the Photoelectron Metrology Toolkit - documentation. 2021. URL: https://pemtk.readthedocs.io (visited on 2022-02-18).">20</a>]</span>.) For a comparison with <em>ab initio</em> matrix elements, see <a class="reference internal" href="#sec-basis-sets-comparison-with-abinitio"><span class="std std-numref">Sect. 6.4</span></a>.</p>
 <ol class="arabic simple">
 <li><p>For symmetry-defined basis sets, these must first be mapped to an ePSproc data structure, although this step is not necessary when working from <em>ab initio</em> basis sets. This is explored in <a class="reference internal" href="#sec-basis-sets-remapping-to-eps"><span class="std std-numref">Sect. 6.3.4.1</span></a>.</p></li>
-<li><p>From a given basis set, the parameters used for fitting data are determined. This converts the parameters to <a class="reference external" href="https://lmfit.github.io/lmfit-py/intro.html"><code class="docutils literal notranslate"><span class="pre">lmfit</span></code> library</a> <span id="id10">[<a class="reference internal" href="../backmatter/bibliography.html#id757" title="LMFIT documentation. URL: https://lmfit.github.io/lmfit-py/intro.html (visited on 2022-08-03).">66</a>, <a class="reference internal" href="../backmatter/bibliography.html#id805" title="Matthew Newville, Till Stensitzki, Daniel B. Allen, and Antonino Ingargiola. LMFIT: Non-Linear Least-Square Minimization and Curve-Fitting for Python. Zenodo, September 2014. URL: https://zenodo.org/record/11813 (visited on 2022-08-03).">67</a>]</span> objects in magnitude-phase form, and (optionally) sets various symmetry relations and constraints. This is explored in <a class="reference internal" href="#sec-basis-sets-remapping-to-fittingparams"><span class="std std-numref">Sect. 6.3.4.2</span></a>.</p></li>
+<li><p>From a given basis set, the parameters used for fitting data are determined. This converts the parameters to <a class="reference external" href="https://lmfit.github.io/lmfit-py/intro.html"><code class="docutils literal notranslate"><span class="pre">lmfit</span></code> library</a> <span id="id10">[<a class="reference internal" href="../backmatter/bibliography.html#id758" title="LMFIT documentation. URL: https://lmfit.github.io/lmfit-py/intro.html (visited on 2022-08-03).">66</a>, <a class="reference internal" href="../backmatter/bibliography.html#id806" title="Matthew Newville, Till Stensitzki, Daniel B. Allen, and Antonino Ingargiola. LMFIT: Non-Linear Least-Square Minimization and Curve-Fitting for Python. Zenodo, September 2014. URL: https://zenodo.org/record/11813 (visited on 2022-08-03), doi:10.5281/zenodo.11813.">67</a>]</span> objects in magnitude-phase form, and (optionally) sets various symmetry relations and constraints. This is explored in <a class="reference internal" href="#sec-basis-sets-remapping-to-fittingparams"><span class="std std-numref">Sect. 6.3.4.2</span></a>.</p></li>
 </ol>
-<p>Further examples can be found in the remainder of this text, and also in the <a class="reference external" href="https://pemtk.readthedocs.io">PEMtk documentation</a> <span id="id11">[<a class="reference internal" href="../backmatter/bibliography.html#id680" title="Paul Hockett. PEMtk - the Photoelectron Metrology Toolkit - documentation. 2021. URL: https://pemtk.readthedocs.io (visited on 2022-02-18).">20</a>]</span>.</p>
+<p>Further examples can be found in the remainder of this text, and also in the <a class="reference external" href="https://pemtk.readthedocs.io">PEMtk documentation</a> <span id="id11">[<a class="reference internal" href="../backmatter/bibliography.html#id681" title="Paul Hockett. PEMtk - the Photoelectron Metrology Toolkit - documentation. 2021. URL: https://pemtk.readthedocs.io (visited on 2022-02-18).">20</a>]</span>.</p>
 <section id="remapping-to-epolyscat-definitions">
 <span id="sec-basis-sets-remapping-to-eps"></span><h4><span class="section-number">6.3.4.1. </span>Remapping to ePolyScat definitions<a class="headerlink" href="#remapping-to-epolyscat-definitions" title="Permalink to this heading">#</a></h4>
-<p>In the remapping, the code attempts to assign all the symmetries matching ePolyScat definitions from the direct products.</p>
+<p>In the remapping, the code attempts to assign all the symmetries matching ePolyScat definitions from the direct products. A worked example is given in the code blocks in this section, including a full output table and graphical illustration (<a class="reference internal" href="#fig-materemapd10ha1g"><span class="std std-numref">Fig. 6.4</span></a>).</p>
 <p>The terms are:</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Cont</span></code> is the continuum (free electron) symmetry, <span class="math notranslate nohighlight">\(\Gamma^{e}\)</span>.</p></li>
@@ -4641,7 +4641,7 @@ Found dipole symmetries:
 <li><p>Index <code class="docutils literal notranslate"><span class="pre">mu</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">muX</span></code> (to avoid confusion with photon index <code class="docutils literal notranslate"><span class="pre">mu</span></code> in ePSproc)</p></li>
 </ul>
 <p>Note, in particular, that <span class="math notranslate nohighlight">\(\mu\)</span> is - unfortunately - the photon polarization term in the conventional photoionization equations, but also used in the standard definition of the symmetrized harmonics as a degeneracy index. In some cases, the symmetrization indicies <span class="math notranslate nohighlight">\(\mu\)</span> or <span class="math notranslate nohighlight">\(h\)</span> may be redundant, and can be dropped or summed over, but care must be taken here to avoid breaking the symmetry of the simplified basis set.</p>
-<p>Finally, the remapping adds additional labels used by <a class="reference external" href="https://epolyscat.droppages.com/">ePolyScat (ePS)</a> <span id="id12">[<a class="reference internal" href="../backmatter/bibliography.html#id763" title="Robert R. Lucchese, Kazuo Takatsuka, and Vincent McKoy. Applications of the Schwinger variational principle to electron-molecule collisions and molecular photoionization. Physics Reports, 131(3):147–221, January 1986. URL: http://www.sciencedirect.com/science/article/pii/037015738690147X (visited on 2012-07-18).">36</a>, <a class="reference internal" href="../backmatter/bibliography.html#id627" title="F. A. Gianturco, R. R. Lucchese, and N. Sanna. Calculation of low-energy elastic cross sections for electron-CF4 scattering. The Journal of Chemical Physics, 100(9):6464, May 1994. URL: http://scitation.aip.org/content/aip/journal/jcp/100/9/10.1063/1.467237 (visited on 2015-08-13).">37</a>, <a class="reference internal" href="../backmatter/bibliography.html#id804" title="Alexandra P P Natalense and Robert R Lucchese. Cross section and asymmetry parameter calculation for sulfur 1s photoionization of SF[sub 6]. The Journal of Chemical Physics, 111(12):5344, 1999. URL: http://link.aip.org/link/JCPSA6/v111/i12/p5344/s1&amp;Agg=doi (visited on 2012-07-18).">38</a>, <a class="reference internal" href="../backmatter/bibliography.html#id766" title="R R Lucchese. ePolyScat User's Manual. URL: https://epolyscat.droppages.com/ (visited on 2022-04-26).">39</a>]</span>, but which are not necessarily required in general:</p>
+<p>Finally, the remapping adds additional labels used by <a class="reference external" href="https://epolyscat.droppages.com/">ePolyScat (ePS)</a> <span id="id12">[<a class="reference internal" href="../backmatter/bibliography.html#id764" title="Robert R. Lucchese, Kazuo Takatsuka, and Vincent McKoy. Applications of the Schwinger variational principle to electron-molecule collisions and molecular photoionization. Physics Reports, 131(3):147–221, January 1986. URL: http://www.sciencedirect.com/science/article/pii/037015738690147X (visited on 2012-07-18), doi:10.1016/0370-1573(86)90147-X.">36</a>, <a class="reference internal" href="../backmatter/bibliography.html#id628" title="F. A. Gianturco, R. R. Lucchese, and N. Sanna. Calculation of low-energy elastic cross sections for electron-CF4 scattering. The Journal of Chemical Physics, 100(9):6464, May 1994. URL: http://scitation.aip.org/content/aip/journal/jcp/100/9/10.1063/1.467237 (visited on 2015-08-13), doi:10.1063/1.467237.">37</a>, <a class="reference internal" href="../backmatter/bibliography.html#id805" title="Alexandra P P Natalense and Robert R Lucchese. Cross section and asymmetry parameter calculation for sulfur 1s photoionization of SF[sub 6]. The Journal of Chemical Physics, 111(12):5344, 1999. URL: http://link.aip.org/link/JCPSA6/v111/i12/p5344/s1&amp;Agg=doi (visited on 2012-07-18), doi:10.1063/1.479794.">38</a>, <a class="reference internal" href="../backmatter/bibliography.html#id767" title="R R Lucchese. ePolyScat User's Manual. URL: https://epolyscat.droppages.com/ (visited on 2022-04-26).">39</a>]</span>, but which are not necessarily required in general:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Type</span></code>: for ePolyScat results, this labels length or velocity gauge results; this is assigned as <code class="docutils literal notranslate"><span class="pre">U</span></code> (unassigned) in the conversion.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Eke</span></code>: the photoelectron kinetic energy, for the basis states this is just set to 0.</p></li>
@@ -4686,14 +4686,14 @@ Added dim mu
 Added dim Type
 *** Updated self.coeffs[&#39;matE&#39;] with new coords.
 Assigned &#39;Total&#39; from A1g x A1g = [&#39;A1g&#39;]
-Assigned &#39;Total&#39; from A2u x A1g = [&#39;A2u&#39;]
-Assigned &#39;Total&#39; from E1g x A1g = [&#39;E1g&#39;]
-Assigned &#39;Total&#39; from E1u x A1g = [&#39;E1u&#39;]
-Assigned &#39;Total&#39; from E2g x A1g = [&#39;E2g&#39;]
-Assigned &#39;Total&#39; from E2u x A1g = [&#39;E2u&#39;]
-Assigned &#39;Total&#39; from E3g x A1g = [&#39;E3g&#39;]
-Assigned &#39;Total&#39; from E3u x A1g = [&#39;E3u&#39;]
-Assigned &#39;Total&#39; from E4g x A1g = [&#39;E4g&#39;]
+Assigned &#39;Total&#39; from A1g x A2u = [&#39;A2u&#39;]
+Assigned &#39;Total&#39; from A1g x E1g = [&#39;E1g&#39;]
+Assigned &#39;Total&#39; from A1g x E1u = [&#39;E1u&#39;]
+Assigned &#39;Total&#39; from A1g x E2g = [&#39;E2g&#39;]
+Assigned &#39;Total&#39; from A1g x E2u = [&#39;E2u&#39;]
+Assigned &#39;Total&#39; from A1g x E3g = [&#39;E3g&#39;]
+Assigned &#39;Total&#39; from A1g x E3u = [&#39;E3u&#39;]
+Assigned &#39;Total&#39; from A1g x E4g = [&#39;E4g&#39;]
 *** Updated self.coeffs[&#39;matE&#39;] with new coords.
 Assigned dipole-allowed terms for dim = &#39;Cont&#39; to self.coeffs[&#39;symAllowed&#39;]
 </pre></div>
@@ -4907,7 +4907,7 @@ Plotting data (No filename), pType=a, thres=0.01, with Seaborn
 </section>
 <section id="mapping-to-fitting-parameters-and-reduction">
 <span id="sec-basis-sets-remapping-to-fittingparams"></span><h4><span class="section-number">6.3.4.2. </span>Mapping to fitting parameters (and reduction)<a class="headerlink" href="#mapping-to-fitting-parameters-and-reduction" title="Permalink to this heading">#</a></h4>
-<p>Finally, the basis set of matrix elements can be set to a set of fitting parameters. In this case, as per Eq. <a class="reference internal" href="../part1/theory_tensor_formalism_160723.html#equation-eqn-i-zeta-mag-phase">(3.15)</a>, the parameters are mapped to magnitude-phase form; additionally, the fitting routine allows for the definition of relationships between the parameters. This provides a way to reduce the effective size of the basis set to only the unique values, with other terms defined purely by their symmetry relations. Consequently, degenerate cases, as detailed above, as well as cases with defined phase relations, can be efficiently reduced to a smaller basis set for fitting. Note that the default routine labels parameters by the full set of quantum numbers, with an <code class="docutils literal notranslate"><span class="pre">m</span></code> or <code class="docutils literal notranslate"><span class="pre">p</span></code> prefix to denote the magnitude and phase terms corresponding to the partial-wave channel; this ensures a unique naming scheme, but is also rather unwieldy (as can be seen below). In cases where fewer quantum numbers are required these can be defined and the parameter names remapped, see the <a class="reference external" href="https://pemtk.readthedocs.io">PEMtk documentation</a> <span id="id13">[<a class="reference internal" href="../backmatter/bibliography.html#id680" title="Paul Hockett. PEMtk - the Photoelectron Metrology Toolkit - documentation. 2021. URL: https://pemtk.readthedocs.io (visited on 2022-02-18).">20</a>]</span> for further details.</p>
+<p>Finally, the basis set of matrix elements can be assigned to a set of fitting parameters. In this case, as per Eq. <a class="reference internal" href="../part1/theory_tensor_formalism_160723.html#equation-eqn-i-zeta-mag-phase">(3.15)</a>, the parameters are mapped to magnitude-phase form; additionally, the fitting routine allows for the definition of relationships between the parameters. This provides a way to reduce the effective size of the basis set to only the unique values, with other terms defined purely by their symmetry relations. Consequently, degenerate cases, as detailed above, as well as cases with defined phase relations, can be efficiently reduced to a smaller basis set for fitting. Note that the default routine labels parameters by the full set of quantum numbers, with an <code class="docutils literal notranslate"><span class="pre">m</span></code> or <code class="docutils literal notranslate"><span class="pre">p</span></code> prefix to denote the magnitude and phase terms corresponding to the partial-wave channel; this ensures a unique naming scheme, but is also rather unwieldy (as can be seen below). In cases where fewer quantum numbers are required these can be defined and the parameter names remapped, see the <a class="reference external" href="https://pemtk.readthedocs.io">PEMtk documentation</a> <span id="id13">[<a class="reference internal" href="../backmatter/bibliography.html#id681" title="Paul Hockett. PEMtk - the Photoelectron Metrology Toolkit - documentation. 2021. URL: https://pemtk.readthedocs.io (visited on 2022-02-18).">20</a>]</span> for further details.</p>
 <p>For quick setup, there is an automated routine to set relations if applicable. The automated routine currently checks for the following relationships: identity (equal complex values), magnitude and phase equality, complex rotations by <span class="math notranslate nohighlight">\(\pm\pi\)</span>, where matrix elements are grouped by symmetry (specifically <code class="docutils literal notranslate"><span class="pre">Cont</span></code>) and <code class="docutils literal notranslate"><span class="pre">l</span></code> prior to pair-wise testing. For more control, additional functions can be passed. Alternatively, the automatic setting can be skipped and/or relationships redefined or set manually. This provides a way to test if the symmetry-definitions are manifest in experimental data, rather than imposing them during fitting, or to explore other possible correlations between fitted parameters. Note, however, that in some cases the number of unique parameters in an unsymmetrized case may be large, so care should also be taken to ensure that fit results are meaningful in such cases (e.g. by employing a sufficiently large dataset, and testing for reproducibility).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4944,6 +4944,7 @@ Plotting data (No filename), pType=a, thres=0.01, with Seaborn
 </div>
 </div>
 <p><strong>Automated assignment from defined matrix elements</strong></p>
+<p>The code blocks below illustrate the automated routine, and results are tabulated in <a class="reference internal" href="#fig-fittingparamsd10ha1g"><span class="std std-numref">Fig. 6.5</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pemtk.fit.fitClass</span> <span class="kn">import</span> <span class="n">pemtkFit</span>
@@ -5535,7 +5536,7 @@ Auto-setting parameters.
 </figcaption>
 </figure>
 <p><strong>Modifying fitting basis parameters</strong></p>
-<p>A brief illustration of defining constraints is given below, for more details see the <a class="reference external" href="https://pemtk.readthedocs.io">PEMtk documentation</a> <span id="id14">[<a class="reference internal" href="../backmatter/bibliography.html#id680" title="Paul Hockett. PEMtk - the Photoelectron Metrology Toolkit - documentation. 2021. URL: https://pemtk.readthedocs.io (visited on 2022-02-18).">20</a>]</span>, particularly the <a class="reference external" href="https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basic_demo_030621-full_010922.html#Setting-parameter-relations/constraints">basic fitting guide</a>. For more details on the base lmfit parameters class that is used here, see <a class="reference external" href="https://lmfit.github.io/lmfit-py/intro.html"><code class="docutils literal notranslate"><span class="pre">lmfit</span></code> library</a> <span id="id15">[<a class="reference internal" href="../backmatter/bibliography.html#id757" title="LMFIT documentation. URL: https://lmfit.github.io/lmfit-py/intro.html (visited on 2022-08-03).">66</a>, <a class="reference internal" href="../backmatter/bibliography.html#id805" title="Matthew Newville, Till Stensitzki, Daniel B. Allen, and Antonino Ingargiola. LMFIT: Non-Linear Least-Square Minimization and Curve-Fitting for Python. Zenodo, September 2014. URL: https://zenodo.org/record/11813 (visited on 2022-08-03).">67</a>]</span>, particularly the documentation on <a class="reference external" href="https://lmfit.github.io/lmfit-py/parameters.html">parameters</a> and <a class="reference external" href="https://lmfit.github.io/lmfit-py/constraints.html">constraints</a>.</p>
+<p>A brief illustration of defining constraints is given below, for more details see the <a class="reference external" href="https://pemtk.readthedocs.io">PEMtk documentation</a> <span id="id14">[<a class="reference internal" href="../backmatter/bibliography.html#id681" title="Paul Hockett. PEMtk - the Photoelectron Metrology Toolkit - documentation. 2021. URL: https://pemtk.readthedocs.io (visited on 2022-02-18).">20</a>]</span>, particularly the <a class="reference external" href="https://pemtk.readthedocs.io/en/latest/fitting/PEMtk_fitting_basic_demo_030621-full_010922.html#Setting-parameter-relations/constraints">basic fitting guide</a>. For more details on the base lmfit parameters class that is used here, see <a class="reference external" href="https://lmfit.github.io/lmfit-py/intro.html"><code class="docutils literal notranslate"><span class="pre">lmfit</span></code> library</a> <span id="id15">[<a class="reference internal" href="../backmatter/bibliography.html#id758" title="LMFIT documentation. URL: https://lmfit.github.io/lmfit-py/intro.html (visited on 2022-08-03).">66</a>, <a class="reference internal" href="../backmatter/bibliography.html#id806" title="Matthew Newville, Till Stensitzki, Daniel B. Allen, and Antonino Ingargiola. LMFIT: Non-Linear Least-Square Minimization and Curve-Fitting for Python. Zenodo, September 2014. URL: https://zenodo.org/record/11813 (visited on 2022-08-03), doi:10.5281/zenodo.11813.">67</a>]</span>, particularly the documentation on <a class="reference external" href="https://lmfit.github.io/lmfit-py/parameters.html">parameters</a> and <a class="reference external" href="https://lmfit.github.io/lmfit-py/constraints.html">constraints</a>.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -5786,7 +5787,7 @@ Auto-setting parameters.
 </details>
 </div>
 <p><strong>Manually setting fitting basis</strong></p>
-<p>To modify and/or set a basis set manually, the same functions can be used with different inputs and/or options. A few examples are given here, see the <a class="reference external" href="https://pemtk.readthedocs.io">PEMtk documentation</a> <span id="id16">[<a class="reference internal" href="../backmatter/bibliography.html#id680" title="Paul Hockett. PEMtk - the Photoelectron Metrology Toolkit - documentation. 2021. URL: https://pemtk.readthedocs.io (visited on 2022-02-18).">20</a>]</span> for more information.</p>
+<p>To modify and/or set a basis set manually, the same functions can be used with different inputs and/or options. A few examples are given here, see the <a class="reference external" href="https://pemtk.readthedocs.io">PEMtk documentation</a> <span id="id16">[<a class="reference internal" href="../backmatter/bibliography.html#id681" title="Paul Hockett. PEMtk - the Photoelectron Metrology Toolkit - documentation. 2021. URL: https://pemtk.readthedocs.io (visited on 2022-02-18).">20</a>]</span> for more information.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manual configuration of matrix elements</span>
@@ -5944,7 +5945,7 @@ Auto-setting parameters.
 </section>
 <section id="comparison-with-symmetry-defined-and-computational-matrix-elements">
 <span id="sec-basis-sets-comparison-with-abinitio"></span><h2><span class="section-number">6.4. </span>Comparison with symmetry-defined and computational matrix elements<a class="headerlink" href="#comparison-with-symmetry-defined-and-computational-matrix-elements" title="Permalink to this heading">#</a></h2>
-<p>For comparison of a given symmetry-defined basis set with sample <em>ab initio</em> calculations using <a class="reference external" href="https://epolyscat.droppages.com/">ePolyScat (ePS)</a> <span id="id17">[<a class="reference internal" href="../backmatter/bibliography.html#id763" title="Robert R. Lucchese, Kazuo Takatsuka, and Vincent McKoy. Applications of the Schwinger variational principle to electron-molecule collisions and molecular photoionization. Physics Reports, 131(3):147–221, January 1986. URL: http://www.sciencedirect.com/science/article/pii/037015738690147X (visited on 2012-07-18).">36</a>, <a class="reference internal" href="../backmatter/bibliography.html#id627" title="F. A. Gianturco, R. R. Lucchese, and N. Sanna. Calculation of low-energy elastic cross sections for electron-CF4 scattering. The Journal of Chemical Physics, 100(9):6464, May 1994. URL: http://scitation.aip.org/content/aip/journal/jcp/100/9/10.1063/1.467237 (visited on 2015-08-13).">37</a>, <a class="reference internal" href="../backmatter/bibliography.html#id804" title="Alexandra P P Natalense and Robert R Lucchese. Cross section and asymmetry parameter calculation for sulfur 1s photoionization of SF[sub 6]. The Journal of Chemical Physics, 111(12):5344, 1999. URL: http://link.aip.org/link/JCPSA6/v111/i12/p5344/s1&amp;Agg=doi (visited on 2012-07-18).">38</a>, <a class="reference internal" href="../backmatter/bibliography.html#id766" title="R R Lucchese. ePolyScat User's Manual. URL: https://epolyscat.droppages.com/ (visited on 2022-04-26).">39</a>]</span> calculations, results can be computed locally or pulled from the web. Some sample/test datasets can be found as part of the <a class="reference external" href="https://github.com/phockett/ePSproc/tree/master/data">ePSproc repo</a>, which includes the case study examples herein. Further <a class="reference external" href="https://epolyscat.droppages.com/">ePolyScat (ePS)</a> <span id="id18">[<a class="reference internal" href="../backmatter/bibliography.html#id763" title="Robert R. Lucchese, Kazuo Takatsuka, and Vincent McKoy. Applications of the Schwinger variational principle to electron-molecule collisions and molecular photoionization. Physics Reports, 131(3):147–221, January 1986. URL: http://www.sciencedirect.com/science/article/pii/037015738690147X (visited on 2012-07-18).">36</a>, <a class="reference internal" href="../backmatter/bibliography.html#id627" title="F. A. Gianturco, R. R. Lucchese, and N. Sanna. Calculation of low-energy elastic cross sections for electron-CF4 scattering. The Journal of Chemical Physics, 100(9):6464, May 1994. URL: http://scitation.aip.org/content/aip/journal/jcp/100/9/10.1063/1.467237 (visited on 2015-08-13).">37</a>, <a class="reference internal" href="../backmatter/bibliography.html#id804" title="Alexandra P P Natalense and Robert R Lucchese. Cross section and asymmetry parameter calculation for sulfur 1s photoionization of SF[sub 6]. The Journal of Chemical Physics, 111(12):5344, 1999. URL: http://link.aip.org/link/JCPSA6/v111/i12/p5344/s1&amp;Agg=doi (visited on 2012-07-18).">38</a>, <a class="reference internal" href="../backmatter/bibliography.html#id766" title="R R Lucchese. ePolyScat User's Manual. URL: https://epolyscat.droppages.com/ (visited on 2022-04-26).">39</a>]</span> datasets are available from the <a class="reference external" href="https://github.com/phockett/ePSdata/">ePSdata</a> <span id="id19">[<a class="reference internal" href="../backmatter/bibliography.html#id678" title="Paul Hockett. ePS data: Photoionization calculations archive. 2019. URL: https://phockett.github.io/ePSdata/ (visited on 2022-02-16).">48</a>]</span>, and <a class="reference external" href="https://epsproc.readthedocs.io/en/dev/demos/ePSdata_download_demo_300720.html">data can be pulled using the python ePSdata interface</a>.</p>
+<p>For comparison of a given symmetry-defined basis set with sample <em>ab initio</em> calculations using <a class="reference external" href="https://epolyscat.droppages.com/">ePolyScat (ePS)</a> <span id="id17">[<a class="reference internal" href="../backmatter/bibliography.html#id764" title="Robert R. Lucchese, Kazuo Takatsuka, and Vincent McKoy. Applications of the Schwinger variational principle to electron-molecule collisions and molecular photoionization. Physics Reports, 131(3):147–221, January 1986. URL: http://www.sciencedirect.com/science/article/pii/037015738690147X (visited on 2012-07-18), doi:10.1016/0370-1573(86)90147-X.">36</a>, <a class="reference internal" href="../backmatter/bibliography.html#id628" title="F. A. Gianturco, R. R. Lucchese, and N. Sanna. Calculation of low-energy elastic cross sections for electron-CF4 scattering. The Journal of Chemical Physics, 100(9):6464, May 1994. URL: http://scitation.aip.org/content/aip/journal/jcp/100/9/10.1063/1.467237 (visited on 2015-08-13), doi:10.1063/1.467237.">37</a>, <a class="reference internal" href="../backmatter/bibliography.html#id805" title="Alexandra P P Natalense and Robert R Lucchese. Cross section and asymmetry parameter calculation for sulfur 1s photoionization of SF[sub 6]. The Journal of Chemical Physics, 111(12):5344, 1999. URL: http://link.aip.org/link/JCPSA6/v111/i12/p5344/s1&amp;Agg=doi (visited on 2012-07-18), doi:10.1063/1.479794.">38</a>, <a class="reference internal" href="../backmatter/bibliography.html#id767" title="R R Lucchese. ePolyScat User's Manual. URL: https://epolyscat.droppages.com/ (visited on 2022-04-26).">39</a>]</span> calculations, results can be computed locally or pulled from the web. Some sample/test datasets can be found as part of the <a class="reference external" href="https://github.com/phockett/ePSproc/tree/master/data">ePSproc repo</a>, which includes the case study examples herein. Further <a class="reference external" href="https://epolyscat.droppages.com/">ePolyScat (ePS)</a> <span id="id18">[<a class="reference internal" href="../backmatter/bibliography.html#id764" title="Robert R. Lucchese, Kazuo Takatsuka, and Vincent McKoy. Applications of the Schwinger variational principle to electron-molecule collisions and molecular photoionization. Physics Reports, 131(3):147–221, January 1986. URL: http://www.sciencedirect.com/science/article/pii/037015738690147X (visited on 2012-07-18), doi:10.1016/0370-1573(86)90147-X.">36</a>, <a class="reference internal" href="../backmatter/bibliography.html#id628" title="F. A. Gianturco, R. R. Lucchese, and N. Sanna. Calculation of low-energy elastic cross sections for electron-CF4 scattering. The Journal of Chemical Physics, 100(9):6464, May 1994. URL: http://scitation.aip.org/content/aip/journal/jcp/100/9/10.1063/1.467237 (visited on 2015-08-13), doi:10.1063/1.467237.">37</a>, <a class="reference internal" href="../backmatter/bibliography.html#id805" title="Alexandra P P Natalense and Robert R Lucchese. Cross section and asymmetry parameter calculation for sulfur 1s photoionization of SF[sub 6]. The Journal of Chemical Physics, 111(12):5344, 1999. URL: http://link.aip.org/link/JCPSA6/v111/i12/p5344/s1&amp;Agg=doi (visited on 2012-07-18), doi:10.1063/1.479794.">38</a>, <a class="reference internal" href="../backmatter/bibliography.html#id767" title="R R Lucchese. ePolyScat User's Manual. URL: https://epolyscat.droppages.com/ (visited on 2022-04-26).">39</a>]</span> datasets are available from <a class="reference external" href="https://github.com/phockett/ePSdata/">ePSdata</a> <span id="id19">[<a class="reference internal" href="../backmatter/bibliography.html#id679" title="Paul Hockett. ePS data: Photoionization calculations archive. 2019. URL: https://phockett.github.io/ePSdata/ (visited on 2022-02-16).">48</a>]</span>, and <a class="reference external" href="https://epsproc.readthedocs.io/en/dev/demos/ePSdata_download_demo_300720.html">data can be pulled using the python ePSdata interface</a>.</p>
 <p>In the following, the test case above for <span class="math notranslate nohighlight">\(N_2~3\sigma_g^{-1}\)</span> ionization is illustrated. Note that this comparison shows the results of a full <em>ab initio</em> computation of the matrix elements (Eq. <a class="reference internal" href="../part1/theory_photoionization_dynamics_140723.html#equation-eq-mate-dipole">(3.3)</a>) versus the symmetry-allowed harmonics and associated <span class="math notranslate nohighlight">\(b_{hl\lambda}^{\Gamma\mu}\)</span> parameters (Eq. <a class="reference internal" href="../part1/theory_observables_intro_100723.html#equation-eq-symharm-defn">(3.38)</a>). In the former case, the <span class="math notranslate nohighlight">\(b_{hl\lambda}^{\Gamma\mu}\)</span> are incorporated into the numerical results, but the full angular momentum selection rules and dipole integrals are also included; in the latter case the <span class="math notranslate nohighlight">\(b_{hl\lambda}^{\Gamma\mu}\)</span> parameters serve to define the allowed matrix elements, and symmetry relations (e.g. phase, rotations and degeneracy), but <em>do not</em> include any other effects. Hence the comparison here indicates whether the symmetry-defined basis set is sufficient for a matrix element reconstruction, but it may contain terms which are zero in practice, or otherwise drop out from the complete photoionization treatment. Some conventions may also be different.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6053,7 +6054,7 @@ Dir /home/jovyan/jake-home/buildTmp/_latest_build/html/doc-source/part2/n2Data, 
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_041c5" style='display:inline'>
+<table id="T_609e0" style='display:inline'>
   <caption><b>Symmetry basis</b></caption>
   <thead>
     <tr>
@@ -6064,7 +6065,7 @@ Dir /home/jovyan/jake-home/buildTmp/_latest_build/html/doc-source/part2/n2Data, 
       <th class="blank" >&nbsp;</th>
       <th class="blank" >&nbsp;</th>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_041c5_level0_col0" class="col_heading level0 col0" >A2u</th>
+      <th id="T_609e0_level0_col0" class="col_heading level0 col0" >A2u</th>
     </tr>
     <tr>
       <th class="index_name level0" >Eke</th>
@@ -6079,26 +6080,26 @@ Dir /home/jovyan/jake-home/buildTmp/_latest_build/html/doc-source/part2/n2Data, 
   </thead>
   <tbody>
     <tr>
-      <th id="T_041c5_level0_row0" class="row_heading level0 row0" rowspan="2">0</th>
-      <th id="T_041c5_level1_row0" class="row_heading level1 row0" rowspan="2">A1g</th>
-      <th id="T_041c5_level2_row0" class="row_heading level2 row0" rowspan="2">A2u</th>
-      <th id="T_041c5_level3_row0" class="row_heading level3 row0" rowspan="2">0</th>
-      <th id="T_041c5_level4_row0" class="row_heading level4 row0" >1</th>
-      <th id="T_041c5_level5_row0" class="row_heading level5 row0" >0</th>
-      <th id="T_041c5_level6_row0" class="row_heading level6 row0" >0</th>
-      <td id="T_041c5_row0_col0" class="data row0 col0" >1.000000+0.000000j</td>
+      <th id="T_609e0_level0_row0" class="row_heading level0 row0" rowspan="2">0</th>
+      <th id="T_609e0_level1_row0" class="row_heading level1 row0" rowspan="2">A1g</th>
+      <th id="T_609e0_level2_row0" class="row_heading level2 row0" rowspan="2">A2u</th>
+      <th id="T_609e0_level3_row0" class="row_heading level3 row0" rowspan="2">0</th>
+      <th id="T_609e0_level4_row0" class="row_heading level4 row0" >1</th>
+      <th id="T_609e0_level5_row0" class="row_heading level5 row0" >0</th>
+      <th id="T_609e0_level6_row0" class="row_heading level6 row0" >0</th>
+      <td id="T_609e0_row0_col0" class="data row0 col0" >1.000000+0.000000j</td>
     </tr>
     <tr>
-      <th id="T_041c5_level4_row1" class="row_heading level4 row1" >3</th>
-      <th id="T_041c5_level5_row1" class="row_heading level5 row1" >0</th>
-      <th id="T_041c5_level6_row1" class="row_heading level6 row1" >0</th>
-      <td id="T_041c5_row1_col0" class="data row1 col0" >1.000000+0.000000j</td>
+      <th id="T_609e0_level4_row1" class="row_heading level4 row1" >3</th>
+      <th id="T_609e0_level5_row1" class="row_heading level5 row1" >0</th>
+      <th id="T_609e0_level6_row1" class="row_heading level6 row1" >0</th>
+      <td id="T_609e0_row1_col0" class="data row1 col0" >1.000000+0.000000j</td>
     </tr>
   </tbody>
 </table>
 <style type="text/css">
 </style>
-<table id="T_87c57" style='display:inline'>
+<table id="T_e983b" style='display:inline'>
   <caption><b>ePS basis</b></caption>
   <thead>
     <tr>
@@ -6109,7 +6110,7 @@ Dir /home/jovyan/jake-home/buildTmp/_latest_build/html/doc-source/part2/n2Data, 
       <th class="blank" >&nbsp;</th>
       <th class="blank" >&nbsp;</th>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_87c57_level0_col0" class="col_heading level0 col0" >SU</th>
+      <th id="T_e983b_level0_col0" class="col_heading level0 col0" >SU</th>
     </tr>
     <tr>
       <th class="index_name level0" >Eke</th>
@@ -6124,32 +6125,32 @@ Dir /home/jovyan/jake-home/buildTmp/_latest_build/html/doc-source/part2/n2Data, 
   </thead>
   <tbody>
     <tr>
-      <th id="T_87c57_level0_row0" class="row_heading level0 row0" rowspan="3">0.100000</th>
-      <th id="T_87c57_level1_row0" class="row_heading level1 row0" rowspan="3">SG</th>
-      <th id="T_87c57_level2_row0" class="row_heading level2 row0" rowspan="3">SU</th>
-      <th id="T_87c57_level3_row0" class="row_heading level3 row0" rowspan="3">1</th>
-      <th id="T_87c57_level4_row0" class="row_heading level4 row0" >1</th>
-      <th id="T_87c57_level5_row0" class="row_heading level5 row0" >0</th>
-      <th id="T_87c57_level6_row0" class="row_heading level6 row0" >0</th>
-      <td id="T_87c57_row0_col0" class="data row0 col0" >2.736321-0.092697j</td>
+      <th id="T_e983b_level0_row0" class="row_heading level0 row0" rowspan="3">0.100000</th>
+      <th id="T_e983b_level1_row0" class="row_heading level1 row0" rowspan="3">SG</th>
+      <th id="T_e983b_level2_row0" class="row_heading level2 row0" rowspan="3">SU</th>
+      <th id="T_e983b_level3_row0" class="row_heading level3 row0" rowspan="3">1</th>
+      <th id="T_e983b_level4_row0" class="row_heading level4 row0" >1</th>
+      <th id="T_e983b_level5_row0" class="row_heading level5 row0" >0</th>
+      <th id="T_e983b_level6_row0" class="row_heading level6 row0" >0</th>
+      <td id="T_e983b_row0_col0" class="data row0 col0" >2.736321-0.092697j</td>
     </tr>
     <tr>
-      <th id="T_87c57_level4_row1" class="row_heading level4 row1" >3</th>
-      <th id="T_87c57_level5_row1" class="row_heading level5 row1" >0</th>
-      <th id="T_87c57_level6_row1" class="row_heading level6 row1" >0</th>
-      <td id="T_87c57_row1_col0" class="data row1 col0" >-0.171588-0.795292j</td>
+      <th id="T_e983b_level4_row1" class="row_heading level4 row1" >3</th>
+      <th id="T_e983b_level5_row1" class="row_heading level5 row1" >0</th>
+      <th id="T_e983b_level6_row1" class="row_heading level6 row1" >0</th>
+      <td id="T_e983b_row1_col0" class="data row1 col0" >-0.171588-0.795292j</td>
     </tr>
     <tr>
-      <th id="T_87c57_level4_row2" class="row_heading level4 row2" >5</th>
-      <th id="T_87c57_level5_row2" class="row_heading level5 row2" >0</th>
-      <th id="T_87c57_level6_row2" class="row_heading level6 row2" >0</th>
-      <td id="T_87c57_row2_col0" class="data row2 col0" >-0.000034+0.001499j</td>
+      <th id="T_e983b_level4_row2" class="row_heading level4 row2" >5</th>
+      <th id="T_e983b_level5_row2" class="row_heading level5 row2" >0</th>
+      <th id="T_e983b_level6_row2" class="row_heading level6 row2" >0</th>
+      <td id="T_e983b_row2_col0" class="data row2 col0" >-0.000034+0.001499j</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
-<p>Here the basis sets are identical, aside from the difference in <span class="math notranslate nohighlight">\(l_{max}\)</span>.</p>
+<p>Here (<span class="math notranslate nohighlight">\(\Sigma_u\)</span> case) the basis sets are identical, aside from the difference in <span class="math notranslate nohighlight">\(l_{max}\)</span>.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -6185,7 +6186,7 @@ Dir /home/jovyan/jake-home/buildTmp/_latest_build/html/doc-source/part2/n2Data, 
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_5dcaa" style='display:inline'>
+<table id="T_3d300" style='display:inline'>
   <caption><b>Symmetry basis</b></caption>
   <thead>
     <tr>
@@ -6196,7 +6197,7 @@ Dir /home/jovyan/jake-home/buildTmp/_latest_build/html/doc-source/part2/n2Data, 
       <th class="blank" >&nbsp;</th>
       <th class="blank" >&nbsp;</th>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_5dcaa_level0_col0" class="col_heading level0 col0" >E1u</th>
+      <th id="T_3d300_level0_col0" class="col_heading level0 col0" >E1u</th>
     </tr>
     <tr>
       <th class="index_name level0" >Eke</th>
@@ -6211,91 +6212,91 @@ Dir /home/jovyan/jake-home/buildTmp/_latest_build/html/doc-source/part2/n2Data, 
   </thead>
   <tbody>
     <tr>
-      <th id="T_5dcaa_level0_row0" class="row_heading level0 row0" rowspan="16">0</th>
-      <th id="T_5dcaa_level1_row0" class="row_heading level1 row0" rowspan="16">A1g</th>
-      <th id="T_5dcaa_level2_row0" class="row_heading level2 row0" rowspan="16">E1u</th>
-      <th id="T_5dcaa_level3_row0" class="row_heading level3 row0" rowspan="8">0</th>
-      <th id="T_5dcaa_level4_row0" class="row_heading level4 row0" rowspan="4">1</th>
-      <th id="T_5dcaa_level5_row0" class="row_heading level5 row0" rowspan="2">-1</th>
-      <th id="T_5dcaa_level6_row0" class="row_heading level6 row0" >-1</th>
-      <td id="T_5dcaa_row0_col0" class="data row0 col0" >0.707107+0.000000j</td>
+      <th id="T_3d300_level0_row0" class="row_heading level0 row0" rowspan="16">0</th>
+      <th id="T_3d300_level1_row0" class="row_heading level1 row0" rowspan="16">A1g</th>
+      <th id="T_3d300_level2_row0" class="row_heading level2 row0" rowspan="16">E1u</th>
+      <th id="T_3d300_level3_row0" class="row_heading level3 row0" rowspan="8">0</th>
+      <th id="T_3d300_level4_row0" class="row_heading level4 row0" rowspan="4">1</th>
+      <th id="T_3d300_level5_row0" class="row_heading level5 row0" rowspan="2">-1</th>
+      <th id="T_3d300_level6_row0" class="row_heading level6 row0" >-1</th>
+      <td id="T_3d300_row0_col0" class="data row0 col0" >0.707107+0.000000j</td>
     </tr>
     <tr>
-      <th id="T_5dcaa_level6_row1" class="row_heading level6 row1" >1</th>
-      <td id="T_5dcaa_row1_col0" class="data row1 col0" >0.707107+0.000000j</td>
+      <th id="T_3d300_level6_row1" class="row_heading level6 row1" >1</th>
+      <td id="T_3d300_row1_col0" class="data row1 col0" >0.707107+0.000000j</td>
     </tr>
     <tr>
-      <th id="T_5dcaa_level5_row2" class="row_heading level5 row2" rowspan="2">1</th>
-      <th id="T_5dcaa_level6_row2" class="row_heading level6 row2" >-1</th>
-      <td id="T_5dcaa_row2_col0" class="data row2 col0" >-0.707107-0.000000j</td>
+      <th id="T_3d300_level5_row2" class="row_heading level5 row2" rowspan="2">1</th>
+      <th id="T_3d300_level6_row2" class="row_heading level6 row2" >-1</th>
+      <td id="T_3d300_row2_col0" class="data row2 col0" >-0.707107-0.000000j</td>
     </tr>
     <tr>
-      <th id="T_5dcaa_level6_row3" class="row_heading level6 row3" >1</th>
-      <td id="T_5dcaa_row3_col0" class="data row3 col0" >-0.707107-0.000000j</td>
+      <th id="T_3d300_level6_row3" class="row_heading level6 row3" >1</th>
+      <td id="T_3d300_row3_col0" class="data row3 col0" >-0.707107-0.000000j</td>
     </tr>
     <tr>
-      <th id="T_5dcaa_level4_row4" class="row_heading level4 row4" rowspan="4">3</th>
-      <th id="T_5dcaa_level5_row4" class="row_heading level5 row4" rowspan="2">-1</th>
-      <th id="T_5dcaa_level6_row4" class="row_heading level6 row4" >-1</th>
-      <td id="T_5dcaa_row4_col0" class="data row4 col0" >0.707107+0.000000j</td>
+      <th id="T_3d300_level4_row4" class="row_heading level4 row4" rowspan="4">3</th>
+      <th id="T_3d300_level5_row4" class="row_heading level5 row4" rowspan="2">-1</th>
+      <th id="T_3d300_level6_row4" class="row_heading level6 row4" >-1</th>
+      <td id="T_3d300_row4_col0" class="data row4 col0" >0.707107+0.000000j</td>
     </tr>
     <tr>
-      <th id="T_5dcaa_level6_row5" class="row_heading level6 row5" >1</th>
-      <td id="T_5dcaa_row5_col0" class="data row5 col0" >0.707107+0.000000j</td>
+      <th id="T_3d300_level6_row5" class="row_heading level6 row5" >1</th>
+      <td id="T_3d300_row5_col0" class="data row5 col0" >0.707107+0.000000j</td>
     </tr>
     <tr>
-      <th id="T_5dcaa_level5_row6" class="row_heading level5 row6" rowspan="2">1</th>
-      <th id="T_5dcaa_level6_row6" class="row_heading level6 row6" >-1</th>
-      <td id="T_5dcaa_row6_col0" class="data row6 col0" >-0.707107-0.000000j</td>
+      <th id="T_3d300_level5_row6" class="row_heading level5 row6" rowspan="2">1</th>
+      <th id="T_3d300_level6_row6" class="row_heading level6 row6" >-1</th>
+      <td id="T_3d300_row6_col0" class="data row6 col0" >-0.707107-0.000000j</td>
     </tr>
     <tr>
-      <th id="T_5dcaa_level6_row7" class="row_heading level6 row7" >1</th>
-      <td id="T_5dcaa_row7_col0" class="data row7 col0" >-0.707107-0.000000j</td>
+      <th id="T_3d300_level6_row7" class="row_heading level6 row7" >1</th>
+      <td id="T_3d300_row7_col0" class="data row7 col0" >-0.707107-0.000000j</td>
     </tr>
     <tr>
-      <th id="T_5dcaa_level3_row8" class="row_heading level3 row8" rowspan="8">1</th>
-      <th id="T_5dcaa_level4_row8" class="row_heading level4 row8" rowspan="4">1</th>
-      <th id="T_5dcaa_level5_row8" class="row_heading level5 row8" rowspan="2">-1</th>
-      <th id="T_5dcaa_level6_row8" class="row_heading level6 row8" >-1</th>
-      <td id="T_5dcaa_row8_col0" class="data row8 col0" >-0.707107+0.000000j</td>
+      <th id="T_3d300_level3_row8" class="row_heading level3 row8" rowspan="8">1</th>
+      <th id="T_3d300_level4_row8" class="row_heading level4 row8" rowspan="4">1</th>
+      <th id="T_3d300_level5_row8" class="row_heading level5 row8" rowspan="2">-1</th>
+      <th id="T_3d300_level6_row8" class="row_heading level6 row8" >-1</th>
+      <td id="T_3d300_row8_col0" class="data row8 col0" >-0.707107+0.000000j</td>
     </tr>
     <tr>
-      <th id="T_5dcaa_level6_row9" class="row_heading level6 row9" >1</th>
-      <td id="T_5dcaa_row9_col0" class="data row9 col0" >-0.707107+0.000000j</td>
+      <th id="T_3d300_level6_row9" class="row_heading level6 row9" >1</th>
+      <td id="T_3d300_row9_col0" class="data row9 col0" >-0.707107+0.000000j</td>
     </tr>
     <tr>
-      <th id="T_5dcaa_level5_row10" class="row_heading level5 row10" rowspan="2">1</th>
-      <th id="T_5dcaa_level6_row10" class="row_heading level6 row10" >-1</th>
-      <td id="T_5dcaa_row10_col0" class="data row10 col0" >-0.707107-0.000000j</td>
+      <th id="T_3d300_level5_row10" class="row_heading level5 row10" rowspan="2">1</th>
+      <th id="T_3d300_level6_row10" class="row_heading level6 row10" >-1</th>
+      <td id="T_3d300_row10_col0" class="data row10 col0" >-0.707107-0.000000j</td>
     </tr>
     <tr>
-      <th id="T_5dcaa_level6_row11" class="row_heading level6 row11" >1</th>
-      <td id="T_5dcaa_row11_col0" class="data row11 col0" >-0.707107-0.000000j</td>
+      <th id="T_3d300_level6_row11" class="row_heading level6 row11" >1</th>
+      <td id="T_3d300_row11_col0" class="data row11 col0" >-0.707107-0.000000j</td>
     </tr>
     <tr>
-      <th id="T_5dcaa_level4_row12" class="row_heading level4 row12" rowspan="4">3</th>
-      <th id="T_5dcaa_level5_row12" class="row_heading level5 row12" rowspan="2">-1</th>
-      <th id="T_5dcaa_level6_row12" class="row_heading level6 row12" >-1</th>
-      <td id="T_5dcaa_row12_col0" class="data row12 col0" >-0.707107+0.000000j</td>
+      <th id="T_3d300_level4_row12" class="row_heading level4 row12" rowspan="4">3</th>
+      <th id="T_3d300_level5_row12" class="row_heading level5 row12" rowspan="2">-1</th>
+      <th id="T_3d300_level6_row12" class="row_heading level6 row12" >-1</th>
+      <td id="T_3d300_row12_col0" class="data row12 col0" >-0.707107+0.000000j</td>
     </tr>
     <tr>
-      <th id="T_5dcaa_level6_row13" class="row_heading level6 row13" >1</th>
-      <td id="T_5dcaa_row13_col0" class="data row13 col0" >-0.707107+0.000000j</td>
+      <th id="T_3d300_level6_row13" class="row_heading level6 row13" >1</th>
+      <td id="T_3d300_row13_col0" class="data row13 col0" >-0.707107+0.000000j</td>
     </tr>
     <tr>
-      <th id="T_5dcaa_level5_row14" class="row_heading level5 row14" rowspan="2">1</th>
-      <th id="T_5dcaa_level6_row14" class="row_heading level6 row14" >-1</th>
-      <td id="T_5dcaa_row14_col0" class="data row14 col0" >-0.707107-0.000000j</td>
+      <th id="T_3d300_level5_row14" class="row_heading level5 row14" rowspan="2">1</th>
+      <th id="T_3d300_level6_row14" class="row_heading level6 row14" >-1</th>
+      <td id="T_3d300_row14_col0" class="data row14 col0" >-0.707107-0.000000j</td>
     </tr>
     <tr>
-      <th id="T_5dcaa_level6_row15" class="row_heading level6 row15" >1</th>
-      <td id="T_5dcaa_row15_col0" class="data row15 col0" >-0.707107-0.000000j</td>
+      <th id="T_3d300_level6_row15" class="row_heading level6 row15" >1</th>
+      <td id="T_3d300_row15_col0" class="data row15 col0" >-0.707107-0.000000j</td>
     </tr>
   </tbody>
 </table>
 <style type="text/css">
 </style>
-<table id="T_5ca4f" style='display:inline'>
+<table id="T_80802" style='display:inline'>
   <caption><b>ePS basis</b></caption>
   <thead>
     <tr>
@@ -6306,7 +6307,7 @@ Dir /home/jovyan/jake-home/buildTmp/_latest_build/html/doc-source/part2/n2Data, 
       <th class="blank" >&nbsp;</th>
       <th class="blank" >&nbsp;</th>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_5ca4f_level0_col0" class="col_heading level0 col0" >PU</th>
+      <th id="T_80802_level0_col0" class="col_heading level0 col0" >PU</th>
     </tr>
     <tr>
       <th class="index_name level0" >Eke</th>
@@ -6321,41 +6322,41 @@ Dir /home/jovyan/jake-home/buildTmp/_latest_build/html/doc-source/part2/n2Data, 
   </thead>
   <tbody>
     <tr>
-      <th id="T_5ca4f_level0_row0" class="row_heading level0 row0" rowspan="4">0.100000</th>
-      <th id="T_5ca4f_level1_row0" class="row_heading level1 row0" rowspan="4">SG</th>
-      <th id="T_5ca4f_level2_row0" class="row_heading level2 row0" rowspan="4">PU</th>
-      <th id="T_5ca4f_level3_row0" class="row_heading level3 row0" rowspan="4">1</th>
-      <th id="T_5ca4f_level4_row0" class="row_heading level4 row0" rowspan="2">1</th>
-      <th id="T_5ca4f_level5_row0" class="row_heading level5 row0" >-1</th>
-      <th id="T_5ca4f_level6_row0" class="row_heading level6 row0" >1</th>
-      <td id="T_5ca4f_row0_col0" class="data row0 col0" >-1.775708+0.634748j</td>
+      <th id="T_80802_level0_row0" class="row_heading level0 row0" rowspan="4">0.100000</th>
+      <th id="T_80802_level1_row0" class="row_heading level1 row0" rowspan="4">SG</th>
+      <th id="T_80802_level2_row0" class="row_heading level2 row0" rowspan="4">PU</th>
+      <th id="T_80802_level3_row0" class="row_heading level3 row0" rowspan="4">1</th>
+      <th id="T_80802_level4_row0" class="row_heading level4 row0" rowspan="2">1</th>
+      <th id="T_80802_level5_row0" class="row_heading level5 row0" >-1</th>
+      <th id="T_80802_level6_row0" class="row_heading level6 row0" >1</th>
+      <td id="T_80802_row0_col0" class="data row0 col0" >-1.775708+0.634748j</td>
     </tr>
     <tr>
-      <th id="T_5ca4f_level5_row1" class="row_heading level5 row1" >1</th>
-      <th id="T_5ca4f_level6_row1" class="row_heading level6 row1" >-1</th>
-      <td id="T_5ca4f_row1_col0" class="data row1 col0" >-1.775708+0.634748j</td>
+      <th id="T_80802_level5_row1" class="row_heading level5 row1" >1</th>
+      <th id="T_80802_level6_row1" class="row_heading level6 row1" >-1</th>
+      <td id="T_80802_row1_col0" class="data row1 col0" >-1.775708+0.634748j</td>
     </tr>
     <tr>
-      <th id="T_5ca4f_level4_row2" class="row_heading level4 row2" rowspan="2">3</th>
-      <th id="T_5ca4f_level5_row2" class="row_heading level5 row2" >-1</th>
-      <th id="T_5ca4f_level6_row2" class="row_heading level6 row2" >1</th>
-      <td id="T_5ca4f_row2_col0" class="data row2 col0" >0.075363+0.602171j</td>
+      <th id="T_80802_level4_row2" class="row_heading level4 row2" rowspan="2">3</th>
+      <th id="T_80802_level5_row2" class="row_heading level5 row2" >-1</th>
+      <th id="T_80802_level6_row2" class="row_heading level6 row2" >1</th>
+      <td id="T_80802_row2_col0" class="data row2 col0" >0.075363+0.602171j</td>
     </tr>
     <tr>
-      <th id="T_5ca4f_level5_row3" class="row_heading level5 row3" >1</th>
-      <th id="T_5ca4f_level6_row3" class="row_heading level6 row3" >-1</th>
-      <td id="T_5ca4f_row3_col0" class="data row3 col0" >0.075363+0.602171j</td>
+      <th id="T_80802_level5_row3" class="row_heading level5 row3" >1</th>
+      <th id="T_80802_level6_row3" class="row_heading level6 row3" >-1</th>
+      <td id="T_80802_row3_col0" class="data row3 col0" >0.075363+0.602171j</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
-<p>Here the symmetry-defined basis has two degenerate continuua, <code class="docutils literal notranslate"><span class="pre">it=0,1</span></code>, with a phase rotation applied between them. For <code class="docutils literal notranslate"><span class="pre">it=0</span></code> the <span class="math notranslate nohighlight">\(\pm m\)</span> terms are anti-phase, whilst for <code class="docutils literal notranslate"><span class="pre">it=1</span></code> they are in-phase (all negative). For the ePS basis, only the anti-phase component is present, and is further reduced to terms with <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(mu\)</span> of opposite sign. These differences are due to additional restrictions imposed by angular momentum selection rules, which are not included in the symmetry-defined case.</p>
+<p>Here (<span class="math notranslate nohighlight">\(\Pi_u\)</span> case) the symmetry-defined basis has two degenerate continua, <code class="docutils literal notranslate"><span class="pre">it=0,1</span></code>, with a phase rotation applied between them. For <code class="docutils literal notranslate"><span class="pre">it=0</span></code> the <span class="math notranslate nohighlight">\(\pm m\)</span> terms are anti-phase, whilst for <code class="docutils literal notranslate"><span class="pre">it=1</span></code> they are in-phase (all negative). For the ePS basis, only the anti-phase component is present, and is further reduced to terms with <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(mu\)</span> of opposite sign. These differences are due to additional restrictions imposed by angular momentum selection rules, which are not included in the symmetry-defined case.</p>
 <p>In general, the current mappings should be suitable for simulation and reconstruction, but care should be taken to:</p>
 <ol class="arabic simple">
 <li><p>Confirm symmetry and angular momentum relations for a given case.</p></li>
 <li><p>Apply additional transformations if comparison with computational results is required.</p></li>
-<li><p>Add degeneracy factors if required (otherwise will be subsumed into matrix element values).</p></li>
+<li><p>Add degeneracy factors if required (otherwise these will be subsumed into matrix element values).</p></li>
 </ol>
 </section>
 </section>

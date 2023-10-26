@@ -31,3 +31,8 @@ https://orcid.org/0000-0002-4975-4888
 % \affil[1]{National Research Council of Canada, 100 Sussex Drive, Ottawa, ON, K1A 0R6, Canada}%
 % \affil[2]{Department of Chemistry and Physics, University of Mary Washington, 1301 College Avenue, Fredericksburg VA, 22401.}%
 
++++
+
+<!-- Manually inject MathJax to ensure side-bar formatting OK. Code copied from working pages (which include maths) -->
+<script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+<script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

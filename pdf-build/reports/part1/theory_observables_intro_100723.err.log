@@ -1,131 +1,99 @@
 Traceback (most recent call last):
-  File "/opt/conda/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/client.py", line 1117, in execute
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/util.py", line 78, in wrapped
-    return just_run(coro(*args, **kwargs))
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/util.py", line 57, in just_run
-    return loop.run_until_complete(coro)
-  File "/opt/conda/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/conda/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
     return future.result()
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/client.py", line 558, in async_execute
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/client.py", line 862, in async_execute_cell
-    self._check_raise_for_error(cell, exec_reply)
-  File "/opt/conda/lib/python3.9/site-packages/nbclient/client.py", line 765, in _check_raise_for_error
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Example using data class (see setup in init script)
-data = pemtkFit()
+# Glue figure for later
+glue("N2BLMtDemo", daLayout)
+------------------
 
-BLM = setBLMs([[0,0,1,1,1,1],[1,0,0,0.5,0.8,1],[2,0,1,0.5,0,0],
-               [4,2,0,0,0,0.5],[4,-2,0,0,0,0.5]])
-
-data.setData('BLMtest', BLM)
-data.padPlot(keys = 'BLMtest', dataType='AFBLM', Etype='t', facetDims=['t'], backend=plotBackend, plotFlag=False, returnFlag=True)  # Working
-figObj = data.data['BLMtest']['plots']['AFBLM']['polar'][0]
-
-# And GLUE for display later with caption
-# from myst_nb import glue
-# glue("padExamplePlot2", figObj, display=False);
-gluePlotly("padExamplePlot2", figObj)
+----- stderr -----
+WARNING:param.HeatMapPlot08320: Due to internal constraints, when aspect and width/height is set, the bokeh backend uses those values as frame_width/frame_height instead. This ensures the aspect is respected, but means that the plot might be slightly larger than anticipated. Set the frame_width/frame_height explicitly to suppress this warning.
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mTypeError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipykernel_85358/938795725.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      6[0m [0;34m[0m[0m
-[1;32m      7[0m [0mdata[0m[0;34m.[0m[0msetData[0m[0;34m([0m[0;34m'BLMtest'[0m[0;34m,[0m [0mBLM[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 8[0;31m [0mdata[0m[0;34m.[0m[0mpadPlot[0m[0;34m([0m[0mkeys[0m [0;34m=[0m [0;34m'BLMtest'[0m[0;34m,[0m [0mdataType[0m[0;34m=[0m[0;34m'AFBLM'[0m[0;34m,[0m [0mEtype[0m[0;34m=[0m[0;34m't'[0m[0;34m,[0m [0mfacetDims[0m[0;34m=[0m[0;34m[[0m[0;34m't'[0m[0;34m][0m[0;34m,[0m [0mbackend[0m[0;34m=[0m[0mplotBackend[0m[0;34m,[0m [0mplotFlag[0m[0;34m=[0m[0;32mFalse[0m[0;34m,[0m [0mreturnFlag[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m  [0;31m# Working[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      9[0m [0mfigObj[0m [0;34m=[0m [0mdata[0m[0;34m.[0m[0mdata[0m[0;34m[[0m[0;34m'BLMtest'[0m[0;34m][0m[0;34m[[0m[0;34m'plots'[0m[0;34m][0m[0;34m[[0m[0;34m'AFBLM'[0m[0;34m][0m[0;34m[[0m[0;34m'polar'[0m[0;34m][0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[1;32m     10[0m [0;34m[0m[0m
+[0;31mRuntimeError[0m                              Traceback (most recent call last)
+Cell [0;32mIn[24], line 2[0m
+[1;32m      1[0m [38;5;66;03m# Glue figure for later[39;00m
+[0;32m----> 2[0m [43mglue[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mN2BLMtDemo[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mdaLayout[49m[43m)[49m
 
-[0;32m/opt/conda/lib/python3.9/site-packages/epsproc/classes/_plotters.py[0m in [0;36mpadPlot[0;34m(self, selDims, sumDims, Erange, Etype, keys, dataType, facetDims, squeeze, reducePhi, pType, pStyle, returnFlag, plotDict, backend, plotFlag, **kwargs)[0m
-[1;32m    939[0m         [0;31m# If not present, assumed LM parameters, and expand on grid[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    940[0m         [0;32mif[0m [0;32mnot[0m [0;34m([0m[0;34m([0m[0;34m'Theta'[0m [0;32min[0m [0msubset[0m[0;34m.[0m[0mdims[0m[0;34m)[0m [0;32mor[0m [0;34m([0m[0;34m'Phi'[0m [0;32min[0m [0msubset[0m[0;34m.[0m[0mdims[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 941[0;31m             [0msubset[0m[0;34m,[0m [0m_[0m [0;34m=[0m [0msphFromBLMPlot[0m[0;34m([0m[0msubset[0m[0;34m,[0m [0mplotFlag[0m [0;34m=[0m [0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    942[0m             [0msubset[0m [0;34m=[0m [0msubset[0m[0;34m.[0m[0msum[0m[0;34m([0m[0;34m'LM'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    943[0m [0;34m[0m[0m
+File [0;32m~/jake-home/buildTmp/_latest_build/pdf/doc-source/scripts/setup_notebook.py:201[0m, in [0;36mglueDecorator.<locals>.glueWrapper[0;34m(name, fig, **kwargs)[0m
+[1;32m    195[0m [38;5;66;03m# Holoviews object[39;00m
+[1;32m    196[0m [38;5;66;03m# NOTE this may give unexpected results in some cases for Holomaps - may want to force flatten?[39;00m
+[1;32m    197[0m [38;5;66;03m# Note for Bokeh backend may need additional pkgs, selenium, firefox and geckodriver[39;00m
+[1;32m    198[0m [38;5;66;03m# See https://holoviews.org/user_guide/Plots_and_Renderers.html#saving-and-rendering[39;00m
+[1;32m    199[0m [38;5;28;01mif[39;00m [38;5;124m'[39m[38;5;124mholoviews[39m[38;5;124m'[39m [38;5;129;01min[39;00m [38;5;28mstr[39m([38;5;28mtype[39m(fig)):
+[1;32m    200[0m     [38;5;66;03m# Force render and glue[39;00m
+[0;32m--> 201[0m     [43mhv[49m[38;5;241;43m.[39;49m[43msave[49m[43m([49m[43mfig[49m[43m,[49m[43m [49m[43mimgFile[49m[43m,[49m[43m [49m[43mfmt[49m[38;5;241;43m=[39;49m[43mimgFormat[49m[43m)[49m
+[1;32m    203[0m     [38;5;66;03m# Glue static render[39;00m
+[1;32m    204[0m     [38;5;28;01mreturn[39;00m func(name, Image(imgFile), display[38;5;241m=[39mdisplayFig)
 
-[0;32m/opt/conda/lib/python3.9/site-packages/epsproc/sphPlot.py[0m in [0;36msphFromBLMPlot[0;34m(BLMXin, res, pType, plotFlag, facetDim, backend, fnType, conj, **kwargs)[0m
-[1;32m    306[0m [0;34m[0m[0m
-[1;32m    307[0m         [0;31m# 27/03/23 - changed to always run plotter, allows for figure return.[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 308[0;31m         [0mfig[0m [0;34m=[0m [0msphSumPlotX[0m[0;34m([0m[0mdataPlot[0m[0;34m,[0m [0mpType[0m [0;34m=[0m [0mpType[0m[0;34m,[0m [0mfacetDim[0m [0;34m=[0m [0mfacetDim[0m[0;34m,[0m [0mbackend[0m [0;34m=[0m [0mbackend[0m[0;34m,[0m [0mplotFlag[0m [0;34m=[0m [0mplotFlag[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    309[0m [0;34m[0m[0m
-[1;32m    310[0m [0;34m[0m[0m
+File [0;32m/opt/conda/lib/python3.10/site-packages/holoviews/util/__init__.py:808[0m, in [0;36msave[0;34m(obj, filename, fmt, backend, resources, toolbar, title, **kwargs)[0m
+[1;32m    806[0m     [38;5;28;01mif[39;00m formats[[38;5;241m-[39m[38;5;241m1[39m] [38;5;129;01min[39;00m supported:
+[1;32m    807[0m         filename [38;5;241m=[39m [38;5;124m'[39m[38;5;124m.[39m[38;5;124m'[39m[38;5;241m.[39mjoin(formats[:[38;5;241m-[39m[38;5;241m1[39m])
+[0;32m--> 808[0m [38;5;28;01mreturn[39;00m [43mrenderer_obj[49m[38;5;241;43m.[39;49m[43msave[49m[43m([49m[43mobj[49m[43m,[49m[43m [49m[43mfilename[49m[43m,[49m[43m [49m[43mfmt[49m[38;5;241;43m=[39;49m[43mfmt[49m[43m,[49m[43m [49m[43mresources[49m[38;5;241;43m=[39;49m[43mresources[49m[43m,[49m
+[1;32m    809[0m [43m                         [49m[43mtitle[49m[38;5;241;43m=[39;49m[43mtitle[49m[43m)[49m
 
-[0;32m/opt/conda/lib/python3.9/site-packages/epsproc/sphPlot.py[0m in [0;36msphSumPlotX[0;34m(dataIn, pType, facetDim, surfMap, backend, convention, titleString, plotFlag, verbose, axisUW, **kwargs)[0m
-[1;32m    442[0m [0;34m[0m[0m
-[1;32m    443[0m             [0;31m# Loop over facetDim with full dataArray as selector, allows for MultiIndex cases.[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 444[0;31m             [0;32mfor[0m [0mnPlot[0m [0;32min[0m [0mdataPlot[0m[0;34m[[0m[0mfacetDim[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    445[0m                 [0;31m# fig.append(sphPlotMPL(dataPlot.sel({facetDim:nPlot}).squeeze(), theta, phi,  convention = convention, tString = f"{facetDim}: {nPlot.item()}"))[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    446[0m                 [0;31m# {dataPlot[facetDim][nPlot].item()}"))  # Will fail if dims>2 passed.[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m/opt/conda/lib/python3.10/site-packages/holoviews/plotting/renderer.py:597[0m, in [0;36mRenderer.save[0;34m(self_or_cls, obj, basename, fmt, key, info, options, resources, title, **kwargs)[0m
+[1;32m    594[0m     plot[38;5;241m.[39mlayout[38;5;241m.[39msave(basename, embed[38;5;241m=[39m[38;5;28;01mTrue[39;00m, resources[38;5;241m=[39mresources, title[38;5;241m=[39mtitle)
+[1;32m    595[0m     [38;5;28;01mreturn[39;00m
+[0;32m--> 597[0m rendered [38;5;241m=[39m [43mself_or_cls[49m[43m([49m[43mplot[49m[43m,[49m[43m [49m[43mfmt[49m[43m)[49m
+[1;32m    598[0m [38;5;28;01mif[39;00m rendered [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m: [38;5;28;01mreturn[39;00m
+[1;32m    599[0m (data, info) [38;5;241m=[39m rendered
 
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/dataarray.py[0m in [0;36m__getitem__[0;34m(self, key)[0m
-[1;32m    739[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    740[0m             [0;31m# xarray-style array indexing[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 741[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0misel[0m[0;34m([0m[0mindexers[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0m_item_key_to_dict[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    742[0m [0;34m[0m[0m
-[1;32m    743[0m     [0;32mdef[0m [0m__setitem__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m:[0m [0mAny[0m[0;34m,[0m [0mvalue[0m[0;34m:[0m [0mAny[0m[0;34m)[0m [0;34m->[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m/opt/conda/lib/python3.10/site-packages/holoviews/plotting/renderer.py:200[0m, in [0;36mRenderer.__call__[0;34m(self, obj, fmt, **kwargs)[0m
+[1;32m    198[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39mstatic_html(plot), info
+[1;32m    199[0m [38;5;28;01melse[39;00m:
+[0;32m--> 200[0m     data [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_figure_data[49m[43m([49m[43mplot[49m[43m,[49m[43m [49m[43mfmt[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    201[0m     data [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_apply_post_render_hooks(data, obj, fmt)
+[1;32m    202[0m     [38;5;28;01mreturn[39;00m data, info
 
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/dataarray.py[0m in [0;36misel[0;34m(self, indexers, drop, missing_dims, **indexers_kwargs)[0m
-[1;32m   1195[0m [0;34m[0m[0m
-[1;32m   1196[0m         [0;32mif[0m [0many[0m[0;34m([0m[0mis_fancy_indexer[0m[0;34m([0m[0midx[0m[0;34m)[0m [0;32mfor[0m [0midx[0m [0;32min[0m [0mindexers[0m[0;34m.[0m[0mvalues[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 1197[0;31m             ds = self._to_temp_dataset()._isel_fancy(
-[0m[1;32m   1198[0m                 [0mindexers[0m[0;34m,[0m [0mdrop[0m[0;34m=[0m[0mdrop[0m[0;34m,[0m [0mmissing_dims[0m[0;34m=[0m[0mmissing_dims[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   1199[0m             )
+File [0;32m/opt/conda/lib/python3.10/site-packages/holoviews/plotting/bokeh/renderer.py:127[0m, in [0;36mBokehRenderer._figure_data[0;34m(self, plot, fmt, doc, as_script, **kwargs)[0m
+[1;32m    125[0m [38;5;28;01melif[39;00m fmt [38;5;241m==[39m [38;5;124m'[39m[38;5;124mpng[39m[38;5;124m'[39m:
+[1;32m    126[0m     [38;5;28;01mfrom[39;00m [38;5;21;01mbokeh[39;00m[38;5;21;01m.[39;00m[38;5;21;01mio[39;00m[38;5;21;01m.[39;00m[38;5;21;01mexport[39;00m [38;5;28;01mimport[39;00m get_screenshot_as_png
+[0;32m--> 127[0m     img [38;5;241m=[39m [43mget_screenshot_as_png[49m[43m([49m[43mplot[49m[38;5;241;43m.[39;49m[43mstate[49m[43m,[49m[43m [49m[43mdriver[49m[38;5;241;43m=[39;49m[43mstate[49m[38;5;241;43m.[39;49m[43mwebdriver[49m[43m)[49m
+[1;32m    128[0m     imgByteArr [38;5;241m=[39m BytesIO()
+[1;32m    129[0m     img[38;5;241m.[39msave(imgByteArr, [38;5;28mformat[39m[38;5;241m=[39m[38;5;124m'[39m[38;5;124mPNG[39m[38;5;124m'[39m)
 
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/dataset.py[0m in [0;36m_isel_fancy[0;34m(self, indexers, drop, missing_dims)[0m
-[1;32m   2408[0m [0;34m[0m[0m
-[1;32m   2409[0m             [0;32mif[0m [0mname[0m [0;32min[0m [0mself[0m[0;34m.[0m[0mxindexes[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 2410[0;31m                 new_var, new_index = isel_variable_and_index(
-[0m[1;32m   2411[0m                     [0mname[0m[0;34m,[0m [0mvar[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mxindexes[0m[0;34m[[0m[0mname[0m[0;34m][0m[0;34m,[0m [0mvar_indexers[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   2412[0m                 )
+File [0;32m/opt/conda/lib/python3.10/site-packages/bokeh/io/export.py:254[0m, in [0;36mget_screenshot_as_png[0;34m(obj, driver, timeout, resources, width, height, state)[0m
+[1;32m    251[0m [38;5;28;01mwith[39;00m [38;5;28mopen[39m(tmp[38;5;241m.[39mpath, mode[38;5;241m=[39m[38;5;124m"[39m[38;5;124mw[39m[38;5;124m"[39m, encoding[38;5;241m=[39m[38;5;124m"[39m[38;5;124mutf-8[39m[38;5;124m"[39m) [38;5;28;01mas[39;00m file:
+[1;32m    252[0m     file[38;5;241m.[39mwrite(html)
+[0;32m--> 254[0m web_driver [38;5;241m=[39m driver [38;5;28;01mif[39;00m driver [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m [38;5;28;01melse[39;00m [43mwebdriver_control[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[43m)[49m
+[1;32m    255[0m web_driver[38;5;241m.[39mmaximize_window()
+[1;32m    256[0m web_driver[38;5;241m.[39mget([38;5;124mf[39m[38;5;124m"[39m[38;5;124mfile://[39m[38;5;132;01m{[39;00mtmp[38;5;241m.[39mpath[38;5;132;01m}[39;00m[38;5;124m"[39m)
 
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/indexes.py[0m in [0;36misel_variable_and_index[0;34m(name, variable, index, indexers)[0m
-[1;32m    526[0m         )
-[1;32m    527[0m [0;34m[0m[0m
-[0;32m--> 528[0;31m     [0mnew_variable[0m [0;34m=[0m [0mvariable[0m[0;34m.[0m[0misel[0m[0;34m([0m[0mindexers[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    529[0m [0;34m[0m[0m
-[1;32m    530[0m     [0;32mif[0m [0mnew_variable[0m[0;34m.[0m[0mdims[0m [0;34m!=[0m [0;34m([0m[0mname[0m[0;34m,[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m/opt/conda/lib/python3.10/site-packages/bokeh/io/webdriver.py:138[0m, in [0;36m_WebdriverState.get[0;34m(self)[0m
+[1;32m    136[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39mreuse [38;5;129;01mor[39;00m [38;5;28mself[39m[38;5;241m.[39mcurrent [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[1;32m    137[0m     [38;5;28mself[39m[38;5;241m.[39mreset()
+[0;32m--> 138[0m     [38;5;28mself[39m[38;5;241m.[39mcurrent [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcreate[49m[43m([49m[43m)[49m
+[1;32m    139[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39mcurrent
 
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/variable.py[0m in [0;36misel[0;34m(self, indexers, missing_dims, **indexers_kwargs)[0m
-[1;32m   1184[0m [0;34m[0m[0m
-[1;32m   1185[0m         [0mkey[0m [0;34m=[0m [0mtuple[0m[0;34m([0m[0mindexers[0m[0;34m.[0m[0mget[0m[0;34m([0m[0mdim[0m[0;34m,[0m [0mslice[0m[0;34m([0m[0;32mNone[0m[0;34m)[0m[0;34m)[0m [0;32mfor[0m [0mdim[0m [0;32min[0m [0mself[0m[0;34m.[0m[0mdims[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 1186[0;31m         [0;32mreturn[0m [0mself[0m[0;34m[[0m[0mkey[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   1187[0m [0;34m[0m[0m
-[1;32m   1188[0m     [0;32mdef[0m [0msqueeze[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mdim[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m/opt/conda/lib/python3.10/site-packages/bokeh/io/webdriver.py:142[0m, in [0;36m_WebdriverState.create[0;34m(self, kind)[0m
+[1;32m    141[0m [38;5;28;01mdef[39;00m [38;5;21mcreate[39m([38;5;28mself[39m, kind: DriverKind [38;5;241m|[39m [38;5;28;01mNone[39;00m [38;5;241m=[39m [38;5;28;01mNone[39;00m) [38;5;241m-[39m[38;5;241m>[39m WebDriver:
+[0;32m--> 142[0m     driver [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_create[49m[43m([49m[43mkind[49m[43m)[49m
+[1;32m    143[0m     [38;5;28mself[39m[38;5;241m.[39m_drivers[38;5;241m.[39madd(driver)
+[1;32m    144[0m     [38;5;28;01mreturn[39;00m driver
 
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/variable.py[0m in [0;36m__getitem__[0;34m(self, key)[0m
-[1;32m    776[0m         [0marray[0m[0;31m [0m[0;31m`[0m[0mx[0m[0;34m.[0m[0mvalues[0m[0;31m`[0m [0mdirectly[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    777[0m         """
-[0;32m--> 778[0;31m         [0mdims[0m[0;34m,[0m [0mindexer[0m[0;34m,[0m [0mnew_order[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_broadcast_indexes[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    779[0m         [0mdata[0m [0;34m=[0m [0mas_indexable[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_data[0m[0;34m)[0m[0;34m[[0m[0mindexer[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[1;32m    780[0m         [0;32mif[0m [0mnew_order[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m/opt/conda/lib/python3.10/site-packages/bokeh/io/webdriver.py:160[0m, in [0;36m_WebdriverState._create[0;34m(self, kind)[0m
+[1;32m    157[0m         [38;5;28mself[39m[38;5;241m.[39mkind [38;5;241m=[39m [38;5;124m"[39m[38;5;124mfirefox[39m[38;5;124m"[39m
+[1;32m    158[0m         [38;5;28;01mreturn[39;00m driver
+[0;32m--> 160[0m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([38;5;124m"[39m[38;5;124mNeither firefox and geckodriver nor a variant of chromium browser and [39m[38;5;124m"[39m \
+[1;32m    161[0m                        [38;5;124m"[39m[38;5;124mchromedriver are available on system PATH. You can install the former [39m[38;5;124m"[39m \
+[1;32m    162[0m                        [38;5;124m"[39m[38;5;124mwith [39m[38;5;124m'[39m[38;5;124mconda install -c conda-forge firefox geckodriver[39m[38;5;124m'[39m[38;5;124m.[39m[38;5;124m"[39m)
+[1;32m    163[0m [38;5;28;01melif[39;00m driver_kind [38;5;241m==[39m [38;5;124m"[39m[38;5;124mchromium[39m[38;5;124m"[39m:
+[1;32m    164[0m     [38;5;28;01mreturn[39;00m create_chromium_webdriver()
 
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/variable.py[0m in [0;36m_broadcast_indexes[0;34m(self, key)[0m
-[1;32m    624[0m         [0;31m# key can be mapped as an OuterIndexer.[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    625[0m         [0;32mif[0m [0mall[0m[0;34m([0m[0;32mnot[0m [0misinstance[0m[0;34m([0m[0mk[0m[0;34m,[0m [0mVariable[0m[0;34m)[0m [0;32mfor[0m [0mk[0m [0;32min[0m [0mkey[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 626[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_broadcast_indexes_outer[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    627[0m [0;34m[0m[0m
-[1;32m    628[0m         [0;31m# If all key is 1-dimensional and there are no duplicate labels,[0m[0;34m[0m[0;34m[0m[0m
-
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/variable.py[0m in [0;36m_broadcast_indexes_outer[0;34m(self, key)[0m
-[1;32m    698[0m             [0mnew_key[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mk[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    699[0m [0;34m[0m[0m
-[0;32m--> 700[0;31m         [0;32mreturn[0m [0mdims[0m[0;34m,[0m [0mOuterIndexer[0m[0;34m([0m[0mtuple[0m[0;34m([0m[0mnew_key[0m[0;34m)[0m[0;34m)[0m[0;34m,[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    701[0m [0;34m[0m[0m
-[1;32m    702[0m     [0;32mdef[0m [0m_nonzero[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-
-[0;32m/opt/conda/lib/python3.9/site-packages/xarray/core/indexing.py[0m in [0;36m__init__[0;34m(self, key)[0m
-[1;32m    270[0m             [0;32melif[0m [0misinstance[0m[0;34m([0m[0mk[0m[0;34m,[0m [0mnp[0m[0;34m.[0m[0mndarray[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    271[0m                 [0;32mif[0m [0;32mnot[0m [0mnp[0m[0;34m.[0m[0missubdtype[0m[0;34m([0m[0mk[0m[0;34m.[0m[0mdtype[0m[0;34m,[0m [0mnp[0m[0;34m.[0m[0minteger[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 272[0;31m                     raise TypeError(
-[0m[1;32m    273[0m                         [0;34mf"invalid indexer array, does not have integer dtype: {k!r}"[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    274[0m                     )
-
-[0;31mTypeError[0m: invalid indexer array, does not have integer dtype: array(None, dtype=object)
-TypeError: invalid indexer array, does not have integer dtype: array(None, dtype=object)
+[0;31mRuntimeError[0m: Neither firefox and geckodriver nor a variant of chromium browser and chromedriver are available on system PATH. You can install the former with 'conda install -c conda-forge firefox geckodriver'.
 

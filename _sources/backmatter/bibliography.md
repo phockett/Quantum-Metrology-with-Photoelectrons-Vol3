@@ -42,3 +42,8 @@ kernelspec:
 ```{code-cell} ipython3
 
 ```
++++
+
+<!-- Manually inject MathJax to ensure side-bar formatting OK. Code copied from working pages (which include maths) -->
+<script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+<script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

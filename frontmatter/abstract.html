@@ -153,7 +153,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    About the book
+                    Quantum Metrology with Photoelectrons Vol. 3: Analysis methodologies
                 </a>
             </li>
         </ul>
@@ -194,7 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../backmatter/bibliography.html">Bibliography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../backmatter/glossary.html">Glossary</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Test pages</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Builds and versions</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../tests/build_versions_checks.html">Build versions and config tests</a></li>
 </ul>
@@ -396,6 +396,9 @@ document.write(`
 <h1>Abstract<a class="headerlink" href="#abstract" title="Permalink to this heading">#</a></h1>
 <p>The overall aim of Quantum Metrology with Photoelectrons Vol. 3 is to expand, explore, and illustrate, new computational developments in quantum metrology with photoelectrons: specifically, the application of new python-based tools to tackle problems in photoionization matrix element retrieval. Part I details the topic, theory and computational methods; Part II provides further numerical details and case-studies.</p>
 <p>The book itself is fully open-source, and written as a set of Jupyter Notebooks. All the material herein is available directly to readers via a Github repository <a class="reference external" href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3"><em>Quantum Metrology</em> Vol. 3 (Github repo)</a>. Any example script, page, chapter - up to and including the full book - can be executed and modified by readers to further explore the topic interactively, and provide a foundation which can be adapted to apply the methodology to new problems. Further details can be found in <a class="reference internal" href="../part1/main_intro_060723.html#sec-intro-context"><span class="std std-numref">Sect. 1.2</span></a>.</p>
+<!-- Manually inject MathJax to ensure side-bar formatting OK. Code copied from working pages (which include maths) -->
+<script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+<script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </section>
 
     <script type="text/x-thebe-config">

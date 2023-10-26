@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>About the book &#8212; Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</title>
+    <title>Quantum Metrology with Photoelectrons Vol. 3: Analysis methodologies &#8212; Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*</title>
   
   
   
@@ -152,7 +152,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    About the book
+                    Quantum Metrology with Photoelectrons Vol. 3: Analysis methodologies
                 </a>
             </li>
         </ul>
@@ -193,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="backmatter/bibliography.html">Bibliography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="backmatter/glossary.html">Glossary</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Test pages</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Builds and versions</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tests/build_versions_checks.html">Build versions and config tests</a></li>
 </ul>
@@ -379,7 +379,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>About the book</h1>
+    <h1>Quantum Metrology with Photoelectrons Vol. 3: Analysis methodologies</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -389,10 +389,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series-abstract">Series abstract</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-books">About the books</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-details">Technical details</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-code-examples">Running code examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-builds">Docker builds</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-book">Building the book</a></li>
 </ul>
 </li>
@@ -408,71 +408,69 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="about-the-book">
-<h1>About the book<a class="headerlink" href="#about-the-book" title="Permalink to this heading">#</a></h1>
+  <!-- Manually inject MathJax to ensure side-bar formatting OK. Code copied from working pages (which include maths) -->
+<script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+<script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<section class="tex2jax_ignore mathjax_ignore" id="quantum-metrology-with-photoelectrons-vol-3-analysis-methodologies">
+<h1>Quantum Metrology with Photoelectrons Vol. 3: <em>Analysis methodologies</em><a class="headerlink" href="#quantum-metrology-with-photoelectrons-vol-3-analysis-methodologies" title="Permalink to this heading">#</a></h1>
+<p>By Paul Hockett with Varun Makhija</p>
 <p>Quantum Metrology with Photoelectrons Volume 3: <em>Analysis
-methodologies</em>, an open source executable book by Paul Hockett with Varun Makhija. This repository contains the source documents (mainly Jupyter Notebooks in Python) and notes for the book, as of Jan 2022 writing is in progress, and the <a class="reference external" href="https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/">current HTML build can be found online</a>. The book is due to be finished in 2023, and will be published by IOP Press - see below for more details.</p>
-<section id="series-abstract">
-<h2>Series abstract<a class="headerlink" href="#series-abstract" title="Permalink to this heading">#</a></h2>
-<p>Photoionization is an interferometric process, in which multiple paths can contribute to the final continuum photoelectron wavefunction. At the simplest level, interferences between different final angular momentum states are manifest in the energy and angle resolved photoelectron spectra: metrology schemes making use of these interferograms are thus phase-sensitive, and provide a powerful route to detailed understanding of photoionization. In these cases, the continuum wavefunction (and underlying scattering dynamics) can be characterised. At a more complex level, such measurements can also provide a powerful probe for other processes of interest, leading to a more general class of quantum metrology built on phase-sensitive photoelectron imaging.  Since the turn of the century, the increasing availability of photoelectron imaging experiments, along with the increasing sophistication of experimental techniques, and the availability of computational resources for analysis and numerics, has allowed for significant developments in such photoelectron metrology.</p>
-</section>
+methodologies</em>, an open source executable book. This repository contains the source documents (mainly Jupyter Notebooks in Python) and notes for the book, as of July 2023 the first draft is complete, and the <a class="reference external" href="https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/">current HTML build can be found online</a>, which includes all code and interactive figures, as well as menus options to download source and PDF versions per chapter; a <a class="reference external" href="https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/pdf/QM3.pdf">complete PDF version (full book but with abridged code) is also available</a>. The book is due to be published in late 2023, and by IOP Press - see below for more details.</p>
+<p><a class="reference external" href="https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/"><img alt="Jupyter Book Badge" src="https://jupyterbook.org/badge.svg" /></a>
+<a class="reference external" href="https://zenodo.org/badge/latestdoi/449878450"><img alt="DOI" src="https://zenodo.org/badge/449878450.svg" /></a></p>
 <section id="about-the-books">
 <h2>About the books<a class="headerlink" href="#about-the-books" title="Permalink to this heading">#</a></h2>
-<p><img alt="QMbooks" src="http://femtolab.ca/wordpress/wp-content/uploads/2017/08/mock_covers_2vol_020318.png" /></p>
+<p>Photoionization is an interferometric process, in which multiple paths can contribute to the final continuum photoelectron wavefunction. At the simplest level, interferences between different final angular momentum states are manifest in the energy and angle resolved photoelectron spectra: metrology schemes making use of these interferograms are thus phase-sensitive, and provide a powerful route to detailed understanding of photoionization. In these cases, the continuum wavefunction (and underlying scattering dynamics) can be characterised. At a more complex level, such measurements can also provide a powerful probe for other processes of interest, leading to a more general class of quantum metrology built on phase-sensitive photoelectron imaging.  Since the turn of the century, the increasing availability of photoelectron imaging experiments, along with the increasing sophistication of experimental techniques, and the availability of computational resources for analysis and numerics, has allowed for significant developments in such photoelectron metrology.</p>
+<p><img alt="QMbooks" src="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/blob/postSubmissionUpdates/notes/cover_art/mock_covers_3vol_230823.png?raw=true" /></p>
 <ul class="simple">
 <li><p>Volume I covers the core physics of photoionization, including a range of computational examples. The material is presented as both reference and tutorial, and should appeal to readers of all levels. ISBN 978-1-6817-4684-5, <a class="reference external" href="http://iopscience.iop.org/book/978-1-6817-4684-5">http://iopscience.iop.org/book/978-1-6817-4684-5</a> (IOP Press, 2018)</p></li>
 <li><p>Volume II explores applications, and the development of quantum metrology schemes based on photoelectron measurements. The material is more technical, and will appeal more to the specialist reader. ISBN 978-1-6817-4688-3, <a class="reference external" href="http://iopscience.iop.org/book/978-1-6817-4688-3">http://iopscience.iop.org/book/978-1-6817-4688-3</a> (IOP Press, 2018)</p></li>
 </ul>
 <p>Additional online resources for Vols. I &amp; II can be found on <a class="reference external" href="https://osf.io/q2v3g/wiki/home/">OSF</a> and <a class="reference external" href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons">Github</a>.</p>
 <ul class="simple">
-<li><p>Volume III in the series will continue this exploration, with a focus on numerical analysis techniques, forging a closer link between experimental and theoretical results, and making the methodologies discussed directly accessible via new software. The book is due for publication by IOP due in 2023; this volume is also open-source, with a live HTML version at <a class="reference external" href="https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/">https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/</a> and source available at <a class="github reference external" href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3">phockett/Quantum-Metrology-with-Photoelectrons-Vol3</a>.</p></li>
+<li><p>Volume III in the series continues this exploration, with a focus on numerical analysis techniques, forging a closer link between experimental and theoretical results, and making the methodologies discussed directly accessible via new software. The book is due for publication by IOP in 2023; this volume is also open-source, with a live HTML version at <a class="reference external" href="https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/">https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/</a> and source available at <a class="github reference external" href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3">phockett/Quantum-Metrology-with-Photoelectrons-Vol3</a>.</p></li>
 </ul>
-<p>For some additional details and motivations (including topical video), see <a class="reference external" href="https://phockett.github.io/ePSdata/about.html#Motivation">the ePSdata project</a>.</p>
 </section>
 <section id="technical-details">
 <h2>Technical details<a class="headerlink" href="#technical-details" title="Permalink to this heading">#</a></h2>
 <p>This repository contains:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">doc-source</span></code>: the source documents (mainly Jupyter Notebooks in Python)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">notes</span></code>: additional notes for the book,</p></li>
-<li><p>the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch contains the current HTML build, also available at <a class="reference external" href="https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/">https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">doc-source</span></code> the source documents (mainly Jupyter Notebooks in Python)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">notes</span></code> additional notes for the book,</p></li>
+<li><p>gh-pages branch contains the current HTML build, available at <a class="reference external" href="https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/">https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/</a></p></li>
 </ul>
 <p>The project has been setup to use the <a class="reference external" href="https://jupyterbook.org/">Jupyter Book</a> build-chain (which uses Sphinx on the back-end) to generate HTML and Latex outputs for publication from source Jupyter notebooks &amp; markdown files.</p>
 <p>The work <em>within</em> the book will make use of the <a class="reference external" href="https://pemtk.readthedocs.io/en/latest/about.html">Photoelectron Metrology Toolkit</a> platform for working with experimental &amp; theoretical data.</p>
+<p>For further technical details, <a class="reference external" href="https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/part1/platform_intro_070723.html">see Chpt. 2 in the book</a>.</p>
 <p><img alt="Photoelectron metrology platform diagram" src="https://raw.githubusercontent.com/phockett/PEMtk/4eec9217203bfd1aee13bd8b64952dc1ac5fef89/docs/doc-source/figs/QM_unified_schema_wrapped_280820.gv.png" /></p>
 <section id="running-code-examples">
 <h3>Running code examples<a class="headerlink" href="#running-code-examples" title="Permalink to this heading">#</a></h3>
-<p>Each Jupyter notebook (<code class="docutils literal notranslate"><span class="pre">*.ipynb</span></code>) can be treated as a stand-alone computational document. These can be run/used/modified independently with an appropriately setup python environment (details to follow).</p>
+<p>Each Jupyter notebook (<code class="docutils literal notranslate"><span class="pre">*.ipynb</span></code>) can be treated as a stand-alone computational document. These can be run/used/modified independently with an appropriately setup python environment, for details <a class="reference external" href="https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/part1/platform_intro_070723.html#installation-and-environment-set-up">see Chpt. 2 in the book</a>.</p>
+</section>
+<section id="docker-builds">
+<h3>Docker builds<a class="headerlink" href="#docker-builds" title="Permalink to this heading">#</a></h3>
+<p>Docker images, including the full book source and all required packages, are <a class="reference external" href="https://hub.docker.com/r/epsproc/quantum-met-vol3">available from Docker hub</a>, simply run <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">epsproc/quantum-met-vol3</span></code> to pull a copy, then <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">epsproc/quantum-met-vol3</span></code> to run with default settings (which uses port 8888 for JupyterLab). The Jupyter Lab interface will be available at <a class="reference external" href="http://localhost:8888">http://localhost:8888</a>, with default password <code class="docutils literal notranslate"><span class="pre">qm3</span></code>. (To specify a port at run time, add <code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">&lt;newPort&gt;:8888</span></code> to the run command, e.g. <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-p</span> <span class="pre">9999:8888</span> <span class="pre">epsproc/quantum-met-vol3</span></code> to set port to 9999.)</p>
+<p>The Docker images contain the book source, along with all required packages and Jupyter Lab (based on the <a class="reference external" href="https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html">Jupyter Docker Stacks Scipy image</a>). Book source files are available in the container at <code class="docutils literal notranslate"><span class="pre">github/Quantum-Metrology-with-Photoelectrons-Vol3/</span></code>. For more details on the Jupyter Lab base container, see the <a class="reference external" href="https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html">Jupyter Docker Stacks website</a>.</p>
+<p>For the source Dockerfiles and additional notes, <a class="reference external" href="https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/tree/main/docker">see <code class="docutils literal notranslate"><span class="pre">/docker</span></code> in the QM3 github repository</a>.</p>
+<p>Archived versions can also be found on Zenodo: <a class="reference external" href="https://doi.org/10.5281/zenodo.8286020"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.8286020.svg" /></a></p>
 </section>
 <section id="building-the-book">
 <h3>Building the book<a class="headerlink" href="#building-the-book" title="Permalink to this heading">#</a></h3>
-<p>The full book can also be built from source:</p>
+<p>The full book can also be built from source in a suitably configured environment (<a class="reference external" href="https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/part1/platform_intro_070723.html#installation-and-environment-set-up">see Chpt. 2 in the book</a>):</p>
 <ol class="arabic simple">
 <li><p>Clone this repository</p></li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code> (it is recommended you do this within a virtual environment)</p></li>
 <li><p>(Optional) Edit the books source files located in the <code class="docutils literal notranslate"><span class="pre">doc-source/</span></code> directory</p></li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">clean</span> <span class="pre">doc-source/</span></code> to remove any existing builds</p></li>
-<li><p>For an HTML build:</p>
-<ul class="simple">
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">doc-source/</span></code></p></li>
-<li><p>A fully-rendered HTML version of the book will be built in <code class="docutils literal notranslate"><span class="pre">doc-source/_build/html/</span></code>.</p></li>
-</ul>
-</li>
-<li><p>For a LaTex &amp; PDF build:</p>
-<ul class="simple">
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">doc-source/</span> <span class="pre">--builder</span> <span class="pre">pdflatex</span></code></p></li>
-<li><p>A fully-rendered HTML version of the book will be built in <code class="docutils literal notranslate"><span class="pre">doc-source/_build/latex/</span></code>.</p></li>
-</ul>
-</li>
 </ol>
-<p>See <a class="reference external" href="https://jupyterbook.org/basics/building/index.html">https://jupyterbook.org/basics/building/index.html</a> for more information.</p>
+<p>A fully-rendered HTML version of the book will be built in <code class="docutils literal notranslate"><span class="pre">doc-source/_build/html/</span></code>.</p>
 </section>
 </section>
 <section id="credits">
 <h2>Credits<a class="headerlink" href="#credits" title="Permalink to this heading">#</a></h2>
 <p>This project is created using the open source <a class="reference external" href="https://jupyterbook.org/">Jupyter Book project</a> and the <a class="reference external" href="https://github.com/executablebooks/cookiecutter-jupyter-book">executablebooks/cookiecutter-jupyter-book template</a>.</p>
 <p>To add: build env &amp; main software packages (see automation for this…)</p>
-<p><img alt="Jupyter book logo" src="_images/logo.png" /></p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -544,10 +542,10 @@ methodologies</em>, an open source executable book by Paul Hockett with Varun Ma
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series-abstract">Series abstract</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-books">About the books</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-details">Technical details</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-code-examples">Running code examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-builds">Docker builds</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-book">Building the book</a></li>
 </ul>
 </li>

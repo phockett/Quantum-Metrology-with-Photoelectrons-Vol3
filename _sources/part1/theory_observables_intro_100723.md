@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.7
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -58,7 +58,7 @@ $$
 $$ (eq:AF-PAD-general)
 
 Here the flux in the laboratory frame ({{ LF }}) or aligned frame ({{ AF }}) is denoted $\bar{I}(\epsilon,t,\theta,\phi)$, with the bar signifying ensemble averaging, and the molecular frame flux by $I(\epsilon,t,\theta,\phi)$. Similarly, the expansion parameters $\bar{\beta}_{L,M}(\epsilon,t)$ include a bar for the LF/AF case. These observables are generally termed photoelectron angular distributions ({{ PADs }}), often with a prefix denoting the reference frame, e.g. LFPADs, MFPADs, and the associated expansion parameters $\bar{\beta}_{L,M}(\epsilon,t)$ are generically termed {{ betas }}. The polar coordinate system $(\theta,\phi)$ is referenced to
-an experimentally-defined axis in the {{ LF }}/{{ AF }} case (usually defined by the laser polarization), and the molecular symmetry axis in the {{ MF }}, as illustrated in {numref}`fig-bootstrap-concept-outline`. Some arbitrary examples are given in {numref}`fig-pads-example`, which illustrates both a range of distributions of increasing complexity, and some basic code to set $\beta_{L,M}$ parameters and visualise them; the values used as tabulated in  {numref}`blm-tab`.
+an experimentally-defined axis in the {{ LF }}/{{ AF }} case (usually defined by the laser polarization), and the molecular symmetry axis in the {{ MF }}, as illustrated in {numref}`fig-bootstrap-concept-outline`. Some arbitrary examples are given in {numref}`fig-pads-example`, which illustrates a range of distributions of increasing complexity; corresponding basic code to set $\beta_{L,M}$ parameters and visualise them is given below; the values used are as tabulated in {numref}`blm-tab`.
 
 Numerically, there are some choices and conventions which apply to the spherical harmonics. As noted in {numref}`Sect. %s <sect:platform:pythonEcosystem>`: "spherical harmonics are defined with the usual physics conventions: orthonormalised, and including the Condon-Shortley phase. Numerically they are implemented directly or via SciPy's `sph_harm` function (see [the SciPy docs for details](https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.sph_harm.html) {cite}`SciPyDocumentation`." For further details, including conversion routines, see the {{ shtools }} documentation, and numerical examples below.
 
@@ -211,7 +211,7 @@ where:
 Analogously to Eq. {eq}`eq:AF-PAD-general`, a general expansion of an observable in the symmetrized harmonic basis set can then be defined as:
 
 $$
-\bar{I}^{\Gamma}(\epsilon,t,\theta,\phi) = \sum_{\Gamma\mu hl}\bar{\beta}_{hl}^{\Gamma\mu}(\epsilon,t)X_{hl}^{\Gamma\mu*}(\theta,\phi)
+\bar{I}(\epsilon,t,\theta,\phi) = \sum_{\Gamma\mu hl}\bar{\beta}_{hl}^{\Gamma\mu}(\epsilon,t)X_{hl}^{\Gamma\mu*}(\theta,\phi)
 $$ (eq:AF-PAD-general-symHarm)
 
 Alternatively, by substitution into Eq. {eq}`eq:AF-PAD-general`, and assigning $l=L$ and $\lambda=M$, a general symmetrized expansion may also be defined as:
@@ -351,7 +351,7 @@ Examples of angular distributions from expansions in symmetrized harmonics $X_{h
 
 ### Real & complex forms
 
-By convention, the complex form of the spherical harmonics are usually used for photoionization problems. However, real harmonics are also in common use (and have already appeared in the numerical routines above). The relationships can be defined as (per [the Wikipaedia definitions](https://en.wikipedia.org/wiki/Spherical_harmonics#Real_form) {cite}`wikiSphericalHarmonics`):
+By convention, the complex form of the spherical harmonics are usually used for photoionization problems. However, real harmonics are also in common use (and have already appeared in the numerical routines above). The relationships can be defined as any of the following sets of equations (per [the Wikipaedia definitions](https://en.wikipedia.org/wiki/Spherical_harmonics#Real_form) {cite}`wikiSphericalHarmonics`):
 
 $$
 \begin{aligned}
@@ -546,7 +546,7 @@ glue("N2BLMtDemo", daLayout)
 ---
 name: "fig-N2BLMtDemo"
 ---
-Example $\beta_{L,M}(\epsilon,t)$ data, computed for $N_2$ (upper panel), and the {{ ADMs }} used in the calculation.
+Example $I(\epsilon,t)$ data, computed for $N_2$ (upper panel), and the {{ ADMs }} used in the calculation (lower panel).
 ```
 
 ```{code-cell} ipython3
@@ -587,7 +587,7 @@ glue("N2AFPADsdemo", figObj)
 ---
 name: "fig-N2AFPADsdemo"
 ---
-{{ AF }}-{{ PADs }} example for $N_2$ at selected $(\epsilon,t)$. In this demo case the alignment and {{ PADs }} are "1D", and cylindrically symmetric.
+{{ AF }}-{{ PADs }} ($I(\theta,\phi;\epsilon,t)$) example for $N_2$ at selected $(\epsilon,t)$. In this demo case the alignment and {{ PADs }} are "1D", and cylindrically symmetric.
 ```
 
 ```{code-cell} ipython3

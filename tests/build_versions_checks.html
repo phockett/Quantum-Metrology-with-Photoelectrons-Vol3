@@ -152,7 +152,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    About the book
+                    Quantum Metrology with Photoelectrons Vol. 3: Analysis methodologies
                 </a>
             </li>
         </ul>
@@ -193,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../backmatter/bibliography.html">Bibliography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../backmatter/glossary.html">Glossary</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Test pages</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Builds and versions</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Build versions and config tests</a></li>
 </ul>
@@ -1485,7 +1485,7 @@ if (window.Jupyter !== undefined) {
 }
 </style></div><div class="output text_html"><table style='border: 1.5px solid;'>
   <tr>
-     <td style='text-align: center; font-weight: bold; font-size: 1.2em; border: 1px solid;' colspan='8'>Mon Jul 31 16:15:18 2023 EDT</td>
+     <td style='text-align: center; font-weight: bold; font-size: 1.2em; border: 1px solid;' colspan='8'>Thu Oct 26 05:42:45 2023 EDT</td>
   </tr>
   <tr>
     <td style='text-align: right; border: 1px solid;'>OS</td>
@@ -1586,7 +1586,19 @@ traitlets        : 5.9.0
 </section>
 <section id="docker-build-env">
 <h2>Docker build env<a class="headerlink" href="#docker-build-env" title="Permalink to this heading">#</a></h2>
-<p>To do</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Container name from within running container (from https://stackoverflow.com/a/64790547)</span>
+<span class="o">!</span>dig<span class="w"> </span>-x<span class="w"> </span><span class="sb">`</span>ifconfig<span class="w"> </span>eth0<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;inet&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="sb">`</span><span class="w"> </span>+short<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">&#39;.&#39;</span><span class="w"> </span>-f1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>QM3-jupyterlab-local-190723
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="book-versions">
 <h2>Book versions<a class="headerlink" href="#book-versions" title="Permalink to this heading">#</a></h2>
@@ -1601,8 +1613,9 @@ traitlets        : 5.9.0
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  gh-pages
   main
-* <span class=" -Color -Color-Green">reviewJuly2023</span>
-79974db00e28189453428261c0a9171cb0dba419
+* <span class=" -Color -Color-Green">postSubmissionUpdates</span>
+  reviewJuly2023
+f52dd11e89d97e868f87494654d3f4867c6234dc
 </pre></div>
 </div>
 </div>
@@ -1615,9 +1628,10 @@ traitlets        : 5.9.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>93ab730f6f302f269809d726b50dd39b5ea52130	refs/heads/gh-pages
-c0fcec831b5683882b15ac1473fc6d732310da48	refs/heads/main
-a9ebba80f671ea3784db4f5a0b28d895293ef035	refs/heads/reviewJuly2023
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2ba93b16f2ab0a9426bca953f8829206f4c0501e	refs/heads/gh-pages
+80324f6465297c07575f214f2f09caf197d40f94	refs/heads/main
+230bb9d8ef6ab0a46c306f0e092e424f6ba23a21	refs/heads/postSubmissionUpdates
+863f1a92533b5ced778b263cd00f09ae3cfc9eb3	refs/heads/reviewJuly2023
 </pre></div>
 </div>
 </div>
@@ -1625,7 +1639,6 @@ a9ebba80f671ea3784db4f5a0b28d895293ef035	refs/heads/reviewJuly2023
 </section>
 <section id="github-pkg-versions">
 <h2>Github pkg versions<a class="headerlink" href="#github-pkg-versions" title="Permalink to this heading">#</a></h2>
-<p>Note - can’t get versions for local pip installs from repo(?).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
@@ -1636,6 +1649,19 @@ a9ebba80f671ea3784db4f5a0b28d895293ef035	refs/heads/reviewJuly2023
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/jovyan/github/ePSproc/epsproc/__init__.py&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pemtk</span> <span class="k">as</span> <span class="nn">pm</span>
+<span class="n">pm</span><span class="o">.</span><span class="vm">__file__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/jovyan/github/PEMtk/pemtk/__init__.py&#39;
 </pre></div>
 </div>
 </div>
@@ -1680,6 +1706,23 @@ fa33ed8d63a5c4a4043cc4c261059cc09e4c2bf7	refs/heads/dependabot/pip/notes/envs/en
 69cd89ce5bc0ad6d465a4bd8df6fba15d3fd1aee	refs/heads/numba-tests
 ea30878c842f09d525fbf39fa269fa2302a13b57	refs/heads/revert-9-master
 baf0be0c962e8ab3c3df57c8f70f0e939f99cbd7	refs/heads/testDev
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check current Git commit for local ePSproc version - NOTE THIS ONLY WORKS FOR INSTALLED FROM GIT CLONES</span>
+<span class="c1"># from pathlib import Path</span>
+<span class="c1"># import epsproc as ep</span>
+<span class="o">!</span>git<span class="w"> </span>-C<span class="w"> </span><span class="o">{</span>Path<span class="o">(</span>pm.__file__<span class="o">)</span>.parent<span class="o">}</span><span class="w"> </span>branch
+<span class="o">!</span>git<span class="w"> </span>-C<span class="w"> </span><span class="o">{</span>Path<span class="o">(</span>pm.__file__<span class="o">)</span>.parent<span class="o">}</span><span class="w"> </span>log<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%H&quot;</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>* <span class=" -Color -Color-Green">master</span>
+465c161ca9d2c2f453a58f16c8f334f5e2c07eaa
 </pre></div>
 </div>
 </div>
@@ -2214,7 +2257,9 @@ zstd                      1.5.2                h3eb15da_6    conda-forge
 </div>
 </div>
 </div>
-</section>
+<!-- Manually inject MathJax to ensure side-bar formatting OK. Code copied from working pages (which include maths) -->
+<script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+<script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></section>
 </section>
 
     <script type="text/x-thebe-config">
