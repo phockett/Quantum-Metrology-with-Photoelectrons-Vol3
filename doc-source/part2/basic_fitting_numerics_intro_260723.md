@@ -59,7 +59,7 @@ TO DECIDE: full general intro here, or just run scripted version? In general the
 
 For the case studies in {numref}`Chapter %s <chpt:n2-case-study>` - {numref}`%s <chpt:c2h4-case-study>`, the same basic setup and fitting routine is used in all cases, and this is outlined below. In general, this requires the steps outlined in {numref}`Chpt. %s <sect:basis-sets:fitting-intro>` and, for the case studies, configuration additionally requires {{ ePS_full }} *ab initio* {{ RADMATE }}, and {{ ADMs }}, in order to define test datasets ({numref}`Sect. %s <sec:basic-fitting:AFBLM>`). The $N_2$ case study is use as an example in this case, and {numref}`Sect. %s <sec:basic-fitting:fitting>` illustrates both setting test data, and running fits. Additionally, for the case studies herein, the setup routines are wrapped in a basic script, with configuration options for each case included, this is illustrated in {numref}`Sect. %s <sec:basic-fitting:demo-script>`. 
 
-For the case studies, all the sample data is available from the {{ ePSproc_repo }} Github repo, and the examples below include steps for pulling the required data files. Note that further {{ ePS_full }} datasets are available from the {{ ePSdata_repo }}, and [data can be pulled using the python ePSdata interface](https://epsproc.readthedocs.io/en/dev/demos/ePSdata_download_demo_300720.html).
+For the case studies, all the sample data is available from the {{ ePSproc_repo }} Github repo, and the examples below include steps for pulling the required data files. Note that further {{ ePS_full }} datasets are available from {{ ePSdata_repo }}, and [data can be pulled using the python ePSdata interface](https://epsproc.readthedocs.io/en/dev/demos/ePSdata_download_demo_300720.html).
 
 +++
 

@@ -11,6 +11,8 @@
 #
 # TODO: may want to add ghpages push here (for git config see https://gist.github.com/qin-yu/bc26a2d280ee2e93b2d7860a1bfbd0c5)
 # OR: set Git for output upload only & GH actions for deploy - probably cleaner. ("_latest_build" in .gitignore for now)
+# 
+#           IF FAILING, try `conda activate` in current terminal
 #
 
 # Set default path, or pass at CLI
@@ -46,6 +48,25 @@ rm -r $BUILDDIR/$SOURCE/_build   # Ensure clean build, having issues otherwise..
 echo "*** Cleaning $BUILDDIR"
 jupyter-book clean $BUILDDIR/$SOURCE/
 
+# 24/10/23 - added set intro pages here
+echo "*** Setting intro to intro_web.md"
+ln -s -f $BUILDDIR/$SOURCE/intro_web.md $BUILDDIR/$SOURCE/intro.md
+
+# 24/10/23 - script injection to fix Mathjax in pages without maths
+echo "*** Injecting Mathjax..."
+filesScript=("backmatter/bibliography.md" "frontmatter/about_the_authors.md" "frontmatter/abstract.md" "frontmatter/book_versions_note.md" "part1/theory_100723.md" "tests/build_versions_checks.md")
+
+for originalFile in "${filesScript[@]}"
+do
+    cp $BUILDDIR/$SOURCE/$originalFile $BUILDDIR/$SOURCE/$originalFile.noscript
+    cat $TMPDIR/scripts/mathjax_patch.txt >> $BUILDDIR/$SOURCE/$originalFile $BUILDDIR/$SOURCE/$originalFile 
+done
+
+# Remove downloads - MAY WANT TO DO THIS FOR CLEAN OUTPUT IN CASE STUDIES, but may mess up other chpts. using these?
+# echo "*** Removing case study downloads"
+# rm $BUILDDIR/$SOURCE/part2/n2fitting/*.mat
+# rm $BUILDDIR/$SOURCE/part2/n2fitting/*.out
+
 echo "*** Building $BUILDENV"
 jupyter-book build $BUILDDIR/$SOURCE/
 
@@ -77,6 +98,19 @@ rm -r $BUILDDIR/$SOURCE/_build   # Ensure clean build, having issues otherwise..
 # Clean - should set as option
 echo "*** Cleaning $BUILDDIR"
 jupyter-book clean $BUILDDIR/$SOURCE/
+
+# 24/10/23 - added set intro pages here
+echo "*** Setting intro to intro_pdf.md"
+ln -s -f $BUILDDIR/$SOURCE/intro_pdf.md $BUILDDIR/$SOURCE/intro.md
+
+# 24/10/23 - script injection to fix Mathjax in pages without maths
+# echo "*** Removing Mathjax..."
+# for originalFile in "${filesScript[@]}"
+# do
+#     rm $BUILDDIR/$SOURCE/$originalFile
+#     cp $BUILDDIR/$SOURCE/$originalFile.noscript $BUILDDIR/$SOURCE/$originalFile
+# done
+
 
 echo "*** Building $BUILDENV"
 # jupyter-book build $BUILDDIR/$SOURCE/

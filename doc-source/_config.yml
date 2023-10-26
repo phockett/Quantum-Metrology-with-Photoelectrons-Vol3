@@ -176,7 +176,7 @@ parse:
     QM1: "_Quantum Metrology_ Vol. 1 {cite}`hockett2018QMP1`"
     QM2: "_Quantum Metrology_ Vol. 2 {cite}`hockett2018QMP2`"
     QM12: "_Quantum Metrology_ Vols. 1 & 2 {cite}`hockett2018QMP1, hockett2018QMP2`"
-    book_HTML: "[_Quantum Metrology_ Vol. 3 (HTML version)](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/part1/main_intro_051122.html)"
+    book_HTML: "[_Quantum Metrology_ Vol. 3 (HTML version)](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3)"
     book_repo: "[_Quantum Metrology_ Vol. 3 (Github repo)](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3)"
     PEMtk_repo: "[Photoelectron Metrology Toolkit](https://github.com/phockett/PEMtk) {cite}`hockett2021PEMtkGithub`"
     PEMtk_docs: "[PEMtk documentation](https://pemtk.readthedocs.io) {cite}`hockett2021PEMtkDocs`"

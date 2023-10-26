@@ -1,19 +1,18 @@
 # Quantum Metrology with Photoelectrons Vol. 3: *Analysis methodologies*
 
+
+# Quantum Metrology with Photoelectrons Vol. 3: *Analysis methodologies*
+
 By Paul Hockett with Varun Makhija
-
-Quantum Metrology with Photoelectrons Volume 3: *Analysis
-methodologies*, an open source executable book. This repository contains the source documents (mainly Jupyter Notebooks in Python) and notes for the book, as of July 2023 the first draft is complete, and the [current HTML build can be found online](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/), which includes all code and interactive figures; a [PDF version (with abridged code) is also available](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/pdf/QM3.pdf). The book is due to be published in late 2023, and by IOP Press - see below for more details.
-
-[![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/)
-[![DOI](https://zenodo.org/badge/449878450.svg)](https://zenodo.org/badge/latestdoi/449878450)
-
 
 ## About the books
 
 Photoionization is an interferometric process, in which multiple paths can contribute to the final continuum photoelectron wavefunction. At the simplest level, interferences between different final angular momentum states are manifest in the energy and angle resolved photoelectron spectra: metrology schemes making use of these interferograms are thus phase-sensitive, and provide a powerful route to detailed understanding of photoionization. In these cases, the continuum wavefunction (and underlying scattering dynamics) can be characterised. At a more complex level, such measurements can also provide a powerful probe for other processes of interest, leading to a more general class of quantum metrology built on phase-sensitive photoelectron imaging.  Since the turn of the century, the increasing availability of photoelectron imaging experiments, along with the increasing sophistication of experimental techniques, and the availability of computational resources for analysis and numerics, has allowed for significant developments in such photoelectron metrology.
 
-![QMbooks](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/blob/postSubmissionUpdates/notes/cover_art/mock_covers_3vol_230823.png?raw=true)
+```{image} mock_covers_3vol_230823.png
+:alt: covers
+:align: center
+```
 
 - Volume I covers the core physics of photoionization, including a range of computational examples. The material is presented as both reference and tutorial, and should appeal to readers of all levels. ISBN 978-1-6817-4684-5, http://iopscience.iop.org/book/978-1-6817-4684-5 (IOP Press, 2018)
 
@@ -53,7 +52,7 @@ The Docker images contain the book source, along with all required packages and 
 
 For the source Dockerfiles and additional notes, [see `/docker` in the QM3 github repository](https://github.com/phockett/Quantum-Metrology-with-Photoelectrons-Vol3/tree/main/docker).
 
-Archived versions can also be found on Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8286020.svg)](https://doi.org/10.5281/zenodo.8286020)
+Archived versions can also be found on Zenodo, [DOI: 10.5281/zenodo.8286020](https://doi.org/10.5281/zenodo.8286020)
 
 ### Building the book
 

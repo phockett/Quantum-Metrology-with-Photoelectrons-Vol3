@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.7
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -235,7 +235,7 @@ Fit overview plot - $\chi^2$ vs. fit index. Here bands indicate groupings (local
 
 +++
 
-Here bands in the $\chi^2$ dimension can indicate groupings (local minima) are consistently found. Assuming each grouping is a viable fit candidate parameter set, these can then be explored in further detail.
+Here, {numref}`fig-C2H4-fitResultsBLM` shows an overview of the results compared with the input data, and {numref}`fig-C2H4-fitHist` an overview of $\chi^2$ vs. fit index. Bands in the $\chi^2$ dimension can indicate groupings (local minima) are consistently found. Assuming each grouping is a viable fit candidate parameter set, these can then be explored in further detail.
 
 +++
 
@@ -247,7 +247,7 @@ The general aim in this procedure is to ascertain whether there was a good sprea
 
 ### View results
 
-Single results sets can be viewed in the main data structure, indexed by #.
+Single results sets can be viewed in the main data structure, indexed by integers.
 
 ```{code-cell} ipython3
 # Check keys
@@ -255,7 +255,7 @@ fitNumber = 2
 data.data[fitNumber].keys()
 ```
 
-Here `results` is an [lmFit object](https://lmfit.github.io/lmfit-py/intro.html), which includes final fit results and information, and `AFBLM` contains the model (fit) output.
+Here `results` is an [lmFit object](https://lmfit.github.io/lmfit-py/intro.html), which includes final fit results and information, and `AFBLM` contains the model (fit) output (i.e. resultant AF-$\beta_{LM}$ values).
 
 An example is shown below. Of particular note here is which parameters have `vary=True` - these are included in the fitting - and if there is a column `expression`, which indicates any parameters defined to have specific relationships (see {numref}`Chpt. %s <sect:basis-sets:fitting-intro>`). Any correlations found during fitting are also shown, which can also indicate parameters which are related (even if this is not predefined or known a priori).
 
@@ -449,7 +449,7 @@ data.data['agg']['matE']
 
 ### Density matrices
 
-New (experimental) code for density matrix plots and comparison. See {numref}`Sect. %s <sec:density-mat-basic>` for discussion. Code adapted from the {{ PEMtk_docs }} [MF reconstruction page](https://pemtk.readthedocs.io/en/latest/topical_review_case_study/matrix_element_extraction_MFrecon_PEMtk_180722-dist.html#Density-matrix-plottinghttps://pemtk.readthedocs.io/en/latest/topical_review_case_study/matrix_element_extraction_MFrecon_PEMtk_180722-dist.html#Density-matrix-plotting), original analysis for Ref. {cite}`hockett2023TopicalReviewExtracting`, illustrating the $N_2$ case. If the reconstruction is good, the differences (fidelity) should be on the order of the experimental noise level/reconstruction uncertainty, around 10% in the case studies herein; in general the values and patterns of the matrices can also indicate aspects of the retrieval that worked well, or areas where values are poorly defined/recovered from the given dataset.
+New (experimental) code for density matrix plots and comparison. See {numref}`Sect. %s <sec:density-mat-basic>` for discussion. Code adapted from the {{ PEMtk_docs }} [MF reconstruction page](https://pemtk.readthedocs.io/en/latest/topical_review_case_study/matrix_element_extraction_MFrecon_PEMtk_180722-dist.html#Density-matrix-plotting), original analysis for Ref. {cite}`hockett2023TopicalReviewExtracting`, illustrating the $N_2$ case. If the reconstruction is good, the differences (fidelity) should be on the order of the experimental noise level/reconstruction uncertainty, around 10% in the case studies herein; in general the values and patterns of the matrices can also indicate aspects of the retrieval that worked well, or areas where values are poorly defined/recovered from the given dataset.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -579,7 +579,8 @@ Density matrix comparison - rows show (a) reference case (with signs of phases r
 
 ### Plot MF PADs
 
-Routines as per https://pemtk.readthedocs.io/en/latest/topical_review_case_study/MFPAD_replotting_from_file_190722-dist.html - currently not working. Seems to be some difference in dim stacking/assignment now...? Might be Python/Xarray version change, or PEMtk/ePSproc implementation.
+Routines below adapted from the {{ PEMtk_docs }} [MF reconstruction data processing page](https://pemtk.readthedocs.io/en/latest/topical_review_case_study/MFPAD_replotting_from_file_190722-dist.html) (original analysis page for Ref. {cite}`hockett2023TopicalReviewExtracting`, illustrating the $N_2$ case). The routines include calls to `self.mfpadNumeric()` for numerical expansion of the MF-PADs, and `self.padPlot()` for plotting. Results are illustrated for the retrieved and reference cases in {numref}`fig-N2-compC` and {numref}`fig-N2-ref` respectively, and the differential results (reference minus fitted results) in {numref}`fig-N2-diff`.
+
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -610,7 +611,7 @@ for item in aList:
 ```
 
 ```{code-cell} ipython3
-:tags: [hide-output]
+:tags: [hide-output, hide-cell]
 
 # Compute MFPADs for a range of cases
 
@@ -644,7 +645,7 @@ ep.plot.hvPlotters.setPlotters(width=1000, height=500)
 ```
 
 ```{code-cell} ipython3
-:tags: [hide-output]
+:tags: [hide-output, hide-cell]
 
 # Plot results from reconstructed matE
 pKey = 'compC'
@@ -666,7 +667,7 @@ name: "fig-C2H4-compC"
 ```
 
 ```{code-cell} ipython3
-:tags: [hide-output]
+:tags: [hide-output, hide-cell]
 
 # Plot results from reference matE
 pKey = 'subset'
@@ -688,7 +689,7 @@ name: "fig-C2H4-ref"
 ```
 
 ```{code-cell} ipython3
-:tags: [hide-output]
+:tags: [hide-output, hide-cell]
 
 # Plot normalised differences
 pKey = 'diff'

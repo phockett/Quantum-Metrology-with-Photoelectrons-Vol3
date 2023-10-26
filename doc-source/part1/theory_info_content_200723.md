@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.7
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -91,14 +91,14 @@ M_{u,\epsilon,t} & = & \sum_{u,\epsilon,t}\mathrm{n}\{\beta_{L,M}^{u}(\epsilon,t
  & = & M_{u}\times M_{\epsilon,t}\end{aligned}$$
 
 where the second line pertains if each measurement has the same native
-information content, independent of $u$. It may be that the variable $k$
+information content, independent of $u$. It may be that the variable $\epsilon$
 is continuous (e.g. photoelectron energy), but in practice it will
 usually be discretized in some fashion by the measurement.
 
 In terms of purely experimental methodologies, a larger $M_{u}$ clearly
 defines a richer experimental measurement which explores more of the
 total measurement space spanned by the full set of
-$\{\beta_{L,M}^{u}(k,t)\}$. However, in this basic definition a larger
+$\{\beta_{L,M}^{u}(\epsilon,t)\}$. However, in this basic definition a larger
 $M_{u}$ does not necessarily indicate a higher information content for
 quantum retrieval applications. The reason for this is simply down to
 the complexity of the problem (cf. Eq. {eq}`eqn:channel-fns`), in which many couplings define the sensitivity of the observable to the underlying system properties of
@@ -226,9 +226,9 @@ BetaNormLinearADMsPD.transform(demean,axis='columns'). \
         round(ndp).agg(['min','max','var','count','nunique']).round(3)
 ```
 
-In this case the analysis suggests that $t=2 - 5$ contain minimal information (low variance), and $t=4,5$ potentially redundant information (low nunique), whilst $t=1,7 - 9$ show a greater total information content and number of unique values. However, this analysis is not necessarily absolutely definitive, since some nuances may be lost in this basic statistical analysis, particularly for weaker channels.
+In this case the analysis suggests that $t=3 - 6$ contain minimal information (low variance), and $t=4,5$ potentially redundant information (low nunique), whilst $t=1,7 - 9$ show a greater total information content and number of unique values. However, this analysis is not necessarily absolutely definitive, since some nuances may be lost in this basic statistical analysis, particularly for weaker channels.
 
-For a more detailed analysis, other standard analysis tools can be deployed. For instance, the covariance matrix can be investigated, given by $K_{i,j}=\textrm{cov}[X_{i},X_{j}]=\langle(X_{i}-\langle X_{i}\rangle)(X_{j}-\langle X_{j}\rangle)\rangle$. For the linear ramp case this analysis is not particularly useful, but will become more informative for more complicated cases.
+For a more detailed analysis, other standard analysis tools can be deployed. For instance, the covariance matrix can be investigated, given by $K_{i,j}=\textrm{cov}[X_{i},X_{j}]=\langle(X_{i}-\langle X_{i}\rangle)(X_{j}-\langle X_{j}\rangle)\rangle$. For the linear ramp case this analysis is shown below and, although not particularly useful in this example, will become more informative for more complicated cases.
 
 ```{code-cell} ipython3
 # Compute covariance matrix with Pandas
