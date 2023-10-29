@@ -59,7 +59,7 @@ filesScript=("backmatter/bibliography.md" "frontmatter/about_the_authors.md" "fr
 for originalFile in "${filesScript[@]}"
 do
     cp $BUILDDIR/$SOURCE/$originalFile $BUILDDIR/$SOURCE/$originalFile.noscript
-    cat $TMPDIR/scripts/mathjax_patch.txt >> $BUILDDIR/$SOURCE/$originalFile $BUILDDIR/$SOURCE/$originalFile 
+    cat $TMPDIR/scripts/mathjax_patch.txt >> $BUILDDIR/$SOURCE/$originalFile
 done
 
 # Remove downloads - MAY WANT TO DO THIS FOR CLEAN OUTPUT IN CASE STUDIES, but may mess up other chpts. using these?
