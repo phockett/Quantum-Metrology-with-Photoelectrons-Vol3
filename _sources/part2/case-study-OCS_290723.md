@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.14.7
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -575,8 +575,7 @@ Density matrix comparison - rows show (a) reference case (with signs of phases r
 
 ### Plot MF PADs
 
-Routines below adapted from the {{ PEMtk_docs }} [MF reconstruction data processing page](https://pemtk.readthedocs.io/en/latest/topical_review_case_study/MFPAD_replotting_from_file_190722-dist.html) (original analysis page for Ref. {cite}`hockett2023TopicalReviewExtracting`, illustrating the $N_2$ case). The routines include calls to `self.mfpadNumeric()` for numerical expansion of the MF-PADs, and `self.padPlot()` for plotting. Results are illustrated for the retrieved and reference cases in {numref}`fig-N2-compC` and {numref}`fig-N2-ref` respectively, and the differential results (reference minus fitted results) in {numref}`fig-N2-diff`.
-
+Routines below adapted from the {{ PEMtk_docs }} [MF reconstruction data processing page](https://pemtk.readthedocs.io/en/latest/topical_review_case_study/MFPAD_replotting_from_file_190722-dist.html) (original analysis page for Ref. {cite}`hockett2023TopicalReviewExtracting`, illustrating the $N_2$ case). The routines include calls to `self.mfpadNumeric()` for numerical expansion of the MF-PADs, and `self.padPlot()` for plotting. Results are illustrated for the retrieved and reference cases in {numref}`fig-OCS-compC` and {numref}`fig-OCS-ref` respectively, and the differential results (reference minus fitted results) in {numref}`fig-OCS-diff`.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

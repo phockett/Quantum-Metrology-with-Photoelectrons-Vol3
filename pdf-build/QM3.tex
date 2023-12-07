@@ -116,7 +116,7 @@
         
 
 \title{Quantum Metrology with Photoelectrons Vol. 3 *Analysis methodologies*}
-\date{Oct 26, 2023}
+\date{Dec 07, 2023}
 \release{}
 \author{Paul Hockett with Varun Makhija}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -264,7 +264,7 @@ A fully\sphinxhyphen{}rendered HTML version of the book will be built in \sphinx
 This project is created using the open source \sphinxhref{https://jupyterbook.org/}{Jupyter Book project} and the \sphinxhref{https://github.com/executablebooks/cookiecutter-jupyter-book}{executablebooks/cookiecutter\sphinxhyphen{}jupyter\sphinxhyphen{}book template}.
 
 \sphinxAtStartPar
-To add: build env \& main software packages (see automation for this…)
+For a full build environment listing, see \sphinxhref{https://phockett.github.io/Quantum-Metrology-with-Photoelectrons-Vol3/tests/build\_versions\_checks.html}{Build versions}.
 
 \sphinxstepscope
 
@@ -385,7 +385,7 @@ In some cases additional formatting is required for defining Jupter Notebook to 
 \section{Numerics}
 \label{\detokenize{frontmatter/book_versions_note:numerics}}\label{\detokenize{frontmatter/book_versions_note:sec-numerics-disclaimer}}
 \sphinxAtStartPar
-At the time of writing the main code\sphinxhyphen{}bases used in this work (see \hyperref[\detokenize{part1/platform_intro_070723:chpt-platformintro}]{Sect.\@ \ref{\detokenize{part1/platform_intro_070723:chpt-platformintro}}} are still in active development, bugs, inconsistencies and errors cannot, therefore, be ruled out in the numerical examples. However, the case for 1D alignment and reconstruction has been well\sphinxhyphen{}tested in the past (e.g. Refs. {[}\hyperlink{cite.backmatter/bibliography:id776}{1}, \hyperlink{cite.backmatter/bibliography:id685}{2}, \hyperlink{cite.backmatter/bibliography:id686}{3}{]}), so is expected to be accurate; cases with 3D alignment are presented in a provisional context, with caveats as above, although the general methodology as demonstrated is robust.
+At the time of writing the main code\sphinxhyphen{}bases used in this work (see \hyperref[\detokenize{part1/platform_intro_070723:chpt-platformintro}]{Sect.\@ \ref{\detokenize{part1/platform_intro_070723:chpt-platformintro}}} are still in active development, bugs, inconsistencies and errors cannot, therefore, be ruled out in the numerical examples. However, the case for 1D alignment and reconstruction has been well\sphinxhyphen{}tested in the past (e.g. Refs. {[}\hyperlink{cite.backmatter/bibliography:id776}{1}, \hyperlink{cite.backmatter/bibliography:id684}{2}, \hyperlink{cite.backmatter/bibliography:id686}{3}{]}), so is expected to be accurate; cases with 3D alignment are presented in a provisional context, with caveats as above, although the general methodology as demonstrated is robust.
 
 \sphinxstepscope
 
@@ -480,7 +480,7 @@ In summary, the focus of the work presented herein is the quantitative analysis 
 In order to develop a quantitative form of photoelectron spectroscopy, hence analyse photoelectron interferograms in the context of quantum metrology in general, a number of techniques have previously been investigated (see \sphinxstyleemphasis{Quantum Metrology} Vols. 1 \& 2 {[}\hyperlink{cite.backmatter/bibliography:id677}{4}, \hyperlink{cite.backmatter/bibliography:id678}{9}{]}). In general, any applicable technique involves the manipulation or control of parameters which affect the observables in analytically\sphinxhyphen{}defined (or otherwise well\sphinxhyphen{}characterised) ways; measurements over a set of suitable experimental or control parameters then provide the high information\sphinxhyphen{}content dataset required for a full characterisation of the system at hand. Typically, “geometric” (angular\sphinxhyphen{}momentum) properties of the system provide a suitable set of control parameters, and a number of experimental methodologies with different flavours of these parameters have been demonstrated (see \sphinxstyleemphasis{Quantum Metrology} Vol. 2 {[}\hyperlink{cite.backmatter/bibliography:id678}{9}{]}). The main, outstanding, issue with previous techniques was the system\sphinxhyphen{}specific nature of many of the applications: ideally, one would like to make use of a generalised protocol, which is independent of the particulars of the system under study, hence does not require, for example, specific spectroscopic properties to be known and/or be experimentally accessible.
 
 \sphinxAtStartPar
-The main aim of the work in the current volume is the further development, deployment and demonstrations of, such a scheme. The focus is on one specific \sphinxstyleemphasis{high information\sphinxhyphen{}content} technique: the \sphinxstyleemphasis{generalised} {\hyperref[\detokenize{backmatter/glossary:term-bootstrap-retrieval-protocol}]{\sphinxtermref{\DUrole{xref,std,std-term}{bootstrap retrieval protocol}}}}, which makes use of experiments using rotational wavepackets ({\hyperref[\detokenize{backmatter/glossary:term-RWP}]{\sphinxtermref{\DUrole{xref,std,std-term}{RWP}}}}) as a (geometric) control dimension, and time\sphinxhyphen{}resolved photoelectron measurements as a high\sphinxhyphen{}dimensionality, phase\sphinxhyphen{}sensitive observable; the combination of these measurements with a quantitative analysis methodology provides a (relatively) general route to a full quantum metrology with photoelectrons (a.k.a. complete photoionization experiments, a.k.a. quantum state reconstruction/quantum tomography). A brief introduction to the technique is given below, with theoretical and numerical techniques and demonstrations forming the remainder of this book; interested readers can find a longer topical introduction in \sphinxstyleemphasis{Quantum Metrology} Vol. 2 {[}\hyperlink{cite.backmatter/bibliography:id678}{9}{]} (in particular Chpt. 11), and see also Ref. {[}\hyperlink{cite.backmatter/bibliography:id776}{1}{]} for an experimental demonstration, and Refs. {[}\hyperlink{cite.backmatter/bibliography:id685}{2}, \hyperlink{cite.backmatter/bibliography:id686}{3}{]} for a recent review in the context of molecular frame reconstruction.
+The main aim of the work in the current volume is the further development, deployment and demonstrations of, such a scheme. The focus is on one specific \sphinxstyleemphasis{high information\sphinxhyphen{}content} technique: the \sphinxstyleemphasis{generalised} {\hyperref[\detokenize{backmatter/glossary:term-bootstrap-retrieval-protocol}]{\sphinxtermref{\DUrole{xref,std,std-term}{bootstrap retrieval protocol}}}}, which makes use of experiments using rotational wavepackets ({\hyperref[\detokenize{backmatter/glossary:term-RWP}]{\sphinxtermref{\DUrole{xref,std,std-term}{RWP}}}}) as a (geometric) control dimension, and time\sphinxhyphen{}resolved photoelectron measurements as a high\sphinxhyphen{}dimensionality, phase\sphinxhyphen{}sensitive observable; the combination of these measurements with a quantitative analysis methodology provides a (relatively) general route to a full quantum metrology with photoelectrons (a.k.a. complete photoionization experiments, a.k.a. quantum state reconstruction/quantum tomography). A brief introduction to the technique is given below, with theoretical and numerical techniques and demonstrations forming the remainder of this book; interested readers can find a longer topical introduction in \sphinxstyleemphasis{Quantum Metrology} Vol. 2 {[}\hyperlink{cite.backmatter/bibliography:id678}{9}{]} (in particular Chpt. 11), and see also Ref. {[}\hyperlink{cite.backmatter/bibliography:id776}{1}{]} for an experimental demonstration, and Refs. {[}\hyperlink{cite.backmatter/bibliography:id684}{2}, \hyperlink{cite.backmatter/bibliography:id686}{3}{]} for a recent review in the context of molecular frame reconstruction.
 
 \sphinxAtStartPar
 As defined in \sphinxstyleemphasis{Quantum Metrology} Vol. 2 {[}\hyperlink{cite.backmatter/bibliography:id678}{9}{]}:
@@ -1257,7 +1257,7 @@ Found dipole symmetries:
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}pandas.io.formats.style.Styler at 0x7f3364d96d40\PYGZgt{}
+\PYGZlt{}pandas.io.formats.style.Styler at 0x7ff2548f78b0\PYGZgt{}
 \end{sphinxVerbatim}
 \begin{equation*}
 \begin{split}\begin{tabular}{lllllll}
@@ -1718,7 +1718,7 @@ M_{1} & M_{2} & M_{3}
 \end{equation*}
 \sphinxAtStartPar
 Note also some definitions use conjugate spherical harmonics, which can be converted as, e.g., Eq. C.21 in Blum {[}\hyperlink{cite.backmatter/bibliography:id535}{97}{]}:
-\label{equation:part1/theory_tensor_formalism_160723:6e8ffd84-d4f2-4a72-ba65-cb7b213e7464}\begin{equation}
+\label{equation:part1/theory_tensor_formalism_160723:9352dc8e-633f-4be0-9a6f-cae5f6814a80}\begin{equation}
 \beta_{L,M}^{\mu_{i},\mu_{f}}Y_{LM}^{*}(\theta_{\hat{k}},\phi_{\hat{k}})=\beta_{L,-M}^{\mu_{i},\mu_{f}}(-1)^{M}Y_{L,-M}(\theta_{\hat{k}},\phi_{\hat{k}})\label{eq:sph-conj-conv}
 \end{equation}
 \sphinxAtStartPar
@@ -1855,12 +1855,12 @@ Note this notation implicitly describes only the time\sphinxhyphen{}independent 
 
 \sphinxAtStartPar
 To derive this result, one can start from a general spherical tensor direct product, e.g., Eq. 5.36 in Zare {[}\hyperlink{cite.backmatter/bibliography:id990}{83}{]}; for two first\sphinxhyphen{}rank tensors (e.g. electric field vectors) this contraction is given explicitly by Eq. 5.40 in Zare {[}\hyperlink{cite.backmatter/bibliography:id990}{83}{]}:
-\label{equation:part1/theory_tensor_formalism_160723:6dc60947-4009-4d4d-aed1-50a242de2308}\begin{equation}
+\label{equation:part1/theory_tensor_formalism_160723:c687d0ad-646f-40af-84a6-74d1f4f60796}\begin{equation}
 [A^{(1)}\otimes B^{(1)}]_{q}^{k}=\sum_{m}\langle1m,1q-m|kq\rangle A(1,m)B(1,q-m)
 \end{equation}
 \sphinxAtStartPar
 This can be converted to \(3j\) form:
-\label{equation:part1/theory_tensor_formalism_160723:f35649e5-0f1d-47c2-b12a-3ccf27ae0de4}\begin{equation}
+\label{equation:part1/theory_tensor_formalism_160723:c08645ca-63f5-485d-a52c-5bae16e4547f}\begin{equation}
 [A^{(1)}\otimes B^{(1)}]_{q}^{k}=\sum_{m}(-1)^{q}[k]^{1/2}\left(\begin{array}{ccc}
 1 & 1 & k\\
 m & q-m & -q
@@ -2516,8 +2516,8 @@ To demonstrate the use of the density matrix representation as a means to test s
 \centering
 \capstart
 
-\noindent\sphinxincludegraphics{{d503c9723f6f5a87927f612fe69775f6e893f15eaabb2f5c6af329f25ae5c9be}.png}
-\caption{Example density matrices, computed from matrix elements defined purely by \DUrole{pasted-text}{D2h} symmetry. Here the panels show (a) the original density matrix, (b) density matrix computed with +/\sphinxhyphen{} 10\% random noise added to the original matrix elements, (c) the difference matrix, which indicates the fidelity of the noisy case relative to the original case. For normalised density matrices the 10\% noise case translates to a standard deviation \(\sigma\approx\)\DUrole{pasted-text}{0.2} on the differences; the maximum error in the test case as illustrated =\DUrole{pasted-text}{0.285}.}\label{\detokenize{part1/theory_density_matrices_190723:fig-denmatd2hcompexample}}\end{figure}
+\noindent\sphinxincludegraphics{{238985a6bccbf0ea82639c1baea3235f62adbfd0b18656e09a2a354616b3489f}.png}
+\caption{Example density matrices, computed from matrix elements defined purely by \DUrole{pasted-text}{D2h} symmetry. Here the panels show (a) the original density matrix, (b) density matrix computed with +/\sphinxhyphen{} 10\% random noise added to the original matrix elements, (c) the difference matrix, which indicates the fidelity of the noisy case relative to the original case. For normalised density matrices the 10\% noise case translates to a standard deviation \(\sigma\approx\)\DUrole{pasted-text}{0.2} on the differences; the maximum error in the test case as illustrated =\DUrole{pasted-text}{0.313}.}\label{\detokenize{part1/theory_density_matrices_190723:fig-denmatd2hcompexample}}\end{figure}
 
 
 \subsection{Working with density matrices with QuTiP library functions}
@@ -2601,9 +2601,9 @@ Trace\PYGZhy{}normed fidelity = 1.0000000125329587
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-Fidelity (a,b) = 23.291626669620815
-Trace a = 25.0, Trace b = 21.7704918784886
-Trace\PYGZhy{}normed fidelity = 0.9983847074132652
+Fidelity (a,b) = 22.756560550176633
+Trace a = 25.0, Trace b = 20.784458732966613
+Trace\PYGZhy{}normed fidelity = 0.9983218308270521
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -3912,7 +3912,7 @@ No artists with labels found to put in legend.  Note that artists whose label st
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.matrix.ClusterGrid at 0x7fddf224ac20\PYGZgt{}
+\PYGZlt{}seaborn.matrix.ClusterGrid at 0x7fb99a1d4400\PYGZgt{}
 \end{sphinxVerbatim}
 
 \noindent\sphinxincludegraphics{{c93bee27e3000827498aa9bcc9863cbf991423e807b91f1f9e4647f1a607e4c0}.png}
@@ -4263,7 +4263,7 @@ The dipole symmetries correspond to the Cartesian axes/translations given in the
 
 \sphinxAtStartPar
 Following Eq. \eqref{equation:part1/theory_symmetry_140723:eq:ionization-symm-electronic}, the allowed components (irreducible representations) can be determined by hand making use of character and direct product tables, and substituting in for the terms defined above:
-\label{equation:part2/sym-fitting-intro_240723:0a5b3f3a-1757-4995-a9c3-a71503b4200d}\begin{eqnarray}
+\label{equation:part2/sym-fitting-intro_240723:bc188cfc-b8e2-4db4-8546-c7e609d931dd}\begin{eqnarray}
 \Gamma^{+}\otimes\Gamma^{e}\otimes\Gamma_{\mathrm{dipole}}\otimes\Gamma^{i} & \supseteq & \Sigma_{g}^{+}\\
 \Sigma_{g}^{+}\otimes\Gamma^{e}\otimes\begin{array}{c}
 \Pi_{u}~(x,y)\\
@@ -4286,7 +4286,7 @@ Character tables, direct product tables and related information can be found at 
 
 \sphinxAtStartPar
 Hence the allowed continuum components are given by:
-\label{equation:part2/sym-fitting-intro_240723:1153b106-a8fc-4a1c-9d49-6c7de3b5ef56}\begin{equation}
+\label{equation:part2/sym-fitting-intro_240723:00951d35-1afd-4a04-ad46-94475e5a27f6}\begin{equation}
 \Gamma^{e}=\begin{array}{c}
 \Pi_{u}~(x,y)\\
 \Sigma_{u}^{+}~(z)
@@ -4297,7 +4297,7 @@ As indicated above, this case is split by symmetry into a “parallel” and “
 
 \sphinxAtStartPar
 The total scattering state symmetry is often also used to label continuum states, and is given by \(\Gamma_{\mathrm{scat}}=\Gamma^{+}\otimes\Gamma^{e}\):
-\label{equation:part2/sym-fitting-intro_240723:81237784-7f3c-40e0-ad1d-3f31f3924414}\begin{equation}
+\label{equation:part2/sym-fitting-intro_240723:aa3e4642-be4e-487c-a5b7-a475a6ff20e4}\begin{equation}
 \Gamma_{\mathrm{scat}}=\Sigma_{g}^{+}\otimes\begin{array}{c}
 \Pi_{u}~(x,y)\\
 \Sigma_{u}^{+}~(z)
@@ -4317,7 +4317,7 @@ For more complicated cases, multiple symmetry components may be found. For examp
 
 \sphinxAtStartPar
 In this case, \(\Gamma^{+} = \Pi_u\), and \sphinxhyphen{} working through the direct products as above \sphinxhyphen{} yields the allowed continuum components:
-\label{equation:part2/sym-fitting-intro_240723:080852b1-c84e-4f36-8b54-543d08e79521}\begin{equation}
+\label{equation:part2/sym-fitting-intro_240723:ae1ff879-d29b-4dc1-b6e8-d7c84040f535}\begin{equation}
 \Gamma^{e}=\begin{array}{c}
 \Sigma_{g}^{+} + \Delta_{g}~(x,y)\\
 \Pi_{g}~(z)
@@ -4325,7 +4325,7 @@ In this case, \(\Gamma^{+} = \Pi_u\), and \sphinxhyphen{} working through the di
 \end{equation}
 \sphinxAtStartPar
 And total scattering state symmetries:
-\label{equation:part2/sym-fitting-intro_240723:17708185-cf02-4a20-8235-7e9da7063ab2}\begin{equation}
+\label{equation:part2/sym-fitting-intro_240723:c7f101ff-302b-46f9-8c2e-2f63f8db084a}\begin{equation}
 \Gamma_{\mathrm{scat}}=\Pi_{u}\otimes\begin{array}{c}
 \Sigma_{g}^{+} + \Delta_{g}~(x,y)\\
 \Pi_{g}~(z)
@@ -4657,14 +4657,14 @@ Added dim mu
 Added dim Type
 *** Updated self.coeffs[\PYGZsq{}matE\PYGZsq{}] with new coords.
 Assigned \PYGZsq{}Total\PYGZsq{} from A1g x A1g = [\PYGZsq{}A1g\PYGZsq{}]
-Assigned \PYGZsq{}Total\PYGZsq{} from A2u x A1g = [\PYGZsq{}A2u\PYGZsq{}]
-Assigned \PYGZsq{}Total\PYGZsq{} from E1g x A1g = [\PYGZsq{}E1g\PYGZsq{}]
-Assigned \PYGZsq{}Total\PYGZsq{} from E1u x A1g = [\PYGZsq{}E1u\PYGZsq{}]
-Assigned \PYGZsq{}Total\PYGZsq{} from E2g x A1g = [\PYGZsq{}E2g\PYGZsq{}]
-Assigned \PYGZsq{}Total\PYGZsq{} from E2u x A1g = [\PYGZsq{}E2u\PYGZsq{}]
-Assigned \PYGZsq{}Total\PYGZsq{} from E3g x A1g = [\PYGZsq{}E3g\PYGZsq{}]
-Assigned \PYGZsq{}Total\PYGZsq{} from E3u x A1g = [\PYGZsq{}E3u\PYGZsq{}]
-Assigned \PYGZsq{}Total\PYGZsq{} from E4g x A1g = [\PYGZsq{}E4g\PYGZsq{}]
+Assigned \PYGZsq{}Total\PYGZsq{} from A1g x A2u = [\PYGZsq{}A2u\PYGZsq{}]
+Assigned \PYGZsq{}Total\PYGZsq{} from A1g x E1g = [\PYGZsq{}E1g\PYGZsq{}]
+Assigned \PYGZsq{}Total\PYGZsq{} from A1g x E1u = [\PYGZsq{}E1u\PYGZsq{}]
+Assigned \PYGZsq{}Total\PYGZsq{} from A1g x E2g = [\PYGZsq{}E2g\PYGZsq{}]
+Assigned \PYGZsq{}Total\PYGZsq{} from A1g x E2u = [\PYGZsq{}E2u\PYGZsq{}]
+Assigned \PYGZsq{}Total\PYGZsq{} from A1g x E3g = [\PYGZsq{}E3g\PYGZsq{}]
+Assigned \PYGZsq{}Total\PYGZsq{} from A1g x E3u = [\PYGZsq{}E3u\PYGZsq{}]
+Assigned \PYGZsq{}Total\PYGZsq{} from A1g x E4g = [\PYGZsq{}E4g\PYGZsq{}]
 *** Updated self.coeffs[\PYGZsq{}matE\PYGZsq{}] with new coords.
 Assigned dipole\PYGZhy{}allowed terms for dim = \PYGZsq{}Cont\PYGZsq{} to self.coeffs[\PYGZsq{}symAllowed\PYGZsq{}]
 \end{sphinxVerbatim}
@@ -5777,7 +5777,7 @@ For a more realistic test of the {\hyperref[\detokenize{backmatter/glossary:term
 Dataset: subset, AFBLM
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{731b9d6f2fe6d06f93feccbfee6a0238e03017c160bed18a6fee1448867b8854}.png}
+\noindent\sphinxincludegraphics{{d717da1e98d5a7f0454d4a6f22810c787322473b573478099f1a6e9dabc7bde5}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -5981,7 +5981,7 @@ With \sphinxcode{\sphinxupquote{self.multiFit()}} method, although this is optim
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-1.6530285994211833
+0.953699239095052
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -6053,7 +6053,7 @@ Various options are available. The most complete is to use Pickle (default case)
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-PosixPath(\PYGZsq{}/home/jovyan/jake\PYGZhy{}home/buildTmp/\PYGZus{}latest\PYGZus{}build/pdf/doc\PYGZhy{}source/part2/n2fitting/dataDump\PYGZus{}N2\PYGZus{}261023\PYGZus{}06\PYGZhy{}08\PYGZhy{}04.pickle\PYGZsq{})
+PosixPath(\PYGZsq{}/home/jovyan/jake\PYGZhy{}home/buildTmp/\PYGZus{}latest\PYGZus{}build/pdf/doc\PYGZhy{}source/part2/n2fitting/dataDump\PYGZus{}N2\PYGZus{}071223\PYGZus{}11\PYGZhy{}19\PYGZhy{}40.pickle\PYGZsq{})
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -6562,10 +6562,10 @@ Plot spreads in magnitude and phase parameters. Statistical plots are available 
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f56041ca7a0\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f86241b59f0\PYGZgt{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{56962bc4eec23fdd508869a1fc8ed633ceb3afcc82a5ffb7351a312a20bef255}.png}
+\noindent\sphinxincludegraphics{{258e26ac00e98fbdf8421b5e7b616350daa738c346525fca206735fdbad93ff3}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -6588,10 +6588,10 @@ Plot spreads in magnitude and phase parameters. Statistical plots are available 
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f55e4509fc0\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f862442f6d0\PYGZgt{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{ae25dc4e7644a9edf227e280716e80d0c28122d2ba4538af5cc56645c86cd05f}.png}
+\noindent\sphinxincludegraphics{{350727c9ad48a95a2a55dd3fa8871df5f09df4804c33fd59eb5910bfe7c3d3e3}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -6640,7 +6640,7 @@ Examine new data types…
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f561fd53cd0\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f8624128a60\PYGZgt{}
 \end{sphinxVerbatim}
 
 \noindent\sphinxincludegraphics{{3b3e49e8f1ee8d2e2ed73386614df43aebe86c1f9138de888e5975896703887d}.png}
@@ -6667,7 +6667,7 @@ Examine new data types…
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f55c46cc520\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f8604739b10\PYGZgt{}
 \end{sphinxVerbatim}
 
 \noindent\sphinxincludegraphics{{d23c0ca66682f1aef64986f2ac86abe192289a5eadf0385689aba2eb72552f10}.png}
@@ -7410,10 +7410,10 @@ Plot spreads in magnitude and phase parameters. Statistical plots are available 
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fcec8514340\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fae5c435db0\PYGZgt{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{22d92678bb10a390459612e6a31627917f97343e5e12a058212673fbbdfcb878}.png}
+\noindent\sphinxincludegraphics{{d3786af8b5533daeac6fbf8c3e142d0f91730d96e4d49aa9a76869281dc8f629}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -7436,10 +7436,10 @@ Plot spreads in magnitude and phase parameters. Statistical plots are available 
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fcec86c07f0\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fae64402d10\PYGZgt{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{d3c7c416ef324923a00526d4779bd6f53a619b947027d036294c7cccc9f8ff2b}.png}
+\noindent\sphinxincludegraphics{{cb5e8890630d6bb6eb52842645b80b833f4448084b419ca26668da864e596ea7}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -7488,7 +7488,7 @@ Examine new data types…
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fcec87aee60\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fae5c449d80\PYGZgt{}
 \end{sphinxVerbatim}
 
 \noindent\sphinxincludegraphics{{260689f9945007745f5ff260e2621267c60eeb1ae95ec05528c8f9eb174ec167}.png}
@@ -7515,7 +7515,7 @@ Examine new data types…
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fcec84e6b00\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fae64402d10\PYGZgt{}
 \end{sphinxVerbatim}
 
 \noindent\sphinxincludegraphics{{c8a1b94c008baa9dc631d1b18728c4d4969389647b63deea3bd985734a7660ca}.png}
@@ -7746,7 +7746,7 @@ New (experimental) code for density matrix plots and comparison. See \hyperref[\
 \subsection{Plot MF PADs}
 \label{\detokenize{part2/case-study-OCS_290723:plot-mf-pads}}
 \sphinxAtStartPar
-Routines below adapted from the \sphinxhref{https://pemtk.readthedocs.io}{PEMtk documentation} {[}\hyperlink{cite.backmatter/bibliography:id681}{20}{]} \sphinxhref{https://pemtk.readthedocs.io/en/latest/topical\_review\_case\_study/MFPAD\_replotting\_from\_file\_190722-dist.html}{MF reconstruction data processing page} (original analysis page for Ref. {[}\hyperlink{cite.backmatter/bibliography:id686}{3}{]}, illustrating the \(N_2\) case). The routines include calls to \sphinxcode{\sphinxupquote{self.mfpadNumeric()}} for numerical expansion of the MF\sphinxhyphen{}PADs, and \sphinxcode{\sphinxupquote{self.padPlot()}} for plotting. Results are illustrated for the retrieved and reference cases in \hyperref[\detokenize{part2/case-study-N2_290723:fig-n2-compc}]{Fig.\@ \ref{\detokenize{part2/case-study-N2_290723:fig-n2-compc}}} and \hyperref[\detokenize{part2/case-study-N2_290723:fig-n2-ref}]{Fig.\@ \ref{\detokenize{part2/case-study-N2_290723:fig-n2-ref}}} respectively, and the differential results (reference minus fitted results) in \hyperref[\detokenize{part2/case-study-N2_290723:fig-n2-diff}]{Fig.\@ \ref{\detokenize{part2/case-study-N2_290723:fig-n2-diff}}}.
+Routines below adapted from the \sphinxhref{https://pemtk.readthedocs.io}{PEMtk documentation} {[}\hyperlink{cite.backmatter/bibliography:id681}{20}{]} \sphinxhref{https://pemtk.readthedocs.io/en/latest/topical\_review\_case\_study/MFPAD\_replotting\_from\_file\_190722-dist.html}{MF reconstruction data processing page} (original analysis page for Ref. {[}\hyperlink{cite.backmatter/bibliography:id686}{3}{]}, illustrating the \(N_2\) case). The routines include calls to \sphinxcode{\sphinxupquote{self.mfpadNumeric()}} for numerical expansion of the MF\sphinxhyphen{}PADs, and \sphinxcode{\sphinxupquote{self.padPlot()}} for plotting. Results are illustrated for the retrieved and reference cases in \hyperref[\detokenize{part2/case-study-OCS_290723:fig-ocs-compc}]{Fig.\@ \ref{\detokenize{part2/case-study-OCS_290723:fig-ocs-compc}}} and \hyperref[\detokenize{part2/case-study-OCS_290723:fig-ocs-ref}]{Fig.\@ \ref{\detokenize{part2/case-study-OCS_290723:fig-ocs-ref}}} respectively, and the differential results (reference minus fitted results) in \hyperref[\detokenize{part2/case-study-OCS_290723:fig-ocs-diff}]{Fig.\@ \ref{\detokenize{part2/case-study-OCS_290723:fig-ocs-diff}}}.
 
 \begin{figure}[htbp]
 \centering
@@ -8269,10 +8269,10 @@ Plot spreads in magnitude and phase parameters. Statistical plots are available 
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f04a842a140\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fc33c175570\PYGZgt{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{a041bef482d90dc0e7d761915fbfcac083409405bcbaef47f1913f36d81878a8}.png}
+\noindent\sphinxincludegraphics{{9e486e1ea143ef0389cd1152d514febb0a418623d0124d812038fc8f074263ee}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -8295,10 +8295,10 @@ Plot spreads in magnitude and phase parameters. Statistical plots are available 
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f04a82a8910\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fc33c3ac880\PYGZgt{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{49d401fa47ca97182795db0adbb92d902f46322d109a95b4af101b07d6411eb1}.png}
+\noindent\sphinxincludegraphics{{5206df700cf32c7dd17719ca742d8a251934ede4da5020086cdefabd17cb3626}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -8347,7 +8347,7 @@ Examine new data types…
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f04a842a140\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fc33c3bf610\PYGZgt{}
 \end{sphinxVerbatim}
 
 \noindent\sphinxincludegraphics{{0dd81e21bbfc51b88933f6970a9ab635aec846e2911b4bc17cfca7385317a5d9}.png}
@@ -8374,7 +8374,7 @@ Examine new data types…
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7f04a8333d00\PYGZgt{}
+\PYGZlt{}seaborn.axisgrid.FacetGrid at 0x7fc32c7673a0\PYGZgt{}
 \end{sphinxVerbatim}
 
 \noindent\sphinxincludegraphics{{e6f57d7946ffde2d3c75ce3ff29ae4f2a63501ce5eafccef1e7e86073cee7704}.png}
@@ -8621,7 +8621,7 @@ New (experimental) code for density matrix plots and comparison. See \hyperref[\
 \subsection{Plot MF PADs}
 \label{\detokenize{part2/case-study-C2H4_290723:plot-mf-pads}}
 \sphinxAtStartPar
-Routines below adapted from the \sphinxhref{https://pemtk.readthedocs.io}{PEMtk documentation} {[}\hyperlink{cite.backmatter/bibliography:id681}{20}{]} \sphinxhref{https://pemtk.readthedocs.io/en/latest/topical\_review\_case\_study/MFPAD\_replotting\_from\_file\_190722-dist.html}{MF reconstruction data processing page} (original analysis page for Ref. {[}\hyperlink{cite.backmatter/bibliography:id686}{3}{]}, illustrating the \(N_2\) case). The routines include calls to \sphinxcode{\sphinxupquote{self.mfpadNumeric()}} for numerical expansion of the MF\sphinxhyphen{}PADs, and \sphinxcode{\sphinxupquote{self.padPlot()}} for plotting. Results are illustrated for the retrieved and reference cases in \hyperref[\detokenize{part2/case-study-N2_290723:fig-n2-compc}]{Fig.\@ \ref{\detokenize{part2/case-study-N2_290723:fig-n2-compc}}} and \hyperref[\detokenize{part2/case-study-N2_290723:fig-n2-ref}]{Fig.\@ \ref{\detokenize{part2/case-study-N2_290723:fig-n2-ref}}} respectively, and the differential results (reference minus fitted results) in \hyperref[\detokenize{part2/case-study-N2_290723:fig-n2-diff}]{Fig.\@ \ref{\detokenize{part2/case-study-N2_290723:fig-n2-diff}}}.
+Routines below adapted from the \sphinxhref{https://pemtk.readthedocs.io}{PEMtk documentation} {[}\hyperlink{cite.backmatter/bibliography:id681}{20}{]} \sphinxhref{https://pemtk.readthedocs.io/en/latest/topical\_review\_case\_study/MFPAD\_replotting\_from\_file\_190722-dist.html}{MF reconstruction data processing page} (original analysis page for Ref. {[}\hyperlink{cite.backmatter/bibliography:id686}{3}{]}, illustrating the \(N_2\) case). The routines include calls to \sphinxcode{\sphinxupquote{self.mfpadNumeric()}} for numerical expansion of the MF\sphinxhyphen{}PADs, and \sphinxcode{\sphinxupquote{self.padPlot()}} for plotting. Results are illustrated for the retrieved and reference cases in \hyperref[\detokenize{part2/case-study-C2H4_290723:fig-c2h4-compc}]{Fig.\@ \ref{\detokenize{part2/case-study-C2H4_290723:fig-c2h4-compc}}} and \hyperref[\detokenize{part2/case-study-C2H4_290723:fig-c2h4-ref}]{Fig.\@ \ref{\detokenize{part2/case-study-C2H4_290723:fig-c2h4-ref}}} respectively, and the differential results (reference minus fitted results) in \hyperref[\detokenize{part2/case-study-C2H4_290723:fig-c2h4-diff}]{Fig.\@ \ref{\detokenize{part2/case-study-C2H4_290723:fig-c2h4-diff}}}.
 
 \begin{figure}[htbp]
 \centering
@@ -9024,7 +9024,7 @@ OMP: Info \PYGZsh{}276: omp\PYGZus{}set\PYGZus{}nested routine deprecated, pleas
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
-  Date: Thu Oct 26 06:11:46 2023 EDT
+  Date: Thu Dec 07 11:23:26 2023 EST
 
                 OS : Linux
             CPU(s) : 64
@@ -9153,7 +9153,7 @@ QM3\PYGZhy{}jupyterlab\PYGZhy{}local\PYGZhy{}190723
   main
 * \PYG{Color+ColorGreen}{postSubmissionUpdates}
   reviewJuly2023
-f52dd11e89d97e868f87494654d3f4867c6234dc
+7ef784d423d4225e715ff567a101b22815635eef
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -9172,9 +9172,9 @@ f52dd11e89d97e868f87494654d3f4867c6234dc
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-2ba93b16f2ab0a9426bca953f8829206f4c0501e	refs/heads/gh\PYGZhy{}pages
-80324f6465297c07575f214f2f09caf197d40f94	refs/heads/main
-230bb9d8ef6ab0a46c306f0e092e424f6ba23a21	refs/heads/postSubmissionUpdates
+e791590f875cde788620591fcc6fc47c409b92e7	refs/heads/gh\PYGZhy{}pages
+8fba30f39135996a784b7d030cf908d63b484249	refs/heads/main
+7ef784d423d4225e715ff567a101b22815635eef	refs/heads/postSubmissionUpdates
 863f1a92533b5ced778b263cd00f09ae3cfc9eb3	refs/heads/reviewJuly2023
 \end{sphinxVerbatim}
 
@@ -9848,7 +9848,7 @@ zstd                      1.5.2                h3eb15da\PYGZus{}6    conda\PYGZh
 \bibitem[1]{backmatter/bibliography:id776}
 \sphinxAtStartPar
 Claude Marceau, Varun Makhija, Dominique Platzer, A. \textbackslash{}relax Yu. Naumov, P. B. Corkum, Albert Stolow, D. M. Villeneuve, and Paul Hockett. Molecular Frame Reconstruction Using Time\sphinxhyphen{}Domain Photoionization Interferometry. \sphinxstyleemphasis{Physical Review Letters}, 119(8):083401, August 2017. URL: \sphinxurl{https://link.aps.org/doi/10.1103/PhysRevLett.119.083401}, \sphinxhref{https://doi.org/10.1103/PhysRevLett.119.083401}{doi:10.1103/PhysRevLett.119.083401}.
-\bibitem[2]{backmatter/bibliography:id685}
+\bibitem[2]{backmatter/bibliography:id684}
 \sphinxAtStartPar
 Paul Hockett and Varun Makhija. Topical Review: Extracting Molecular Frame Photoionization Dynamics from Experimental Data (Preprint). September 2022. URL: \sphinxurl{https://www.authorea.com/users/71114/articles/447808-extracting-molecular-frame-photoionization-dynamics-from-experimental-data} (visited on 2022\sphinxhyphen{}09\sphinxhyphen{}15), \sphinxhref{https://arxiv.org/abs/2209.04301}{arXiv:2209.04301}, \sphinxhref{https://doi.org/10.48550/arXiv.2209.04301}{doi:10.48550/arXiv.2209.04301}.
 \bibitem[3]{backmatter/bibliography:id686}
@@ -9943,7 +9943,7 @@ Thomas Kluyver, Benjamin Ragan\sphinxhyphen{}Kelley, P\&\#233, Fernando Rez, Bri
 Brian E. Granger and Fernando Pérez. Jupyter: Thinking and Storytelling With Code and Data. \sphinxstyleemphasis{Computing in Science \& Engineering}, 23(2):7–14, March 2021. \sphinxhref{https://doi.org/10.1109/MCSE.2021.3059263}{doi:10.1109/MCSE.2021.3059263}.
 \bibitem[33]{backmatter/bibliography:id666}
 \sphinxAtStartPar
-Paul Hockett. ePSproc: Post\sphinxhyphen{}processing suite for ePolyScat electron\sphinxhyphen{}molecule scattering calculations. \sphinxstyleemphasis{Authorea}, 2016. URL: \sphinxurl{https://www.authorea.com/users/71114/articles/122402/\_show\_article}, \sphinxhref{https://doi.org/10.6084/m9.figshare.3545639}{doi:10.6084/m9.figshare.3545639}.
+Paul Hockett. ePSproc: Post\sphinxhyphen{}processing suite for ePolyScat electron\sphinxhyphen{}molecule scattering calculations. \sphinxstyleemphasis{Authorea}, 2016. URL: \sphinxurl{https://www.authorea.com/users/71114/articles/122402/\_show\_article}, \sphinxhref{https://arxiv.org/abs/1611.04043}{arXiv:1611.04043}, \sphinxhref{https://doi.org/10.6084/m9.figshare.3545639}{doi:10.6084/m9.figshare.3545639}.
 \bibitem[34]{backmatter/bibliography:id608}
 \sphinxAtStartPar
 Paul Hockett. ePSproc: Post\sphinxhyphen{}processing for ePolyScat (Github repository). Github, 2016. URL: \sphinxurl{https://github.com/phockett/ePSproc}, \sphinxhref{https://doi.org/10.6084/m9.figshare.3545639}{doi:10.6084/m9.figshare.3545639}.
@@ -10288,10 +10288,10 @@ Albert Messiah. \sphinxstyleemphasis{Quantum Mechanics Volume I}. North\sphinxhy
 Jun John Sakurai. \sphinxstyleemphasis{Modern Quantum Mechanics}. Addison\sphinxhyphen{}Wesley, Reading, MA, revised edition edition, 1994. URL: \sphinxurl{https://cds.cern.ch/record/1167961}.
 \bibitem[148]{backmatter/bibliography:id960}
 \sphinxAtStartPar
-\textbackslash{}\textbackslash{}Euler angles\textbackslash{}\textbackslash{}. Euler angles. \sphinxstyleemphasis{Wikipedia}, June 2023. URL: \sphinxurl{https://en.wikipedia.org/w/index.php?title=Euler\_angles\&oldid=1160186404} (visited on 2023\sphinxhyphen{}07\sphinxhyphen{}17).
+\textbackslash{}\textbackslash{}Euler angles\textbackslash{}\textbackslash{}. Euler angles. \sphinxstyleemphasis{Wikipedia}, June 2023. URL: \sphinxurl{https://en.wikipedia.org/wiki/Euler\_angles} (visited on 2023\sphinxhyphen{}07\sphinxhyphen{}17).
 \bibitem[149]{backmatter/bibliography:id964}
 \sphinxAtStartPar
-\textbackslash{}\textbackslash{}Wigner D\sphinxhyphen{}matrix\textbackslash{}\textbackslash{}. Wigner D\sphinxhyphen{}matrix. \sphinxstyleemphasis{Wikipedia}, June 2023. URL: \sphinxurl{https://en.wikipedia.org/w/index.php?title=Wigner\_D-matrix\&oldid=1160193091} (visited on 2023\sphinxhyphen{}07\sphinxhyphen{}17).
+\textbackslash{}\textbackslash{}Wigner D\sphinxhyphen{}matrix\textbackslash{}\textbackslash{}. Wigner D\sphinxhyphen{}matrix. \sphinxstyleemphasis{Wikipedia}, June 2023. URL: \sphinxurl{https://en.wikipedia.org/wiki/Wigner\_D-matrix} (visited on 2023\sphinxhyphen{}07\sphinxhyphen{}17).
 \end{sphinxthebibliography}
 
 

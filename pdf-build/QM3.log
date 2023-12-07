@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2023.5.15)  26 OCT 2023 06:12
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2023.5.15)  7 DEC 2023 11:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1863,9 +1863,9 @@ Overfull \vbox (3.44098pt too high) detected at line 2509
  []
 
 [60] [61]
-File: d503c9723f6f5a87927f612fe69775f6e893f15eaabb2f5c6af329f25ae5c9be.png Grap
+File: 238985a6bccbf0ea82639c1baea3235f62adbfd0b18656e09a2a354616b3489f.png Grap
 hic file (type bmp)
-<d503c9723f6f5a87927f612fe69775f6e893f15eaabb2f5c6af329f25ae5c9be.png>
+<238985a6bccbf0ea82639c1baea3235f62adbfd0b18656e09a2a354616b3489f.png>
  [62] [63] [64] [65]
 File: 438832e2818d3412fd75e9b9cb1f4758a28e24b6d690f8ffd5a1575006fc901c.png Grap
 hic file (type bmp)
@@ -2125,9 +2125,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 5696--5698
  currently needs to be set as \TU/FreeMono(0)/m/n/10 self.
  []
 
-File: 731b9d6f2fe6d06f93feccbfee6a0238e03017c160bed18a6fee1448867b8854.png Grap
+File: d717da1e98d5a7f0454d4a6f22810c787322473b573478099f1a6e9dabc7bde5.png Grap
 hic file (type bmp)
-<731b9d6f2fe6d06f93feccbfee6a0238e03017c160bed18a6fee1448867b8854.png>
+<d717da1e98d5a7f0454d4a6f22810c787322473b573478099f1a6e9dabc7bde5.png>
 [127] [128]
 File: 2f50806e785381a4a8af09df066ba2a57b0a678fb9d9d1d0e081e601db90fe1f.png Grap
 hic file (type bmp)
@@ -2182,12 +2182,12 @@ File: ac118835318d4c409273a59269c8d65aab3973d0864b41ede148121bb41fb6e7.png Grap
 hic file (type bmp)
 <ac118835318d4c409273a59269c8d65aab3973d0864b41ede148121bb41fb6e7.png>
  [140] [141]
-File: 56962bc4eec23fdd508869a1fc8ed633ceb3afcc82a5ffb7351a312a20bef255.png Grap
+File: 258e26ac00e98fbdf8421b5e7b616350daa738c346525fca206735fdbad93ff3.png Grap
 hic file (type bmp)
-<56962bc4eec23fdd508869a1fc8ed633ceb3afcc82a5ffb7351a312a20bef255.png>
-File: ae25dc4e7644a9edf227e280716e80d0c28122d2ba4538af5cc56645c86cd05f.png Grap
+<258e26ac00e98fbdf8421b5e7b616350daa738c346525fca206735fdbad93ff3.png>
+File: 350727c9ad48a95a2a55dd3fa8871df5f09df4804c33fd59eb5910bfe7c3d3e3.png Grap
 hic file (type bmp)
-<ae25dc4e7644a9edf227e280716e80d0c28122d2ba4538af5cc56645c86cd05f.png>
+<350727c9ad48a95a2a55dd3fa8871df5f09df4804c33fd59eb5910bfe7c3d3e3.png>
  [142] [143]
 File: 3b3e49e8f1ee8d2e2ed73386614df43aebe86c1f9138de888e5975896703887d.png Grap
 hic file (type bmp)
@@ -2273,13 +2273,13 @@ File: 433498643557ad70cc8ad28008fd103fc9633d838c9bc114f9ff5cb775810caa.png Grap
 hic file (type bmp)
 <433498643557ad70cc8ad28008fd103fc9633d838c9bc114f9ff5cb775810caa.png>
  [159] [160]
-File: 22d92678bb10a390459612e6a31627917f97343e5e12a058212673fbbdfcb878.png Grap
+File: d3786af8b5533daeac6fbf8c3e142d0f91730d96e4d49aa9a76869281dc8f629.png Grap
 hic file (type bmp)
-<22d92678bb10a390459612e6a31627917f97343e5e12a058212673fbbdfcb878.png>
+<d3786af8b5533daeac6fbf8c3e142d0f91730d96e4d49aa9a76869281dc8f629.png>
  [161] [162]
-File: d3c7c416ef324923a00526d4779bd6f53a619b947027d036294c7cccc9f8ff2b.png Grap
+File: cb5e8890630d6bb6eb52842645b80b833f4448084b419ca26668da864e596ea7.png Grap
 hic file (type bmp)
-<d3c7c416ef324923a00526d4779bd6f53a619b947027d036294c7cccc9f8ff2b.png>
+<cb5e8890630d6bb6eb52842645b80b833f4448084b419ca26668da864e596ea7.png>
  [163] [164]
 File: 260689f9945007745f5ff260e2621267c60eeb1ae95ec05528c8f9eb174ec167.png Grap
 hic file (type bmp)
@@ -2379,12 +2379,12 @@ File: d459d538ceb286e85ffb5819f4863634bf6aa92c76eb0a98c3d51a9b03493ad2.png Grap
 hic file (type bmp)
 <d459d538ceb286e85ffb5819f4863634bf6aa92c76eb0a98c3d51a9b03493ad2.png>
 [183] [184]
-File: a041bef482d90dc0e7d761915fbfcac083409405bcbaef47f1913f36d81878a8.png Grap
+File: 9e486e1ea143ef0389cd1152d514febb0a418623d0124d812038fc8f074263ee.png Grap
 hic file (type bmp)
-<a041bef482d90dc0e7d761915fbfcac083409405bcbaef47f1913f36d81878a8.png>
-File: 49d401fa47ca97182795db0adbb92d902f46322d109a95b4af101b07d6411eb1.png Grap
+<9e486e1ea143ef0389cd1152d514febb0a418623d0124d812038fc8f074263ee.png>
+File: 5206df700cf32c7dd17719ca742d8a251934ede4da5020086cdefabd17cb3626.png Grap
 hic file (type bmp)
-<49d401fa47ca97182795db0adbb92d902f46322d109a95b4af101b07d6411eb1.png>
+<5206df700cf32c7dd17719ca742d8a251934ede4da5020086cdefabd17cb3626.png>
  [185] [186]
 File: 0dd81e21bbfc51b88933f6970a9ab635aec846e2911b4bc17cfca7385317a5d9.png Grap
 hic file (type bmp)
@@ -2554,21 +2554,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 9912--9914
 023. URL: [][]$[][][][][] [] [] [] [][][][][][] [] [][][] [] [][][][][][][] []
  []
 
-[226]
-Underfull \hbox (badness 10000) in paragraph at lines 9945--9947
-[]\TU/FreeSerif(0)/m/n/10 Paul Hockett. ePSproc: Post-processing suite for ePol
-yScat electron-molecule scattering calcula-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9945--9947
-\TU/FreeSerif(0)/m/n/10 tions. \TU/FreeSerif(0)/m/it/10 Authorea\TU/FreeSerif(0
-)/m/n/10 , 2016. URL: [][]$[][][][][] [] [] [] [][][] [] [][][][][][][][] [] []
-[][] [] [][][][][] [] [][][][][] [] [][][][][][][][] [] [][][][][][] [] [][][][
-][] [] [][][][][][][]$[][],
- []
-
-[227] [228] [229]
+[226] [227] [228] [229]
 Underfull \hbox (badness 6758) in paragraph at lines 10107--10109
 []\TU/FreeSerif(0)/m/n/10 Toshinori Suzuki and Benjamin J. Whitaker. Non-adiaba
 tic effects in chemistry revealed by time-
@@ -2678,7 +2664,7 @@ Package rerunfilecheck Info: File `QM3.out' has not changed.
 Here is how much of TeX's memory you used:
  44455 strings out of 478214
  1067099 string characters out of 5855576
- 3106975 words of memory out of 5000000
+ 3106974 words of memory out of 5000000
  64118 multiletter control sequences out of 15000+600000
  480603 words of font info for 153 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
